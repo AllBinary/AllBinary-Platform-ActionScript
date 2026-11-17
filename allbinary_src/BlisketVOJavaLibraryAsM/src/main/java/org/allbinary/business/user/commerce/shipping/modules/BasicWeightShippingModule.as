@@ -1,0 +1,117 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+import { BasketInterface } from '../../../../../../../org/allbinary/business/user/commerce/inventory/basket/BasketInterface.js';
+//not GWT import const BasketInterface
+
+import { OrderInterface } from '../../../../../../../org/allbinary/business/user/commerce/inventory/order/OrderInterface.js';
+//not GWT import const OrderInterface
+
+import { Money } from '../../../../../../../org/allbinary/business/user/commerce/money/Money.js';
+//not GWT import const Money
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ShippingInterface } from './ShippingInterface.js';
+//sameFolderImports - not GWT import - same folder const ShippingInterface
+
+export class BasicWeightShippingModule
+            extends Object
+         implements ShippingInterface {
+        
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly name: string = "Basic Shipping (5 to 7 working days)";
+
+    private readonly description: string = "We will soon provide a variety of shipping methods.";
+
+public constructor (){
+
+            super();
+        }
+
+
+    public getCost(order: OrderInterface): Money{
+
+    let basket: BasketInterface = order.getBasket()!;;
+    
+
+    let money: Money = new Money();;
+    
+money.add(basket.getTotalWeight());
+    
+money.multiply(1);
+    
+money.add("3.50");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return money;
+    
+}
+
+
+    public getDescription(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.description;
+    
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.name;
+    
+}
+
+
+}
+

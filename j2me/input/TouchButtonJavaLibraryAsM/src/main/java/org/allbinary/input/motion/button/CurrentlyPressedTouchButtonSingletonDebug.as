@@ -1,0 +1,216 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { CurrentlyPressedTouchButtonSingleton } from './CurrentlyPressedTouchButtonSingleton.js';
+//sameFolderImports - not GWT import - same folder const CurrentlyPressedTouchButtonSingleton
+import { TouchButtonInput } from './TouchButtonInput.js';
+//sameFolderImports - not GWT import - same folder const TouchButtonInput
+
+export class CurrentlyPressedTouchButtonSingletonDebug extends CurrentlyPressedTouchButtonSingleton {
+        
+
+    private static readonly instanceC: CurrentlyPressedTouchButtonSingletonDebug = new CurrentlyPressedTouchButtonSingletonDebug();
+
+    public static getInstance(): CurrentlyPressedTouchButtonSingleton{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return CurrentlyPressedTouchButtonSingletonDebug.instanceC;
+    
+}
+
+
+    private string: string = StringUtil.getInstance()!.EMPTY_STRING;
+
+    private listString: string = StringUtil.getInstance()!.EMPTY_STRING;
+
+    private appendText: string = StringUtil.getInstance()!.EMPTY_STRING;
+
+    private readonly PRESSED_AND_FIRED: string = "pressed & fired";
+
+    private readonly PRESSED_AND_NOT_FIRED: string = "pressed in button but not fired";
+
+    private readonly ASSOCIATED_RELEASED_AND_FIRED: string = "assoc. rel & fired";
+
+    private readonly RELEASED_AND_FIRED: string = "rel & fired 1";
+
+    private readonly RELEASED_AND_FIRED_2: string = "rel & fired 2";
+
+    private readonly RELEASED_AND_NOT_FIRED: string = "rel & not fired";
+
+    appendTouchButtonInput(append: string, touchButtonInput: TouchButtonInput){
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(touchButtonInput!.toString());
+    
+stringBuffer!.append(CommonSeps.getInstance()!.SPACE);
+    
+stringBuffer!.append(append);
+    
+this.appendText= stringBuffer!.toString();
+    
+this.string= new StringMaker().append(this.listString)!.append(this.appendText)!.toString();
+    
+}
+
+
+    append(append: string){
+this.appendText= new StringMaker().append(this.appendText)!.append(append)!.toString();
+    
+this.string= new StringMaker().append(this.listString)!.append(this.appendText)!.toString();
+    
+}
+
+
+    public clearLog(x: number, y: number){
+this.appendText= new StringMaker().append(GPoint.toStringStatic(x, y, 0))!.append(CommonSeps.getInstance()!.SPACE)!.toString();
+    
+this.string= new StringMaker().append(this.listString)!.append(this.appendText)!.toString();
+    
+}
+
+
+    public releaseAndNotFired(){
+this.append(this.RELEASED_AND_NOT_FIRED);
+    
+}
+
+
+    public releaseAndFired(touchButtonInput: TouchButtonInput){
+this.appendTouchButtonInput(this.RELEASED_AND_FIRED, touchButtonInput);
+    
+}
+
+
+    public releaseAndFired2(touchButtonInput: TouchButtonInput){
+this.appendTouchButtonInput(this.RELEASED_AND_FIRED_2, touchButtonInput);
+    
+}
+
+
+    public releaseAndFiredAssociated(touchButtonInput: TouchButtonInput){
+this.appendTouchButtonInput(this.ASSOCIATED_RELEASED_AND_FIRED, touchButtonInput);
+    
+}
+
+
+    public pressedAndFired(touchButtonInput: TouchButtonInput){
+this.appendTouchButtonInput(this.PRESSED_AND_FIRED, touchButtonInput);
+    
+}
+
+
+    public pressedAndNotFired(touchButtonInput: TouchButtonInput){
+this.appendTouchButtonInput(this.PRESSED_AND_NOT_FIRED, touchButtonInput);
+    
+}
+
+
+    public removeAt(index: number): TouchButtonInput{
+
+    let touchButtonInput: TouchButtonInput = super.removeAt(index)!;;
+    
+this.listString= this.list.toString();
+    
+this.string= new StringMaker().append(this.listString)!.append(this.appendText)!.toString();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return touchButtonInput;
+    
+}
+
+
+    public remove(touchButtonInput: TouchButtonInput): boolean{
+
+    let isRemoved: boolean = super.remove(touchButtonInput)!;;
+    
+this.listString= this.list.toString();
+    
+this.string= new StringMaker().append(this.listString)!.append(this.appendText)!.toString();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return isRemoved;
+    
+}
+
+
+    public add(touchButtonInput: TouchButtonInput){
+super.add(touchButtonInput);
+    
+this.listString= this.list.toString();
+    
+this.string= new StringMaker().append(this.listString)!.append(this.appendText)!.toString();
+    
+}
+
+
+    public toString(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.string;
+    
+}
+
+
+}
+

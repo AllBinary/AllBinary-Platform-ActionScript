@@ -1,0 +1,240 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { Font } from '../../../../../javax/microedition/lcdui/Font.js';
+//not GWT import const Font
+
+import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { Anchor } from '../../../../../org/allbinary/graphics/Anchor.js';
+//not GWT import const Anchor
+
+import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { BasicColorFactory } from '../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { BasicColorSetUtil } from '../../../../../org/allbinary/graphics/color/BasicColorSetUtil.js';
+//not GWT import const BasicColorSetUtil
+
+import { DisplayInfoSingleton } from '../../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
+//not GWT import const DisplayInfoSingleton
+
+import { FontDebugFactory } from '../../../../../org/allbinary/graphics/font/FontDebugFactory.js';
+//not GWT import const FontDebugFactory
+
+import { MyFontProcessor } from '../../../../../org/allbinary/graphics/font/MyFontProcessor.js';
+//not GWT import const MyFontProcessor
+
+import { UpdateMyFontInterface } from '../../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
+//not GWT import const UpdateMyFontInterface
+
+import { UpdateMyFontProcessor } from '../../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
+//not GWT import const UpdateMyFontProcessor
+
+import { InitUpdatePaintable } from '../../../../../org/allbinary/graphics/paint/InitUpdatePaintable.js';
+//not GWT import const InitUpdatePaintable
+
+//not plain js import { NullUtil } 
+const NullUtil = globalThis.org.allbinary.logic.NullUtil;
+type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AllBinaryGameCanvas } from './AllBinaryGameCanvas.js';
+//sameFolderImports - not GWT import - same folder const AllBinaryGameCanvas
+
+export class StartIntermissionPaintable extends InitUpdatePaintable implements UpdateMyFontInterface {
+        
+
+    readonly fontDebugFactory: FontDebugFactory = FontDebugFactory.getInstance()!;
+
+    readonly basicSetColorUtil: BasicColorSetUtil = BasicColorSetUtil.getInstance()!;
+
+    readonly gameCanvas: AllBinaryGameCanvas;
+
+    readonly stringArray: string[];
+
+    readonly fontSize: number;
+
+    readonly font: Font;
+
+    public readonly lastWidth: number[];
+
+    private readonly updateMyFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
+
+    private myFontProcessor: MyFontProcessor = this.updateMyFontProcessor;
+
+    private basicColor: BasicColor = BasicColorFactory.getInstance()!.BLACK;
+
+    private color: number;
+
+    lineYOffsetArray: number[] = NullUtil.getInstance()!.NULL_INT_ARRAY;
+
+    private hasChanged: boolean = true;
+
+    private anchor: number = Anchor.TOP_LEFT;
+
+    fontHeightP: number= 0;
+
+public constructor (gameCanvas: AllBinaryGameCanvas, stringArray: string[], basicColor: BasicColor, font: Font){
+
+            super();
+        this.gameCanvas= gameCanvas;
+    
+this.stringArray= stringArray;
+    
+this.lastWidth= new Array(this.stringArray!.length).fill(0);
+    
+this.setBasicColorP(basicColor);
+    
+this.color= basicColor!.intValue();
+    
+this.fontSize= font.getSize();
+    
+this.font= font;
+    
+}
+
+
+    public updateMeasurement(graphics: Graphics){
+
+    let font: Font = graphics.getFont()!;;
+    
+this.fontHeightP= font.getHeight();
+    
+this.myFontProcessor= MyFontProcessor.getInstance();
+    
+}
+
+
+    public paint(graphics: Graphics){
+this.myFontProcessor!.process(graphics);
+    
+
+    let existingFont: Font = graphics.getFont()!;;
+    
+this.fontDebugFactory!.setFont(this.font, graphics);
+    
+
+    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
+    
+this.basicSetColorUtil!.setBasicColorP3(graphics, this.basicColor, this.color);
+    
+
+    let beginWidth: number= 0;;
+    
+
+
+
+
+                        for (
+    let index: number = this.lineYOffsetArray!.length -1;index >= 0; index--)
+        {
+
+                        if(this.hasChanged)
+                        
+                                    {
+                                    this.lastWidth[index]= (graphics.getFont()!.stringWidth(this.stringArray[index]!)>>1);
+    
+
+                                    }
+                                
+beginWidth= this.lastWidth[index]!;
+    
+graphics.drawString(this.stringArray[index]!, displayInfo!.getLastHalfWidth() -beginWidth, displayInfo!.getLastHalfHeight() -this.lineYOffsetArray[index], this.anchor);
+    
+}
+
+this.hasChanged= false;
+    
+this.fontDebugFactory!.setFont(existingFont, graphics);
+    
+}
+
+
+    private readonly BEGIN_LEVEL: string = "Begin Level ";
+
+    private readonly EMPTY_STRING: string = StringUtil.getInstance()!.EMPTY_STRING;
+
+    public update(){
+
+    let level: number = this.gameCanvas!.getLayerManager()!.getGameInfo()!.getCurrentLevel()!;;
+    
+this.stringArray[0]= new StringMaker().append(this.BEGIN_LEVEL)!.appendint(level)!.toString();
+    
+
+
+
+
+                        for (
+    let index: number = this.stringArray!.length -1;index >= 1; index--)
+        {
+this.stringArray[index]= this.EMPTY_STRING;
+    
+}
+
+}
+
+
+    public setBasicColorP(basicColor: BasicColor){
+this.basicColor= basicColor;
+    
+}
+
+
+    public getBasicColorP(): BasicColor{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.basicColor;
+    
+}
+
+
+}
+

@@ -1,0 +1,172 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { Transformer } from '../../../../../../javax/xml/transform/Transformer.js';
+//not GWT import const Transformer
+
+import { TransformerFactory } from '../../../../../../javax/xml/transform/TransformerFactory.js';
+//not GWT import const TransformerFactory
+
+import { DOMSource } from '../../../../../../javax/xml/transform/dom/DOMSource.js';
+//not GWT import const DOMSource
+
+import { StreamResult } from '../../../../../../javax/xml/transform/stream/StreamResult.js';
+//not GWT import const StreamResult
+
+import { AbDataOutputStream } from '../../../../../../org/allbinary/logic/io/AbDataOutputStream.js';
+//not GWT import const AbDataOutputStream
+
+import { AbFileInputStream } from '../../../../../../org/allbinary/logic/io/AbFileInputStream.js';
+//not GWT import const AbFileInputStream
+
+import { DataOutputStreamFactory } from '../../../../../../org/allbinary/logic/io/DataOutputStreamFactory.js';
+//not GWT import const DataOutputStreamFactory
+
+import { StreamUtil } from '../../../../../../org/allbinary/logic/io/StreamUtil.js';
+//not GWT import const StreamUtil
+
+import { AbFile } from '../../../../../../org/allbinary/logic/io/file/AbFile.js';
+//not GWT import const AbFile
+
+import { Document } from '../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { DomDocumentHelper } from './DomDocumentHelper.js';
+//sameFolderImports - not GWT import - same folder const DomDocumentHelper
+
+export class DomDocumentFileHelper
+            extends Object
+         {
+        
+
+                //@Throws(Exception.constructor)
+            
+    public static createDocument(xmlFile: AbFile): Document{
+
+ try { 
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return DomDocumentHelper.create(AbFileInputStream.createFromAbFile(xmlFile));;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public static save(file: AbFile, document: Document){
+
+    let dataOutputStream: AbDataOutputStream = 
+                null
+            ;;
+    
+
+ try { 
+    let copyTransformerFactory: TransformerFactory = TransformerFactory.newInstance()!;;
+    
+
+    let copyTransformer: Transformer = copyTransformerFactory!.newTransformer()!;;
+    
+
+    let domSource: DOMSource = new DOMSource(document);;
+    
+
+                        if(file.isFile())
+                        
+                                    {
+                                    file.delete();
+    
+
+                                    }
+                                
+file.createNewFile();
+    
+dataOutputStream= DataOutputStreamFactory.getInstance()!.getInstanceForAbFile(file);
+    
+
+    let streamResult: StreamResult = new StreamResult(dataOutputStream);;
+    
+copyTransformer!.transform(domSource, streamResult);
+    
+dataOutputStream!.flush();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+   }
+ finally { StreamUtil.getInstance()!.close(dataOutputStream);
+    
+ }
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

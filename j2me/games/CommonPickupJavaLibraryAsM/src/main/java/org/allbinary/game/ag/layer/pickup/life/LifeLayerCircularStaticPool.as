@@ -1,0 +1,88 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+import { Life } from '../../../../../../../org/allbinary/game/ag/life/Life.js';
+//not GWT import const Life
+
+import { LifeInterfaceCompositeInterface } from '../../../../../../../org/allbinary/game/ag/life/LifeInterfaceCompositeInterface.js';
+//not GWT import const LifeInterfaceCompositeInterface
+
+import { AllBinaryLayer } from '../../../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { AllBinaryLayerCircularPool } from '../../../../../../../org/allbinary/layer/AllBinaryLayerCircularPool.js';
+//not GWT import const AllBinaryLayerCircularPool
+
+import { AllBinaryLayerFactoryInterface } from '../../../../../../../org/allbinary/layer/AllBinaryLayerFactoryInterface.js';
+//not GWT import const AllBinaryLayerFactoryInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { LifeLayer } from './LifeLayer.js';
+//sameFolderImports - not GWT import - same folder const LifeLayer
+
+export class LifeLayerCircularStaticPool extends AllBinaryLayerCircularPool {
+        
+
+public constructor (allbinaryLayerFactoryInterface: AllBinaryLayerFactoryInterface, total: number){
+
+            super();
+        super.initAllBinaryLayerCircularPool(allbinaryLayerFactoryInterface, total);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public visit(sourceLayerInterface: AllBinaryLayer){
+
+    let lifeLayer: LifeLayer = this.getNextInstance() as LifeLayer;;
+    
+
+    let lifeInterfaceCompositeInterface: LifeInterfaceCompositeInterface = sourceLayerInterface as unknown as LifeInterfaceCompositeInterface;;
+    
+
+    let lifeInterface: Life = lifeInterfaceCompositeInterface!.getLifeInterface()!;;
+    
+lifeLayer!.visit(lifeInterface);
+    
+}
+
+
+}
+

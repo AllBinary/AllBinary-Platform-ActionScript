@@ -1,0 +1,53 @@
+
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { BasicColorFactory } from '../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ABCustomItem } from './ABCustomItem.js';
+//sameFolderImports - not GWT import - same folder const ABCustomItem
+
+export class ABCustomGaugeItem extends ABCustomItem {
+        
+
+    public static readonly NULL_GAUGE_ITEM: ABCustomGaugeItem = new ABCustomGaugeItem(StringUtil.getInstance()!.EMPTY_STRING, 1, 0, BasicColorFactory.getInstance()!.BLACK, BasicColorFactory.getInstance()!.WHITE);
+
+public constructor (label: string, maxValue: number, initialValue: number, backgroundBasicColor: BasicColor, foregroundBasicColor: BasicColor){
+            super(label, backgroundBasicColor, foregroundBasicColor);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+}
+

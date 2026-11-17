@@ -1,0 +1,525 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../../../../java/lang/Integer.js';
+        
+            const Short = (globalThis.java?.lang?.Short ?? class {}) as typeof globalThis.java.lang.Short;
+        
+import { InputEvent } from '../../../../../../../../../java/awt/event/InputEvent.js';
+//not GWT import const InputEvent
+
+import { swing } from '../../../../../../../../../javax/swing.js';
+//not GWT import const swing
+
+import { InputRobot } from '../../../../../../../../../org/allbinary/input/automation/robot/InputRobot.js';
+//not GWT import const InputRobot
+
+import { InputRobotFactory } from '../../../../../../../../../org/allbinary/input/automation/robot/InputRobotFactory.js';
+//not GWT import const InputRobotFactory
+
+import { TempInputRobotNames } from '../../../../../../../../../org/allbinary/input/automation/robot/TempInputRobotNames.js';
+//not GWT import const TempInputRobotNames
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { StringValidationUtil } from '../../../../../../../../../org/allbinary/logic/string/StringValidationUtil.js';
+//not GWT import const StringValidationUtil
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { CommonPhoneStrings } 
+const CommonPhoneStrings = globalThis.org.allbinary.string.CommonPhoneStrings;
+type CommonPhoneStrings<T = any, U = any> = typeof CommonPhoneStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonPhoneStrings;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JPanel } from './JPanel.js';
+//sameFolderImports - not GWT import - same folder const JPanel
+import { MouseActionScriptInputInterface } from './MouseActionScriptInputInterface.js';
+//sameFolderImports - not GWT import - same folder const MouseActionScriptInputInterface
+import { DefaultComboBoxModel } from './DefaultComboBoxModel.js';
+//sameFolderImports - not GWT import - same folder const DefaultComboBoxModel
+import { ComboBoxModel } from './ComboBoxModel.js';
+//sameFolderImports - not GWT import - same folder const ComboBoxModel
+import { JDialog } from './JDialog.js';
+//sameFolderImports - not GWT import - same folder const JDialog
+import { JLabel } from './JLabel.js';
+//sameFolderImports - not GWT import - same folder const JLabel
+import { JButton } from './JButton.js';
+//sameFolderImports - not GWT import - same folder const JButton
+import { JCheckBox } from './JCheckBox.js';
+//sameFolderImports - not GWT import - same folder const JCheckBox
+import { JTextField } from './JTextField.js';
+//sameFolderImports - not GWT import - same folder const JTextField
+import { JComboBox } from './JComboBox.js';
+//sameFolderImports - not GWT import - same folder const JComboBox
+import { Dimension } from './Dimension.js';
+//sameFolderImports - not GWT import - same folder const Dimension
+import { ActionListener } from './ActionListener.js';
+//sameFolderImports - not GWT import - same folder const ActionListener
+import { ActionEvent } from './ActionEvent.js';
+//sameFolderImports - not GWT import - same folder const ActionEvent
+import { Insets } from './Insets.js';
+//sameFolderImports - not GWT import - same folder const Insets
+import { GroupLayout } from './GroupLayout.js';
+//sameFolderImports - not GWT import - same folder const GroupLayout
+
+export class MouseActionScriptInputJPanel extends javax.swing.JPanel {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private mouseActionScriptInputInterface: MouseActionScriptInputInterface;
+
+public constructor (mouseActionScriptInputInterface: MouseActionScriptInputInterface){
+
+            super();
+        this.logUtil!.putF(CommonLabels.getInstance()!.START +mouseActionScriptInputInterface, this, this.commonStrings!.CONSTRUCTOR);
+    
+this.initComponents();
+    
+this.mouseActionScriptInputInterface= mouseActionScriptInputInterface;
+    
+
+    let defaultComboBoxModel: DefaultComboBoxModel = new DefaultComboBoxModel();;
+    
+defaultComboBoxModel!.addElement(TempInputRobotNames.LOW_NAME);
+    
+defaultComboBoxModel!.addElement(TempInputRobotNames.SYS_NAME);
+    
+defaultComboBoxModel!.addElement(InputRobot.NAME);
+    
+this.inputAutomationTypeJComboBox!.setModel(defaultComboBoxModel);
+    
+this.set();
+    
+}
+
+
+    set(){
+
+    let inputTypeComboBoxModel: ComboBoxModel = this.inputAutomationTypeJComboBox!.getModel()!;;
+    
+inputTypeComboBoxModel!.setSelectedItem(this.mouseActionScriptInputInterface!.getInputRobotInterface()!.getName());
+    
+
+                        if((this.mouseActionScriptInputInterface!.getButtonClicks()&InputEvent.BUTTON1_MASK) != 0)
+                        
+                                    {
+                                    this.button1JCheckBox!.setSelected(true);
+    
+
+                                    }
+                                
+                        else {
+                            this.button1JCheckBox!.setSelected(false);
+    
+
+                        }
+                            
+
+                        if((this.mouseActionScriptInputInterface!.getButtonClicks()&InputEvent.BUTTON2_MASK) != 0)
+                        
+                                    {
+                                    this.button2JCheckBox!.setSelected(true);
+    
+
+                                    }
+                                
+                        else {
+                            this.button2JCheckBox!.setSelected(false);
+    
+
+                        }
+                            
+this.mouseDelayJTextField!.setText(this.mouseActionScriptInputInterface!.getTime().toString());
+    
+this.mouseXJTextField!.setText(this.mouseActionScriptInputInterface!.getPoint()!.x.toString());
+    
+this.mouseYJTextField!.setText(this.mouseActionScriptInputInterface!.getPoint()!.y.toString());
+    
+this.mouseActionScriptInputInterface!.log();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    updateInputType(){
+
+    let comboBoxModel: ComboBoxModel = this.inputAutomationTypeJComboBox!.getModel()!;;
+    
+
+    let selectedItem: string = comboBoxModel!.getSelectedItem() as string;;
+    
+
+                        if(!StringValidationUtil.getInstance()!.isEmpty(selectedItem))
+                        
+                                    {
+                                    this.mouseActionScriptInputInterface!.setInputRobotInterface(InputRobotFactory.getInstance()!.get(selectedItem));
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    update(){
+this.updateInputType();
+    
+this.mouseActionScriptInputInterface!.setTime(getText.valueOf());
+    
+this.logUtil!.putF("Button State: " +this.mouseActionScriptInputInterface!.getButtonClicks(), this, "update");
+    
+
+                        if(this.button1JCheckBox!.isSelected())
+                        
+                                    {
+                                    
+                        if((this.mouseActionScriptInputInterface!.getButtonClicks()&InputEvent.BUTTON1_MASK) == 0)
+                        
+                                    {
+                                    this.mouseActionScriptInputInterface!.setButtonClicks(this.mouseActionScriptInputInterface!.getButtonClicks() | InputEvent.BUTTON1_MASK);
+    
+this.logUtil!.putF("Button 1 Selected: " +this.mouseActionScriptInputInterface!.getButtonClicks(), this, "update");
+    
+
+                                    }
+                                
+
+                                    }
+                                
+                        else {
+                            
+                        if((this.mouseActionScriptInputInterface!.getButtonClicks()&InputEvent.BUTTON1_MASK) != 0)
+                        
+                                    {
+                                    this.mouseActionScriptInputInterface!.setButtonClicks(this.mouseActionScriptInputInterface!.getButtonClicks() ^ InputEvent.BUTTON1_MASK);
+    
+this.logUtil!.putF("Button 1 Deselected: " +this.mouseActionScriptInputInterface!.getButtonClicks(), this, "update");
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+                        if(this.button2JCheckBox!.isSelected())
+                        
+                                    {
+                                    
+                        if((this.mouseActionScriptInputInterface!.getButtonClicks()&InputEvent.BUTTON2_MASK) == 0)
+                        
+                                    {
+                                    this.mouseActionScriptInputInterface!.setButtonClicks(this.mouseActionScriptInputInterface!.getButtonClicks() | InputEvent.BUTTON2_MASK);
+    
+this.logUtil!.putF("Button 2 Selected: " +this.mouseActionScriptInputInterface!.getButtonClicks(), this, "update");
+    
+
+                                    }
+                                
+
+                                    }
+                                
+                        else {
+                            
+                        if((this.mouseActionScriptInputInterface!.getButtonClicks()&InputEvent.BUTTON2_MASK) != 0)
+                        
+                                    {
+                                    this.mouseActionScriptInputInterface!.setButtonClicks(this.mouseActionScriptInputInterface!.getButtonClicks() ^ InputEvent.BUTTON2_MASK);
+    
+this.logUtil!.putF("Button 2 Deselected: " +this.mouseActionScriptInputInterface!.getButtonClicks(), this, "update");
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+    let mouseXString: string = this.mouseXJTextField!.getText()!;;
+    
+
+                        if(!StringValidationUtil.getInstance()!.isEmpty(mouseXString) && StringValidationUtil.getInstance()!.isNumber(mouseXString))
+                        
+                                    {
+                                    this.mouseActionScriptInputInterface!.getPoint()!.x= Integer.parseInt(mouseXString);
+    
+
+                                    }
+                                
+
+    let mouseYString: string = this.mouseYJTextField!.getText()!;;
+    
+
+                        if(!StringValidationUtil.getInstance()!.isEmpty(mouseYString) && StringValidationUtil.getInstance()!.isNumber(mouseYString))
+                        
+                                    {
+                                    this.mouseActionScriptInputInterface!.getPoint()!.y= Integer.parseInt(mouseYString);
+    
+
+                                    }
+                                
+this.mouseActionScriptInputInterface!.log();
+    
+}
+
+
+    public getMouseActionJDialog(): javax.swing.JDialog{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.mouseActionJDialog;
+    
+}
+
+
+    public setMouseActionJDialog(mouseActionJDialog: javax.swing.JDialog){
+this.mouseActionJDialog= mouseActionJDialog;
+    
+}
+
+
+    initComponents(){
+this.mouseActionJDialog= new javax.swing.JDialog();
+    
+this.titleJLabel= new javax.swing.JLabel();
+    
+this.okJButton= new javax.swing.JButton();
+    
+this.jLabel2= new javax.swing.JLabel();
+    
+this.jLabel3= new javax.swing.JLabel();
+    
+this.button1JCheckBox= new javax.swing.JCheckBox();
+    
+this.button2JCheckBox= new javax.swing.JCheckBox();
+    
+this.jLabel4= new javax.swing.JLabel();
+    
+this.mouseXJTextField= new javax.swing.JTextField();
+    
+this.jLabel5= new javax.swing.JLabel();
+    
+this.mouseYJTextField= new javax.swing.JTextField();
+    
+this.inputTypeJLabel= new javax.swing.JLabel();
+    
+this.inputAutomationTypeJComboBox= new javax.swing.JComboBox();
+    
+this.jLabel6= new javax.swing.JLabel();
+    
+this.mouseDelayJTextField= new javax.swing.JTextField();
+    
+this.mouseActionJButton= new javax.swing.JButton();
+    
+this.jLabel1= new javax.swing.JLabel();
+    
+this.mouseActionJDialog!.setMinimumSize(new java.awt.Dimension(275, 185));
+    
+this.titleJLabel!.setText("Mouse Input Options");
+    
+this.okJButton!.setText("OK");
+    
+this.okJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+okJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.jLabel2!.setText("Buttons:");
+    
+this.jLabel3!.setText("Move To:");
+    
+this.button1JCheckBox!.setText(CommonPhoneStrings.getInstance()!.ONE);
+    
+this.button1JCheckBox!.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    
+this.button1JCheckBox!.setMargin(new java.awt.Insets(0, 0, 0, 0));
+    
+this.button2JCheckBox!.setText(CommonPhoneStrings.getInstance()!.TWO);
+    
+this.button2JCheckBox!.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+    
+this.button2JCheckBox!.setMargin(new java.awt.Insets(0, 0, 0, 0));
+    
+this.button2JCheckBox!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+button2JCheckBoxActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.jLabel4!.setText("x:");
+    
+this.mouseXJTextField!.setText(CommonPhoneStrings.getInstance()!.ZERO);
+    
+this.jLabel5!.setText("y:");
+    
+this.mouseYJTextField!.setText(CommonPhoneStrings.getInstance()!.ZERO);
+    
+this.inputTypeJLabel!.setText("Input Type:");
+    
+this.jLabel6!.setText("Delay:");
+    
+this.mouseDelayJTextField!.setText("100");
+    
+
+    let mouseActionJDialogLayout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this.mouseActionJDialog!.getContentPane());;
+    
+this.mouseActionJDialog!.getContentPane()!.setLayout(mouseActionJDialogLayout);
+    
+mouseActionJDialogLayout!.setHorizontalGroup(mouseActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(mouseActionJDialogLayout!.createSequentialGroup()!.addContainerGap()!.addGroup(mouseActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addComponent(this.inputTypeJLabel)!.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mouseActionJDialogLayout!.createSequentialGroup()!.addGroup(mouseActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mouseActionJDialogLayout!.createSequentialGroup()!.addComponent(this.jLabel2)!.addGap(25, 25, 25))!.addGroup(mouseActionJDialogLayout!.createSequentialGroup()!.addGroup(mouseActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addComponent(this.jLabel3)!.addComponent(this.jLabel6))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))!.addGroup(mouseActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addComponent(this.mouseDelayJTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)!.addGroup(mouseActionJDialogLayout!.createSequentialGroup()!.addComponent(this.titleJLabel)!.addGap(45, 45, 45))!.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mouseActionJDialogLayout!.createSequentialGroup()!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.inputAutomationTypeJComboBox, 0, 154, Short.MAX_VALUE))!.addGroup(mouseActionJDialogLayout!.createSequentialGroup()!.addComponent(this.button1JCheckBox)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.button2JCheckBox))!.addGroup(mouseActionJDialogLayout!.createSequentialGroup()!.addGroup(mouseActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)!.addGroup(mouseActionJDialogLayout!.createSequentialGroup()!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.okJButton))!.addGroup(mouseActionJDialogLayout!.createSequentialGroup()!.addComponent(this.jLabel4)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE)!.addComponent(this.mouseXJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.jLabel5)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.mouseYJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)))))!.addContainerGap()));
+    
+mouseActionJDialogLayout!.setVerticalGroup(mouseActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(mouseActionJDialogLayout!.createSequentialGroup()!.addComponent(this.titleJLabel)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(mouseActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.inputTypeJLabel)!.addComponent(this.inputAutomationTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(mouseActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addComponent(this.jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)!.addGroup(mouseActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.button1JCheckBox)!.addComponent(this.button2JCheckBox)))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(mouseActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.jLabel6)!.addComponent(this.mouseDelayJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(mouseActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.jLabel3)!.addComponent(this.jLabel4)!.addComponent(this.jLabel5)!.addComponent(this.mouseYJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addComponent(this.mouseXJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.addComponent(this.okJButton)!.addContainerGap()));
+    
+setMinimumSize(new java.awt.Dimension(100, 0));
+    
+this.mouseActionJButton!.setText("Edit");
+    
+this.mouseActionJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+mouseActionJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.jLabel1!.setText("Mouse:");
+    
+
+    let layout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this);;
+    
+this.setLayout(layout);
+    
+layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addComponent(this.jLabel1)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)!.addComponent(this.mouseActionJButton)));
+    
+layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.jLabel1)!.addComponent(this.mouseActionJButton)));
+    
+}
+
+
+    button2JCheckBoxActionPerformed(evt: java.awt.event.ActionEvent){
+}
+
+
+    okJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+
+ try { this.update();
+    
+this.getMouseActionJDialog()!.setVisible(false);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "okButtonActionPerformed", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    mouseActionJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.getMouseActionJDialog()!.setVisible(true);
+    
+}
+
+
+    private button1JCheckBox: javax.swing.JCheckBox;
+
+    private button2JCheckBox: javax.swing.JCheckBox;
+
+    private inputAutomationTypeJComboBox: javax.swing.JComboBox;
+
+    private inputTypeJLabel: javax.swing.JLabel;
+
+    private jLabel1: javax.swing.JLabel;
+
+    private jLabel2: javax.swing.JLabel;
+
+    private jLabel3: javax.swing.JLabel;
+
+    private jLabel4: javax.swing.JLabel;
+
+    private jLabel5: javax.swing.JLabel;
+
+    private jLabel6: javax.swing.JLabel;
+
+    private mouseActionJButton: javax.swing.JButton;
+
+    private mouseActionJDialog: javax.swing.JDialog;
+
+    private mouseDelayJTextField: javax.swing.JTextField;
+
+    private mouseXJTextField: javax.swing.JTextField;
+
+    private mouseYJTextField: javax.swing.JTextField;
+
+    private okJButton: javax.swing.JButton;
+
+    private titleJLabel: javax.swing.JLabel;
+
+}
+

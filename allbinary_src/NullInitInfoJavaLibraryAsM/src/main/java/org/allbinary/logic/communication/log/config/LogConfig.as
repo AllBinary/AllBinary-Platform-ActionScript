@@ -1,0 +1,234 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { EntryData } from '../../../../../../org/allbinary/business/entry/EntryData.js';
+//not GWT import const EntryData
+
+import { DomNodeHelper } from '../../../../../../org/allbinary/data/tree/dom/DomNodeHelper.js';
+//not GWT import const DomNodeHelper
+
+import { DomSearchHelper } from '../../../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
+//not GWT import const DomSearchHelper
+
+import { BooleanUtil } from '../../../../../../org/allbinary/logic/java/bool/BooleanUtil.js';
+//not GWT import const BooleanUtil
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { Node } from '../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { LogConfigData } from './LogConfigData.js';
+//sameFolderImports - not GWT import - same folder const LogConfigData
+
+export class LogConfig
+            extends Object
+         {
+        
+
+    private isEnabled: boolean;
+
+    private name: string;
+
+    private description: string;
+
+    private path: string;
+
+    private fileName: string;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 4) {
+            
+            this.constructor$0(args[0], args[1], args[2], args[3]);
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        
+    }
+    
+    private constructor$0(aName: string, aDescription: string, aPath: string, aFileName: string): void {
+        this.isEnabled= false;
+    
+this.name= aName;
+    
+this.description= aDescription;
+    
+this.path= aPath;
+    
+this.fileName= aFileName;
+    
+
+    }
+    
+    private constructor$1(node: Node): void {
+        
+    let enabledValueNode: Node = DomSearchHelper.getNode(EntryData.getInstance()!.ENABLE, node.getChildNodes())!;;
+    
+
+    let isEnabledString: string = DomNodeHelper.getTextNodeValue(enabledValueNode)!;;
+    
+this.isEnabled= BooleanUtil.getInstance()!.getFromString(isEnabledString);
+    
+
+    let logConfigData: LogConfigData = LogConfigData.getInstance()!;;
+    
+
+    let nameValueNode: Node = DomSearchHelper.getNode(logConfigData!.NAME, node.getChildNodes())!;;
+    
+this.name= DomNodeHelper.getTextNodeValue(nameValueNode);
+    
+
+    let descriptionValueNode: Node = DomSearchHelper.getNode(logConfigData!.DESCRIPTION, node.getChildNodes())!;;
+    
+this.description= DomNodeHelper.getTextNodeValue(descriptionValueNode);
+    
+
+    let fileValueNode: Node = DomSearchHelper.getNode(logConfigData!.FILE, node.getChildNodes())!;;
+    
+this.fileName= DomNodeHelper.getTextNodeValue(fileValueNode);
+    
+
+    }
+    
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.name;
+    
+}
+
+
+    public isEnabled(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.isEnabled;
+    
+}
+
+
+    public enable(){
+this.isEnabled= true;
+    
+}
+
+
+    public disable(){
+this.isEnabled= false;
+    
+}
+
+
+    public getDescription(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.description;
+    
+}
+
+
+    public getFileName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.fileName;
+    
+}
+
+
+    public setName(value: string){
+this.name= value;
+    
+}
+
+
+    public setDescription(value: string){
+this.description= value;
+    
+}
+
+
+    public setPath(value: string){
+this.path= value;
+    
+}
+
+
+    public setFileName(value: string){
+this.fileName= value;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getTypeVector(): BasicArrayList{
+
+    let logKeyVector: BasicArrayList = new BasicArrayListD();;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return logKeyVector;
+    
+}
+
+
+}
+

@@ -1,0 +1,137 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { AbFile } from '../../../../../../org/allbinary/logic/io/file/AbFile.js';
+//not GWT import const AbFile
+
+import { IncludeFileExtensionsBooleanFileVisitor } from '../../../../../../org/allbinary/logic/io/file/visitor/IncludeFileExtensionsBooleanFileVisitor.js';
+//not GWT import const IncludeFileExtensionsBooleanFileVisitor
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class DirectoryOrIncludeFileExtensionBooleanFileVisitor extends IncludeFileExtensionsBooleanFileVisitor {
+        
+
+    private readonly includesString: string;
+
+    public constructor(...args: any[]) {
+        if(args.length === 1) {
+            const filterStringBasicArrayList = args[0];
+            super(filterStringBasicArrayList);
+            this.constructor$0(filterStringBasicArrayList);
+            
+        }
+        else if(args.length === 2) {
+            const filterStringBasicArrayList = args[0];
+            const includesString = args[1];
+            super(filterStringBasicArrayList);
+            this.constructor$1(filterStringBasicArrayList, includesString);
+            
+        }
+        
+    }
+    
+    private constructor$0(filterStringBasicArrayList: BasicArrayList): void {
+        
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.includesString= 
+                                        null
+                                    ;
+    
+
+    }
+    
+    private constructor$1(filterStringBasicArrayList: BasicArrayList, includesString: string): void {
+        
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.includesString= includesString;
+    
+
+    }
+    
+    public visit(file: AbFile): Boolean{
+
+                        if(file.isDirectory())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+
+                        if(this.includesString == 
+                                    null
+                                 || file.getAbsolutePath()!.indexOf(this.includesString) >= 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.visit(file);;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+}
+

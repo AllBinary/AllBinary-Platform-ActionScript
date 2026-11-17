@@ -1,0 +1,137 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { ProfileActionScriptConditionInterface } from '../../../../../../../../../../org/allbinary/input/automation/actions/script/condition/ProfileActionScriptConditionInterface.js';
+//not GWT import const ProfileActionScriptConditionInterface
+
+import { GenericProfileAction } from '../../../../../../../../../../org/allbinary/input/automation/module/generic/configuration/profile/actions/GenericProfileAction.js';
+//not GWT import const GenericProfileAction
+
+import { GenericProfileActionJPanel } from '../../../../../../../../../../org/allbinary/input/automation/module/generic/configuration/profile/actions/GenericProfileActionJPanel.js';
+//not GWT import const GenericProfileActionJPanel
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { Panel } from './Panel.js';
+//sameFolderImports - not GWT import - same folder const Panel
+import { JButton } from './JButton.js';
+//sameFolderImports - not GWT import - same folder const JButton
+import { GridLayout } from './GridLayout.js';
+//sameFolderImports - not GWT import - same folder const GridLayout
+import { ActionListener } from './ActionListener.js';
+//sameFolderImports - not GWT import - same folder const ActionListener
+import { ActionEvent } from './ActionEvent.js';
+//sameFolderImports - not GWT import - same folder const ActionEvent
+
+export class RemoveActionScriptItemJPanel extends java.awt.Panel {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private genericProfileActionJPanel: GenericProfileActionJPanel;
+
+    private profileActionScriptConditionInterface: ProfileActionScriptConditionInterface;
+
+public constructor (genericProfileActionJPanel: GenericProfileActionJPanel, profileActionScriptConditionInterface: ProfileActionScriptConditionInterface){
+
+            super();
+        this.initComponents();
+    
+this.genericProfileActionJPanel= genericProfileActionJPanel;
+    
+this.profileActionScriptConditionInterface= profileActionScriptConditionInterface;
+    
+}
+
+
+    initComponents(){
+this.removeJButton= new javax.swing.JButton();
+    
+setLayout(new java.awt.GridLayout());
+    
+this.removeJButton!.setText("Remove");
+    
+this.removeJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+removeJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+add(this.removeJButton);
+    
+}
+
+
+    removeJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+
+    let genericProfileAction: GenericProfileAction = this.genericProfileActionJPanel!.getGenericProfileAction()!;;
+    
+
+                        if(genericProfileAction == 
+                                    null
+                                )
+                        
+                                    {
+                                    this.logUtil!.putF("GenericProfileAction was null", this, "removeJButtonActionPerformed");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+genericProfileAction!.getGenericProfileActionScript()!.removeCondition(this.profileActionScriptConditionInterface);
+    
+this.genericProfileActionJPanel!.updateProfileActionUI();
+    
+}
+
+
+    private removeJButton: javax.swing.JButton;
+
+}
+

@@ -1,0 +1,178 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { System } from '../../../../../java/lang/System.js';
+        
+import { IOException } from '../../../../../java/io/IOException.js';
+//not GWT import const IOException
+
+//not plain js import { URL } 
+const URL = (globalThis.java?.net?.URL ?? class {}) as typeof globalThis.java.net.URL;
+type URL<T = any, U = any> = typeof URL extends abstract new (...args: any[]) => infer Instance ? Instance : typeof URL;
+
+import { URLConnection } from '../../../../../java/net/URLConnection.js';
+//not GWT import const URLConnection
+
+import { JarEntry } from '../../../../../java/util/jar/JarEntry.js';
+//not GWT import const JarEntry
+
+import { JarInputStream } from '../../../../../java/util/jar/JarInputStream.js';
+//not GWT import const JarInputStream
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class JarUtil
+            extends Object
+         {
+        
+
+                //@Throws(Exception.constructor)
+            
+    public static main(args: string[]){
+new JarUtil(new URL("file:///G:/mnt/bc/mydev/working/j2me/MiniSpaceWars/MiniSpaceWars/dist/MiniSpaceWars.jar")).show();
+    
+}
+
+
+    private jarURL: URL;
+
+public constructor (jarURL: URL){
+
+            super();
+        this.jarURL= jarURL;
+    
+}
+
+
+    public show(){
+
+    let cache: number[] = new Array(1024).fill(0);;
+    
+
+ try { 
+    let conn: URLConnection = this.jarURL!.openConnection()!;;
+    
+
+    let jis: JarInputStream = new JarInputStream(conn.getInputStream());;
+    
+
+        while(true)
+        {
+
+    let entry: JarEntry = jis.getNextJarEntry()!;;
+    
+
+                        if(entry != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+                        if(!entry.isDirectory())
+                        
+                                    {
+                                    
+    let offset: number = 0;;
+    
+
+    let i: number = 0;;
+    
+
+        while((i= jis.read(cache, offset, cache.length -offset)) !=  -1)
+        {
+offset += i;
+    
+
+                        if(offset >= cache.length)
+                        
+                                    {
+                                    
+    let newcache: number[] = new Array(cache.length +1024).fill(0);;
+    
+System.arraycopy(cache, 0, newcache, 0, cache.length);
+    
+cache= newcache;
+    
+
+                                    }
+                                
+}
+
+
+    let tmp: number[] = new Array(offset).fill(0);;
+    
+System.arraycopy(cache, 0, tmp, 0, offset);
+    
+console.log(entry.getName());
+    
+
+                                    }
+                                
+
+                                    }
+                                
+                        else {
+                            break;
+
+                    
+
+                        }
+                            
+}
+
+ }
+ catch (caught: any) {
+ if (caught instanceof IOException) {
+  const ex = caught;
+  
+System.err.println(ex);
+    
+ex.printStackTrace();
+    
+
+ }
+  else { throw caught; } }
+ 
+}
+
+
+}
+

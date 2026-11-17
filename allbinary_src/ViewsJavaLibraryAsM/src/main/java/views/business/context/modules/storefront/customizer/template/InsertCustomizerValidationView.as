@@ -1,0 +1,457 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { TransformInfoEntityBuilder } from '../../../../../../../org/allbinary/data/tables/transform/info/TransformInfoEntityBuilder.js';
+//not GWT import const TransformInfoEntityBuilder
+
+import { RequestParams } from '../../../../../../../org/allbinary/logic/communication/http/request/RequestParams.js';
+//not GWT import const RequestParams
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { ValidationComponentInterface } from '../../../../../../../org/allbinary/logic/control/validate/ValidationComponentInterface.js';
+//not GWT import const ValidationComponentInterface
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { StringValidationUtil } from '../../../../../../../org/allbinary/logic/string/StringValidationUtil.js';
+//not GWT import const StringValidationUtil
+
+import { TransformFactory } from '../../../../../../../org/allbinary/logic/visual/transform/TransformFactory.js';
+//not GWT import const TransformFactory
+
+import { TransformInterface } from '../../../../../../../org/allbinary/logic/visual/transform/TransformInterface.js';
+//not GWT import const TransformInterface
+
+import { GeneratorTransformInfoData } from '../../../../../../../org/allbinary/logic/visual/transform/info/GeneratorTransformInfoData.js';
+//not GWT import const GeneratorTransformInfoData
+
+import { TransformInfo } from '../../../../../../../org/allbinary/logic/visual/transform/info/TransformInfo.js';
+//not GWT import const TransformInfo
+
+import { TransformInfoData } from '../../../../../../../org/allbinary/logic/visual/transform/info/TransformInfoData.js';
+//not GWT import const TransformInfoData
+
+import { TransformInfoInterface } from '../../../../../../../org/allbinary/logic/visual/transform/info/TransformInfoInterface.js';
+//not GWT import const TransformInfoInterface
+
+import { TransformInfosData } from '../../../../../../../org/allbinary/logic/visual/transform/info/TransformInfosData.js';
+//not GWT import const TransformInfosData
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+import { Document } from '../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+import { HttpStoreComponentView } from '../../../../../../../views/business/context/modules/storefront/HttpStoreComponentView.js';
+//not GWT import const HttpStoreComponentView
+
+import { InsertTemplateCustomizerTransformInfoObjectConfig } from '../../../../../../../views/business/context/modules/storefront/customizer/template/objectConfig/InsertTemplateCustomizerTransformInfoObjectConfig.js';
+//not GWT import const InsertTemplateCustomizerTransformInfoObjectConfig
+
+import { NoTemplateTransformInfoObjectConfig } from '../../../../../../../views/business/context/modules/storefront/customizer/template/objectConfig/NoTemplateTransformInfoObjectConfig.js';
+//not GWT import const NoTemplateTransformInfoObjectConfig
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //Sets Template Type
+export class InsertCustomizerValidationView extends HttpStoreComponentView implements ValidationComponentInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private viewName: string;
+
+public constructor (transformInfoInterface: TransformInfoInterface){
+            super(transformInfoInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("View Name: " +transformInfoInterface!.getName(), this, this.commonStrings!.CONSTRUCTOR);
+    
+
+                                    }
+                                
+
+    let requestHashMap: HashMap<any, any> = new RequestParams(this.getPageContext()).toHashMap()!;;
+    
+this.viewName= requestHashMap!.get(TransformInfoData.getInstance()!.NAME) as string;
+    
+}
+
+
+    public isValid(): Boolean{
+
+ try { 
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("Started Validation", this, this.commonStrings!.IS_VALID);
+    
+
+                                    }
+                                
+
+    let isValid: Boolean = Boolean.TRUE;;
+    
+
+                        if(StringValidationUtil.getInstance()!.isEmpty(this.viewName))
+                        
+                                    {
+                                    isValid= false;
+    
+
+                                    }
+                                
+                        else {
+                            
+    let objectConfig: NoTemplateTransformInfoObjectConfig = new NoTemplateTransformInfoObjectConfig(this.getTransformInfoInterface(), this.getTransformInfoInterface()!.getObjectConfigInterface()!.toXmlDoc());;
+    
+
+    let componentVector: BasicArrayList = objectConfig!.getGroupTransforms()!;;
+    
+
+    let size: number = componentVector!.size()!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Pointing ");
+    
+stringBuffer!.appendint(componentVector!.size());
+    
+stringBuffer!.append(" Components");
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.commonStrings!.IS_VALID);
+    
+
+                                    }
+                                
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let transformInfo: TransformInfo = componentVector!.get(index) as TransformInfo;;
+    
+
+    let transformInfoName: string = transformInfo!.getName()!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("Setting Template Component with ViewName: " +transformInfoName, this, this.commonStrings!.IS_VALID);
+    
+
+                                    }
+                                
+
+    let componentInterface: TransformInterface = TransformFactory.getInstance()!.getInstance(this.abeClientInformation, transformInfoName, this.getTransformInfoInterface())!;;
+    
+
+    let templateViewObjectConfig: InsertTemplateCustomizerTransformInfoObjectConfig = new InsertTemplateCustomizerTransformInfoObjectConfig(componentInterface!.getTransformInfoInterface(), componentInterface!.getTransformInfoInterface()!.getObjectConfigInterface()!.toXmlDoc());;
+    
+
+    let storeName: string = this.getTransformInfoInterface()!.getStoreName()!;;
+    
+
+    let endIndex: number = this.viewName!.indexOf(storeName) +storeName!.length;;
+    
+
+    let storePrepend: string = this.viewName!.substring(0, endIndex)!;;
+    
+
+    let viewNamePostfix: string = this.viewName!.substring(endIndex, this.viewName!.length)!;;
+    
+
+    let newViewNameStringBuffer: StringMaker = new StringMaker();;
+    
+newViewNameStringBuffer!.append(storePrepend);
+    
+
+    let commonSeps: CommonSeps = CommonSeps.getInstance()!;;
+    
+
+    let transformInfosData: TransformInfosData = TransformInfosData.getInstance()!;;
+    
+
+                        if(transformInfoName!.indexOf(transformInfosData!.SMALL_PREVIEW) >= 0)
+                        
+                                    {
+                                    newViewNameStringBuffer!.append(commonSeps!.SPACE);
+    
+newViewNameStringBuffer!.append(transformInfosData!.SMALL_PREVIEW);
+    
+
+                                    }
+                                
+                             else 
+                        if(transformInfoName!.indexOf(transformInfosData!.PREVIEW) >= 0)
+                        
+                                    {
+                                    newViewNameStringBuffer!.append(commonSeps!.SPACE);
+    
+newViewNameStringBuffer!.append(transformInfosData!.PREVIEW);
+    
+
+                                    }
+                                
+newViewNameStringBuffer!.append(commonSeps!.SPACE);
+    
+newViewNameStringBuffer!.append(viewNamePostfix);
+    
+
+                        if(transformInfoName!.indexOf(GeneratorTransformInfoData.NAME) >= 0)
+                        
+                                    {
+                                    newViewNameStringBuffer!.append(commonSeps!.SPACE);
+    
+newViewNameStringBuffer!.append(GeneratorTransformInfoData.NAME);
+    
+
+                                    }
+                                
+
+    let newViewName: string = newViewNameStringBuffer!.toString()!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Template Component: ");
+    
+stringBuffer!.append(transformInfoName);
+    
+stringBuffer!.append("\n Now Pointing To View Name: ");
+    
+stringBuffer!.append(newViewName);
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.commonStrings!.IS_VALID);
+    
+
+                                    }
+                                
+templateViewObjectConfig!.set(newViewName);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Template Component: ");
+    
+stringBuffer!.append(transformInfoName);
+    
+stringBuffer!.append("\n with ObjectConfig: ");
+    
+stringBuffer!.append(templateViewObjectConfig!.toString());
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.commonStrings!.IS_VALID);
+    
+
+                                    }
+                                
+componentInterface!.getTransformInfoInterface()!.setObjectConfigInterface(templateViewObjectConfig);
+    
+
+    let updatedTransformInfoHashMap: HashMap<any, any> = componentInterface!.getTransformInfoInterface()!.toHashMap()!;;
+    
+TransformInfoEntityBuilder.getInstance()!.update(updatedTransformInfoHashMap);
+    
+}
+
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return isValid;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEWERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Failed to validate", this, this.commonStrings!.IS_VALID, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    public validationInfo(): string{
+
+ try { 
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Error: Template Name Is Empty.");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEWERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Failed to generate validation error info", this, "validationInfo()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Error Getting Validation Info";
+    
+
+ }
+   }
+ 
+}
+
+
+    public toValidationInfoDoc(): Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public toValidationInfoNode(document: Document): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public view(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return views.ValidationOnlyTempUtil.getInstance()!.view(this);;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getTransformInfoInterface(): TransformInfoInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getTransformInfoInterface();;
+    
+}
+
+
+}
+

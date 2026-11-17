@@ -1,0 +1,281 @@
+
+        /*
+                *  
+                *  To change this license header, choose License Headers in Project Properties. 
+                *  To change this template file, choose Tools | Templates  and open the template in the editor.  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { InetAddress } from '../../../../../java/net/InetAddress.js';
+//not GWT import const InetAddress
+
+import { DatabaseConnectionInfoInterface } from '../../../../../org/allbinary/business/init/db/DatabaseConnectionInfoInterface.js';
+//not GWT import const DatabaseConnectionInfoInterface
+
+import { DbConnectionInfo } from '../../../../../org/allbinary/business/init/db/DbConnectionInfo.js';
+//not GWT import const DbConnectionInfo
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AbSqlBean } from './AbSqlBean.js';
+//sameFolderImports - not GWT import - same folder const AbSqlBean
+
+export class AbDatabaseManagement extends AbSqlBean {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    readonly sqlCommandLog: StringMaker = new StringMaker();
+
+    private readonly GRANT_ALL: string = "GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON ";
+
+    private readonly DOT_STAR: string = ".*";
+
+    private readonly TO: string = " TO ";
+
+    private readonly AT_LOCALHOST: string = "@localhost";
+
+    private readonly IDENTIFIED_BY: string = " IDENTIFIED BY '";
+
+    private readonly WITH_GRANT_OPTION: string = "' WITH GRANT OPTION";
+
+    private readonly FAILED: string = "Failed";
+
+    private readonly GET_HOST_NAME: string = "getHostName()";
+
+    private readonly METHOD_ADD_USER: string = "addUser()";
+
+    readonly METHOD_ADD_USERS: string = "addUsers()";
+
+    private readonly METHOD_ADD_DB: string = "addDb()";
+
+    readonly METHOD_ADD_DATABASES: string = "addDatabases()";
+
+    readonly METHOD_ADD_TABLES: string = "addTables()";
+
+    readonly UNABLE_TO_CREATE_USER: string = "Unable to Create User: ";
+
+    readonly UNABLE_TO_CREATE_DATABASE: string = "Unable to Create Database: ";
+
+    readonly UNABLE_TO_CREATE_TABLES: string = "Unable to Create Tables";
+
+    readonly ADD_TABLES_RESULTS_LABEL: string = "Add Table Results: ";
+
+public constructor (databaseConnectionInfoInterface: DatabaseConnectionInfoInterface){
+            super(databaseConnectionInfoInterface as DbConnectionInfo);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+public constructor (connectionInfo: DbConnectionInfo){
+            super(connectionInfo);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    getHostName(): string{
+
+ try { 
+    let addr: InetAddress = InetAddress.getLocalHost()!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return addr.getHostName();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.FAILED, this, this.GET_HOST_NAME, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+ }
+   }
+ 
+}
+
+addDbUser(...args: any[]): any {
+   
+   
+    if (args.length === 4 && typeof args[0] === 'string' && typeof args[1] === 'string' && typeof args[2] === 'string' && typeof args[3] === 'string') return this.addDbUser$overload1(args[0], args[1], args[2], args[3]);
+   
+    if (args.length === 3 && typeof args[0] === 'string' && typeof args[1] === 'string' && typeof args[2] === 'string') return this.addDbUser$overload2(args[0], args[1], args[2]);
+   
+   throw new TypeError('No matching overload: addDbUser'); }
+  
+                //@Throws(Exception.constructor)
+            
+    addDbUser$overload1(hostName: string, db: string, userName: string, password: string): boolean{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.GRANT_ALL);
+    
+stringBuffer!.append(db);
+    
+stringBuffer!.append(this.DOT_STAR);
+    
+stringBuffer!.append(this.TO);
+    
+stringBuffer!.append(userName);
+    
+stringBuffer!.append(hostName);
+    
+stringBuffer!.append(this.IDENTIFIED_BY);
+    
+stringBuffer!.append(password);
+    
+stringBuffer!.append(this.WITH_GRANT_OPTION);
+    
+
+    let sqlStatement: string = stringBuffer!.toString()!;;
+    
+this.sqlCommandLog!.append(sqlStatement);
+    
+this.sqlCommandLog!.append(this.commonSeps!.NEW_LINE);
+    
+super.executeSQLStatement(sqlStatement);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+    addDbUser$overload2(db: string, userName: string, password: string): boolean{
+
+ try { this.addDbUser(this.AT_LOCALHOST, db, userName, password);
+    
+
+    let hostName: string = this.getHostName()!;;
+    
+
+                        if(hostName != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.addDbUser(hostName, db, userName, password);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.UNABLE_TO_CREATE_USER +userName, this, this.METHOD_ADD_USER, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    addDb(db: string): Boolean{
+
+ try { 
+    let sqlStatement: string = this.sqlStrings!.CREATE_DATABASE +db;;
+    
+this.sqlCommandLog!.append(sqlStatement);
+    
+this.sqlCommandLog!.append(this.commonSeps!.NEW_LINE);
+    
+super.executeSQLStatement(sqlStatement);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.UNABLE_TO_CREATE_DATABASE +db, this, this.METHOD_ADD_DB, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

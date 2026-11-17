@@ -1,0 +1,92 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { LogConfigType } from './LogConfigType.js';
+//sameFolderImports - not GWT import - same folder const LogConfigType
+import { LogConfigTypes } from './LogConfigTypes.js';
+//sameFolderImports - not GWT import - same folder const LogConfigTypes
+
+export class LogConfigTypeFactory
+            extends Object
+         {
+        
+
+    private static readonly instance: LogConfigTypeFactory = new LogConfigTypeFactory();
+
+    public static getInstance(): LogConfigTypeFactory{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return LogConfigTypeFactory.instance;
+    
+}
+
+
+    private readonly NO_DESCRIPTION: string = "No Description";
+
+    public readonly OS: LogConfigType = new LogConfigType("Operating System", this.NO_DESCRIPTION);
+
+    public readonly FACTORYERROR: LogConfigType = new LogConfigType("Factory Error", this.NO_DESCRIPTION);
+
+    public readonly FILE: LogConfigType = new LogConfigType("File", this.NO_DESCRIPTION);
+
+    public readonly FILEERROR: LogConfigType = new LogConfigType("File Error", this.NO_DESCRIPTION);
+
+    public readonly IDLOGGING: LogConfigType = new LogConfigType("ID Logging", this.NO_DESCRIPTION);
+
+    public readonly REPLACE: LogConfigType = new LogConfigType("Replace", this.NO_DESCRIPTION);
+
+    public readonly REPLACE_INFO: LogConfigType = new LogConfigType("Replace Info", this.NO_DESCRIPTION);
+
+    public readonly REPLACEERROR: LogConfigType = new LogConfigType("Replace Error", this.NO_DESCRIPTION);
+
+private constructor (){
+
+            super();
+        LogConfigTypes.LOGGING.add(this.OS);
+    
+LogConfigTypes.LOGGING.add(this.FACTORYERROR);
+    
+}
+
+
+}
+

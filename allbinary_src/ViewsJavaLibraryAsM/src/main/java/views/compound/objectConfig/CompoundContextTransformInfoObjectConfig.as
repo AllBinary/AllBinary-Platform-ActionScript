@@ -1,0 +1,298 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../java/lang/Exception.js';
+        
+import { ByteArrayInputStream } from '../../../java/io/ByteArrayInputStream.js';
+//not GWT import const ByteArrayInputStream
+
+import { InputStream } from '../../../java/io/InputStream.js';
+//not GWT import const InputStream
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { DocumentToNode } from '../../../org/allbinary/data/tree/dom/document/DocumentToNode.js';
+//not GWT import const DocumentToNode
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { Replace } from '../../../org/allbinary/logic/string/regex/replace/Replace.js';
+//not GWT import const Replace
+
+import { AbeClientInformationInterface } from '../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
+//not GWT import const AbeClientInformationInterface
+
+import { TransformFactory } from '../../../org/allbinary/logic/visual/transform/TransformFactory.js';
+//not GWT import const TransformFactory
+
+import { TransformInterface } from '../../../org/allbinary/logic/visual/transform/TransformInterface.js';
+//not GWT import const TransformInterface
+
+import { RootTransformInfoData } from '../../../org/allbinary/logic/visual/transform/info/RootTransformInfoData.js';
+//not GWT import const RootTransformInfoData
+
+import { TransformInfoData } from '../../../org/allbinary/logic/visual/transform/info/TransformInfoData.js';
+//not GWT import const TransformInfoData
+
+import { TransformInfoDomNode } from '../../../org/allbinary/logic/visual/transform/info/TransformInfoDomNode.js';
+//not GWT import const TransformInfoDomNode
+
+import { TransformInfoHttpInterface } from '../../../org/allbinary/logic/visual/transform/info/TransformInfoHttpInterface.js';
+//not GWT import const TransformInfoHttpInterface
+
+import { TransformInfoInterface } from '../../../org/allbinary/logic/visual/transform/info/TransformInfoInterface.js';
+//not GWT import const TransformInfoInterface
+
+import { GenericStoreTransformInfoObjectConfig } from '../../../org/allbinary/logic/visual/transform/info/objectConfig/GenericStoreTransformInfoObjectConfig.js';
+//not GWT import const GenericStoreTransformInfoObjectConfig
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+import { Document } from '../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class CompoundContextTransformInfoObjectConfig extends GenericStoreTransformInfoObjectConfig {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+public constructor (abeClientInformation: Object, transformInfoInterface: Object){
+            super(abeClientInformation, transformInfoInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+public constructor (abeClientInformation: Object, transformInfoInterface: Object, document: Object){
+            super(abeClientInformation, transformInfoInterface, document);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.setDocument(this.generate(this.toXmlDoc()));
+    
+}
+
+
+public constructor (abeClientInformation: Object, transformInfoInterface: Object, name: string, type: string){
+            super(abeClientInformation, transformInfoInterface, name, type);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.setDocument(this.generate(this.toXmlDoc()));
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public get(): string{
+
+    let storeName: string = this.getTransformInfoInterface()!.getStoreName()!;;
+    
+
+    let httpTransformInfoInterface: TransformInfoHttpInterface = this.getTransformInfoInterface() as TransformInfoHttpInterface;;
+    
+
+    let templateNameOverride: string = StringUtil.getInstance()!.getNonNull(httpTransformInfoInterface!.getPropertiesHashMap()!.get(TransformInfoData.getInstance()!.PARTIAL) as string)!;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(storeName);
+    
+stringBuffer!.append(templateNameOverride);
+    
+stringBuffer!.append(CommonSeps.getInstance()!.SPACE);
+    
+stringBuffer!.append(RootTransformInfoData.NAME);
+    
+
+    let rootComponentInterface: TransformInterface = TransformFactory.getInstance()!.getInstance(abeClientInformation, stringBuffer!.toString(), this.getTransformInfoInterface())!;;
+    
+
+    let viewVector: BasicArrayList = this.getTransformDomNodes()!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("Root View Called with: " +viewVector!.size(), this, "get(transformInfoInterface)");
+    
+
+                                    }
+                                
+
+    let rootView: string = rootComponentInterface!.view()!;;
+    
+
+    let startXMLHeader: string = "<xsl:text disable-output-escaping=\"yes\" ><![CDATA[";;
+    
+
+    let endXMLHeader: string = "]]></xsl:text>";;
+    
+
+    let size: number = viewVector!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let objectConfigTransformInfoDomNode: TransformInfoDomNode = viewVector!.get(index) as TransformInfoDomNode;;
+    
+
+    let templateKey: string = objectConfigTransformInfoDomNode!.getReplaceKey()!;;
+    
+
+    let componentInterface: TransformInterface = TransformFactory.getInstance()!.getInstance(abeClientInformation, objectConfigTransformInfoDomNode!.getTransformInfoInterface()!.getName(), this.getTransformInfoInterface())!;;
+    
+
+    let replacementViewString: string = componentInterface!.view()!;;
+    
+replacementViewString= DocumentToNode.convertDocumentToNodeString(replacementViewString);
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(startXMLHeader);
+    
+stringBuffer!.append(replacementViewString);
+    
+stringBuffer!.append(endXMLHeader);
+    
+
+    let templateValue: string = stringBuffer!.toString()!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append("Replacing: ");
+    
+stringBuffer!.append(templateKey);
+    
+stringBuffer!.append(" with ");
+    
+stringBuffer!.append(templateValue);
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, "get()");
+    
+
+                                    }
+                                
+
+    let replace: Replace = new Replace(templateKey, templateValue);;
+    
+rootView= replace.all(rootView);
+    
+}
+
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("End: Result of a compound view: " +rootView, this, "get()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return rootView;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public createInputStream(): InputStream{
+
+    let completeTemplateViewBytes: number[] = Array.from(new TextEncoder().encode(this.get()!), byte => (byte << 24) >> 24)!;;
+    
+
+    let bais: ByteArrayInputStream = new ByteArrayInputStream(completeTemplateViewBytes);;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("Template: " +String.fromCharCode(...completeTemplateViewBytes).toString(), this, "createInputStream()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return bais;
+    
+}
+
+
+}
+

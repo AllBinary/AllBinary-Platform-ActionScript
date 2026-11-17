@@ -1,0 +1,318 @@
+
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../java/lang/Exception.js';
+        
+import { Graphics } from '../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { TsUtil } from '../../../org/allbinary/TsUtil.js';
+//not GWT import const TsUtil
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { SynchObject } from '../../../org/allbinary/thread/SynchObject.js';
+//not GWT import const SynchObject
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+//not plain js import { ABSystemWrapper } 
+const ABSystemWrapper = globalThis.org.allbinary.logic.ABSystemWrapper;
+type ABSystemWrapper<T = any, U = any> = typeof ABSystemWrapper extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABSystemWrapper;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { LayerManagerLoggingBase } from './LayerManagerLoggingBase.js';
+//sameFolderImports - not GWT import - same folder const LayerManagerLoggingBase
+import { AllBinaryLayer } from './AllBinaryLayer.js';
+//sameFolderImports - not GWT import - same folder const AllBinaryLayer
+import { Layer } from './Layer.js';
+//sameFolderImports - not GWT import - same folder const Layer
+
+export class LayerManager
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly systemWrapper: ABSystemWrapper = ABSystemWrapper.getInstance()!;
+
+    private readonly tsUtil: TsUtil = TsUtil.getInstance()!;
+
+    private readonly layerManagerLogging: LayerManagerLoggingBase;
+
+    private readonly list: BasicArrayList = new BasicArrayListD();
+
+    private readonly anyType: SynchObject = new SynchObject();
+
+public constructor (layerManagerLogging: LayerManagerLoggingBase){
+
+            super();
+        this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    
+this.layerManagerLogging= layerManagerLogging;
+    
+}
+
+
+    public contains(layerInterface: AllBinaryLayer): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.list.contains(layerInterface);;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public update(layerInterface: AllBinaryLayer){
+
+    let had: boolean = this.list.remove(layerInterface)!;;
+    
+
+                        if(had)
+                        
+                                    {
+                                    
+    let nextLayerInterface: AllBinaryLayer;;
+    
+
+    let size: number = this.list.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+nextLayerInterface= this.list.get(index) as AllBinaryLayer;
+    
+
+                        if(layerInterface!.getZP() > nextLayerInterface!.getZP())
+                        
+                                    {
+                                    this.list.addAt(index, layerInterface);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+}
+
+this.list.add(layerInterface);
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public insert(layerInterface: AllBinaryLayer){
+
+    let nextLayerInterface: AllBinaryLayer;;
+    
+
+    let size: number = this.list.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+nextLayerInterface= this.list.get(index) as AllBinaryLayer;
+    
+
+                        if(layerInterface!.getZP() > nextLayerInterface!.getZP())
+                        
+                                    {
+                                    this.appendAt(layerInterface, index);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+}
+
+this.append(layerInterface);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public append(layerInterface: AllBinaryLayer){
+this.layerManagerLogging!.append(layerInterface);
+    
+this.list.add(layerInterface);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public appendAt(layerInterface: AllBinaryLayer, index: number){
+this.layerManagerLogging!.appendAt(layerInterface, index);
+    
+this.list.addAt(index, layerInterface);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public remove(layerInterface: AllBinaryLayer){
+
+        
+        //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+        //synchronized(this.anyType) 
+
+        //mutex.withLock
+        
+this.layerManagerLogging!.remove(layerInterface);
+    
+
+    let result: boolean = this.list.remove(layerInterface)!;;
+    
+this.layerManagerLogging!.removeResult(this, layerInterface, result);
+    
+
+
+}
+
+
+    public getLayerAt(index: number): Layer{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.list.objectArray[index]! as Layer;
+    
+}
+
+
+    public getSize(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.list.size();;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public cleanup(){
+
+        
+        //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+        //synchronized(this.anyType) 
+
+        //mutex.withLock
+        
+this.list.clear();
+    
+this.layerManagerLogging!.clear();
+    
+this.tsUtil!.gc();
+    
+this.tsUtil!.gc();
+    
+
+
+}
+
+
+    public paint(g: Graphics, x: number, y: number){
+
+        
+        //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+        //synchronized(this.anyType) 
+
+        //mutex.withLock
+        
+
+    let comp: Layer;;
+    
+
+
+
+
+                        for (
+    let index: number = this.list.size()!;--index >= 0; )
+        {
+comp= this.list.objectArray[index]! as Layer;
+    
+
+                        if(comp != 
+                                    null
+                                 && comp.isVisible())
+                        
+                                    {
+                                    comp.paint(g);
+    
+
+                                    }
+                                
+}
+
+
+
+}
+
+
+}
+

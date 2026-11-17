@@ -1,0 +1,314 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../java/lang/Integer.js';
+        
+            //import { Double } from '../../../../../../java/lang/Double.js';
+            const Double = (globalThis.java?.lang?.Double ?? class {}) as typeof globalThis.java.lang.Double;
+        
+import { BufferedImage } from '../../../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { MeteredGameObjectInterface } from './MeteredGameObjectInterface.js';
+//sameFolderImports - not GWT import - same folder const MeteredGameObjectInterface
+import { GraphicsAnalysisUtil } from './GraphicsAnalysisUtil.js';
+//sameFolderImports - not GWT import - same folder const GraphicsAnalysisUtil
+
+export class MeteredGameObject
+            extends Object
+         implements MeteredGameObjectInterface {
+        
+
+    private ratios: number[];
+
+    private good: boolean = false;
+
+    private dropping: boolean = false;
+
+    private minX: Integer;
+
+    private maxX: Integer;
+
+    private y: Integer;
+
+    private size: Integer;
+
+    private readonly RATIOS_LABEL: string = "Ratios: ";
+
+    private readonly IS_GOOD_LABEL: string = "isGood: ";
+
+    private readonly IS_DROPPPING_LABEL: string = "isDropping: ";
+
+public constructor (bufferedImage: BufferedImage[], minX: Integer, maxX: Integer, y: Integer){
+
+            super();
+        this.setRatios(new Array(bufferedImage!.length));
+    
+this.setMinX(minX);
+    
+this.setMaxX(maxX);
+    
+this.setY(y);
+    
+this.setSize(maxX -minX);
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < bufferedImage!.length; index++)
+        {
+
+    let nominator: number = GraphicsAnalysisUtil.getNominator(bufferedImage[index]!, this.getMinX(), this.getMaxX(), this.getY())!;;
+    
+this.getRatios()[index]= new number(nominator /this.getSize());
+    
+}
+
+
+                        if(this.getRatios()[bufferedImage!.length -1]!.doubleValue() > 0.93F)
+                        
+                                    {
+                                    this.setGood(true);
+    
+
+                                    }
+                                
+                        else {
+                            this.setGood(false);
+    
+
+                        }
+                            
+
+                        if(this.getRatios()[bufferedImage!.length -1]!.doubleValue() < this.getRatios()[0]!.doubleValue())
+                        
+                                    {
+                                    this.setDropping(true);
+    
+
+                                    }
+                                
+                        else {
+                            this.setDropping(false);
+    
+
+                        }
+                            
+}
+
+
+    public isGood(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.good;
+    
+}
+
+
+    setGood(good: boolean){
+this.good= good;
+    
+}
+
+
+    public isDropping(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.dropping;
+    
+}
+
+
+    setDropping(dropping: boolean){
+this.dropping= dropping;
+    
+}
+
+
+    public getRatios(): number[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.ratios;
+    
+}
+
+
+    public toString(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+
+    let commonSeps: CommonSeps = CommonSeps.getInstance()!;;
+    
+stringBuffer!.append(commonSeps!.NEW_LINE);
+    
+stringBuffer!.append(this.RATIOS_LABEL);
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < this.getRatios()!.length; index++)
+        {
+stringBuffer!.append(this.getRatios()[index]!.toString());
+    
+
+                        if(index < this.getRatios()!.length -1)
+                        
+                                    {
+                                    stringBuffer!.append(commonSeps!.COMMA_SEP);
+    
+
+                                    }
+                                
+}
+
+stringBuffer!.append(commonSeps!.NEW_LINE);
+    
+stringBuffer!.append(this.IS_GOOD_LABEL);
+    
+stringBuffer!.appendboolean(this.isGood());
+    
+stringBuffer!.append(commonSeps!.NEW_LINE);
+    
+stringBuffer!.append(this.IS_DROPPPING_LABEL);
+    
+stringBuffer!.appendboolean(this.isDropping());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+    public setRatios(ratios: number[]){
+this.ratios= ratios;
+    
+}
+
+
+    public getMinX(): Integer{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.minX;
+    
+}
+
+
+    public setMinX(minX: Integer){
+this.minX= minX;
+    
+}
+
+
+    public getMaxX(): Integer{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.maxX;
+    
+}
+
+
+    public setMaxX(maxX: Integer){
+this.maxX= maxX;
+    
+}
+
+
+    public getY(): Integer{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.y;
+    
+}
+
+
+    public setY(y: Integer){
+this.y= y;
+    
+}
+
+
+    public getSize(): Integer{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.size;
+    
+}
+
+
+    public setSize(size: Integer){
+this.size= size;
+    
+}
+
+
+}
+

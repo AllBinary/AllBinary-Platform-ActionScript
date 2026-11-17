@@ -1,0 +1,377 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            const Short = (globalThis.java?.lang?.Short ?? class {}) as typeof globalThis.java.lang.Short;
+        
+            import { Thread } from '../../../../java/lang/Thread.js';
+        
+import { awt } from '../../../../java/awt.js';
+//not GWT import const awt
+
+import { BufferedImage } from '../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+import { RenderedImage } from '../../../../java/awt/image/RenderedImage.js';
+//not GWT import const RenderedImage
+
+import { File } from '../../../../java/io/File.js';
+//not GWT import const File
+
+import { ImageIO } from '../../../../javax/imageio/ImageIO.js';
+//not GWT import const ImageIO
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { BufferedImageUtil2 } from '../../../../org/allbinary/media/image/BufferedImageUtil2.js';
+//not GWT import const BufferedImageUtil2
+
+import { ImageProcessorInput } from '../../../../org/allbinary/media/image/ImageProcessorInput.js';
+//not GWT import const ImageProcessorInput
+
+import { ImageProcessorInputCompositeInterface } from '../../../../org/allbinary/media/image/ImageProcessorInputCompositeInterface.js';
+//not GWT import const ImageProcessorInputCompositeInterface
+
+import { ImageStrings } from '../../../../org/allbinary/media/image/ImageStrings.js';
+//not GWT import const ImageStrings
+
+import { MirrorImageUtil } from '../../../../org/allbinary/media/image/MirrorImageUtil.js';
+//not GWT import const MirrorImageUtil
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JPanel } from './JPanel.js';
+//sameFolderImports - not GWT import - same folder const JPanel
+import { JLayeredPane } from './JLayeredPane.js';
+//sameFolderImports - not GWT import - same folder const JLayeredPane
+import { Graphics } from './Graphics.js';
+//sameFolderImports - not GWT import - same folder const Graphics
+import { JCheckBox } from './JCheckBox.js';
+//sameFolderImports - not GWT import - same folder const JCheckBox
+import { JButton } from './JButton.js';
+//sameFolderImports - not GWT import - same folder const JButton
+import { JLabel } from './JLabel.js';
+//sameFolderImports - not GWT import - same folder const JLabel
+import { GroupLayout } from './GroupLayout.js';
+//sameFolderImports - not GWT import - same folder const GroupLayout
+import { ActionListener } from './ActionListener.js';
+//sameFolderImports - not GWT import - same folder const ActionListener
+import { ActionEvent } from './ActionEvent.js';
+//sameFolderImports - not GWT import - same folder const ActionEvent
+
+export class MirrorSpriteImageJPanel extends javax.swing.JPanel implements ImageProcessorInputCompositeInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly imageStrings: ImageStrings = ImageStrings.getInstance()!;
+
+    private imageProcessorInput: ImageProcessorInput;
+
+    private result: BufferedImage;
+
+public constructor (imageProcessorInput: ImageProcessorInput){
+            super();
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.logUtil!.putF("Starting", this, this.commonStrings!.CONSTRUCTOR);
+    
+this.initComponents();
+    
+this.imageProcessorInput= imageProcessorInput;
+    
+}
+
+
+    public process(){
+new class extends Thread
+                                {
+                                
+    public run(){
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+
+ try { 
+    let generatedBufferedImageArray: BufferedImage[];;
+    
+
+    let imageProcessorInput: ImageProcessorInput = outer$MirrorSpriteImageJPanel.getImageProcessorInput()!;;
+    
+
+    let bufferedImageArray: BufferedImage[] = imageProcessorInput!.getBufferedImageArray()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < bufferedImageArray!.length; index++)
+        {
+generatedBufferedImageArray= MirrorImageUtil.getInstance()!.getImages(bufferedImageArray[index]!, outer$MirrorSpriteImageJPanel.verticleJCheckBox!.isSelected(), outer$MirrorSpriteImageJPanel.horizontalJCheckBox!.isSelected());
+    
+outer$MirrorSpriteImageJPanel.result= BufferedImageUtil2.getInstance()!.createSpriteImage(generatedBufferedImageArray);
+    
+outer$MirrorSpriteImageJPanel.getParent()!.repaint();
+    
+
+    let file: File = imageProcessorInput!.getFiles()[index]!;;
+    
+
+                        if(!outer$MirrorSpriteImageJPanel.writeOverOriginalJCheckBox!.isSelected())
+                        
+                                    {
+                                    
+    let filePath: string = file.getAbsolutePath()!;;
+    
+
+    let extensionIndex: number = filePath!.indexOf(imageStrings!.PNG_EXTENSION)!;;
+    
+filePath= filePath!.substring(0, extensionIndex) +"_mirror" +imageStrings!.PNG_EXTENSION;
+    
+logUtil!.putF("Renamed File: " +filePath, this, commonStrings!.RUN);
+    
+file= new File(filePath);
+    
+
+                                    }
+                                
+
+    let isWritten: boolean = ImageIO.write(outer$MirrorSpriteImageJPanel.result as RenderedImage, imageStrings!.PNG, file)!;;
+    
+logUtil!.putF("File: " +file +" Wrote: " +isWritten, this, commonStrings!.RUN);
+    
+}
+
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN, e);
+    
+
+ }
+   }
+ 
+}
+
+                                }().start();
+    
+}
+
+
+    initComponents(){
+this.jLayeredPane1= new javax.swing.JLayeredPane();
+    
+this.jPanel1= new class extends javax.swing.JPanel
+                                {
+                                
+    public paint(graphics: Graphics){
+
+                        if(outer$MirrorSpriteImageJPanel.result != 
+                                    null
+                                )
+                        
+                                    {
+                                    graphics.drawImage(outer$MirrorSpriteImageJPanel.result, 0, 0, outer$MirrorSpriteImageJPanel.result.getWidth(
+                            null), outer$MirrorSpriteImageJPanel.result.getHeight(
+                            null), 
+                            null);
+    
+
+                                    }
+                                
+}
+
+                                }();
+    
+this.jPanel2= new javax.swing.JPanel();
+    
+this.imageHeightIsFrameSizeJCheckBox= new javax.swing.JCheckBox();
+    
+this.horizontalJCheckBox= new javax.swing.JCheckBox();
+    
+this.verticleJCheckBox= new javax.swing.JCheckBox();
+    
+this.writeOverOriginalJCheckBox= new javax.swing.JCheckBox();
+    
+this.generateJButton= new javax.swing.JButton();
+    
+this.jPanel3= new javax.swing.JPanel();
+    
+this.jLabel2= new javax.swing.JLabel();
+    
+
+    let jPanel1Layout: org.jdesktop.layout.GroupLayout = new org.jdesktop.layout.GroupLayout(this.jPanel1);;
+    
+this.jPanel1!.setLayout(jPanel1Layout);
+    
+jPanel1Layout!.setHorizontalGroup(jPanel1Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(0, 507, Short.MAX_VALUE));
+    
+jPanel1Layout!.setVerticalGroup(jPanel1Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(0, 230, Short.MAX_VALUE));
+    
+this.imageHeightIsFrameSizeJCheckBox!.setSelected(true);
+    
+this.imageHeightIsFrameSizeJCheckBox!.setText("Image Height Is Frame Size");
+    
+this.imageHeightIsFrameSizeJCheckBox!.setEnabled(false);
+    
+this.imageHeightIsFrameSizeJCheckBox!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+imageHeightIsFrameSizeJCheckBoxActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.horizontalJCheckBox!.setSelected(true);
+    
+this.horizontalJCheckBox!.setText("Horizontal");
+    
+this.horizontalJCheckBox!.setEnabled(false);
+    
+this.verticleJCheckBox!.setText("Verticle");
+    
+this.verticleJCheckBox!.setEnabled(false);
+    
+this.writeOverOriginalJCheckBox!.setText("Write Over Original");
+    
+this.generateJButton!.setText("Generate");
+    
+this.generateJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+generateJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+
+    let jPanel2Layout: org.jdesktop.layout.GroupLayout = new org.jdesktop.layout.GroupLayout(this.jPanel2);;
+    
+this.jPanel2!.setLayout(jPanel2Layout);
+    
+jPanel2Layout!.setHorizontalGroup(jPanel2Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(jPanel2Layout!.createSequentialGroup()!.addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.add(this.verticleJCheckBox)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)!.add(this.horizontalJCheckBox)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.imageHeightIsFrameSizeJCheckBox)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.writeOverOriginalJCheckBox)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.generateJButton)));
+    
+jPanel2Layout!.setVerticalGroup(jPanel2Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(jPanel2Layout!.createSequentialGroup()!.add(jPanel2Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)!.add(this.imageHeightIsFrameSizeJCheckBox, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.add(this.horizontalJCheckBox)!.add(this.verticleJCheckBox)!.add(this.writeOverOriginalJCheckBox)!.add(this.generateJButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))!.addContainerGap()));
+    
+this.jLabel2!.setText("Results:");
+    
+
+    let jPanel3Layout: org.jdesktop.layout.GroupLayout = new org.jdesktop.layout.GroupLayout(this.jPanel3);;
+    
+this.jPanel3!.setLayout(jPanel3Layout);
+    
+jPanel3Layout!.setHorizontalGroup(jPanel3Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(jPanel3Layout!.createSequentialGroup()!.add(this.jLabel2)!.addContainerGap(448, Short.MAX_VALUE)));
+    
+jPanel3Layout!.setVerticalGroup(jPanel3Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(this.jLabel2));
+    
+
+    let layout: org.jdesktop.layout.GroupLayout = new org.jdesktop.layout.GroupLayout(this);;
+    
+this.setLayout(layout);
+    
+layout.setHorizontalGroup(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()!.addContainerGap()!.add(this.jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.addContainerGap())!.add(this.jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.add(layout.createSequentialGroup()!.add(this.jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)!.addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+    
+layout.setVerticalGroup(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(layout.createSequentialGroup()!.add(this.jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+    
+}
+
+
+    generateJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.process();
+    
+}
+
+
+    imageHeightIsFrameSizeJCheckBoxActionPerformed(evt: java.awt.event.ActionEvent){
+}
+
+
+    private generateJButton: javax.swing.JButton;
+
+    private horizontalJCheckBox: javax.swing.JCheckBox;
+
+    private imageHeightIsFrameSizeJCheckBox: javax.swing.JCheckBox;
+
+    private jLabel2: javax.swing.JLabel;
+
+    private jLayeredPane1: javax.swing.JLayeredPane;
+
+    private jPanel1: javax.swing.JPanel;
+
+    private jPanel2: javax.swing.JPanel;
+
+    private jPanel3: javax.swing.JPanel;
+
+    private verticleJCheckBox: javax.swing.JCheckBox;
+
+    private writeOverOriginalJCheckBox: javax.swing.JCheckBox;
+
+    public getImageProcessorInput(): ImageProcessorInput{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.imageProcessorInput;
+    
+}
+
+
+    public setImageProcessorInput(imageProcessorInput: ImageProcessorInput){
+this.imageProcessorInput= imageProcessorInput;
+    
+}
+
+
+}
+

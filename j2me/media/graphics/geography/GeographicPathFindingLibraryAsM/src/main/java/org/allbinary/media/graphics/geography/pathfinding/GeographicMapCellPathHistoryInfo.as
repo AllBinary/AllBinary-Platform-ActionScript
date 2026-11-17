@@ -1,0 +1,144 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+import { GeographicMapCellPosition } from '../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+import { SimpleGeographicMapCellPositionFactory } from '../../../../../../org/allbinary/media/graphics/geography/map/SimpleGeographicMapCellPositionFactory.js';
+//not GWT import const SimpleGeographicMapCellPositionFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class GeographicMapCellPathHistoryInfo
+            extends Object
+         {
+        
+
+    private previousGeographicMapCellPosition: GeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+
+    private previousOnPathGeographicMapCellPosition: GeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+
+    private nextUnvisitedOnPathGeographicMapCellPosition: GeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+
+    private nextOnPathGeographicMapCellPosition: GeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+
+    private nextChosenOnPathGeographicMapCellPosition: GeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+
+    public getPreviousGeographicMapCellPosition(): GeographicMapCellPosition{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.previousGeographicMapCellPosition;
+    
+}
+
+
+    public setPreviousGeographicMapCellPosition(previousGeographicMapCellPosition: GeographicMapCellPosition){
+this.previousGeographicMapCellPosition= previousGeographicMapCellPosition;
+    
+}
+
+
+    public getPreviousOnPathGeographicMapCellPosition(): GeographicMapCellPosition{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.previousOnPathGeographicMapCellPosition;
+    
+}
+
+
+    public setPreviousOnPathGeographicMapCellPosition(previousOnPathGeographicMapCellPosition: GeographicMapCellPosition){
+this.previousOnPathGeographicMapCellPosition= previousOnPathGeographicMapCellPosition;
+    
+}
+
+
+    public getNextUnvisitedOnPathGeographicMapCellPosition(): GeographicMapCellPosition{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.nextUnvisitedOnPathGeographicMapCellPosition;
+    
+}
+
+
+    public setNextUnvisitedOnPathGeographicMapCellPosition(nextUnvisitedOnPathGeographicMapCellPosition: GeographicMapCellPosition){
+this.nextUnvisitedOnPathGeographicMapCellPosition= nextUnvisitedOnPathGeographicMapCellPosition;
+    
+}
+
+
+    public getNextOnPathGeographicMapCellPosition(): GeographicMapCellPosition{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.nextOnPathGeographicMapCellPosition;
+    
+}
+
+
+    public setNextOnPathGeographicMapCellPosition(nextOnPathGeographicMapCellPosition: GeographicMapCellPosition){
+this.nextOnPathGeographicMapCellPosition= nextOnPathGeographicMapCellPosition;
+    
+}
+
+
+    public getNextChosenOnPathGeographicMapCellPosition(): GeographicMapCellPosition{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.nextChosenOnPathGeographicMapCellPosition;
+    
+}
+
+
+    public setNextChosenOnPathGeographicMapCellPosition(nextChosenOnPathGeographicMapCellPosition: GeographicMapCellPosition){
+this.nextChosenOnPathGeographicMapCellPosition= nextChosenOnPathGeographicMapCellPosition;
+    
+}
+
+
+}
+

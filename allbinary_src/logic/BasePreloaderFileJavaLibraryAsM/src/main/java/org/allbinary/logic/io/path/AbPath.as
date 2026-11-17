@@ -1,0 +1,382 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { RuntimeException } from '../../../../../java/lang/RuntimeException.js';
+        
+//not plain js import { FilePathData } 
+const FilePathData = globalThis.org.allbinary.logic.io.file.FilePathData;
+type FilePathData<T = any, U = any> = typeof FilePathData extends abstract new (...args: any[]) => infer Instance ? Instance : typeof FilePathData;
+
+import { FilePathUtil } from '../../../../../org/allbinary/logic/io/file/FilePathUtil.js';
+//not GWT import const FilePathUtil
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { StringValidationUtil } from '../../../../../org/allbinary/logic/string/StringValidationUtil.js';
+//not GWT import const StringValidationUtil
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //not plain js - same folder import { AbPathData } 
+const AbPathData = globalThis.org.allbinary.logic.io.path.AbPathData;
+import { PathUtil } from './PathUtil.js';
+//sameFolderImports - not GWT import - same folder const PathUtil
+
+export class AbPath
+            extends Object
+         {
+        
+
+    public static createAbPath(): AbPath{
+
+ try { 
+    let EMPTY_STRING: string = StringUtil.getInstance()!.EMPTY_STRING;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new AbPath(EMPTY_STRING, EMPTY_STRING);
+    
+ }
+ catch (caught: any) {
+ {
+  const ex = caught;
+  
+
+
+
+                            throw new RuntimeException();
+                    
+
+ }
+   }
+ 
+}
+
+
+    private static readonly NETWORK_SEP: string = ":/";
+
+    private readonly commonSeps: CommonSeps = CommonSeps.getInstance()!;
+
+    private readonly abPathData: AbPathData = AbPathData.getInstance()!;
+
+    private readonly abPathUtil: PathUtil = PathUtil.getInstance()!;
+
+    private readonly EMPTY_STRING: string = StringUtil.getInstance()!.EMPTY_STRING;
+
+    schema: string = this.EMPTY_STRING;
+
+    private path: string = this.EMPTY_STRING;
+
+    nameP: string = this.EMPTY_STRING;
+
+    private hasSchemaP: boolean = false;
+
+    private numberOfSeps: number = 0;
+
+public constructor (aPath: string, name: string){
+
+            super();
+        
+    let stringValidationUtil: StringValidationUtil = StringValidationUtil.getInstance()!;;
+    
+
+                        if(!stringValidationUtil!.isEmpty(aPath))
+                        
+                                    {
+                                    this.schema= this.getSchema(aPath);
+    
+this.nameP= name;
+    
+this.path= this.abPathUtil!.adjustEnd(this.abPathUtil!.adjust(this.getPathFromPath(aPath)));
+    
+
+                                    }
+                                
+                        else {
+                            this.init();
+    
+
+                        if(!stringValidationUtil!.isEmpty(name))
+                        
+                                    {
+                                    this.nameP= name;
+    
+
+                                    }
+                                
+
+                        }
+                            
+}
+
+
+    init(){
+this.schema= this.EMPTY_STRING;
+    
+this.setPath(this.abPathData!.SEPARATOR);
+    
+this.nameP= this.EMPTY_STRING;
+    
+}
+
+
+    getSchema(aPath: string): string{
+
+    let beginIndex: number = aPath!.indexOf(this.commonSeps!.COLON)!;;
+    
+
+                        if(beginIndex >= 0)
+                        
+                                    {
+                                    this.hasSchemaP= true;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return aPath!.substring(0, beginIndex);;
+    
+
+                                    }
+                                
+this.hasSchemaP= false;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.EMPTY_STRING;
+    
+}
+
+
+    public hasSchema(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.hasSchemaP;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getPathFromPath(aPath: string): string{
+
+    let filePathData: FilePathData = FilePathData.getInstance()!;;
+    
+
+    let tempPath: string = aPath;;
+    
+
+                        if(!this.hasSchema())
+                        
+                                    {
+                                    tempPath= this.abPathUtil!.adjustStart(tempPath);
+    
+
+                                    }
+                                
+                        else {
+                            
+    let beginIndex: number = tempPath!.indexOf(this.commonSeps!.COLON)!;;
+    
+
+                        if(beginIndex >= 0)
+                        
+                                    {
+                                    beginIndex++;
+    
+
+        while(tempPath[beginIndex] == this.abPathData!.SEPARATORCHAR || tempPath[beginIndex] == filePathData!.SEPARATORCHAR)
+        {
+beginIndex++;
+    
+this.numberOfSeps++;
+    
+
+                        if(this.numberOfSeps > 2)
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("Should Not Have More Than Two Seps");
+                    
+
+                                    }
+                                
+}
+
+tempPath= tempPath!.substring(beginIndex, tempPath!.length);
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return tempPath;
+    
+}
+
+
+    public setName(name: string){
+this.nameP= name;
+    
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.nameP;
+    
+}
+
+
+    public toString(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+
+                        if(this.hasSchema())
+                        
+                                    {
+                                    stringBuffer!.append(this.schema);
+    
+stringBuffer!.append(AbPath.NETWORK_SEP);
+    
+
+                                    }
+                                
+stringBuffer!.append(this.getPath());
+    
+stringBuffer!.append(this.nameP);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+    public toFileSystemString(): string{
+
+                        if(this.hasSchema())
+                        
+                                    {
+                                    
+    let filePathData: FilePathData = FilePathData.getInstance()!;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.schema);
+    
+stringBuffer!.append(this.commonSeps!.COLON);
+    
+stringBuffer!.append(filePathData!.PATH_START);
+    
+stringBuffer!.append(FilePathUtil.adjust(this.getPath()));
+    
+stringBuffer!.append(this.nameP);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return FilePathUtil.adjust(this.getPath()) +this.nameP;
+    
+
+                        }
+                            
+}
+
+
+    public getPath(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.path;
+    
+}
+
+
+    setPath(path: string){
+this.path= path;
+    
+}
+
+
+}
+

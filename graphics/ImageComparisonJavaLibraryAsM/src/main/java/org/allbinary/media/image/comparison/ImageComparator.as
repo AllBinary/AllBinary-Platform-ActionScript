@@ -1,0 +1,252 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { Math } from '../../../../../java/lang/Math.js';
+        
+            import { Integer } from '../../../../../java/lang/Integer.js';
+        
+            import { Long } from '../../../../../java/lang/Long.js';
+        
+import { awt } from '../../../../../java/awt.js';
+//not GWT import const awt
+
+import { BufferedImage } from '../../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { PointFactory } from '../../../../../org/allbinary/graphics/PointFactory.js';
+//not GWT import const PointFactory
+
+import { ColorCacheFactory } from '../../../../../org/allbinary/graphics/color/ColorCacheFactory.js';
+//not GWT import const ColorCacheFactory
+
+import { ColorCacheable } from '../../../../../org/allbinary/graphics/color/ColorCacheable.js';
+//not GWT import const ColorCacheable
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { AutomaticCacheInterface } from '../../../../../org/allbinary/logic/util/cache/AutomaticCacheInterface.js';
+//not GWT import const AutomaticCacheInterface
+
+import { PixelDeltaFactory } from '../../../../../org/allbinary/media/image/comparison/pixel/PixelDeltaFactory.js';
+//not GWT import const PixelDeltaFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ImageComparatorConstraintsInterface } from './ImageComparatorConstraintsInterface.js';
+//sameFolderImports - not GWT import - same folder const ImageComparatorConstraintsInterface
+import { Color } from './Color.js';
+//sameFolderImports - not GWT import - same folder const Color
+import { ImageComparisonResult } from './ImageComparisonResult.js';
+//sameFolderImports - not GWT import - same folder const ImageComparisonResult
+
+export class ImageComparator
+            extends Object
+         {
+        
+
+    private readonly imageComparatorConstraintsInterface: ImageComparatorConstraintsInterface;
+
+public constructor (imageComparatorConstraintsInterface: ImageComparatorConstraintsInterface){
+
+            super();
+        this.imageComparatorConstraintsInterface= imageComparatorConstraintsInterface;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    process(imageComparisonInfo: ImageComparisonResult, point: GPoint){
+
+    let isCollsionWithAvoidRectangles: boolean = this.imageComparatorConstraintsInterface!.isCollisionWithAvoidRectangles(point)!;;
+    
+
+                        if(!isCollsionWithAvoidRectangles)
+                        
+                                    {
+                                    
+    let rgb1: number = imageComparisonInfo!.getBufferedImages()[0]!.getRGB(point.getX(), point.getY())!;;
+    
+
+    let rgb2: number = imageComparisonInfo!.getBufferedImages()[1]!.getRGB(point.getX(), point.getY())!;;
+    
+
+    let automaticCacheInterface: AutomaticCacheInterface = ColorCacheFactory.getInstance()!;;
+    
+
+    let colorInteger: Integer = Integer.valueOf(rgb1)!;;
+    
+
+    let colorCacheable: ColorCacheable = automaticCacheInterface!.get(colorInteger) as ColorCacheable;;
+    
+
+    let color: Color = colorCacheable!.getColor()!;;
+    
+
+    let colorInteger2: Integer = Integer.valueOf(rgb2)!;;
+    
+
+    let colorCacheable2: ColorCacheable = automaticCacheInterface!.get(colorInteger) as ColorCacheable;;
+    
+
+    let color2: Color = colorCacheable!.getColor()!;;
+    
+
+                        if(this.imageComparatorConstraintsInterface!.isColorAllowed(0, point, color) || this.imageComparatorConstraintsInterface!.isColorAllowed(1, point, color2))
+                        
+                                    {
+                                    
+                        if(Math.abs(rgb1 -rgb2) <= imageComparisonInfo!.getTolerance())
+                        
+                                    {
+                                    imageComparisonInfo!.pixelsThatMatch++;
+    
+
+                                    }
+                                
+                        else {
+                            imageComparisonInfo!.add(PixelDeltaFactory.getInstance(point.getX(), point.getY(), rgb1, rgb2));
+    
+
+                        }
+                            
+
+                                    }
+                                
+
+                                    }
+                                
+                        else {
+                            imageComparisonInfo!.pixelsIgnored++;
+    
+
+                        }
+                            
+}
+
+compare(...args: any[]): any {
+   
+   
+    if (args.length === 5 && typeof args[4] === 'number') return this.compare$overload1(args[0], args[1], args[2], args[3], args[4]);
+   
+    if (args.length === 6 && typeof args[4] === 'number' && typeof args[5] === 'string') return this.compare$overload2(args[0], args[1], args[2], args[3], args[4], args[5]);
+   
+   throw new TypeError('No matching overload: compare'); }
+  
+                //@Throws(Exception.constructor)
+            
+    public compare$overload1(bufferedImage1: BufferedImage, bufferedImage2: BufferedImage, frameOne: Long, frameTwo: Long, tolerance: number): ImageComparisonResult{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.compare(bufferedImage1, bufferedImage2, frameOne, frameTwo, tolerance, StringUtil.getInstance()!.EMPTY_STRING);;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public compare$overload2(bufferedImage1: BufferedImage, bufferedImage2: BufferedImage, frameOne: Long, frameTwo: Long, tolerance: number, name: string): ImageComparisonResult{
+
+                        if(bufferedImage1 == 
+                                    null
+                                 || bufferedImage2 == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("Input images must not be null.");
+                    
+
+                                    }
+                                
+
+    let imageComparisonInfo: ImageComparisonResult = new ImageComparisonResult(name, bufferedImage1, bufferedImage2, frameOne, frameTwo, tolerance);;
+    
+
+
+
+
+                        for (
+    let indexY: number = 0;indexY < imageComparisonInfo!.imageHeight; indexY++)
+        {
+
+
+
+
+                        for (
+    let indexX: number = 0;indexX < imageComparisonInfo!.imageWidth; indexX++)
+        {
+this.process(imageComparisonInfo, PointFactory.getInstance()!.createXY(indexX, indexY));
+    
+
+                        if(imageComparisonInfo!.getNonMatchingPixelVector()!.size() > this.imageComparatorConstraintsInterface!.getMaxNonMatchingPixelDeltas())
+                        
+                                    {
+                                    break;
+
+                    
+
+                                    }
+                                
+}
+
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return imageComparisonInfo;
+    
+}
+
+
+}
+

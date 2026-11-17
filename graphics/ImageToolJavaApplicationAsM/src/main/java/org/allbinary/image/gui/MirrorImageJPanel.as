@@ -1,0 +1,380 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            const Short = (globalThis.java?.lang?.Short ?? class {}) as typeof globalThis.java.lang.Short;
+        
+            import { Thread } from '../../../../java/lang/Thread.js';
+        
+import { awt } from '../../../../java/awt.js';
+//not GWT import const awt
+
+import { BufferedImage } from '../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+import { RenderedImage } from '../../../../java/awt/image/RenderedImage.js';
+//not GWT import const RenderedImage
+
+import { File } from '../../../../java/io/File.js';
+//not GWT import const File
+
+import { ImageIO } from '../../../../javax/imageio/ImageIO.js';
+//not GWT import const ImageIO
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { ImageProcessorInput } from '../../../../org/allbinary/media/image/ImageProcessorInput.js';
+//not GWT import const ImageProcessorInput
+
+import { ImageProcessorInputCompositeInterface } from '../../../../org/allbinary/media/image/ImageProcessorInputCompositeInterface.js';
+//not GWT import const ImageProcessorInputCompositeInterface
+
+import { ImageStrings } from '../../../../org/allbinary/media/image/ImageStrings.js';
+//not GWT import const ImageStrings
+
+import { MirrorImageUtil } from '../../../../org/allbinary/media/image/MirrorImageUtil.js';
+//not GWT import const MirrorImageUtil
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JPanel } from './JPanel.js';
+//sameFolderImports - not GWT import - same folder const JPanel
+import { JLayeredPane } from './JLayeredPane.js';
+//sameFolderImports - not GWT import - same folder const JLayeredPane
+import { ButtonGroup } from './ButtonGroup.js';
+//sameFolderImports - not GWT import - same folder const ButtonGroup
+import { Graphics } from './Graphics.js';
+//sameFolderImports - not GWT import - same folder const Graphics
+import { JCheckBox } from './JCheckBox.js';
+//sameFolderImports - not GWT import - same folder const JCheckBox
+import { JButton } from './JButton.js';
+//sameFolderImports - not GWT import - same folder const JButton
+import { JRadioButton } from './JRadioButton.js';
+//sameFolderImports - not GWT import - same folder const JRadioButton
+import { JLabel } from './JLabel.js';
+//sameFolderImports - not GWT import - same folder const JLabel
+import { GroupLayout } from './GroupLayout.js';
+//sameFolderImports - not GWT import - same folder const GroupLayout
+import { ActionListener } from './ActionListener.js';
+//sameFolderImports - not GWT import - same folder const ActionListener
+import { ActionEvent } from './ActionEvent.js';
+//sameFolderImports - not GWT import - same folder const ActionEvent
+
+export class MirrorImageJPanel extends javax.swing.JPanel implements ImageProcessorInputCompositeInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly imageStrings: ImageStrings = ImageStrings.getInstance()!;
+
+    private imageProcessorInput: ImageProcessorInput;
+
+    private result: BufferedImage;
+
+public constructor (imageProcessorInput: ImageProcessorInput){
+            super();
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.logUtil!.putF("Starting", this, this.commonStrings!.CONSTRUCTOR);
+    
+this.initComponents();
+    
+this.imageProcessorInput= imageProcessorInput;
+    
+}
+
+
+    public process(){
+new class extends Thread
+                                {
+                                
+    public run(){
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+
+ try { 
+    let imageProcessorInput: ImageProcessorInput = outer$MirrorImageJPanel.getImageProcessorInput()!;;
+    
+
+    let bufferedImageArray: BufferedImage[] = imageProcessorInput!.getBufferedImageArray()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < bufferedImageArray!.length; index++)
+        {
+outer$MirrorImageJPanel.result= MirrorImageUtil.getInstance()!.getImage(bufferedImageArray[index]!, outer$MirrorImageJPanel.verticleJCheckBox!.isSelected(), outer$MirrorImageJPanel.horizontalJCheckBox!.isSelected());
+    
+
+    let file: File = imageProcessorInput!.getFiles()[index]!;;
+    
+
+                        if(outer$MirrorImageJPanel.writeOverOriginalJRadioButton!.isSelected())
+                        
+                                    {
+                                    
+                                    }
+                                
+                             else 
+                        if(outer$MirrorImageJPanel.renameJRadioButton!.isSelected())
+                        
+                                    {
+                                    
+    let filePath: string = file.getAbsolutePath()!;;
+    
+
+    let extensionIndex: number = filePath!.indexOf(imageStrings!.PNG_EXTENSION)!;;
+    
+filePath= filePath!.substring(0, extensionIndex) +"_mirror" +imageStrings!.PNG_EXTENSION;
+    
+logUtil!.putF("Renamed File: " +filePath, this, commonStrings!.RUN);
+    
+file= new File(filePath);
+    
+
+                                    }
+                                
+
+    let isWritten: boolean = ImageIO.write(outer$MirrorImageJPanel.result as RenderedImage, imageStrings!.PNG, file)!;;
+    
+logUtil!.putF("File: " +file +" Wrote: " +isWritten, this, commonStrings!.RUN);
+    
+outer$MirrorImageJPanel.getParent()!.repaint();
+    
+}
+
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN, e);
+    
+
+ }
+   }
+ 
+}
+
+                                }().start();
+    
+}
+
+
+    initComponents(){
+this.jLayeredPane1= new javax.swing.JLayeredPane();
+    
+this.buttonGroup= new javax.swing.ButtonGroup();
+    
+this.jPanel1= new class extends javax.swing.JPanel
+                                {
+                                
+    public paint(graphics: Graphics){
+
+                        if(outer$MirrorImageJPanel.result != 
+                                    null
+                                )
+                        
+                                    {
+                                    graphics.drawImage(outer$MirrorImageJPanel.result, 0, 0, outer$MirrorImageJPanel.result.getWidth(
+                            null), outer$MirrorImageJPanel.result.getHeight(
+                            null), 
+                            null);
+    
+
+                                    }
+                                
+}
+
+                                }();
+    
+this.jPanel2= new javax.swing.JPanel();
+    
+this.horizontalJCheckBox= new javax.swing.JCheckBox();
+    
+this.verticleJCheckBox= new javax.swing.JCheckBox();
+    
+this.generateJButton= new javax.swing.JButton();
+    
+this.renameJRadioButton= new javax.swing.JRadioButton();
+    
+this.writeOverOriginalJRadioButton= new javax.swing.JRadioButton();
+    
+this.jPanel3= new javax.swing.JPanel();
+    
+this.jLabel2= new javax.swing.JLabel();
+    
+
+    let jPanel1Layout: org.jdesktop.layout.GroupLayout = new org.jdesktop.layout.GroupLayout(this.jPanel1);;
+    
+this.jPanel1!.setLayout(jPanel1Layout);
+    
+jPanel1Layout!.setHorizontalGroup(jPanel1Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(0, 522, Short.MAX_VALUE));
+    
+jPanel1Layout!.setVerticalGroup(jPanel1Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(0, 230, Short.MAX_VALUE));
+    
+this.horizontalJCheckBox!.setSelected(true);
+    
+this.horizontalJCheckBox!.setText("Horizontal");
+    
+this.horizontalJCheckBox!.setEnabled(false);
+    
+this.verticleJCheckBox!.setText("Verticle");
+    
+this.verticleJCheckBox!.setEnabled(false);
+    
+this.generateJButton!.setText("Generate");
+    
+this.generateJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+generateJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.renameJRadioButton!.setText("Save As filename_mirror");
+    
+this.renameJRadioButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+renameJRadioButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.writeOverOriginalJRadioButton!.setText("Write Over Original");
+    
+
+    let jPanel2Layout: org.jdesktop.layout.GroupLayout = new org.jdesktop.layout.GroupLayout(this.jPanel2);;
+    
+this.jPanel2!.setLayout(jPanel2Layout);
+    
+jPanel2Layout!.setHorizontalGroup(jPanel2Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(jPanel2Layout!.createSequentialGroup()!.addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.add(this.verticleJCheckBox)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)!.add(this.horizontalJCheckBox)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.writeOverOriginalJRadioButton)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)!.add(this.renameJRadioButton)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.generateJButton)!.add(37, 37, 37)));
+    
+jPanel2Layout!.setVerticalGroup(jPanel2Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(jPanel2Layout!.createSequentialGroup()!.add(jPanel2Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)!.add(this.horizontalJCheckBox)!.add(this.verticleJCheckBox)!.add(this.writeOverOriginalJRadioButton)!.add(this.renameJRadioButton)!.add(this.generateJButton))!.addContainerGap()));
+    
+this.jLabel2!.setText("Results:");
+    
+
+    let jPanel3Layout: org.jdesktop.layout.GroupLayout = new org.jdesktop.layout.GroupLayout(this.jPanel3);;
+    
+this.jPanel3!.setLayout(jPanel3Layout);
+    
+jPanel3Layout!.setHorizontalGroup(jPanel3Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(jPanel3Layout!.createSequentialGroup()!.add(this.jLabel2)!.addContainerGap(433, Short.MAX_VALUE)));
+    
+jPanel3Layout!.setVerticalGroup(jPanel3Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(this.jLabel2));
+    
+
+    let layout: org.jdesktop.layout.GroupLayout = new org.jdesktop.layout.GroupLayout(this);;
+    
+this.setLayout(layout);
+    
+layout.setHorizontalGroup(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()!.addContainerGap()!.add(this.jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.addContainerGap())!.add(this.jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.add(layout.createSequentialGroup()!.add(this.jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+    
+layout.setVerticalGroup(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(layout.createSequentialGroup()!.add(this.jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+    
+}
+
+
+    generateJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.process();
+    
+}
+
+
+    renameJRadioButtonActionPerformed(evt: java.awt.event.ActionEvent){
+}
+
+
+    private buttonGroup: javax.swing.ButtonGroup;
+
+    private generateJButton: javax.swing.JButton;
+
+    private horizontalJCheckBox: javax.swing.JCheckBox;
+
+    private jLabel2: javax.swing.JLabel;
+
+    private jLayeredPane1: javax.swing.JLayeredPane;
+
+    private jPanel1: javax.swing.JPanel;
+
+    private jPanel2: javax.swing.JPanel;
+
+    private jPanel3: javax.swing.JPanel;
+
+    private renameJRadioButton: javax.swing.JRadioButton;
+
+    private verticleJCheckBox: javax.swing.JCheckBox;
+
+    private writeOverOriginalJRadioButton: javax.swing.JRadioButton;
+
+    public getImageProcessorInput(): ImageProcessorInput{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.imageProcessorInput;
+    
+}
+
+
+    public setImageProcessorInput(imageProcessorInput: ImageProcessorInput){
+this.imageProcessorInput= imageProcessorInput;
+    
+}
+
+
+}
+

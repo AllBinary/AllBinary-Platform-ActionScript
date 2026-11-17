@@ -1,0 +1,105 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { HttpServletRequest } from '../../../../../../../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { MoneyException } from '../../../../../../../org/allbinary/business/user/commerce/money/MoneyException.js';
+//not GWT import const MoneyException
+
+import { TableMappingInterface } from '../../../../../../../org/allbinary/data/tables/TableMappingInterface.js';
+//not GWT import const TableMappingInterface
+
+import { RequestParams } from '../../../../../../../org/allbinary/logic/communication/http/request/RequestParams.js';
+//not GWT import const RequestParams
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { Item } from './Item.js';
+//sameFolderImports - not GWT import - same folder const Item
+
+export class ItemFactoryUnused
+            extends Object
+         {
+        
+static getInstance(...args: any[]): any {
+   
+   
+    if (args.length === 1) return this.getInstance$overload1(args[0]);
+   
+    if (args.length === 1) return this.getInstance$overload2(args[0]);
+   
+   throw new TypeError('No matching overload: getInstance'); }
+  
+                //@Throws(MoneyException.constructor)
+            
+    public static getInstance$overload1(hashMap: HashMap<any, any>): TableMappingInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new Item(hashMap) as TableMappingInterface;
+    
+}
+
+
+                //@Throws(Exception.constructor, MoneyException.constructor)
+            
+    public static getInstance$overload2(request: HttpServletRequest): TableMappingInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new Item(new RequestParams(request).toHashMap()) as TableMappingInterface;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

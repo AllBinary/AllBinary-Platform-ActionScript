@@ -1,0 +1,190 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../../../java/lang/Integer.js';
+        
+            import { Long } from '../../../../../../../../java/lang/Long.js';
+        
+import { HashMap } from '../../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { StoreFrontInterface } from '../../../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontInterface.js';
+//not GWT import const StoreFrontInterface
+
+import { ItemInterface } from '../../../../../../../../org/allbinary/business/user/commerce/inventory/item/ItemInterface.js';
+//not GWT import const ItemInterface
+
+import { Money } from '../../../../../../../../org/allbinary/business/user/commerce/money/Money.js';
+//not GWT import const Money
+
+import { InventoryEntityFactory } from '../../../../../../../../org/allbinary/data/tables/user/commerce/inventory/item/InventoryEntityFactory.js';
+//not GWT import const InventoryEntityFactory
+
+import { InventoryEntityInterface } from '../../../../../../../../org/allbinary/data/tables/user/commerce/inventory/item/InventoryEntityInterface.js';
+//not GWT import const InventoryEntityInterface
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { StoreFrontInventoryStatisticsInterface } from './StoreFrontInventoryStatisticsInterface.js';
+//sameFolderImports - not GWT import - same folder const StoreFrontInventoryStatisticsInterface
+import { StoreFrontInventoryStatisticsData } from './StoreFrontInventoryStatisticsData.js';
+//sameFolderImports - not GWT import - same folder const StoreFrontInventoryStatisticsData
+
+export class StoreFrontInventoryStatistics
+            extends Object
+         implements StoreFrontInventoryStatisticsInterface {
+        
+
+    private totalNumberOfItems: number= 0;
+
+    private totalInventorySaleValueMoney: Money;
+
+public constructor (storeFrontInterface: StoreFrontInterface){
+
+            super();
+        this.totalInventorySaleValueMoney= new Money();
+    
+
+    let inventoryEntityInterface: InventoryEntityInterface = InventoryEntityFactory.getInstance()!.getInventoryEntityInstance()!;;
+    
+
+    let itemVector: BasicArrayList = inventoryEntityInterface!.getItems(storeFrontInterface)!;;
+    
+
+    let size: number = itemVector!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let itemInterface: ItemInterface = itemVector!.get(index) as ItemInterface;;
+    
+
+    let numberInStock: number = Integer.valueOf(itemInterface!.getNumber())!.intValue()!;;
+    
+this.totalNumberOfItems= this.totalNumberOfItems +numberInStock;
+    
+
+    let itemPriceMoney: Money = itemInterface!.getPrice()!;;
+    
+itemPriceMoney!.multiply(numberInStock);
+    
+this.totalInventorySaleValueMoney!.add(itemPriceMoney!.toString());
+    
+}
+
+}
+
+
+    public getNumber(): Long{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new Long(this.totalNumberOfItems);
+    
+}
+
+
+    public getTotal(): Money{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.totalInventorySaleValueMoney;
+    
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put(StoreFrontInventoryStatisticsData.getInstance()!.NUMBEROFITEMS, this.getNumber()!.toString());
+    
+hashMap!.put(StoreFrontInventoryStatisticsData.getInstance()!.TOTALVALUE, this.getTotal()!.toString());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+    public toVector(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public getKey(): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+}
+

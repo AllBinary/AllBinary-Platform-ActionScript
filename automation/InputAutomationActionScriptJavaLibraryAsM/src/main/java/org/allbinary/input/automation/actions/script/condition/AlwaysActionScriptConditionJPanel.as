@@ -1,0 +1,256 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            const Short = (globalThis.java?.lang?.Short ?? class {}) as typeof globalThis.java.lang.Short;
+        
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JPanel } from './JPanel.js';
+//sameFolderImports - not GWT import - same folder const JPanel
+import { AlwaysActionScriptConditionInterface } from './AlwaysActionScriptConditionInterface.js';
+//sameFolderImports - not GWT import - same folder const AlwaysActionScriptConditionInterface
+import { JDialog } from './JDialog.js';
+//sameFolderImports - not GWT import - same folder const JDialog
+import { JLabel } from './JLabel.js';
+//sameFolderImports - not GWT import - same folder const JLabel
+import { JButton } from './JButton.js';
+//sameFolderImports - not GWT import - same folder const JButton
+import { JComboBox } from './JComboBox.js';
+//sameFolderImports - not GWT import - same folder const JComboBox
+import { Dimension } from './Dimension.js';
+//sameFolderImports - not GWT import - same folder const Dimension
+import { ActionListener } from './ActionListener.js';
+//sameFolderImports - not GWT import - same folder const ActionListener
+import { ActionEvent } from './ActionEvent.js';
+//sameFolderImports - not GWT import - same folder const ActionEvent
+import { DefaultComboBoxModel } from './DefaultComboBoxModel.js';
+//sameFolderImports - not GWT import - same folder const DefaultComboBoxModel
+import { GroupLayout } from './GroupLayout.js';
+//sameFolderImports - not GWT import - same folder const GroupLayout
+
+export class AlwaysActionScriptConditionJPanel extends javax.swing.JPanel {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private alwaysActionScriptConditionInterface: AlwaysActionScriptConditionInterface;
+
+public constructor (alwaysActionScriptConditionInterface: AlwaysActionScriptConditionInterface){
+
+            super();
+        this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    
+this.initComponents();
+    
+this.alwaysActionScriptConditionInterface= alwaysActionScriptConditionInterface;
+    
+this.set();
+    
+}
+
+
+    set(){
+
+                        if(this.alwaysActionScriptConditionInterface!.isIsOn())
+                        
+                                    {
+                                    this.alwaysJComboBox!.setSelectedIndex(0);
+    
+
+                                    }
+                                
+                        else {
+                            this.alwaysJComboBox!.setSelectedIndex(1);
+    
+
+                        }
+                            
+this.alwaysActionScriptConditionInterface!.log();
+    
+}
+
+
+    update(){
+
+                        if(this.alwaysJComboBox!.getSelectedIndex() == 0)
+                        
+                                    {
+                                    this.alwaysActionScriptConditionInterface!.setIsOn(true);
+    
+
+                                    }
+                                
+                        else {
+                            this.alwaysActionScriptConditionInterface!.setIsOn(false);
+    
+
+                        }
+                            
+this.alwaysActionScriptConditionInterface!.log();
+    
+}
+
+
+    public getAlwaysActionJDialog(): javax.swing.JDialog{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.alwaysActionJDialog;
+    
+}
+
+
+    public setAlwaysActionJDialog(alwaysActionJDialog: javax.swing.JDialog){
+this.alwaysActionJDialog= alwaysActionJDialog;
+    
+}
+
+
+    initComponents(){
+this.alwaysActionJDialog= new javax.swing.JDialog();
+    
+this.titleJLabel= new javax.swing.JLabel();
+    
+this.okJButton= new javax.swing.JButton();
+    
+this.jLabel2= new javax.swing.JLabel();
+    
+this.alwaysJComboBox= new javax.swing.JComboBox();
+    
+this.alwaysActionJButton= new javax.swing.JButton();
+    
+this.jLabel1= new javax.swing.JLabel();
+    
+this.alwaysActionJDialog!.setMinimumSize(new java.awt.Dimension(250, 150));
+    
+this.titleJLabel!.setText("Always Condition Options");
+    
+this.okJButton!.setText("OK");
+    
+this.okJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+okJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.jLabel2!.setText("On:");
+    
+this.alwaysJComboBox!.setModel(new javax.swing.DefaultComboBoxModel([
+"true","false"
+                                                ]));
+    
+
+    let alwaysActionJDialogLayout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this.alwaysActionJDialog!.getContentPane());;
+    
+this.alwaysActionJDialog!.getContentPane()!.setLayout(alwaysActionJDialogLayout);
+    
+alwaysActionJDialogLayout!.setHorizontalGroup(alwaysActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(alwaysActionJDialogLayout!.createSequentialGroup()!.addGroup(alwaysActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(alwaysActionJDialogLayout!.createSequentialGroup()!.addGap(47, 47, 47)!.addGroup(alwaysActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)!.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, alwaysActionJDialogLayout!.createSequentialGroup()!.addComponent(this.jLabel2)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.addComponent(this.alwaysJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))!.addComponent(this.titleJLabel)))!.addGroup(alwaysActionJDialogLayout!.createSequentialGroup()!.addGap(79, 79, 79)!.addComponent(this.okJButton)))!.addContainerGap(45, Short.MAX_VALUE)));
+    
+alwaysActionJDialogLayout!.setVerticalGroup(alwaysActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(alwaysActionJDialogLayout!.createSequentialGroup()!.addContainerGap()!.addComponent(this.titleJLabel)!.addGap(20, 20, 20)!.addGroup(alwaysActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.alwaysJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addComponent(this.jLabel2))!.addGap(15, 15, 15)!.addComponent(this.okJButton)!.addContainerGap()));
+    
+setMinimumSize(new java.awt.Dimension(100, 0));
+    
+this.alwaysActionJButton!.setText("Edit");
+    
+this.alwaysActionJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+alwaysActionJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.jLabel1!.setText("Always:");
+    
+
+    let layout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this);;
+    
+this.setLayout(layout);
+    
+layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addComponent(this.jLabel1)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)!.addComponent(this.alwaysActionJButton)));
+    
+layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.jLabel1)!.addComponent(this.alwaysActionJButton)));
+    
+}
+
+
+    okJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.update();
+    
+this.getAlwaysActionJDialog()!.setVisible(false);
+    
+}
+
+
+    alwaysActionJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.getAlwaysActionJDialog()!.setVisible(true);
+    
+}
+
+
+    private alwaysActionJButton: javax.swing.JButton;
+
+    private alwaysActionJDialog: javax.swing.JDialog;
+
+    private alwaysJComboBox: javax.swing.JComboBox;
+
+    private jLabel1: javax.swing.JLabel;
+
+    private jLabel2: javax.swing.JLabel;
+
+    private okJButton: javax.swing.JButton;
+
+    private titleJLabel: javax.swing.JLabel;
+
+}
+

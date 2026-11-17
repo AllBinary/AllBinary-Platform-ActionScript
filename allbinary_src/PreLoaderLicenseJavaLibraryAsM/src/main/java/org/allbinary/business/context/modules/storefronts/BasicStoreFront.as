@@ -1,0 +1,639 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { StoreFrontData } from '../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontData.js';
+//not GWT import const StoreFrontData
+
+import { EntryData } from '../../../../../../org/allbinary/business/entry/EntryData.js';
+//not GWT import const EntryData
+
+import { UserData } from '../../../../../../org/allbinary/business/user/UserData.js';
+//not GWT import const UserData
+
+import { Tokenizer } from '../../../../../../org/allbinary/logic/string/tokens/Tokenizer.js';
+//not GWT import const Tokenizer
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicStoreFrontInterface } from './BasicStoreFrontInterface.js';
+//sameFolderImports - not GWT import - same folder const BasicStoreFrontInterface
+
+export class BasicStoreFront
+            extends Object
+         implements BasicStoreFrontInterface {
+        
+
+    private name: string;
+
+    private userName: string;
+
+    private basketName: string;
+
+    private homeHostName: string;
+
+    private homeHostNamePath: string;
+
+    private hostName: string;
+
+    private hostNamePath: string;
+
+    private testHomeHostName: string;
+
+    private testHomeHostNamePath: string;
+
+    private testHostName: string;
+
+    private testHostNamePath: string;
+
+    private imagePath: string;
+
+    private staticPath: string;
+
+    private categoryPath: string;
+
+    private inventoryControl: string;
+
+    private subStores: string;
+
+    private tagLocation: string;
+
+    private packageLocation: string;
+
+    private ftp: string;
+
+    private ftpPath: string;
+
+    private ftpUserName: string;
+
+    private ftpPassword: string;
+
+    private testFtp: string;
+
+    private testFtpPath: string;
+
+    private testFtpUserName: string;
+
+    private testFtpPassword: string;
+
+    private timeCreated: string;
+
+    private lastModified: string;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 0) {
+            
+            this.constructor$0();
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        
+    }
+    
+    private constructor$0(): void {
+        
+    }
+    
+    private constructor$1(storeHashMap: HashMap<any, any>): void {
+        
+    let storeFrontData: StoreFrontData = StoreFrontData.getInstance()!;;
+    
+this.name= storeHashMap!.get(storeFrontData!.NAME) as string;
+    
+this.userName= storeHashMap!.get(UserData.USERNAME) as string;
+    
+this.basketName= storeHashMap!.get(storeFrontData!.NAME) as string;
+    
+this.homeHostName= storeHashMap!.get(storeFrontData!.HOMEHOSTNAME) as string;
+    
+this.homeHostNamePath= storeHashMap!.get(storeFrontData!.HOMEHOSTNAMEPATH) as string;
+    
+this.hostName= storeHashMap!.get(storeFrontData!.HOSTNAME) as string;
+    
+this.hostNamePath= storeHashMap!.get(storeFrontData!.HOSTNAMEPATH) as string;
+    
+this.testHomeHostName= storeHashMap!.get(storeFrontData!.TESTHOMEHOSTNAME) as string;
+    
+this.testHomeHostNamePath= storeHashMap!.get(storeFrontData!.TESTHOMEHOSTNAMEPATH) as string;
+    
+this.testHostName= storeHashMap!.get(storeFrontData!.TESTHOSTNAME) as string;
+    
+this.testHostNamePath= storeHashMap!.get(storeFrontData!.TESTHOSTNAMEPATH) as string;
+    
+this.imagePath= storeHashMap!.get(storeFrontData!.IMAGEPATH) as string;
+    
+this.staticPath= storeHashMap!.get(storeFrontData!.STATICPATH) as string;
+    
+this.categoryPath= storeHashMap!.get(storeFrontData!.CATEGORYPATH) as string;
+    
+this.inventoryControl= storeHashMap!.get(storeFrontData!.INVENTORYCONTROL) as string;
+    
+this.subStores= storeHashMap!.get(storeFrontData!.SUBSTORES) as string;
+    
+this.tagLocation= storeHashMap!.get(storeFrontData!.TAGLOCATION) as string;
+    
+this.packageLocation= storeHashMap!.get(storeFrontData!.PACKAGELOCATION) as string;
+    
+this.ftp= storeHashMap!.get(storeFrontData!.FTP) as string;
+    
+this.ftpPath= storeHashMap!.get(storeFrontData!.FTPPATH) as string;
+    
+this.ftpUserName= storeHashMap!.get(storeFrontData!.FTPUSERNAME) as string;
+    
+this.ftpPassword= storeHashMap!.get(storeFrontData!.FTPPASSWORD) as string;
+    
+this.testFtp= storeHashMap!.get(storeFrontData!.TESTFTP) as string;
+    
+this.testFtpPath= storeHashMap!.get(storeFrontData!.TESTFTPPATH) as string;
+    
+this.testFtpUserName= storeHashMap!.get(storeFrontData!.TESTFTPUSERNAME) as string;
+    
+this.testFtpPassword= storeHashMap!.get(storeFrontData!.TESTFTPPASSWORD) as string;
+    
+this.timeCreated= storeHashMap!.get(EntryData.getInstance()!.TIMECREATED) as string;
+    
+this.lastModified= storeHashMap!.get(EntryData.getInstance()!.LASTMODIFIED) as string;
+    
+
+    }
+    
+    public getTestHtmlPath(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return org.allbinary.globals.URLGLOBALS.getTestHtmlPath() +this.getCurrentHostNamePath();
+    
+}
+
+
+    public getCurrentHostName(): string{
+
+    let location: string = 
+                null
+            ;;
+    
+
+                        if(org.allbinary.globals.URLGLOBALS.isTestingMode())
+                        
+                                    {
+                                    location= this.getTestHostName();
+    
+
+                                    }
+                                
+                        else {
+                            location= this.getHostName();
+    
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return location;
+    
+}
+
+
+    public getCurrentHostNamePath(): string{
+
+    let location: string = 
+                null
+            ;;
+    
+
+                        if(org.allbinary.globals.URLGLOBALS.isTestingMode())
+                        
+                                    {
+                                    location= this.getTestHostNamePath();
+    
+
+                                    }
+                                
+                        else {
+                            location= this.getHostNamePath();
+    
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return location;
+    
+}
+
+
+    public getCurrentHomeHostName(): string{
+
+    let location: string = 
+                null
+            ;;
+    
+
+                        if(org.allbinary.globals.URLGLOBALS.isTestingMode())
+                        
+                                    {
+                                    location= this.getTestHomeHostName();
+    
+
+                                    }
+                                
+                        else {
+                            location= this.getHomeHostName();
+    
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return location;
+    
+}
+
+
+    public getCurrentHomeHostNamePath(): string{
+
+    let location: string = 
+                null
+            ;;
+    
+
+                        if(org.allbinary.globals.URLGLOBALS.isTestingMode())
+                        
+                                    {
+                                    location= this.getTestHomeHostNamePath();
+    
+
+                                    }
+                                
+                        else {
+                            location= this.getHomeHostNamePath();
+    
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return location;
+    
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.name;
+    
+}
+
+
+    public getUserName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.userName;
+    
+}
+
+
+    public getBasketName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.basketName;
+    
+}
+
+
+    public getHomeHostName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.homeHostName;
+    
+}
+
+
+    public getHomeHostNamePath(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.homeHostNamePath;
+    
+}
+
+
+    public getHostName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.hostName;
+    
+}
+
+
+    public getHostNamePath(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.hostNamePath;
+    
+}
+
+
+    public getTestHomeHostName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.testHomeHostName;
+    
+}
+
+
+    public getTestHomeHostNamePath(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.testHomeHostNamePath;
+    
+}
+
+
+    public getTestHostName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.testHostName;
+    
+}
+
+
+    public getTestHostNamePath(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.testHostNamePath;
+    
+}
+
+
+    public getStaticPath(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.staticPath;
+    
+}
+
+
+    public getCategoryPath(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.categoryPath;
+    
+}
+
+
+    public getInventoryControl(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.inventoryControl;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getSubStores(): BasicArrayList{
+
+ try { 
+    let tokenizer: Tokenizer = new Tokenizer(CommonSeps.getInstance()!.SEMICOLON);;
+    
+
+    let subStoreVector: BasicArrayList = tokenizer.getTokensFromString(this.subStores, new BasicArrayListD())!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return subStoreVector;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+   }
+ 
+}
+
+
+    public getTagLocation(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.tagLocation;
+    
+}
+
+
+    public getPackageLocation(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.packageLocation;
+    
+}
+
+
+    public getFtp(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.ftp;
+    
+}
+
+
+    public getFtpUserName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.ftpUserName;
+    
+}
+
+
+    public getFtpPassword(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.ftpPassword;
+    
+}
+
+
+    public getTestFtp(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.testFtp;
+    
+}
+
+
+    public getTestFtpUserName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.testFtpUserName;
+    
+}
+
+
+    public getTestFtpPassword(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.testFtpPassword;
+    
+}
+
+
+    public getFtpPath(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.ftpPath;
+    
+}
+
+
+    public getTestFtpPath(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.testFtpPath;
+    
+}
+
+
+    public getTimeCreated(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.timeCreated;
+    
+}
+
+
+    public getLastModified(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.lastModified;
+    
+}
+
+
+}
+

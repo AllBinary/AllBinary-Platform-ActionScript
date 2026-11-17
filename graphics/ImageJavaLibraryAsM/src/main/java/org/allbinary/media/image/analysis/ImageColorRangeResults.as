@@ -1,0 +1,136 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ColorRangeInterface } from './ColorRangeInterface.js';
+//sameFolderImports - not GWT import - same folder const ColorRangeInterface
+import { ColorRange } from './ColorRange.js';
+//sameFolderImports - not GWT import - same folder const ColorRange
+
+export class ImageColorRangeResults
+            extends Object
+         {
+        
+
+    private colorRangeInterface: ColorRangeInterface;
+
+    private matchingPixelsChecked: number= 0;
+
+    private totalPixelsChecked: number= 0;
+
+public constructor (){
+
+            super();
+        this.setColorRangeInterface(new ColorRange() as ColorRangeInterface);
+    
+}
+
+
+    public getColorRangeInterface(): ColorRangeInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.colorRangeInterface;
+    
+}
+
+
+    public setColorRangeInterface(colorRangeInterface: ColorRangeInterface){
+this.colorRangeInterface= colorRangeInterface;
+    
+}
+
+
+    public getMatchingPixelsChecked(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.matchingPixelsChecked;
+    
+}
+
+
+    public setMatchingPixelsChecked(matchingPixelsChecked: number){
+this.matchingPixelsChecked= matchingPixelsChecked;
+    
+}
+
+
+    public addMatchingPixelsChecked(){
+this.matchingPixelsChecked++;
+    
+}
+
+
+    public getTotalPixelsChecked(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.totalPixelsChecked;
+    
+}
+
+
+    public addTotalPixelsChecked(){
+this.totalPixelsChecked++;
+    
+}
+
+
+    public setTotalPixelsChecked(totalPixelsChecked: number){
+this.totalPixelsChecked= totalPixelsChecked;
+    
+}
+
+
+    public getPercent(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return (this.getMatchingPixelsChecked() /this.getTotalPixelsChecked());
+    
+}
+
+
+}
+

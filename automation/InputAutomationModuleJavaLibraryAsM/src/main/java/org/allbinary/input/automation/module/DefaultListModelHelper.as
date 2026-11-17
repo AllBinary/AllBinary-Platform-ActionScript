@@ -1,0 +1,128 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { swing } from '../../../../../javax/swing.js';
+//not GWT import const swing
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { DefaultListModel } from './DefaultListModel.js';
+//sameFolderImports - not GWT import - same folder const DefaultListModel
+import { ListModel } from './ListModel.js';
+//sameFolderImports - not GWT import - same folder const ListModel
+
+export class DefaultListModelHelper
+            extends Object
+         {
+        
+
+    private defaultListModel: DefaultListModel;
+
+    private vector: BasicArrayList;
+
+public constructor (){
+
+            super();
+        this.vector= new BasicArrayListD();
+    
+this.defaultListModel= new DefaultListModel();
+    
+}
+
+
+    public initDefaultModelList(){
+this.defaultListModel= new DefaultListModel();
+    
+
+    let size: number = this.vector.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let moduleName: string = this.vector.get(index) as string;;
+    
+this.defaultListModel!.addElement(moduleName);
+    
+}
+
+}
+
+
+    public getListModel(): ListModel{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.defaultListModel as ListModel;
+    
+}
+
+
+    public add(string: string){
+this.vector.add(string);
+    
+}
+
+
+    public remove(string: string){
+this.vector.remove(string);
+    
+}
+
+
+}
+

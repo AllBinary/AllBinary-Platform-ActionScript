@@ -1,0 +1,68 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2002 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class LayerCaptionResources
+            extends Object
+         {
+        
+
+    private static readonly instance: LayerCaptionResources = new LayerCaptionResources();
+
+    public static getInstance(): LayerCaptionResources{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return LayerCaptionResources.instance;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+    public readonly RESOURCE: string = "/unit_message_bubbled_box.png";
+
+}
+

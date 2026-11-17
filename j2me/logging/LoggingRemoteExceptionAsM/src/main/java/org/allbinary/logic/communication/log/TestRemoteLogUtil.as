@@ -1,0 +1,85 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { Globals } from '../../../../../org/allbinary/globals/Globals.js';
+//not GWT import const Globals
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //not plain js - same folder import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+
+export class TestRemoteLogUtil
+            extends Object
+         {
+        
+
+    public static readonly PATH: string = "G:\\mnt\\bc\\mydev\\work\\allbinary_src\\licensing\\data\\";
+
+                //@Throws(Exception.constructor)
+            
+    public static main(args: string[]){
+new TestRemoteLogUtil();
+    
+}
+
+
+public constructor (){
+
+            super();
+        Globals.getInstance()!.init(this.constructor.namegetClassLoader(), TestRemoteLogUtil.PATH);
+    
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+logUtil!.put(commonStrings!.EXCEPTION, "Test", "TestClass", new Exception("Pretend Exception"));
+    
+}
+
+
+}
+

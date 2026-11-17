@@ -1,0 +1,166 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { GPoint } from '../../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { PointFactory } from '../../../../../../org/allbinary/graphics/PointFactory.js';
+//not GWT import const PointFactory
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AutomaticCacheInterface } from '../../../../../../org/allbinary/logic/util/cache/AutomaticCacheInterface.js';
+//not GWT import const AutomaticCacheInterface
+
+import { CacheInterfaceFactory } from '../../../../../../org/allbinary/logic/util/cache/CacheInterfaceFactory.js';
+//not GWT import const CacheInterfaceFactory
+
+import { CachePolicyFactory } from '../../../../../../org/allbinary/logic/util/cache/CachePolicyFactory.js';
+//not GWT import const CachePolicyFactory
+
+import { CacheTypeFactory } from '../../../../../../org/allbinary/logic/util/cache/CacheTypeFactory.js';
+//not GWT import const CacheTypeFactory
+
+import { ColorDelta } from '../../../../../../org/allbinary/media/image/comparison/color/ColorDelta.js';
+//not GWT import const ColorDelta
+
+import { ColorDeltaFactory } from '../../../../../../org/allbinary/media/image/comparison/color/ColorDeltaFactory.js';
+//not GWT import const ColorDeltaFactory
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { PixelDelta } from './PixelDelta.js';
+//sameFolderImports - not GWT import - same folder const PixelDelta
+
+export class PixelDeltaFactory
+            extends Object
+         {
+        
+
+    private static cacheInterface: AutomaticCacheInterface = 
+                null
+            ;
+
+                private static initResult: number = PixelDeltaFactory.init();
+                private static init(): number { 
+                    
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+
+    let STATIC_BLOCK: string = "Static Block";;
+    
+
+    let instance: string = "PixelDeltaFactory";;
+    
+
+ try { logUtil!.putF(commonStrings!.START, instance, STATIC_BLOCK);
+    
+PixelDeltaFactory.cacheInterface= CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance()!.CACHE, CachePolicyFactory.getInstance()!.THIRTY_MINUTES_TEN_THOUSAND_MAX) as AutomaticCacheInterface;
+    
+logUtil!.putF(commonStrings!.END, instance, STATIC_BLOCK);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+logUtil!.put(commonStrings!.EXCEPTION, instance, STATIC_BLOCK, e);
+    
+
+ }
+   }
+ 
+
+
+                    return 0;
+                }
+            
+                //@Throws(Exception.constructor)
+            
+    public static getInstance(x: number, y: number, rgb1: number, rgb2: number): PixelDelta{
+
+    let point: GPoint = PointFactory.getInstance()!.createXY(x, y)!;;
+    
+
+    let colorDelta: ColorDelta = ColorDeltaFactory.getInstance(rgb1, rgb2)!;;
+    
+
+    let pixelDelta: PixelDelta = PixelDeltaFactory.cacheInterface!.get(PixelDelta.getKey(point, colorDelta)) as PixelDelta;;
+    
+
+                        if(pixelDelta == 
+                                    null
+                                )
+                        
+                                    {
+                                    pixelDelta= new PixelDelta(point, colorDelta);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return pixelDelta;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

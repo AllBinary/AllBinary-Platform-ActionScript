@@ -1,0 +1,129 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2006 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { Font } from '../../../../../../javax/microedition/lcdui/Font.js';
+//not GWT import const Font
+
+import { Graphics } from '../../../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { RTSLayer } from '../../../../../../org/allbinary/game/layer/RTSLayer.js';
+//not GWT import const RTSLayer
+
+import { WaypointInfoHudPaintable } from '../../../../../../org/allbinary/game/layer/waypoint/WaypointInfoHudPaintable.js';
+//not GWT import const WaypointInfoHudPaintable
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+import { KeyValueDrawCharArray } from '../../../../../../org/allbinary/graphics/draw/KeyValueDrawCharArray.js';
+//not GWT import const KeyValueDrawCharArray
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GeologicalGeographicMapCellPosition } from './GeologicalGeographicMapCellPosition.js';
+//sameFolderImports - not GWT import - same folder const GeologicalGeographicMapCellPosition
+
+export class GeologicalResourceInfoHudPaintable extends WaypointInfoHudPaintable {
+        
+
+    private static readonly RESOURCES: string = "Resources: ";
+
+    private readonly keyvalueDrawString: KeyValueDrawCharArray;
+
+    private fontHeight: number = 0;
+
+public constructor (){
+
+            super();
+        this.keyvalueDrawString= new KeyValueDrawCharArray(GeologicalResourceInfoHudPaintable.RESOURCES, this.textX);
+    
+}
+
+
+    public updateMeasurement(graphics: Graphics){
+super.updateMeasurement(graphics);
+    
+
+    let font: Font = graphics.getFont()!;;
+    
+this.fontHeight= (2 *font.getHeight());
+    
+}
+
+
+    public updateSelectionInfo(){
+super.updateSelectionInfo();
+    
+
+    let rtsLayer: RTSLayer = this.rtsLayerP as RTSLayer;;
+    
+
+    let list: BasicArrayList = rtsLayer!.geographicMapCellPositionAreaBase!.getOccupyingGeographicMapCellPositionList()!;;
+    
+
+    let total: number = 0;;
+    
+
+
+
+
+                        for (
+    let index: number = list.size()!;--index >= 0; )
+        {
+
+    let geographicMapCellPosition: GeologicalGeographicMapCellPosition = list.get(index) as GeologicalGeographicMapCellPosition;;
+    
+total += geographicMapCellPosition!.getGeologicalResource()!.getTotal();
+    
+}
+
+this.keyvalueDrawString!.update(this.getPrimitiveLongUtil()!.getCharArray(total), this.getPrimitiveLongUtil()!.getCurrentTotalDigits());
+    
+}
+
+
+    public paint(graphics: Graphics){
+super.paint(graphics);
+    
+this.keyvalueDrawString!.paint(graphics, (this.y +this.fontHeight));
+    
+}
+
+
+}
+

@@ -1,0 +1,92 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { TiledMap } from '../../../../../../org/mapeditor/core/TiledMap.js';
+//not GWT import const TiledMap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TileMapPlacementVisitor } from './TileMapPlacementVisitor.js';
+//sameFolderImports - not GWT import - same folder const TileMapPlacementVisitor
+
+export class AllAnimationsEverywhereTileMapPlacementVisitor extends TileMapPlacementVisitor {
+        
+
+    public visit(lastMap: TiledMap, mapData: number[][]){
+
+    let size: number = mapData!.length
+                ;;
+    
+
+    let size2: number = mapData[0]!.length -7;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+
+
+
+                        for (
+    let index2: number = 0;index2 < size2; index2 += 7)
+        {
+mapData[index]![index2]= 1;
+    
+mapData[index]![index2 +1]= 17;
+    
+mapData[index]![index2 +2]= 33;
+    
+mapData[index]![index2 +3]= 49;
+    
+mapData[index]![index2 +4]= 65;
+    
+mapData[index]![index2 +5]= 81;
+    
+mapData[index]![index2 +6]= 97;
+    
+}
+
+}
+
+}
+
+
+}
+

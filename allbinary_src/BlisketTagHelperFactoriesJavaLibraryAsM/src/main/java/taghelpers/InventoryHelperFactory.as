@@ -1,0 +1,117 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../java/lang/Object.js';
+        
+            import { Exception } from '../java/lang/Exception.js';
+        
+import { HashMap } from '../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { PageContext } from '../javax/servlet/jsp/PageContext.js';
+//not GWT import const PageContext
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { LicensingException } from '../org/allbinary/logic/system/security/licensing/LicensingException.js';
+//not GWT import const LicensingException
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { InventoryHelper } from './InventoryHelper.js';
+//sameFolderImports - not GWT import - same folder const InventoryHelper
+
+export class InventoryHelperFactory
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+public constructor (){
+
+            super();
+        }
+
+
+                //@Throws(LicensingException.constructor)
+            
+    public getInstance(hashMap: HashMap<any, any>, pageContext: PageContext): any{
+
+ try { 
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new InventoryHelper(hashMap, pageContext);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPERFACTORYERROR))
+                        
+                                    {
+                                    
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.GET_INSTANCE, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

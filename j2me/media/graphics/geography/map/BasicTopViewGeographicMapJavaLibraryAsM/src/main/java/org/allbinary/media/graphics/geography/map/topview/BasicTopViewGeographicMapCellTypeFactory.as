@@ -1,0 +1,371 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { GeographicMapCellType } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellType.js';
+//not GWT import const GeographicMapCellType
+
+import { GeographicMapCellTypeFactory } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellTypeFactory.js';
+//not GWT import const GeographicMapCellTypeFactory
+
+import { RaceTrackGeographicMapCellType } from '../../../../../../../org/allbinary/media/graphics/geography/map/racetrack/RaceTrackGeographicMapCellType.js';
+//not GWT import const RaceTrackGeographicMapCellType
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { HashtableUtil } 
+const HashtableUtil = globalThis.org.allbinary.util.HashtableUtil;
+type HashtableUtil<T = any, U = any> = typeof HashtableUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof HashtableUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicTopViewGeographicMapCellType } from './BasicTopViewGeographicMapCellType.js';
+//sameFolderImports - not GWT import - same folder const BasicTopViewGeographicMapCellType
+import { BasicTopViewGeographicMapStrings } from './BasicTopViewGeographicMapStrings.js';
+//sameFolderImports - not GWT import - same folder const BasicTopViewGeographicMapStrings
+
+export class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellTypeFactory {
+        
+
+    public readonly BLOCK_CELL_TYPE: BasicTopViewGeographicMapCellType;
+
+    public readonly OFF_MAP_CELL_TYPE: BasicTopViewGeographicMapCellType;
+
+    public readonly FLOOR_CELL_TYPE: BasicTopViewGeographicMapCellType;
+
+    public readonly DOOR_CELL_TYPE: BasicTopViewGeographicMapCellType;
+
+    public readonly STAIRS_UP_CELL_TYPE: BasicTopViewGeographicMapCellType;
+
+    public readonly STAIRS_DOWN_CELL_TYPE: BasicTopViewGeographicMapCellType;
+
+    public readonly OTHER_CELL_TYPE: BasicTopViewGeographicMapCellType;
+
+    private readonly maxTileId: number;
+
+public constructor (tileTypeToTileIdsMap: ABHashtable<any, any>, maxTileId: number){
+
+            super();
+        
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.putF(commonStrings!.START, this, commonStrings!.CONSTRUCTOR);
+    
+this.maxTileId= maxTileId;
+    
+
+    let basicTopViewGeographicMapStrings: BasicTopViewGeographicMapStrings = BasicTopViewGeographicMapStrings.getInstance()!;;
+    
+
+    let geographicMapCellTypeFactory: GeographicMapCellTypeFactory = GeographicMapCellTypeFactory.getInstance()!;;
+    
+
+    let geographicMapCellTypeArray: GeographicMapCellType[] = geographicMapCellTypeFactory!.getGeographicMapCellTypeArray()!;;
+    
+
+    let type: number = 0;;
+    
+
+                        if(geographicMapCellTypeArray[type] == 
+                                    null
+                                )
+                        
+                                    {
+                                    new RaceTrackGeographicMapCellType(CommonStrings.getInstance()!.UNKNOWN, type, 999, 0);
+    
+
+                                    }
+                                
+                        else {
+                            
+                        }
+                            
+
+    let BLOCK_CELL_TYPE: BasicTopViewGeographicMapCellType = BasicTopViewGeographicMapCellType.createType(basicTopViewGeographicMapStrings!.DEFAULT, 1, 1)!;;
+    
+
+    let OFF_MAP_CELL_TYPE: BasicTopViewGeographicMapCellType = BLOCK_CELL_TYPE;;
+    
+
+    let FLOOR_CELL_TYPE: BasicTopViewGeographicMapCellType = BLOCK_CELL_TYPE;;
+    
+
+    let DOOR_CELL_TYPE: BasicTopViewGeographicMapCellType = BLOCK_CELL_TYPE;;
+    
+
+    let STAIRS_UP_CELL_TYPE: BasicTopViewGeographicMapCellType = BLOCK_CELL_TYPE;;
+    
+
+    let STAIRS_DOWN_CELL_TYPE: BasicTopViewGeographicMapCellType = BLOCK_CELL_TYPE;;
+    
+
+    let OTHER_CELL_TYPE: BasicTopViewGeographicMapCellType = BLOCK_CELL_TYPE;;
+    
+
+    let keyArray: any[] = HashtableUtil.getInstance()!.getKeysAsArray(tileTypeToTileIdsMap)!;;
+    
+
+    let size: number = keyArray!.length
+                ;;
+    
+
+    let idsWithTypeList: BasicArrayList;;
+    
+
+    let key: string;;
+    
+
+    let basicPlatormGeographicMapCellType: BasicTopViewGeographicMapCellType;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+key= keyArray[index]! as string;
+    
+idsWithTypeList= tileTypeToTileIdsMap!.get(key) as BasicArrayList;
+    
+
+                        if((key === basicTopViewGeographicMapStrings!.WALL))
+                        
+                                    {
+                                    basicPlatormGeographicMapCellType= new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings!.WALL, idsWithTypeList, 1000);
+    
+BLOCK_CELL_TYPE= basicPlatormGeographicMapCellType;
+    
+
+                                    }
+                                
+                             else 
+                        if((key === basicTopViewGeographicMapStrings!.OFF_MAP))
+                        
+                                    {
+                                    basicPlatormGeographicMapCellType= new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings!.OFF_MAP, idsWithTypeList, 1001);
+    
+OFF_MAP_CELL_TYPE= basicPlatormGeographicMapCellType;
+    
+
+                                    }
+                                
+                             else 
+                        if((key === basicTopViewGeographicMapStrings!.FLOOR))
+                        
+                                    {
+                                    basicPlatormGeographicMapCellType= new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings!.FLOOR, idsWithTypeList, 1);
+    
+FLOOR_CELL_TYPE= basicPlatormGeographicMapCellType;
+    
+
+                                    }
+                                
+                             else 
+                        if((key === basicTopViewGeographicMapStrings!.DOOR))
+                        
+                                    {
+                                    basicPlatormGeographicMapCellType= new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings!.DOOR, idsWithTypeList, 1);
+    
+DOOR_CELL_TYPE= basicPlatormGeographicMapCellType;
+    
+
+                                    }
+                                
+                             else 
+                        if((key === basicTopViewGeographicMapStrings!.STAIRS_UP))
+                        
+                                    {
+                                    basicPlatormGeographicMapCellType= new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings!.STAIRS_UP, idsWithTypeList, 1);
+    
+STAIRS_UP_CELL_TYPE= basicPlatormGeographicMapCellType;
+    
+
+                                    }
+                                
+                             else 
+                        if((key === basicTopViewGeographicMapStrings!.STAIRS_DOWN))
+                        
+                                    {
+                                    basicPlatormGeographicMapCellType= new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings!.STAIRS_DOWN, idsWithTypeList, 1);
+    
+STAIRS_DOWN_CELL_TYPE= basicPlatormGeographicMapCellType;
+    
+
+                                    }
+                                
+                             else 
+                        if((key === basicTopViewGeographicMapStrings!.OTHER))
+                        
+                                    {
+                                    basicPlatormGeographicMapCellType= new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings!.OTHER, idsWithTypeList, 1);
+    
+OTHER_CELL_TYPE= basicPlatormGeographicMapCellType;
+    
+
+                                    }
+                                
+}
+
+this.BLOCK_CELL_TYPE= BLOCK_CELL_TYPE;
+    
+this.OFF_MAP_CELL_TYPE= OFF_MAP_CELL_TYPE;
+    
+this.FLOOR_CELL_TYPE= FLOOR_CELL_TYPE;
+    
+this.DOOR_CELL_TYPE= DOOR_CELL_TYPE;
+    
+this.STAIRS_UP_CELL_TYPE= STAIRS_UP_CELL_TYPE;
+    
+this.STAIRS_DOWN_CELL_TYPE= STAIRS_DOWN_CELL_TYPE;
+    
+this.OTHER_CELL_TYPE= OTHER_CELL_TYPE;
+    
+type= this.maxTileId -1;
+    
+
+                        if(geographicMapCellTypeArray[type] == 
+                                    null
+                                )
+                        
+                                    {
+                                    new RaceTrackGeographicMapCellType(commonStrings!.START, type, 1, 0);
+    
+
+                                    }
+                                
+                        else {
+                            
+                        }
+                            
+type= this.maxTileId -2;
+    
+
+                        if(geographicMapCellTypeArray[type] == 
+                                    null
+                                )
+                        
+                                    {
+                                    new RaceTrackGeographicMapCellType(commonStrings!.START, type, 1, 0);
+    
+
+                                    }
+                                
+                        else {
+                            
+                        }
+                            
+}
+
+
+    public getStartType(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.maxTileId -1;
+    
+}
+
+
+    public getEndType(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.maxTileId -2;
+    
+}
+
+
+    public getEmptyType(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.FLOOR_CELL_TYPE.getTypes()[0]!;
+    
+}
+
+
+    public isPath(cellType: GeographicMapCellType): boolean{
+
+                        if(this.FLOOR_CELL_TYPE.isType(cellType))
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public toString(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new StringMaker().append("key: WALL/BLOCK_CELL_TYPE: ")!.append(this.BLOCK_CELL_TYPE.toString())!.append("key: FLOOR_CELL_TYPE: ")!.append(this.FLOOR_CELL_TYPE.toString())!.append("key: OTHER_CELL_TYPE: ")!.append(this.OTHER_CELL_TYPE.toString())!.append("key: OFF_MAP_CELL_TYPE: ")!.append(this.OFF_MAP_CELL_TYPE.toString())!.append("key: DOOR_CELL_TYPE: ")!.append(this.DOOR_CELL_TYPE.toString())!.append("key: STAIRS_DOWN_CELL_TYPE: ")!.append(this.STAIRS_DOWN_CELL_TYPE.toString())!.append("key: STAIRS_UP_CELL_TYPE: ")!.append(this.STAIRS_UP_CELL_TYPE.toString())!.toString();;
+    
+}
+
+
+}
+

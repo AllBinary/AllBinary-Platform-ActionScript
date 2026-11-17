@@ -1,0 +1,123 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicArrayListD } from './BasicArrayListD.js';
+//sameFolderImports - not GWT import - same folder const BasicArrayListD
+
+export class ImageTypeUtil
+            extends Object
+         {
+        
+
+    private static SINGLETON: ImageTypeUtil = new ImageTypeUtil();
+
+    public static getInstance(): ImageTypeUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ImageTypeUtil.SINGLETON;
+    
+}
+
+
+    public readonly PNG: string = "png";
+
+    public readonly JPG: string = "jpg";
+
+    public readonly GIF: string = "gif";
+
+    private readonly list: BasicArrayList = new BasicArrayListD();
+
+private constructor (){
+
+            super();
+        this.list.add(this.JPG);
+    
+this.list.add(this.GIF);
+    
+this.list.add(this.PNG);
+    
+}
+
+
+    public isSupported(mediaFileType: string): boolean{
+mediaFileType= mediaFileType!.toLowerCase();
+    
+
+
+
+
+                        for (
+    let index: number = this.list.size() -1;index >= 0; index--)
+        {
+
+    let name: string = this.list.objectArray[index]! as string;;
+    
+
+                        if(mediaFileType!.compareTo(name) == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+}
+

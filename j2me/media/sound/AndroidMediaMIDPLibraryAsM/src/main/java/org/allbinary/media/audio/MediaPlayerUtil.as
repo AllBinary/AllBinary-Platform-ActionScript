@@ -1,0 +1,99 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            import { Thread } from '../../../../java/lang/Thread.js';
+        
+import { MediaPlayer } from '../../../../android/media/MediaPlayer.js';
+//not GWT import const MediaPlayer
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class MediaPlayerUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: MediaPlayerUtil = new MediaPlayerUtil();
+
+    public static getInstance(): MediaPlayerUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return MediaPlayerUtil.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+                //@Throws(Exception.constructor)
+            
+    public waitForMediaPlayer(mediaPlayer: MediaPlayer){
+
+    let MESSAGE: string = "Not Stopped Waiting";;
+    
+
+    let METHOD_NAME: string = "wait";;
+    
+
+    let index: number = 0;;
+    
+
+        while(mediaPlayer!.isPlaying() && index < 50)
+        {
+this.logUtil!.putF(MESSAGE, this, METHOD_NAME);
+    
+Thread.sleep(100);
+    
+index++;
+    
+}
+
+}
+
+
+}
+

@@ -1,0 +1,155 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+import { Activity } from '../../../../../android/app/Activity.js';
+//not GWT import const Activity
+
+import { Configuration } from '../../../../../android/content/res/Configuration.js';
+//not GWT import const Configuration
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TouchScreenFactory } from './TouchScreenFactory.js';
+//sameFolderImports - not GWT import - same folder const TouchScreenFactory
+import { TouchScreenTypesFactory } from './TouchScreenTypesFactory.js';
+//sameFolderImports - not GWT import - same folder const TouchScreenTypesFactory
+
+export class TouchScreenTypeFactory
+            extends Object
+         {
+        
+
+    private static readonly instance: TouchScreenTypeFactory = new TouchScreenTypeFactory();
+
+    public static getInstance(): TouchScreenTypeFactory{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return TouchScreenTypeFactory.instance;
+    
+}
+
+
+    public update(activity: Activity){
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+
+    let touchScreenFactory: TouchScreenFactory = TouchScreenFactory.getInstance()!;;
+    
+
+    let touchScreenTypesFactory: TouchScreenTypesFactory = TouchScreenTypesFactory.getInstance()!;;
+    
+
+    let configuration: Configuration = activity.getResources()!.getConfiguration()!;;
+    
+
+    let touchScreen: number = configuration.touchscreen;;
+    
+
+                        if(touchScreen == Configuration.TOUCHSCREEN_FINGER)
+                        
+                                    {
+                                    touchScreenFactory!.setTouchScreenType(touchScreenTypesFactory!.FINGER);
+    
+
+                        if(!touchScreenFactory!.isTouch())
+                        
+                                    {
+                                    PreLogUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings!.PROCESS);
+    
+touchScreenFactory!.setTouch(true);
+    
+
+                                    }
+                                
+
+                                    }
+                                
+                             else 
+                        if(touchScreen == Configuration.TOUCHSCREEN_STYLUS)
+                        
+                                    {
+                                    touchScreenFactory!.setTouchScreenType(touchScreenTypesFactory!.STYLUS);
+    
+
+                        if(!touchScreenFactory!.isTouch())
+                        
+                                    {
+                                    PreLogUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, commonStrings!.PROCESS);
+    
+touchScreenFactory!.setTouch(true);
+    
+
+                                    }
+                                
+
+                                    }
+                                
+                             else 
+                        if(touchScreen == Configuration.TOUCHSCREEN_NOTOUCH)
+                        
+                                    {
+                                    touchScreenFactory!.setTouchScreenType(touchScreenTypesFactory!.NOTOUCH);
+    
+
+                                    }
+                                
+                             else 
+                        if(touchScreen == Configuration.TOUCHSCREEN_UNDEFINED)
+                        
+                                    {
+                                    touchScreenFactory!.setTouchScreenType(touchScreenTypesFactory!.UNDEFINED);
+    
+
+                                    }
+                                
+}
+
+
+}
+

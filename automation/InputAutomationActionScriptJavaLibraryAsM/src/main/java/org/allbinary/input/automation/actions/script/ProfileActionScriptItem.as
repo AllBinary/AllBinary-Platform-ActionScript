@@ -1,0 +1,204 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            import { RuntimeException } from '../../../../../../java/lang/RuntimeException.js';
+        
+            import { Long } from '../../../../../../java/lang/Long.js';
+        
+import { ActionEvent } from '../../../../../../java/awt/event/ActionEvent.js';
+//not GWT import const ActionEvent
+
+import { ActionListener } from '../../../../../../java/awt/event/ActionListener.js';
+//not GWT import const ActionListener
+
+import { swing } from '../../../../../../javax/swing.js';
+//not GWT import const swing
+
+import { DefaultMutableTreeNode } from '../../../../../../javax/swing/tree/DefaultMutableTreeNode.js';
+//not GWT import const DefaultMutableTreeNode
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { Node } from '../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ProfileActionScriptItemInterface } from './ProfileActionScriptItemInterface.js';
+//sameFolderImports - not GWT import - same folder const ProfileActionScriptItemInterface
+import { JPopupMenu } from './JPopupMenu.js';
+//sameFolderImports - not GWT import - same folder const JPopupMenu
+import { JMenuItem } from './JMenuItem.js';
+//sameFolderImports - not GWT import - same folder const JMenuItem
+
+export class ProfileActionScriptItem extends DefaultMutableTreeNode implements ProfileActionScriptItemInterface, ActionListener {
+        
+
+    private static readonly EDIT: string = "Edit";
+
+    static readonly DELETE: string = "Delete";
+
+    static readonly NEW_CONDITION: string = "New Condition";
+
+    static readonly NEW_INPUT: string = "New Input";
+
+    static readonly NEW_OUTPUT: string = "New Output";
+
+    static readonly NEW_COLOR_AT: string = "Color At";
+
+    static readonly NEW_TIME_INTERVAL: string = "Time Interval";
+
+    static readonly NEW_ALWAYS: string = "Always On/Off";
+
+    static readonly NEW_KEY_INPUT: string = "Key";
+
+    static readonly NEW_MOUSE_INPUT: string = "Mouse";
+
+    static readonly NEW_JOYSTICK_INPUT: string = "Joystick";
+
+    static readonly NEW_IMAGE_OUTPUT: string = "Image";
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private jPopupMenu: JPopupMenu;
+
+public constructor (label: string, node: Node){
+            super(label);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.init();
+    
+this.logUtil!.putF("Label: " +label, this, this.commonStrings!.CONSTRUCTOR);
+    
+}
+
+
+public constructor (label: string){
+            super(label);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.init();
+    
+this.logUtil!.putF("Label: " +label, this, this.commonStrings!.CONSTRUCTOR);
+    
+}
+
+
+    init(){
+this.setJPopupMenu(new JPopupMenu());
+    
+
+    let jMenuItemEdit: JMenuItem = new JMenuItem(EDIT);;
+    
+
+    let jMenuItemDelete: JMenuItem = new JMenuItem(DELETE);;
+    
+jMenuItemEdit!.addActionListener(this);
+    
+jMenuItemDelete!.addActionListener(this);
+    
+this.getJPopupMenu()!.add(jMenuItemEdit);
+    
+this.getJPopupMenu()!.add(jMenuItemDelete);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public process(frame: Long){
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public getJPopupMenu(): JPopupMenu{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.jPopupMenu;
+    
+}
+
+
+    public showDialog(){
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public actionPerformed(actionEvent: ActionEvent){
+
+                        if(actionEvent!.getActionCommand()!.compareTo(ProfileActionScriptItem.EDIT) == 0)
+                        
+                                    {
+                                    this.showDialog();
+    
+
+                                    }
+                                
+}
+
+
+    public setJPopupMenu(jPopupMenu: JPopupMenu){
+this.jPopupMenu= jPopupMenu;
+    
+}
+
+
+}
+

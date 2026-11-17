@@ -1,0 +1,248 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../java/lang/Integer.js';
+        
+import { Canvas } from '../../../../../../javax/microedition/lcdui/Canvas.js';
+//not GWT import const Canvas
+
+import { BasicAI } from '../../../../../../org/allbinary/game/ai/BasicAI.js';
+//not GWT import const BasicAI
+
+import { BasicGroupFactory } from '../../../../../../org/allbinary/game/identification/BasicGroupFactory.js';
+//not GWT import const BasicGroupFactory
+
+import { GameInput } from '../../../../../../org/allbinary/game/input/GameInput.js';
+//not GWT import const GameInput
+
+import { GroupLayerManagerListener } from '../../../../../../org/allbinary/game/layer/identification/GroupLayerManagerListener.js';
+//not GWT import const GroupLayerManagerListener
+
+import { WeaponLayer } from '../../../../../../org/allbinary/game/layer/weapon/WeaponLayer.js';
+//not GWT import const WeaponLayer
+
+import { AllBinaryLayer } from '../../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { AllBinaryLayerManager } from '../../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
+//not GWT import const AllBinaryLayerManager
+
+//not plain js import { MathUtil } 
+const MathUtil = globalThis.org.allbinary.logic.math.MathUtil;
+type MathUtil<T = any, U = any> = typeof MathUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof MathUtil;
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasePatrolAI } from './BasePatrolAI.js';
+//sameFolderImports - not GWT import - same folder const BasePatrolAI
+
+export class FlockingAI extends BasicAI {
+        
+
+    private readonly allowedDistance: number;
+
+public constructor (hashtable: ABHashtable<any, any>, ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
+            super(ownerLayerInterface, gameInput);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+    let allowedDistance: Integer = hashtable.get(BasePatrolAI.MAX_DISTANCE) as Integer;;
+    
+this.allowedDistance= allowedDistance!.intValue();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
+
+    let maxDistance: number = 0;;
+    
+
+    let farAllbinaryLayer: AllBinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;;
+    
+
+    let groupLayerManagerListener: GroupLayerManagerListener = GroupLayerManagerListener.getInstance()!;;
+    
+
+    let list: BasicArrayList = groupLayerManagerListener!.getList(BasicGroupFactory.getInstance()!.ENEMY)!;;
+    
+
+    let size: number = list.size()!;;
+    
+
+    let allBinaryLayer: AllBinaryLayer;;
+    
+
+    let ownerLayerInterface: AllBinaryLayer;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+allBinaryLayer= list.get(index) as AllBinaryLayer;
+    
+
+                        if(allBinaryLayer!.getType() != WeaponLayer.getStaticType())
+                        
+                                    {
+                                    
+    let distance: number = this.getXYDistance(allBinaryLayer)!;;
+    
+
+                        if(distance > maxDistance)
+                        
+                                    {
+                                    maxDistance= distance;
+    
+farAllbinaryLayer= allBinaryLayer;
+    
+
+                        if(distance > this.allowedDistance)
+                        
+                                    {
+                                    break;
+
+                    
+
+                                    }
+                                
+
+                                    }
+                                
+
+                                    }
+                                
+}
+
+
+                        if(maxDistance > this.allowedDistance)
+                        
+                                    {
+                                    
+                        if(farAllbinaryLayer != AllBinaryLayer.NULL_ALLBINARY_LAYER)
+                        
+                                    {
+                                    ownerLayerInterface= this.getOwnerLayerInterface();
+    
+
+                        if(farAllbinaryLayer!.getXP() < ownerLayerInterface!.getXP())
+                        
+                                    {
+                                    this.processKeyAI(Canvas.LEFT);
+    
+
+                                    }
+                                
+                             else 
+                        if(farAllbinaryLayer!.getXP() > ownerLayerInterface!.getXP())
+                        
+                                    {
+                                    this.processKeyAI(Canvas.RIGHT);
+    
+
+                                    }
+                                
+                             else 
+                        if(farAllbinaryLayer!.getYP() > ownerLayerInterface!.getYP())
+                        
+                                    {
+                                    this.processKeyAI(Canvas.UP);
+    
+
+                                    }
+                                
+                             else 
+                        if(farAllbinaryLayer!.getYP() < ownerLayerInterface!.getYP())
+                        
+                                    {
+                                    this.processKeyAI(Canvas.DOWN);
+    
+
+                                    }
+                                
+
+                                    }
+                                
+
+                                    }
+                                
+}
+
+
+    getXYDistance(allBinaryLayer: AllBinaryLayer): number{
+
+    let ownerLayerInterface: AllBinaryLayer = this.getOwnerLayerInterface()!;;
+    
+
+    let xTotalDistance: number = (allBinaryLayer!.getXP() +allBinaryLayer!.getHalfWidth()) -(ownerLayerInterface!.getXP() +ownerLayerInterface!.getHalfWidth());;
+    
+
+    let yTotalDistance: number = (allBinaryLayer!.getYP() +allBinaryLayer!.getHalfHeight()) -(ownerLayerInterface!.getYP() +ownerLayerInterface!.getHalfHeight());;
+    
+
+    let mathUtil: MathUtil = MathUtil.getInstance()!;;
+    
+
+    let totalDistance: number = mathUtil!.abs(xTotalDistance) +mathUtil!.abs(yTotalDistance);;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return totalDistance;
+    
+}
+
+
+}
+

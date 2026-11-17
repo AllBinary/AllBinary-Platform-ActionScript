@@ -1,0 +1,339 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Integer } from '../../../../java/lang/Integer.js';
+        
+import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
+//not GWT import const AnimationBehavior
+
+import { IndexedAnimation } from '../../../../org/allbinary/animation/IndexedAnimation.js';
+//not GWT import const IndexedAnimation
+
+import { IndexedAnimationBehavior } from '../../../../org/allbinary/animation/IndexedAnimationBehavior.js';
+//not GWT import const IndexedAnimationBehavior
+
+import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
+//not GWT import const DisplayInfoSingleton
+
+//not plain js import { ABSystemWrapper } 
+const ABSystemWrapper = globalThis.org.allbinary.logic.ABSystemWrapper;
+type ABSystemWrapper<T = any, U = any> = typeof ABSystemWrapper extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABSystemWrapper;
+
+import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
+//not GWT import const PrimitiveIntUtil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { SpecialAnimation } from './SpecialAnimation.js';
+//sameFolderImports - not GWT import - same folder const SpecialAnimation
+
+export class TitleAnimation extends SpecialAnimation {
+        
+
+    public static createAnimation(animationInterfaceArray: IndexedAnimation[], basicColorArray: BasicColor[], dxArray: number[], dyArray: number[], y: number, width: number): TitleAnimation{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new TitleAnimation(animationInterfaceArray, basicColorArray, dxArray, dyArray, y, width, new IndexedAnimationBehavior(1, 250));
+    
+}
+
+
+    readonly systemWrapper: ABSystemWrapper = ABSystemWrapper.getInstance()!;
+
+    public deltaX: number= 0.0;
+
+    public deltaY: number= 0.0;
+
+    public deltaZ: number= 0.0;
+
+    readonly basicColorArray: BasicColor[];
+
+    readonly dxArray: number[];
+
+    readonly dyArray: number[];
+
+    readonly widthP: number;
+
+    readonly animationInterfaceArray: IndexedAnimation[];
+
+    readonly sizeP: number;
+
+    readonly y: number;
+
+    private lastFrameStartTime: number;
+
+    private readonly displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
+
+public constructor (animationInterfaceArray: IndexedAnimation[], basicColorArray: BasicColor[], dxArray: number[], dyArray: number[], y: number, width: number, animationBehavior: AnimationBehavior){
+            super(animationBehavior);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.lastFrameStartTime= this.systemWrapper!.currentTimeMillis();
+    
+this.animationInterfaceArray= animationInterfaceArray;
+    
+this.sizeP= this.animationInterfaceArray!.length;
+    
+this.basicColorArray= basicColorArray;
+    
+this.dxArray= dxArray;
+    
+this.dyArray= dyArray;
+    
+this.y= y;
+    
+this.widthP= width;
+    
+this.reset();
+    
+}
+
+
+    public nextFrame(){
+
+    let currentTime: number = this.systemWrapper!.currentTimeMillis()!;;
+    
+
+    let totalTimeElapsed: number = currentTime -this.lastFrameStartTime;;
+    
+
+    let indexedAnimationBehavior: IndexedAnimationBehavior = this.getAnimationBehavior() as IndexedAnimationBehavior;;
+    
+
+                        if(totalTimeElapsed > indexedAnimationBehavior!.frameDelayTime)
+                        
+                                    {
+                                    this.previousFrame();
+    
+this.lastFrameStartTime= currentTime;
+    
+
+                                    }
+                                
+
+                        if(this.animationInterfaceArray[0]!.getFrame() == 0)
+                        
+                                    {
+                                    indexedAnimationBehavior!.loopIndex++;
+    
+
+                                    }
+                                
+}
+
+
+    public isComplete(): boolean{
+
+    let indexedAnimationBehavior: IndexedAnimationBehavior = this.getAnimationBehavior() as IndexedAnimationBehavior;;
+    
+
+                        if(indexedAnimationBehavior!.loopTotal ==  -1 || indexedAnimationBehavior!.loopIndex < indexedAnimationBehavior!.loopTotal || this.getFrame() != 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                        }
+                            
+}
+
+
+    public setSequence(sequence: number[]){
+}
+
+
+    public getSequence(): number[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return PrimitiveIntUtil.getArrayInstance();;
+    
+}
+
+
+    public getSize(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.animationInterfaceArray[0]!.getSize();;
+    
+}
+
+
+    public getFrame(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.animationInterfaceArray[0]!.getFrame();;
+    
+}
+
+
+    public setFrame(frame: number){
+
+
+
+
+                        for (
+    let index: number = 0;index < this.sizeP; index++)
+        {
+this.animationInterfaceArray[index]!.setFrame(frame);
+    
+}
+
+}
+
+
+    public setLastFrame(){
+this.setFrame(this.getSize() -1);
+    
+}
+
+
+    public reset(){
+this.setLastFrame();
+    
+
+    let indexedAnimationBehavior: IndexedAnimationBehavior = (this.getAnimationBehavior() as IndexedAnimationBehavior);;
+    
+indexedAnimationBehavior!.reset();
+    
+}
+
+
+    public previousFrame(){
+
+
+
+
+                        for (
+    let index: number = 0;index < this.sizeP; index++)
+        {
+this.animationInterfaceArray[index]!.previousFrame();
+    
+}
+
+}
+
+
+    public paintFrameXY(graphics: Graphics, frame: number, x: number, y: number){
+this.setFrame(frame);
+    
+this.paintXY(graphics, x, y);
+    
+}
+
+
+    readonly CLEAR_COLOR: BasicColor = BasicColorFactory.getInstance()!.CLEAR_COLOR;
+
+    public paintXY(graphics: Graphics, ax: number, ay: number){
+
+    let x: number = 0;;
+    
+
+                        if(this.widthP != Integer.MIN_VALUE)
+                        
+                                    {
+                                    x= ((this.displayInfoSingleton!.getLastWidth() -this.widthP) /2);
+    
+
+                                    }
+                                
+
+    let deltaX: number= 0;;
+    
+
+    let deltaY: number= 0;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < this.sizeP; index++)
+        {
+deltaX= this.dxArray[index] +x;
+    
+deltaY= this.dyArray[index] +this.y;
+    
+
+                        if(this.basicColorArray[index] != this.CLEAR_COLOR)
+                        
+                                    {
+                                    this.basicSetColorUtil!.setBasicColorP(graphics, this.basicColorArray[index]!);
+    
+
+                                    }
+                                
+this.animationInterfaceArray[index]!.paintXY(graphics, deltaX, deltaY);
+    
+}
+
+}
+
+
+}
+

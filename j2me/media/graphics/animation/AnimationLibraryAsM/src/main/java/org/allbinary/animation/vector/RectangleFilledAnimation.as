@@ -1,0 +1,112 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { Animation } from '../../../../org/allbinary/animation/Animation.js';
+//not GWT import const Animation
+
+import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { ColorCompositeInterface } from '../../../../org/allbinary/graphics/color/ColorCompositeInterface.js';
+//not GWT import const ColorCompositeInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class RectangleFilledAnimation extends Animation implements ColorCompositeInterface {
+        
+
+    widthP: number;
+
+    heightP: number;
+
+public constructor (width: number, height: number, basicColor: BasicColor){
+
+            super();
+        this.widthP= width;
+    
+this.heightP= height;
+    
+this.setBasicColorP(basicColor);
+    
+}
+
+
+    public nextFrame(){
+}
+
+
+    public paintXY(graphics: Graphics, x: number, y: number){
+this.basicSetColorUtil!.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
+    
+graphics.fillRect(x, y, this.widthP, this.heightP);
+    
+}
+
+
+    public setWidth(width: number){
+this.widthP= width;
+    
+}
+
+
+    public setHeight(height: number){
+this.heightP= height;
+    
+}
+
+
+    public getBasicColorP(): BasicColor{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getBasicColorP();;
+    
+}
+
+
+    public setBasicColorP(basicColor: BasicColor){
+super.setBasicColorP(basicColor);
+    
+}
+
+
+}
+

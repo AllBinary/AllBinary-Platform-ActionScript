@@ -1,0 +1,100 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2025 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class UnitWaypointStrings
+            extends Object
+         {
+        
+
+    private static readonly instance: UnitWaypointStrings = new UnitWaypointStrings();
+
+    public static getInstance(): UnitWaypointStrings{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return UnitWaypointStrings.instance;
+    
+}
+
+
+    public readonly PATHING: string = "Pathing";
+
+    public readonly WANDERING: string = "Order?";
+
+    public readonly THINKING: string = "Thinking";
+
+    public readonly THINKING_ABOUT_TARGET: string = "Hmmm";
+
+    public readonly TARGET: string = "Target";
+
+    public readonly KILL: string = "Kill!";
+
+    public readonly STOP: string = "Stop";
+
+    public readonly WAYPOINT_DESTROYED_SHORT: string = "Uh Oh";
+
+    public readonly WAYPOINT_DESTROYED: string = "Waypoint Destroyed";
+
+    public readonly ALL_VISITED_SHORT: string = "Arrived";
+
+    public readonly ALL_VISITED: string = "All Visited";
+
+    public readonly ALREADY_THERE_SHORT: string = "Again?";
+
+    public readonly ALREADY_THERE: string = "Already There";
+
+    public readonly NEXT_PATH_NODE: string = CommonLabels.getInstance()!.NEXT +" Path Node";
+
+    public readonly _ALL_VISITED_SHORT: string = " Arrived";
+
+    public readonly _ALREADY_THERE_SHORT: string = " Again?";
+
+    public readonly VISITED_MOST_OF_THE_PATH: string = " visited most of the path";
+
+    public readonly RETURNING_AS_WAYPOINT_PATH_LIST: string = " returning as waypointPathsList was runningWaypointPathList";
+
+}
+

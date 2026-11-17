@@ -1,0 +1,209 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { UserInterface } from '../../../../../../../../org/allbinary/business/user/UserInterface.js';
+//not GWT import const UserInterface
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { UserEmailEventNameData } from '../../../../../../../../org/allbinary/logic/communication/smtp/event/UserEmailEventNameData.js';
+//not GWT import const UserEmailEventNameData
+
+import { EmailEventHandlerUtil } from '../../../../../../../../org/allbinary/logic/communication/smtp/event/handler/EmailEventHandlerUtil.js';
+//not GWT import const EmailEventHandlerUtil
+
+import { UserEmailEventHandler } from '../../../../../../../../org/allbinary/logic/communication/smtp/event/handler/UserEmailEventHandler.js';
+//not GWT import const UserEmailEventHandler
+
+import { LogUserEmailEventListenerModule } from '../../../../../../../../org/allbinary/logic/communication/smtp/event/modules/log/LogUserEmailEventListenerModule.js';
+//not GWT import const LogUserEmailEventListenerModule
+
+import { AbeClientInformationInterface } from '../../../../../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
+//not GWT import const AbeClientInformationInterface
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class UserEmailEventHandlerSingletons
+            extends Object
+         {
+        
+
+    private static readonly instance: UserEmailEventHandlerSingletons = new UserEmailEventHandlerSingletons();
+static getInstance(...args: any[]): any {
+   
+   
+    if (args.length === 0) return this.getInstance$overload1();
+   
+   throw new TypeError('No matching overload: getInstance'); }
+  
+    public static getInstance$overload1(): UserEmailEventHandlerSingletons{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return UserEmailEventHandlerSingletons.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly userEmailEventHandlerHashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;
+
+private constructor (){
+
+            super();
+        
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.EMAILLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    
+
+                                    }
+                                
+}
+
+getInstance(...args: any[]): any {
+   
+   
+    if (args.length === 3) return this.getInstance$overload2(args[0], args[1], args[2]);
+   
+   throw new TypeError('No matching overload: getInstance'); }
+  
+                //@Throws(Exception.constructor)
+            
+    public getInstance$overload2(abeClientInformation: AbeClientInformationInterface, userEmailEventNameData: UserEmailEventNameData, userInterface: UserInterface): UserEmailEventHandler{
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.EMAILLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.GET_INSTANCE);
+    
+
+                                    }
+                                
+
+    let userEmailEventHandler: UserEmailEventHandler = this.userEmailEventHandlerHashMap!.get(userEmailEventNameData) as UserEmailEventHandler;;
+    
+
+                        if(userEmailEventHandler == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.EMAILLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF("Creating New Named UserEmailEventHandler", this, this.commonStrings!.GET_INSTANCE);
+    
+
+                                    }
+                                
+
+    let newUserEmailEventHandler: UserEmailEventHandler = new UserEmailEventHandler();;
+    
+
+    let vector: BasicArrayList = EmailEventHandlerUtil.getUserEmailEventListenerVector(abeClientInformation, userEmailEventNameData, userInterface)!;;
+    
+newUserEmailEventHandler!.addListener(vector);
+    
+newUserEmailEventHandler!.addListener(new LogUserEmailEventListenerModule());
+    
+this.userEmailEventHandlerHashMap!.put(userEmailEventNameData, newUserEmailEventHandler);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return newUserEmailEventHandler;
+    
+
+                                    }
+                                
+                        else {
+                            
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.EMAILLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF("Returning existing UserEmailEventHandler", this, this.commonStrings!.GET_INSTANCE);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return userEmailEventHandler;
+    
+
+                        }
+                            
+}
+
+
+}
+

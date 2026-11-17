@@ -1,0 +1,175 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+import { awt } from '../../../../java/awt.js';
+//not GWT import const awt
+
+import { BufferedImage } from '../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ImageUtil } from './ImageUtil.js';
+//sameFolderImports - not GWT import - same folder const ImageUtil
+import { GraphicsEnvironment } from './GraphicsEnvironment.js';
+//sameFolderImports - not GWT import - same folder const GraphicsEnvironment
+import { GraphicsDevice } from './GraphicsDevice.js';
+//sameFolderImports - not GWT import - same folder const GraphicsDevice
+import { GraphicsConfiguration } from './GraphicsConfiguration.js';
+//sameFolderImports - not GWT import - same folder const GraphicsConfiguration
+import { Graphics2D } from './Graphics2D.js';
+//sameFolderImports - not GWT import - same folder const Graphics2D
+import { ImageUnifierProperties } from './ImageUnifierProperties.js';
+//sameFolderImports - not GWT import - same folder const ImageUnifierProperties
+
+export class ImageUnifierUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: ImageUnifierUtil = new ImageUnifierUtil();
+
+    public static getInstance(): ImageUnifierUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ImageUnifierUtil.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly imageUtil: ImageUtil = ImageUtil.getInstance()!;
+
+private constructor (){
+
+            super();
+        }
+
+
+    public getDefaultConfiguration(): GraphicsConfiguration{
+
+    let ge: GraphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment()!;;
+    
+
+    let gd: GraphicsDevice = ge.getDefaultScreenDevice()!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return gd.getDefaultConfiguration();;
+    
+}
+
+
+    public getImage(bufferedImageArray: BufferedImage[], imageUnifierProperties: ImageUnifierProperties): BufferedImage{
+
+    let newBufferedImage: BufferedImage = this.imageUtil!.create(imageUnifierProperties!.getWidth(), imageUnifierProperties!.getHeight())!;;
+    
+
+    let commonLabels: CommonLabels = CommonLabels.getInstance()!;;
+    
+this.logUtil!.putF("Setting Image - " +commonLabels!.WIDTH_LABEL +newBufferedImage!.getWidth() +commonLabels!.HEIGHT_LABEL +newBufferedImage!.getHeight(), this, "getImage");
+    
+
+    let g: Graphics2D = newBufferedImage!.createGraphics()!;;
+    
+
+    let columnIndex: number = 0;;
+    
+
+    let rowIndex: number = 0;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < bufferedImageArray!.length; index++)
+        {
+
+    let x: number = imageUnifierProperties!.getImageUnifierCell()!.getWidth()!.intValue() *columnIndex++;;
+    
+
+    let y: number = imageUnifierProperties!.getImageUnifierCell()!.getHeight()!.intValue() *rowIndex;;
+    
+this.logUtil!.putF("Adding Image: " +index +" x: " +x +" y: " +y, this, "getImage");
+    
+g.drawImage(bufferedImageArray[index]!, x, y, imageUnifierProperties!.getImageUnifierCell()!.getWidth()!.intValue(), imageUnifierProperties!.getImageUnifierCell()!.getHeight()!.intValue(), 
+                            null);
+    
+
+    let totalColumnsMinusOne: number = (imageUnifierProperties!.getColumns()!.intValue() -1);;
+    
+
+                        if(columnIndex > totalColumnsMinusOne)
+                        
+                                    {
+                                    rowIndex++;
+    
+columnIndex= 0;
+    
+
+                                    }
+                                
+}
+
+g.dispose();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return newBufferedImage;
+    
+}
+
+
+}
+

@@ -1,0 +1,192 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            const Short = (globalThis.java?.lang?.Short ?? class {}) as typeof globalThis.java.lang.Short;
+        
+//not plain js import { ARunnable } 
+const ARunnable = globalThis.org.allbinary.thread.ARunnable;
+type ARunnable<T = any, U = any> = typeof ARunnable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ARunnable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JDialog } from './JDialog.js';
+//sameFolderImports - not GWT import - same folder const JDialog
+import { CloseJDialogListenerInterface } from './CloseJDialogListenerInterface.js';
+//sameFolderImports - not GWT import - same folder const CloseJDialogListenerInterface
+import { Frame } from './Frame.js';
+//sameFolderImports - not GWT import - same folder const Frame
+import { JButton } from './JButton.js';
+//sameFolderImports - not GWT import - same folder const JButton
+import { JLabel } from './JLabel.js';
+//sameFolderImports - not GWT import - same folder const JLabel
+import { ActionListener } from './ActionListener.js';
+//sameFolderImports - not GWT import - same folder const ActionListener
+import { ActionEvent } from './ActionEvent.js';
+//sameFolderImports - not GWT import - same folder const ActionEvent
+import { GroupLayout } from './GroupLayout.js';
+//sameFolderImports - not GWT import - same folder const GroupLayout
+import { EventQueue } from './EventQueue.js';
+//sameFolderImports - not GWT import - same folder const EventQueue
+import { JFrame } from './JFrame.js';
+//sameFolderImports - not GWT import - same folder const JFrame
+
+export class BasicTextJDialog extends javax.swing.JDialog {
+        
+
+    public static main(args: string[]){
+java.awt.EventQueue.invokeLater(new class extends ARunnable
+                                {
+                                
+    public run(){
+new BasicTextJDialog(new javax.swing.JFrame(), true, "Test").setVisible(true);
+    
+}
+
+                                }());
+    
+}
+
+
+    private closeListenerInterface: CloseJDialogListenerInterface;
+
+    public constructor(...args: any[]) {
+        if(args.length === 3) {
+            const parent = args[0];
+            const modal = args[1];
+            const text = args[2];
+            super(parent, modal);
+            this.constructor$0(parent, modal, text);
+            
+        }
+        else if(args.length === 1) {
+            const text = args[0];
+            super();
+            this.constructor$1(text);
+            
+        }
+        
+    }
+    
+    private constructor$0(parent: java.awt.Frame, modal: boolean, text: string): void {
+        
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.initComponents();
+    
+this.setText(text);
+    
+
+    }
+    
+    public setText(text: string){
+this.textJLabel!.setText(text);
+    
+}
+
+
+    public addCloseListener(closeListenerInterface: CloseJDialogListenerInterface){
+this.closeListenerInterface= closeListenerInterface;
+    
+}
+
+
+    private constructor$1(text: string): void {
+        this.initComponents();
+    
+this.textJLabel!.setText(text);
+    
+
+    }
+    
+    initComponents(){
+this.jButton1= new javax.swing.JButton();
+    
+this.textJLabel= new javax.swing.JLabel();
+    
+setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+    
+this.jButton1!.setText("OK");
+    
+this.jButton1!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+jButton1ActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.textJLabel!.setText("No Text Set");
+    
+
+    let layout: javax.swing.GroupLayout = new javax.swing.GroupLayout(getContentPane());;
+    
+getContentPane()!.setLayout(layout);
+    
+layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addGap(80, 80, 80)!.addComponent(this.jButton1))!.addGroup(layout.createSequentialGroup()!.addContainerGap()!.addComponent(this.textJLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)))!.addContainerGap()));
+    
+layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addGap(20, 20, 20)!.addComponent(this.textJLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)!.addGap(30, 30, 30)!.addComponent(this.jButton1)));
+    
+pack();
+    
+}
+
+
+    jButton1ActionPerformed(evt: java.awt.event.ActionEvent){
+this.setVisible(false);
+    
+
+                        if(this.closeListenerInterface != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.closeListenerInterface!.onClose();
+    
+
+                                    }
+                                
+}
+
+
+    private jButton1: javax.swing.JButton;
+
+    private textJLabel: javax.swing.JLabel;
+
+}
+

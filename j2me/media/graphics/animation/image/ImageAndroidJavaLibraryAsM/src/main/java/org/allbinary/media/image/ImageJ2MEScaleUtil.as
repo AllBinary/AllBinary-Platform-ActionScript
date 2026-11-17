@@ -1,0 +1,114 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2023 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Image } from '../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { GameFeatureImageCacheFactory } from '../../../../org/allbinary/image/GameFeatureImageCacheFactory.js';
+//not GWT import const GameFeatureImageCacheFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ImageScaleUtil } from './ImageScaleUtil.js';
+//sameFolderImports - not GWT import - same folder const ImageScaleUtil
+
+export class ImageJ2MEScaleUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: ImageJ2MEScaleUtil = new ImageJ2MEScaleUtil();
+
+    public static getInstance(): ImageJ2MEScaleUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ImageJ2MEScaleUtil.instance;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            
+    public scaleArray(images: Image[], width: number, height: number): Image[]{
+
+
+
+
+                        for (
+    let index: number = 0;index < images.length; index++)
+        {
+
+    let image: Image = images[index]!;;
+    
+images[index]= ImageScaleUtil.getInstance()!.createImage2(GameFeatureImageCacheFactory.getInstance(), image, width /2, image.getWidth(), height, image.getHeight(), false);
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return images;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public scale(image: Image, width: number, height: number): Image{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ImageScaleUtil.getInstance()!.createImage2(GameFeatureImageCacheFactory.getInstance(), image, width, image.getWidth(), height, image.getHeight(), false);;
+    
+}
+
+
+}
+

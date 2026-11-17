@@ -1,0 +1,347 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
+        
+import { Control } from '../../../../javax/microedition/media/Control.js';
+//not GWT import const Control
+
+import { Controllable } from '../../../../javax/microedition/media/Controllable.js';
+//not GWT import const Controllable
+
+import { MediaException } from '../../../../javax/microedition/media/MediaException.js';
+//not GWT import const MediaException
+
+import { Player, PlayerI } from '../../../../javax/microedition/media/Player.js';
+//not GWT import const Player
+
+import { PlayerListenerI } from '../../../../javax/microedition/media/PlayerListener.js';
+const PlayerListener = PlayerListenerI;
+//not GWT import const PlayerListener
+
+import { TimeBase } from '../../../../javax/microedition/media/TimeBase.js';
+//not GWT import const TimeBase
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { GameTickTimeDelayHelper } from '../../../../org/allbinary/time/GameTickTimeDelayHelper.js';
+//not GWT import const GameTickTimeDelayHelper
+
+import { GameTickTimeDelayHelperFactory } from '../../../../org/allbinary/time/GameTickTimeDelayHelperFactory.js';
+//not GWT import const GameTickTimeDelayHelperFactory
+
+import { TimeDelayHelper } from '../../../../org/allbinary/time/TimeDelayHelper.js';
+//not GWT import const TimeDelayHelper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TimeBaseInterface } from './TimeBaseInterface.js';
+//sameFolderImports - not GWT import - same folder const TimeBaseInterface
+import { Controllable2 } from './Controllable2.js';
+//sameFolderImports - not GWT import - same folder const Controllable2
+//BasicPlayerMIDP2
+export class PlayerComposite
+            extends Object
+         implements Controllable, Player {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly player: Player;
+
+    private readonly timeElapsedHelper: TimeDelayHelper = new TimeDelayHelper(0);
+
+public constructor (player: Player, repeatTime: number){
+
+            super();
+        this.player= player;
+    
+this.timeElapsedHelper!.delay= repeatTime;
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public addPlayerListener(playerListener: PlayerListener){
+this.player.addPlayerListener(playerListener);
+    
+}
+
+
+    public removePlayerListener(playerListener: PlayerListener){
+this.player.removePlayerListener(playerListener);
+    
+}
+
+
+    public close(){
+this.player.close();
+    
+}
+
+
+    public deallocate(){
+this.player.deallocate();
+    
+}
+
+
+    public getContentType(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.player.getContentType();;
+    
+}
+
+
+    public getDuration(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.player.getDuration();;
+    
+}
+
+
+    public getMediaTime(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.player.getMediaTime();;
+    
+}
+
+
+    public getTimeBase(): TimeBase{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return (this.player as TimeBaseInterface).getTimeBase();;
+    
+}
+
+
+                //@Throws(MediaException.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public setTimeBase(timeBase: TimeBase){
+(this.player as TimeBaseInterface).setTimeBase(timeBase);
+    
+}
+
+
+    public prefetch(){
+
+ try { this.player.prefetch();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "prefetch", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public realize(){
+
+ try { this.player.realize();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "realize", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public getState(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.player.getState();;
+    
+}
+
+
+    public setLoopCount(count: number){
+this.player.setLoopCount(count);
+    
+}
+
+
+    public setMediaTime(now: number): number{
+
+ try { 
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.player.setMediaTime(now);;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "setMediaTime", e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return  -1;
+    
+
+ }
+   }
+ 
+}
+
+
+    private readonly gameTickTimeDelayHelper: GameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance()!;
+
+    public start(){
+
+ try { 
+                        if(this.timeElapsedHelper!.isTime(this.gameTickTimeDelayHelper!.startTime))
+                        
+                                    {
+                                    this.player.start();
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.START_METHOD_NAME, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public stop(){
+
+ try { this.player.stop();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "stop", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public getControl(controlType: string): Control{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.player.getControl(controlType);;
+    
+}
+
+
+    public getControls(): Control[]{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public setVolume(leftVolume: number, rightVolume: number){
+
+    let controllable2: Controllable2 = (this.player as unknown as Controllable2);;
+    
+controllable2.setVolume(leftVolume, rightVolume);
+    
+}
+
+
+    public getPlayerP(): Player{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.player;
+    
+}
+
+
+}
+

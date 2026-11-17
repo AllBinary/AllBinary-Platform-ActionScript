@@ -1,0 +1,181 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Image } from '../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { Features } from '../../../../org/allbinary/game/configuration/feature/Features.js';
+//not GWT import const Features
+
+import { GameFeatureFactory } from '../../../../org/allbinary/game/configuration/feature/GameFeatureFactory.js';
+//not GWT import const GameFeatureFactory
+
+import { ImageCache } from '../../../../org/allbinary/image/ImageCache.js';
+//not GWT import const ImageCache
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ImageCopyUtil } from './ImageCopyUtil.js';
+//sameFolderImports - not GWT import - same folder const ImageCopyUtil
+
+export class ImageScaleUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: ImageScaleUtil = new ImageScaleUtil();
+
+    public static getInstance(): ImageScaleUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ImageScaleUtil.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly imageCopyUtil: ImageCopyUtil = ImageCopyUtil.getInstance()!;
+
+    private readonly gameFeatureFactory: GameFeatureFactory = GameFeatureFactory.getInstance()!;
+
+    private readonly features: Features = Features.getInstance()!;
+
+    private readonly NO_COPY: string = "SWT should not copy images after initial loading as the alpha is not honored";
+
+private constructor (){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            
+    public createImage2(imageCache: ImageCache, originalImage: Image, scaleNominatorX: number, scaleDenominatorX: number, scaleNominatorY: number, scaleDenominatorY: number, cached: boolean): Image{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.createImage3(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public createImage3(imageCache: ImageCache, originalImage: Image, scaleNominatorX: number, scaleDenominatorX: number, scaleNominatorY: number, scaleDenominatorY: number, cached: boolean, mutable: boolean): Image{
+
+                        if(!this.features.isFeature(this.gameFeatureFactory!.POST_IMAGE_LOADING_MODIFICATION))
+                        
+                                    {
+                                    this.logUtil!.putF(this.NO_COPY, this, this.commonStrings!.CONSTRUCTOR);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return originalImage;
+    
+
+                                    }
+                                
+
+    let width: number = originalImage!.getWidth()!;;
+    
+
+    let height: number = originalImage!.getHeight()!;;
+    
+
+    let scaleX: number = scaleNominatorX /scaleDenominatorX;;
+    
+
+    let scaleY: number = scaleNominatorY /scaleDenominatorY;;
+    
+
+    let scaledImage: Image = this.imageCopyUtil!.createImageWH(originalImage, globalThis.Math.trunc((scaleX *width)), globalThis.Math.trunc((scaleY *height)), mutable)!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return scaledImage;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public scale2(originalImage: Image, originalImageArray: Image[], ximageToShowArray: Image[], unused: number, scaleX: number, scaleY: number, maxScaleX: number, maxScaleY: number){
+this.scale(originalImage, originalImageArray, ximageToShowArray, unused, scaleX, scaleY, maxScaleX, maxScaleY, true);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public scale(originalImage: Image, originalImageArray: Image[], ximageToShowArray: Image[], unused: number, scaleX: number, scaleY: number, maxScaleX: number, maxScaleY: number, mutable: boolean){
+
+    let width: number = originalImage!.getWidth()!;;
+    
+
+    let height: number = originalImage!.getHeight()!;;
+    
+
+    let scaledImage: Image = this.imageCopyUtil!.createImageWH(originalImage, globalThis.Math.trunc((scaleX *width)), globalThis.Math.trunc((scaleY *height)), mutable)!;;
+    
+originalImageArray[0]= scaledImage;
+    
+}
+
+
+}
+

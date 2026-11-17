@@ -1,0 +1,663 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+            import { Long } from '../../../../../../../java/lang/Long.js';
+        
+import { ActionEvent } from '../../../../../../../java/awt/event/ActionEvent.js';
+//not GWT import const ActionEvent
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { swing } from '../../../../../../../javax/swing.js';
+//not GWT import const swing
+
+import { TreePath } from '../../../../../../../javax/swing/tree/TreePath.js';
+//not GWT import const TreePath
+
+import { JTreeInterfaceFactory } from '../../../../../../../org/allbinary/input/automation/actions/script/JTreeInterfaceFactory.js';
+//not GWT import const JTreeInterfaceFactory
+
+import { ProfileActionScriptItem } from '../../../../../../../org/allbinary/input/automation/actions/script/ProfileActionScriptItem.js';
+//not GWT import const ProfileActionScriptItem
+
+import { ProfileActionScriptNodeInterface } from '../../../../../../../org/allbinary/input/automation/actions/script/ProfileActionScriptNodeInterface.js';
+//not GWT import const ProfileActionScriptNodeInterface
+
+import { ProfileActionScriptProcessorInterface } from '../../../../../../../org/allbinary/input/automation/actions/script/condition/processors/ProfileActionScriptProcessorInterface.js';
+//not GWT import const ProfileActionScriptProcessorInterface
+
+import { GenericProfileActionScriptInputData } from '../../../../../../../org/allbinary/input/automation/actions/script/condition/processors/input/GenericProfileActionScriptInputData.js';
+//not GWT import const GenericProfileActionScriptInputData
+
+import { KeyboardActionScriptInput } from '../../../../../../../org/allbinary/input/automation/actions/script/condition/processors/input/KeyboardActionScriptInput.js';
+//not GWT import const KeyboardActionScriptInput
+
+import { MouseActionScriptInput } from '../../../../../../../org/allbinary/input/automation/actions/script/condition/processors/input/MouseActionScriptInput.js';
+//not GWT import const MouseActionScriptInput
+
+import { ProfileActionScriptInputFactory } from '../../../../../../../org/allbinary/input/automation/actions/script/condition/processors/input/ProfileActionScriptInputFactory.js';
+//not GWT import const ProfileActionScriptInputFactory
+
+import { GenericProfileActionScriptOutputData } from '../../../../../../../org/allbinary/input/automation/module/actions/script/condition/processors/output/GenericProfileActionScriptOutputData.js';
+//not GWT import const GenericProfileActionScriptOutputData
+
+import { ImageActionScriptOutput } from '../../../../../../../org/allbinary/input/automation/module/actions/script/condition/processors/output/ImageActionScriptOutput.js';
+//not GWT import const ImageActionScriptOutput
+
+import { ProfileActionScriptOutputFactory } from '../../../../../../../org/allbinary/input/automation/module/actions/script/condition/processors/output/ProfileActionScriptOutputFactory.js';
+//not GWT import const ProfileActionScriptOutputFactory
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { Document } from '../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+import { NodeList } from '../../../../../../../org/w3c/dom/NodeList.js';
+//not GWT import const NodeList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ProfileActionScriptConditionInterface } from './ProfileActionScriptConditionInterface.js';
+//sameFolderImports - not GWT import - same folder const ProfileActionScriptConditionInterface
+import { GenericProfileActionScriptConditionData } from './GenericProfileActionScriptConditionData.js';
+//sameFolderImports - not GWT import - same folder const GenericProfileActionScriptConditionData
+import { ProfileActionScriptConditionFactory } from './ProfileActionScriptConditionFactory.js';
+//sameFolderImports - not GWT import - same folder const ProfileActionScriptConditionFactory
+import { JMenu } from './JMenu.js';
+//sameFolderImports - not GWT import - same folder const JMenu
+import { JMenuItem } from './JMenuItem.js';
+//sameFolderImports - not GWT import - same folder const JMenuItem
+import { TimeIntervalActionScriptCondition } from './TimeIntervalActionScriptCondition.js';
+//sameFolderImports - not GWT import - same folder const TimeIntervalActionScriptCondition
+import { AlwaysActionScriptCondition } from './AlwaysActionScriptCondition.js';
+//sameFolderImports - not GWT import - same folder const AlwaysActionScriptCondition
+import { ColorAtActionScriptCondition } from './ColorAtActionScriptCondition.js';
+//sameFolderImports - not GWT import - same folder const ColorAtActionScriptCondition
+
+export class BasicProfileActionScriptCondition extends ProfileActionScriptItem implements ProfileActionScriptConditionInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private profileActionProcessorInterfaceVector: BasicArrayList;
+
+    private profileActionConditionInterfaceVector: BasicArrayList;
+
+public constructor (label: string, node: Node){
+            super(label, node);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.init();
+    
+
+    let nodeList: NodeList = node.getChildNodes()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < nodeList!.getLength(); index++)
+        {
+
+    let actionItemNode: Node = nodeList!.item(index)!;;
+    
+
+                        if(actionItemNode!.getNodeType() == Node.ELEMENT_NODE)
+                        
+                                    {
+                                    
+                        if(actionItemNode!.getNodeName()!.compareTo(GenericProfileActionScriptConditionData.NAME) == 0)
+                        
+                                    {
+                                    this.addCondition(ProfileActionScriptConditionFactory.getInstance(actionItemNode));
+    
+
+                                    }
+                                
+                             else 
+                        if(actionItemNode!.getNodeName()!.compareTo(GenericProfileActionScriptInputData.NAME) == 0)
+                        
+                                    {
+                                    this.addProcessor(ProfileActionScriptInputFactory.getInstance(actionItemNode));
+    
+
+                                    }
+                                
+                             else 
+                        if(actionItemNode!.getNodeName()!.compareTo(GenericProfileActionScriptOutputData.NAME) == 0)
+                        
+                                    {
+                                    this.addProcessor(ProfileActionScriptOutputFactory.getInstance(actionItemNode));
+    
+
+                                    }
+                                
+
+                                    }
+                                
+}
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public addProcessorNodes(node: Node){
+
+    let nodeList: NodeList = node.getChildNodes()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < nodeList!.getLength(); index++)
+        {
+
+    let processorActionItemNode: Node = nodeList!.item(index)!;;
+    
+
+                        if(processorActionItemNode!.getNodeName()!.compareTo(GenericProfileActionScriptInputData.NAME) == 0)
+                        
+                                    {
+                                    this.addProcessor(ProfileActionScriptInputFactory.getInstance(processorActionItemNode));
+    
+
+                                    }
+                                
+                             else 
+                        if(processorActionItemNode!.getNodeName()!.compareTo(GenericProfileActionScriptOutputData.NAME) == 0)
+                        
+                                    {
+                                    this.addProcessor(ProfileActionScriptOutputFactory.getInstance(processorActionItemNode));
+    
+
+                                    }
+                                
+}
+
+}
+
+
+public constructor (label: string){
+            super(label);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.init();
+    
+}
+
+
+    init(){
+this.setProfileActionProcessorInterfaceVector(new BasicArrayListD());
+    
+this.setProfileActionConditionInterfaceVector(new BasicArrayListD());
+    
+this.getJPopupMenu()!.add(this.getConditionJPopupMenu());
+    
+this.getJPopupMenu()!.add(this.getInputJPopupMenu());
+    
+this.getJPopupMenu()!.add(this.getOutputJPopupMenu());
+    
+}
+
+
+    getConditionJPopupMenu(): JMenu{
+
+    let jMenu: JMenu = new JMenu(NEW_CONDITION);;
+    
+
+    let jMenuItemColorAt: JMenuItem = new JMenuItem(NEW_COLOR_AT);;
+    
+
+    let jMenuItemAlways: JMenuItem = new JMenuItem(NEW_ALWAYS);;
+    
+
+    let jMenuItemTimeInterval: JMenuItem = new JMenuItem(NEW_TIME_INTERVAL);;
+    
+jMenuItemColorAt!.addActionListener(this);
+    
+jMenuItemAlways!.addActionListener(this);
+    
+jMenuItemTimeInterval!.addActionListener(this);
+    
+jMenu!.add(jMenuItemColorAt);
+    
+jMenu!.add(jMenuItemAlways);
+    
+jMenu!.add(jMenuItemTimeInterval);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return jMenu;
+    
+}
+
+
+    getInputJPopupMenu(): JMenu{
+
+    let jMenu: JMenu = new JMenu(NEW_INPUT);;
+    
+
+    let jMenuItemKey: JMenuItem = new JMenuItem(NEW_KEY_INPUT);;
+    
+
+    let jMenuItemMouse: JMenuItem = new JMenuItem(NEW_MOUSE_INPUT);;
+    
+
+    let jMenuItemJoystick: JMenuItem = new JMenuItem(NEW_JOYSTICK_INPUT);;
+    
+jMenuItemKey!.addActionListener(this);
+    
+jMenuItemMouse!.addActionListener(this);
+    
+jMenuItemJoystick!.addActionListener(this);
+    
+jMenu!.add(jMenuItemKey);
+    
+jMenu!.add(jMenuItemMouse);
+    
+jMenu!.add(jMenuItemJoystick);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return jMenu;
+    
+}
+
+
+    getOutputJPopupMenu(): JMenu{
+
+    let jMenu: JMenu = new JMenu(NEW_OUTPUT);;
+    
+
+    let jMenuItemImage: JMenuItem = new JMenuItem(NEW_IMAGE_OUTPUT);;
+    
+jMenuItemImage!.addActionListener(this);
+    
+jMenu!.add(jMenuItemImage);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return jMenu;
+    
+}
+
+
+    public addProcessor(profileActionProcessorInterface: ProfileActionScriptProcessorInterface){
+this.logUtil!.putF(this.commonStrings!.START, this, "addInput");
+    
+this.getProfileActionProcessorInterfaceVector()!.add(profileActionProcessorInterface);
+    
+this.add(profileActionProcessorInterface);
+    
+}
+
+
+    public removeProcessor(profileActionProcessorInterface: ProfileActionScriptProcessorInterface){
+this.logUtil!.putF(this.commonStrings!.START, this, "removeInput");
+    
+this.getProfileActionProcessorInterfaceVector()!.remove(profileActionProcessorInterface);
+    
+this.remove(profileActionProcessorInterface);
+    
+}
+
+
+    public removeCondition(profileActionScriptNodeInterface: ProfileActionScriptNodeInterface){
+this.logUtil!.putF(this.commonStrings!.START, this, "removeCondition");
+    
+this.getProfileActionConditionInterfaceVector()!.remove(profileActionScriptNodeInterface);
+    
+this.remove(profileActionScriptNodeInterface);
+    
+}
+
+
+    public addCondition(profileActionScriptNodeInterface: ProfileActionScriptNodeInterface){
+this.logUtil!.putF(this.commonStrings!.START, this, "addCondition");
+    
+this.getProfileActionConditionInterfaceVector()!.add(profileActionScriptNodeInterface);
+    
+this.add(profileActionScriptNodeInterface);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let node: Node = document.createElement(GenericProfileActionScriptConditionData.NAME)!;;
+    
+
+    let profileActionConditionInterfaceVector: BasicArrayList = this.getProfileActionConditionInterfaceVector()!;;
+    
+
+    let size: number = profileActionConditionInterfaceVector!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let profileActionConditionInterface: ProfileActionScriptConditionInterface = profileActionConditionInterfaceVector!.get(index) as ProfileActionScriptConditionInterface;;
+    
+node.appendChild(profileActionConditionInterface!.toXmlNode(document));
+    
+}
+
+
+    let profileActionProcessorInterfaceVector: BasicArrayList = this.getProfileActionProcessorInterfaceVector()!;;
+    
+
+    let size2: number = profileActionProcessorInterfaceVector!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size2; index++)
+        {
+
+    let profileActionProcessorInterface: ProfileActionScriptProcessorInterface = profileActionProcessorInterfaceVector!.get(index) as ProfileActionScriptProcessorInterface;;
+    
+node.appendChild(profileActionProcessorInterface!.toXmlNode(document));
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+    public getProfileActionConditionInterfaceVector(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.profileActionConditionInterfaceVector;
+    
+}
+
+
+    public setProfileActionConditionInterfaceVector(profileActionConditionInterfaceVector: BasicArrayList){
+this.profileActionConditionInterfaceVector= profileActionConditionInterfaceVector;
+    
+}
+
+
+    public actionPerformed(actionEvent: ActionEvent){
+
+ try { super.actionPerformed(actionEvent);
+    
+
+                        if(actionEvent!.getActionCommand()!.compareTo(DELETE) == 0)
+                        
+                                    {
+                                    
+                        if(this.getParent() instanceof ProfileActionScriptNodeInterface)
+                        
+                                    {
+                                    
+    let profileActionScriptNodeInterface: ProfileActionScriptNodeInterface = this.getParent() as ProfileActionScriptNodeInterface;;
+    
+profileActionScriptNodeInterface!.removeCondition(this);
+    
+JTreeInterfaceFactory.getInstance()!.getJTreeInterface()!.updateJTree();
+    
+
+                                    }
+                                
+
+                                    }
+                                
+                             else 
+                        if(actionEvent!.getActionCommand()!.compareTo(NEW_COLOR_AT) == 0)
+                        
+                                    {
+                                    this.addCondition(new ColorAtActionScriptCondition());
+    
+this.updateTree();
+    
+
+                                    }
+                                
+                             else 
+                        if(actionEvent!.getActionCommand()!.compareTo(NEW_ALWAYS) == 0)
+                        
+                                    {
+                                    this.addCondition(new AlwaysActionScriptCondition());
+    
+this.updateTree();
+    
+
+                                    }
+                                
+                             else 
+                        if(actionEvent!.getActionCommand()!.compareTo(NEW_TIME_INTERVAL) == 0)
+                        
+                                    {
+                                    this.addCondition(new TimeIntervalActionScriptCondition());
+    
+this.updateTree();
+    
+
+                                    }
+                                
+                             else 
+                        if(actionEvent!.getActionCommand()!.compareTo(NEW_KEY_INPUT) == 0)
+                        
+                                    {
+                                    this.addProcessor(new KeyboardActionScriptInput());
+    
+this.updateTree();
+    
+
+                                    }
+                                
+                             else 
+                        if(actionEvent!.getActionCommand()!.compareTo(NEW_MOUSE_INPUT) == 0)
+                        
+                                    {
+                                    this.addProcessor(new MouseActionScriptInput());
+    
+this.updateTree();
+    
+
+                                    }
+                                
+                             else 
+                        if(actionEvent!.getActionCommand()!.compareTo(NEW_IMAGE_OUTPUT) == 0)
+                        
+                                    {
+                                    this.addProcessor(new ImageActionScriptOutput());
+    
+this.updateTree();
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put("Error", this, "actionPerformed", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public getProfileActionProcessorInterfaceVector(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.profileActionProcessorInterfaceVector;
+    
+}
+
+
+    public setProfileActionProcessorInterfaceVector(profileActionProcessorInterfaceVector: BasicArrayList){
+this.profileActionProcessorInterfaceVector= profileActionProcessorInterfaceVector;
+    
+}
+
+
+    updateTree(){
+JTreeInterfaceFactory.getInstance()!.getJTreeInterface()!.updateJTree();
+    
+
+    let treePath: TreePath = new TreePath(this);;
+    
+JTreeInterfaceFactory.getInstance()!.getJTreeInterface()!.getActionScriptJTree()!.expandPath(treePath);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public shouldProcess(frame: Long): boolean{
+
+    let profileActionConditionInterfaceVector: BasicArrayList = this.getProfileActionConditionInterfaceVector()!;;
+    
+
+    let size: number = profileActionConditionInterfaceVector!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let profileActionScriptConditionInterface: ProfileActionScriptConditionInterface = profileActionConditionInterfaceVector!.get(index) as ProfileActionScriptConditionInterface;;
+    
+
+                        if(!profileActionScriptConditionInterface!.shouldProcess(frame))
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public process(frame: Long){
+this.logUtil!.putF(new StringMaker().append("Start - Processing ")!.appendint(this.getProfileActionProcessorInterfaceVector()!.size())!.append(" inputs")!.toString(), this, this.commonStrings!.PROCESS);
+    
+
+    let profileActionProcessorInterfaceVector: BasicArrayList = this.getProfileActionProcessorInterfaceVector()!;;
+    
+
+    let size: number = profileActionProcessorInterfaceVector!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let profileActionScriptProcessorInterface: ProfileActionScriptProcessorInterface = profileActionProcessorInterfaceVector!.get(index) as ProfileActionScriptProcessorInterface;;
+    
+profileActionScriptProcessorInterface!.process(frame);
+    
+}
+
+}
+
+
+}
+

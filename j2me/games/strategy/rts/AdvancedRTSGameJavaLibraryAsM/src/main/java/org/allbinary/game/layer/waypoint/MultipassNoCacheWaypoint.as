@@ -1,0 +1,451 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2006 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { AllBinaryGameLayerManager } from '../../../../../org/allbinary/game/layer/AllBinaryGameLayerManager.js';
+//not GWT import const AllBinaryGameLayerManager
+
+import { PathFindingLayerInterface } from '../../../../../org/allbinary/game/layer/PathFindingLayerInterface.js';
+//not GWT import const PathFindingLayerInterface
+
+import { RTSLayerEvent } from '../../../../../org/allbinary/game/layer/RTSLayerEvent.js';
+//not GWT import const RTSLayerEvent
+
+import { BuildingEventListenerInterface } from '../../../../../org/allbinary/game/layer/building/event/BuildingEventListenerInterface.js';
+//not GWT import const BuildingEventListenerInterface
+
+import { CollidableDestroyableDamageableLayer } from '../../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.js';
+//not GWT import const CollidableDestroyableDamageableLayer
+
+import { UnitWaypointBehavior } from '../../../../../org/allbinary/game/layer/unit/UnitWaypointBehavior.js';
+//not GWT import const UnitWaypointBehavior
+
+import { PathFindingInfoFactory } from '../../../../../org/allbinary/game/media/graphics/geography/map/racetrack/PathFindingInfoFactory.js';
+//not GWT import const PathFindingInfoFactory
+
+//not plain js import { ForcedLogUtil } 
+const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
+type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { AllBinaryEventObject } from '../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
+//not GWT import const AllBinaryEventObject
+
+import { EventStrings } from '../../../../../org/allbinary/logic/util/event/EventStrings.js';
+//not GWT import const EventStrings
+
+import { Sound } from '../../../../../org/allbinary/media/audio/Sound.js';
+//not GWT import const Sound
+
+import { BasicGeographicMap } from '../../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { GeographicMapCellPosition } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+import { GeographicMapCellTypeFactory } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellTypeFactory.js';
+//not GWT import const GeographicMapCellTypeFactory
+
+import { GeographicMapCompositeInterface } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCompositeInterface.js';
+//not GWT import const GeographicMapCompositeInterface
+
+import { CustomMapGenerator } from '../../../../../org/allbinary/media/graphics/geography/map/racetrack/CustomMapGenerator.js';
+//not GWT import const CustomMapGenerator
+
+import { RaceTrackGeographicMap } from '../../../../../org/allbinary/media/graphics/geography/map/racetrack/RaceTrackGeographicMap.js';
+//not GWT import const RaceTrackGeographicMap
+
+import { MultipassState } from '../../../../../org/allbinary/media/graphics/geography/pathfinding/MultipassState.js';
+//not GWT import const MultipassState
+
+import { PathFindingInfo } from '../../../../../org/allbinary/media/graphics/geography/pathfinding/PathFindingInfo.js';
+//not GWT import const PathFindingInfo
+
+import { PathGenerator } from '../../../../../org/allbinary/media/graphics/geography/pathfinding/PathGenerator.js';
+//not GWT import const PathGenerator
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListUtil } 
+const BasicArrayListUtil = globalThis.org.allbinary.util.BasicArrayListUtil;
+type BasicArrayListUtil<T = any, U = any> = typeof BasicArrayListUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { WaypointBase } from './WaypointBase.js';
+//sameFolderImports - not GWT import - same folder const WaypointBase
+
+export class MultipassNoCacheWaypoint extends WaypointBase implements BuildingEventListenerInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly ownerLayer: PathFindingLayerInterface;
+
+public constructor (ownerLayer: PathFindingLayerInterface, sound: Sound){
+            super(sound);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.ownerLayer= ownerLayer;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setAllBinaryGameLayerManager(allBinaryGameLayerManager: AllBinaryGameLayerManager){
+super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
+    
+}
+
+
+    public releaseCachedPaths(){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getPathFindingInfo(geographicMapCellPosition: GeographicMapCellPosition): PathFindingInfo{
+
+    let startGeographicMapCellPosition: GeographicMapCellPosition = geographicMapCellPosition;;
+    
+
+    let endGeographicMapCellPosition: GeographicMapCellPosition = this.getEndGeographicMapCellPosition(startGeographicMapCellPosition)!;;
+    
+
+                        if(endGeographicMapCellPosition == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return PathFindingInfo.NULL_PATH_FINDING_INFO;
+    
+
+                                    }
+                                
+
+                        if(startGeographicMapCellPosition == endGeographicMapCellPosition)
+                        
+                                    {
+                                    
+                        if(this.ownerLayer!.shouldHandleStartSameAsEnd())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return PathFindingInfo.NULL_PATH_FINDING_INFO;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("Start should not be End: " +endGeographicMapCellPosition);
+                    
+
+                        }
+                            
+
+                                    }
+                                
+
+    let geographicMapCompositeInterface: GeographicMapCompositeInterface = this.allBinaryGameLayerManagerP as GeographicMapCompositeInterface;;
+    
+
+    let geographicMapInterface: BasicGeographicMap = geographicMapCompositeInterface!.getGeographicMapInterface()[0]!;;
+    
+
+    let raceTrackGeographicMap: RaceTrackGeographicMap = geographicMapInterface as RaceTrackGeographicMap;;
+    
+
+    let raceTrackGeographicMapCellTypeFactory: GeographicMapCellTypeFactory = raceTrackGeographicMap!.getGeographicMapCellTypeFactory()!;;
+    
+
+    let customMapGenerator: CustomMapGenerator = raceTrackGeographicMap!.getCustomMapGenerator() as CustomMapGenerator;;
+    
+customMapGenerator!.copyMapIntoCustomMap();
+    
+
+    let customMapArray: number[][] = customMapGenerator!.getCustomMapArray()!;;
+    
+customMapArray[startGeographicMapCellPosition!.getRow()]![startGeographicMapCellPosition!.getColumn()]= raceTrackGeographicMapCellTypeFactory!.getStartType();
+    
+customMapArray[endGeographicMapCellPosition!.getRow()]![endGeographicMapCellPosition!.getColumn()]= raceTrackGeographicMapCellTypeFactory!.getEndType();
+    
+
+    let pathFindingInfo: PathFindingInfo = PathFindingInfoFactory.getInstance()!.getInstancePathFindingInfo(raceTrackGeographicMap, customMapArray)!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return pathFindingInfo;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getPathsList(geographicMapCellPosition: GeographicMapCellPosition, pathFindingInfo: PathFindingInfo, multipassState: MultipassState): BasicArrayList{
+
+ try { 
+                        if(pathFindingInfo == 
+                                    null
+                                )
+                        
+                                    {
+                                    this.logUtil!.putF("pathFindingInfo: " +pathFindingInfo, this, "getPathsList");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return BasicArrayListUtil.getInstance()!.getImmutableInstance();;
+    
+
+                                    }
+                                
+
+    let geographicMapCompositeInterface: GeographicMapCompositeInterface = this.allBinaryGameLayerManagerP as GeographicMapCompositeInterface;;
+    
+
+    let geographicMapInterface: BasicGeographicMap = geographicMapCompositeInterface!.getGeographicMapInterface()[0]!;;
+    
+
+    let list: BasicArrayList = PathGenerator.getInstance()!.createN(geographicMapInterface, pathFindingInfo, 2, multipassState)!;;
+    
+
+                        if(list != 
+                                    null
+                                 && list != BasicArrayListUtil.getInstance()!.getImmutableInstance())
+                        
+                                    {
+                                    
+                        if(list.size() < 1)
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("Path may have been cleared by clearing caching");
+                    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return list;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return BasicArrayListUtil.getInstance()!.getImmutableInstance();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, "getPathsList", e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return BasicArrayListUtil.getInstance()!.getImmutableInstance();;
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getEndGeographicMapCellPosition(startGeographicMapCellPosition: GeographicMapCellPosition): GeographicMapCellPosition{
+
+    let endList: BasicArrayList = this.ownerLayer!.getEndGeographicMapCellPositionList()!;;
+    
+
+    let endGeographicMapCellPosition: GeographicMapCellPosition = BasicArrayListUtil.getInstance()!.getRandom(endList) as GeographicMapCellPosition;;
+    
+
+                        if(startGeographicMapCellPosition == endGeographicMapCellPosition)
+                        
+                                    {
+                                    
+
+
+
+                        for (
+    let index: number = endList!.size() -1;index >= 0; index--)
+        {
+endGeographicMapCellPosition= endList!.get(index) as GeographicMapCellPosition;
+    
+
+                        if(startGeographicMapCellPosition != endGeographicMapCellPosition)
+                        
+                                    {
+                                    break;
+
+                    
+
+                                    }
+                                
+}
+
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return endGeographicMapCellPosition;
+    
+}
+
+
+    public onEvent(eventObject: AllBinaryEventObject){
+ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public onBuildingEvent(event: RTSLayerEvent){
+}
+
+
+    public reset(){
+this.getConnectedWaypointList()!.clear();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public visit(unitLayer: PathFindingLayerInterface){
+
+                        if(unitLayer!.getGroupInterface()[0] != this.ownerLayer!.getGroupInterface()[0])
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+
+    let size: number = this.getConnectedWaypointList()!.size()!;;
+    
+
+                        if(size > 0)
+                        
+                                    {
+                                    
+    let unitWaypointBehavior: UnitWaypointBehavior = unitLayer!.getWaypointBehavior() as UnitWaypointBehavior;;
+    
+
+        while(this.getConnectedWaypointList()!.size() > 0)
+        {
+
+    let rtsLayer: CollidableDestroyableDamageableLayer = this.getConnectedWaypointList()!.get(0) as CollidableDestroyableDamageableLayer;;
+    
+
+                        if(rtsLayer!.isDestroyed())
+                        
+                                    {
+                                    this.getConnectedWaypointList()!.remove(rtsLayer);
+    
+
+                                    }
+                                
+                        else {
+                            unitLayer!.handleCost(this.ownerLayer);
+    
+unitWaypointBehavior!.insertWaypoint(0, rtsLayer);
+    
+break;
+
+                    
+
+                        }
+                            
+}
+
+
+                                    }
+                                
+}
+
+
+}
+

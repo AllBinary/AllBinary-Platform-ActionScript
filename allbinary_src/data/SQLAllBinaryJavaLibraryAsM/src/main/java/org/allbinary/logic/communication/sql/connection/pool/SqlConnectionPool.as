@@ -1,0 +1,393 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+import { Connection } from '../../../../../../../java/sql/Connection.js';
+//not GWT import const Connection
+
+import { DriverManager } from '../../../../../../../java/sql/DriverManager.js';
+//not GWT import const DriverManager
+
+import { SQLException } from '../../../../../../../java/sql/SQLException.js';
+//not GWT import const SQLException
+
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class SqlConnectionPool
+            extends Object
+         {
+        
+
+    private static readonly instance: SqlConnectionPool = new SqlConnectionPool();
+
+    public static getInstance(): SqlConnectionPool{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SqlConnectionPool.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly stdUtil: StdUtil = StdUtil.getInstance()!;
+
+    private connectionHashMap: HashMap<any, any> = 
+                null
+            ;
+
+    private readonly FIRST_NEW_CONNECTION_CREATED: string = "First New Connection Created: ";
+
+    private readonly FIRST: string = "First ";
+
+    private readonly NEW_CONNECTION_FOR: string = "New Connection For ";
+
+    private readonly CREATED: string = " Created";
+
+    private readonly NUMBER_OF_SQL_CONNECTIONS_FOR: string = "Number Of Sql Connections for: ";
+
+    private readonly NUMBER_OF_SQL_CONNECTION_VECTORS: string = "Number Of Sql Connection Vectors: ";
+
+    private readonly IS: string = " is ";
+
+    private readonly CONNECTION_ALLREADY_CLOSED: string = "Connection AllReady Closed";
+
+    private readonly METHOD_GET: string = "get()";
+
+    private readonly METHOD_ADD: string = "add()";
+
+private constructor (){
+
+            super();
+        }
+
+
+                //@Throws(SQLException.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public get(url: string): Connection{
+
+                        if(this.connectionHashMap == 
+                                    null
+                                )
+                        
+                                    {
+                                    this.connectionHashMap= this.stdUtil!.createHashMap();
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGPOOL))
+                        
+                                    {
+                                    this.logUtil!.putF(this.FIRST_NEW_CONNECTION_CREATED +url, this, this.METHOD_GET);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return DriverManager.getConnection(url);;
+    
+
+                                    }
+                                
+                        else {
+                            
+    let connectionVector: BasicArrayList = this.connectionHashMap!.get(url) as BasicArrayList;;
+    
+
+                        if(connectionVector == 
+                                    null
+                                )
+                        
+                                    {
+                                    connectionVector= new BasicArrayListD();
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGPOOL))
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.FIRST);
+    
+stringBuffer!.append(this.NEW_CONNECTION_FOR);
+    
+stringBuffer!.append(url);
+    
+stringBuffer!.append(this.CREATED);
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.METHOD_GET);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return DriverManager.getConnection(url);;
+    
+
+                                    }
+                                
+                             else 
+                        if(connectionVector!.size() == 0)
+                        
+                                    {
+                                    
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGPOOL))
+                        
+                                    {
+                                    this.logUtil!.putF(new StringMaker().append(this.NEW_CONNECTION_FOR)!.append(url)!.append(this.CREATED)!.toString(), this, this.METHOD_GET);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return DriverManager.getConnection(url);;
+    
+
+                                    }
+                                
+                        else {
+                            
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+
+    let size: number = connectionVector!.size()!;;
+    
+
+
+
+
+                        for (
+    let i: number = 0;i < size; i++)
+        {
+
+    let sqlConnection: Connection = connectionVector!.get(i) as Connection;;
+    
+
+                        if(!sqlConnection!.isClosed())
+                        
+                                    {
+                                    connectionVector!.remove(sqlConnection);
+    
+this.connectionHashMap!.put(url, connectionVector);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGPOOL))
+                        
+                                    {
+                                    stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(this.NUMBER_OF_SQL_CONNECTIONS_FOR);
+    
+stringBuffer!.append(url);
+    
+stringBuffer!.append(this.IS);
+    
+stringBuffer!.appendint(connectionVector!.size());
+    
+this.logUtil!.putF(this.NUMBER_OF_SQL_CONNECTION_VECTORS +this.connectionHashMap!.size(), this, this.METHOD_GET);
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.METHOD_GET);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return sqlConnection as Connection;
+    
+
+                                    }
+                                
+}
+
+
+                        }
+                            
+
+                        }
+                            
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGPOOL))
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.NEW_CONNECTION_FOR);
+    
+stringBuffer!.append(url);
+    
+stringBuffer!.append(this.CREATED);
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.METHOD_GET);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return DriverManager.getConnection(url);;
+    
+}
+
+
+                //@Throws(SQLException.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public add(url: string, sqlConnection: Connection){
+
+                        if(!sqlConnection!.isClosed())
+                        
+                                    {
+                                    
+    let connectionVector: BasicArrayList;;
+    
+
+                        if(this.connectionHashMap == 
+                                    null
+                                )
+                        
+                                    {
+                                    this.connectionHashMap= this.stdUtil!.createHashMap();
+    
+connectionVector= new BasicArrayListD();
+    
+connectionVector!.add(sqlConnection);
+    
+
+                                    }
+                                
+                        else {
+                            connectionVector= this.connectionHashMap!.get(url) as BasicArrayList;
+    
+
+                        if(connectionVector == 
+                                    null
+                                )
+                        
+                                    {
+                                    connectionVector= new BasicArrayListD();
+    
+
+                                    }
+                                
+connectionVector!.add(sqlConnection);
+    
+this.connectionHashMap!.put(url, connectionVector);
+    
+
+                        }
+                            
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGPOOL))
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.NUMBER_OF_SQL_CONNECTIONS_FOR);
+    
+stringBuffer!.append(url);
+    
+stringBuffer!.append(this.IS);
+    
+stringBuffer!.appendint(connectionVector!.size());
+    
+this.logUtil!.putF(this.NUMBER_OF_SQL_CONNECTION_VECTORS +this.connectionHashMap!.size(), this, this.METHOD_ADD);
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.METHOD_ADD);
+    
+
+                                    }
+                                
+
+                                    }
+                                
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGPOOL))
+                        
+                                    {
+                                    this.logUtil!.putF(this.CONNECTION_ALLREADY_CLOSED, this, this.METHOD_ADD);
+    
+
+                                    }
+                                
+}
+
+
+}
+

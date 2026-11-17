@@ -1,0 +1,87 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+import { GL } from '../../../javax/microedition/khronos/opengles/GL.js';
+//not GWT import const GL
+
+import { Graphics } from '../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { Image } from '../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class PreResourceImageUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: PreResourceImageUtil = new PreResourceImageUtil();
+
+    public static getInstance(): PreResourceImageUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return PreResourceImageUtil.instance;
+    
+}
+
+
+    public encapsulate(image: Image): Image{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return image;
+    
+}
+
+
+    public updateGL(gl: GL, image: Image){
+}
+
+
+    public update(graphics: Graphics, image: Image){
+}
+
+
+}
+

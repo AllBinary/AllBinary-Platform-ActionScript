@@ -1,0 +1,101 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { StoreFrontInterface } from '../../../../../org/allbinary/business/context/modules/storefront/StoreFrontInterface.js';
+//not GWT import const StoreFrontInterface
+
+import { UserInterface } from '../../../../../org/allbinary/business/user/UserInterface.js';
+//not GWT import const UserInterface
+
+import { UserRole } from '../../../../../org/allbinary/business/user/role/UserRole.js';
+//not GWT import const UserRole
+
+import { BasicDataTableInterface } from '../../../../../org/allbinary/data/tables/BasicDataTableInterface.js';
+//not GWT import const BasicDataTableInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export interface UserEntityInterface extends BasicDataTableInterface {
+        
+
+                //@Throws(Exception.constructor)
+            
+    getAdministrators(): BasicArrayList;
+
+                //@Throws(Exception.constructor)
+            
+    getStoreManagers(storeFrontInterface: StoreFrontInterface): BasicArrayList;
+
+                //@Throws(Exception.constructor)
+            
+    getCustomers(): BasicArrayList;
+
+                //@Throws(Exception.constructor)
+            
+    getUsersWithRole(userRole: UserRole): BasicArrayList;
+
+                //@Throws(Exception.constructor)
+            
+    getUsers(storeFrontInterface: StoreFrontInterface): BasicArrayList;
+
+                //@Throws(Exception.constructor)
+            
+    getUser(userName: string): UserInterface;
+
+    login(userName: string, password: string): string;
+
+    deleteWhere(key: string, value: string): void;
+
+    insert(values: BasicArrayList): void;
+
+    update(userName: string, updatedValues: HashMap<any, any>): void;
+
+}
+

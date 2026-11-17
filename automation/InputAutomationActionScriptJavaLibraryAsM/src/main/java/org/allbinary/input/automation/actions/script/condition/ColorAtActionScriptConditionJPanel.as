@@ -1,0 +1,506 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Integer } from '../../../../../../../java/lang/Integer.js';
+        
+            const Short = (globalThis.java?.lang?.Short ?? class {}) as typeof globalThis.java.lang.Short;
+        
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { StringValidationUtil } from '../../../../../../../org/allbinary/logic/string/StringValidationUtil.js';
+//not GWT import const StringValidationUtil
+
+import { ColorRangeInterface } from '../../../../../../../org/allbinary/media/image/analysis/ColorRangeInterface.js';
+//not GWT import const ColorRangeInterface
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JPanel } from './JPanel.js';
+//sameFolderImports - not GWT import - same folder const JPanel
+import { ColorAtActionScriptConditionInterface } from './ColorAtActionScriptConditionInterface.js';
+//sameFolderImports - not GWT import - same folder const ColorAtActionScriptConditionInterface
+import { JTextField } from './JTextField.js';
+//sameFolderImports - not GWT import - same folder const JTextField
+import { JLabel } from './JLabel.js';
+//sameFolderImports - not GWT import - same folder const JLabel
+import { JDialog } from './JDialog.js';
+//sameFolderImports - not GWT import - same folder const JDialog
+import { JButton } from './JButton.js';
+//sameFolderImports - not GWT import - same folder const JButton
+import { Dimension } from './Dimension.js';
+//sameFolderImports - not GWT import - same folder const Dimension
+import { ActionListener } from './ActionListener.js';
+//sameFolderImports - not GWT import - same folder const ActionListener
+import { ActionEvent } from './ActionEvent.js';
+//sameFolderImports - not GWT import - same folder const ActionEvent
+import { GroupLayout } from './GroupLayout.js';
+//sameFolderImports - not GWT import - same folder const GroupLayout
+
+export class ColorAtActionScriptConditionJPanel extends javax.swing.JPanel {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private colorAtActionScriptConditionInterface: ColorAtActionScriptConditionInterface;
+
+public constructor (colorAtActionScriptConditionInterface: ColorAtActionScriptConditionInterface){
+
+            super();
+        this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    
+this.initComponents();
+    
+this.colorAtActionScriptConditionInterface= colorAtActionScriptConditionInterface;
+    
+this.set();
+    
+}
+
+
+    set(){
+
+    let colorRangeInterface: ColorRangeInterface = this.colorAtActionScriptConditionInterface!.getColorRangeInterface()!;;
+    
+this.getMinRedJTextField()!.setText(colorRangeInterface!.getMinRed().toString());
+    
+this.getMaxRedJTextField()!.setText(colorRangeInterface!.getMaxRed().toString());
+    
+this.getMinGreenJTextField()!.setText(colorRangeInterface!.getMinGreen().toString());
+    
+this.getMaxGreenJTextField()!.setText(colorRangeInterface!.getMaxGreen().toString());
+    
+this.getMinBlueJTextField()!.setText(colorRangeInterface!.getMinBlue().toString());
+    
+this.getMaxBlueJTextField()!.setText(colorRangeInterface!.getMaxBlue().toString());
+    
+this.getColorAtXJTextField()!.setText(this.colorAtActionScriptConditionInterface!.getPoint()!.x.toString());
+    
+this.getColorAtYJTextField()!.setText(this.colorAtActionScriptConditionInterface!.getPoint()!.y.toString());
+    
+this.colorAtActionScriptConditionInterface!.log();
+    
+}
+
+
+    update(){
+
+    let colorRangeInterface: ColorRangeInterface = this.colorAtActionScriptConditionInterface!.getColorRangeInterface()!;;
+    
+colorRangeInterface!.setMinRed(Integer.valueOf(this.getMinRedJTextField()!.getText())!.intValue());
+    
+colorRangeInterface!.setMaxRed(Integer.valueOf(this.getMaxRedJTextField()!.getText())!.intValue());
+    
+colorRangeInterface!.setMinGreen(Integer.valueOf(this.getMinGreenJTextField()!.getText())!.intValue());
+    
+colorRangeInterface!.setMaxGreen(Integer.valueOf(this.getMaxGreenJTextField()!.getText())!.intValue());
+    
+colorRangeInterface!.setMinBlue(Integer.valueOf(this.getMinBlueJTextField()!.getText())!.intValue());
+    
+colorRangeInterface!.setMaxBlue(Integer.valueOf(this.getMaxBlueJTextField()!.getText())!.intValue());
+    
+
+    let xString: string = this.getColorAtXJTextField()!.getText()!;;
+    
+
+                        if(!StringValidationUtil.getInstance()!.isEmpty(xString) && StringValidationUtil.getInstance()!.isNumber(xString))
+                        
+                                    {
+                                    this.colorAtActionScriptConditionInterface!.getPoint()!.x= Integer.parseInt(xString);
+    
+
+                                    }
+                                
+
+    let yString: string = this.getColorAtYJTextField()!.getText()!;;
+    
+
+                        if(!StringValidationUtil.getInstance()!.isEmpty(yString) && StringValidationUtil.getInstance()!.isNumber(yString))
+                        
+                                    {
+                                    this.colorAtActionScriptConditionInterface!.getPoint()!.y= Integer.parseInt(xString);
+    
+
+                                    }
+                                
+this.colorAtActionScriptConditionInterface!.log();
+    
+}
+
+
+    public getColorAtXJTextField(): javax.swing.JTextField{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.colorAtXJTextField;
+    
+}
+
+
+    public setColorAtXJTextField(colorAtXJTextField: javax.swing.JTextField){
+this.colorAtXJTextField= colorAtXJTextField;
+    
+}
+
+
+    public getColorAtYJTextField(): javax.swing.JTextField{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.colorAtYJTextField;
+    
+}
+
+
+    public setColorAtYJTextField(colorAtYJTextField: javax.swing.JTextField){
+this.colorAtYJTextField= colorAtYJTextField;
+    
+}
+
+
+    public getMaxBlueJTextField(): javax.swing.JTextField{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.maxBlueJTextField;
+    
+}
+
+
+    public setMaxBlueJTextField(maxBlueJTextField: javax.swing.JTextField){
+this.maxBlueJTextField= maxBlueJTextField;
+    
+}
+
+
+    public getMaxGreenJTextField(): javax.swing.JTextField{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.maxGreenJTextField;
+    
+}
+
+
+    public setMaxGreenJTextField(maxGreenJTextField: javax.swing.JTextField){
+this.maxGreenJTextField= maxGreenJTextField;
+    
+}
+
+
+    public getMaxRedJTextField(): javax.swing.JTextField{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.maxRedJTextField;
+    
+}
+
+
+    public setMaxRedJTextField(maxRedJTextField: javax.swing.JTextField){
+this.maxRedJTextField= maxRedJTextField;
+    
+}
+
+
+    public getMinBlueJTextField(): javax.swing.JTextField{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.minBlueJTextField;
+    
+}
+
+
+    public setMinBlueJTextField(minBlueJTextField: javax.swing.JTextField){
+this.minBlueJTextField= minBlueJTextField;
+    
+}
+
+
+    public getMinGreenJTextField(): javax.swing.JTextField{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.minGreenJTextField;
+    
+}
+
+
+    public setMinGreenJTextField(minGreenJTextField: javax.swing.JTextField){
+this.minGreenJTextField= minGreenJTextField;
+    
+}
+
+
+    public getMinRedJTextField(): javax.swing.JTextField{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.minRedJTextField;
+    
+}
+
+
+    public setMinRedJTextField(minRedJTextField: javax.swing.JTextField){
+this.minRedJTextField= minRedJTextField;
+    
+}
+
+
+    public getYJLabel(): javax.swing.JLabel{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.yJLabel;
+    
+}
+
+
+    public setYJLabel(yJLabel: javax.swing.JLabel){
+this.yJLabel= yJLabel;
+    
+}
+
+
+    public getColorAtActionJDialog(): javax.swing.JDialog{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.colorAtActionJDialog;
+    
+}
+
+
+    public setColorAtActionJDialog(colorAtActionJDialog: javax.swing.JDialog){
+this.colorAtActionJDialog= colorAtActionJDialog;
+    
+}
+
+
+    initComponents(){
+this.colorAtActionJDialog= new javax.swing.JDialog();
+    
+this.titleJLabel= new javax.swing.JLabel();
+    
+this.locationJLabel= new javax.swing.JLabel();
+    
+this.colorAtXJTextField= new javax.swing.JTextField();
+    
+this.xJLabel= new javax.swing.JLabel();
+    
+this.yJLabel= new javax.swing.JLabel();
+    
+this.colorAtYJTextField= new javax.swing.JTextField();
+    
+this.colorRangeJLabel= new javax.swing.JLabel();
+    
+this.redJLabel= new javax.swing.JLabel();
+    
+this.minJLabel= new javax.swing.JLabel();
+    
+this.maxJLabel= new javax.swing.JLabel();
+    
+this.greenJLabel= new javax.swing.JLabel();
+    
+this.blueJLabel= new javax.swing.JLabel();
+    
+this.minRedJTextField= new javax.swing.JTextField();
+    
+this.maxRedJTextField= new javax.swing.JTextField();
+    
+this.maxGreenJTextField= new javax.swing.JTextField();
+    
+this.minBlueJTextField= new javax.swing.JTextField();
+    
+this.maxBlueJTextField= new javax.swing.JTextField();
+    
+this.okJButton= new javax.swing.JButton();
+    
+this.minGreenJTextField= new javax.swing.JTextField();
+    
+this.colorAtActionJButton= new javax.swing.JButton();
+    
+this.jLabel1= new javax.swing.JLabel();
+    
+this.colorAtActionJDialog!.setMinimumSize(new java.awt.Dimension(350, 250));
+    
+this.titleJLabel!.setText("              Color At Action Options            ");
+    
+this.locationJLabel!.setText("Location:");
+    
+this.xJLabel!.setText("X:");
+    
+this.yJLabel!.setText("Y:");
+    
+this.colorRangeJLabel!.setText("Color Range");
+    
+this.redJLabel!.setText("Red:");
+    
+this.minJLabel!.setText("Minimum");
+    
+this.maxJLabel!.setText("Maximum");
+    
+this.greenJLabel!.setText("Green:");
+    
+this.blueJLabel!.setText("Blue:");
+    
+this.okJButton!.setText("OK");
+    
+this.okJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+okJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+
+    let colorAtActionJDialogLayout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this.colorAtActionJDialog!.getContentPane());;
+    
+this.colorAtActionJDialog!.getContentPane()!.setLayout(colorAtActionJDialogLayout);
+    
+colorAtActionJDialogLayout!.setHorizontalGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(colorAtActionJDialogLayout!.createSequentialGroup()!.addContainerGap()!.addGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(colorAtActionJDialogLayout!.createSequentialGroup()!.addGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)!.addComponent(this.okJButton)!.addGroup(colorAtActionJDialogLayout!.createSequentialGroup()!.addGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)!.addGroup(colorAtActionJDialogLayout!.createSequentialGroup()!.addGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addComponent(this.blueJLabel)!.addComponent(this.greenJLabel)!.addComponent(this.redJLabel)!.addComponent(this.colorRangeJLabel))!.addGap(29, 29, 29))!.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorAtActionJDialogLayout!.createSequentialGroup()!.addComponent(this.locationJLabel)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.addComponent(this.xJLabel)!.addGap(18, 18, 18)))!.addGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addComponent(this.minBlueJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)!.addComponent(this.minGreenJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)!.addComponent(this.minJLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.addComponent(this.minRedJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)!.addComponent(this.colorAtXJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))!.addGap(16, 16, 16)))!.addGap(6, 6, 6)!.addComponent(this.yJLabel)!.addGap(24, 24, 24)!.addGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)!.addComponent(this.maxJLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.addGroup(javax.swing.GroupLayout.Alignment.LEADING, colorAtActionJDialogLayout!.createSequentialGroup()!.addGap(1, 1, 1)!.addGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)!.addComponent(this.maxBlueJTextField, javax.swing.GroupLayout.Alignment.TRAILING)!.addComponent(this.maxRedJTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)!.addComponent(this.maxGreenJTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))!.addComponent(this.colorAtYJTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))!.addGap(22, 22, 22))!.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, colorAtActionJDialogLayout!.createSequentialGroup()!.addComponent(this.titleJLabel)!.addGap(33, 33, 33)))));
+    
+colorAtActionJDialogLayout!.setVerticalGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(colorAtActionJDialogLayout!.createSequentialGroup()!.addContainerGap()!.addComponent(this.titleJLabel)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(colorAtActionJDialogLayout!.createSequentialGroup()!.addGap(15, 15, 15)!.addGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.xJLabel)!.addComponent(this.locationJLabel)!.addComponent(this.colorAtXJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addComponent(this.yJLabel))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.minJLabel)!.addComponent(this.colorRangeJLabel))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.minRedJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addComponent(this.redJLabel))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.greenJLabel)!.addComponent(this.minGreenJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(colorAtActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.blueJLabel)!.addComponent(this.minBlueJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)!.addComponent(this.okJButton))!.addGroup(colorAtActionJDialogLayout!.createSequentialGroup()!.addGap(14, 14, 14)!.addComponent(this.colorAtYJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.maxJLabel)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.maxRedJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.maxGreenJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.maxBlueJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))!.addContainerGap()));
+    
+setPreferredSize(new java.awt.Dimension(100, 0));
+    
+this.colorAtActionJButton!.setText("Edit");
+    
+this.colorAtActionJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+colorAtActionJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.jLabel1!.setText("Color At:");
+    
+
+    let layout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this);;
+    
+this.setLayout(layout);
+    
+layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addComponent(this.jLabel1)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)!.addComponent(this.colorAtActionJButton)));
+    
+layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.jLabel1)!.addComponent(this.colorAtActionJButton)));
+    
+}
+
+
+    okJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.update();
+    
+this.getColorAtActionJDialog()!.setVisible(false);
+    
+}
+
+
+    colorAtActionJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.getColorAtActionJDialog()!.setVisible(true);
+    
+}
+
+
+    private blueJLabel: javax.swing.JLabel;
+
+    private colorAtActionJButton: javax.swing.JButton;
+
+    private colorAtActionJDialog: javax.swing.JDialog;
+
+    private colorAtXJTextField: javax.swing.JTextField;
+
+    private colorAtYJTextField: javax.swing.JTextField;
+
+    private colorRangeJLabel: javax.swing.JLabel;
+
+    private greenJLabel: javax.swing.JLabel;
+
+    private jLabel1: javax.swing.JLabel;
+
+    private locationJLabel: javax.swing.JLabel;
+
+    private maxBlueJTextField: javax.swing.JTextField;
+
+    private maxGreenJTextField: javax.swing.JTextField;
+
+    private maxJLabel: javax.swing.JLabel;
+
+    private maxRedJTextField: javax.swing.JTextField;
+
+    private minBlueJTextField: javax.swing.JTextField;
+
+    private minGreenJTextField: javax.swing.JTextField;
+
+    private minJLabel: javax.swing.JLabel;
+
+    private minRedJTextField: javax.swing.JTextField;
+
+    private okJButton: javax.swing.JButton;
+
+    private redJLabel: javax.swing.JLabel;
+
+    private titleJLabel: javax.swing.JLabel;
+
+    private xJLabel: javax.swing.JLabel;
+
+    private yJLabel: javax.swing.JLabel;
+
+}
+

@@ -1,0 +1,227 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { BaseResourceAnimationInterfaceFactoryInterfaceFactory } from '../../../../../org/allbinary/animation/resource/BaseResourceAnimationInterfaceFactoryInterfaceFactory.js';
+//not GWT import const BaseResourceAnimationInterfaceFactoryInterfaceFactory
+
+import { Features } from '../../../../../org/allbinary/game/configuration/feature/Features.js';
+//not GWT import const Features
+
+import { MainFeatureFactory } from '../../../../../org/allbinary/game/configuration/feature/MainFeatureFactory.js';
+//not GWT import const MainFeatureFactory
+
+import { GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory } from '../../../../../org/allbinary/game/layer/GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory.js';
+//not GWT import const GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory
+
+import { LayerPlacementInterfaceBasicArrayListFactoryInterface } from '../../../../../org/allbinary/game/layer/LayerPlacementInterfaceBasicArrayListFactoryInterface.js';
+//not GWT import const LayerPlacementInterfaceBasicArrayListFactoryInterface
+
+import { ResourceLoadingLevelFactory } from '../../../../../org/allbinary/game/resource/ResourceLoadingLevelFactory.js';
+//not GWT import const ResourceLoadingLevelFactory
+
+import { ImageCache } from '../../../../../org/allbinary/image/ImageCache.js';
+//not GWT import const ImageCache
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { OnDemandResourcesFactory } from './OnDemandResourcesFactory.js';
+//sameFolderImports - not GWT import - same folder const OnDemandResourcesFactory
+import { OnDemandResources } from './OnDemandResources.js';
+//sameFolderImports - not GWT import - same folder const OnDemandResources
+
+export class OnDemandLoader
+            extends Object
+         {
+        
+
+    private readonly onDemandResourcesFactory: OnDemandResourcesFactory;
+
+    private readonly gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory: GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory;
+
+    private readonly resourceAnimationInterfaceFactoryInterfaceFactory: BaseResourceAnimationInterfaceFactoryInterfaceFactory;
+
+public constructor (onDemandResourcesFactory: OnDemandResourcesFactory, gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory: GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory, resourceAnimationInterfaceFactoryInterfaceFactory: BaseResourceAnimationInterfaceFactoryInterfaceFactory){
+
+            super();
+        this.onDemandResourcesFactory= onDemandResourcesFactory;
+    
+this.gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory= gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory;
+    
+this.resourceAnimationInterfaceFactoryInterfaceFactory= resourceAnimationInterfaceFactoryInterfaceFactory;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public init(imageCache: ImageCache, level: number, loadingString: string){
+
+    let resourceLoadingLevelFactory: ResourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance()!;;
+    
+
+                        if(Features.getInstance()!.isFeature(MainFeatureFactory.getInstance()!.LOAD_ALL))
+                        
+                                    {
+                                    
+                        if(this.resourceAnimationInterfaceFactoryInterfaceFactory!.isInitialized())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+this.initAll(imageCache, loadingString);
+    
+
+                                    }
+                                
+                             else 
+                        if(level != resourceLoadingLevelFactory!.LOAD_ALL.getLevel())
+                        
+                                    {
+                                    
+    let layerPlacementInterfaceBasicArrayListFactoryInterface: LayerPlacementInterfaceBasicArrayListFactoryInterface = this.gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory!.getInstance(level)!;;
+    
+this.initLevel(layerPlacementInterfaceBasicArrayListFactoryInterface, imageCache, level, loadingString);
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    initAll(imageCache: ImageCache, loadingString: string){
+
+    let index: number = 0;;
+    
+
+    let portion: number = 120;;
+    
+
+    let onDemandResources: OnDemandResources;;
+    
+
+
+
+
+                        for (
+    let onDemandIndex: number = this.onDemandResourcesFactory!.size()!;--onDemandIndex >= 0; )
+        {
+onDemandResources= this.onDemandResourcesFactory!.remove(onDemandIndex);
+    
+
+                        if(onDemandResources != OnDemandResources.NULL_ON_DEMAND_RESOURCES)
+                        
+                                    {
+                                    index= onDemandResources!.initAt(imageCache, this.resourceAnimationInterfaceFactoryInterfaceFactory, portion, loadingString, index);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    initLevel(layerPlacementInterfaceBasicArrayListFactoryInterface: LayerPlacementInterfaceBasicArrayListFactoryInterface, imageCache: ImageCache, level: number, loadingString: string){
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+
+    let portion: number = 120;;
+    
+
+    let index: number = 0;;
+    
+
+    let onDemandArray: number[] = layerPlacementInterfaceBasicArrayListFactoryInterface!.getOnDemandResources()!;;
+    
+PreLogUtil.put(new StringMaker().append(commonStrings!.START)!.appendint(onDemandArray!.length)!.toString(), this, "initLevel");
+    
+
+    let onDemandResources: OnDemandResources;;
+    
+
+
+
+
+                        for (
+    let onDemandIndex: number = onDemandArray!.length
+                ;--onDemandIndex >= 0; )
+        {
+onDemandResources= this.onDemandResourcesFactory!.remove(onDemandArray[onDemandIndex]!);
+    
+
+                        if(onDemandResources != OnDemandResources.NULL_ON_DEMAND_RESOURCES)
+                        
+                                    {
+                                    index= onDemandResources!.initAt(imageCache, this.resourceAnimationInterfaceFactoryInterfaceFactory, portion, loadingString, index);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+}
+

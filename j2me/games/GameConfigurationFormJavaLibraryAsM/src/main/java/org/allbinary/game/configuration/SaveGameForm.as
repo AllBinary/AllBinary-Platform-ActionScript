@@ -1,0 +1,131 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            import { Long } from '../../../../java/lang/Long.js';
+        
+import { CommandListener } from '../../../../javax/microedition/lcdui/CommandListener.js';
+//not GWT import const CommandListener
+
+import { TextField } from '../../../../javax/microedition/lcdui/TextField.js';
+//not GWT import const TextField
+
+import { MIDPUtil } from '../../../../org/allbinary/MIDPUtil.js';
+//not GWT import const MIDPUtil
+
+import { GameCommandsFactory } from '../../../../org/allbinary/game/commands/GameCommandsFactory.js';
+//not GWT import const GameCommandsFactory
+
+import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { CommandForm } from '../../../../org/allbinary/graphics/displayable/screen/CommandForm.js';
+//not GWT import const CommandForm
+
+//not plain js import { ABSystemWrapper } 
+const ABSystemWrapper = globalThis.org.allbinary.logic.ABSystemWrapper;
+type ABSystemWrapper<T = any, U = any> = typeof ABSystemWrapper extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABSystemWrapper;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class SaveGameForm extends CommandForm {
+        
+
+    private static FORM: CommandForm = CommandForm.getNullCommandForm()!;
+
+                //@Throws(Exception.constructor)
+            
+    public static createForm(commandListener: CommandListener, title: string, backgrounBasicColor: BasicColor, foregroundBasicColor: BasicColor): CommandForm{
+SaveGameForm.FORM= new SaveGameForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SaveGameForm.FORM;
+    
+}
+
+
+    public static getInstance(): CommandForm{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SaveGameForm.FORM;
+    
+}
+
+
+    private readonly meUtil: MIDPUtil = MIDPUtil.getInstance()!;
+
+private constructor (commandListener: CommandListener, title: string, backgrounBasicColor: BasicColor, foregroundBasicColor: BasicColor){
+            super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    
+
+    let timeString: string = (ABSystemWrapper.getInstance()!.currentTimeMillis()).toString()!;;
+    
+this.meUtil!.appendItem(this, new TextField("Name: ", timeString, 30, TextField.ANY));
+    
+this.initCommands(commandListener);
+    
+}
+
+
+    public initCommands(cmdListener: CommandListener){
+
+    let gameCommandsFactory: GameCommandsFactory = GameCommandsFactory.getInstance()!;;
+    
+this.removeAllCommands();
+    
+this.addCommand(gameCommandsFactory!.SAVE);
+    
+this.addCommand(gameCommandsFactory!.CLOSE_AND_SHOW_GAME_CANVAS);
+    
+this.setCommandListener(cmdListener);
+    
+}
+
+
+}
+

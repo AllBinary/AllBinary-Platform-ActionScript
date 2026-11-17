@@ -1,0 +1,70 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GameInfo } from './GameInfo.js';
+//sameFolderImports - not GWT import - same folder const GameInfo
+
+export class GameInfoCopyFactory
+            extends Object
+         {
+        
+
+    public static getInstanceMaxLevel(gameInfo: GameInfo, maxLevel: number): GameInfo{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new GameInfo(gameInfo!.getGameType(), gameInfo!.getGameMode(), gameInfo!.getPlayerType(), maxLevel, gameInfo!.getCurrentLevel());
+    
+}
+
+
+    public static getInstance(gameInfo: GameInfo): GameInfo{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new GameInfo(gameInfo!.getGameType(), gameInfo!.getGameMode(), gameInfo!.getPlayerType(), gameInfo!.getHighestLevel(), gameInfo!.getCurrentLevel());
+    
+}
+
+
+}
+

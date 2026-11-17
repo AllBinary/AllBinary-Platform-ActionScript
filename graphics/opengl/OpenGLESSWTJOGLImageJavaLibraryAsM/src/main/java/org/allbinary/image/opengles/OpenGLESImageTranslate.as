@@ -1,0 +1,75 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2025 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+import { GL10 } from '../../../../javax/microedition/khronos/opengles/GL10.js';
+//not GWT import const GL10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { OpenGLESImage } from './OpenGLESImage.js';
+//sameFolderImports - not GWT import - same folder const OpenGLESImage
+
+export class OpenGLESImageTranslate
+            extends Object
+         {
+        
+
+    private static readonly instance: OpenGLESImageTranslate = new OpenGLESImageTranslate();
+
+    public static getInstance(): OpenGLESImageTranslate{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return OpenGLESImageTranslate.instance;
+    
+}
+
+
+    public translate(gl: GL10, openGLESImage: OpenGLESImage, x: number, y: number){
+openGLESImage!.imageProcessor!.translate(gl, x, y);
+    
+}
+
+
+    public translate2(gl: GL10, openGLESImage: OpenGLESImage){
+}
+
+
+}
+

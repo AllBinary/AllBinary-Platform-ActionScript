@@ -1,0 +1,81 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { InputRobotInterface } from '../../../../../../org/allbinary/input/automation/robot/InputRobotInterface.js';
+//not GWT import const InputRobotInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { InputAutomationRobotInterfaceWrapper } from './InputAutomationRobotInterfaceWrapper.js';
+//sameFolderImports - not GWT import - same folder const InputAutomationRobotInterfaceWrapper
+import { InputAutomationRobotChangeEvent } from './InputAutomationRobotChangeEvent.js';
+//sameFolderImports - not GWT import - same folder const InputAutomationRobotChangeEvent
+
+export class InputAutomationRobotUtil
+            extends Object
+         {
+        
+
+                //@Throws(Exception.constructor)
+            
+    public static getChangeEvent(inputRobotInterface: InputRobotInterface): InputAutomationRobotChangeEvent{
+
+    let inputAutomationRobotInterfaceWrapper: InputAutomationRobotInterfaceWrapper = new InputAutomationRobotInterfaceWrapper(inputRobotInterface);;
+    
+
+    let inputAutomationRobotChangeEvent: InputAutomationRobotChangeEvent = new InputAutomationRobotChangeEvent(inputAutomationRobotInterfaceWrapper);;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return inputAutomationRobotChangeEvent;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

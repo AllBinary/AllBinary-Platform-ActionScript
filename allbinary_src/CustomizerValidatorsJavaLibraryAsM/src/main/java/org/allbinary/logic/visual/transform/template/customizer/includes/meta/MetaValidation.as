@@ -1,0 +1,283 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  III
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { DomNodeInterface } from '../../../../../../../../../org/allbinary/data/tree/dom/DomNodeInterface.js';
+//not GWT import const DomNodeInterface
+
+import { ModDomHelper } from '../../../../../../../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { Validation } from '../../../../../../../../../org/allbinary/logic/control/validate/Validation.js';
+//not GWT import const Validation
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { HtmlMetaAttributeData } from '../../../../../../../../../org/allbinary/logic/visual/dhtml/html/head/meta/HtmlMetaAttributeData.js';
+//not GWT import const HtmlMetaAttributeData
+
+import { HtmlMetaAttributeDataFactory } from '../../../../../../../../../org/allbinary/logic/visual/dhtml/html/head/meta/HtmlMetaAttributeDataFactory.js';
+//not GWT import const HtmlMetaAttributeDataFactory
+
+import { HtmlMetaData } from '../../../../../../../../../org/allbinary/logic/visual/dhtml/html/head/meta/HtmlMetaData.js';
+//not GWT import const HtmlMetaData
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { Document } from '../../../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class MetaValidation extends Validation implements DomNodeInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private label: string;
+
+    private name: string;
+
+    private httpEquiv: string;
+
+    private content: string;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 4) {
+            
+            this.constructor$0(args[0], args[1], args[2], args[3]);
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        
+    }
+    
+    private constructor$0(htmlMetaAttributeData: HtmlMetaAttributeData, label: string, attributeValue: string, contentValue: string): void {
+        this.label= label;
+    
+
+                        if((htmlMetaAttributeData === HtmlMetaAttributeDataFactory.getInstance()!.HTTP_EQUIV))
+                        
+                                    {
+                                    this.httpEquiv= attributeValue;
+    
+
+                                    }
+                                
+                             else 
+                        if((htmlMetaAttributeData === HtmlMetaAttributeDataFactory.getInstance()!.NAME))
+                        
+                                    {
+                                    this.name= attributeValue;
+    
+
+                                    }
+                                
+this.content= contentValue;
+    
+
+    }
+    
+    private constructor$1(document: Document): void {
+        
+
+
+                            throw new Exception(CommonStrings.getInstance()!.NOT_IMPLEMENTED);
+                    
+
+    }
+    
+    public isValid(): Boolean{
+
+ try { 
+    let valid: Boolean = Boolean.TRUE;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return valid;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Failed to validate form", this, this.commonStrings!.IS_VALID, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    public validationInfo(): string{
+
+ try { 
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Failed to generate validation error info", this, "validationInfo()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Error Validating Form";
+    
+
+ }
+   }
+ 
+}
+
+
+    public toValidationInfoDoc(): Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public toValidationInfoNode(document: Document): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+
+    let htmlMetaAttributeDataFactory: HtmlMetaAttributeDataFactory = HtmlMetaAttributeDataFactory.getInstance()!;;
+    
+hashMap!.put(HtmlMetaData.getInstance()!.LABEL.toString(), this.label);
+    
+hashMap!.put(htmlMetaAttributeDataFactory!.NAME.toString(), this.name);
+    
+hashMap!.put(htmlMetaAttributeDataFactory!.HTTP_EQUIV.toString(), this.httpEquiv);
+    
+hashMap!.put(htmlMetaAttributeDataFactory!.CONTENT.toString(), this.content);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let node: Node = ModDomHelper.createNameValueNodes(document, HtmlMetaData.getInstance()!.NAME.toString(), this.toHashMap())!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+}
+

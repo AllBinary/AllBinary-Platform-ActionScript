@@ -1,0 +1,200 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2003 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { Font } from '../../../../../javax/microedition/lcdui/Font.js';
+//not GWT import const Font
+
+import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { Image } from '../../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { CostLayerInterfaceFactoryInterface } from '../../../../../org/allbinary/game/layer/CostLayerInterfaceFactoryInterface.js';
+//not GWT import const CostLayerInterfaceFactoryInterface
+
+import { TechEventListenerInterface } from '../../../../../org/allbinary/game/rts/technology/event/TechEventListenerInterface.js';
+//not GWT import const TechEventListenerInterface
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { ForcedLogUtil } 
+const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
+type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { Animation } from '../../../../../org/allbinary/animation/Animation.js';
+//not GWT import const Animation
+
+import { MyFontProcessor } from '../../../../../org/allbinary/graphics/font/MyFontProcessor.js';
+//not GWT import const MyFontProcessor
+
+import { UpdateMyFontInterface } from '../../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
+//not GWT import const UpdateMyFontInterface
+
+import { UpdateMyFontProcessor } from '../../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
+//not GWT import const UpdateMyFontProcessor
+
+//not plain js import { NullUtil } 
+const NullUtil = globalThis.org.allbinary.logic.NullUtil;
+type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
+
+import { AllBinaryEventObject } from '../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
+//not GWT import const AllBinaryEventObject
+
+import { PrimitiveLongUtil } from '../../../../../org/allbinary/logic/math/PrimitiveLongUtil.js';
+//not GWT import const PrimitiveLongUtil
+
+import { EventStrings } from '../../../../../org/allbinary/logic/util/event/EventStrings.js';
+//not GWT import const EventStrings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class RTSLayerCostAnimation extends Animation implements TechEventListenerInterface, UpdateMyFontInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly primitiveLongUtil: PrimitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(10000)!;
+
+    private readonly DOLLAR: string = "$";
+
+    private readonly image: Image;
+
+    private readonly layerInterfaceFactoryInterface: CostLayerInterfaceFactoryInterface;
+
+    private myFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
+
+    private costString: string[] = NullUtil.getInstance()!.NULL_CHAR_ARRAY;
+
+    private len: number= 0;
+
+    private adjustedCostX: number= 0;
+
+    private fontHeight: number = 0;
+
+public constructor (image: Image, layerInterfaceFactoryInterface: CostLayerInterfaceFactoryInterface){
+
+            super();
+        this.image= image;
+    
+this.layerInterfaceFactoryInterface= layerInterfaceFactoryInterface;
+    
+this.update();
+    
+}
+
+
+    public updateMeasurement(graphics: Graphics){
+
+    let font: Font = graphics.getFont()!;;
+    
+this.fontHeight= font.getHeight();
+    
+this.adjustedCostX= font.stringWidth(this.DOLLAR);
+    
+this.myFontProcessor= MyFontProcessor.getInstance();
+    
+}
+
+
+    public onEvent(event: AllBinaryEventObject){
+ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
+    
+}
+
+
+    public onTechEvent(event: AllBinaryEventObject){
+
+ try { this.update();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, "onTechEvent", e);
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public update(){
+this.len= 0;
+    
+this.costString= this.primitiveLongUtil!.getCharArray(this.layerInterfaceFactoryInterface!.getCost());
+    
+this.len= this.primitiveLongUtil!.getCurrentTotalDigits();
+    
+}
+
+
+    public paintXY(graphics: Graphics, x: number, y: number){
+this.myFontProcessor!.process(graphics);
+    
+super.paintXY(graphics, x, y);
+    
+
+    let adjustedCostY: number = this.image.getHeight() -this.fontHeight;;
+    
+
+    let xa: number = x +2;;
+    
+graphics.drawString(this.DOLLAR, xa, y +adjustedCostY, 0);
+    
+graphics.drawChars(this.costString, 0, this.len, x +this.adjustedCostX, y +adjustedCostY, 0);
+    
+}
+
+
+}
+

@@ -1,0 +1,556 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../java/lang/Exception.js';
+        
+            import { Thread } from '../../../java/lang/Thread.js';
+        
+import { CommandListener } from '../../../javax/microedition/lcdui/CommandListener.js';
+//not GWT import const CommandListener
+
+import { TsUtil } from '../../../org/allbinary/TsUtil.js';
+//not GWT import const TsUtil
+
+import { NullWaitGameRunnable } from '../../../org/allbinary/game/displayable/canvas/NullWaitGameRunnable.js';
+//not GWT import const NullWaitGameRunnable
+
+import { MyCanvas } from '../../../org/allbinary/graphics/displayable/MyCanvas.js';
+//not GWT import const MyCanvas
+
+//not plain js import { ABSystemWrapper } 
+const ABSystemWrapper = globalThis.org.allbinary.logic.ABSystemWrapper;
+type ABSystemWrapper<T = any, U = any> = typeof ABSystemWrapper extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABSystemWrapper;
+
+//not plain js import { NullUtil } 
+const NullUtil = globalThis.org.allbinary.logic.NullUtil;
+type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { NullThread } from '../../../org/allbinary/thread/NullThread.js';
+//not GWT import const NullThread
+
+import { RunnableInterface } from '../../../org/allbinary/thread/RunnableInterface.js';
+//not GWT import const RunnableInterface
+
+import { ThreadObjectUtil } from '../../../org/allbinary/thread/ThreadObjectUtil.js';
+//not GWT import const ThreadObjectUtil
+
+import { TimeDelayHelper } from '../../../org/allbinary/time/TimeDelayHelper.js';
+//not GWT import const TimeDelayHelper
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { Processor } from './Processor.js';
+//sameFolderImports - not GWT import - same folder const Processor
+import { RunnableCanvasRefreshHelper } from './RunnableCanvasRefreshHelper.js';
+//sameFolderImports - not GWT import - same folder const RunnableCanvasRefreshHelper
+
+export class RunnableCanvas extends MyCanvas implements RunnableInterface {
+        
+
+    readonly nullUtil: NullUtil = NullUtil.getInstance()!;
+
+    readonly stdUtil: StdUtil = StdUtil.getInstance()!;
+
+    readonly systemWrapper: ABSystemWrapper = ABSystemWrapper.getInstance()!;
+
+    readonly tsUtil: TsUtil = TsUtil.getInstance()!;
+
+    private thread: Thread = NullThread.NULL_THREAD;
+
+    private currentThread: Thread = NullThread.NULL_THREAD;
+
+    private running: boolean= false;
+
+    readonly loopTimeHelper: TimeDelayHelper = new TimeDelayHelper(NullWaitGameRunnable.getInstance()!.WAIT);
+
+    runnableCanvasRefreshHelper: Processor = Processor.getInstance()!;
+
+    readonly commonLabels: CommonLabels = CommonLabels.getInstance()!;
+
+    readonly threadObjectUtil: ThreadObjectUtil = ThreadObjectUtil.getInstance()!;
+
+    readonly SET_RUNNING: string = "setRunning";
+
+    private readonly IS_RUNNING: string = "isRunning";
+
+    private readonly THREAD: string = "Thread: ";
+
+    private readonly NOT_EQUAL: string = " != ";
+
+    private readonly PAUSE_SLEEP: string = "pause sleep";
+
+    private readonly START_PAUSE: string = "start pause - game thread sleep at: ";
+
+    private readonly END_PAUSE: string = "end pause - game thread sleep at: ";
+
+    private readonly PROCESS_LOOP_SLEEP: string = "processLoopSleep";
+
+public constructor (commandListener: CommandListener, childNameList: BasicArrayList, hasParam: boolean){
+            super(CommonStrings.getInstance()!.UNKNOWN, childNameList);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.logUtil!.putF(new StringMaker().append("RunnableCanvas delay: ")!.appendint(this.loopTimeHelper!.delay)!.toString(), this, this.commonStrings!.CONSTRUCTOR);
+    
+this.runnableCanvasRefreshHelper= new RunnableCanvasRefreshHelper(this);
+    
+
+                        if(commandListener != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.initCommands(commandListener);
+    
+
+                                    }
+                                
+                             else 
+                        if(hasParam)
+                        
+                                    {
+                                    this.logUtil!.putF("commandListener was null", this, "initCommands");
+    
+
+                                    }
+                                
+}
+
+
+    public initCommands(cmdListener: CommandListener){
+this.logUtil!.putF(this.commonStrings!.NOT_IMPLEMENTED, this, "initCommands");
+    
+}
+
+
+    public isMainCanvas(): boolean{
+
+                        if(this.getCustomCommandListener() != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+    public setThread(thread: Thread){
+this.thread= thread;
+    
+}
+
+
+    public setRunning(running: boolean){
+this.running= running;
+    
+
+                        if(!this.running)
+                        
+                                    {
+                                    this.thread= NullThread.NULL_THREAD;
+    
+
+        
+        //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+        //synchronized(this) 
+
+        //mutex.withLock
+        
+this.threadObjectUtil!.notifyObject(this);
+    
+
+
+
+                                    }
+                                
+this.logUtil!.putF(new StringMaker().append(this.IS_RUNNING)!.appendboolean(this.running)!.toString(), this, this.SET_RUNNING);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public isRunning(): boolean{
+
+                        if(this.thread == this.currentThread)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.running;
+    
+
+                                    }
+                                
+                        else {
+                            
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.THREAD);
+    
+
+                        if(this.thread != 
+                                    null
+                                )
+                        
+                                    {
+                                    stringBuffer!.append(this.thread.toString());
+    
+
+                                    }
+                                
+stringBuffer!.append(this.NOT_EQUAL);
+    
+
+                        if(this.currentThread != 
+                                    null
+                                )
+                        
+                                    {
+                                    stringBuffer!.append(StringUtil.getInstance()!.toString(this.currentThread));
+    
+
+                                    }
+                                
+this.logUtil!.putF(stringBuffer!.toString(), this, this.IS_RUNNING);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+    public getLoopTimeHelperP(): TimeDelayHelper{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.loopTimeHelper;
+    
+}
+
+
+    private pauseWait: number = 0;
+
+    setWait(wait: number){
+this.loopTimeHelper!.delay= wait;
+    
+this.pauseWait= wait *3;
+    
+this.logUtil!.putF(new StringMaker().append("setWait - delay: ")!.appendint(this.loopTimeHelper!.delay)!.toString(), this, this.commonStrings!.CONSTRUCTOR);
+    
+}
+
+
+    getWait(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.loopTimeHelper!.delay;
+    
+}
+
+
+    public setCurrentThread(){
+this.currentThread= Thread.currentThread();
+    
+}
+
+
+    setCurrentThreadFake(){
+this.currentThread= this.thread;
+    
+}
+
+
+    showNotify(){
+
+ try { this.stopWaiting();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "showNotify", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    private notified: boolean = false;
+
+                //@Throws(Exception.constructor)
+            
+    stopWaiting(){
+this.notified= true;
+    
+
+        
+        //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+        //synchronized(this) 
+
+        //mutex.withLock
+        
+this.threadObjectUtil!.notifyObject(this);
+    
+
+
+this.repaint();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public waitOnNotify(wait: number){
+
+                        if(!this.notified)
+                        
+                                    {
+                                    
+                        if(wait > 0)
+                        
+                                    {
+                                    this.threadObjectUtil!.waitObjectFor(this, wait);
+    
+
+                                    }
+                                
+                        else {
+                            this.threadObjectUtil!.waitObject(this);
+    
+
+                        }
+                            
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processSleep(){
+Thread.sleep(this.pauseWait);
+    
+}
+
+
+    public isPausable(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processGameSleep(sleep: number){
+Thread.sleep(sleep);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processLoopSleep(){
+this.runnableCanvasRefreshHelper!.process();
+    
+
+                        if(this.isPaused())
+                        
+                                    {
+                                    
+    let stringMaker: StringMaker = new StringMaker();;
+    
+
+                        if(this.isRunning() && !this.isSingleThread())
+                        
+                                    {
+                                    stringMaker!.delete(0, stringMaker!.length());
+    
+
+    let currentTimeMillis: number = this.systemWrapper!.currentTimeMillis()!;;
+    
+this.logUtil!.putF(stringMaker!.append(this.START_PAUSE)!.appendlong(currentTimeMillis)!.append(this.PAUSE_SLEEP)!.appendlong(this.pauseWait)!.toString(), this, this.PROCESS_LOOP_SLEEP);
+    
+
+        while(this.isPaused() && this.isRunning() && !this.isSingleThread())
+        {
+this.processSleep();
+    
+
+                        if(!this.isPausable())
+                        
+                                    {
+                                    stringMaker!.delete(0, stringMaker!.length());
+    
+this.logUtil!.putF(stringMaker!.append(this.END_PAUSE)!.appendlong(currentTimeMillis)!.toString(), this, this.PROCESS_LOOP_SLEEP);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+}
+
+
+                                    }
+                                
+
+                                    }
+                                
+
+    let elapsedTime: number = this.loopTimeHelper!.getElapsedTNT()!;;
+    
+
+    let wait: number = this.loopTimeHelper!.delay;;
+    
+
+                        if(elapsedTime > wait)
+                        
+                                    {
+                                    elapsedTime= wait;
+    
+
+                                    }
+                                
+                        else {
+                            this.processGameSleep(wait -elapsedTime);
+    
+
+                        }
+                            
+}
+
+
+    public isSingleThread(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public run(){
+this.setCurrentThread();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public end2(){
+}
+
+
+    public getType(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return  -1;
+    
+}
+
+
+}
+

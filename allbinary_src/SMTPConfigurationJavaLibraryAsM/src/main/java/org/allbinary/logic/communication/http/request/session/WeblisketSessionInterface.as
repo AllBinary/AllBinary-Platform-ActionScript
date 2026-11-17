@@ -1,0 +1,106 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../../java/lang/Integer.js';
+        
+import { OrderInterface } from '../../../../../../../org/allbinary/business/user/commerce/inventory/order/OrderInterface.js';
+//not GWT import const OrderInterface
+
+import { UserRole } from '../../../../../../../org/allbinary/business/user/role/UserRole.js';
+//not GWT import const UserRole
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export interface WeblisketSessionInterface {
+        
+
+    clear(): void;
+
+    getAttempts(): Integer;
+
+    getAuthentication(): string;
+
+    getCreationTime(): number;
+
+    getId(): string;
+
+    getLastAccessedTime(): number;
+
+                //@Throws(Exception.constructor)
+            
+    getOrder(): OrderInterface;
+
+    getPassword(): string;
+
+    getPaymentMethod(): string;
+
+                //@Throws(Exception.constructor)
+            
+    getRole(): UserRole;
+
+    getStoreName(): string;
+
+    getTimeout(): string;
+
+    getUserName(): string;
+
+    getWebAppPath(): string;
+
+    removeBasket(): void;
+
+    setAttempts(value: Integer): void;
+
+    setAuthenticated(): void;
+
+    setAuthenticated(value: boolean): void;
+
+    setPassword(password: string): void;
+
+    setPaymentMethod(value: string): void;
+
+    setRole(aRole: UserRole): void;
+
+    setStoreName(value: string): void;
+
+    setTimeout(value: string): void;
+
+    setUserName(userName: string): void;
+
+}
+

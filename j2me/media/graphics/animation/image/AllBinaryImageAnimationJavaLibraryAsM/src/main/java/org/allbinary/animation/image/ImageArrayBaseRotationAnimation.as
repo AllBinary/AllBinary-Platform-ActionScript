@@ -1,0 +1,290 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Throwable } from '../../../../java/lang/Throwable.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { Image } from '../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { NullImage } from '../../../../javax/microedition/lcdui/NullImage.js';
+//not GWT import const NullImage
+
+import { DisposalUtil } from '../../../../org/allbinary/DisposalUtil.js';
+//not GWT import const DisposalUtil
+
+import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
+//not GWT import const AnimationBehavior
+
+import { RotationAnimation } from '../../../../org/allbinary/animation/RotationAnimation.js';
+//not GWT import const RotationAnimation
+
+import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
+//not GWT import const Anchor
+
+import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
+//not GWT import const PrimitiveIntUtil
+
+import { AngleInfo } from '../../../../org/allbinary/math/AngleInfo.js';
+//not GWT import const AngleInfo
+
+import { ImageModifierUtil } from '../../../../org/allbinary/media/image/ImageModifierUtil.js';
+//not GWT import const ImageModifierUtil
+
+//not plain js import { CircularIndexUtil } 
+const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
+type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class ImageArrayBaseRotationAnimation extends RotationAnimation {
+        
+
+    private readonly imageModifierUtil: ImageModifierUtil = ImageModifierUtil.getInstanceOrCreate()!;
+
+    private readonly originalImageArray: Image[];
+
+    private imageArray: Image[] = NullImage.NULL_IMAGE_ARRAY;
+
+    private currentImage: Image;
+
+    private totalFrames: number= 0;
+
+public constructor (originalImageArray: Image[], angleInfo: AngleInfo, animationBehavior: AnimationBehavior){
+            super(angleInfo, CircularIndexUtil.createInstance(360 /angleInfo!.getAngleIncrementInfo()!.getAngleIncrement()), animationBehavior);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.originalImageArray= originalImageArray;
+    
+this.setImageArray(this.imageModifierUtil!.getImageArray(originalImageArray));
+    
+this.currentImage= this.imageArray[this.circularIndexUtil!.getIndex()]!;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getAnimationSize(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.getSize();;
+    
+}
+
+
+    public setAlpha(alpha: number){
+
+                        if(this.alphaP != alpha)
+                        
+                                    {
+                                    super.setAlpha(alpha);
+    
+this.imageModifierUtil!.reset();
+    
+
+    let index: number = this.circularIndexUtil!.getIndex()!;;
+    
+this.imageModifierUtil!.setAlpha(this.originalImageArray[index]!, this.imageArray[index]!, index, this.alphaP);
+    
+
+                                    }
+                                
+}
+
+
+    public nextRotation(){
+super.nextRotation();
+    
+
+    let index: number = this.circularIndexUtil!.getIndex()!;;
+    
+this.imageModifierUtil!.setAlpha(this.originalImageArray[index]!, this.imageArray[index]!, index, this.alphaP);
+    
+this.currentImage= this.imageArray[index]!;
+    
+}
+
+
+    public previousRotation(){
+super.previousRotation();
+    
+
+    let index: number = this.circularIndexUtil!.getIndex()!;;
+    
+this.imageModifierUtil!.setAlpha(this.originalImageArray[index]!, this.imageArray[index]!, index, this.alphaP);
+    
+this.currentImage= this.imageArray[index]!;
+    
+}
+
+
+    public setFrame(index2: number){
+super.setFrame(index2);
+    
+
+    let index: number = this.circularIndexUtil!.getIndex()!;;
+    
+this.imageModifierUtil!.setAlpha(this.originalImageArray[index]!, this.imageArray[index]!, index, this.alphaP);
+    
+this.currentImage= this.imageArray[index]!;
+    
+}
+
+
+    public setSequence(sequence: number[]){
+}
+
+
+    public getSequence(): number[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return PrimitiveIntUtil.getArrayInstance();;
+    
+}
+
+
+    setImageArray(imageArray: Image[]){
+this.imageArray= imageArray;
+    
+this.totalFrames= imageArray!.length;
+    
+this.circularIndexUtil= CircularIndexUtil.createInstance(this.totalFrames);
+    
+}
+
+
+    private anchor: number = Anchor.TOP_LEFT;
+
+    public paintXY(graphics: Graphics, x: number, y: number){
+graphics.drawImage(this.currentImage, x, y, this.anchor);
+    
+}
+
+
+    public close(){
+
+    let disposalUtil: DisposalUtil = DisposalUtil.getInstance()!;;
+    
+
+    let size2: number = this.imageArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size2; index++)
+        {
+disposalUtil!.disposeImage(this.imageArray[index]!);
+    
+}
+
+
+    let size: number = this.originalImageArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+disposalUtil!.disposeImage(this.originalImageArray[index]!);
+    
+}
+
+disposalUtil!.disposeImage(this.currentImage);
+    
+}
+
+
+                //@Throws(Throwable.constructor)
+            
+    finalize(){
+
+    let disposalUtil: DisposalUtil = DisposalUtil.getInstance()!;;
+    
+
+    let size2: number = this.imageArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size2; index++)
+        {
+disposalUtil!.disposeImage(this.imageArray[index]!);
+    
+}
+
+
+    let size: number = this.originalImageArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+disposalUtil!.disposeImage(this.originalImageArray[index]!);
+    
+}
+
+disposalUtil!.disposeImage(this.currentImage);
+    
+}
+
+
+}
+

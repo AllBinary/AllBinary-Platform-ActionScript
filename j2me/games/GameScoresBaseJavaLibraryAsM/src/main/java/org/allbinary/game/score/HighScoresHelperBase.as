@@ -1,0 +1,150 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
+        
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { HighScoresHelperBaseInterface } from './HighScoresHelperBaseInterface.js';
+//sameFolderImports - not GWT import - same folder const HighScoresHelperBaseInterface
+import { LastFetchHighScoresFactory } from './LastFetchHighScoresFactory.js';
+//sameFolderImports - not GWT import - same folder const LastFetchHighScoresFactory
+import { HighScores } from './HighScores.js';
+//sameFolderImports - not GWT import - same folder const HighScores
+import { NullHighScoresSingletonFactory } from './NullHighScoresSingletonFactory.js';
+//sameFolderImports - not GWT import - same folder const NullHighScoresSingletonFactory
+
+export class HighScoresHelperBase
+            extends Object
+         implements HighScoresHelperBaseInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    highScoresArrayP: HighScores[] = LastFetchHighScoresFactory.getInstance()!.highScoresArray;
+
+    public setHighScoresArray(highScoresArrayP: HighScores[]){
+
+                        if(highScoresArrayP != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.putF(new StringMaker().append(commonStrings!.START)!.appendint(highScoresArrayP!.length)!.toString(), this, "setHighScoresArray");
+    
+
+                                    }
+                                
+                        else {
+                            
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.putF(commonStrings!.START, this, "setHighScoresArray");
+    
+
+                        }
+                            
+this.highScoresArrayP= highScoresArrayP;
+    
+}
+
+
+    public getNextHighScores(): HighScores{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return NullHighScoresSingletonFactory.getInstance();;
+    
+}
+
+
+    public isAnyHighScores(): boolean{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public setSelectedHighScores(selectedHighScores: HighScores){
+}
+
+
+    public getSelectedHighScores(): HighScores{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return NullHighScoresSingletonFactory.getInstance();;
+    
+}
+
+
+    public getHighScoresArray(): HighScores[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.highScoresArrayP;
+    
+}
+
+
+    public selectHighScores(){
+}
+
+
+}
+

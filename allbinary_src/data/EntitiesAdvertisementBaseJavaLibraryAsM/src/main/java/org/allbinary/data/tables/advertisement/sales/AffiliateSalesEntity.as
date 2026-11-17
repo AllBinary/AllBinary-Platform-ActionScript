@@ -1,0 +1,189 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2011 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { DynamicObjectData } from '../../../../../../org/allbinary/business/DynamicObjectData.js';
+//not GWT import const DynamicObjectData
+
+import { StoreFrontData } from '../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontData.js';
+//not GWT import const StoreFrontData
+
+import { EntryData } from '../../../../../../org/allbinary/business/entry/EntryData.js';
+//not GWT import const EntryData
+
+import { UserDbInitInfo } from '../../../../../../org/allbinary/business/init/db/UserDbInitInfo.js';
+//not GWT import const UserDbInitInfo
+
+import { GroupData } from '../../../../../../org/allbinary/business/user/group/GroupData.js';
+//not GWT import const GroupData
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AbSqlBean } from '../../../../../../org/allbinary/logic/communication/sql/AbSqlBean.js';
+//not GWT import const AbSqlBean
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AffiliateSalesEntityInterface } from './AffiliateSalesEntityInterface.js';
+//sameFolderImports - not GWT import - same folder const AffiliateSalesEntityInterface
+
+export class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEntityInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly tableName: string = "affiliate";
+
+public constructor (){
+            super(new UserDbInitInfo());
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.setTableName(this.tableName);
+    
+}
+
+
+    public delete(value: string){
+
+ try { super.deleteWhere(StoreFrontData.getInstance()!.NAME, value);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.SUCCESS, this, this.commonStrings!.delete);
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.FAILURE, this, this.commonStrings!.delete, e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+}
+
+
+    public createTableStatement(): string{
+
+    let entryData: EntryData = EntryData.getInstance()!;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.sqlStrings!.CREATE_TABLE);
+    
+stringBuffer!.append(this.getTableName());
+    
+stringBuffer!.append(this.sqlStrings!.START);
+    
+stringBuffer!.append(entryData!.ID)!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL)!.append(StoreFrontData.getInstance()!.NAME)!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL)!.append(GroupData.NAME)!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL)!.append(DynamicObjectData.NAME)!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL)!.append(entryData!.TIMECREATED)!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL)!.append(entryData!.LASTMODIFIED)!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL)!.append(this.sqlStrings!.PRIMARY_KEY)!.append(entryData!.ID)!.append(this.sqlStrings!.END);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+    public createTable(): string{
+
+    let returnStr: string = super.createTable(this.createTableStatement())!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return returnStr;
+    
+}
+
+
+    public update(updatedValues: HashMap<any, any>){
+super.updateWhere(EntryData.getInstance()!.ID, updatedValues!.get(EntryData.getInstance()!.ID) as string, updatedValues);
+    
+}
+
+
+    public dropTable(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.dropTable();;
+    
+}
+
+
+    public insert(values: BasicArrayList){
+super.insert(values);
+    
+}
+
+
+}
+

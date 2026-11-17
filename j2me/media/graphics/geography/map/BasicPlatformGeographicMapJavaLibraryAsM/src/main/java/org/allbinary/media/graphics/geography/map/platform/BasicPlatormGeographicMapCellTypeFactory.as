@@ -1,0 +1,229 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { Enumeration } from '../../../../../../../java/util/Enumeration.js';
+//not GWT import const Enumeration
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { GeographicMapCellType } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellType.js';
+//not GWT import const GeographicMapCellType
+
+import { GeographicMapCellTypeFactory } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellTypeFactory.js';
+//not GWT import const GeographicMapCellTypeFactory
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { EnumerationUtil } 
+const EnumerationUtil = globalThis.org.allbinary.util.EnumerationUtil;
+type EnumerationUtil<T = any, U = any> = typeof EnumerationUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof EnumerationUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicPlatormGeographicMapCellType } from './BasicPlatormGeographicMapCellType.js';
+//sameFolderImports - not GWT import - same folder const BasicPlatormGeographicMapCellType
+
+export class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellTypeFactory {
+        
+
+    private readonly enumerationUtil: EnumerationUtil = EnumerationUtil.getInstance()!;
+
+    public readonly BLOCK_CELL_TYPE: BasicPlatormGeographicMapCellType;
+
+    public readonly JUMP_THRU_CELL_TYPE: BasicPlatormGeographicMapCellType;
+
+    public readonly LADDER_CELL_TYPE: BasicPlatormGeographicMapCellType;
+
+    private readonly maxTileId: number;
+
+public constructor (tileTypeToTileIdsMap: ABHashtable<any, any>, maxTileId: number){
+
+            super();
+        
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.putF(commonStrings!.START, this, commonStrings!.INIT);
+    
+this.maxTileId= maxTileId;
+    
+new GeographicMapCellType(0, 0);
+    
+
+    let BLOCK_CELL_TYPE: BasicPlatormGeographicMapCellType = BasicPlatormGeographicMapCellType.createType(1)!;;
+    
+
+    let JUMP_THRU_CELL_TYPE: BasicPlatormGeographicMapCellType = BLOCK_CELL_TYPE;;
+    
+
+    let LADDER_CELL_TYPE: BasicPlatormGeographicMapCellType = BLOCK_CELL_TYPE;;
+    
+
+    let PLATFORM: string = "Platform";;
+    
+
+    let JUMP_TRHU: string = "JumpThru";;
+    
+
+    let LADDER: string = "Ladder";;
+    
+
+    let enumeration: Enumeration<any> = tileTypeToTileIdsMap!.keys()!;;
+    
+
+    let idsWithTypeList: BasicArrayList;;
+    
+
+    let key: string;;
+    
+
+    let basicPlatormGeographicMapCellType: BasicPlatormGeographicMapCellType;;
+    
+
+        while(this.enumerationUtil!.hasMoreElements(enumeration))
+        {
+key= this.enumerationUtil!.nextElement(enumeration)! as string;
+    
+this.logUtil!.putF(key, this, commonStrings!.INIT);
+    
+idsWithTypeList= tileTypeToTileIdsMap!.get(key) as BasicArrayList;
+    
+basicPlatormGeographicMapCellType= new BasicPlatormGeographicMapCellType(idsWithTypeList);
+    
+
+                        if((key === PLATFORM))
+                        
+                                    {
+                                    BLOCK_CELL_TYPE= basicPlatormGeographicMapCellType;
+    
+
+                                    }
+                                
+
+                        if((key === JUMP_TRHU))
+                        
+                                    {
+                                    JUMP_THRU_CELL_TYPE= basicPlatormGeographicMapCellType;
+    
+
+                                    }
+                                
+
+                        if((key === LADDER))
+                        
+                                    {
+                                    LADDER_CELL_TYPE= basicPlatormGeographicMapCellType;
+    
+
+                                    }
+                                
+}
+
+this.BLOCK_CELL_TYPE= BLOCK_CELL_TYPE;
+    
+this.JUMP_THRU_CELL_TYPE= JUMP_THRU_CELL_TYPE;
+    
+this.LADDER_CELL_TYPE= LADDER_CELL_TYPE;
+    
+new GeographicMapCellType(this.maxTileId -1, 0);
+    
+new GeographicMapCellType(this.maxTileId -2, 0);
+    
+}
+
+
+    public getStartType(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.maxTileId -1;
+    
+}
+
+
+    public getEndType(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.maxTileId -2;
+    
+}
+
+
+    public getEmptyType(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 0;
+    
+}
+
+
+    public isPath(cellType: GeographicMapCellType): boolean{
+
+                        if(cellType!.getType() == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+}
+

@@ -1,0 +1,343 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { ByteArrayInputStream } from '../../../../../java/io/ByteArrayInputStream.js';
+//not GWT import const ByteArrayInputStream
+
+import { ByteArrayOutputStream } from '../../../../../java/io/ByteArrayOutputStream.js';
+//not GWT import const ByteArrayOutputStream
+
+import { DataInputStream } from '../../../../../java/io/DataInputStream.js';
+//not GWT import const DataInputStream
+
+import { DataOutputStream } from '../../../../../java/io/DataOutputStream.js';
+//not GWT import const DataOutputStream
+
+import { RecordEnumeration } from '../../../../../javax/microedition/rms/RecordEnumeration.js';
+//not GWT import const RecordEnumeration
+
+import { RecordStore } from '../../../../../javax/microedition/rms/RecordStore.js';
+//not GWT import const RecordStore
+
+import { TsUtil } from '../../../../../org/allbinary/TsUtil.js';
+//not GWT import const TsUtil
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+import { SmallIntegerSingletonFactory } from '../../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
+//not GWT import const SmallIntegerSingletonFactory
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { AbeClientInformationInterface } from '../../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
+//not GWT import const AbeClientInformationInterface
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+//not plain js import { HashtableUtil } 
+const HashtableUtil = globalThis.org.allbinary.util.HashtableUtil;
+type HashtableUtil<T = any, U = any> = typeof HashtableUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof HashtableUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicPersitance } from './BasicPersitance.js';
+//sameFolderImports - not GWT import - same folder const BasicPersitance
+import { NullRecordStore } from './NullRecordStore.js';
+//sameFolderImports - not GWT import - same folder const NullRecordStore
+import { NullRecordFilter } from './NullRecordFilter.js';
+//sameFolderImports - not GWT import - same folder const NullRecordFilter
+import { NullRecordComparator } from './NullRecordComparator.js';
+//sameFolderImports - not GWT import - same folder const NullRecordComparator
+
+export class KeyValuePersistance extends BasicPersitance {
+        
+
+    private readonly tsUtil: TsUtil = TsUtil.getInstance()!;
+
+protected constructor (recordId: string){
+            super(recordId);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public loadAll(abeClientInformation: AbeClientInformationInterface){
+this.loadAllSize(abeClientInformation, 1);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public loadAllSize(abeClientInformation: AbeClientInformationInterface, size: number){
+
+    let recordStore: RecordStore = NullRecordStore.NULL_RECORD_STORE;;
+    
+
+ try { recordStore= RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+    
+
+    let recordEnum: RecordEnumeration = recordStore!.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true)!;;
+    
+
+    let hashtable: ABHashtable<string, string>;;
+    
+
+    let name: string;;
+    
+
+    let value: string;;
+    
+
+    let smallIntegerSingletonFactory: SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance()!;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+
+    let recordAsBytes: number[];;
+    
+
+    let byteArrayInputStream: ByteArrayInputStream;;
+    
+
+    let inputStream: DataInputStream;;
+    
+
+        while(recordEnum!.hasNextElement())
+        {
+
+    let id: number = recordEnum!.nextRecordId()!;;
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+this.logUtil!.putF(stringBuffer!.append(this.persistanceStrings!.LOADING_ID)!.appendint(id)!.toString(), this, this.persistanceStrings!.LOAD_ALL);
+    
+recordAsBytes= this.tsUtil!.getRecord(recordStore, id);
+    
+
+                        if(recordAsBytes != 
+                                    null
+                                )
+                        
+                                    {
+                                    byteArrayInputStream= new ByteArrayInputStream(recordAsBytes);
+    
+inputStream= new DataInputStream(byteArrayInputStream);
+    
+hashtable= new ABHashtable<string, string>();
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+name= inputStream!.readUTF();
+    
+inputStream!.readUTF();
+    
+value= inputStream!.readUTF();
+    
+hashtable.put(name, value);
+    
+}
+
+this.valueList!.add(hashtable);
+    
+this.idList!.add(smallIntegerSingletonFactory!.getAt(id));
+    
+
+                                    }
+                                
+}
+
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+   }
+ finally { 
+                        if(recordStore != 
+                                    null
+                                )
+                        
+                                    {
+                                    PreLogUtil.put(this.persistanceStrings!.CLOSING_RECORDSTORE, this, this.persistanceStrings!.LOAD_ALL);
+    
+recordStore!.closeRecordStore();
+    
+
+                                    }
+                                
+ }
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public save(abeClientInformation: AbeClientInformationInterface, hashtable: ABHashtable<any, any>){
+
+    let recordStore: RecordStore = NullRecordStore.NULL_RECORD_STORE;;
+    
+
+ try { this.logUtil!.putF(new StringMaker().append(this.persistanceStrings!.SAVING)!.append(StringUtil.getInstance()!.toString(hashtable))!.toString(), this, this.commonStrings!.SAVE);
+    
+recordStore= RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+    
+
+    let byteArrayOutputStream: ByteArrayOutputStream = new ByteArrayOutputStream();;
+    
+
+    let outputStream: DataOutputStream = new DataOutputStream(byteArrayOutputStream);;
+    
+
+    let value: string;;
+    
+
+    let commonSeps: CommonSeps = CommonSeps.getInstance()!;;
+    
+
+    let objectArray: any[] = HashtableUtil.getInstance()!.getKeysAsArray(hashtable)!;;
+    
+
+    let anyType: any;;
+    
+
+    let size: number = objectArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+outputStream!.writeUTF(objectArray[index]! as string);
+    
+outputStream!.writeUTF(commonSeps!.EQUALS);
+    
+anyType= objectArray[index]!;
+    
+value= hashtable.get(anyType) as string;
+    
+outputStream!.writeUTF(value);
+    
+}
+
+
+    let tsUtil: TsUtil = TsUtil.getInstance()!;;
+    
+
+    let savedGameBytes: number[] = tsUtil!.getByteArray(byteArrayOutputStream!.toString())!;;
+    
+recordStore!.addRecord(savedGameBytes, 0, savedGameBytes!.length);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+   }
+ finally { 
+                        if(recordStore != 
+                                    null
+                                )
+                        
+                                    {
+                                    PreLogUtil.put(this.persistanceStrings!.CLOSING_RECORDSTORE, this, this.commonStrings!.SAVE);
+    
+recordStore!.closeRecordStore();
+    
+
+                                    }
+                                
+ }
+}
+
+
+    public get(index: number): ABHashtable<any, any>{
+
+    let hashtable: ABHashtable<any, any> = this.valueList!.objectArray[index]! as ABHashtable<any, any>;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashtable;
+    
+}
+
+
+}
+

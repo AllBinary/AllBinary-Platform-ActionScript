@@ -1,0 +1,191 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2006 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { Comparable } from './Comparable.js';
+//sameFolderImports - not GWT import - same folder const Comparable
+import { PathFindingNodeCostInfoData } from './PathFindingNodeCostInfoData.js';
+//sameFolderImports - not GWT import - same folder const PathFindingNodeCostInfoData
+
+export class PathFindingNodeCostInfo
+            extends Object
+         implements Comparable<PathFindingNodeCostInfo> {
+        
+
+    private readonly pathFindingNodeCostInfoData: PathFindingNodeCostInfoData = PathFindingNodeCostInfoData.getInstance()!;
+
+    public costFromStartP: number;
+
+    public costToEndP: number;
+
+    public totalCostP: number= 0;
+
+public constructor (costFromStart: number, costToGoal: number){
+
+            super();
+        this.costFromStartP= costFromStart;
+    
+this.costToEndP= costToGoal;
+    
+this.setCalculatedTotalCost();
+    
+}
+
+
+    public setCostToEnd(costToEnd: number){
+this.costToEndP= costToEnd;
+    
+}
+
+
+    public setTotalCost(totalCost: number){
+this.totalCostP= totalCost;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setCalculatedTotalCost(){
+this.totalCostP= this.costFromStartP +this.costToEndP;
+    
+
+                        if(this.totalCostP > this.pathFindingNodeCostInfoData!.MAX_NODE_COST)
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("Max Cost Exceeded");
+                    
+
+                                    }
+                                
+}
+
+
+    public setCostFromStart(cost: number){
+this.costFromStartP= cost;
+    
+}
+
+
+    public addCostFromStart(cost: number){
+this.costFromStartP += cost;
+    
+}
+
+
+    public compareTo(pathFindingNodeCostInfo: PathFindingNodeCostInfo): number{
+
+                        if(this.totalCostP < pathFindingNodeCostInfo!.totalCostP)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return  -1;
+    
+
+                                    }
+                                
+                             else 
+                        if(this.totalCostP > pathFindingNodeCostInfo!.totalCostP)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 1;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 0;
+    
+}
+
+
+    public toString(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.constructor.name.toString()!);
+    
+stringBuffer!.append(CommonLabels.getInstance()!.COLON_SEP);
+    
+stringBuffer!.append("CostFromStart: ");
+    
+stringBuffer!.appendlong(this.costFromStartP);
+    
+stringBuffer!.append(" CostToEnd: ");
+    
+stringBuffer!.appendlong(this.costToEndP);
+    
+stringBuffer!.append(" TotalCost: ");
+    
+stringBuffer!.appendlong(this.totalCostP);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+}
+

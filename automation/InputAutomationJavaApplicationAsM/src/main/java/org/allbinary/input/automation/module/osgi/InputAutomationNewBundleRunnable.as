@@ -1,0 +1,538 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            import { System } from '../../../../../../java/lang/System.js';
+        
+            import { Thread } from '../../../../../../java/lang/Thread.js';
+        
+import { File } from '../../../../../../java/io/File.js';
+//not GWT import const File
+
+import { FileFilter } from '../../../../../../java/io/FileFilter.js';
+//not GWT import const FileFilter
+
+import { FileInputStream } from '../../../../../../java/io/FileInputStream.js';
+//not GWT import const FileInputStream
+
+//not plain js import { URL } 
+const URL = (globalThis.java?.net?.URL ?? class {}) as typeof globalThis.java.net.URL;
+type URL<T = any, U = any> = typeof URL extends abstract new (...args: any[]) => infer Instance ? Instance : typeof URL;
+
+import { HashMap } from '../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { Set } from '../../../../../../java/util/Set.js';
+//not GWT import const Set
+
+import { JarInputStream } from '../../../../../../java/util/jar/JarInputStream.js';
+//not GWT import const JarInputStream
+
+import { Manifest } from '../../../../../../java/util/jar/Manifest.js';
+//not GWT import const Manifest
+
+import { Bundle } from '../../../../../../org/osgi/framework/Bundle.js';
+//not GWT import const Bundle
+
+import { BundleContext } from '../../../../../../org/osgi/framework/BundleContext.js';
+//not GWT import const BundleContext
+
+import { Constants } from '../../../../../../org/osgi/framework/Constants.js';
+//not GWT import const Constants
+
+import { InputAutomationBundleActivator } from '../../../../../../bundle/input/automation/InputAutomationBundleActivator.js';
+//not GWT import const InputAutomationBundleActivator
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { FileWrapperUtil } from '../../../../../../org/allbinary/logic/io/file/FileWrapperUtil.js';
+//not GWT import const FileWrapperUtil
+
+import { SubDirectory } from '../../../../../../org/allbinary/logic/io/file/directory/SubDirectory.js';
+//not GWT import const SubDirectory
+
+import { BasicFileFilterUtil } from '../../../../../../org/allbinary/logic/io/file/filter/BasicFileFilterUtil.js';
+//not GWT import const BasicFileFilterUtil
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { RunnableInterface } from '../../../../../../org/allbinary/thread/RunnableInterface.js';
+//not GWT import const RunnableInterface
+
+import { TimeDelayHelper } from '../../../../../../org/allbinary/time/TimeDelayHelper.js';
+//not GWT import const TimeDelayHelper
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class InputAutomationNewBundleRunnable
+            extends Object
+         implements RunnableInterface {
+        
+
+    private static readonly FILE: string = "file:";
+
+    private static readonly JAR_DIR_PROP: string = "org.knopflerfish.gosg.jars";
+
+    private static readonly INPUT_AUTMATION_MODULE_BUNDLE_JAR_PATH: string = "ia/auto";
+
+    private static readonly MODULES_START_LEVEL: number = 8;
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly inputAutomationBundleActivator: InputAutomationBundleActivator;
+
+    private running: boolean= false;
+
+    private fileBasicArrayList: BasicArrayList;
+
+public constructor (inputAutomationBundleActivator: InputAutomationBundleActivator){
+
+            super();
+        this.inputAutomationBundleActivator= inputAutomationBundleActivator;
+    
+this.fileBasicArrayList= new BasicArrayListD();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setThread(thread: Thread){
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public isRunning(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.running;
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public setRunning(running: boolean){
+this.running= running;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    updateModules(){
+this.logUtil!.putF(this.commonStrings!.START, this, "updateModules");
+    
+
+    let list: BasicArrayList = this.findNewModules()!;;
+    
+
+    let size: number = list.size()!;;
+    
+
+    let bundle: Bundle;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+bundle= this.install(list.get(index) as URL);
+    
+
+                        if(bundle != 
+                                    null
+                                )
+                        
+                                    {
+                                    bundle.start(InputAutomationNewBundleRunnable.MODULES_START_LEVEL);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getAllJarSymbolicNameHashMap(): HashMap<any, any>{
+this.logUtil!.putF(this.commonStrings!.START, this, "getAllJarSymbolicNameHashMap");
+    
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+
+    let jarFileBasicArrayList: BasicArrayList = this.getJarModuleFileBasicArrayList()!;;
+    
+this.logUtil!.putF("Jar Module Files: " +jarFileBasicArrayList, this, "getAllJarSymbolicNameHashMap");
+    
+
+    let size: number = jarFileBasicArrayList!.size()!;;
+    
+
+    let file: File;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+file= jarFileBasicArrayList!.get(index) as File;
+    
+
+                        if(!file.isDirectory())
+                        
+                                    {
+                                    
+    let fileInputStream: FileInputStream = new FileInputStream(file);;
+    
+
+    let jarInputStream: JarInputStream = new JarInputStream(fileInputStream);;
+    
+
+    let manifest: Manifest = jarInputStream!.getManifest()!;;
+    
+
+                        if(manifest == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+                                    }
+                                
+                        else {
+                            
+    let symbolicName: string = manifest.getMainAttributes()!.getValue(Constants.BUNDLE_SYMBOLICNAME)!;;
+    
+
+                        if(symbolicName != 
+                                    null
+                                )
+                        hashMap!.put(symbolicName, new URL(InputAutomationNewBundleRunnable.FILE +file.getAbsolutePath()))
+
+                        }
+                            
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+    getJarModuleFileBasicArrayList(): BasicArrayList{
+this.logUtil!.putF(this.commonStrings!.START, this, "getJarModuleFileBasicArrayList");
+    
+
+    let baseJarPath: string = System.getProperty(JAR_DIR_PROP)!;;
+    
+
+                        if(baseJarPath!.startsWith(InputAutomationNewBundleRunnable.FILE))
+                        
+                                    {
+                                    baseJarPath= baseJarPath!.substring(InputAutomationNewBundleRunnable.FILE.length);
+    
+
+                                    }
+                                
+
+    let jarFileFilter: FileFilter = BasicFileFilterUtil.getInstance(".jar")!;;
+    
+
+    let path: string = baseJarPath +InputAutomationNewBundleRunnable.INPUT_AUTMATION_MODULE_BUNDLE_JAR_PATH;;
+    
+this.logUtil!.putF("Path: " +path, this, "getJarModuleFileBasicArrayList");
+    
+
+    let file: File = new File(path);;
+    
+this.logUtil!.putF("File: " +file.getAbsolutePath() +" isDirectory: " +file.isDirectory(), this, "getJarModuleFileBasicArrayList");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SubDirectory.getInstance()!.search(jarFileFilter, FileWrapperUtil.wrapFile(file));;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getInstalledJarSymbolicNameBasicArrayList(): BasicArrayList{
+this.logUtil!.putF(this.commonStrings!.START, this, "getInstalledJarSymbolicNameBasicArrayList");
+    
+
+    let vector: BasicArrayList = new BasicArrayListD();;
+    
+
+    let bundleContext: BundleContext = InputAutomationBundleActivator.getBundleContext()!;;
+    
+
+    let bundleArray: Bundle[] = bundleContext!.getBundles()!;;
+    
+
+                        if(bundleArray != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.logUtil!.putF("bundleArray: " +bundleArray!.length, this, "getInputAutomationModuleServices");
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < bundleArray!.length; index++)
+        {
+
+    let bundle: Bundle = bundleArray[index]!;;
+    
+vector.add(bundle.getSymbolicName());
+    
+}
+
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return vector;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    isInstalled(symbolicName: string): boolean{
+this.logUtil!.putF(CommonLabels.getInstance()!.START +symbolicName, this, "isInstalled");
+    
+
+    let list: BasicArrayList = this.getInstalledJarSymbolicNameBasicArrayList()!;;
+    
+
+    let size: number = list.size()!;;
+    
+
+    let nextSymbolicName: string;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+nextSymbolicName= list.get(index) as string;
+    
+
+                        if(nextSymbolicName!.compareTo(symbolicName) == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    findNewModules(): BasicArrayList{
+this.logUtil!.putF(this.commonStrings!.START, this, "findNewModules");
+    
+
+    let vector: BasicArrayList = new BasicArrayListD();;
+    
+
+    let hashMap: HashMap<any, any> = this.getAllJarSymbolicNameHashMap()!;;
+    
+this.logUtil!.putF("All: " +hashMap, this, "findNewModules");
+    
+
+    let set: Set = hashMap!.keys()!;;
+    
+
+    let symbolicNameArray: any[] = set.toArray()!;;
+    
+
+    let size: number = symbolicNameArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let symbolicName: string = symbolicNameArray[index]! as string;;
+    
+
+                        if(!this.isInstalled(symbolicName))
+                        
+                                    {
+                                    vector.add(hashMap!.get(symbolicName));
+    
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return vector;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    install(url: URL): Bundle{
+this.logUtil!.putF(CommonLabels.getInstance()!.START +url, this, "install");
+    
+
+    let bundleContext: BundleContext = InputAutomationBundleActivator.getBundleContext()!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return bundleContext!.installBundle(url.toString());;
+    
+}
+
+
+    public run(){
+
+ try { this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.RUN);
+    
+this.setRunning(true);
+    
+
+    let timeHelper: TimeDelayHelper = new TimeDelayHelper(1000);;
+    
+
+        while(this.isRunning())
+        {
+timeHelper!.setStartTimeTNT();
+    
+this.logUtil!.putF(CommonLabels.getInstance()!.ELAPSED +timeHelper!.getElapsedTNT(), this, this.commonStrings!.RUN);
+    
+this.updateModules();
+    
+break;
+
+                    
+}
+
+this.logUtil!.putF(this.commonStrings!.END, this, this.commonStrings!.RUN);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.RUN, e);
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

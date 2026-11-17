@@ -1,0 +1,120 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { BufferedReader } from '../../../../java/io/BufferedReader.js';
+//not GWT import const BufferedReader
+
+import { FileReader } from '../../../../java/io/FileReader.js';
+//not GWT import const FileReader
+
+import { AbFile } from '../../../../org/allbinary/logic/io/file/AbFile.js';
+//not GWT import const AbFile
+
+import { AbFileNativeUtil } from '../../../../org/allbinary/logic/io/file/AbFileNativeUtil.js';
+//not GWT import const AbFileNativeUtil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class BufferedLineReader
+            extends Object
+         {
+        
+
+    private readonly tmpIn: BufferedReader;
+
+public constructor (file: AbFile){
+
+            super();
+        this.tmpIn= new BufferedReader(new FileReader(AbFileNativeUtil.get(file)));
+    
+}
+
+
+    public readUpToLines(readAheadIndex: number){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public readLine(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.tmpIn!.readLine();;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public ready(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.tmpIn!.ready();;
+    
+}
+
+
+    public getSize(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 0;
+    
+}
+
+
+    public getCurrent(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 0;
+    
+}
+
+
+}
+

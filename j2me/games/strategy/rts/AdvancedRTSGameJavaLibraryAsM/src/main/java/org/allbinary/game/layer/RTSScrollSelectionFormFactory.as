@@ -1,0 +1,110 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2006 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { ABCustomItem } from '../../../../org/allbinary/graphics/form/item/ABCustomItem.js';
+//not GWT import const ABCustomItem
+
+import { PointFactory } from '../../../../org/allbinary/graphics/PointFactory.js';
+//not GWT import const PointFactory
+
+import { Rectangle } from '../../../../org/allbinary/graphics/Rectangle.js';
+//not GWT import const Rectangle
+
+import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
+//not GWT import const DisplayInfoSingleton
+
+import { FormTypeFactory } from '../../../../org/allbinary/graphics/form/FormTypeFactory.js';
+//not GWT import const FormTypeFactory
+
+import { MultipleScrollSelectionHorizontalForm } from '../../../../org/allbinary/graphics/form/MultipleScrollSelectionHorizontalForm.js';
+//not GWT import const MultipleScrollSelectionHorizontalForm
+
+import { ScrollSelectionForm } from '../../../../org/allbinary/graphics/form/ScrollSelectionForm.js';
+//not GWT import const ScrollSelectionForm
+
+import { CommonButtons } from '../../../../org/allbinary/input/motion/button/CommonButtons.js';
+//not GWT import const CommonButtons
+
+import { TouchButtonLocationHelper } from '../../../../org/allbinary/input/motion/button/TouchButtonLocationHelper.js';
+//not GWT import const TouchButtonLocationHelper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class RTSScrollSelectionFormFactory
+            extends Object
+         {
+        
+
+                //@Throws(Exception.constructor)
+            
+    public static getInstance(formLabel: string, items: ABCustomItem[]): ScrollSelectionForm{
+
+    let basicColorFactory: BasicColorFactory = BasicColorFactory.getInstance()!;;
+    
+
+    let touchButtonLocationHelper: TouchButtonLocationHelper = new TouchButtonLocationHelper();;
+    
+
+    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
+    
+
+    let menuX: number = CommonButtons.getInstance()!.STANDARD_BUTTON_SIZE +touchButtonLocationHelper!.getColumnsRemainderHalf();;
+    
+
+    let width: number = displayInfo!.getLastWidth() -(menuX *2);;
+    
+
+    let menuRectangle: Rectangle = new Rectangle(PointFactory.getInstance()!.createXY(menuX, 16), width, CommonButtons.getInstance()!.STANDARD_BUTTON_SIZE);;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return MultipleScrollSelectionHorizontalForm.createForm(formLabel, items, menuRectangle, FormTypeFactory.getInstance()!.HORIZONTAL_FORM, 0, basicColorFactory!.BLACK, basicColorFactory!.WHITE);;
+    
+}
+
+
+}
+

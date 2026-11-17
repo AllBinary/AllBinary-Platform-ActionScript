@@ -1,0 +1,332 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../../java/lang/Integer.js';
+        
+import { DomNodeInterface } from '../../../../../../../org/allbinary/data/tree/dom/DomNodeInterface.js';
+//not GWT import const DomNodeInterface
+
+import { ModDomHelper } from '../../../../../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { CommonPhoneStrings } 
+const CommonPhoneStrings = globalThis.org.allbinary.string.CommonPhoneStrings;
+type CommonPhoneStrings<T = any, U = any> = typeof CommonPhoneStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonPhoneStrings;
+
+import { Document } from '../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ColorData } from './ColorData.js';
+//sameFolderImports - not GWT import - same folder const ColorData
+import { ColorsData } from './ColorsData.js';
+//sameFolderImports - not GWT import - same folder const ColorsData
+
+export class ColorsView
+            extends Object
+         implements DomNodeInterface {
+        
+
+    private readonly commonPhoneStrings: CommonPhoneStrings = CommonPhoneStrings.getInstance()!;
+
+    private readonly HEXRADIX: number = 16;
+
+    private readonly MAX: number = 255;
+
+    readonly delta: number = 20;
+
+public constructor (){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            
+    public getColorNode(document: Document, redIndex: number, greenIndex: number, blueIndex: number): Node{
+
+    let hexColorStringBuffer: StringMaker = new StringMaker();;
+    
+
+                        if(redIndex < this.HEXRADIX)
+                        
+                                    {
+                                    hexColorStringBuffer!.append(this.commonPhoneStrings!.ZERO);
+    
+
+                                    }
+                                
+hexColorStringBuffer!.append(redIndex, this.HEXRADIX.toString());
+    
+
+                        if(greenIndex < this.HEXRADIX)
+                        
+                                    {
+                                    hexColorStringBuffer!.append(this.commonPhoneStrings!.ZERO);
+    
+
+                                    }
+                                
+hexColorStringBuffer!.append(greenIndex, this.HEXRADIX.toString());
+    
+
+                        if(blueIndex < this.HEXRADIX)
+                        
+                                    {
+                                    hexColorStringBuffer!.append(this.commonPhoneStrings!.ZERO);
+    
+
+                                    }
+                                
+hexColorStringBuffer!.append(blueIndex, this.HEXRADIX.toString());
+    
+
+    let colorNode: Node = ModDomHelper.createNameValueNodes(document, ColorData.getInstance()!.NAME, hexColorStringBuffer!.toString())!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return colorNode;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let node: Node = ModDomHelper.createNameValueNodes(document, ColorsData.getInstance()!.NAME, "RGB Colors In Hex")!;;
+    
+
+    let blackNode: Node = ModDomHelper.createNameValueNodes(document, ColorData.getInstance()!.NAME, "000000")!;;
+    
+node.appendChild(blackNode);
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < this.MAX; index += this.delta)
+        {
+
+    let hexColorStringBuffer: StringMaker = new StringMaker();;
+    
+
+                        if(index < this.HEXRADIX)
+                        
+                                    {
+                                    hexColorStringBuffer!.append(this.commonPhoneStrings!.ZERO);
+    
+
+                                    }
+                                
+hexColorStringBuffer!.append(index, this.HEXRADIX.toString());
+    
+
+                        if(index < this.HEXRADIX)
+                        
+                                    {
+                                    hexColorStringBuffer!.append(this.commonPhoneStrings!.ZERO);
+    
+
+                                    }
+                                
+hexColorStringBuffer!.append(index, this.HEXRADIX.toString());
+    
+
+                        if(index < this.HEXRADIX)
+                        
+                                    {
+                                    hexColorStringBuffer!.append(this.commonPhoneStrings!.ZERO);
+    
+
+                                    }
+                                
+hexColorStringBuffer!.append(index, this.HEXRADIX.toString());
+    
+
+    let colorNode: Node = ModDomHelper.createNameValueNodes(document, ColorData.getInstance()!.NAME, hexColorStringBuffer!.toString())!;;
+    
+node.appendChild(colorNode);
+    
+}
+
+
+    let whiteNode: Node = ModDomHelper.createNameValueNodes(document, ColorData.getInstance()!.NAME, "FFFFFF")!;;
+    
+node.appendChild(whiteNode);
+    
+
+
+
+
+                        for (
+    let blueIndex: number = globalThis.Math.trunc(this.MAX /2);blueIndex < this.MAX; blueIndex += this.delta)
+        {
+
+
+
+
+                        for (
+    let greenIndex: number = 0;greenIndex < globalThis.Math.trunc(this.MAX /2); greenIndex += this.delta)
+        {
+
+
+
+
+                        for (
+    let redIndex: number = 0;redIndex < globalThis.Math.trunc(this.MAX /2); redIndex += this.delta)
+        {
+node.appendChild(this.getColorNode(document, redIndex, greenIndex, blueIndex));
+    
+}
+
+}
+
+}
+
+
+
+
+
+                        for (
+    let redIndex: number = globalThis.Math.trunc(this.MAX /2);redIndex < this.MAX; redIndex += this.delta)
+        {
+
+
+
+
+                        for (
+    let greenIndex: number = 0;greenIndex < globalThis.Math.trunc(this.MAX /2); greenIndex += this.delta)
+        {
+
+
+
+
+                        for (
+    let blueIndex: number = 0;blueIndex < globalThis.Math.trunc(this.MAX /2); blueIndex += this.delta)
+        {
+node.appendChild(this.getColorNode(document, redIndex, greenIndex, blueIndex));
+    
+}
+
+}
+
+}
+
+
+
+
+
+                        for (
+    let greenIndex: number = globalThis.Math.trunc(this.MAX /2);greenIndex < this.MAX; greenIndex += this.delta)
+        {
+
+
+
+
+                        for (
+    let redIndex: number = 0;redIndex < globalThis.Math.trunc(this.MAX /2); redIndex += this.delta)
+        {
+
+
+
+
+                        for (
+    let blueIndex: number = 0;blueIndex < globalThis.Math.trunc(this.MAX /2); blueIndex += this.delta)
+        {
+node.appendChild(this.getColorNode(document, redIndex, greenIndex, blueIndex));
+    
+}
+
+}
+
+}
+
+
+
+
+
+                        for (
+    let greenIndex: number = 0;greenIndex < this.MAX; greenIndex += 2 *this.delta)
+        {
+
+
+
+
+                        for (
+    let redIndex: number = 0;redIndex < this.MAX; redIndex += 2 *this.delta)
+        {
+
+
+
+
+                        for (
+    let blueIndex: number = 0;blueIndex < this.MAX; blueIndex += 2 *this.delta)
+        {
+node.appendChild(this.getColorNode(document, redIndex, greenIndex, blueIndex));
+    
+}
+
+}
+
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+}
+

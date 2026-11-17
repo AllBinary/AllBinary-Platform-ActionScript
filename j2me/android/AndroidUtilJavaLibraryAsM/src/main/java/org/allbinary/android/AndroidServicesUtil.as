@@ -1,0 +1,153 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2019 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import hilog from '@ohos.hilog';
+        
+            import { Object } from '../../../java/lang/Object.js';
+        
+import { List } from '../../../java/util/List.js';
+//not GWT import const List
+
+import { ActivityManager } from '../../../android/app/ActivityManager.js';
+//not GWT import const ActivityManager
+
+import { RunningServiceInfo } from '../../../android/app/ActivityManager/RunningServiceInfo.js';
+//not GWT import const RunningServiceInfo
+
+import { ComponentName } from '../../../android/content/ComponentName.js';
+//not GWT import const ComponentName
+
+import { Context } from '../../../android/content/Context.js';
+//not GWT import const Context
+
+//not plain js import { ResourceUtil } 
+const ResourceUtil = globalThis.org.allbinary.data.resource.ResourceUtil;
+type ResourceUtil<T = any, U = any> = typeof ResourceUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ResourceUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class AndroidServicesUtil
+            extends Object
+         {
+        
+
+    public static getInstance(): AndroidServicesUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return AndroidServicesUtil.instance;
+    
+}
+
+
+    private static readonly instance: AndroidServicesUtil = new AndroidServicesUtil();
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly resourceUtil: ResourceUtil = ResourceUtil.getInstance()!;
+
+    private readonly SERVICE_LIMIT_MAX: number = 1000;
+
+    private readonly IS_SERVICE_RUNNING: string = "isServiceRunning";
+
+    private readonly SERVICE_NOT_FOUND_RUNNING: string = "Service not found Running: ";
+
+    public isServiceRunning(name: string): boolean{
+
+    let activityManager: ActivityManager = this.resourceUtil!.getContext()!.getSystemService(Context.ACTIVITY_SERVICE) as unknown as ActivityManager;;
+    
+
+    let runningServicesList: List<RunningServiceInfo> = activityManager!.getRunningServices(this.SERVICE_LIMIT_MAX)!;;
+    
+
+    let runningServiceInfo: RunningServiceInfo;;
+    
+
+    let serviceComponent: ComponentName;;
+    
+
+    let serviceName: string;;
+    
+
+    let size: number = runningServicesList!.length!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+runningServiceInfo= runningServicesList!.get(index);
+    
+serviceComponent= runningServiceInfo!.service;
+    
+serviceName= serviceComponent!.toString();
+    
+
+                        if(serviceName!.indexOf(name) >= 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+}
+
+this.logUtil!.putF(this.SERVICE_NOT_FOUND_RUNNING +name, this, this.IS_SERVICE_RUNNING);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+}
+

@@ -1,0 +1,92 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+import { PointFactory } from '../../../../../org/allbinary/graphics/PointFactory.js';
+//not GWT import const PointFactory
+
+import { Rectangle } from '../../../../../org/allbinary/graphics/Rectangle.js';
+//not GWT import const Rectangle
+
+import { DisplayInfoSingleton } from '../../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
+//not GWT import const DisplayInfoSingleton
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class FormUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: FormUtil = new FormUtil();
+
+    public static getInstance(): FormUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return FormUtil.instance;
+    
+}
+
+
+    public createFormRectangle(): Rectangle{
+
+    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
+    
+
+    let pointFactory: PointFactory = PointFactory.getInstance()!;;
+    
+
+    let rectangle: Rectangle = new Rectangle(pointFactory!.createXY(30, 10), displayInfo!.getLastWidth() -30, displayInfo!.getLastHeight() -35);;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return rectangle;
+    
+}
+
+
+}
+

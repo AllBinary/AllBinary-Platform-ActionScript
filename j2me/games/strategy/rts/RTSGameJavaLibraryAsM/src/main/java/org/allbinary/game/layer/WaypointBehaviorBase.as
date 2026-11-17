@@ -1,0 +1,319 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2003 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
+        
+import { CollidableDestroyableDamageableLayer } from '../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.js';
+//not GWT import const CollidableDestroyableDamageableLayer
+
+import { WaypointBase } from '../../../../org/allbinary/game/layer/waypoint/WaypointBase.js';
+//not GWT import const WaypointBase
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { TickableInterface } from '../../../../org/allbinary/game/tick/TickableInterface.js';
+//not GWT import const TickableInterface
+
+import { AllBinaryLayerManager } from '../../../../org/allbinary/layer/AllBinaryLayerManager.js';
+//not GWT import const AllBinaryLayerManager
+
+import { GeographicMapCellHistory } from '../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellHistory.js';
+//not GWT import const GeographicMapCellHistory
+
+import { GeographicMapCellPosition } from '../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+//not plain js import { BasicArrayListS } 
+const BasicArrayListS = globalThis.org.allbinary.util.BasicArrayListS;
+type BasicArrayListS<T = any, U = any> = typeof BasicArrayListS extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListS;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { PathFindingLayerInterface } from './PathFindingLayerInterface.js';
+//sameFolderImports - not GWT import - same folder const PathFindingLayerInterface
+
+export class WaypointBehaviorBase
+            extends Object
+         implements TickableInterface {
+        
+
+    private readonly ownedWaypointList: BasicArrayList;
+
+    waypointOverridesAttacking: boolean = true;
+
+    private waypoint: WaypointBase = WaypointBase.NULL_WAYPOINT_BASE;
+
+public constructor (){
+
+            super();
+        this.ownedWaypointList= new BasicArrayListS(1);
+    
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.constructor.name.toString()!;;
+    
+}
+
+
+    public isRunning(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processTick(allBinaryLayerManager: AllBinaryLayerManager){
+}
+
+
+    public getOwnedWaypointList(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.ownedWaypointList;
+    
+}
+
+
+    public getWaypoint(): WaypointBase{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.waypoint;
+    
+}
+
+
+    public setWaypoint(waypoint: WaypointBase){
+this.waypoint= waypoint;
+    
+}
+
+
+    public getSteeringVisitorList(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.steeringVisitorList;
+    
+}
+
+
+    public getMovementLogicAsString(): string{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public isWaypointListEmptyOrOnlyTargets(): boolean{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public isInSensorRange(layerInterface: CollidableDestroyableDamageableLayer, targetDistance: number): boolean{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public getCurrentTargetLayerInterface(): CollidableDestroyableDamageableLayer{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public getCurrentTargetingStateString(): string{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public isTrackingWaypoint(): boolean{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public getCurrentPathGeographicMapCellPosition(): GeographicMapCellPosition{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public getCurrentGeographicMapCellHistory(): GeographicMapCellHistory{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public isWaypointOverridesAttacking(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.waypointOverridesAttacking;
+    
+}
+
+
+    public getNextUnvisitedPathGeographicMapCellPosition(): GeographicMapCellPosition{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public needToMove(): boolean{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public setWaypointPathsList(waypointPathsList: BasicArrayList){
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public getWaypointPathsList(): BasicArrayList{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setTarget(layerInterface: PathFindingLayerInterface){
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setTargetWithDistance(layerInterface: PathFindingLayerInterface, anotherTargetDistance: number){
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public clearTarget(){
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public updatePathOnTargetMove(reason: string){
+}
+
+
+    private readonly steeringVisitorList: BasicArrayList = new BasicArrayListD();
+
+}
+

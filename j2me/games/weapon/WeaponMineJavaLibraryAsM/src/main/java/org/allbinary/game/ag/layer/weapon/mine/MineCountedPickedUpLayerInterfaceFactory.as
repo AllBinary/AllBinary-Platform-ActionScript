@@ -1,0 +1,152 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../../java/lang/Integer.js';
+        
+import { FeaturedAnimationInterfaceFactoryInterfaceFactory } from '../../../../../../../org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.js';
+//not GWT import const FeaturedAnimationInterfaceFactoryInterfaceFactory
+
+import { WeaponProperties } from '../../../../../../../org/allbinary/game/combat/weapon/WeaponProperties.js';
+//not GWT import const WeaponProperties
+
+import { CountedPickedUpLayerInterfaceFactory } from '../../../../../../../org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.js';
+//not GWT import const CountedPickedUpLayerInterfaceFactory
+
+import { IconLayerFactory } from '../../../../../../../org/allbinary/game/layer/pickup/IconLayerFactory.js';
+//not GWT import const IconLayerFactory
+
+import { PickedUpLayerInterfaceFactoryInterface } from '../../../../../../../org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.js';
+//not GWT import const PickedUpLayerInterfaceFactoryInterface
+
+import { PickedUpLayerTypeFactory } from '../../../../../../../org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.js';
+//not GWT import const PickedUpLayerTypeFactory
+
+import { WeaponLayerCircularPool } from '../../../../../../../org/allbinary/game/layer/weapon/WeaponLayerCircularPool.js';
+//not GWT import const WeaponLayerCircularPool
+
+import { ScoreableInterface } from '../../../../../../../org/allbinary/game/score/ScoreableInterface.js';
+//not GWT import const ScoreableInterface
+
+import { AllBinaryLayer } from '../../../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { SmallIntegerSingletonFactory } from '../../../../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
+//not GWT import const SmallIntegerSingletonFactory
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { MineLayerCircularStaticPool } from './MineLayerCircularStaticPool.js';
+//sameFolderImports - not GWT import - same folder const MineLayerCircularStaticPool
+import { MineWeaponResources } from './MineWeaponResources.js';
+//sameFolderImports - not GWT import - same folder const MineWeaponResources
+
+export class MineCountedPickedUpLayerInterfaceFactory extends CountedPickedUpLayerInterfaceFactory {
+        
+
+    private static pickedUpLayerInterfaceFactoryInterface: PickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
+
+                //@Throws(Exception.constructor)
+            
+    public static init(){
+MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface= new MineCountedPickedUpLayerInterfaceFactory();
+    
+}
+
+
+    public static getInstance(): PickedUpLayerInterfaceFactoryInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
+    
+}
+
+
+    private readonly weaponLayerCircularStaticPool: WeaponLayerCircularPool = MineLayerCircularStaticPool.getInstance()!;
+
+private constructor (){
+            super(PickedUpLayerTypeFactory.getInstance()!.MINE, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()!.get(MineWeaponResources.getInstance()!.DROP_ICON_RESOURCE)!.getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()!.get(MineWeaponResources.getInstance()!.DROP_RESOURCE)!.getInstance(0));
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public getTotal(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 3;
+    
+}
+
+
+    private readonly weaponProperties: WeaponProperties = new WeaponProperties( -1,  -1, 0, 8000, 10);
+
+    private readonly smallIntegerSingletonFactory: SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance()!;
+
+                //@Throws(Exception.constructor)
+            
+    public getNextInstance(hashtable: ABHashtable<any, any>, x: number, y: number, z: number): AllBinaryLayer{
+
+    let sourceLayerInterface: AllBinaryLayer = hashtable.get(this.smallIntegerSingletonFactory!.getAt(0)) as AllBinaryLayer;;
+    
+
+    let angle: Integer = hashtable.get(this.smallIntegerSingletonFactory!.getAt(1)) as Integer;;
+    
+
+    let scoreableInterface: ScoreableInterface = sourceLayerInterface as unknown as ScoreableInterface;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.weaponLayerCircularStaticPool!.getInstanceWeaponLayer(sourceLayerInterface, x, y, z, globalThis.Math.trunc(angle.intValue()), 0, this.weaponProperties, scoreableInterface);;
+    
+}
+
+
+}
+

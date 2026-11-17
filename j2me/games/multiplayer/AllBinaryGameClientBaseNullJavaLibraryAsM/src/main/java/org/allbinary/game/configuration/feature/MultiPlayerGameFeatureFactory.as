@@ -1,0 +1,70 @@
+
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+import { Canvas } from '../../../../../javax/microedition/lcdui/Canvas.js';
+//not GWT import const Canvas
+
+import { GameCommandsFactory } from '../../../../../org/allbinary/game/commands/GameCommandsFactory.js';
+//not GWT import const GameCommandsFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class MultiPlayerGameFeatureFactory
+            extends Object
+         {
+        
+
+    private static readonly instance: MultiPlayerGameFeatureFactory = new MultiPlayerGameFeatureFactory();
+
+    public static getInstance(): MultiPlayerGameFeatureFactory{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return MultiPlayerGameFeatureFactory.instance;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+    public addCommands(anyType: any){
+
+    let gameCommandsFactory: GameCommandsFactory = GameCommandsFactory.getInstance()!;;
+    
+
+    let canvas: Canvas = anyType as Canvas;;
+    
+canvas.addCommand(gameCommandsFactory!.QUIT_COMMAND);
+    
+}
+
+
+}
+

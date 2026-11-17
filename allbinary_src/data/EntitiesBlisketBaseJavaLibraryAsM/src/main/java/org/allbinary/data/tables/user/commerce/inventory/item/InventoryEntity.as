@@ -1,0 +1,471 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { StoreFrontInterface } from '../../../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontInterface.js';
+//not GWT import const StoreFrontInterface
+
+import { EntryData } from '../../../../../../../../org/allbinary/business/entry/EntryData.js';
+//not GWT import const EntryData
+
+import { InventoryDbInitInfo } from '../../../../../../../../org/allbinary/business/init/db/InventoryDbInitInfo.js';
+//not GWT import const InventoryDbInitInfo
+
+import { BasicItem } from '../../../../../../../../org/allbinary/business/user/commerce/inventory/item/BasicItem.js';
+//not GWT import const BasicItem
+
+import { BasicItemData } from '../../../../../../../../org/allbinary/business/user/commerce/inventory/item/BasicItemData.js';
+//not GWT import const BasicItemData
+
+import { ItemInterface } from '../../../../../../../../org/allbinary/business/user/commerce/inventory/item/ItemInterface.js';
+//not GWT import const ItemInterface
+
+import { MoneyException } from '../../../../../../../../org/allbinary/business/user/commerce/money/MoneyException.js';
+//not GWT import const MoneyException
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AbSqlBean } from '../../../../../../../../org/allbinary/logic/communication/sql/AbSqlBean.js';
+//not GWT import const AbSqlBean
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { StringValidationUtil } from '../../../../../../../../org/allbinary/logic/string/StringValidationUtil.js';
+//not GWT import const StringValidationUtil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { InventoryEntityInterface } from './InventoryEntityInterface.js';
+//sameFolderImports - not GWT import - same folder const InventoryEntityInterface
+
+export class InventoryEntity extends AbSqlBean implements InventoryEntityInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly basicItemData: BasicItemData = BasicItemData.getInstance()!;
+
+    private readonly tableName: string = "basicinventory";
+
+public constructor (){
+            super(new InventoryDbInitInfo());
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.setTableName(this.tableName);
+    
+}
+
+
+    public insert(values: BasicArrayList){
+
+ try { super.insert(values);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.SUCCESS, this, INSERT);
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.FAILURE, this, INSERT, e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+}
+
+
+    public delete(value: string){
+
+ try { super.deleteWhere(this.basicItemData!.ID, value);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.SUCCESS, this, this.commonStrings!.delete);
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.FAILURE, this, this.commonStrings!.delete, e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getItems(storeFrontInterface: StoreFrontInterface): BasicArrayList{
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF("Getting Items For: " +storeFrontInterface!.getName(), this, "getItems");
+    
+
+                                    }
+                                
+
+    let itemVector: BasicArrayList = new BasicArrayListD();;
+    
+
+    let keysAndValues: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+
+    let itemHashMapVector: BasicArrayList = super.getRows(keysAndValues)!;;
+    
+
+    let size: number = itemHashMapVector!.size()!;;
+    
+
+
+
+
+                        for (
+    let i: number = 0;i < size; i++)
+        {
+
+    let itemHashMap: HashMap<any, any> = itemHashMapVector!.get(i) as HashMap<any, any>;;
+    
+
+                        if(itemHashMap != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let category: string = itemHashMap!.get(this.basicItemData!.CATEGORY) as string;;
+    
+
+                        if(!StringValidationUtil.getInstance()!.isEmpty(category) && category.startsWith(storeFrontInterface!.getCategoryPath()))
+                        
+                                    {
+                                    itemVector!.add(new BasicItem(itemHashMap));
+    
+
+                                    }
+                                
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return itemVector;
+    
+}
+
+
+                //@Throws(MoneyException.constructor)
+            
+    public getItem(id: string): ItemInterface{
+
+    let keysAndValues: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+keysAndValues!.put(this.basicItemData!.ID, id);
+    
+
+    let itemHashMap: HashMap<any, any> = super.getRow(keysAndValues)!;;
+    
+
+                        if(itemHashMap != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new BasicItem(itemHashMap);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+                        }
+                            
+}
+
+
+    public getWeight(id: string): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getField(this.basicItemData!.ID, id, this.basicItemData!.WEIGHT);;
+    
+}
+
+
+    public createTableStatement(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.sqlStrings!.CREATE_TABLE);
+    
+stringBuffer!.append(this.tableName);
+    
+stringBuffer!.append(this.sqlStrings!.START);
+    
+stringBuffer!.append(this.basicItemData!.ID);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.NUMBER);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.INBASKETS);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.WEIGHT);
+    
+stringBuffer!.append(" VARCHAR(20) NOT NULL,");
+    
+stringBuffer!.append(EntryData.getInstance()!.ENABLE);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.NEWORUSED);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.SUMMARY);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.DISTRIBUTOR);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.IDUSEDBYDISTRIBUTOR);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.PRODUCEDBY);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.PRODUCTIONDATE);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.STARTPRODUCTIONDATE);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.DESCRIPTION);
+    
+stringBuffer!.append(this.sqlTypeStrings!.BLOB_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.KEYWORDS);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.CATEGORY);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.TYPE);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.SMALLIMAGE);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.MEDIUMIMAGE);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.LARGEIMAGE);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(EntryData.getInstance()!.LASTMODIFIED);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL);
+    
+stringBuffer!.append(EntryData.getInstance()!.TIMECREATED);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.PRICE);
+    
+stringBuffer!.append(" VARCHAR(20) NOT NULL,");
+    
+stringBuffer!.append(this.basicItemData!.COMMENT);
+    
+stringBuffer!.append(this.sqlTypeStrings!.BLOB_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.CUSTOMS);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.DOWNLOADS);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.GROUPS);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.OPTIONS);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.PERMISSIONS);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL);
+    
+stringBuffer!.append(this.basicItemData!.SPECIALS);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL);
+    
+stringBuffer!.append(this.sqlStrings!.PRIMARY_KEY);
+    
+stringBuffer!.append(this.basicItemData!.ID);
+    
+stringBuffer!.append(this.sqlStrings!.END);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+    public createTable(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.createTable(this.createTableStatement());;
+    
+}
+
+
+    public update(updatedValues: HashMap<any, any>){
+super.updateWhere(this.basicItemData!.ID, updatedValues!.get(this.basicItemData!.ID) as string, updatedValues);
+    
+}
+
+
+    public dropTable(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.dropTable();;
+    
+}
+
+
+    public deleteWhere(key: string, value: string){
+super.deleteWhere(key, value);
+    
+}
+
+
+}
+

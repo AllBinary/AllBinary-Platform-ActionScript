@@ -1,0 +1,83 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2025 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class FileUnamedUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: FileUnamedUtil = new FileUnamedUtil();
+
+    public static getInstance(): FileUnamedUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return FileUnamedUtil.instance;
+    
+}
+
+
+    private readonly commonSeps: CommonSeps = CommonSeps.getInstance()!;
+
+    public process(string: string): string{
+
+    let simplifiedString: string = string.toLowerCase()!;;
+    
+simplifiedString= simplifiedString!.replace(this.commonSeps!.SPACE, this.commonSeps!.UNDERSCORE);
+    
+simplifiedString= simplifiedString!.replace(this.commonSeps!.DASH, this.commonSeps!.UNDERSCORE);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return simplifiedString;
+    
+}
+
+
+}
+

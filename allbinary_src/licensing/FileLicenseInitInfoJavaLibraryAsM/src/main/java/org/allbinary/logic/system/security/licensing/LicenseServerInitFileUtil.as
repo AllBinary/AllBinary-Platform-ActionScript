@@ -1,0 +1,197 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { InputStream } from '../../../../../../java/io/InputStream.js';
+//not GWT import const InputStream
+
+import { OutputStream } from '../../../../../../java/io/OutputStream.js';
+//not GWT import const OutputStream
+
+import { LicenseInitInfoUtil } from '../../../../../../org/allbinary/business/init/LicenseInitInfoUtil.js';
+//not GWT import const LicenseInitInfoUtil
+
+//not plain js import { ResourceUtil } 
+const ResourceUtil = globalThis.org.allbinary.data.resource.ResourceUtil;
+type ResourceUtil<T = any, U = any> = typeof ResourceUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ResourceUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { FileStreamFactory } from '../../../../../../org/allbinary/logic/io/FileStreamFactory.js';
+//not GWT import const FileStreamFactory
+
+import { StreamUtil } from '../../../../../../org/allbinary/logic/io/StreamUtil.js';
+//not GWT import const StreamUtil
+
+import { FileFactory } from '../../../../../../org/allbinary/logic/io/file/FileFactory.js';
+//not GWT import const FileFactory
+
+import { SimpleFileUtil } from '../../../../../../org/allbinary/logic/io/file/SimpleFileUtil.js';
+//not GWT import const SimpleFileUtil
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class LicenseServerInitFileUtil
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly NULL_OUTPUT_STREAM: OutputStream = SimpleFileUtil.nullOutputStream()!;
+
+    public init(){
+
+ try { 
+    let filePath: string = LicenseInitInfoUtil.getInstance()!.INITFILENAME;;
+    
+LicenseInitInfoUtil.getInstance()!.setFilePath(StringUtil.getInstance()!.EMPTY_STRING);
+    
+
+                        if(FileFactory.getInstance()!.isFile(filePath))
+                        
+                                    {
+                                    this.logUtil!.putF("Using Existing License File", this, this.commonStrings!.INIT);
+    
+
+                                    }
+                                
+                        else {
+                            this.write();
+    
+
+                        }
+                            
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.INIT, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    write(){
+
+    let fileOutputStream: OutputStream = this.NULL_OUTPUT_STREAM;;
+    
+
+ try { 
+    let resourceUtil: ResourceUtil = ResourceUtil.getInstance()!;;
+    
+
+    let filePath: string = LicenseInitInfoUtil.getInstance()!.INITFILENAME;;
+    
+
+    let inputStream: InputStream = resourceUtil!.getResourceAsStream(filePath)!;;
+    
+this.logUtil!.putF("Writing Default License File", this, this.commonStrings!.INIT);
+    
+
+    let fileStreamFactory: FileStreamFactory = FileStreamFactory.getInstance()!;;
+    
+fileOutputStream= fileStreamFactory!.getFileOutputStreamInstance(StringUtil.getInstance()!.EMPTY_STRING, filePath);
+    
+
+    let b: number= 0;;
+    
+
+    let index: number = 0;;
+    
+
+        while(true)
+        {
+b= inputStream!.read();
+    
+
+                        if(b ==  -1)
+                        
+                                    {
+                                    break;
+
+                    
+
+                                    }
+                                
+fileOutputStream!.write(b);
+    
+index++;
+    
+}
+
+this.logUtil!.putF("Wrote Bytes: " +index, this, this.commonStrings!.INIT);
+    
+fileOutputStream!.flush();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.INIT, e);
+    
+
+ }
+   }
+ finally { StreamUtil.getInstance()!.close(fileOutputStream);
+    
+ }
+}
+
+
+}
+

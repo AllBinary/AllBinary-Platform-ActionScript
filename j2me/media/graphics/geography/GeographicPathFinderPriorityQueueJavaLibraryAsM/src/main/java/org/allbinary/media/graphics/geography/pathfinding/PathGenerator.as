@@ -1,0 +1,179 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            import { RuntimeException } from '../../../../../../java/lang/RuntimeException.js';
+        
+import { BasicGeographicMap } from '../../../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { GeographicMapCellHistory } from '../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellHistory.js';
+//not GWT import const GeographicMapCellHistory
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { PathGeneratorInterface } from './PathGeneratorInterface.js';
+//sameFolderImports - not GWT import - same folder const PathGeneratorInterface
+import { PathFindingInfo } from './PathFindingInfo.js';
+//sameFolderImports - not GWT import - same folder const PathFindingInfo
+import { GeographicPathFinderBase } from './GeographicPathFinderBase.js';
+//sameFolderImports - not GWT import - same folder const GeographicPathFinderBase
+import { MultipassState } from './MultipassState.js';
+//sameFolderImports - not GWT import - same folder const MultipassState
+
+export class PathGenerator
+            extends Object
+         implements PathGeneratorInterface {
+        
+
+    private static readonly SINGLETON: PathGenerator = new PathGenerator();
+
+    public static getInstance(): PathGenerator{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return PathGenerator.SINGLETON;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            
+    public init(geographicMapInterface: any, totalPaths: number){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getInstanceNoCache(geographicMapInterface: BasicGeographicMap, pathFindingInfo: PathFindingInfo, totalPaths: number): BasicArrayList{
+
+    let geographicMapCellPositionBasicArrayList: BasicArrayList = this.create(geographicMapInterface, pathFindingInfo, totalPaths)!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return geographicMapCellPositionBasicArrayList;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public createList(geographicMapInterface: BasicGeographicMap, geographicMapCellHistory: GeographicMapCellHistory, pathFindingInfo: PathFindingInfo, totalPaths: number): BasicArrayList{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    create(geographicMapInterface: BasicGeographicMap, pathFindingInfo: PathFindingInfo, totalPaths: number): BasicArrayList{
+
+    let startPathFindingNodeList: BasicArrayList = pathFindingInfo!.getStartPathFindingNodeList()!;;
+    
+
+    let endPathFindingNodeList: BasicArrayList = pathFindingInfo!.getEndPathFindingNodeList()!;;
+    
+
+    let geographicPathFinderInterface: GeographicPathFinderBase = pathFindingInfo!.getPathFinder()!;;
+    
+
+    let geographicMapCellPositionBasicArrayList: BasicArrayList = geographicPathFinderInterface!.searchTotalPath(startPathFindingNodeList, endPathFindingNodeList, totalPaths)!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return geographicMapCellPositionBasicArrayList;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public createN(geographicMapInterface: BasicGeographicMap, pathFindingInfo: PathFindingInfo, totalPaths: number, multipassState: MultipassState): BasicArrayList{
+
+    let startPathFindingNodeList: BasicArrayList = pathFindingInfo!.getStartPathFindingNodeList()!;;
+    
+
+    let endPathFindingNodeList: BasicArrayList = pathFindingInfo!.getEndPathFindingNodeList()!;;
+    
+
+    let geographicPathFinderInterface: GeographicPathFinderBase = pathFindingInfo!.getPathFinder()!;;
+    
+
+    let geographicMapCellPositionBasicArrayList: BasicArrayList = geographicPathFinderInterface!.searchTotalPathN(startPathFindingNodeList, endPathFindingNodeList, totalPaths, multipassState)!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return geographicMapCellPositionBasicArrayList;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    isValid(pathList: BasicArrayList, geographicMapCellHistory: GeographicMapCellHistory): boolean{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+}
+

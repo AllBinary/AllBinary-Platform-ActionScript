@@ -1,0 +1,123 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../../java/lang/Object.js';
+        
+            import { Integer } from '../../../../../../../../java/lang/Integer.js';
+        
+import { GameNotificationEvent } from '../../../../../../../../org/allbinary/game/layer/hud/event/GameNotificationEvent.js';
+//not GWT import const GameNotificationEvent
+
+import { BasicColor } from '../../../../../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { BasicColorFactory } from '../../../../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+//not plain js import { NullUtil } 
+const NullUtil = globalThis.org.allbinary.logic.NullUtil;
+type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
+
+import { BooleanFactory } from '../../../../../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
+//not GWT import const BooleanFactory
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class GameNotification
+            extends Object
+         {
+        
+
+    public static readonly NULL_GAME_NOTIFICATION_EVENT: GameNotificationEvent = new GameNotificationEvent(NullUtil.getInstance()!.NULL_OBJECT, StringUtil.getInstance()!.EMPTY_STRING, new Integer(0), BasicColorFactory.getInstance()!.RED, BooleanFactory.getInstance()!.FALSE);
+
+    public readonly stringList: BasicArrayList = new BasicArrayListD();
+
+    public readonly timeList: BasicArrayList = new BasicArrayListD();
+
+    public readonly colorList: BasicArrayList = new BasicArrayListD();
+
+    public add(string: string, seconds: Integer, basicColor: BasicColor){
+
+                        if(!this.stringList!.contains(string))
+                        
+                                    {
+                                    this.stringList!.add(string);
+    
+this.timeList!.add(seconds);
+    
+this.colorList!.add(basicColor);
+    
+
+                                    }
+                                
+}
+
+
+    public clear(){
+this.stringList!.clear();
+    
+this.timeList!.clear();
+    
+this.colorList!.clear();
+    
+}
+
+
+    public getSize(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.stringList!.size();;
+    
+}
+
+
+}
+

@@ -1,0 +1,229 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { Set } from '../../../../../../../../java/util/Set.js';
+//not GWT import const Set
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { DomNodeInterface } from '../../../../../../../../org/allbinary/data/tree/dom/DomNodeInterface.js';
+//not GWT import const DomNodeInterface
+
+import { DomSearchHelper } from '../../../../../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
+//not GWT import const DomSearchHelper
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { Document } from '../../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+import { NodeList } from '../../../../../../../../org/w3c/dom/NodeList.js';
+//not GWT import const NodeList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { UserEmailEventsConfigurationInterface } from './UserEmailEventsConfigurationInterface.js';
+//sameFolderImports - not GWT import - same folder const UserEmailEventsConfigurationInterface
+import { UserEmailEventsConfiguration } from './UserEmailEventsConfiguration.js';
+//sameFolderImports - not GWT import - same folder const UserEmailEventsConfiguration
+import { UserEmailEventConfigurationData } from './UserEmailEventConfigurationData.js';
+//sameFolderImports - not GWT import - same folder const UserEmailEventConfigurationData
+import { UserEmailEventConfigurationView } from './UserEmailEventConfigurationView.js';
+//sameFolderImports - not GWT import - same folder const UserEmailEventConfigurationView
+import { UserEmailEventsConfigurationMapping } from './UserEmailEventsConfigurationMapping.js';
+//sameFolderImports - not GWT import - same folder const UserEmailEventsConfigurationMapping
+import { UserEmailEventsConfigurationData } from './UserEmailEventsConfigurationData.js';
+//sameFolderImports - not GWT import - same folder const UserEmailEventsConfigurationData
+import { UserEmailEventConfigurationInterface } from './UserEmailEventConfigurationInterface.js';
+//sameFolderImports - not GWT import - same folder const UserEmailEventConfigurationInterface
+
+export class UserEmailEventsConfigurationView
+            extends Object
+         implements DomNodeInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private userEmailEventsConfigurationInterface: UserEmailEventsConfigurationInterface;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 1 && args[0] instanceof Node) {
+            
+            this.constructor$0(args[0]);
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        
+    }
+    
+    private constructor$0(node: Node): void {
+        this.userEmailEventsConfigurationInterface= new UserEmailEventsConfiguration() as UserEmailEventsConfigurationInterface;
+    
+
+    let childNodeList: NodeList = node.getChildNodes()!;;
+    
+
+    let emailEventConfigurationNodeVector: BasicArrayList = DomSearchHelper.getAllNodesNoThrow(UserEmailEventConfigurationData.NAME, childNodeList)!;;
+    
+
+    let size: number = emailEventConfigurationNodeVector!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let userEmailConfigurationNode: Node = emailEventConfigurationNodeVector!.get(index) as Node;;
+    
+
+    let userEmailEventConfigurationView: UserEmailEventConfigurationView = new UserEmailEventConfigurationView(userEmailConfigurationNode);;
+    
+this.userEmailEventsConfigurationInterface!.addUserEmailEventConfiguration(userEmailEventConfigurationView!.getUserEmailEventConfigurationInterface());
+    
+}
+
+
+    }
+    
+    private constructor$1(userEmailEventsConfigurationInterface: UserEmailEventsConfigurationInterface): void {
+        this.userEmailEventsConfigurationInterface= userEmailEventsConfigurationInterface;
+    
+
+    }
+    
+    public getUserEmailEventsConfigurationInterface(): UserEmailEventsConfigurationInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.userEmailEventsConfigurationInterface;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let userEmailConfigurationMapping: UserEmailEventsConfigurationMapping = new UserEmailEventsConfigurationMapping(this.userEmailEventsConfigurationInterface);;
+    
+
+    let node: Node = document.createElement(UserEmailEventsConfigurationData.NAME)!;;
+    
+
+    let emailEventHashMap: HashMap<any, any> = this.getUserEmailEventsConfigurationInterface()!.getEventConfigurationHashMap()!;;
+    
+
+    let set: Set = emailEventHashMap!.keys()!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.EMAILLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF("Number Of Email Events Specified in file: " +set.size(), this, this.commonStrings!.CONSTRUCTOR);
+    
+
+                                    }
+                                
+
+    let eventNameArray: any[] = set.toArray()!;;
+    
+
+    let size: number = eventNameArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let eventName: string = eventNameArray[index]! as string;;
+    
+
+    let userEmailEventsConfigurationInterface: UserEmailEventConfigurationInterface = emailEventHashMap!.get(eventName) as UserEmailEventConfigurationInterface;;
+    
+
+    let userEmailEventConfigurationView: UserEmailEventConfigurationView = new UserEmailEventConfigurationView(userEmailEventsConfigurationInterface);;
+    
+node.appendChild(userEmailEventConfigurationView!.toXmlNode(document));
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+}
+

@@ -1,0 +1,595 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2006 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { RTSPlayerGameInput } from '../../../../../org/allbinary/game/input/RTSPlayerGameInput.js';
+//not GWT import const RTSPlayerGameInput
+
+import { AdvancedRTSGameLayer } from '../../../../../org/allbinary/game/layer/AdvancedRTSGameLayer.js';
+//not GWT import const AdvancedRTSGameLayer
+
+import { AdvancedRTSPlayerLayerInterface } from '../../../../../org/allbinary/game/layer/AdvancedRTSPlayerLayerInterface.js';
+//not GWT import const AdvancedRTSPlayerLayerInterface
+
+import { RTSGameStrings } from '../../../../../org/allbinary/game/layer/RTSGameStrings.js';
+//not GWT import const RTSGameStrings
+
+import { RTSLayer } from '../../../../../org/allbinary/game/layer/RTSLayer.js';
+//not GWT import const RTSLayer
+
+import { RTSLayerEvent } from '../../../../../org/allbinary/game/layer/RTSLayerEvent.js';
+//not GWT import const RTSLayerEvent
+
+import { RTSLayerUtil } from '../../../../../org/allbinary/game/layer/RTSLayerUtil.js';
+//not GWT import const RTSLayerUtil
+
+import { RTSPlayerLayerInterface } from '../../../../../org/allbinary/game/layer/RTSPlayerLayerInterface.js';
+//not GWT import const RTSPlayerLayerInterface
+
+import { Capital } from '../../../../../org/allbinary/game/layer/capital/Capital.js';
+//not GWT import const Capital
+
+import { WaypointCellPositionHistory } from '../../../../../org/allbinary/game/layer/waypoint/WaypointCellPositionHistory.js';
+//not GWT import const WaypointCellPositionHistory
+
+import { WaypointLayer } from '../../../../../org/allbinary/game/layer/waypoint/WaypointLayer.js';
+//not GWT import const WaypointLayer
+
+import { WaypointEventHandlerFactory } from '../../../../../org/allbinary/game/layer/waypoint/event/WaypointEventHandlerFactory.js';
+//not GWT import const WaypointEventHandlerFactory
+
+import { ABCustomItem } from '../../../../../org/allbinary/graphics/form/item/ABCustomItem.js';
+//not GWT import const ABCustomItem
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+import { BooleanFactory } from '../../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
+//not GWT import const BooleanFactory
+
+import { Group } from '../../../../../org/allbinary/game/identification/Group.js';
+//not GWT import const Group
+
+import { AllBinaryGameLayerManager } from '../../../../../org/allbinary/game/layer/AllBinaryGameLayerManager.js';
+//not GWT import const AllBinaryGameLayerManager
+
+import { AllBinaryTiledLayer } from '../../../../../org/allbinary/game/layer/AllBinaryTiledLayer.js';
+//not GWT import const AllBinaryTiledLayer
+
+import { GeographicMapCellPositionAreaBase } from '../../../../../org/allbinary/game/layer/GeographicMapCellPositionAreaBase.js';
+//not GWT import const GeographicMapCellPositionAreaBase
+
+import { NullPathFindingLayer } from '../../../../../org/allbinary/game/layer/NullPathFindingLayer.js';
+//not GWT import const NullPathFindingLayer
+
+import { NullRTSLayer } from '../../../../../org/allbinary/game/layer/NullRTSLayer.js';
+//not GWT import const NullRTSLayer
+
+import { PathFindingLayerInterface } from '../../../../../org/allbinary/game/layer/PathFindingLayerInterface.js';
+//not GWT import const PathFindingLayerInterface
+
+import { GameNotificationEvent } from '../../../../../org/allbinary/game/layer/hud/event/GameNotificationEvent.js';
+//not GWT import const GameNotificationEvent
+
+import { GameNotificationEventHandler } from '../../../../../org/allbinary/game/layer/hud/event/GameNotificationEventHandler.js';
+//not GWT import const GameNotificationEventHandler
+
+import { CollidableDestroyableDamageableLayer } from '../../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.js';
+//not GWT import const CollidableDestroyableDamageableLayer
+
+import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { BasicColorFactory } from '../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
+//not GWT import const AllBinaryLayerManager
+
+import { Layer } from '../../../../../org/allbinary/layer/Layer.js';
+//not GWT import const Layer
+
+import { SmallIntegerSingletonFactory } from '../../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
+//not GWT import const SmallIntegerSingletonFactory
+
+import { ErrorSound } from '../../../../../org/allbinary/media/audio/ErrorSound.js';
+//not GWT import const ErrorSound
+
+import { BasicGeographicMap } from '../../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { GeographicMapCellPosition } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+import { GeographicMapCellType } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellType.js';
+//not GWT import const GeographicMapCellType
+
+import { GeographicMapCompositeInterface } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCompositeInterface.js';
+//not GWT import const GeographicMapCompositeInterface
+
+import { DropCellPositionHistory } from '../../../../../org/allbinary/media/graphics/geography/map/drop/DropCellPositionHistory.js';
+//not GWT import const DropCellPositionHistory
+
+import { RaceTrackGeographicMapCellTypeFactory } from '../../../../../org/allbinary/media/graphics/geography/map/racetrack/RaceTrackGeographicMapCellTypeFactory.js';
+//not GWT import const RaceTrackGeographicMapCellTypeFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { RTSFormInput } from './RTSFormInput.js';
+//sameFolderImports - not GWT import - same folder const RTSFormInput
+import { PrimaryWaypointHelper } from './PrimaryWaypointHelper.js';
+//sameFolderImports - not GWT import - same folder const PrimaryWaypointHelper
+
+export class WaypointRTSFormInput extends RTSFormInput {
+        
+
+    private readonly WAYPOINT_EVENT: RTSLayerEvent = new RTSLayerEvent(NullRTSLayer.NULL_RTS_LAYER);
+
+    readonly dragToSpotGameNotificationEvent: GameNotificationEvent;
+
+    readonly spotTakenGameNotificationEvent: GameNotificationEvent;
+
+    readonly buildingCollisionGameNotificationEvent: GameNotificationEvent;
+
+    readonly roadCollisionGameNotificationEvent: GameNotificationEvent;
+
+    readonly newWaypointGameNotificationEvent: GameNotificationEvent;
+
+    readonly noMoneyGameNotificationEvent: GameNotificationEvent;
+
+    private isPrimaryWaypointCreator: boolean;
+
+    private stickyAssociatedRtsLayer: PathFindingLayerInterface = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;
+
+public constructor (groupInterface: Group[], isPrimaryWaypointCreator: boolean){
+            super(groupInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.isPrimaryWaypointCreator= isPrimaryWaypointCreator;
+    
+
+    let smallIntegerSingletonFactory: SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance()!;;
+    
+
+    let basicColorFactory: BasicColorFactory = BasicColorFactory.getInstance()!;;
+    
+this.dragToSpotGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.DRAG_TO_SPOT, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.WHITE, BooleanFactory.getInstance()!.FALSE);
+    
+this.spotTakenGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.SPOT_TAKEN, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.WHITE, BooleanFactory.getInstance()!.FALSE);
+    
+this.buildingCollisionGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.BUILDING_COLLISION, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.WHITE, BooleanFactory.getInstance()!.FALSE);
+    
+this.roadCollisionGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.ROAD_COLLISION, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.WHITE, BooleanFactory.getInstance()!.FALSE);
+    
+this.newWaypointGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.NEW_WAYPOINT, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.WHITE, BooleanFactory.getInstance()!.FALSE);
+    
+this.noMoneyGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.NO_MONEY, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.WHITE, BooleanFactory.getInstance()!.FALSE);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setAllBinaryGameLayerManager(allBinaryGameLayerManager: AllBinaryGameLayerManager){
+super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
+    
+
+    let geographicMapCompositeInterface: GeographicMapCompositeInterface = allBinaryGameLayerManager as GeographicMapCompositeInterface;;
+    
+
+    let geographicMapInterface: BasicGeographicMap = geographicMapCompositeInterface!.getGeographicMapInterface()[0]!;;
+    
+this.dragToSpotGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.spotTakenGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.buildingCollisionGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.roadCollisionGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.newWaypointGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.noMoneyGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processAtPoint(associatedRtsLayer: CollidableDestroyableDamageableLayer, rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, point: GPoint){
+super.process(layerManager);
+    
+
+                        if(this.isStickyItemSelected() || associatedRtsLayer == CollidableDestroyableDamageableLayer.getNullInstance())
+                        
+                                    {
+                                    
+                        if(this.isStickyItemSelected() && associatedRtsLayer == CollidableDestroyableDamageableLayer.getNullInstance())
+                        
+                                    {
+                                    
+    let geographicMapCompositeInterface: GeographicMapCompositeInterface = layerManager as GeographicMapCompositeInterface;;
+    
+
+    let geographicMapInterface: BasicGeographicMap = geographicMapCompositeInterface!.getGeographicMapInterface()[0]!;;
+    
+
+    let allBinaryTiledLayer: AllBinaryTiledLayer = geographicMapInterface!.getAllBinaryTiledLayer()!;;
+    
+
+    let x: number = point.getX() +allBinaryTiledLayer!.getXP();;
+    
+
+    let y: number = point.getY() +allBinaryTiledLayer!.getYP();;
+    
+
+    let geographicMapCellPosition: GeographicMapCellPosition = geographicMapInterface!.getCellPositionAtXY(x, y)!;;
+    
+this.processCellPosition(rtsPlayerLayerInterface, layerManager, geographicMapCellPosition);
+    
+
+                                    }
+                                
+                        else {
+                            
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.dragToSpotGameNotificationEvent);
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+                                    }
+                                
+                        else {
+                            
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.spotTakenGameNotificationEvent);
+    
+
+                                    }
+                                
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    processCellPosition(rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, geographicMapCellPosition: GeographicMapCellPosition){
+
+    let itemIndex: number = this.getSelectedStickyItemIndex()!;;
+    
+
+                        if(this.newUnconstructedRTSLayerInterfaceArray[itemIndex] == CollidableDestroyableDamageableLayer.getNullInstance())
+                        
+                                    {
+                                    this.newUnconstructedRTSLayerInterfaceArray[itemIndex]= this.getInstance(layerManager, this.getSelectedStickyItem(), geographicMapCellPosition);
+    
+
+                                    }
+                                
+                        else {
+                            
+    let cellPoint: GPoint = geographicMapCellPosition!.getPoint()!;;
+    
+
+    let rtsLayer: RTSLayer = this.newUnconstructedRTSLayerInterfaceArray[itemIndex]! as RTSLayer;;
+    
+rtsLayer!.setPosition(cellPoint!.getX(), cellPoint!.getY(), rtsLayer!.getZP());
+    
+
+    let geographicMapCompositeInterface: GeographicMapCompositeInterface = rtsLayer!.allBinaryGameLayerManagerP as GeographicMapCompositeInterface;;
+    
+
+    let geographicMapInterface: BasicGeographicMap = geographicMapCompositeInterface!.getGeographicMapInterface()[0]!;;
+    
+rtsLayer!.geographicMapCellPositionAreaBase!.update(geographicMapInterface);
+    
+
+                        }
+                            
+this.attemptBuild(rtsPlayerLayerInterface, layerManager, this.newUnconstructedRTSLayerInterfaceArray[itemIndex]! as RTSLayer, itemIndex);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processStickyGameSpecific(associatedRtsLayer: CollidableDestroyableDamageableLayer, rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, item: ABCustomItem, index: number){
+this.logUtil!.putF("Set Sticking Item: " +item, this, "processSticky");
+    
+this.setSelectedStickyItem(item);
+    
+this.setSelectedStickyItemIndex(index);
+    
+this.setStickyItemSelected(true);
+    
+this.stickyAssociatedRtsLayer= associatedRtsLayer as RTSLayer;
+    
+this.getHashtable()!.put(Layer.ID, associatedRtsLayer);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    attemptBuild(rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, layerInterface: RTSLayer, itemIndex: number): boolean{
+this.logUtil!.putF("Layer: " +layerInterface, this, "attemptBuild");
+    
+
+                        if(layerInterface == 
+                                    null
+                                )
+                        
+                                    {
+                                    this.logUtil!.put("Layer was null", this, "attemptBuild", new Exception());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let geographicMapCellPositionArea: GeographicMapCellPositionAreaBase = layerInterface!.geographicMapCellPositionAreaBase;;
+    
+
+    let list: BasicArrayList = geographicMapCellPositionArea!.getOccupyingGeographicMapCellPositionList()!;;
+    
+
+                        if(DropCellPositionHistory.getInstance()!.anyCellPositionWithDrop(list) || WaypointCellPositionHistory.getInstance()!.anyCellPositionWithDrop(list))
+                        
+                                    {
+                                    rtsPlayerLayerInterface!.add(ErrorSound.getInstance());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.buildingCollisionGameNotificationEvent);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let geographicMapCompositeInterface: GeographicMapCompositeInterface = layerManager as GeographicMapCompositeInterface;;
+    
+
+    let geographicMapInterface: BasicGeographicMap = geographicMapCompositeInterface!.getGeographicMapInterface()[0]!;;
+    
+
+    let raceTrackGeographicMapCellTypeFactory: RaceTrackGeographicMapCellTypeFactory = geographicMapInterface!.getGeographicMapCellTypeFactory() as RaceTrackGeographicMapCellTypeFactory;;
+    
+
+    let geographicMapCellType: GeographicMapCellType;;
+    
+
+
+
+
+                        for (
+    let index: number = list.size()!;--index >= 0; )
+        {
+geographicMapCellType= geographicMapInterface!.getCellTypeAt(list.get(index) as GeographicMapCellPosition);
+    
+
+                        if(raceTrackGeographicMapCellTypeFactory!.isPath(geographicMapCellType))
+                        
+                                    {
+                                    rtsPlayerLayerInterface!.add(ErrorSound.getInstance());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.roadCollisionGameNotificationEvent);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+}
+
+
+    let cost: number = layerInterface!.getCost()!;;
+    
+
+    let capital: Capital = rtsPlayerLayerInterface!.getCapital()!;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Trying to Build: ");
+    
+stringBuffer!.append(layerInterface!.getName());
+    
+stringBuffer!.append(" for: $");
+    
+stringBuffer!.appendint(cost);
+    
+stringBuffer!.append(" with ");
+    
+stringBuffer!.appendint(capital.getTotalMoney());
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, "attemptBuild");
+    
+
+                        if(cost <= capital.getTotalMoney())
+                        
+                                    {
+                                    layerInterface!.construct(rtsPlayerLayerInterface);
+    
+this.newUnconstructedRTSLayerInterfaceArray[itemIndex]= CollidableDestroyableDamageableLayer.getNullInstance();
+    
+capital.removeMoney(cost);
+    
+WaypointCellPositionHistory.getInstance()!.addList(list, layerInterface);
+    
+
+    let geographicMapCellPosition: GeographicMapCellPosition = geographicMapInterface!.getCellPositionAtXY(layerInterface!.getXP(), layerInterface!.getYP())!;;
+    
+
+    let waypointLayer: WaypointLayer = layerInterface as WaypointLayer;;
+    
+this.addWayPoint(waypointLayer);
+    
+
+    let rtsPlayerGameInput: RTSPlayerGameInput = rtsPlayerLayerInterface!.getPlayerGameInput() as RTSPlayerGameInput;;
+    
+rtsPlayerGameInput!.setSelectedRTSLayer(layerInterface, geographicMapCellPosition);
+    
+
+    let advancedRTSPlayerLayerInterface: AdvancedRTSPlayerLayerInterface = rtsPlayerLayerInterface as AdvancedRTSPlayerLayerInterface;;
+    
+advancedRTSPlayerLayerInterface!.getAdvancedPlayerOwnedRTSLayers()!.addWaypoint(layerInterface);
+    
+layerManager!.append(layerInterface);
+    
+
+    let waypointAvancedRTSGameLayer: AdvancedRTSGameLayer = waypointLayer as AdvancedRTSGameLayer;;
+    
+rtsPlayerLayerInterface!.add(waypointAvancedRTSGameLayer!.getWaypointBehavior()!.getWaypoint()!.getSound());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.newWaypointGameNotificationEvent);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            rtsPlayerLayerInterface!.add(ErrorSound.getInstance());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.noMoneyGameNotificationEvent);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    addWayPoint(layerInterface: WaypointLayer){
+
+    let stickyAssociatedAdvandedRtsLayer: AdvancedRTSGameLayer = this.stickyAssociatedRtsLayer as AdvancedRTSGameLayer;;
+    
+
+    let list: BasicArrayList = stickyAssociatedAdvandedRtsLayer!.getWaypointBehavior()!.getOwnedWaypointList()!;;
+    
+RTSLayerUtil.getInstance()!.destroyAndClear(list);
+    
+list.add(layerInterface);
+    
+
+                        if(this.isPrimaryWaypointCreator)
+                        
+                                    {
+                                    PrimaryWaypointHelper.getInstance()!.setWaypointLayer(layerInterface);
+    
+
+                                    }
+                                
+this.WAYPOINT_EVENT.setRtsLayer(layerInterface);
+    
+WaypointEventHandlerFactory.getInstance(layerInterface!.getGroupInterface()[0]!)!.fireEvent(this.WAYPOINT_EVENT);
+    
+}
+
+
+}
+

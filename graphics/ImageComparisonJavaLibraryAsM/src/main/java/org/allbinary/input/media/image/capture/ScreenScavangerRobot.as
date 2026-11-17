@@ -1,0 +1,126 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { Dimension } from '../../../../../../java/awt/Dimension.js';
+//not GWT import const Dimension
+
+import { Rectangle } from '../../../../../../java/awt/Rectangle.js';
+//not GWT import const Rectangle
+
+import { Toolkit } from '../../../../../../java/awt/Toolkit.js';
+//not GWT import const Toolkit
+
+import { BufferedImage } from '../../../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+import { InputRobotFactory } from '../../../../../../org/allbinary/input/automation/robot/InputRobotFactory.js';
+//not GWT import const InputRobotFactory
+
+import { InputRobotInterface } from '../../../../../../org/allbinary/input/automation/robot/InputRobotInterface.js';
+//not GWT import const InputRobotInterface
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class ScreenScavangerRobot
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+public constructor (){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            
+    public getScreenAsBufferedImages(): BufferedImage[]{
+this.logUtil!.putF(this.commonStrings!.START, this, "getScreenAsBufferedImages");
+    
+
+    let dimScreenSize: Dimension = Toolkit.getDefaultToolkit()!.getScreenSize()!;;
+    
+
+    let rectScreenSize: Rectangle = new Rectangle(dimScreenSize);;
+    
+
+    let robotHashtable: ABHashtable<any, any> = InputRobotFactory.getInstance()!.get()!;;
+    
+
+    let bufferedImageArray: BufferedImage[] = new Array(1);;
+    
+
+    let index: number = 0;;
+    
+
+    let inputRobotInterface: InputRobotInterface = robotHashtable!.get("Java Robot") as InputRobotInterface;;
+    
+bufferedImageArray[index]= inputRobotInterface!.createScreenCapture(rectScreenSize);
+    
+this.logUtil!.putF("Finish", this, "getScreenAsBufferedImages");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return bufferedImageArray;
+    
+}
+
+
+}
+

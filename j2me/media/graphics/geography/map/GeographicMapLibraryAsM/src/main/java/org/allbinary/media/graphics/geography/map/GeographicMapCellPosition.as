@@ -1,0 +1,105 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { CellPosition } from '../../../../../../org/allbinary/graphics/CellPosition.js';
+//not GWT import const CellPosition
+
+import { GPoint } from '../../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { PointFactory } from '../../../../../../org/allbinary/graphics/PointFactory.js';
+//not GWT import const PointFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class GeographicMapCellPosition extends CellPosition {
+        
+
+    private point: GPoint;
+
+    private midPoint: GPoint;
+
+public constructor (column: number, row: number, columns: number, rows: number, width: number, height: number){
+            super(column, row, columns, rows);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+    let x: number = this.getColumn() *width;;
+    
+
+    let y: number = this.getRow() *height;;
+    
+
+    let pointFactory: PointFactory = PointFactory.getInstance()!;;
+    
+this.point= pointFactory!.createXY(x, y);
+    
+this.midPoint= pointFactory!.createXY(x +(width>>1), y +(height>>1));
+    
+}
+
+
+    public getPoint(): GPoint{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.point;
+    
+}
+
+
+    public getMidPoint(): GPoint{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.midPoint;
+    
+}
+
+
+    public setMidPoint(midPoint: GPoint){
+this.midPoint= midPoint;
+    
+}
+
+
+}
+

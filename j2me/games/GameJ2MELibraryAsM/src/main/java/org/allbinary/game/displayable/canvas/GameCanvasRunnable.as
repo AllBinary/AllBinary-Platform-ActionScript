@@ -1,0 +1,116 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { GameTickDisplayInfoSingleton } from '../../../../../org/allbinary/graphics/displayable/GameTickDisplayInfoSingleton.js';
+//not GWT import const GameTickDisplayInfoSingleton
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { GameTickTimeDelayHelper } from '../../../../../org/allbinary/time/GameTickTimeDelayHelper.js';
+//not GWT import const GameTickTimeDelayHelper
+
+import { GameTickTimeDelayHelperFactory } from '../../../../../org/allbinary/time/GameTickTimeDelayHelperFactory.js';
+//not GWT import const GameTickTimeDelayHelperFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GameRunnable } from './GameRunnable.js';
+//sameFolderImports - not GWT import - same folder const GameRunnable
+import { AllBinaryGameCanvas } from './AllBinaryGameCanvas.js';
+//sameFolderImports - not GWT import - same folder const AllBinaryGameCanvas
+
+export class GameCanvasRunnable extends GameRunnable {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly gameTickDisplayInfoSingleton: GameTickDisplayInfoSingleton = GameTickDisplayInfoSingleton.getInstance()!;
+
+    private readonly allBinaryGameCanvas: AllBinaryGameCanvas;
+
+public constructor (allBinaryGameCanvas: AllBinaryGameCanvas){
+
+            super();
+        this.allBinaryGameCanvas= allBinaryGameCanvas;
+    
+}
+
+
+    private readonly gameTickTimeDelayHelper: GameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance()!;
+
+    public run(){
+
+ try { this.allBinaryGameCanvas!.getLoopTimeHelperP()!.setStartTime(this.gameTickTimeDelayHelper!.setStartTime());
+    
+this.gameTickDisplayInfoSingleton!.update();
+    
+this.allBinaryGameCanvas!.processGame();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN, e);
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processLoopSleep(){
+this.allBinaryGameCanvas!.processLoopSleep();
+    
+}
+
+
+}
+

@@ -1,0 +1,152 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2003 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { CircularIndexUtil } 
+const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
+type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
+
+import { LayerCoveringCellPositionsUtil } from '../../../../org/allbinary/game/layer/geographic/map/LayerCoveringCellPositionsUtil.js';
+//not GWT import const LayerCoveringCellPositionsUtil
+
+import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { BasicGeographicMap } from '../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { CellPositionsUtil } from '../../../../org/allbinary/media/graphics/geography/map/CellPositionsUtil.js';
+//not GWT import const CellPositionsUtil
+
+import { GeographicMapCellPosition } from '../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+//not plain js import { BasicArrayListS } 
+const BasicArrayListS = globalThis.org.allbinary.util.BasicArrayListS;
+type BasicArrayListS<T = any, U = any> = typeof BasicArrayListS extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListS;
+
+//not plain js import { BasicArrayListUtil } 
+const BasicArrayListUtil = globalThis.org.allbinary.util.BasicArrayListUtil;
+type BasicArrayListUtil<T = any, U = any> = typeof BasicArrayListUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GeographicMapCellPositionAreaBase } from './GeographicMapCellPositionAreaBase.js';
+//sameFolderImports - not GWT import - same folder const GeographicMapCellPositionAreaBase
+
+export class GeographicMapCellPositionArea extends GeographicMapCellPositionAreaBase {
+        
+
+    private readonly cellPositionsUtil: CellPositionsUtil = CellPositionsUtil.getInstance()!;
+
+    private readonly layerCoveringCellPositionsUtil: LayerCoveringCellPositionsUtil = LayerCoveringCellPositionsUtil.getInstance()!;
+
+    private readonly reusableOccupyingGeographicMapCellPositionList: BasicArrayList = new BasicArrayListS(4);
+
+    private readonly reusableSurroundingGeographicMapCellPositionList: BasicArrayList = new BasicArrayListS(12);
+
+    private readonly surroundingCircularIndexUtil: CircularIndexUtil = CircularIndexUtil.createInstance(0)!;
+
+    private readonly layerInterface: AllBinaryLayer;
+
+    private LIST: BasicArrayList = BasicArrayListUtil.getInstance()!.getImmutableInstance()!;
+
+    private occupyingGeographicMapCellPositionList: BasicArrayList = this.LIST;
+
+    private surroundingGeographicMapCellPositionList: BasicArrayList = this.LIST;
+
+public constructor (layerInterface: AllBinaryLayer){
+
+            super();
+        this.layerInterface= layerInterface;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public update(geographicMapInterface: BasicGeographicMap){
+this.occupyingGeographicMapCellPositionList= this.layerCoveringCellPositionsUtil!.getAllXY(geographicMapInterface, this.layerInterface, this.layerInterface!.getXP(), this.layerInterface!.getYP(), this.reusableOccupyingGeographicMapCellPositionList);
+    
+this.surroundingGeographicMapCellPositionList= this.cellPositionsUtil!.getAllSurrounding(geographicMapInterface, this.occupyingGeographicMapCellPositionList, this.reusableSurroundingGeographicMapCellPositionList);
+    
+this.surroundingCircularIndexUtil!.setSize(this.surroundingGeographicMapCellPositionList!.size());
+    
+}
+
+
+    public getOccupyingGeographicMapCellPositionList(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.occupyingGeographicMapCellPositionList;
+    
+}
+
+
+    public getSurroundingGeographicMapCellPositionList(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.surroundingGeographicMapCellPositionList;
+    
+}
+
+
+    public getNextSurroundingGeographicMapCellPosition(): GeographicMapCellPosition{
+
+    let geographicMapCellPosition: GeographicMapCellPosition = this.surroundingGeographicMapCellPositionList!.get(this.surroundingCircularIndexUtil!.getIndex()) as GeographicMapCellPosition;;
+    
+this.surroundingCircularIndexUtil!.next();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return geographicMapCellPosition;
+    
+}
+
+
+}
+

@@ -1,0 +1,207 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { BundleContext } from '../../../../org/osgi/framework/BundleContext.js';
+//not GWT import const BundleContext
+
+import { ServiceReference } from '../../../../org/osgi/framework/ServiceReference.js';
+//not GWT import const ServiceReference
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { OSGIServiceInterface } from '../../../../org/allbinary/osgi/OSGIServiceInterface.js';
+//not GWT import const OSGIServiceInterface
+
+import { OSGIServiceVisitorInterface } from '../../../../org/allbinary/osgi/OSGIServiceVisitorInterface.js';
+//not GWT import const OSGIServiceVisitorInterface
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { OSGIServiceUtil } from './OSGIServiceUtil.js';
+//sameFolderImports - not GWT import - same folder const OSGIServiceUtil
+
+export class InputAutomationServiceConsumer
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    readonly osgiServiceUtil: OSGIServiceUtil = OSGIServiceUtil.getInstance()!;
+
+    private registryName: string;
+
+    private bundleContext: BundleContext;
+
+    private osgiServiceVisitorInterface: OSGIServiceVisitorInterface;
+
+public constructor (registryName: string, bundleContext: BundleContext, osgiServiceVisitorInterface: OSGIServiceVisitorInterface){
+
+            super();
+        this.setRegistryName(registryName);
+    
+this.setBundleContext(bundleContext);
+    
+this.setOsgiServiceVisitorInterface(osgiServiceVisitorInterface);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public process(){
+this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.PROCESS);
+    
+
+    let vector: BasicArrayList = this.osgiServiceUtil!.getServicesObjectVector(this.getBundleContext(), this.getServiceReferences())!;;
+    
+this.logUtil!.putF("Processing " +vector.size() +" Services", this, this.commonStrings!.PROCESS);
+    
+
+    let size: number = vector.size()!;;
+    
+
+    let osgiServiceInterface: OSGIServiceInterface;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+osgiServiceInterface= vector.get(index) as OSGIServiceInterface;
+    
+
+                        if(!getOsgiServiceVisitorInterface()!.visit(osgiServiceInterface))
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("Unable to process service: " +osgiServiceInterface);
+                    
+
+                                    }
+                                
+}
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getServiceReferences(): ServiceReference[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.getBundleContext()!.getServiceReferences(this.getRegistryName(), 
+                            null);;
+    
+}
+
+
+    public getBundleContext(): BundleContext{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.bundleContext;
+    
+}
+
+
+    public setBundleContext(aBundleContext: BundleContext){
+this.bundleContext= aBundleContext;
+    
+}
+
+
+    public getRegistryName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.registryName;
+    
+}
+
+
+    public setRegistryName(registryName: string){
+this.registryName= registryName;
+    
+}
+
+
+    public getOsgiServiceVisitorInterface(): OSGIServiceVisitorInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.osgiServiceVisitorInterface;
+    
+}
+
+
+    public setOsgiServiceVisitorInterface(osgiServiceVisitorInterface: OSGIServiceVisitorInterface){
+this.osgiServiceVisitorInterface= osgiServiceVisitorInterface;
+    
+}
+
+
+}
+

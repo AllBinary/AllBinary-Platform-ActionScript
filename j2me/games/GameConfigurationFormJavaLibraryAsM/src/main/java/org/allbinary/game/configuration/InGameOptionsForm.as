@@ -1,0 +1,112 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Choice, ChoiceI } from '../../../../javax/microedition/lcdui/Choice.js';
+//not GWT import const Choice
+
+import { Command } from '../../../../javax/microedition/lcdui/Command.js';
+//not GWT import const Command
+
+import { CommandListener } from '../../../../javax/microedition/lcdui/CommandListener.js';
+//not GWT import const CommandListener
+
+import { GameCommandsFactory } from '../../../../org/allbinary/game/commands/GameCommandsFactory.js';
+//not GWT import const GameCommandsFactory
+
+import { GameFeatureFormUtil } from '../../../../org/allbinary/game/configuration/feature/GameFeatureFormUtil.js';
+//not GWT import const GameFeatureFormUtil
+
+import { InGameFeatureChoiceGroups } from '../../../../org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.js';
+//not GWT import const InGameFeatureChoiceGroups
+
+import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { CommandForm } from '../../../../org/allbinary/graphics/displayable/screen/CommandForm.js';
+//not GWT import const CommandForm
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class InGameOptionsForm extends CommandForm {
+        
+
+    public static readonly DISPLAY: Command = new Command("Options In Game", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
+
+    public static readonly SAVE: Command = new Command("Save", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
+
+    public static readonly DEFAULT: Command = new Command("Default", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
+
+ constructor (commandListener: CommandListener, title: string, backgrounBasicColor: BasicColor, foregroundBasicColor: BasicColor){
+            super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    
+
+    let gameFeatureFormUtil: GameFeatureFormUtil = GameFeatureFormUtil.getInstance()!;;
+    
+gameFeatureFormUtil!.addChoiceGroup(this, InGameFeatureChoiceGroups.getExclusiveInstance()!.get(), ChoiceI.EXCLUSIVE);
+    
+gameFeatureFormUtil!.addChoiceGroup(this, InGameFeatureChoiceGroups.getMultipleInstance()!.get(), ChoiceI.MULTIPLE);
+    
+this.initCommands(commandListener);
+    
+}
+
+
+    public initCommands(cmdListener: CommandListener){
+this.removeAllCommands();
+    
+this.addCommand(GameCommandsFactory.getInstance()!.CLOSE_AND_SHOW_GAME_CANVAS);
+    
+this.addCommand(InGameOptionsForm.DEFAULT);
+    
+this.setCommandListener(cmdListener);
+    
+}
+
+
+}
+

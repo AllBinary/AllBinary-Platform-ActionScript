@@ -1,0 +1,200 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { GeographicMapCellPosition } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+import { GeographicMapCellPositionBaseFactory } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPositionBaseFactory.js';
+//not GWT import const GeographicMapCellPositionBaseFactory
+
+import { GeographicMapCellPositionFactoryInterface } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPositionFactoryInterface.js';
+//not GWT import const GeographicMapCellPositionFactoryInterface
+
+import { GeographicMapCellTypeFactory } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellTypeFactory.js';
+//not GWT import const GeographicMapCellTypeFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BaseRaceTrackGeographicMap } from './BaseRaceTrackGeographicMap.js';
+//sameFolderImports - not GWT import - same folder const BaseRaceTrackGeographicMap
+import { CustomMapGeneratorBase } from './CustomMapGeneratorBase.js';
+//sameFolderImports - not GWT import - same folder const CustomMapGeneratorBase
+import { BasicGeographicMapFactory } from './BasicGeographicMapFactory.js';
+//sameFolderImports - not GWT import - same folder const BasicGeographicMapFactory
+import { RaceTrackInfo } from './RaceTrackInfo.js';
+//sameFolderImports - not GWT import - same folder const RaceTrackInfo
+import { RaceTrackData } from './RaceTrackData.js';
+//sameFolderImports - not GWT import - same folder const RaceTrackData
+import { AllBinaryTiledLayerFactoryInterface } from './AllBinaryTiledLayerFactoryInterface.js';
+//sameFolderImports - not GWT import - same folder const AllBinaryTiledLayerFactoryInterface
+import { CustomMapGeneratorBaseFactory } from './CustomMapGeneratorBaseFactory.js';
+//sameFolderImports - not GWT import - same folder const CustomMapGeneratorBaseFactory
+
+export class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap {
+        
+
+    private readonly customMapGenerator: CustomMapGeneratorBase;
+
+public constructor (raceTrackInfo: RaceTrackInfo, raceTrackData: RaceTrackData, tiledLayerFactoryInterface: AllBinaryTiledLayerFactoryInterface, geographicMapCellPositionFactoryInterface: GeographicMapCellPositionFactoryInterface, geographicMapCellPositionBaseFactory: GeographicMapCellPositionBaseFactory, geographicMapCellTypeFactory: GeographicMapCellTypeFactory, customMapGeneratorBaseFactory: CustomMapGeneratorBaseFactory){
+            super(raceTrackInfo, raceTrackData, tiledLayerFactoryInterface!.getInstance(raceTrackInfo, raceTrackData), new BasicGeographicMapFactory().getInstance(raceTrackInfo, raceTrackData, tiledLayerFactoryInterface, geographicMapCellPositionFactoryInterface, geographicMapCellTypeFactory), geographicMapCellPositionFactoryInterface, geographicMapCellPositionBaseFactory, geographicMapCellTypeFactory);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.customMapGenerator= customMapGeneratorBaseFactory!.create(this);
+    
+}
+
+
+    public getCustomMapGenerator(): CustomMapGeneratorBase{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.customMapGenerator;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public isValid(geographicMapCellPosition: GeographicMapCellPosition): boolean{
+
+    let customMapArray: number[][] = this.customMapGenerator!.getCustomMapArray()!;;
+    
+
+                        if(geographicMapCellPosition!.getColumn() >= customMapArray[0]!.length)
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Column: ");
+    
+stringBuffer!.appendint(geographicMapCellPosition!.getColumn());
+    
+stringBuffer!.append(" not in: ");
+    
+stringBuffer!.appendint(customMapArray[0]!.length);
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.commonStrings!.IS_VALID);
+    
+
+                        if(geographicMapCellPosition!.getColumn() == customMapArray[0]!.length)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+
+                                    }
+                                
+                             else 
+                        if(geographicMapCellPosition!.getRow() > customMapArray!.length)
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Row: ");
+    
+stringBuffer!.appendint(geographicMapCellPosition!.getRow());
+    
+stringBuffer!.append(" not in: ");
+    
+stringBuffer!.appendint(customMapArray!.length);
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.commonStrings!.IS_VALID);
+    
+
+                        if(geographicMapCellPosition!.getRow() == customMapArray!.length)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+}
+

@@ -1,0 +1,156 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AbstractArrayListPool } from './AbstractArrayListPool.js';
+//sameFolderImports - not GWT import - same folder const AbstractArrayListPool
+import { CacheableInterfaceFactoryInterface } from './CacheableInterfaceFactoryInterface.js';
+//sameFolderImports - not GWT import - same folder const CacheableInterfaceFactoryInterface
+import { CacheableInterface } from './CacheableInterface.js';
+//sameFolderImports - not GWT import - same folder const CacheableInterface
+import { BasicArrayListCacheable } from './BasicArrayListCacheable.js';
+//sameFolderImports - not GWT import - same folder const BasicArrayListCacheable
+
+export class BasicArrayListPool extends AbstractArrayListPool {
+        
+
+public constructor (cacheableInterfaceFactoryInterface: CacheableInterfaceFactoryInterface){
+            super(cacheableInterfaceFactoryInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public clear(){
+this.buffers.clear();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public remove(key: any): CacheableInterface{
+
+    let size: number = this.buffers.size()!;;
+    
+
+                        if(size > 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.buffers.removeAt(size -1) as CacheableInterface;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.cacheableInterfaceFactoryInterface!.getInstance(key);;
+    
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public addAll(usedList: BasicArrayList){
+
+
+
+
+                        for (
+    let index: number = usedList!.size()!;--index >= 0; )
+        {
+
+    let anyType: CacheableInterface = usedList!.objectArray[index]! as CacheableInterface;;
+    
+this.add(anyType);
+    
+}
+
+usedList!.clear();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public releaseUsedBackToPool(usedList: BasicArrayList){
+
+
+
+
+                        for (
+    let index: number = usedList!.size()!;--index >= 0; )
+        {
+
+    let list: BasicArrayListCacheable = usedList!.objectArray[index]! as BasicArrayListCacheable;;
+    
+
+                        if(list.size() == 0)
+                        
+                                    {
+                                    usedList!.removeAt(index);
+    
+this.add(list);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+}
+

@@ -1,0 +1,126 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { EventObject } from '../../../../../../java/util/EventObject.js';
+//not GWT import const EventObject
+
+import { EmailInfo } from '../../../../../../org/allbinary/logic/communication/smtp/info/EmailInfo.js';
+//not GWT import const EmailInfo
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { UserEmailEventNameData } from './UserEmailEventNameData.js';
+//sameFolderImports - not GWT import - same folder const UserEmailEventNameData
+
+export class EmailEvent extends EventObject {
+        
+
+    private emailInfo: EmailInfo;
+
+    private userEmailEventNameData: UserEmailEventNameData;
+
+    private attempts: number= 0;
+
+public constructor (emailEventHandler: any, userEmailEventNameData: UserEmailEventNameData, emailInfo: EmailInfo, attempts: number){
+            super(emailEventHandler);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.userEmailEventNameData= userEmailEventNameData;
+    
+this.emailInfo= emailInfo;
+    
+}
+
+
+    public getEmailInfo(): EmailInfo{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.emailInfo;
+    
+}
+
+
+    public getAttempts(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.attempts;
+    
+}
+
+
+    public setAttempts(attempts: number){
+this.attempts= attempts;
+    
+}
+
+
+    public toString(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("EmailEvent Log: \n");
+    
+stringBuffer!.append("Event Name: ");
+    
+stringBuffer!.append(this.userEmailEventNameData!.toString());
+    
+stringBuffer!.append(this.getEmailInfo()!.toString());
+    
+stringBuffer!.append("\nNumber of Attempts: ");
+    
+stringBuffer!.appendint(this.getAttempts());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+}
+

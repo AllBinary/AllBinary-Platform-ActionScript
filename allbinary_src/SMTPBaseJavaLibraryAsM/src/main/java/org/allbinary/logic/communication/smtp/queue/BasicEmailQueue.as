@@ -1,0 +1,245 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { Transport } from '../../../../../../javax/mail/Transport.js';
+//not GWT import const Transport
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { EmailInterface } from '../../../../../../org/allbinary/logic/communication/smtp/EmailInterface.js';
+//not GWT import const EmailInterface
+
+import { BasicQueue } from '../../../../../../org/allbinary/logic/util/queue/BasicQueue.js';
+//not GWT import const BasicQueue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { EmailQueueInterface } from './EmailQueueInterface.js';
+//sameFolderImports - not GWT import - same folder const EmailQueueInterface
+
+export class BasicEmailQueue extends BasicQueue implements EmailQueueInterface {
+        
+
+    private static readonly instance: BasicEmailQueue = new BasicEmailQueue();
+
+    private static basicEmailQueue: BasicEmailQueue;
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public static getInstance(): BasicEmailQueue{
+
+                        if(BasicEmailQueue.basicEmailQueue == 
+                                    null
+                                )
+                        
+                                    {
+                                    BasicEmailQueue.basicEmailQueue= new BasicEmailQueue();
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return BasicEmailQueue.basicEmailQueue;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+private constructor (){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public offer(emailInterface: EmailInterface): boolean{
+this.offer(emailInterface);
+    
+this.post(emailInterface);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+remove(...args: any[]): any {
+   
+   
+    if (args.length === 1) return this.remove$overload1(args[0]);
+   
+    if (args.length === 0) return this.remove$overload2();
+   
+   throw new TypeError('No matching overload: remove'); }
+  //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    remove$overload1(emailInterface: EmailInterface){
+this.remove(emailInterface);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public remove$overload2(): EmailInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    post(emailInterface: EmailInterface){
+
+                        if(this.send(emailInterface))
+                        
+                                    {
+                                    this.remove(emailInterface);
+    
+this.processAllUnsent();
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    processAllUnsent(){
+
+    let size: number = queueVector!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let emailInterface: EmailInterface = queueVector!.get(index) as EmailInterface;;
+    
+
+                        if(this.send(emailInterface))
+                        
+                                    {
+                                    this.remove(emailInterface);
+    
+this.processAllUnsent();
+    
+
+                                    }
+                                
+}
+
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    send(emailInterface: EmailInterface): boolean{
+
+ try { 
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.EMAILLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF("Sending: " +emailInterface!.log(), this, "send");
+    
+
+                                    }
+                                
+Transport.send(emailInterface!.getMimeMessage());
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.EMAILLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF("Email Send Debug: " +emailInterface!.getDebugInfo(), this, "send");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.EMAILLOGGING))
+                        
+                                    {
+                                    this.logUtil!.put("Failed Email Send Debug: " +emailInterface!.getDebugInfo(), this, "send", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

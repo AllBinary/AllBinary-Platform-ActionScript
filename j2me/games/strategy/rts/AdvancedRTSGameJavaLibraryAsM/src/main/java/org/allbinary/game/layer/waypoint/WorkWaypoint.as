@@ -1,0 +1,221 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2006 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../java/lang/Integer.js';
+        
+import { PathFindingLayerInterface } from '../../../../../org/allbinary/game/layer/PathFindingLayerInterface.js';
+//not GWT import const PathFindingLayerInterface
+
+import { RTSLayer } from '../../../../../org/allbinary/game/layer/RTSLayer.js';
+//not GWT import const RTSLayer
+
+import { GeologicalGeographicMapCellPosition } from '../../../../../org/allbinary/game/layer/geological/resources/GeologicalGeographicMapCellPosition.js';
+//not GWT import const GeologicalGeographicMapCellPosition
+
+import { GeologicalResource } from '../../../../../org/allbinary/game/layer/geological/resources/GeologicalResource.js';
+//not GWT import const GeologicalResource
+
+import { UnitLayer } from '../../../../../org/allbinary/game/layer/unit/UnitLayer.js';
+//not GWT import const UnitLayer
+
+import { UnitWaypointBehavior } from '../../../../../org/allbinary/game/layer/unit/UnitWaypointBehavior.js';
+//not GWT import const UnitWaypointBehavior
+
+import { WorkSound } from '../../../../../org/allbinary/media/audio/WorkSound.js';
+//not GWT import const WorkSound
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+import { SmallIntegerSingletonFactory } from '../../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
+//not GWT import const SmallIntegerSingletonFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { Waypoint } from './Waypoint.js';
+//sameFolderImports - not GWT import - same folder const Waypoint
+import { WaypointInfoHudPaintable } from './WaypointInfoHudPaintable.js';
+//sameFolderImports - not GWT import - same folder const WaypointInfoHudPaintable
+
+export class WorkWaypoint extends Waypoint {
+        
+
+    public static readonly ID: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(25)!;
+
+public constructor (ownerLayer: PathFindingLayerInterface){
+            super(ownerLayer, WorkSound.getInstance());
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public visit(unitLayer: UnitLayer){
+
+                        if(unitLayer!.getGroupInterface()[0] != this.ownerLayer!.getGroupInterface()[0])
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+
+    let size: number = this.getConnectedWaypointList()!.size()!;;
+    
+
+                        if(size > 0)
+                        
+                                    {
+                                    
+    let occupyList: BasicArrayList = this.ownerLayer!.getGeographicMapCellPositionArea()!.getOccupyingGeographicMapCellPositionList()!;;
+    
+
+    let outOfResources: boolean = true;;
+    
+
+    let geologicalGeographicMapCellPosition: GeologicalGeographicMapCellPosition;;
+    
+
+    let geologicalResource: GeologicalResource;;
+    
+
+
+
+
+                        for (
+    let index: number = occupyList!.size()!;--index >= 0; )
+        {
+geologicalGeographicMapCellPosition= occupyList!.get(index) as GeologicalGeographicMapCellPosition;
+    
+geologicalResource= geologicalGeographicMapCellPosition!.getGeologicalResource();
+    
+
+                        if(geologicalResource!.getTotal() >= 1)
+                        
+                                    {
+                                    outOfResources= false;
+    
+
+    let maxResourceLoad: number = globalThis.Math.trunc(unitLayer!.getMaxResourceLoad());;
+    
+geologicalResource!.remove(maxResourceLoad);
+    
+unitLayer!.setLoad(maxResourceLoad);
+    
+
+                                    }
+                                
+}
+
+
+    let waypointInfoHudPaintable: WaypointInfoHudPaintable = this.ownerLayer!.getHudPaintable() as WaypointInfoHudPaintable;;
+    
+
+                        if(this.ownerLayer == waypointInfoHudPaintable!.getRtsLayer())
+                        
+                                    {
+                                    waypointInfoHudPaintable!.updateSelectionInfo();
+    
+
+                                    }
+                                
+
+                        if(!outOfResources)
+                        
+                                    {
+                                    
+    let unitWaypointBehavior: UnitWaypointBehavior = unitLayer!.getWaypointBehavior() as UnitWaypointBehavior;;
+    
+
+    let rtsLayer: RTSLayer;;
+    
+
+        while(this.getConnectedWaypointList()!.size() > 0)
+        {
+rtsLayer= this.getConnectedWaypointList()!.get(0) as RTSLayer;
+    
+
+                        if(rtsLayer!.isDestroyed())
+                        
+                                    {
+                                    this.getConnectedWaypointList()!.remove(rtsLayer);
+    
+
+                                    }
+                                
+                        else {
+                            unitWaypointBehavior!.insertWaypoint(0, rtsLayer);
+    
+break;
+
+                    
+
+                        }
+                            
+}
+
+
+                                    }
+                                
+
+                                    }
+                                
+}
+
+
+    public getType(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 2;
+    
+}
+
+
+}
+

@@ -1,0 +1,80 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.os.solaris {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+    import org.allbinary.logic.system.os.GenericOperatingSystem;
+    import org.allbinary.logic.system.os.NoOperatingSystem;
+    import org.allbinary.logic.system.os.OperatingSystems;
+    import org.allbinary.logic.system.os.SystemProperties;
+    import org.allbinary.string.CommonStrings;
+
+    public class SolarisOperatingSystemFactory {
+    private static var instance_value:SolarisOperatingSystemFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():SolarisOperatingSystemFactory {
+        if (!SolarisOperatingSystemFactory.instance_set) {
+            SolarisOperatingSystemFactory.instance_set = true;
+            SolarisOperatingSystemFactory.instance_value = new SolarisOperatingSystemFactory();
+        }
+        return SolarisOperatingSystemFactory.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+
+        // Java field initializers run after the base constructor
+        private function initFieldsSolarisOperatingSystemFactory():void {
+    this.logUtil = LogUtil.getInstance();
+        }
+    
+
+    public static function getInstance():SolarisOperatingSystemFactory {
+        return SolarisOperatingSystemFactory.instance;
+    }
+    
+
+    public function SolarisOperatingSystemFactory() {
+        super();
+        this.initFieldsSolarisOperatingSystemFactory();
+    }
+    
+
+    public function getOperatingSystemInstance():GenericOperatingSystem {
+        try {
+            var operatingSystems:OperatingSystems = OperatingSystems.getInstance();
+            var osName:String = SystemProperties.getInstance().getName();
+            var operatingSystemInterface:GenericOperatingSystem = null;
+            if (JString.compareTo(osName, operatingSystems.SOLARIS) == 0) {
+                operatingSystemInterface = new SolarisOS();
+            } else {
+                if (operatingSystems.isUnknownSpecificOSAllowed()) {
+                    operatingSystemInterface = new SolarisOS();
+                } else {
+                    throw new JException("Exception", "Specific Solaris OS Not Supported: " + osName);
+                }
+            }
+            return operatingSystemInterface;
+        } catch (e:*) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR)) {
+                var commonStrings:CommonStrings = CommonStrings.getInstance();
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
+            }
+            return NoOperatingSystem.NO_OPERATING_SYSTEM;
+        }
+    }
+    }
+}
+

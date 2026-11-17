@@ -1,0 +1,239 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { MiniMapLayer } from '../../../../../../../org/allbinary/game/layer/geographic/map/MiniMapLayer.js';
+//not GWT import const MiniMapLayer
+
+import { AllBinaryEventObject } from '../../../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
+//not GWT import const AllBinaryEventObject
+
+import { EventListenerInterface } from '../../../../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
+//not GWT import const EventListenerInterface
+
+import { EventStrings } from '../../../../../../../org/allbinary/logic/util/event/EventStrings.js';
+//not GWT import const EventStrings
+
+import { BasicEventHandler } from '../../../../../../../org/allbinary/logic/util/event/handler/BasicEventHandler.js';
+//not GWT import const BasicEventHandler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GeographicMapCellPositionEvent } from './GeographicMapCellPositionEvent.js';
+//sameFolderImports - not GWT import - same folder const GeographicMapCellPositionEvent
+import { GeographicMapCellPositionEventListenerInterface } from './GeographicMapCellPositionEventListenerInterface.js';
+//sameFolderImports - not GWT import - same folder const GeographicMapCellPositionEventListenerInterface
+
+export class GeographicMapCellPositionEventHandler extends BasicEventHandler {
+        
+
+    private static instance: GeographicMapCellPositionEventHandler = new GeographicMapCellPositionEventHandler();
+
+    public static getInstance(): GeographicMapCellPositionEventHandler{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return GeographicMapCellPositionEventHandler.instance;
+    
+}
+
+
+    private readonly list: BasicArrayList = new BasicArrayListD();
+
+private constructor (){
+
+            super();
+        }
+
+
+    public addListener(miniMapLayer: MiniMapLayer){
+
+                        if(!this.list.contains(miniMapLayer))
+                        
+                                    {
+                                    this.list.add(miniMapLayer);
+    
+
+                                    }
+                                
+}
+
+
+    public removeAllListeners(){
+this.list.clear();
+    
+super.removeAllListeners();
+    
+}
+
+
+    public removeListener(eventListenerInterface: EventListenerInterface){
+this.list.remove(eventListenerInterface);
+    
+super.removeListener(eventListenerInterface);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public fireEvent(eventObject: AllBinaryEventObject){
+
+
+
+
+                        for (
+    let index: number = this.list.size()!;--index >= 0; )
+        {
+
+ try { 
+    let miniMapLayer: MiniMapLayer = this.list.get(index) as MiniMapLayer;;
+    
+miniMapLayer!.onGeographicMapCellPositionEvent(eventObject as GeographicMapCellPositionEvent);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, EventStrings.getInstance()!.FIRE_EVENT, e);
+    
+
+ }
+   }
+ 
+}
+
+super.fireEvent(eventObject);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public fireRemoveEvent(eventObject: AllBinaryEventObject){
+
+    let list: BasicArrayList = this.eventListenerInterfaceList;;
+    
+
+
+
+
+                        for (
+    let index: number = this.list.size()!;--index >= 0; )
+        {
+
+ try { 
+    let miniMapLayer: MiniMapLayer = this.list.get(index) as MiniMapLayer;;
+    
+miniMapLayer!.onRemoveGeographicMapCellPositionEvent(eventObject as GeographicMapCellPositionEvent);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, EventStrings.getInstance()!.FIRE_EVENT, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    let eventListenerInterface: EventListenerInterface;;
+    
+
+    let geographicMapCellPositionEventListenerInterface: GeographicMapCellPositionEventListenerInterface;;
+    
+
+    let size: number = list.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+ try { eventListenerInterface= list.get(index) as EventListenerInterface;
+    
+geographicMapCellPositionEventListenerInterface= (eventListenerInterface as GeographicMapCellPositionEventListenerInterface);
+    
+geographicMapCellPositionEventListenerInterface!.onRemoveGeographicMapCellPositionEvent(eventObject as GeographicMapCellPositionEvent);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, EventStrings.getInstance()!.FIRE_EVENT, e);
+    
+
+ }
+   }
+ 
+}
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    process(eventObject: AllBinaryEventObject, eventListenerInterface: EventListenerInterface){
+
+    let geographicMapCellPositionEventListenerInterface: GeographicMapCellPositionEventListenerInterface = (eventListenerInterface as GeographicMapCellPositionEventListenerInterface);;
+    
+geographicMapCellPositionEventListenerInterface!.onGeographicMapCellPositionEvent(eventObject as GeographicMapCellPositionEvent);
+    
+}
+
+
+}
+

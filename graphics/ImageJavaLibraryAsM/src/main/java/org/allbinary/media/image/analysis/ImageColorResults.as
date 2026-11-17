@@ -1,0 +1,110 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ColorRange } from './ColorRange.js';
+//sameFolderImports - not GWT import - same folder const ColorRange
+import { ColorAverage } from './ColorAverage.js';
+//sameFolderImports - not GWT import - same folder const ColorAverage
+
+export class ImageColorResults
+            extends Object
+         {
+        
+
+    private colorRange: ColorRange;
+
+    private colorAverage: ColorAverage;
+
+public constructor (){
+
+            super();
+        this.setColorRange(new ColorRange());
+    
+this.getColorRange()!.setMaxRed( -1);
+    
+this.getColorRange()!.setMaxGreen( -1);
+    
+this.getColorRange()!.setMaxBlue( -1);
+    
+this.getColorRange()!.setMinRed(256);
+    
+this.getColorRange()!.setMinGreen(256);
+    
+this.getColorRange()!.setMinBlue(256);
+    
+this.setColorAverage(new ColorAverage());
+    
+}
+
+
+    public getColorRange(): ColorRange{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.colorRange;
+    
+}
+
+
+    public setColorRange(colorRange: ColorRange){
+this.colorRange= colorRange;
+    
+}
+
+
+    public getColorAverage(): ColorAverage{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.colorAverage;
+    
+}
+
+
+    public setColorAverage(colorAverage: ColorAverage){
+this.colorAverage= colorAverage;
+    
+}
+
+
+}
+

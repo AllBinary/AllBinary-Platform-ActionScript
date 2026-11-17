@@ -1,0 +1,121 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { Thread } from '../../../../../java/lang/Thread.js';
+        
+import { EGLConfig } from '../../../../../javax/microedition/khronos/egl/EGLConfig.js';
+//not GWT import const EGLConfig
+
+import { GL10 } from '../../../../../javax/microedition/khronos/opengles/GL10.js';
+//not GWT import const GL10
+
+import { InitEmulatorFactory } from '../../../../../org/allbinary/emulator/InitEmulatorFactory.js';
+//not GWT import const InitEmulatorFactory
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { RendererStrings } from './RendererStrings.js';
+//sameFolderImports - not GWT import - same folder const RendererStrings
+
+export class EmulatorCustomRenderer
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    readonly renderStrings: RendererStrings = RendererStrings.getInstance()!;
+
+    public onSurfaceCreated(gl: GL10, eglConfig: EGLConfig){
+this.logUtil!.putF(this.commonStrings!.START, this, this.renderStrings!.ON_SURFACE_CREATED);
+    
+
+    let initEmulatorFactory: InitEmulatorFactory = InitEmulatorFactory.getInstance()!;;
+    
+
+                        if(!initEmulatorFactory!.isInitEmulator())
+                        
+                                    {
+                                    
+ try { 
+    let WAIT_FOR_EMULATOR: string = "Waiting on Emulator Initialization";;
+    
+
+        while(!initEmulatorFactory!.isInitEmulator())
+        {
+PreLogUtil.put(WAIT_FOR_EMULATOR, this, this.renderStrings!.ON_SURFACE_CREATED);
+    
+Thread.sleep(180);
+    
+}
+
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.renderStrings!.ON_SURFACE_CREATED, e);
+    
+
+ }
+   }
+ 
+
+                                    }
+                                
+}
+
+
+}
+

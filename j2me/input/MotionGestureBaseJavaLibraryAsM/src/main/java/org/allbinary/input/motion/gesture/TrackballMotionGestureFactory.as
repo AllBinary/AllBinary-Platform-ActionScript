@@ -1,0 +1,103 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+import { InputFactory } from '../../../../../org/allbinary/game/input/InputFactory.js';
+//not GWT import const InputFactory
+
+//not plain js import { NullUtil } 
+const NullUtil = globalThis.org.allbinary.logic.NullUtil;
+type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { MotionGestureInput } from './MotionGestureInput.js';
+//sameFolderImports - not GWT import - same folder const MotionGestureInput
+
+export class TrackballMotionGestureFactory
+            extends Object
+         {
+        
+
+    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
+
+    public static getInstance(): TrackballMotionGestureFactory{
+
+                        if(TrackballMotionGestureFactory.instance == NullUtil.getInstance()!.NULL_OBJECT)
+                        
+                                    {
+                                    TrackballMotionGestureFactory.instance= new TrackballMotionGestureFactory();
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return TrackballMotionGestureFactory.instance as TrackballMotionGestureFactory;
+    
+}
+
+
+    public readonly LEFT: MotionGestureInput;
+
+    public readonly RIGHT: MotionGestureInput;
+
+    public readonly UP: MotionGestureInput;
+
+    public readonly DOWN: MotionGestureInput;
+
+private constructor (){
+
+            super();
+        
+    let MAX: number = InputFactory.getInstance()!.MAX;;
+    
+this.LEFT= new MotionGestureInput(MAX -26, "L Trackball");
+    
+this.RIGHT= new MotionGestureInput(MAX -27, "R Trackball");
+    
+this.UP= new MotionGestureInput(MAX -28, "Up Trackball");
+    
+this.DOWN= new MotionGestureInput(MAX -29, "D Trackball");
+    
+}
+
+
+}
+

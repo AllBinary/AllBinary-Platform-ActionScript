@@ -1,0 +1,294 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { AngleInfo } from '../../../../org/allbinary/math/AngleInfo.js';
+//not GWT import const AngleInfo
+
+import { NamedAngle } from '../../../../org/allbinary/math/NamedAngle.js';
+//not GWT import const NamedAngle
+
+//not plain js import { PositionStrings } 
+const PositionStrings = globalThis.org.allbinary.math.PositionStrings;
+type PositionStrings<T = any, U = any> = typeof PositionStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PositionStrings;
+
+import { GeographicMapCellHistory } from '../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellHistory.js';
+//not GWT import const GeographicMapCellHistory
+
+import { GeographicMapCellPosition } from '../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { RTSLayerLogHelper } from './RTSLayerLogHelper.js';
+//sameFolderImports - not GWT import - same folder const RTSLayerLogHelper
+import { PathFindingLayerInterface } from './PathFindingLayerInterface.js';
+//sameFolderImports - not GWT import - same folder const PathFindingLayerInterface
+
+export class RTSLayerSelectedLogHelper extends RTSLayerLogHelper {
+        
+
+    private static readonly instanceC: RTSLayerSelectedLogHelper = new RTSLayerSelectedLogHelper();
+
+    public static getInstance(): RTSLayerSelectedLogHelper{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return RTSLayerSelectedLogHelper.instanceC;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonSeps: CommonSeps = CommonSeps.getInstance()!;
+
+    private readonly positionStrings: PositionStrings = PositionStrings.getInstance()!;
+
+    private readonly TRACKTO_TURNTO: string = "trackTo:turnTo";
+
+    public setClosestGeographicMapCellHistory(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, pathsList: BasicArrayList){
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(associatedAdvancedRTSGameLayer!.getName());
+    
+stringBuffer!.append(this.commonSeps!.SPACE);
+    
+stringBuffer!.append(CommonLabels.getInstance()!.START);
+    
+stringBuffer!.appendint(pathsList!.size());
+    
+stringBuffer!.append(" -> ");
+    
+stringBuffer!.append(StringUtil.getInstance()!.toString(pathsList));
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, "selected: setClosestGeographicMapCellHistory");
+    
+}
+
+
+    public trackTo(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, nextUnvisitedPathGeographicMapCellPosition: GeographicMapCellPosition, dx: number, dy: number, reason: string){
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(associatedAdvancedRTSGameLayer!.getName());
+    
+stringBuffer!.append(this.commonSeps!.SPACE);
+    
+stringBuffer!.append(StringUtil.getInstance()!.toString(nextUnvisitedPathGeographicMapCellPosition));
+    
+stringBuffer!.append(this.positionStrings!.DX_LABEL);
+    
+stringBuffer!.appendint(dx);
+    
+stringBuffer!.append(this.commonSeps!.SPACE);
+    
+stringBuffer!.append(this.positionStrings!.DY_LABEL);
+    
+stringBuffer!.appendint(dy);
+    
+stringBuffer!.append(this.commonSeps!.SPACE);
+    
+stringBuffer!.append(reason);
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, "selected: trackTo");
+    
+}
+
+
+    public turnTo(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, dx: number, dy: number, angleInfo: AngleInfo, angle: number, movementAngle: NamedAngle, evading: boolean, targetAngle: number){
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(associatedAdvancedRTSGameLayer!.getName());
+    
+stringBuffer!.append(" steering - ");
+    
+stringBuffer!.append(this.positionStrings!.DX_LABEL);
+    
+stringBuffer!.appendint(dx);
+    
+stringBuffer!.append(this.commonSeps!.SPACE);
+    
+stringBuffer!.append(this.positionStrings!.DY_LABEL);
+    
+stringBuffer!.appendint(dy);
+    
+stringBuffer!.append(" angle: ");
+    
+stringBuffer!.appendint(angle);
+    
+stringBuffer!.append(" movementAngle: ");
+    
+stringBuffer!.append(movementAngle!.name);
+    
+stringBuffer!.append(this.commonSeps!.FORWARD_SLASH);
+    
+stringBuffer!.appendshort(movementAngle!.getValue());
+    
+
+                        if(angleInfo != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let angleIncrement: number = angleInfo!.getAngleIncrementInfo()!.getAngleIncrement()!;;
+    
+stringBuffer!.append(" angleIncrement: ");
+    
+stringBuffer!.appendshort(angleIncrement);
+    
+
+                                    }
+                                
+stringBuffer!.append(" Evading: ");
+    
+stringBuffer!.appendboolean(evading);
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.TRACKTO_TURNTO);
+    
+}
+
+
+    public doneMoving(associatedAdvancedRTSGameLayer: PathFindingLayerInterface){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" steering - done moving 0,0")!.toString(), this, this.TRACKTO_TURNTO);
+    
+}
+
+
+    public closeEnough(associatedAdvancedRTSGameLayer: PathFindingLayerInterface){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" steering - close enough")!.toString(), this, this.TRACKTO_TURNTO);
+    
+}
+
+
+    public movingLeft(associatedAdvancedRTSGameLayer: PathFindingLayerInterface){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" steering - allow movingLeft")!.toString(), this, this.TRACKTO_TURNTO);
+    
+}
+
+
+    public movingRight(associatedAdvancedRTSGameLayer: PathFindingLayerInterface){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" steering - allow movingRight")!.toString(), this, this.TRACKTO_TURNTO);
+    
+}
+
+
+    public movingUp(associatedAdvancedRTSGameLayer: PathFindingLayerInterface){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" steering - allow movingUp")!.toString(), this, this.TRACKTO_TURNTO);
+    
+}
+
+
+    public movingDown(associatedAdvancedRTSGameLayer: PathFindingLayerInterface){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" steering - allow movingDown")!.toString(), this, this.TRACKTO_TURNTO);
+    
+}
+
+
+    public currentMoveEnded(associatedAdvancedRTSGameLayer: PathFindingLayerInterface){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" steering - correct angle, but movement not needed for current deltas so reseting movement angle")!.toString(), this, this.TRACKTO_TURNTO);
+    
+}
+
+
+    public evade(associatedAdvancedRTSGameLayer: PathFindingLayerInterface){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" steering - evade")!.toString(), this, this.TRACKTO_TURNTO);
+    
+}
+
+
+    public rotateLeft(associatedAdvancedRTSGameLayer: PathFindingLayerInterface){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" steering - rotating left")!.toString(), this, this.TRACKTO_TURNTO);
+    
+}
+
+
+    public rotateRight(associatedAdvancedRTSGameLayer: PathFindingLayerInterface){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" steering - rotating right")!.toString(), this, this.TRACKTO_TURNTO);
+    
+}
+
+
+    public handle(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, movementAngle: NamedAngle){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" steering - movementAngle: ")!.append(movementAngle!.name)!.append(this.commonSeps!.FORWARD_SLASH)!.appendshort(movementAngle!.getValue())!.toString(), this, this.TRACKTO_TURNTO);
+    
+}
+
+
+    public noRotation(associatedAdvancedRTSGameLayer: PathFindingLayerInterface){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" steering - Do not rotate")!.toString(), this, this.TRACKTO_TURNTO);
+    
+}
+
+
+    public notOnPath(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, geographicMapCellHistory: GeographicMapCellHistory, currentGeographicMapCellPosition: GeographicMapCellPosition, pathList: BasicArrayList){
+
+    let stringUtil: StringUtil = StringUtil.getInstance()!;;
+    
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(CommonSeps.getInstance()!.SPACE)!.appendint(geographicMapCellHistory!.getTotalVisited())!.append(CommonSeps.getInstance()!.SPACE)!.append(stringUtil!.toString(currentGeographicMapCellPosition))!.append(" - trying to move but not on path: ")!.append(stringUtil!.toString(pathList))!.toString(), this, "turnTo");
+    
+}
+
+
+}
+

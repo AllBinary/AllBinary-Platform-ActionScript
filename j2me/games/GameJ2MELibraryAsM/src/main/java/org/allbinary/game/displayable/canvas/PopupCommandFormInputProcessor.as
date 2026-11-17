@@ -1,0 +1,92 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { MyCanvas } from '../../../../../org/allbinary/graphics/displayable/MyCanvas.js';
+//not GWT import const MyCanvas
+
+import { ScrollSelectionForm } from '../../../../../org/allbinary/graphics/form/ScrollSelectionForm.js';
+//not GWT import const ScrollSelectionForm
+
+import { MotionGestureEvent } from '../../../../../org/allbinary/input/motion/gesture/observer/MotionGestureEvent.js';
+//not GWT import const MotionGestureEvent
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { CommandFormInputProcessor } from './CommandFormInputProcessor.js';
+//sameFolderImports - not GWT import - same folder const CommandFormInputProcessor
+import { PopupMenuInputProcessor } from './PopupMenuInputProcessor.js';
+//sameFolderImports - not GWT import - same folder const PopupMenuInputProcessor
+
+export class PopupCommandFormInputProcessor extends CommandFormInputProcessor {
+        
+
+public constructor (gameKeyEventList: BasicArrayList, playerInputId: number, gameCanvas: MyCanvas, form: ScrollSelectionForm, popupMenuInputProcessor: PopupMenuInputProcessor){
+            super(gameKeyEventList, playerInputId, gameCanvas, form);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processInput(key: number): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.processInput(key);;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    processMotionInput(motionGestureEvent: MotionGestureEvent){
+super.processMotionInput(motionGestureEvent);
+    
+}
+
+
+}
+

@@ -1,0 +1,269 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { HashMap } from '../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { PageContext } from '../../javax/servlet/jsp/PageContext.js';
+//not GWT import const PageContext
+
+import { Portion } from '../../org/allbinary/business/installer/Portion.js';
+//not GWT import const Portion
+
+import { WorkFlowEntityFactory } from '../../org/allbinary/data/tables/workflow/WorkFlowEntityFactory.js';
+//not GWT import const WorkFlowEntityFactory
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AbSqlTableUtil } from '../../org/allbinary/logic/communication/sql/AbSqlTableUtil.js';
+//not GWT import const AbSqlTableUtil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicTable } from './BasicTable.js';
+//sameFolderImports - not GWT import - same folder const BasicTable
+
+export class WorkFlowHelper extends BasicTable {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly hashMap: HashMap<any, any>;
+
+    private readonly pageContext: PageContext;
+
+    private readonly portion: Portion;
+
+public constructor (hashMap: HashMap<any, any>, pageContext: PageContext){
+
+            super();
+        this.hashMap= hashMap;
+    
+this.pageContext= pageContext;
+    
+this.portion= new Portion(hashMap);
+    
+}
+
+
+    public drop(): string{
+
+ try { 
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return WorkFlowEntityFactory.getInstance()!.create2()!.dropTable();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to drop view info table";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.DROP, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public create(): string{
+
+ try { 
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return WorkFlowEntityFactory.getInstance()!.create2()!.createTable();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to create workflow table";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "create()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public restore(): string{
+
+ try { 
+    let success: string = "Restore Successful";;
+    
+
+    let result: string = AbSqlTableUtil.getInstance()!.restoreTable(WorkFlowEntityFactory.getInstance()!.create2(), this.portion)!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "restore()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to restore backup";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "restore()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public backup(): string{
+
+ try { 
+    let success: string = "Restore Successful";;
+    
+
+    let result: string = AbSqlTableUtil.getInstance()!.backupTable(WorkFlowEntityFactory.getInstance()!.create2())!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "backup()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to make backup";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "backup()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

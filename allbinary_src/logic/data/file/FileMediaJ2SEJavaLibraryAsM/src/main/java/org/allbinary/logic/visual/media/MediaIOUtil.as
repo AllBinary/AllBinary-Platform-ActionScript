@@ -1,0 +1,69 @@
+
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+import { ImageIO } from '../../../../../javax/imageio/ImageIO.js';
+//not GWT import const ImageIO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class MediaIOUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: MediaIOUtil = new MediaIOUtil();
+
+    public static getInstance(): MediaIOUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return MediaIOUtil.instance;
+    
+}
+
+
+    public getReaderFormatNames(): string[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ImageIO.getReaderFormatNames();;
+    
+}
+
+
+    public getWriterFormatNames(): string[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ImageIO.getWriterFormatNames();;
+    
+}
+
+
+}
+

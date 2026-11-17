@@ -1,0 +1,98 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
+        
+import { GameInfo } from '../../../../org/allbinary/game/GameInfo.js';
+//not GWT import const GameInfo
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { HighScoresFactoryInterface } from './HighScoresFactoryInterface.js';
+//sameFolderImports - not GWT import - same folder const HighScoresFactoryInterface
+import { HighScoresResultsListener } from './HighScoresResultsListener.js';
+//sameFolderImports - not GWT import - same folder const HighScoresResultsListener
+import { HighScoresHelperBaseInterface } from './HighScoresHelperBaseInterface.js';
+//sameFolderImports - not GWT import - same folder const HighScoresHelperBaseInterface
+
+export class HighScoresBase
+            extends Object
+         implements HighScoresFactoryInterface {
+        
+
+    commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+protected constructor (){
+
+            super();
+        }
+
+
+    public fetchHighScores(gameInfo: GameInfo, highScoresResultsListener: HighScoresResultsListener){
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public fetchHighScoresPreload(gameInfo: GameInfo, highScoresResultsListener: HighScoresResultsListener, preload: boolean){
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public createHighScoresHelper(): HighScoresHelperBaseInterface{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+}
+

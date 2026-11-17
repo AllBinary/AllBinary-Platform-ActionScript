@@ -1,0 +1,207 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { XmlDocumentHelper } from '../../../../../org/allbinary/data/tree/dom/document/XmlDocumentHelper.js';
+//not GWT import const XmlDocumentHelper
+
+import { AbFile } from '../../../../../org/allbinary/logic/io/file/AbFile.js';
+//not GWT import const AbFile
+
+import { Directory } from '../../../../../org/allbinary/logic/io/file/directory/Directory.js';
+//not GWT import const Directory
+
+import { TransformInterface } from '../../../../../org/allbinary/logic/visual/transform/TransformInterface.js';
+//not GWT import const TransformInterface
+
+import { TransformDocumentFactory } from '../../../../../org/allbinary/logic/visual/transform/data/TransformDocumentFactory.js';
+//not GWT import const TransformDocumentFactory
+
+import { TransformDocumentInterface } from '../../../../../org/allbinary/logic/visual/transform/data/TransformDocumentInterface.js';
+//not GWT import const TransformDocumentInterface
+
+import { TransformInfoInterface } from '../../../../../org/allbinary/logic/visual/transform/info/TransformInfoInterface.js';
+//not GWT import const TransformInfoInterface
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+import { Document } from '../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { DomNodeInterface } from './DomNodeInterface.js';
+//sameFolderImports - not GWT import - same folder const DomNodeInterface
+import { FileDomDataModel } from './FileDomDataModel.js';
+//sameFolderImports - not GWT import - same folder const FileDomDataModel
+
+export class DirectoryDataModel
+            extends Object
+         implements DomNodeInterface, TransformInterface {
+        
+
+    private readonly fileBasicArrayList: BasicArrayList;
+
+    private transformDocumentInterface: TransformDocumentInterface;
+
+public constructor (file: AbFile){
+
+            super();
+        this.fileBasicArrayList= Directory.getInstance()!.search(file);
+    
+this.transformDocumentInterface= TransformDocumentFactory.getInstance() as TransformDocumentInterface;
+    
+}
+
+
+    public NO_TYPE: number = 0;
+
+    public getTypeId(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.NO_TYPE;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getTransformInfoInterface(): TransformInfoInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public setTransformDocumentInterface(transformDocumentInterface: TransformDocumentInterface){
+this.transformDocumentInterface= transformDocumentInterface;
+    
+}
+
+
+    public getTransformDocumentInterface(): TransformDocumentInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.transformDocumentInterface;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let dirNode: Node = document.createElement("dir")!;;
+    
+
+    let size: number = this.fileBasicArrayList!.size()!;;
+    
+
+    let nextFile: AbFile;;
+    
+
+    let fileNode: Node;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+nextFile= this.fileBasicArrayList!.get(index) as AbFile;
+    
+fileNode= new FileDomDataModel(nextFile).toXmlNode(document);
+    
+dirNode!.appendChild(fileNode);
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return dirNode;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlDoc(): Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.getTransformDocumentInterface()!.getDoc();;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public view(): string{
+
+    let node: Node = this.toXmlNode(this.getTransformDocumentInterface()!.getDoc())!;;
+    
+this.getTransformDocumentInterface()!.getBaseNode()!.appendChild(node);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return XmlDocumentHelper.toString(this.getTransformDocumentInterface()!.getDoc());;
+    
+}
+
+
+}
+

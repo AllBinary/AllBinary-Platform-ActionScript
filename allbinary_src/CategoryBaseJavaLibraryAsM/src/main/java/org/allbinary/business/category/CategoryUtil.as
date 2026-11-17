@@ -1,0 +1,153 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+import { DomNodeHelper } from '../../../../org/allbinary/data/tree/dom/DomNodeHelper.js';
+//not GWT import const DomNodeHelper
+
+import { DomSearchHelper } from '../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
+//not GWT import const DomSearchHelper
+
+import { AbPath } from '../../../../org/allbinary/logic/io/path/AbPath.js';
+//not GWT import const AbPath
+
+//not plain js import { AbPathData } 
+const AbPathData = globalThis.org.allbinary.logic.io.path.AbPathData;
+type AbPathData<T = any, U = any> = typeof AbPathData extends abstract new (...args: any[]) => infer Instance ? Instance : typeof AbPathData;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { StringUtils } from '../../../../org/apache/commons/lang3/StringUtils.js';
+//not GWT import const StringUtils
+
+import { Attr } from '../../../../org/w3c/dom/Attr.js';
+//not GWT import const Attr
+
+import { NamedNodeMap } from '../../../../org/w3c/dom/NamedNodeMap.js';
+//not GWT import const NamedNodeMap
+
+import { Node } from '../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { CategoryData } from './CategoryData.js';
+//sameFolderImports - not GWT import - same folder const CategoryData
+
+export class CategoryUtil
+            extends Object
+         {
+        
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public static getPathLevel(categoryPath: AbPath): number{
+
+    let count: number = StringUtils.countMatches(categoryPath!.toString(), AbPathData.getInstance()!.SEPARATOR)!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return count;
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public static getNameFromNode(node: Node): string{
+
+    let attributes: NamedNodeMap = node.getAttributes()!;;
+    
+
+    let attrNode: Attr = attributes.getNamedItem(CategoryData.getInstance()!.LABEL) as Attr;;
+    
+
+                        if(attrNode != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return attrNode!.getValue();;
+    
+
+                                    }
+                                
+                        else {
+                            
+    let labelNode: Node = DomSearchHelper.getNodeNoThrow(CategoryData.getInstance()!.LABEL, node.getChildNodes())!;;
+    
+
+                        if(labelNode != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return DomNodeHelper.getTextNodeValue(labelNode);;
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return StringUtil.getInstance()!.EMPTY_STRING;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

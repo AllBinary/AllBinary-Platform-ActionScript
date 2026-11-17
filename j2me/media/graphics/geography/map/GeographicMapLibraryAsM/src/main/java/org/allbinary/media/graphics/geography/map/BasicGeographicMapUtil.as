@@ -1,0 +1,312 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { Layer } from '../../../../../../org/allbinary/layer/Layer.js';
+//not GWT import const Layer
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GeographicMapCellPosition } from './GeographicMapCellPosition.js';
+//sameFolderImports - not GWT import - same folder const GeographicMapCellPosition
+import { BasicGeographicMap } from './BasicGeographicMap.js';
+//sameFolderImports - not GWT import - same folder const BasicGeographicMap
+
+export class BasicGeographicMapUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: BasicGeographicMapUtil = new BasicGeographicMapUtil();
+
+    public static getInstance(): BasicGeographicMapUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return BasicGeographicMapUtil.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+                //@Throws(Exception.constructor)
+            
+    public getBorderingRow(direction: number, oldGeographicMapCellPosition: GeographicMapCellPosition): number{
+
+    let LOCATION_CHANGE: number = 1;;
+    
+
+
+
+        switch (direction) {
+            case 0: {
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return oldGeographicMapCellPosition!.getRow();;
+    
+}
+case 1: {
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return oldGeographicMapCellPosition!.getRow();;
+    
+}
+case 2: {
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return oldGeographicMapCellPosition!.getRow() +LOCATION_CHANGE;
+    
+}
+case 3: {
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return oldGeographicMapCellPosition!.getRow() -LOCATION_CHANGE;
+    
+}
+default: {
+
+
+                            throw new Exception("Only Four Directions");
+                    
+}
+
+        }       
+        
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getBorderingColumn(direction: number, oldGeographicMapCellPosition: GeographicMapCellPosition): number{
+
+    let LOCATION_CHANGE: number = 1;;
+    
+
+
+
+        switch (direction) {
+            case 0: {
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return oldGeographicMapCellPosition!.getColumn() -LOCATION_CHANGE;
+    
+}
+case 1: {
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return oldGeographicMapCellPosition!.getColumn() +LOCATION_CHANGE;
+    
+}
+case 2: {
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return oldGeographicMapCellPosition!.getColumn();;
+    
+}
+case 3: {
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return oldGeographicMapCellPosition!.getColumn();;
+    
+}
+default: {
+
+
+                            throw new Exception("Only Four Directions");
+                    
+}
+
+        }       
+        
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public isSameCellPosition(fromGeographicMapCellPosition: GeographicMapCellPosition, toGeographicMapCellPosition: GeographicMapCellPosition): boolean{
+
+    let fromColumn: number = fromGeographicMapCellPosition!.getColumn()!;;
+    
+
+    let fromRow: number = fromGeographicMapCellPosition!.getRow()!;;
+    
+
+    let goColumn: number = toGeographicMapCellPosition!.getColumn()!;;
+    
+
+    let goRow: number = toGeographicMapCellPosition!.getRow()!;;
+    
+
+                        if(fromColumn == goColumn && fromRow == goRow)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+    public createAllBinaryTiledLayerArray(geographicMapInterfaceArray: BasicGeographicMap[]): Layer[]{
+
+    let tiledLayerArray: Layer[] = new Array(geographicMapInterfaceArray!.length);;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.getAllBinaryTiledLayerArray(geographicMapInterfaceArray, tiledLayerArray, 0);;
+    
+}
+
+
+    public getAllBinaryTiledLayerArray(geographicMapInterfaceArray: BasicGeographicMap[], tiledLayerArray: Layer[], startIndex: number): Layer[]{
+
+    let geographicMapInterface: BasicGeographicMap;;
+    
+
+    let size: number = geographicMapInterfaceArray!.length
+                ;;
+    
+
+    let count: number = 0;;
+    
+
+
+
+
+                        for (
+    let index: number = size +startIndex;--index >= startIndex; )
+        {
+geographicMapInterface= geographicMapInterfaceArray[index]!;
+    
+tiledLayerArray[count++]= geographicMapInterface!.getAllBinaryTiledLayer();
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return tiledLayerArray;
+    
+}
+
+
+    public move(geographicMapInterfaceArray: BasicGeographicMap[], dx: number, dy: number){
+
+    let geographicMapInterface: BasicGeographicMap;;
+    
+
+    let size: number = geographicMapInterfaceArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = size;--index >= 0; )
+        {
+geographicMapInterface= geographicMapInterfaceArray[index]!;
+    
+geographicMapInterface!.getAllBinaryTiledLayer()!.moveDXY(dx, dy);
+    
+}
+
+}
+
+
+    public setPosition(geographicMapInterfaceArray: BasicGeographicMap[], x: number, y: number){
+
+    let geographicMapInterface: BasicGeographicMap;;
+    
+
+    let size: number = geographicMapInterfaceArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = size;--index >= 0; )
+        {
+geographicMapInterface= geographicMapInterfaceArray[index]!;
+    
+geographicMapInterface!.getAllBinaryTiledLayer()!.setPosition(x, y, geographicMapInterface!.getAllBinaryTiledLayer()!.getZP());
+    
+}
+
+}
+
+
+}
+

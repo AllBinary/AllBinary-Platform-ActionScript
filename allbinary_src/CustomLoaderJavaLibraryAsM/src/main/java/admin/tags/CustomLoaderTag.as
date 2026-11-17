@@ -1,0 +1,235 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            //import { Class } from '../../java/lang/Class.js';
+            const Class = (globalThis.java?.lang?.Class ?? class {}) as typeof globalThis.java.lang.Class;
+            type Class<T = any, U = any> = typeof Class extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Class;
+        
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { Method } from '../../java/lang/reflect/Method.js';
+//not GWT import const Method
+
+import { HashMap } from '../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { JspTagException } from '../../javax/servlet/jsp/JspTagException.js';
+//not GWT import const JspTagException
+
+import { CustomLoaderHelperFactory } from '../../admin/taghelpers/CustomLoaderHelperFactory.js';
+//not GWT import const CustomLoaderHelperFactory
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+import { AbResponseHandler } from '../../org/allbinary/logic/communication/http/request/AbResponseHandler.js';
+//not GWT import const AbResponseHandler
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { LicensingException } from '../../org/allbinary/logic/system/security/licensing/LicensingException.js';
+//not GWT import const LicensingException
+
+import { CustomTagSupport } from '../../tags/CustomTagSupport.js';
+//not GWT import const CustomTagSupport
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class CustomLoaderTag extends CustomTagSupport {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private command: string;
+
+    private webappPath: string;
+
+    private propertiesHashMap: HashMap<any, any>;
+
+public constructor (){
+
+            super();
+        }
+
+
+    public setCommand(command: string){
+this.command= command;
+    
+}
+
+
+    public setWebappPath(value: string){
+this.webappPath= value;
+    
+}
+
+
+                //@Throws(LicensingException.constructor)
+            
+    setCustomLoaderWebappPath(){
+
+ try { 
+    let anyType: any = new CustomLoaderHelperFactory().getInstance(this.propertiesHashMap, pageContext)!;;
+    
+
+    let helperClass: Function = anyType!.constructor!;;
+    
+
+    let methodParams: Function[] = 
+                                                        [
+                                                            this.webappPath!.constructor
+                                                        ];;
+    
+
+    let methodArgs: any[] = 
+                                                        [
+                                                            this.webappPath
+                                                        ];;
+    
+
+    let setMethod: Method = helperClass!.getMethod("setWebappPath", methodParams)!;;
+    
+setMethod!.invoke(anyType, methodArgs);
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+  else {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.JSPTAGERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "setCustomLoaderWebappPath()", e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(JspTagException.constructor)
+            
+    public doStartTag(): number{
+
+ try { 
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.JSPTAG))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.START, this, tagStrings!.DO_START_TAG);
+    
+
+                                    }
+                                
+
+                        if(this.command != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.propertiesHashMap= StdUtil.getInstance()!.createHashMap();
+    
+
+                        if(this.command.compareTo(org.allbinary.globals.GLOBALS2.SET) == 0)
+                        
+                                    {
+                                    this.setCustomLoaderWebappPath();
+    
+
+                                    }
+                                
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagLicensingRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+  else {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

@@ -1,0 +1,105 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { ArtificialIntelligenceInterface } from '../../../../../org/allbinary/ai/ArtificialIntelligenceInterface.js';
+//not GWT import const ArtificialIntelligenceInterface
+
+import { ArtificialIntelligenceInterfaceFactoryInterface } from '../../../../../org/allbinary/game/ai/ArtificialIntelligenceInterfaceFactoryInterface.js';
+//not GWT import const ArtificialIntelligenceInterfaceFactoryInterface
+
+import { InputFeatureFactory } from '../../../../../org/allbinary/game/configuration/feature/InputFeatureFactory.js';
+//not GWT import const InputFeatureFactory
+
+import { GameInput } from '../../../../../org/allbinary/game/input/GameInput.js';
+//not GWT import const GameInput
+
+import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { MultiKeyPressesAI } from './MultiKeyPressesAI.js';
+//sameFolderImports - not GWT import - same folder const MultiKeyPressesAI
+import { KeyPressesAI } from './KeyPressesAI.js';
+//sameFolderImports - not GWT import - same folder const KeyPressesAI
+
+export class KeyPressesAIFactory
+            extends Object
+         implements ArtificialIntelligenceInterfaceFactoryInterface {
+        
+
+                //@Throws(Exception.constructor)
+            
+    public getInstance(hashtable: ABHashtable<any, any>, ownerLayerInterface: AllBinaryLayer, gameInput: GameInput): ArtificialIntelligenceInterface{
+
+    let isSingleKeyProcessing: boolean = InputFeatureFactory.getInstance()!.isSingleKeyProcessing()!;;
+    
+
+                        if(isSingleKeyProcessing)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new KeyPressesAI(hashtable, ownerLayerInterface, gameInput);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new MultiKeyPressesAI(hashtable, ownerLayerInterface, gameInput);
+    
+
+                        }
+                            
+}
+
+
+}
+

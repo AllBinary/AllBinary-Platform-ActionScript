@@ -1,0 +1,136 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { CaptionAnimationHelperBase } from '../../../../../org/allbinary/animation/caption/CaptionAnimationHelperBase.js';
+//not GWT import const CaptionAnimationHelperBase
+
+import { WaypointBehaviorBase } from '../../../../../org/allbinary/game/layer/WaypointBehaviorBase.js';
+//not GWT import const WaypointBehaviorBase
+
+import { TrackingEvent } from '../../../../../org/allbinary/game/tracking/TrackingEvent.js';
+//not GWT import const TrackingEvent
+
+import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { GeographicMapCellHistory } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellHistory.js';
+//not GWT import const GeographicMapCellHistory
+
+import { GeographicMapCellPosition } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { WaypointLogHelper } from './WaypointLogHelper.js';
+//sameFolderImports - not GWT import - same folder const WaypointLogHelper
+import { Waypoint2LogHelper } from './Waypoint2LogHelper.js';
+//sameFolderImports - not GWT import - same folder const Waypoint2LogHelper
+import { WaypointRunnableLogHelper } from './WaypointRunnableLogHelper.js';
+//sameFolderImports - not GWT import - same folder const WaypointRunnableLogHelper
+
+export interface WaypointLayerInterface {
+        
+
+                //@Throws(Exception.constructor)
+            
+    init(geographicMapCellHistory: GeographicMapCellHistory, geographicMapCellPositionBasicArrayList: BasicArrayList): void;
+
+    getMoveOutOfBuildAreaPath(geographicMapCellPosition: GeographicMapCellPosition): BasicArrayList;
+
+                //@Throws(Exception.constructor)
+            
+    setClosestGeographicMapCellHistory(pathsList: BasicArrayList): void;
+
+    teleportTo(geographicMapCellPosition: GeographicMapCellPosition): void;
+
+                //@Throws(Exception.constructor)
+            
+    setLoad(resource: number): void;
+
+                //@Throws(Exception.constructor)
+            
+    getSurroundingGeographicMapCellPositionList(): BasicArrayList;
+
+    isSelected(): boolean;
+
+    shouldAddWaypointFromBuilding(): boolean;
+
+    isShowMoreCaptionStates(): boolean;
+
+                //@Throws(Exception.constructor)
+            
+    trackTo(reason: string): void;
+
+                //@Throws(Exception.constructor)
+            
+    trackToDXY(dx: number, dy: number): void;
+
+                //@Throws(Exception.constructor)
+            
+    buildingChase(allbinaryLayer: AllBinaryLayer, cellPosition: GeographicMapCellPosition): boolean;
+
+    getTrackingEvent(): TrackingEvent;
+
+    allStop(): void;
+
+    isWaypointListEmptyOrOnlyTargets(): boolean;
+
+                //@Throws(Exception.constructor)
+            
+    getCurrentGeographicMapCellPosition(): GeographicMapCellPosition;
+
+                //@Throws(Exception.constructor)
+            
+    getTopLeftGeographicMapCellPosition(): GeographicMapCellPosition;
+
+    getCaptionAnimationHelper(): CaptionAnimationHelperBase;
+
+    getWaypointBehavior(): WaypointBehaviorBase;
+
+    getWaypointLogHelper(): WaypointLogHelper;
+
+    getWaypoint2LogHelper(): Waypoint2LogHelper;
+
+    getWaypointRunnableLogHelper(): WaypointRunnableLogHelper;
+
+}
+

@@ -1,0 +1,91 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Integer } from '../../../../../../../java/lang/Integer.js';
+        
+import { awt } from '../../../../../../../java/awt.js';
+//not GWT import const awt
+
+import { BufferedImage } from '../../../../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+import { GPoint } from '../../../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { ImageComparatorConstraints } from '../../../../../../../org/allbinary/input/automation/module/ImageComparatorConstraints.js';
+//not GWT import const ImageComparatorConstraints
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { Color } from './Color.js';
+//sameFolderImports - not GWT import - same folder const Color
+
+export class NoImageComparatorConstraints extends ImageComparatorConstraints {
+        
+
+public constructor (){
+            super(1);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.setMaxNonMatchingPixelDeltas(.MAX_VALUE());
+    
+}
+
+
+    public isColorAllowed(frame: number, point: GPoint, color: Color): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+    public isImageValid(bufferedImage: BufferedImage): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+}
+

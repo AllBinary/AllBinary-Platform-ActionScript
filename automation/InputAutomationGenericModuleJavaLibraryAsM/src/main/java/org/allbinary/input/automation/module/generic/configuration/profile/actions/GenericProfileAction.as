@@ -1,0 +1,211 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { DomNodeHelper } from '../../../../../../../../../org/allbinary/data/tree/dom/DomNodeHelper.js';
+//not GWT import const DomNodeHelper
+
+import { DomNodeInterface } from '../../../../../../../../../org/allbinary/data/tree/dom/DomNodeInterface.js';
+//not GWT import const DomNodeInterface
+
+import { DomSearchHelper } from '../../../../../../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
+//not GWT import const DomSearchHelper
+
+import { ModDomHelper } from '../../../../../../../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+import { GenericProfileActionScript } from '../../../../../../../../../org/allbinary/input/automation/module/generic/configuration/profile/actions/script/GenericProfileActionScript.js';
+//not GWT import const GenericProfileActionScript
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { Document } from '../../../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GenericProfileActionJPanel } from './GenericProfileActionJPanel.js';
+//sameFolderImports - not GWT import - same folder const GenericProfileActionJPanel
+import { GenericProfileActionData } from './GenericProfileActionData.js';
+//sameFolderImports - not GWT import - same folder const GenericProfileActionData
+
+export class GenericProfileAction
+            extends Object
+         implements DomNodeInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private name: string;
+
+    private genericProfileActionScript: GenericProfileActionScript;
+
+    private genericProfileActionJPanel: GenericProfileActionJPanel;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 2) {
+            
+            this.constructor$0(args[0], args[1]);
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        
+    }
+    
+    private constructor$0(genericProfileActionJPanel: GenericProfileActionJPanel, node: Node): void {
+        
+    let actionNameNode: Node = DomSearchHelper.getNode(GenericProfileActionData.NAME, node.getChildNodes())!;;
+    
+
+                        if(actionNameNode != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.name= DomNodeHelper.getTextNodeValue(actionNameNode);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("Profile Action Name Node Null");
+                    
+
+                        }
+                            
+this.setGenericProfileActionScript(new GenericProfileActionScript(this.genericProfileActionJPanel, node));
+    
+
+    }
+    
+    private constructor$1(name: string): void {
+        this.name= name;
+    
+this.setGenericProfileActionScript(new GenericProfileActionScript(this.genericProfileActionJPanel));
+    
+
+    }
+    
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.name;
+    
+}
+
+
+    public setName(name: string){
+this.name= name;
+    
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put(GenericProfileActionData.NAME, this.name);
+    
+this.logUtil!.putF("HashMap: " +hashMap!.toString(), this, "toHashMap()");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let node: Node = ModDomHelper.createNodeWithValueNodes(document, GenericProfileActionData.NAME, this.toHashMap())!;;
+    
+node.appendChild(getGenericProfileActionScript()!.toXmlNode(document));
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+    public getGenericProfileActionScript(): GenericProfileActionScript{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.genericProfileActionScript;
+    
+}
+
+
+    public setGenericProfileActionScript(genericProfileActionScript: GenericProfileActionScript){
+this.genericProfileActionScript= genericProfileActionScript;
+    
+}
+
+
+}
+

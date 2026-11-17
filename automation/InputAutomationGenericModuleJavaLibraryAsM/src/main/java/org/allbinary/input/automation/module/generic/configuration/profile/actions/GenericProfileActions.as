@@ -1,0 +1,530 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../../../java/lang/Exception.js';
+        
+import { DataOutputStream } from '../../../../../../../../../java/io/DataOutputStream.js';
+//not GWT import const DataOutputStream
+
+import { File } from '../../../../../../../../../java/io/File.js';
+//not GWT import const File
+
+import { FileInputStream } from '../../../../../../../../../java/io/FileInputStream.js';
+//not GWT import const FileInputStream
+
+import { FileOutputStream } from '../../../../../../../../../java/io/FileOutputStream.js';
+//not GWT import const FileOutputStream
+
+import { HashMap } from '../../../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { Set } from '../../../../../../../../../java/util/Set.js';
+//not GWT import const Set
+
+import { DomNodeInterface } from '../../../../../../../../../org/allbinary/data/tree/dom/DomNodeInterface.js';
+//not GWT import const DomNodeInterface
+
+import { DomDocumentHelper } from '../../../../../../../../../org/allbinary/data/tree/dom/document/DomDocumentHelper.js';
+//not GWT import const DomDocumentHelper
+
+import { XmlDocumentHelper } from '../../../../../../../../../org/allbinary/data/tree/dom/document/XmlDocumentHelper.js';
+//not GWT import const XmlDocumentHelper
+
+import { DomDocumentMappingInterface } from '../../../../../../../../../org/allbinary/data/tree/dom/document/mapping/DomDocumentMappingInterface.js';
+//not GWT import const DomDocumentMappingInterface
+
+import { DefaultListModelHelper } from '../../../../../../../../../org/allbinary/input/automation/module/DefaultListModelHelper.js';
+//not GWT import const DefaultListModelHelper
+
+import { GenericProfiles } from '../../../../../../../../../org/allbinary/input/automation/module/generic/configuration/profile/GenericProfiles.js';
+//not GWT import const GenericProfiles
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { CommonDataFileStrings } from '../../../../../../../../../org/allbinary/logic/io/file/CommonDataFileStrings.js';
+//not GWT import const CommonDataFileStrings
+
+import { AbPath } from '../../../../../../../../../org/allbinary/logic/io/path/AbPath.js';
+//not GWT import const AbPath
+
+import { Document } from '../../../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+import { NodeList } from '../../../../../../../../../org/w3c/dom/NodeList.js';
+//not GWT import const NodeList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GenericProfileActionsJPanel } from './GenericProfileActionsJPanel.js';
+//sameFolderImports - not GWT import - same folder const GenericProfileActionsJPanel
+import { GenericProfileActionsData } from './GenericProfileActionsData.js';
+//sameFolderImports - not GWT import - same folder const GenericProfileActionsData
+import { GenericProfileActionData } from './GenericProfileActionData.js';
+//sameFolderImports - not GWT import - same folder const GenericProfileActionData
+import { GenericProfileAction } from './GenericProfileAction.js';
+//sameFolderImports - not GWT import - same folder const GenericProfileAction
+
+export class GenericProfileActions
+            extends Object
+         implements DomNodeInterface, DomDocumentMappingInterface {
+        
+
+    public static readonly DEFAULT_PROFILE_ACTIONS_PATH: string = GenericProfiles.DEFAULT_PROFILES_PATH +"actions/";
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonFileStrings: CommonDataFileStrings = CommonDataFileStrings.getInstance()!;
+
+    private name: string;
+
+    private genericProfileActionsJPanel: GenericProfileActionsJPanel;
+
+    private actionsDefaultListModelHelper: DefaultListModelHelper;
+
+    private hashMap: HashMap<any, any>;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 2) {
+            
+            this.constructor$0(args[0], args[1]);
+            
+        }
+        else if(args.length === 3 && args[0] instanceof GenericProfileActionsJPanel && args[1] instanceof AbPath && typeof args[2] === 'string') {
+            
+            this.constructor$1(args[0], args[1], args[2]);
+            
+        }
+        else if(args.length === 3) {
+            
+            this.constructor$2(args[0], args[1], args[2]);
+            
+        }
+        
+    }
+    
+    private constructor$0(genericProfileActionsJPanel: GenericProfileActionsJPanel, name: string): void {
+        this.setName(name);
+    
+this.init(genericProfileActionsJPanel);
+    
+this.load();
+    
+
+    }
+    
+    private constructor$1(genericProfileActionsJPanel: GenericProfileActionsJPanel, abPath: AbPath, name: string): void {
+        this.setName(name);
+    
+this.init(genericProfileActionsJPanel);
+    
+this.load();
+    
+
+    }
+    
+    private constructor$2(genericProfileActionsJPanel: GenericProfileActionsJPanel, fileInputStream: FileInputStream, name: string): void {
+        this.setName(name);
+    
+this.init(genericProfileActionsJPanel);
+    
+this.fileInit(fileInputStream);
+    
+
+    }
+    
+                //@Throws(Exception.constructor)
+            
+    init(genericProfileActionsJPanel: GenericProfileActionsJPanel){
+this.setGenericProfileActionsJPanel(genericProfileActionsJPanel);
+    
+this.actionsDefaultListModelHelper= new DefaultListModelHelper();
+    
+this.setHashMap(new HashMap<any, any>());
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public save(){
+
+    let idFile: FileOutputStream = new FileOutputStream(GenericProfileActions.DEFAULT_PROFILE_ACTIONS_PATH +getName() +this.commonFileStrings!._XML);;
+    
+
+    let idOutData: DataOutputStream = new DataOutputStream(idFile);;
+    
+idOutData!.writeBytes(XmlDocumentHelper.toString(this.toXmlDoc()));
+    
+}
+
+
+    public getFile(name: string): File{
+
+    let fileName: string = DEFAULT_PROFILE_ACTIONS_PATH +name +this.commonFileStrings!._XML;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new File(fileName);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    load(){
+
+    let file: File = this.getFile(getName())!;;
+    
+
+                        if(file.isFile())
+                        
+                                    {
+                                    
+    let idFile: FileInputStream = new FileInputStream(file);;
+    
+this.fileInit(idFile);
+    
+
+                                    }
+                                
+                        else {
+                            this.logUtil!.putF("No Profile: " +file.getAbsolutePath(), this, "Contructor");
+    
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    fileInit(fileInputStream: FileInputStream){
+
+    let bytes: number[] = new Array(100000).fill(0);;
+    
+
+    let length: number = fileInputStream!.read(bytes)!;;
+    
+
+    let data: string = String.fromCharCode(...bytes);;
+    
+
+    let endIndex: number = data.lastIndexOf('>')!;;
+    
+
+    let document: Document = DomDocumentHelper.create(data.substring(0, endIndex +1))!;;
+    
+
+    let nameNodeList: NodeList = document.getElementsByTagName(GenericProfileActionsData.NAME)!;;
+    
+this.logUtil!.putF("Number Of Profiles Specified: " +nameNodeList!.getLength(), this, "Contructor");
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < nameNodeList!.getLength(); index++)
+        {
+
+    let node: Node = nameNodeList!.item(index)!;;
+    
+
+    let nodeList: NodeList = node.getChildNodes()!;;
+    
+
+                        if(nodeList != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.initActions(nodeList);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception(GenericProfileActionData.NAME +" Name Node Node Children");
+                    
+
+                        }
+                            
+}
+
+this.logUtil!.putF("Loaded: " +this.getHashMap()!.size() +" Configuration Profile Action(s)", this, "Contructor");
+    
+this.getDefaultListModelHelper()!.initDefaultModelList();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    initActions(nodeList: NodeList){
+
+
+
+
+                        for (
+    let index: number = 0;index < nodeList!.getLength(); index++)
+        {
+
+    let actionNode: Node = nodeList!.item(index)!;;
+    
+
+                        if(actionNode != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let genericConfigurationProfileAction: GenericProfileAction = new GenericProfileAction(this.getGenericProfileActionsJPanel()!.getGenericProfileActionJPanel(), actionNode);;
+    
+this.getHashMap()!.put(genericConfigurationProfileAction!.getName(), genericConfigurationProfileAction);
+    
+this.getDefaultListModelHelper()!.add(genericConfigurationProfileAction!.getName());
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception(GenericProfileActionData.NAME +" Node Null");
+                    
+
+                        }
+                            
+}
+
+}
+
+
+    public getDefaultListModelHelper(): DefaultListModelHelper{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.actionsDefaultListModelHelper;
+    
+}
+
+
+    public getAction(string: string): GenericProfileAction{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.getHashMap()!.get(string) as GenericProfileAction;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public add(name: string){
+
+    let genericProfileAction: GenericProfileAction = new GenericProfileAction(name);;
+    
+this.getHashMap()!.put(genericProfileAction!.getName(), genericProfileAction);
+    
+this.getDefaultListModelHelper()!.add(genericProfileAction!.getName());
+    
+this.getDefaultListModelHelper()!.initDefaultModelList();
+    
+this.save();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public remove(name: string){
+this.getHashMap()!.remove(name);
+    
+this.getDefaultListModelHelper()!.remove(name);
+    
+this.getDefaultListModelHelper()!.initDefaultModelList();
+    
+this.save();
+    
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+this.logUtil!.putF("HashMap: " +hashMap!.toString(), this, "toHashMap()");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let node: Node = document.createElement(GenericProfileActionsData.NAME)!;;
+    
+
+    let set: Set = this.getHashMap()!.keys()!;;
+    
+
+    let actionNameArray: any[] = set.toArray()!;;
+    
+
+    let size: number = actionNameArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let nextActionName: string = actionNameArray[index]! as string;;
+    
+
+    let nextGenericProfileAction: GenericProfileAction = this.getAction(nextActionName) as GenericProfileAction;;
+    
+node.appendChild(nextGenericProfileAction!.toXmlNode(document));
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlDoc(): Document{
+
+    let document: Document = DomDocumentHelper.create()!;;
+    
+
+    let node: Node = this.toXmlNode(document)!;;
+    
+document.appendChild(node);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return document;
+    
+}
+
+
+    public getGenericProfileActionsJPanel(): GenericProfileActionsJPanel{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.genericProfileActionsJPanel;
+    
+}
+
+
+    public setGenericProfileActionsJPanel(genericProfileActionsJPanel: GenericProfileActionsJPanel){
+this.genericProfileActionsJPanel= genericProfileActionsJPanel;
+    
+}
+
+
+    public getHashMap(): HashMap<any, any>{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.hashMap;
+    
+}
+
+
+    public setHashMap(hashMap: HashMap<any, any>){
+this.hashMap= hashMap;
+    
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.name;
+    
+}
+
+
+    public setName(name: string){
+this.name= name;
+    
+}
+
+
+}
+

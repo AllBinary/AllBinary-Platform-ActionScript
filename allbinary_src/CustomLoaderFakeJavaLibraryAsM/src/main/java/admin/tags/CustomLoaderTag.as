@@ -1,0 +1,197 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { JspTagException } from '../../javax/servlet/jsp/JspTagException.js';
+//not GWT import const JspTagException
+
+import { AppUrlGlobals } from '../../org/allbinary/globals/AppUrlGlobals.js';
+//not GWT import const AppUrlGlobals
+
+import { GLOBALS2 } from '../../org/allbinary/globals/GLOBALS2.js';
+//not GWT import const GLOBALS2
+
+import { URLGLOBALS } from '../../org/allbinary/globals/URLGLOBALS.js';
+//not GWT import const URLGLOBALS
+
+import { AbResponseHandler } from '../../org/allbinary/logic/communication/http/request/AbResponseHandler.js';
+//not GWT import const AbResponseHandler
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { LicensingException } from '../../org/allbinary/logic/system/security/licensing/LicensingException.js';
+//not GWT import const LicensingException
+
+import { CustomTagSupport } from '../../tags/CustomTagSupport.js';
+//not GWT import const CustomTagSupport
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class CustomLoaderTag extends CustomTagSupport {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private command: string;
+
+    private webappPath: string;
+
+public constructor (){
+
+            super();
+        }
+
+
+    public setCommand(command: string){
+this.command= command;
+    
+}
+
+
+    public setWebappPath(value: string){
+this.webappPath= value;
+    
+}
+
+
+                //@Throws(LicensingException.constructor)
+            
+    setCustomLoaderWebappPath(){
+
+ try { 
+    let urlGlobals: AppUrlGlobals = new AppUrlGlobals();;
+    
+urlGlobals!.setWebappPath(this.webappPath);
+    
+URLGLOBALS.init(urlGlobals);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.JSPTAGERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "setCustomLoaderWebappPath()", e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(JspTagException.constructor)
+            
+    public doStartTag(): number{
+
+ try { 
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.JSPTAG))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.START, this, tagStrings!.DO_START_TAG);
+    
+
+                                    }
+                                
+
+                        if(this.command != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+                        if(this.command.compareTo(GLOBALS2.SET) == 0)
+                        
+                                    {
+                                    this.setCustomLoaderWebappPath();
+    
+
+                                    }
+                                
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagLicensingRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+  else {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

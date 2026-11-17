@@ -1,0 +1,372 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { ByteArrayInputStream } from '../../../../java/io/ByteArrayInputStream.js';
+//not GWT import const ByteArrayInputStream
+
+import { HashMap } from '../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { HttpServletRequest } from '../../../../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { StoreFrontFactory } from '../../../../org/allbinary/business/context/modules/storefront/StoreFrontFactory.js';
+//not GWT import const StoreFrontFactory
+
+import { StoreFrontInterface } from '../../../../org/allbinary/business/context/modules/storefront/StoreFrontInterface.js';
+//not GWT import const StoreFrontInterface
+
+import { BasicItemData } from '../../../../org/allbinary/business/user/commerce/inventory/item/BasicItemData.js';
+//not GWT import const BasicItemData
+
+import { BasicItemView } from '../../../../org/allbinary/business/user/commerce/inventory/item/BasicItemView.js';
+//not GWT import const BasicItemView
+
+import { ItemInterface } from '../../../../org/allbinary/business/user/commerce/inventory/item/ItemInterface.js';
+//not GWT import const ItemInterface
+
+import { DownloadableItem } from '../../../../org/allbinary/business/user/commerce/inventory/item/download/DownloadableItem.js';
+//not GWT import const DownloadableItem
+
+import { DownloadableItemView } from '../../../../org/allbinary/business/user/commerce/inventory/item/download/DownloadableItemView.js';
+//not GWT import const DownloadableItemView
+
+import { URLGLOBALS } from '../../../../org/allbinary/globals/URLGLOBALS.js';
+//not GWT import const URLGLOBALS
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+import { MultipartRequestParams } from '../../../../org/allbinary/logic/communication/http/request/MultipartRequestParams.js';
+//not GWT import const MultipartRequestParams
+
+import { RequestMapInterface } from '../../../../org/allbinary/logic/communication/http/request/RequestMapInterface.js';
+//not GWT import const RequestMapInterface
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AbFile } from '../../../../org/allbinary/logic/io/file/AbFile.js';
+//not GWT import const AbFile
+
+//not plain js import { FilePathData } 
+const FilePathData = globalThis.org.allbinary.logic.io.file.FilePathData;
+type FilePathData<T = any, U = any> = typeof FilePathData extends abstract new (...args: any[]) => infer Instance ? Instance : typeof FilePathData;
+
+import { FileUtil } from '../../../../org/allbinary/logic/io/file/FileUtil.js';
+//not GWT import const FileUtil
+
+import { ZipFileUtil } from '../../../../org/allbinary/logic/io/file/zip/ZipFileUtil.js';
+//not GWT import const ZipFileUtil
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { TransformInfoInterface } from '../../../../org/allbinary/logic/visual/transform/info/TransformInfoInterface.js';
+//not GWT import const TransformInfoInterface
+
+import { FileItem } from '../../../../org/apache/commons/fileupload/FileItem.js';
+//not GWT import const FileItem
+
+import { HttpStoreComponentView } from '../../../../views/business/context/modules/storefront/HttpStoreComponentView.js';
+//not GWT import const HttpStoreComponentView
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class DownloadableInventoryItemView extends HttpStoreComponentView implements RequestMapInterface {
+        
+
+    public static TYPE_ID: number = 11;
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly basicItemData: BasicItemData = BasicItemData.getInstance()!;
+
+    readonly request: HttpServletRequest;
+
+    id: string;
+
+    itemInterface: ItemInterface;
+
+    downloadableItem: DownloadableItem;
+
+    private requestHashMap: HashMap<any, any>;
+
+public constructor (transformInfoInterface: TransformInfoInterface){
+            super(transformInfoInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.request= this.getPageContext()!.getRequest() as HttpServletRequest;
+    
+this.getFormData();
+    
+}
+
+
+public constructor (transformInfoInterface: TransformInfoInterface, empty: string){
+            super(transformInfoInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.request= this.getPageContext()!.getRequest() as HttpServletRequest;
+    
+}
+
+
+    public getTypeId(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return DownloadableInventoryItemView.TYPE_ID;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getFormData(){
+this.setRequestHashMap(new MultipartRequestParams(this.request).toHashMap());
+    
+this.id= this.getRequestHashMap()!.get(this.basicItemData!.ID) as string;
+    
+}
+
+
+    public addDomNodeInterfaces(){
+
+    let vector: BasicArrayList = new BasicArrayListD();;
+    
+
+                        if(this.downloadableItem != 
+                                    null
+                                )
+                        
+                                    {
+                                    vector.add(new DownloadableItemView(this.downloadableItem));
+    
+
+                                    }
+                                
+this.addDomNodeInterface(new BasicItemView(this.itemInterface, vector));
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public view(): string{
+
+ try { this.addDomNodeInterfaces();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.view();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEWERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "view()", e);
+    
+
+                                    }
+                                
+
+
+
+                            throw e;
+                    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    processFile(fileItem: FileItem){
+
+    let fileName: string = fileItem!.getName()!;;
+    
+
+    let fullPath: string = this.getItemFilePath()!;;
+    
+
+    let itemResourceFile: AbFile = AbFile.createAbFile(fullPath)!;;
+    
+itemResourceFile!.mkdir();
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(fullPath);
+    
+stringBuffer!.append(fileName);
+    
+this.logUtil!.putF("FileName: " +fileName, this, "processFile()");
+    
+
+    let file: AbFile = AbFile.createAbFile(stringBuffer!.toString())!;;
+    
+this.logUtil!.putF(file.getPath(), this, "processFiles()");
+    
+file.createNewFile();
+    
+
+    let byteArray: number[] = fileItem!.get()!;;
+    
+FileUtil.getInstance()!.write(new ByteArrayInputStream(byteArray), file);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    unzip(fileItem: FileItem){
+
+    let fileName: string = fileItem!.getName()!;;
+    
+
+    let fullPath: string = this.getItemFilePath()!;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(fullPath);
+    
+stringBuffer!.append(fileName);
+    
+this.logUtil!.putF("FileName: " +fileName, this, "unzip()");
+    
+
+    let file: AbFile = AbFile.createAbFile(stringBuffer!.toString())!;;
+    
+this.logUtil!.putF(file.getPath(), this, "unzip()");
+    
+ZipFileUtil.getInstance()!.unzip(fullPath, file, fileName);
+    
+}
+
+
+    getItemFilePath(): string{
+
+    let storeFrontInterface: StoreFrontInterface = StoreFrontFactory.getInstance(this.getWeblisketSession()!.getStoreName())!;;
+    
+
+    let filePathData: FilePathData = FilePathData.getInstance()!;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(URLGLOBALS.getWebappPath());
+    
+stringBuffer!.append(storeFrontInterface!.getCurrentHostNamePath());
+    
+stringBuffer!.append(this.itemInterface!.getCategory());
+    
+stringBuffer!.appendchar(filePathData!.SEPARATORCHAR);
+    
+stringBuffer!.append(this.itemInterface!.getId());
+    
+stringBuffer!.appendchar(filePathData!.SEPARATORCHAR);
+    
+stringBuffer!.append(this.downloadableItem!.getId());
+    
+stringBuffer!.appendchar(filePathData!.SEPARATORCHAR);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+    setRequestHashMap(requestHashMap: HashMap<any, any>){
+this.requestHashMap= requestHashMap;
+    
+}
+
+
+    public getRequestHashMap(): HashMap<any, any>{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.requestHashMap;
+    
+}
+
+
+    public getDownloadableItem(): DownloadableItem{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.downloadableItem;
+    
+}
+
+
+}
+

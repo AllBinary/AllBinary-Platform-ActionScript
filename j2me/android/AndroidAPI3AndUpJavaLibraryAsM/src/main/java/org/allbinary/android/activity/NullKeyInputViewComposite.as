@@ -1,0 +1,85 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2025 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
+        
+            import { Runnable } from '../../../../java/lang/Runnable.js';
+        
+import { View } from '../../../../android/view/View.js';
+//not GWT import const View
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { KeyInputViewCompositeInterface } from './KeyInputViewCompositeInterface.js';
+//sameFolderImports - not GWT import - same folder const KeyInputViewCompositeInterface
+
+export class NullKeyInputViewComposite
+            extends Object
+         implements KeyInputViewCompositeInterface {
+        
+
+    public static readonly NULL_KEY_INPUT_VIEW_COMPOSITE: NullKeyInputViewComposite = new NullKeyInputViewComposite();
+
+    public setKeyInputView(keyInputView: View){
+}
+
+
+    public getRootView(): View{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public getView(): View{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public runOnUiThread(action: Runnable){
+}
+
+
+}
+

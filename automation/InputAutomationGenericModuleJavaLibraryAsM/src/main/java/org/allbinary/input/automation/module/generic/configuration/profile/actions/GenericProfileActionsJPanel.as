@@ -1,0 +1,478 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../../../java/lang/Exception.js';
+        
+            const Short = (globalThis.java?.lang?.Short ?? class {}) as typeof globalThis.java.lang.Short;
+        
+import { DefaultListModelHelper } from '../../../../../../../../../org/allbinary/input/automation/module/DefaultListModelHelper.js';
+//not GWT import const DefaultListModelHelper
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JPanel } from './JPanel.js';
+//sameFolderImports - not GWT import - same folder const JPanel
+import { GenericProfileActions } from './GenericProfileActions.js';
+//sameFolderImports - not GWT import - same folder const GenericProfileActions
+import { GenericProfileActionJPanel } from './GenericProfileActionJPanel.js';
+//sameFolderImports - not GWT import - same folder const GenericProfileActionJPanel
+import { JDialog } from './JDialog.js';
+//sameFolderImports - not GWT import - same folder const JDialog
+import { JLabel } from './JLabel.js';
+//sameFolderImports - not GWT import - same folder const JLabel
+import { JButton } from './JButton.js';
+//sameFolderImports - not GWT import - same folder const JButton
+import { JTextField } from './JTextField.js';
+//sameFolderImports - not GWT import - same folder const JTextField
+import { JScrollPane } from './JScrollPane.js';
+//sameFolderImports - not GWT import - same folder const JScrollPane
+import { JList } from './JList.js';
+//sameFolderImports - not GWT import - same folder const JList
+import { Dimension } from './Dimension.js';
+//sameFolderImports - not GWT import - same folder const Dimension
+import { ActionListener } from './ActionListener.js';
+//sameFolderImports - not GWT import - same folder const ActionListener
+import { ActionEvent } from './ActionEvent.js';
+//sameFolderImports - not GWT import - same folder const ActionEvent
+import { GroupLayout } from './GroupLayout.js';
+//sameFolderImports - not GWT import - same folder const GroupLayout
+import { ListSelectionListener } from './ListSelectionListener.js';
+//sameFolderImports - not GWT import - same folder const ListSelectionListener
+import { ListSelectionEvent } from './ListSelectionEvent.js';
+//sameFolderImports - not GWT import - same folder const ListSelectionEvent
+import { GenericProfileAction } from './GenericProfileAction.js';
+//sameFolderImports - not GWT import - same folder const GenericProfileAction
+
+export class GenericProfileActionsJPanel extends javax.swing.JPanel {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private genericProfileActions: GenericProfileActions;
+
+    private genericProfileActionJPanel: GenericProfileActionJPanel;
+
+public constructor (){
+
+            super();
+        this.initComponents();
+    
+}
+
+
+    initComponents(){
+this.newProfileActionJDialog= new javax.swing.JDialog();
+    
+this.newProfileActionJLabel= new javax.swing.JLabel();
+    
+this.okNewProfileActionJButton= new javax.swing.JButton();
+    
+this.newProfileActionJTextField= new javax.swing.JTextField();
+    
+this.genericProfileActionsJPanel= new javax.swing.JPanel();
+    
+this.genericProfileActionsJScrollPane= new javax.swing.JScrollPane();
+    
+this.genericProfileActionsJList= new javax.swing.JList();
+    
+this.newActionJButton= new javax.swing.JButton();
+    
+this.deleteActionJButton= new javax.swing.JButton();
+    
+this.saveJButton= new javax.swing.JButton();
+    
+this.blankGenericProfileActionJPanel= new javax.swing.JPanel();
+    
+this.newProfileActionJDialog!.setMinimumSize(new java.awt.Dimension(250, 150));
+    
+this.newProfileActionJDialog!.setResizable(false);
+    
+this.newProfileActionJLabel!.setText("New Action Name");
+    
+this.okNewProfileActionJButton!.setText("Ok");
+    
+this.okNewProfileActionJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+okNewProfileActionJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+
+    let newProfileActionJDialogLayout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this.newProfileActionJDialog!.getContentPane());;
+    
+this.newProfileActionJDialog!.getContentPane()!.setLayout(newProfileActionJDialogLayout);
+    
+newProfileActionJDialogLayout!.setHorizontalGroup(newProfileActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(newProfileActionJDialogLayout!.createSequentialGroup()!.addGroup(newProfileActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(newProfileActionJDialogLayout!.createSequentialGroup()!.addGap(93, 93, 93)!.addComponent(this.okNewProfileActionJButton))!.addGroup(newProfileActionJDialogLayout!.createSequentialGroup()!.addGap(75, 75, 75)!.addComponent(this.newProfileActionJLabel))!.addGroup(newProfileActionJDialogLayout!.createSequentialGroup()!.addGap(29, 29, 29)!.addComponent(this.newProfileActionJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))!.addContainerGap(34, Short.MAX_VALUE)));
+    
+newProfileActionJDialogLayout!.setVerticalGroup(newProfileActionJDialogLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newProfileActionJDialogLayout!.createSequentialGroup()!.addContainerGap()!.addComponent(this.newProfileActionJLabel)!.addGap(21, 21, 21)!.addComponent(this.newProfileActionJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)!.addComponent(this.okNewProfileActionJButton)!.addContainerGap()));
+    
+this.genericProfileActionsJPanel!.setPreferredSize(new java.awt.Dimension(10000, 10000));
+    
+this.genericProfileActionsJList!.addListSelectionListener(new class extends javax.swing.event.ListSelectionListener
+                                {
+                                
+    public valueChanged(evt: javax.swing.event.ListSelectionEvent){
+genericProfileActionsJListValueChanged(evt);
+    
+}
+
+                                }());
+    
+this.genericProfileActionsJScrollPane!.setViewportView(this.genericProfileActionsJList);
+    
+this.newActionJButton!.setText("New");
+    
+this.newActionJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+newActionJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.deleteActionJButton!.setText("Delete");
+    
+this.deleteActionJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+deleteActionJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.saveJButton!.setText("Save");
+    
+this.saveJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+saveJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.blankGenericProfileActionJPanel!.setMinimumSize(new java.awt.Dimension(500, 300));
+    
+
+    let blankGenericProfileActionJPanelLayout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this.blankGenericProfileActionJPanel);;
+    
+this.blankGenericProfileActionJPanel!.setLayout(blankGenericProfileActionJPanelLayout);
+    
+blankGenericProfileActionJPanelLayout!.setHorizontalGroup(blankGenericProfileActionJPanelLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGap(0, 500, Short.MAX_VALUE));
+    
+blankGenericProfileActionJPanelLayout!.setVerticalGroup(blankGenericProfileActionJPanelLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGap(0, 296, Short.MAX_VALUE));
+    
+
+    let genericProfileActionsJPanelLayout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this.genericProfileActionsJPanel);;
+    
+this.genericProfileActionsJPanel!.setLayout(genericProfileActionsJPanelLayout);
+    
+genericProfileActionsJPanelLayout!.setHorizontalGroup(genericProfileActionsJPanelLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(genericProfileActionsJPanelLayout!.createSequentialGroup()!.addComponent(this.genericProfileActionsJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.blankGenericProfileActionJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))!.addGroup(genericProfileActionsJPanelLayout!.createSequentialGroup()!.addComponent(this.newActionJButton)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.deleteActionJButton)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.saveJButton)!.addContainerGap()));
+    
+genericProfileActionsJPanelLayout!.setVerticalGroup(genericProfileActionsJPanelLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(genericProfileActionsJPanelLayout!.createSequentialGroup()!.addGroup(genericProfileActionsJPanelLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.newActionJButton)!.addComponent(this.deleteActionJButton)!.addComponent(this.saveJButton))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(genericProfileActionsJPanelLayout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)!.addComponent(this.blankGenericProfileActionJPanel, 0, 296, Short.MAX_VALUE)!.addComponent(this.genericProfileActionsJScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))!.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+    
+
+    let layout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this);;
+    
+this.setLayout(layout);
+    
+layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addComponent(this.genericProfileActionsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)!.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+    
+layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addComponent(this.genericProfileActionsJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE));
+    
+}
+
+
+    public setModel(){
+
+    let defaultListModelHelper: DefaultListModelHelper = this.getGenericProfileActions()!.getDefaultListModelHelper()!;;
+    
+
+                        if(defaultListModelHelper!.getListModel()!.getSize() > 0)
+                        
+                                    {
+                                    this.genericProfileActionsJList!.setModel(defaultListModelHelper!.getListModel());
+    
+
+                                    }
+                                
+}
+
+
+    saveJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+
+ try { this.getGenericProfileActions()!.save();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "saveJButtonActionPerformed", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    updateProfileActionUI(profileActionNameString: string){
+this.blankGenericProfileActionJPanel!.removeAll();
+    
+
+                        if(profileActionNameString != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let genericProfileAction: GenericProfileAction = this.getGenericProfileActions()!.getAction(profileActionNameString)!;;
+    
+this.setGenericProfileActionJPanel(new GenericProfileActionJPanel());
+    
+this.getGenericProfileActionJPanel()!.setGenericProfileAction(genericProfileAction);
+    
+this.getGenericProfileActionJPanel()!.updateProfileActionUI();
+    
+
+    let layout: javax.swing.GroupLayout = this.blankGenericProfileActionJPanel!.getLayout() as javax.swing.GroupLayout;;
+    
+layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGap(0, 395, Short.MAX_VALUE)!.addComponent(this.getGenericProfileActionJPanel(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
+    
+layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGap(0, 256, Short.MAX_VALUE)!.addComponent(this.getGenericProfileActionJPanel(), javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
+    
+this.logUtil!.putF("Setting Configuration Profile Actions JPanel", this, "genericProfileActionsJListValueChanged");
+    
+
+                                    }
+                                
+}
+
+
+    genericProfileActionsJListValueChanged(evt: javax.swing.event.ListSelectionEvent){
+
+ try { 
+    let profileActionNameString: string = this.genericProfileActionsJList!.getSelectedValue() as string;;
+    
+this.updateProfileActionUI(profileActionNameString);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "genericProfileActionsJListValueChanged", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    okNewProfileActionJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+
+ try { 
+    let newActionName: string = this.newProfileActionJTextField!.getText()!;;
+    
+this.getGenericProfileActions()!.add(newActionName);
+    
+this.setModel();
+    
+this.genericProfileActionsJList!.setSelectedValue(newActionName, true);
+    
+this.newProfileActionJDialog!.setVisible(false);
+    
+this.updateProfileActionUI(newActionName);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "okNewProfileActionJButtonActionPerformed", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    deleteActionJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+
+ try { 
+    let anyType: any[] = this.genericProfileActionsJList!.getSelectedValues()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < anyType!.length; index++)
+        {
+
+    let nextSelectedValueString: string = anyType[index]! as string;;
+    
+this.getGenericProfileActions()!.remove(nextSelectedValueString);
+    
+}
+
+this.selectFirstElement();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "deleteActionJButtonActionPerformed", e);
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public selectFirstElement(){
+this.setModel();
+    
+
+                        if(this.genericProfileActionsJList!.getModel()!.getSize() > 0)
+                        
+                                    {
+                                    this.genericProfileActionsJList!.setSelectedValue(this.genericProfileActionsJList!.getModel()!.getElementAt(0), true);
+    
+this.updateProfileActionUI(this.genericProfileActionsJList!.getModel()!.getElementAt(0) as string);
+    
+
+                                    }
+                                
+                        else {
+                            this.blankGenericProfileActionJPanel!.removeAll();
+    
+this.blankGenericProfileActionJPanel!.repaint();
+    
+
+                        }
+                            
+}
+
+
+    public getGenericProfileActionJPanel(): GenericProfileActionJPanel{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.genericProfileActionJPanel;
+    
+}
+
+
+    public setGenericProfileActionJPanel(genericProfileActionJPanel: GenericProfileActionJPanel){
+this.genericProfileActionJPanel= genericProfileActionJPanel;
+    
+}
+
+
+    public getGenericProfileActions(): GenericProfileActions{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.genericProfileActions;
+    
+}
+
+
+    public setGenericProfileActions(genericProfileActions: GenericProfileActions){
+this.genericProfileActions= genericProfileActions;
+    
+}
+
+
+    newActionJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.newProfileActionJDialog!.setVisible(true);
+    
+}
+
+
+    private blankGenericProfileActionJPanel: javax.swing.JPanel;
+
+    private deleteActionJButton: javax.swing.JButton;
+
+    private genericProfileActionsJList: javax.swing.JList;
+
+    private genericProfileActionsJPanel: javax.swing.JPanel;
+
+    private genericProfileActionsJScrollPane: javax.swing.JScrollPane;
+
+    private newActionJButton: javax.swing.JButton;
+
+    private newProfileActionJDialog: javax.swing.JDialog;
+
+    private newProfileActionJLabel: javax.swing.JLabel;
+
+    private newProfileActionJTextField: javax.swing.JTextField;
+
+    private okNewProfileActionJButton: javax.swing.JButton;
+
+    private saveJButton: javax.swing.JButton;
+
+}
+

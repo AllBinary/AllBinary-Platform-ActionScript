@@ -1,0 +1,95 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { ArtificialIntelligenceInterface } from '../../../../../../org/allbinary/ai/ArtificialIntelligenceInterface.js';
+//not GWT import const ArtificialIntelligenceInterface
+
+import { GameInput } from '../../../../../../org/allbinary/game/input/GameInput.js';
+//not GWT import const GameInput
+
+import { AllBinaryLayer } from '../../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { AllBinaryLayerManager } from '../../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
+//not GWT import const AllBinaryLayerManager
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { SequenceAI } from './SequenceAI.js';
+//sameFolderImports - not GWT import - same folder const SequenceAI
+
+export class ComboSequenceAI extends SequenceAI {
+        
+
+public constructor (artificialIntelligenceInterface: ArtificialIntelligenceInterface[], ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
+            super(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
+
+    let artificialIntelligenceInterfaceArray: ArtificialIntelligenceInterface[] = this.getArtificialIntelligenceInterface()!;;
+    
+
+    let size: number = artificialIntelligenceInterfaceArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+this.setIndex(index);
+    
+super.processAI(allBinaryLayerManager);
+    
+}
+
+}
+
+
+}
+

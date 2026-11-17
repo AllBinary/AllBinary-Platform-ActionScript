@@ -1,0 +1,490 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+import { Serializable } from '../../../../../../../java/io/Serializable.js';
+//not GWT import const Serializable
+
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { Set } from '../../../../../../../java/util/Set.js';
+//not GWT import const Set
+
+import { StoreFrontData } from '../../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontData.js';
+//not GWT import const StoreFrontData
+
+import { StoreFrontInterface } from '../../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontInterface.js';
+//not GWT import const StoreFrontInterface
+
+import { EntryData } from '../../../../../../../org/allbinary/business/entry/EntryData.js';
+//not GWT import const EntryData
+
+import { BasketInterface } from '../../../../../../../org/allbinary/business/user/commerce/inventory/basket/BasketInterface.js';
+//not GWT import const BasketInterface
+
+import { PaymentData } from '../../../../../../../org/allbinary/business/user/commerce/money/payment/PaymentData.js';
+//not GWT import const PaymentData
+
+import { ShippingMethodData } from '../../../../../../../org/allbinary/business/user/commerce/shipping/ShippingMethodData.js';
+//not GWT import const ShippingMethodData
+
+import { ModDomHelper } from '../../../../../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { StringValidationUtil } from '../../../../../../../org/allbinary/logic/string/StringValidationUtil.js';
+//not GWT import const StringValidationUtil
+
+import { Document } from '../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { OrderInterface } from './OrderInterface.js';
+//sameFolderImports - not GWT import - same folder const OrderInterface
+import { OrderHistoryData } from './OrderHistoryData.js';
+//sameFolderImports - not GWT import - same folder const OrderHistoryData
+import { OrderData } from './OrderData.js';
+//sameFolderImports - not GWT import - same folder const OrderData
+
+export class Order
+            extends Object
+         implements OrderInterface, Serializable {
+        
+
+    private readonly basket: BasketInterface;
+
+    private paymentMethod: string;
+
+    private shippingType: string;
+
+    private storeName: string;
+
+    private special: string;
+
+    private id: string;
+
+    private userComment: string;
+
+    private userCancelComment: string;
+
+    private storeComment: string;
+
+    private storeCancelComment: string;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 1) {
+            
+            this.constructor$0(args[0]);
+            
+        }
+        else if(args.length === 6) {
+            
+            this.constructor$1(args[0], args[1], args[2], args[3], args[4], args[5]);
+            
+        }
+        
+    }
+    
+    private constructor$0(basket: BasketInterface): void {
+        this.basket= basket;
+    
+this.id= 
+                                        null
+                                    ;
+    
+this.shippingType= StringUtil.getInstance()!.EMPTY_STRING;
+    
+
+    }
+    
+    private constructor$1(storeName: string, basket: BasketInterface, id: string, shippingType: string, special: string, paymentMethod: string): void {
+        this.storeName= storeName;
+    
+this.basket= basket;
+    
+this.id= id;
+    
+this.shippingType= shippingType;
+    
+this.special= special;
+    
+this.paymentMethod= paymentMethod;
+    
+
+    }
+    
+    public isIdValid(): Boolean{
+
+                        if(this.getId() == 
+                                    null
+                                 || this.getId()!.compareTo(StringUtil.getInstance()!.EMPTY_STRING) == 0 || this.getId()!.length() > OrderHistoryData.MAXIDLEN || !StringValidationUtil.getInstance()!.isNumber(this.getId()))
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+    public isValid(): Boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+    public getIdValidationInfo(): string{
+
+    let EMPTY_STRING: string = StringUtil.getInstance()!.EMPTY_STRING;;
+    
+
+                        if(this.getId() == 
+                                    null
+                                 || this.getId()!.compareTo(EMPTY_STRING) == 0 || this.getId()!.length() > OrderHistoryData.MAXIDLEN || !StringValidationUtil.getInstance()!.isNumber(this.getId()))
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Please enter a valid order Id < " +OrderHistoryData.MAXIDLEN +" digits in length.<br>";
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return EMPTY_STRING;
+    
+}
+
+
+    public setShippingMethod(shippingType: string){
+this.shippingType= shippingType;
+    
+}
+
+
+    public setPaymentMethod(value: string){
+this.paymentMethod= value;
+    
+}
+
+
+    public setSpecial(special: string){
+this.special= special;
+    
+}
+
+
+    public setId(value: string){
+this.id= value;
+    
+}
+
+
+    public setStoreName(value: string){
+this.storeName= value;
+    
+}
+
+
+    public setUserComments(value: string){
+this.userComment= value;
+    
+}
+
+
+    public setUserCancelComments(value: string){
+this.userCancelComment= value;
+    
+}
+
+
+    public setStoreComments(value: string){
+this.storeComment= value;
+    
+}
+
+
+    public setStoreCancelComments(value: string){
+this.storeCancelComment= value;
+    
+}
+
+
+    public getBasket(): BasketInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.basket;
+    
+}
+
+
+    public getShippingMethod(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.shippingType;
+    
+}
+
+
+    public getPaymentMethod(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.paymentMethod;
+    
+}
+
+
+    public getSpecial(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.special;
+    
+}
+
+
+    public getId(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.id;
+    
+}
+
+
+    public getStoreName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.storeName;
+    
+}
+
+
+    public getUserComments(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.userComment;
+    
+}
+
+
+    public getUserCancelComments(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.userCancelComment;
+    
+}
+
+
+    public getStoreComments(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.storeComment;
+    
+}
+
+
+    public getStoreCancelComments(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.storeCancelComment;
+    
+}
+
+
+    public reviewOrder(paymentMethod: string): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Create your own Order.reviewOrder";
+    
+}
+
+
+    public viewOrder(paymentMethod: string): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Create your own Order.viewOrder";
+    
+}
+
+
+    public emailOrder(userName: string, paymentMethod: string, storeFrontInterface: StoreFrontInterface): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Create your own Order.emailOrder";
+    
+}
+
+
+    public toHashMapOrder(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put(PaymentData.METHOD, this.paymentMethod);
+    
+hashMap!.put(ShippingMethodData.NAME, this.shippingType);
+    
+hashMap!.put(StoreFrontData.getInstance()!.NAME, this.storeName);
+    
+hashMap!.put(EntryData.getInstance()!.SPECIAL, this.special);
+    
+hashMap!.put(OrderData.ID, this.id);
+    
+hashMap!.put(OrderData.CUSTOMERCOMMENT, this.userComment);
+    
+hashMap!.put(OrderData.CUSTOMERCANCELCOMMENT, this.userCancelComment);
+    
+hashMap!.put(OrderData.STORECOMMENT, this.storeComment);
+    
+hashMap!.put(OrderData.STORECANCELCOMMENT, this.storeCancelComment);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let hashMap: HashMap<any, any> = this.toHashMapOrder()!;;
+    
+
+    let keySet: Set = hashMap!.keys()!;;
+    
+
+    let keyArray: any[] = keySet!.toArray()!;;
+    
+
+    let size: number = keyArray!.length
+                ;;
+    
+
+    let node: Node = document.createElement(OrderData.ORDER)!;;
+    
+
+
+
+
+                        for (
+    let i: number = 0;i < size; i++)
+        {
+
+    let name: string = keyArray[i]! as string;;
+    
+
+    let value: string = hashMap!.get(name) as string;;
+    
+value= StringUtil.getInstance()!.getNonNull(value);
+    
+node.appendChild(ModDomHelper.createNameValueNodes(document, name, value));
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+}
+

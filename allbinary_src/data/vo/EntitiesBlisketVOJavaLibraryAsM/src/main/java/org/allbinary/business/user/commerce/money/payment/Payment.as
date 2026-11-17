@@ -1,0 +1,721 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../../java/lang/Integer.js';
+        
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { ServletRequest } from '../../../../../../../javax/servlet/ServletRequest.js';
+//not GWT import const ServletRequest
+
+import { EntryData } from '../../../../../../../org/allbinary/business/entry/EntryData.js';
+//not GWT import const EntryData
+
+import { DomNodeInterface } from '../../../../../../../org/allbinary/data/tree/dom/DomNodeInterface.js';
+//not GWT import const DomNodeInterface
+
+import { ModDomHelper } from '../../../../../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+import { SuperCrypt } from '../../../../../../../org/allbinary/logic/control/crypt/SuperCrypt.js';
+//not GWT import const SuperCrypt
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { Document } from '../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { PaymentInterface } from './PaymentInterface.js';
+//sameFolderImports - not GWT import - same folder const PaymentInterface
+import { PaymentData } from './PaymentData.js';
+//sameFolderImports - not GWT import - same folder const PaymentData
+import { CreditCardType } from './CreditCardType.js';
+//sameFolderImports - not GWT import - same folder const CreditCardType
+
+export class Payment
+            extends Object
+         implements PaymentInterface, DomNodeInterface {
+        
+
+    private name: string;
+
+    private expiration: string;
+
+    private encryption: string;
+
+    private number: string;
+
+    private id: string;
+
+    private type: string;
+
+    private tenderType: string;
+
+    private transactionType: string;
+
+    private aba: string;
+
+    private account: string;
+
+    private accountType: string;
+
+    private authorizationCode: string;
+
+    private checkNumber: string;
+
+    private checkType: string;
+
+    private driversLicense: string;
+
+    private magneticInkCheckReader: string;
+
+    private isDefault: boolean = false;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 1 && args[0] instanceof HashMap) {
+            
+            this.constructor$0(args[0]);
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        else if(args.length === 0) {
+            
+            this.constructor$2();
+            
+        }
+        
+    }
+    
+    private constructor$0(payment: HashMap<any, any>): void {
+        this.name= payment.get(PaymentData.NAME) as string;
+    
+this.type= payment.get(PaymentData.TYPE) as string;
+    
+this.expiration= payment.get(PaymentData.EXPIRATION) as string;
+    
+this.encryption= payment.get(EntryData.getInstance()!.ENCRYPTION) as string;
+    
+this.number= new SuperCrypt(new Integer(this.encryption).intValue()).decrypt(payment.get(PaymentData.NUMBER) as string) as string;
+    
+this.id= payment.get(PaymentData.ID) as string;
+    
+
+    let def: string = payment.get(EntryData.getInstance()!.DEFAULT) as string;;
+    
+
+                        if(def != 
+                                    null
+                                 && def.compareTo(EntryData.getInstance()!.DEFAULT) == 0)
+                        
+                                    {
+                                    this.isDefault= true;
+    
+
+                                    }
+                                
+                        else {
+                            this.isDefault= false;
+    
+
+                        }
+                            
+this.tenderType= payment.get(PaymentData.TENDERTYPE) as string;
+    
+this.transactionType= payment.get(PaymentData.TRANSACTIONTYPE) as string;
+    
+this.aba= payment.get(PaymentData.ABA) as string;
+    
+this.account= payment.get(PaymentData.ACCOUNT) as string;
+    
+this.accountType= payment.get(PaymentData.ACCOUNTTYPE) as string;
+    
+this.authorizationCode= payment.get(PaymentData.AUTHORIZATIONCODE) as string;
+    
+this.checkNumber= payment.get(PaymentData.CHECKNUMBER) as string;
+    
+this.checkType= payment.get(PaymentData.CHECKTYPE) as string;
+    
+this.driversLicense= payment.get(PaymentData.DRIVERSLICENSE) as string;
+    
+this.magneticInkCheckReader= payment.get(PaymentData.MAGNETICINKCHECKREADER) as string;
+    
+
+    }
+    
+    private constructor$1(request: ServletRequest): void {
+        this.name= request.getParameter(PaymentData.NAME);
+    
+this.type= request.getParameter(PaymentData.TYPE);
+    
+this.expiration= request.getParameter(PaymentData.EXPIRATION);
+    
+this.number= request.getParameter(PaymentData.NUMBER);
+    
+this.tenderType= request.getParameter(PaymentData.TENDERTYPE);
+    
+this.transactionType= request.getParameter(PaymentData.TRANSACTIONTYPE);
+    
+this.aba= request.getParameter(PaymentData.ABA);
+    
+this.account= request.getParameter(PaymentData.ACCOUNT);
+    
+this.accountType= request.getParameter(PaymentData.ACCOUNTTYPE);
+    
+this.authorizationCode= request.getParameter(PaymentData.AUTHORIZATIONCODE);
+    
+this.checkNumber= request.getParameter(PaymentData.CHECKNUMBER);
+    
+this.checkType= request.getParameter(PaymentData.CHECKTYPE);
+    
+this.driversLicense= request.getParameter(PaymentData.DRIVERSLICENSE);
+    
+this.magneticInkCheckReader= request.getParameter(PaymentData.MAGNETICINKCHECKREADER);
+    
+
+    }
+    
+    private constructor$2(): void {
+        
+    }
+    
+    public isValid(): Boolean{
+
+    let stringUtil: StringUtil = StringUtil.getInstance()!;;
+    
+
+    let aFalse: Boolean = Boolean.FALSE;;
+    
+
+                        if(this.name == 
+                                    null
+                                 || this.name.compareTo(stringUtil!.EMPTY_STRING) == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return aFalse;
+    
+
+                                    }
+                                
+
+                        if(this.type == 
+                                    null
+                                 || this.type.compareTo(stringUtil!.EMPTY_STRING) == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return aFalse;
+    
+
+                                    }
+                                
+
+                        if(this.expiration == 
+                                    null
+                                 || this.expiration.compareTo(stringUtil!.EMPTY_STRING) == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return aFalse;
+    
+
+                                    }
+                                
+
+                        if(this.number == 
+                                    null
+                                 || this.number.compareTo(stringUtil!.EMPTY_STRING) == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return aFalse;
+    
+
+                                    }
+                                
+
+                        if(this.number.length > org.allbinary.business.user.commerce.money.payment.types.CreditCardType.MAXLEN)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return aFalse;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+    public setTenderType(value: string){
+this.tenderType= value;
+    
+}
+
+
+    public setTransactionType(value: string){
+this.transactionType= value;
+    
+}
+
+
+    public setAuthorizationCode(value: string){
+this.authorizationCode= value;
+    
+}
+
+
+    public setCheckType(value: string){
+this.checkType= value;
+    
+}
+
+
+    public setCheckNumber(value: string){
+this.checkNumber= value;
+    
+}
+
+
+    public setDriversLicense(value: string){
+this.driversLicense= value;
+    
+}
+
+
+    public setMagneticInkCheckReader(value: string){
+this.magneticInkCheckReader= value;
+    
+}
+
+
+    public setAba(value: string){
+this.aba= value;
+    
+}
+
+
+    public setAccountType(value: string){
+this.accountType= value;
+    
+}
+
+
+    public setName(value: string){
+this.name= value;
+    
+}
+
+
+    public setType(value: string){
+this.type= value;
+    
+}
+
+
+    public setExpiration(value: string){
+this.expiration= value;
+    
+}
+
+
+    public setNumber(value: string){
+this.number= value;
+    
+}
+
+
+    public getId(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.id;
+    
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.name;
+    
+}
+
+
+    public getType(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.type;
+    
+}
+
+
+    public getExpiration(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.expiration;
+    
+}
+
+
+    public getEncryption(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.encryption;
+    
+}
+
+
+    public getNumber(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.number;
+    
+}
+
+
+    public getTenderType(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.tenderType;
+    
+}
+
+
+    public getTransactionType(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.transactionType;
+    
+}
+
+
+    public getAba(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.aba;
+    
+}
+
+
+    public getAccount(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.account;
+    
+}
+
+
+    public getAccountType(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.accountType;
+    
+}
+
+
+    public getAuthorizationCode(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.authorizationCode;
+    
+}
+
+
+    public getCheckNumber(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.checkNumber;
+    
+}
+
+
+    public getCheckType(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.checkType;
+    
+}
+
+
+    public getDriversLicense(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.driversLicense;
+    
+}
+
+
+    public getMagneticInkCheckReader(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.magneticInkCheckReader;
+    
+}
+
+
+    public getLastFour(): string{
+
+                        if(this.number.length > PaymentData.MIN && this.number.length <= PaymentData.MAX)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.number.substring(this.number.length -4);;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Invalid #";
+    
+
+                        }
+                            
+}
+
+
+    public isDefault(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.isDefault;
+    
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put(PaymentData.NAME, this.name);
+    
+hashMap!.put(PaymentData.TYPE, this.type);
+    
+hashMap!.put(PaymentData.EXPIRATION, this.expiration);
+    
+hashMap!.put(PaymentData.NUMBER, this.getLastFour());
+    
+hashMap!.put(PaymentData.TENDERTYPE, this.tenderType);
+    
+hashMap!.put(PaymentData.TRANSACTIONTYPE, this.transactionType);
+    
+hashMap!.put(PaymentData.ABA, this.aba);
+    
+hashMap!.put(PaymentData.ACCOUNT, this.account);
+    
+hashMap!.put(PaymentData.ACCOUNTTYPE, this.accountType);
+    
+hashMap!.put(PaymentData.AUTHORIZATIONCODE, this.authorizationCode);
+    
+hashMap!.put(PaymentData.CHECKNUMBER, this.checkNumber);
+    
+hashMap!.put(PaymentData.DRIVERSLICENSE, this.driversLicense);
+    
+hashMap!.put(PaymentData.MAGNETICINKCHECKREADER, this.magneticInkCheckReader);
+    
+
+                        if(this.isDefault)
+                        
+                                    {
+                                    hashMap!.put(EntryData.getInstance()!.DEFAULT, EntryData.getInstance()!.DEFAULT);
+    
+
+                                    }
+                                
+                        else {
+                            hashMap!.put(EntryData.getInstance()!.DEFAULT, StringUtil.getInstance()!.EMPTY_STRING);
+    
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let hashMap: HashMap<any, any> = this.toHashMap()!;;
+    
+
+    let node: Node = ModDomHelper.createNameValueNodes(document, PaymentData.PAYMENT, hashMap)!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+    public toXmlDoc(): Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public view(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public toValidationInfoDoc(): Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public toValidationInfoNode(document: Document): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public validationInfo(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+}
+

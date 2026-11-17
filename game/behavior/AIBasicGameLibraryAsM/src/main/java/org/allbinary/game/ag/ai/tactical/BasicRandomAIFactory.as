@@ -1,0 +1,109 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { ArtificialIntelligenceInterface } from '../../../../../../org/allbinary/ai/ArtificialIntelligenceInterface.js';
+//not GWT import const ArtificialIntelligenceInterface
+
+import { ArtificialIntelligenceInterfaceFactoryInterface } from '../../../../../../org/allbinary/game/ai/ArtificialIntelligenceInterfaceFactoryInterface.js';
+//not GWT import const ArtificialIntelligenceInterfaceFactoryInterface
+
+import { BasicAI } from '../../../../../../org/allbinary/game/ai/BasicAI.js';
+//not GWT import const BasicAI
+
+import { InputProbability } from '../../../../../../org/allbinary/game/ag/ai/InputProbability.js';
+//not GWT import const InputProbability
+
+import { GameInput } from '../../../../../../org/allbinary/game/input/GameInput.js';
+//not GWT import const GameInput
+
+import { AllBinaryLayer } from '../../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { Visitor } from '../../../../../../org/allbinary/logic/util/visitor/Visitor.js';
+//not GWT import const Visitor
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicRandomAI } from './BasicRandomAI.js';
+//sameFolderImports - not GWT import - same folder const BasicRandomAI
+
+export class BasicRandomAIFactory
+            extends Object
+         implements ArtificialIntelligenceInterfaceFactoryInterface {
+        
+
+                //@Throws(Exception.constructor)
+            
+    public getInstance(hashtable: ABHashtable<any, any>, ownerLayerInterface: AllBinaryLayer, gameInput: GameInput): ArtificialIntelligenceInterface{
+
+    let visitor: Visitor = hashtable.get(BasicAI.AI_VISITOR) as Visitor;;
+    
+
+                        if(visitor == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("No Visitor Provided");
+                    
+
+                                    }
+                                
+
+    let inputProbability: InputProbability = hashtable.get(InputProbability.INPUT_PROBABILITY) as InputProbability;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new BasicRandomAI(ownerLayerInterface, gameInput, inputProbability, visitor);
+    
+}
+
+
+}
+

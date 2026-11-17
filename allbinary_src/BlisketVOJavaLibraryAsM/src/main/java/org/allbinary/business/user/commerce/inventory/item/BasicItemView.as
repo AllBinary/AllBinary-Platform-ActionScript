@@ -1,0 +1,221 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { Set } from '../../../../../../../java/util/Set.js';
+//not GWT import const Set
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { DomNodeInterface } from '../../../../../../../org/allbinary/data/tree/dom/DomNodeInterface.js';
+//not GWT import const DomNodeInterface
+
+import { ModDomHelper } from '../../../../../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { Document } from '../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicItemData } from './BasicItemData.js';
+//sameFolderImports - not GWT import - same folder const BasicItemData
+import { ItemInterface } from './ItemInterface.js';
+//sameFolderImports - not GWT import - same folder const ItemInterface
+
+export class BasicItemView
+            extends Object
+         implements DomNodeInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    readonly basicItemData: BasicItemData = BasicItemData.getInstance()!;
+
+    private readonly itemInterface: ItemInterface;
+
+    private readonly vector: BasicArrayList;
+
+public constructor (itemInterface: ItemInterface, vector: BasicArrayList){
+
+            super();
+        this.itemInterface= itemInterface;
+    
+this.vector= vector;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.PRODUCTSEARCHLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.START, this, "toXmlNode");
+    
+
+                                    }
+                                
+
+    let hashMap: HashMap<any, any> = this.itemInterface!.toHashMap()!;;
+    
+
+    let EMPTY_STRING: string = StringUtil.getInstance()!.EMPTY_STRING;;
+    
+hashMap!.put(this.basicItemData!.IMAGE, EMPTY_STRING);
+    
+
+    let stringUtil: StringUtil = StringUtil.getInstance()!;;
+    
+
+    let keySet: Set = hashMap!.keys()!;;
+    
+
+    let node: Node = document.createElement(this.basicItemData!.ITEM)!;;
+    
+
+    let nameArray: any[] = keySet!.toArray()!;;
+    
+
+    let size2: number = nameArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size2; index++)
+        {
+
+    let name: string = nameArray[index]! as string;;
+    
+
+    let value: string = hashMap!.get(name) as string;;
+    
+value= stringUtil!.getNonNull(value);
+    
+node.appendChild(ModDomHelper.createNameValueNodes(document, name, value));
+    
+}
+
+
+    let totalNode: Node = ModDomHelper.createNameValueNodes(document, this.basicItemData!.TOTAL, this.itemInterface!.getTotal()!.toString())!;;
+    
+node.appendChild(totalNode);
+    
+
+    let size: number = this.vector.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let domNodeInterface: DomNodeInterface = this.vector.get(index) as DomNodeInterface;;
+    
+
+    let customNode: Node = domNodeInterface!.toXmlNode(document)!;;
+    
+node.appendChild(customNode);
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+    public toXmlDoc(): Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public view(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+}
+

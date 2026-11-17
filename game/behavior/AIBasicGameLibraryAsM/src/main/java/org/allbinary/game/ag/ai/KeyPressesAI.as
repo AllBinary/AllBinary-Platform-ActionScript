@@ -1,0 +1,178 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../java/lang/Integer.js';
+        
+import { GameInput } from '../../../../../org/allbinary/game/input/GameInput.js';
+//not GWT import const GameInput
+
+import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
+//not GWT import const AllBinaryLayerManager
+
+//not plain js import { HashtableUtil } 
+const HashtableUtil = globalThis.org.allbinary.util.HashtableUtil;
+type HashtableUtil<T = any, U = any> = typeof HashtableUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof HashtableUtil;
+
+import { BasicAI } from '../../../../../org/allbinary/game/ai/BasicAI.js';
+//not GWT import const BasicAI
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class KeyPressesAI extends BasicAI {
+        
+
+    private on: boolean = true;
+
+    keys: Integer[];
+
+public constructor (hashtable: ABHashtable<any, any>, ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
+            super(ownerLayerInterface, gameInput);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.keys= new Array(hashtable.size());
+    
+
+    let objectArray: any[] = HashtableUtil.getInstance()!.getKeysAsArray(hashtable)!;;
+    
+
+    let size: number = objectArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+this.keys[index]= hashtable.get(objectArray[index]!) as Integer;
+    
+}
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
+
+                        if(this.on)
+                        
+                                    {
+                                    
+
+
+
+                        for (
+    let index: number = 0;index < this.keys.length; index++)
+        {
+super.processKeyAI(this.keys[index]!.intValue());
+    
+}
+
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toggle(){
+
+                        if(this.isOn())
+                        
+                                    {
+                                    this.setOn(false);
+    
+
+                                    }
+                                
+                        else {
+                            this.setOn(true);
+    
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public disable(){
+this.setOn(false);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public enable(){
+this.setOn(true);
+    
+}
+
+
+    setOn(on: boolean){
+this.on= on;
+    
+}
+
+
+    isOn(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.on;
+    
+}
+
+
+}
+

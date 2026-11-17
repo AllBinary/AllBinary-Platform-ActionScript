@@ -1,0 +1,81 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { PageContext } from '../../../javax/servlet/jsp/PageContext.js';
+//not GWT import const PageContext
+
+import { StoreFrontData } from '../../../org/allbinary/business/context/modules/storefront/StoreFrontData.js';
+//not GWT import const StoreFrontData
+
+import { StoreWorkFlowInterface } from '../../../org/allbinary/logic/control/workflow/StoreWorkFlowInterface.js';
+//not GWT import const StoreWorkFlowInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicWorkFlow } from './BasicWorkFlow.js';
+//sameFolderImports - not GWT import - same folder const BasicWorkFlow
+
+export class BasicStoreWorkFlow extends BasicWorkFlow implements StoreWorkFlowInterface {
+        
+
+public constructor (propertiesHashMap: HashMap<any, any>, pageContext: PageContext){
+            super(propertiesHashMap, pageContext);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getStoreName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.getPropertiesHashMap()!.get(StoreFrontData.getInstance()!.NAME) as string;
+    
+}
+
+
+}
+

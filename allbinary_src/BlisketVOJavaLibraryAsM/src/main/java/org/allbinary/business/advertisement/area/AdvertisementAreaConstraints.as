@@ -1,0 +1,132 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { DomSearchHelper } from '../../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
+//not GWT import const DomSearchHelper
+
+import { DisplayInBrowserContraints } from '../../../../../org/allbinary/logic/control/contraints/display/browser/DisplayInBrowserContraints.js';
+//not GWT import const DisplayInBrowserContraints
+
+import { DisplayInBrowserContraintsInterface } from '../../../../../org/allbinary/logic/control/contraints/display/browser/DisplayInBrowserContraintsInterface.js';
+//not GWT import const DisplayInBrowserContraintsInterface
+
+import { TwoDimensionalConstraint } from '../../../../../org/allbinary/logic/control/contraints/size/TwoDimensionalConstraint.js';
+//not GWT import const TwoDimensionalConstraint
+
+import { TwoDimensionalConstraintInterface } from '../../../../../org/allbinary/logic/control/contraints/size/TwoDimensionalConstraintInterface.js';
+//not GWT import const TwoDimensionalConstraintInterface
+
+import { Document } from '../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AdvertisementAreaConstraintsInterface } from './AdvertisementAreaConstraintsInterface.js';
+//sameFolderImports - not GWT import - same folder const AdvertisementAreaConstraintsInterface
+import { AdvertisementAreaData } from './AdvertisementAreaData.js';
+//sameFolderImports - not GWT import - same folder const AdvertisementAreaData
+
+export class AdvertisementAreaConstraints
+            extends Object
+         implements AdvertisementAreaConstraintsInterface {
+        
+
+    private displayInBrowserContraintsInterface: DisplayInBrowserContraintsInterface;
+
+    private twoDimensionConstraintsInterface: TwoDimensionalConstraintInterface;
+
+public constructor (document: Document){
+
+            super();
+        
+    let node: Node = DomSearchHelper.getNode(AdvertisementAreaData.getInstance()!.NAME, document.getChildNodes())!;;
+    
+this.displayInBrowserContraintsInterface= new DisplayInBrowserContraints(node);
+    
+this.twoDimensionConstraintsInterface= new TwoDimensionalConstraint(node);
+    
+}
+
+
+    public setDisplayInBrowserContraints(displayInBrowserContraintsInterface: DisplayInBrowserContraintsInterface){
+this.displayInBrowserContraintsInterface= displayInBrowserContraintsInterface;
+    
+}
+
+getTwoDimensionContraints(...args: any[]): any {
+   
+   
+    if (args.length === 1) return this.getTwoDimensionContraints$overload1(args[0]);
+   
+    if (args.length === 0) return this.getTwoDimensionContraints$overload2();
+   
+   throw new TypeError('No matching overload: getTwoDimensionContraints'); }
+  
+    public getTwoDimensionContraints$overload1(twoDimensionConstraintsInterface: TwoDimensionalConstraintInterface){
+this.twoDimensionConstraintsInterface= twoDimensionConstraintsInterface;
+    
+}
+
+
+    public getDisplayInBrowserContraints(): DisplayInBrowserContraintsInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.displayInBrowserContraintsInterface;
+    
+}
+
+
+    public getTwoDimensionContraints$overload2(): TwoDimensionalConstraintInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.twoDimensionConstraintsInterface;
+    
+}
+
+
+}
+

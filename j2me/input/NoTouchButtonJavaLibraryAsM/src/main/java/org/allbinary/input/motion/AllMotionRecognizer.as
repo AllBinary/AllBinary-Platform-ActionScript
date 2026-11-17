@@ -1,0 +1,102 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class AllMotionRecognizer
+            extends Object
+         {
+        
+
+    private static index: number = 0;
+
+    private readonly id: number;
+
+public constructor (){
+
+            super();
+        this.id= AllMotionRecognizer.index++;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processStartMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processEndMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processDraggedMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processMovedMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processScrolledMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
+}
+
+
+    public getId(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.id;
+    
+}
+
+
+}
+

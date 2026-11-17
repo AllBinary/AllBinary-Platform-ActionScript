@@ -1,0 +1,191 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { io } from '../../java/io.js';
+//not GWT import const io
+
+import { net } from '../../java/net.js';
+//not GWT import const net
+
+import { servlet } from '../../javax/servlet.js';
+//not GWT import const servlet
+
+import { http } from '../../javax/servlet/http.js';
+//not GWT import const http
+
+import { LicensingException } from '../../org/allbinary/logic/system/security/licensing/LicensingException.js';
+//not GWT import const LicensingException
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { WorkFlowInterface } from '../../org/allbinary/logic/control/workflow/WorkFlowInterface.js';
+//not GWT import const WorkFlowInterface
+
+import { RequestWorkFlowFactory } from '../../org/allbinary/logic/control/workflow/RequestWorkFlowFactory.js';
+//not GWT import const RequestWorkFlowFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { HttpServlet } from './HttpServlet.js';
+//sameFolderImports - not GWT import - same folder const HttpServlet
+import { ServletConfig } from './ServletConfig.js';
+//sameFolderImports - not GWT import - same folder const ServletConfig
+import { PrintWriter } from './PrintWriter.js';
+//sameFolderImports - not GWT import - same folder const PrintWriter
+import { ServletRequest } from './ServletRequest.js';
+//sameFolderImports - not GWT import - same folder const ServletRequest
+import { ServletResponse } from './ServletResponse.js';
+//sameFolderImports - not GWT import - same folder const ServletResponse
+import { HttpServletRequest } from './HttpServletRequest.js';
+//sameFolderImports - not GWT import - same folder const HttpServletRequest
+import { HttpServletResponse } from './HttpServletResponse.js';
+//sameFolderImports - not GWT import - same folder const HttpServletResponse
+
+export class RequestHandler extends HttpServlet {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+                //@Throws(ServletException.constructor)
+            
+    public init(config: ServletConfig){
+super.init(config);
+    
+}
+
+
+    public destroy(){
+}
+
+
+                //@Throws(ServletException.constructor, IOException.constructor)
+            
+    processRequest(request: HttpServletRequest, response: HttpServletResponse){
+
+ try { response.setContentType("text/html");
+    
+
+    let out: PrintWriter = response.getWriter()!;;
+    
+
+    let workflowInterface: WorkFlowInterface = RequestWorkFlowFactory.getInstance(request as ServletRequest, response as ServletResponse, this.getServletConfig(), this.getServletContext())!;;
+    
+
+                        if(workflowInterface != 
+                                    null
+                                )
+                        
+                                    {
+                                    out.print(workflowInterface!.process());
+    
+
+                                    }
+                                
+out.flush();
+    
+out.close();
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SERVLETERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Servlet LicensingException", this, "processRequest()", e);
+    
+
+                                    }
+                                
+response.sendRedirect(abcs.globals.URLGLOBALS.LICENSEERRORPAGE);
+    
+
+ }
+  else {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SERVLETERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Servlet Exception", this, "processRequest()", e);
+    
+
+                                    }
+                                
+response.sendRedirect(abcs.globals.URLGLOBALS.ERRORPAGE);
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(ServletException.constructor, IOException.constructor)
+            
+    doGet(request: HttpServletRequest, response: HttpServletResponse){
+this.processRequest(request, response);
+    
+}
+
+
+                //@Throws(ServletException.constructor, IOException.constructor)
+            
+    doPost(request: HttpServletRequest, response: HttpServletResponse){
+this.processRequest(request, response);
+    
+}
+
+
+    public getServletInfo(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "WorkFlow Request Handler";
+    
+}
+
+
+}
+

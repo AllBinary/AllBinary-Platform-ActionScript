@@ -1,0 +1,157 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Integer } from '../../../../java/lang/Integer.js';
+        
+import { GameKeyEvent } from '../../../../org/allbinary/game/input/event/GameKeyEvent.js';
+//not GWT import const GameKeyEvent
+
+import { GameKeyEventListenerInterface } from '../../../../org/allbinary/game/input/event/GameKeyEventListenerInterface.js';
+//not GWT import const GameKeyEventListenerInterface
+
+//not plain js import { ForcedLogUtil } 
+const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
+type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
+//not GWT import const AllBinaryEventObject
+
+import { EventStrings } from '../../../../org/allbinary/logic/util/event/EventStrings.js';
+//not GWT import const EventStrings
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GameInput } from './GameInput.js';
+//sameFolderImports - not GWT import - same folder const GameInput
+import { GameInputStrings } from './GameInputStrings.js';
+//sameFolderImports - not GWT import - same folder const GameInputStrings
+
+export class PlayerGameInput extends GameInput implements GameKeyEventListenerInterface {
+        
+
+    readonly gameInputStrings: GameInputStrings = GameInputStrings.getInstance()!;
+
+    private readonly playerInputId: number;
+
+public constructor (gameKeyEventList: BasicArrayList, removalGameKeyEventList: BasicArrayList, playerInputId: number){
+            super(gameKeyEventList, removalGameKeyEventList);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.playerInputId= playerInputId;
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public onPressGameKeyEvent(gameKeyEvent: GameKeyEvent){
+this.add(gameKeyEvent);
+    
+this.addForRemoval(gameKeyEvent);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public onDownGameKeyEvent(gameKeyEvent: GameKeyEvent){
+this.add(gameKeyEvent);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public onDownKeyEvent(gameKeyEvent: GameKeyEvent){
+this.add(gameKeyEvent);
+    
+this.addForRemoval(gameKeyEvent);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public onDownKey(gameKeyEvent: Integer){
+PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance()!.START_LABEL)!.append(gameKeyEvent!.toString())!.toString(), this, this.gameInputStrings!.ON_DOWN_GAME_KEY);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public onUpGameKeyEvent(gameKeyEvent: GameKeyEvent){
+this.addForRemoval(gameKeyEvent);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public onUpKeyEvent(gameKeyEvent: Integer){
+}
+
+
+    public onEvent(eventObject: AllBinaryEventObject){
+ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
+    
+}
+
+
+    public getPlayerInputId(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.playerInputId;
+    
+}
+
+
+}
+

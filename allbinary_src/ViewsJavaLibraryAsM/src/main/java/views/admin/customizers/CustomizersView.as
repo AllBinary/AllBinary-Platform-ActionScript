@@ -1,0 +1,262 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../java/lang/Exception.js';
+        
+import { Arrays } from '../../../java/util/Arrays.js';
+//not GWT import const Arrays
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { TransformInfoEntityBuilder } from '../../../org/allbinary/data/tables/transform/info/TransformInfoEntityBuilder.js';
+//not GWT import const TransformInfoEntityBuilder
+
+import { DomNodeInterface } from '../../../org/allbinary/data/tree/dom/DomNodeInterface.js';
+//not GWT import const DomNodeInterface
+
+import { ModDomHelper } from '../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+import { GLOBALS2 } from '../../../org/allbinary/globals/GLOBALS2.js';
+//not GWT import const GLOBALS2
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { StringComparator } from '../../../org/allbinary/logic/control/sort/StringComparator.js';
+//not GWT import const StringComparator
+
+import { CustomizerTransformInfoData } from '../../../org/allbinary/logic/visual/transform/info/CustomizerTransformInfoData.js';
+//not GWT import const CustomizerTransformInfoData
+
+import { TransformInfoInterface } from '../../../org/allbinary/logic/visual/transform/info/TransformInfoInterface.js';
+//not GWT import const TransformInfoInterface
+
+import { TransformTemplateCustomizerData } from '../../../org/allbinary/logic/visual/transform/template/customizer/TransformTemplateCustomizerData.js';
+//not GWT import const TransformTemplateCustomizerData
+
+import { TransformTemplateCustomizersData } from '../../../org/allbinary/logic/visual/transform/template/customizer/TransformTemplateCustomizersData.js';
+//not GWT import const TransformTemplateCustomizersData
+
+import { BodyData } from '../../../org/allbinary/logic/visual/transform/template/customizer/bodies/BodyData.js';
+//not GWT import const BodyData
+
+import { TitleData } from '../../../org/allbinary/logic/visual/transform/template/customizer/widgets/title/TitleData.js';
+//not GWT import const TitleData
+
+import { TransformTemplateCustomizerUtil } from '../../../org/allbinary/logic/visual/transform/template/util/TransformTemplateCustomizerUtil.js';
+//not GWT import const TransformTemplateCustomizerUtil
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { Document } from '../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+import { HttpStoreComponentView } from '../../../views/business/context/modules/storefront/HttpStoreComponentView.js';
+//not GWT import const HttpStoreComponentView
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class CustomizersView extends HttpStoreComponentView implements DomNodeInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    readonly customizersVector: BasicArrayList;
+
+public constructor (transformInfoInterface: TransformInfoInterface){
+            super(transformInfoInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.customizersVector= TransformInfoEntityBuilder.getInstance()!.getNames(this.getWeblisketSession()!.getStoreName());
+    
+}
+
+
+    public toXmlNode(document: Document): Node{
+
+ try { 
+    let node: Node = document.createElement(TransformTemplateCustomizersData.NAME)!;;
+    
+
+    let unsortedCustomizerViewVector: BasicArrayList = new BasicArrayListD();;
+    
+
+    let size: number = this.customizersVector!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let viewName: string = this.customizersVector!.get(index) as string;;
+    
+
+                        if(viewName!.indexOf(CustomizerTransformInfoData.NAME) > 0 && viewName!.indexOf(GLOBALS2.EDIT) > 0 && viewName!.indexOf(BodyData.getInstance()!.VIEWNAMEKEY) > 0 && viewName!.indexOf(TitleData.getInstance()!.VIEWNAMEKEY) > 0)
+                        
+                                    {
+                                    unsortedCustomizerViewVector!.add(viewName);
+    
+
+                                    }
+                                
+}
+
+
+    let objectArray: any[] = unsortedCustomizerViewVector!.toArray() as any[];;
+    
+Arrays.sort(objectArray, new StringComparator());
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < objectArray!.length; index++)
+        {
+
+    let viewName: string = objectArray[index]! as string;;
+    
+
+    let viewNameNode: Node = ModDomHelper.createNameValueNodes(document, TransformTemplateCustomizerData.NAME, viewName, TransformTemplateCustomizerUtil.getInstance()!.getPageNameHack(viewName, this.getWeblisketSession()!.getStoreName()))!;;
+    
+node.appendChild(viewNameNode);
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.XSLLOGGINGERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.FAILURE, this, "toXmlNode", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+ }
+   }
+ 
+}
+
+
+    public addDomNodeInterfaces(){
+this.addDomNodeInterface(this as DomNodeInterface);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public view(): string{
+
+ try { this.addDomNodeInterfaces();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.view();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPERERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "view()", e);
+    
+
+                                    }
+                                
+
+
+
+                            throw e;
+                    
+
+ }
+   }
+ 
+}
+
+
+}
+

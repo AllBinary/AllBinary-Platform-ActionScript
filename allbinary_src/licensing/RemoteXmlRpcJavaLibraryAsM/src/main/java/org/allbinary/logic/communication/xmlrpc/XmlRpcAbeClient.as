@@ -1,0 +1,348 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+//not plain js import { MyRandomFactory } 
+const MyRandomFactory = globalThis.org.allbinary.game.rand.MyRandomFactory;
+type MyRandomFactory<T = any, U = any> = typeof MyRandomFactory extends abstract new (...args: any[]) => infer Instance ? Instance : typeof MyRandomFactory;
+
+//not plain js import { NullUtil } 
+const NullUtil = globalThis.org.allbinary.logic.NullUtil;
+type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
+
+//not plain js import { ForcedLogUtil } 
+const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
+type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { AbeClientInformationInterface } from '../../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
+//not GWT import const AbeClientInformationInterface
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { NullXmlRpcHandler } from '../../../../../org/apache/xmlrpc/NullXmlRpcHandler.js';
+//not GWT import const NullXmlRpcHandler
+
+import { XmlRpcClient } from '../../../../../org/apache/xmlrpc/XmlRpcClient.js';
+//not GWT import const XmlRpcClient
+
+import { XmlRpcHandler } from '../../../../../org/apache/xmlrpc/XmlRpcHandler.js';
+//not GWT import const XmlRpcHandler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class XmlRpcAbeClient
+            extends Object
+         {
+        
+
+    public static isOnline: boolean = true;
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly remoteMethod: string;
+
+    private readonly clientInfo: AbeClientInformationInterface;
+
+    private client: XmlRpcHandler = NullXmlRpcHandler.NULL_XML_RPC_HANDLER;
+
+    private server: number;
+
+    private start: number= 0;
+
+    private maxServers: number= 0;
+
+    private isDone: boolean;
+
+    private readonly START_SERVER: string = "Start With Server #";
+
+    readonly TRYING: string = "Trying Server #";
+
+    readonly SEP: string = CommonLabels.getInstance()!.COLON_SEP;
+
+    readonly CLIENT_INFO: string = "Client Info: \n";
+
+    readonly RESULT: string = CommonLabels.getInstance()!.RESULT_ +CommonSeps.getInstance()!.NEW_LINE;
+
+    readonly INVALID: string = "License data is Invalid Trying Other Servers";
+
+    readonly EXCEPTION_IN_CLIENT: string = "Exception in client";
+
+    readonly SERVER_REPORTED_ERROR: string = "Server reported error";
+
+    readonly UNKNOWN_ERROR: string = "Unknown License Retrieval Failure";
+
+    readonly TRYING_OTHER_SERVERS: string = "IOException Trying Other Servers";
+
+    readonly HOST_NOT_RESOLVED_MSG: string = "Not Trying Again Since Host Unresolved";
+
+    readonly HOST_NOT_RESOLVED: string = "Host is unresolved";
+
+    private readonly myRandomFactory: MyRandomFactory = MyRandomFactory.getInstance()!;
+
+public constructor (clientInfo: AbeClientInformationInterface, remoteMethod: string){
+
+            super();
+        this.remoteMethod= remoteMethod;
+    
+this.clientInfo= clientInfo;
+    
+
+                        if(clientInfo!.getNumberOfLicenseServers() > 1)
+                        
+                                    {
+                                    this.maxServers= clientInfo!.getNumberOfLicenseServers() -2;
+    
+this.start= this.myRandomFactory!.getAbsoluteNextInt(this.maxServers) +1;
+    
+
+                                    }
+                                
+                             else 
+                        if(clientInfo!.getNumberOfLicenseServers() == 1)
+                        
+                                    {
+                                    this.maxServers= 0;
+    
+this.start= 0;
+    
+
+                                    }
+                                
+this.isDone= false;
+    
+this.server= this.start;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.START_SERVER);
+    
+stringBuffer!.appendint(this.getServer());
+    
+stringBuffer!.append(this.SEP);
+    
+stringBuffer!.append(clientInfo!.getLicenseServer(this.getServer()));
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.commonStrings!.CONSTRUCTOR);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public get(anyType: any): any{
+ForcedLogUtil.log(this.commonStrings!.NOT_IMPLEMENTED, this);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return NullUtil.getInstance()!.NULL_OBJECT;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    tryAnother(anyType: any): any{
+
+                        if(getServer() < getMaxServers())
+                        
+                                    {
+                                    this.setServer(getServer() +1);
+    
+
+                                    }
+                                
+                        else {
+                            this.setServer(0);
+    
+
+                        }
+                            
+
+                        if(getServer() != getStart() && !isIsDone())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.get(anyType);;
+    
+
+                                    }
+                                
+                        else {
+                            this.setIsDone(true);
+    
+
+                        }
+                            
+
+
+
+                            throw new Exception("Tried All Servers But Still Failed");
+                    
+}
+
+
+    getClientInfo(): AbeClientInformationInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.clientInfo;
+    
+}
+
+
+    getClient(): XmlRpcHandler{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.client;
+    
+}
+
+
+    setClient(client: XmlRpcClient){
+this.client= client;
+    
+}
+
+
+    getServer(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.server;
+    
+}
+
+
+    setServer(server: number){
+this.server= server;
+    
+}
+
+
+    getStart(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.start;
+    
+}
+
+
+    setStart(start: number){
+this.start= start;
+    
+}
+
+
+    getMaxServers(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.maxServers;
+    
+}
+
+
+    setMaxServers(maxServers: number){
+this.maxServers= maxServers;
+    
+}
+
+
+    isIsDone(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.isDone;
+    
+}
+
+
+    setIsDone(isDone: boolean){
+this.isDone= isDone;
+    
+}
+
+
+    getRemoteMethod(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.remoteMethod;
+    
+}
+
+
+}
+

@@ -1,0 +1,62 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ProfileActionScriptOutputInterface } from './ProfileActionScriptOutputInterface.js';
+//sameFolderImports - not GWT import - same folder const ProfileActionScriptOutputInterface
+import { ImageTypes } from './ImageTypes.js';
+//sameFolderImports - not GWT import - same folder const ImageTypes
+
+export interface ImageActionScriptOutputInterface extends ProfileActionScriptOutputInterface {
+        
+
+    getImageTypes(): ImageTypes;
+
+    setImageTypes(imageTypes: ImageTypes): void;
+
+    isSaved(): boolean;
+
+    setSaved(saved: boolean): void;
+
+    isDisplay(): boolean;
+
+    setDisplay(display: boolean): void;
+
+    log(): void;
+
+}
+

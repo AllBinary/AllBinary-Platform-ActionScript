@@ -1,0 +1,794 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2003 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { RuntimeException } from '../../../../../java/lang/RuntimeException.js';
+        
+import { RTSPlayerGameInput } from '../../../../../org/allbinary/game/input/RTSPlayerGameInput.js';
+//not GWT import const RTSPlayerGameInput
+
+import { DemoLockedWithCostLayerInterfaceFactoryInterface } from '../../../../../org/allbinary/game/layer/DemoLockedWithCostLayerInterfaceFactoryInterface.js';
+//not GWT import const DemoLockedWithCostLayerInterfaceFactoryInterface
+
+import { GeographicMapCellPositionAreaBase } from '../../../../../org/allbinary/game/layer/GeographicMapCellPositionAreaBase.js';
+//not GWT import const GeographicMapCellPositionAreaBase
+
+import { RTSGameStrings } from '../../../../../org/allbinary/game/layer/RTSGameStrings.js';
+//not GWT import const RTSGameStrings
+
+import { RTSLayer } from '../../../../../org/allbinary/game/layer/RTSLayer.js';
+//not GWT import const RTSLayer
+
+import { RTSPlayerLayerInterface } from '../../../../../org/allbinary/game/layer/RTSPlayerLayerInterface.js';
+//not GWT import const RTSPlayerLayerInterface
+
+import { Capital } from '../../../../../org/allbinary/game/layer/capital/Capital.js';
+//not GWT import const Capital
+
+import { LayerInterfaceFactoryImageItem } from '../../../../../org/allbinary/game/layer/item/LayerInterfaceFactoryImageItem.js';
+//not GWT import const LayerInterfaceFactoryImageItem
+
+import { ABCustomItem } from '../../../../../org/allbinary/graphics/form/item/ABCustomItem.js';
+//not GWT import const ABCustomItem
+
+import { BuildingSound } from '../../../../../org/allbinary/media/audio/BuildingSound.js';
+//not GWT import const BuildingSound
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { BooleanFactory } from '../../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
+//not GWT import const BooleanFactory
+
+import { LockedFeatureNotificationUtil } from '../../../../../org/allbinary/logic/system/security/licensing/LockedFeatureNotificationUtil.js';
+//not GWT import const LockedFeatureNotificationUtil
+
+import { LockedUtil } from '../../../../../org/allbinary/logic/system/security/licensing/LockedUtil.js';
+//not GWT import const LockedUtil
+
+import { Group } from '../../../../../org/allbinary/game/identification/Group.js';
+//not GWT import const Group
+
+import { AllBinaryGameLayerManager } from '../../../../../org/allbinary/game/layer/AllBinaryGameLayerManager.js';
+//not GWT import const AllBinaryGameLayerManager
+
+import { GameNotificationEvent } from '../../../../../org/allbinary/game/layer/hud/event/GameNotificationEvent.js';
+//not GWT import const GameNotificationEvent
+
+import { GameNotificationEventHandler } from '../../../../../org/allbinary/game/layer/hud/event/GameNotificationEventHandler.js';
+//not GWT import const GameNotificationEventHandler
+
+import { CollidableDestroyableDamageableLayer } from '../../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.js';
+//not GWT import const CollidableDestroyableDamageableLayer
+
+import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { BasicColorFactory } from '../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
+//not GWT import const AllBinaryLayerManager
+
+import { SmallIntegerSingletonFactory } from '../../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
+//not GWT import const SmallIntegerSingletonFactory
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { ErrorSound } from '../../../../../org/allbinary/media/audio/ErrorSound.js';
+//not GWT import const ErrorSound
+
+import { BasicGeographicMap } from '../../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { GeographicMapCellPosition } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+import { GeographicMapCellType } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellType.js';
+//not GWT import const GeographicMapCellType
+
+import { GeographicMapCompositeInterface } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCompositeInterface.js';
+//not GWT import const GeographicMapCompositeInterface
+
+import { SimpleGeographicMapCellPositionFactory } from '../../../../../org/allbinary/media/graphics/geography/map/SimpleGeographicMapCellPositionFactory.js';
+//not GWT import const SimpleGeographicMapCellPositionFactory
+
+import { DropCellPositionHistory } from '../../../../../org/allbinary/media/graphics/geography/map/drop/DropCellPositionHistory.js';
+//not GWT import const DropCellPositionHistory
+
+import { RaceTrackGeographicMapCellTypeFactory } from '../../../../../org/allbinary/media/graphics/geography/map/racetrack/RaceTrackGeographicMapCellTypeFactory.js';
+//not GWT import const RaceTrackGeographicMapCellTypeFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { RTSFormInput } from './RTSFormInput.js';
+//sameFolderImports - not GWT import - same folder const RTSFormInput
+
+export class BuildingRTSFormInput extends RTSFormInput {
+        
+
+    private isUnitProducer: boolean;
+
+    private readonly buildOnPathGameNotificationEvent: GameNotificationEvent;
+
+    private readonly spotTakenGameNotificationEvent: GameNotificationEvent;
+
+    private readonly selectBuildSpotGameNotificationEvent: GameNotificationEvent;
+
+    private readonly roadCollisionGameNotificationEvent: GameNotificationEvent;
+
+    private readonly noMoneyGameNotificationEvent: GameNotificationEvent;
+
+    private readonly buildingCollisionGameNotificationEvent: GameNotificationEvent;
+
+    private readonly structureToCloseCollisionGameNotificationEvent: GameNotificationEvent;
+
+    private readonly buildingGameNotificationEvent: GameNotificationEvent;
+
+    private readonly mapEdgeGameNotificationEvent: GameNotificationEvent;
+
+    private readonly dropCellPositionHistory: DropCellPositionHistory = DropCellPositionHistory.getInstance()!;
+
+public constructor (groupInterface: Group[], isUnitProducer: boolean){
+            super(groupInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.isUnitProducer= isUnitProducer;
+    
+
+    let smallIntegerSingletonFactory: SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance()!;;
+    
+
+    let basicColorFactory: BasicColorFactory = BasicColorFactory.getInstance()!;;
+    
+this.buildOnPathGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.BUILD_ON_PATH, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.PINK, BooleanFactory.getInstance()!.FALSE);
+    
+this.spotTakenGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.SPOT_TAKEN, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.PINK, BooleanFactory.getInstance()!.FALSE);
+    
+this.selectBuildSpotGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.SELECT_BUILD_SPOT, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.PINK, BooleanFactory.getInstance()!.FALSE);
+    
+this.roadCollisionGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.ROAD_COLLISION, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.PINK, BooleanFactory.getInstance()!.FALSE);
+    
+this.noMoneyGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.NO_MONEY, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.PINK, BooleanFactory.getInstance()!.FALSE);
+    
+this.buildingCollisionGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.BUILDING_COLLISION, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.PINK, BooleanFactory.getInstance()!.FALSE);
+    
+this.structureToCloseCollisionGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.STRUCTURE_TO_CLOSE, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.PINK, BooleanFactory.getInstance()!.FALSE);
+    
+this.buildingGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.BUILDING, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.PINK, BooleanFactory.getInstance()!.FALSE);
+    
+this.mapEdgeGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.MAP_EDGE, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.PINK, BooleanFactory.getInstance()!.FALSE);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setAllBinaryGameLayerManager(allBinaryGameLayerManager: AllBinaryGameLayerManager){
+super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
+    
+
+    let geographicMapCompositeInterface: GeographicMapCompositeInterface = allBinaryGameLayerManager as GeographicMapCompositeInterface;;
+    
+
+    let geographicMapInterface: BasicGeographicMap = geographicMapCompositeInterface!.getGeographicMapInterface()[0]!;;
+    
+this.buildOnPathGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.spotTakenGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.selectBuildSpotGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.roadCollisionGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.noMoneyGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.buildingCollisionGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.structureToCloseCollisionGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.buildingGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.mapEdgeGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processGameSpecific(associatedRtsLayer: CollidableDestroyableDamageableLayer, rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, item: ABCustomItem, itemIndex: number){
+super.process(layerManager);
+    
+this.buildFromMotionInput(rtsPlayerLayerInterface, layerManager, item, itemIndex);
+    
+}
+
+
+    public isPositionBlocked(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.dropCellPositionHistory!.isCellPositionWithDrop(this.getSelectedGeographicCellPosition());;
+    
+}
+
+
+    isDemoLocked(item: ABCustomItem): boolean{
+
+    let factoryItem: LayerInterfaceFactoryImageItem = item as LayerInterfaceFactoryImageItem;;
+    
+
+    let layerInterfaceFactoryInterface: DemoLockedWithCostLayerInterfaceFactoryInterface = factoryItem!.getLayerInterfaceFactoryInterface() as DemoLockedWithCostLayerInterfaceFactoryInterface;;
+    
+
+                        if(LockedUtil.getInstance()!.isLocked() && layerInterfaceFactoryInterface!.isDemoLocked())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public buildFromMotionInput(rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, item: ABCustomItem, itemIndex: number){
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.putF(commonStrings!.START, this, "buildFromMotionInput");
+    
+
+                        if(layerManager == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                            throw new RuntimeException();
+                    
+
+                                    }
+                                
+
+    let geographicMapCompositeInterface: GeographicMapCompositeInterface = layerManager as GeographicMapCompositeInterface;;
+    
+
+    let geographicMapInterface: BasicGeographicMap = geographicMapCompositeInterface!.getGeographicMapInterface()[0]!;;
+    
+
+                        if(this.isDemoLocked(item))
+                        
+                                    {
+                                    rtsPlayerLayerInterface!.add(ErrorSound.getInstance());
+    
+LockedFeatureNotificationUtil.getInstance()!.fireWithColor(geographicMapInterface!.getForegroundBasicColor());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+
+    let geographicMapCellPosition: GeographicMapCellPosition = this.getSelectedGeographicCellPosition()!;;
+    
+
+                        if(geographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
+                        
+                                    {
+                                    
+                        if(!this.isPositionBlocked())
+                        
+                                    {
+                                    
+    let geographicMapCellType: GeographicMapCellType = geographicMapInterface!.getCellTypeAt(geographicMapCellPosition)!;;
+    
+
+    let raceTrackGeographicMapCellTypeFactory: RaceTrackGeographicMapCellTypeFactory = geographicMapInterface!.getGeographicMapCellTypeFactory() as RaceTrackGeographicMapCellTypeFactory;;
+    
+
+                        if(!raceTrackGeographicMapCellTypeFactory!.isPath(geographicMapCellType))
+                        
+                                    {
+                                    
+                        if(this.newUnconstructedRTSLayerInterfaceArray[itemIndex] == CollidableDestroyableDamageableLayer.getNullInstance())
+                        
+                                    {
+                                    this.newUnconstructedRTSLayerInterfaceArray[itemIndex]= this.getInstance(layerManager, item, geographicMapCellPosition);
+    
+
+                                    }
+                                
+                        else {
+                            
+    let rtsLayer: RTSLayer = this.newUnconstructedRTSLayerInterfaceArray[itemIndex]! as RTSLayer;;
+    
+
+    let cellPoint: GPoint = geographicMapCellPosition!.getPoint()!;;
+    
+rtsLayer!.setPosition(cellPoint!.getX(), cellPoint!.getY(), cellPoint!.getZ());
+    
+rtsLayer!.geographicMapCellPositionAreaBase!.update(geographicMapInterface);
+    
+
+                        }
+                            
+
+    let rtsLayer: RTSLayer = this.newUnconstructedRTSLayerInterfaceArray[itemIndex]! as RTSLayer;;
+    
+this.attemptBuild(rtsPlayerLayerInterface, layerManager, rtsLayer, itemIndex);
+    
+
+                                    }
+                                
+                        else {
+                            rtsPlayerLayerInterface!.add(ErrorSound.getInstance());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.buildOnPathGameNotificationEvent);
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+                                    }
+                                
+                        else {
+                            rtsPlayerLayerInterface!.add(ErrorSound.getInstance());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.spotTakenGameNotificationEvent);
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+                                    }
+                                
+                        else {
+                            rtsPlayerLayerInterface!.add(ErrorSound.getInstance());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.selectBuildSpotGameNotificationEvent);
+    
+
+                                    }
+                                
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    attemptBuild(rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, layerInterface: RTSLayer, itemIndex: number): boolean{
+this.logUtil!.putF(new StringMaker().append("Layer: ")!.append(StringUtil.getInstance()!.toString(layerInterface))!.toString(), this, "attemptBuild");
+    
+
+    let geographicMapCellPositionArea: GeographicMapCellPositionAreaBase = layerInterface!.geographicMapCellPositionAreaBase;;
+    
+
+    let occupyList: BasicArrayList = geographicMapCellPositionArea!.getOccupyingGeographicMapCellPositionList()!;;
+    
+
+                        if(!this.isBuildAttemptValid(rtsPlayerLayerInterface, layerInterface))
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let geographicMapCellType: GeographicMapCellType;;
+    
+
+
+
+
+                        for (
+    let index: number = occupyList!.size() -1;index >= 0; index--)
+        {
+
+    let geographicMapCompositeInterface: GeographicMapCompositeInterface = layerManager as GeographicMapCompositeInterface;;
+    
+
+    let geographicMapInterface: BasicGeographicMap = geographicMapCompositeInterface!.getGeographicMapInterface()[0]!;;
+    
+geographicMapCellType= geographicMapInterface!.getCellTypeAt(occupyList!.get(index) as GeographicMapCellPosition);
+    
+
+    let raceTrackGeographicMapCellTypeFactory: RaceTrackGeographicMapCellTypeFactory = geographicMapInterface!.getGeographicMapCellTypeFactory() as RaceTrackGeographicMapCellTypeFactory;;
+    
+
+                        if(raceTrackGeographicMapCellTypeFactory!.isPath(geographicMapCellType))
+                        
+                                    {
+                                    rtsPlayerLayerInterface!.add(ErrorSound.getInstance());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.roadCollisionGameNotificationEvent);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+}
+
+
+    let cost: number = layerInterface!.getCost()!;;
+    
+
+    let capital: Capital = rtsPlayerLayerInterface!.getCapital()!;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Trying to Build: ");
+    
+stringBuffer!.append(layerInterface!.getName());
+    
+stringBuffer!.append(" for: $");
+    
+stringBuffer!.appendint(cost);
+    
+stringBuffer!.append(" with ");
+    
+stringBuffer!.appendint(capital.getTotalMoney());
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, "attemptBuild");
+    
+
+                        if(cost <= capital.getTotalMoney())
+                        
+                                    {
+                                    layerInterface!.construct(rtsPlayerLayerInterface);
+    
+this.newUnconstructedRTSLayerInterfaceArray[itemIndex]= CollidableDestroyableDamageableLayer.getNullInstance();
+    
+capital.removeMoney(cost);
+    
+this.add(rtsPlayerLayerInterface, layerManager, layerInterface);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            rtsPlayerLayerInterface!.add(ErrorSound.getInstance());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.noMoneyGameNotificationEvent);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    isBuildAttemptValid(rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerInterface: RTSLayer): boolean{
+
+    let geographicMapCellPositionArea: GeographicMapCellPositionAreaBase = layerInterface!.geographicMapCellPositionAreaBase;;
+    
+
+    let occupyList: BasicArrayList = geographicMapCellPositionArea!.getOccupyingGeographicMapCellPositionList()!;;
+    
+
+                        if(this.dropCellPositionHistory!.anyCellPositionWithDrop(occupyList))
+                        
+                                    {
+                                    rtsPlayerLayerInterface!.add(ErrorSound.getInstance());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.buildingCollisionGameNotificationEvent);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                        if(this.isUnitProducer && this.dropCellPositionHistory!.anyCellPositionWithDrop(geographicMapCellPositionArea!.getSurroundingGeographicMapCellPositionList()))
+                        
+                                    {
+                                    rtsPlayerLayerInterface!.add(ErrorSound.getInstance());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.structureToCloseCollisionGameNotificationEvent);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+                        else {
+                            
+                        if(this.isSurroundingCellsOffMap(layerInterface))
+                        
+                                    {
+                                    rtsPlayerLayerInterface!.add(ErrorSound.getInstance());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.mapEdgeGameNotificationEvent);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    add(rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, layerInterface: RTSLayer){
+
+    let geographicMapCellPositionArea: GeographicMapCellPositionAreaBase = layerInterface!.geographicMapCellPositionAreaBase;;
+    
+
+    let occupyList: BasicArrayList = geographicMapCellPositionArea!.getOccupyingGeographicMapCellPositionList()!;;
+    
+this.dropCellPositionHistory!.addAll(occupyList, layerInterface);
+    
+
+    let rtsPlayerGameInput: RTSPlayerGameInput = rtsPlayerLayerInterface!.getPlayerGameInput() as RTSPlayerGameInput;;
+    
+rtsPlayerGameInput!.setSelectedRTSLayer(layerInterface, this.getSelectedGeographicCellPosition());
+    
+layerManager!.append(layerInterface);
+    
+rtsPlayerLayerInterface!.add(BuildingSound.getInstance());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.buildingGameNotificationEvent);
+    
+
+                                    }
+                                
+}
+
+
+    isSurroundingCellsOffMap(layerInterface: RTSLayer): boolean{
+
+    let geographicMapCellPositionArea: GeographicMapCellPositionAreaBase = layerInterface!.geographicMapCellPositionAreaBase;;
+    
+
+    let occupyList: BasicArrayList = geographicMapCellPositionArea!.getOccupyingGeographicMapCellPositionList()!;;
+    
+
+    let surroundList: BasicArrayList = geographicMapCellPositionArea!.getSurroundingGeographicMapCellPositionList()!;;
+    
+
+    let occupySize: number = occupyList!.size()!;;
+    
+
+    let surroundSize: number = surroundList!.size()!;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("occupySize: ");
+    
+stringBuffer!.appendint(occupySize);
+    
+stringBuffer!.append(" surroundSize: ");
+    
+stringBuffer!.appendint(surroundSize);
+    
+stringBuffer!.append(" surroundList: ");
+    
+stringBuffer!.append(StringUtil.getInstance()!.toString(surroundList));
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, "isSurroundingCellsOffMap");
+    
+
+    let isSurroundOffMap: boolean = false;;
+    
+
+                        if(occupySize == 1 && surroundSize != 8)
+                        
+                                    {
+                                    isSurroundOffMap= true;
+    
+
+                                    }
+                                
+                             else 
+                        if(occupySize == 4 && surroundSize != 12)
+                        
+                                    {
+                                    isSurroundOffMap= true;
+    
+
+                                    }
+                                
+
+                        if(occupySize == 0 || isSurroundOffMap)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+}
+

@@ -1,0 +1,344 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2006 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { PlayerOwnedRTSLayers } from './PlayerOwnedRTSLayers.js';
+//sameFolderImports - not GWT import - same folder const PlayerOwnedRTSLayers
+import { RTSLayer } from './RTSLayer.js';
+//sameFolderImports - not GWT import - same folder const RTSLayer
+import { AllBinaryGameLayer } from './AllBinaryGameLayer.js';
+//sameFolderImports - not GWT import - same folder const AllBinaryGameLayer
+
+export class AdvancedPlayerOwnedRTSLayers extends PlayerOwnedRTSLayers {
+        
+
+    private readonly unitsList: BasicArrayList = new BasicArrayListD();
+
+    private readonly waypointsList: BasicArrayList = new BasicArrayListD();
+
+    private readonly buildingList: BasicArrayList = new BasicArrayListD();
+
+    private readonly baseList: BasicArrayList = new BasicArrayListD();
+
+    private readonly garrisonList: BasicArrayList = new BasicArrayListD();
+
+    private readonly houseList: BasicArrayList = new BasicArrayListD();
+
+    private readonly labList: BasicArrayList = new BasicArrayListD();
+
+    private readonly factoryList: BasicArrayList = new BasicArrayListD();
+
+    public addUnit(rtsLayer: RTSLayer){
+this.unitsList!.add(rtsLayer);
+    
+this.rtsLayerList!.add(rtsLayer);
+    
+}
+
+
+    public addWaypoint(rtsLayer: RTSLayer){
+this.waypointsList!.add(rtsLayer);
+    
+this.rtsLayerList!.add(rtsLayer);
+    
+}
+
+
+    public addBase(rtsLayer: RTSLayer){
+this.baseList!.add(rtsLayer);
+    
+this.buildingList!.add(rtsLayer);
+    
+this.rtsLayerList!.add(rtsLayer);
+    
+}
+
+
+    public addGarrison(rtsLayer: RTSLayer){
+this.garrisonList!.add(rtsLayer);
+    
+this.buildingList!.add(rtsLayer);
+    
+this.rtsLayerList!.add(rtsLayer);
+    
+}
+
+
+    public addHouse(rtsLayer: RTSLayer){
+this.houseList!.add(rtsLayer);
+    
+this.buildingList!.add(rtsLayer);
+    
+this.rtsLayerList!.add(rtsLayer);
+    
+}
+
+
+    public addLab(rtsLayer: RTSLayer){
+this.labList!.add(rtsLayer);
+    
+this.buildingList!.add(rtsLayer);
+    
+this.rtsLayerList!.add(rtsLayer);
+    
+}
+
+
+    public addFactory(rtsLayer: RTSLayer){
+this.factoryList!.add(rtsLayer);
+    
+this.buildingList!.add(rtsLayer);
+    
+this.rtsLayerList!.add(rtsLayer);
+    
+}
+
+
+    public removeUnit(gameLayer: AllBinaryGameLayer){
+this.unitsList!.remove(gameLayer);
+    
+this.rtsLayerList!.remove(gameLayer);
+    
+}
+
+
+    public removeWaypoint(gameLayer: AllBinaryGameLayer){
+this.waypointsList!.remove(gameLayer);
+    
+this.rtsLayerList!.remove(gameLayer);
+    
+}
+
+
+    public getUnitsList(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.unitsList;
+    
+}
+
+
+    public getWaypointsList(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.waypointsList;
+    
+}
+
+
+    public getBaseList(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.baseList;
+    
+}
+
+
+    public getGarrisonList(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.garrisonList;
+    
+}
+
+
+    public getHouseList(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.houseList;
+    
+}
+
+
+    public getLabList(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.labList;
+    
+}
+
+
+    public getFactoryList(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.factoryList;
+    
+}
+
+
+    public getTotalBuildings(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.baseList!.size() +this.garrisonList!.size() +this.houseList!.size() +this.labList!.size() +this.factoryList!.size();
+    
+}
+
+
+    public removeBuilding(layerInterface: AllBinaryGameLayer){
+this.buildingList!.add(layerInterface);
+    
+
+                        if(this.getBaseList()!.remove(layerInterface))
+                        
+                                    {
+                                    this.rtsLayerList!.remove(layerInterface);
+    
+
+                                    }
+                                
+                             else 
+                        if(this.getFactoryList()!.remove(layerInterface))
+                        
+                                    {
+                                    this.rtsLayerList!.remove(layerInterface);
+    
+
+                                    }
+                                
+                             else 
+                        if(this.getGarrisonList()!.remove(layerInterface))
+                        
+                                    {
+                                    this.rtsLayerList!.remove(layerInterface);
+    
+
+                                    }
+                                
+                             else 
+                        if(this.getLabList()!.remove(layerInterface))
+                        
+                                    {
+                                    this.rtsLayerList!.remove(layerInterface);
+    
+
+                                    }
+                                
+                             else 
+                        if(this.getHouseList()!.remove(layerInterface))
+                        
+                                    {
+                                    this.rtsLayerList!.remove(layerInterface);
+    
+
+                                    }
+                                
+}
+
+
+    public toString(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(super.toString());
+    
+stringBuffer!.append(" Bases: ");
+    
+stringBuffer!.appendint(this.getBaseList()!.size());
+    
+stringBuffer!.append(" Factory: ");
+    
+stringBuffer!.appendint(this.getFactoryList()!.size());
+    
+stringBuffer!.append(" Garrison: ");
+    
+stringBuffer!.appendint(this.getGarrisonList()!.size());
+    
+stringBuffer!.append(" Labs: ");
+    
+stringBuffer!.appendint(this.getLabList()!.size());
+    
+stringBuffer!.append(" Houses: ");
+    
+stringBuffer!.appendint(this.getHouseList()!.size());
+    
+stringBuffer!.append(" Waypoints: ");
+    
+stringBuffer!.appendint(this.getWaypointsList()!.size());
+    
+stringBuffer!.append(" Units: ");
+    
+stringBuffer!.appendint(this.getUnitsList()!.size());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+    public getBuildingList(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.buildingList;
+    
+}
+
+
+}
+

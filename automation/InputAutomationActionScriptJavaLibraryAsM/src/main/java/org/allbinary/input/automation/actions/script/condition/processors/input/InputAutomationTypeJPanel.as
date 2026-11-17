@@ -1,0 +1,107 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            const Short = (globalThis.java?.lang?.Short ?? class {}) as typeof globalThis.java.lang.Short;
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JPanel } from './JPanel.js';
+//sameFolderImports - not GWT import - same folder const JPanel
+import { JComboBox } from './JComboBox.js';
+//sameFolderImports - not GWT import - same folder const JComboBox
+import { JLabel } from './JLabel.js';
+//sameFolderImports - not GWT import - same folder const JLabel
+import { DefaultComboBoxModel } from './DefaultComboBoxModel.js';
+//sameFolderImports - not GWT import - same folder const DefaultComboBoxModel
+import { GroupLayout } from './GroupLayout.js';
+//sameFolderImports - not GWT import - same folder const GroupLayout
+
+export class InputAutomationTypeJPanel extends javax.swing.JPanel {
+        
+
+public constructor (){
+
+            super();
+        this.initComponents();
+    
+}
+
+
+    public getInputAutomationTypeJComboBox(): javax.swing.JComboBox{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.inputAutomationTypeJComboBox;
+    
+}
+
+
+    public setInputAutomationTypeJComboBox(inputAutomationTypeJComboBox: javax.swing.JComboBox){
+this.inputAutomationTypeJComboBox= inputAutomationTypeJComboBox;
+    
+}
+
+
+    initComponents(){
+this.inputAutomationTypeJComboBox= new javax.swing.JComboBox();
+    
+this.jLabel1= new javax.swing.JLabel();
+    
+this.inputAutomationTypeJComboBox!.setModel(new javax.swing.DefaultComboBoxModel([
+"DirectX","DirectX 8","Low Level","Java Robot"
+                                                ]));
+    
+this.jLabel1!.setText("Input Type:");
+    
+
+    let layout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this);;
+    
+this.setLayout(layout);
+    
+layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addComponent(this.jLabel1)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.inputAutomationTypeJComboBox, 0, 98, Short.MAX_VALUE)));
+    
+layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.jLabel1)!.addComponent(this.inputAutomationTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)));
+    
+}
+
+
+    private inputAutomationTypeJComboBox: javax.swing.JComboBox;
+
+    private jLabel1: javax.swing.JLabel;
+
+}
+

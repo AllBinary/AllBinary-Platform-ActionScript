@@ -1,0 +1,149 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+import { CompleteMotionGestureInputEvent } from '../../../../../org/allbinary/game/input/CompleteMotionGestureInputEvent.js';
+//not GWT import const CompleteMotionGestureInputEvent
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class MotionGestureToMotionGestureActionAssociation
+            extends Object
+         {
+        
+
+    private list: BasicArrayList;
+
+    private motionGestureAction: CompleteMotionGestureInputEvent;
+
+public constructor (list: BasicArrayList, commandAction: CompleteMotionGestureInputEvent){
+
+            super();
+        this.list= list;
+    
+this.motionGestureAction= commandAction;
+    
+}
+
+
+    public getMotionGesture(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.list;
+    
+}
+
+
+    public setMotionGestures(list: BasicArrayList){
+this.list= list;
+    
+}
+
+
+    public getCommandAction(): CompleteMotionGestureInputEvent{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.motionGestureAction;
+    
+}
+
+
+    public setMotionGestureAction(commandAction: CompleteMotionGestureInputEvent){
+this.motionGestureAction= commandAction;
+    
+}
+
+
+    public isMotionGestureArrayEquals(aList: BasicArrayList): boolean{
+
+    let size: number = aList!.size()!;;
+    
+
+                        if(this.list.size() != size)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+
+
+
+                        for (
+    let i: number = size -1;i >= 0; i--)
+        {
+
+                        if(aList!.objectArray[i] != this.list.objectArray[i])
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+}
+

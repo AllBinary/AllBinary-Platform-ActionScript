@@ -1,0 +1,117 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { HashMap } from '../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { PageContext } from '../../javax/servlet/jsp/PageContext.js';
+//not GWT import const PageContext
+
+import { UserEmailEventNameData } from '../../org/allbinary/logic/communication/smtp/event/UserEmailEventNameData.js';
+//not GWT import const UserEmailEventNameData
+
+import { UserEmailEventHandler } from '../../org/allbinary/logic/communication/smtp/event/handler/UserEmailEventHandler.js';
+//not GWT import const UserEmailEventHandler
+
+import { AdminUserEmailEventHandlerSingletons } from '../../org/allbinary/logic/communication/smtp/event/handler/factory/AdminUserEmailEventHandlerSingletons.js';
+//not GWT import const AdminUserEmailEventHandlerSingletons
+
+import { AdminEmailInfo } from '../../org/allbinary/logic/communication/smtp/info/AdminEmailInfo.js';
+//not GWT import const AdminEmailInfo
+
+import { BasicEmailInfo } from '../../org/allbinary/logic/communication/smtp/info/BasicEmailInfo.js';
+//not GWT import const BasicEmailInfo
+
+import { EmailInfo } from '../../org/allbinary/logic/communication/smtp/info/EmailInfo.js';
+//not GWT import const EmailInfo
+
+import { AbeClientInformationInterface } from '../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
+//not GWT import const AbeClientInformationInterface
+
+import { ServiceClientInformationInterfaceFactory } from '../../org/allbinary/logic/system/security/licensing/ServiceClientInformationInterfaceFactory.js';
+//not GWT import const ServiceClientInformationInterfaceFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TagHelper } from './TagHelper.js';
+//sameFolderImports - not GWT import - same folder const TagHelper
+
+export class BasicTextEmailHelper extends TagHelper {
+        
+
+    private readonly abeClientInformation: AbeClientInformationInterface = ServiceClientInformationInterfaceFactory.getInstance()!;
+
+    private hashMap: HashMap<any, any>;
+
+    private pageContext: PageContext;
+
+public constructor (hashMap: HashMap<any, any>, pageContext: PageContext){
+
+            super();
+        this.pageContext= pageContext;
+    
+this.hashMap= hashMap;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public send(){
+
+    let adminEmailSubject: string = this.hashMap!.get("Subject") as string;;
+    
+
+    let adminEmailTextBody: string = this.hashMap!.get("Body") as string;;
+    
+
+    let adminBasicEmailInfo: BasicEmailInfo = new AdminEmailInfo(adminEmailSubject, adminEmailTextBody) as BasicEmailInfo;;
+    
+
+    let adminEmailInfo: EmailInfo = new EmailInfo(adminBasicEmailInfo);;
+    
+
+    let adminUserEmailEventHandler: UserEmailEventHandler = AdminUserEmailEventHandlerSingletons.getInstance()!.getInstance(this.abeClientInformation, UserEmailEventNameData.INSTALLER)!;;
+    
+adminUserEmailEventHandler!.receiveEmailInfo(UserEmailEventNameData.INSTALLER, adminEmailInfo);
+    
+}
+
+
+}
+

@@ -1,0 +1,127 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { ArtificialIntelligenceInterface } from '../../../../../org/allbinary/ai/ArtificialIntelligenceInterface.js';
+//not GWT import const ArtificialIntelligenceInterface
+
+import { TopULayerBounds } from '../../../../../org/allbinary/bounds/TopULayerBounds.js';
+//not GWT import const TopULayerBounds
+
+import { ArtificialIntelligenceInterfaceFactoryInterface } from '../../../../../org/allbinary/game/ai/ArtificialIntelligenceInterfaceFactoryInterface.js';
+//not GWT import const ArtificialIntelligenceInterfaceFactoryInterface
+
+import { GameInput } from '../../../../../org/allbinary/game/input/GameInput.js';
+//not GWT import const GameInput
+
+import { VelocityInterface } from '../../../../../org/allbinary/game/physics/velocity/VelocityInterface.js';
+//not GWT import const VelocityInterface
+
+import { VelocityInterfaceCompositeInterface } from '../../../../../org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.js';
+//not GWT import const VelocityInterfaceCompositeInterface
+
+import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { PointFactory } from '../../../../../org/allbinary/graphics/PointFactory.js';
+//not GWT import const PointFactory
+
+import { Rectangle } from '../../../../../org/allbinary/graphics/Rectangle.js';
+//not GWT import const Rectangle
+
+import { DisplayInfoSingleton } from '../../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
+//not GWT import const DisplayInfoSingleton
+
+import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BoundBounceAI } from './BoundBounceAI.js';
+//sameFolderImports - not GWT import - same folder const BoundBounceAI
+import { ReverseVelocityBoundsVisitor } from './ReverseVelocityBoundsVisitor.js';
+//sameFolderImports - not GWT import - same folder const ReverseVelocityBoundsVisitor
+
+export class TopUBoundBounceAIFactory
+            extends Object
+         implements ArtificialIntelligenceInterfaceFactoryInterface {
+        
+
+                //@Throws(Exception.constructor)
+            
+    public getInstance(hashtable: ABHashtable<any, any>, ownerLayerInterface: AllBinaryLayer, gameInput: GameInput): ArtificialIntelligenceInterface{
+
+    let velocityInterfaceCompositeInterface: VelocityInterfaceCompositeInterface = ownerLayerInterface as VelocityInterfaceCompositeInterface;;
+    
+
+    let velocityInterface: VelocityInterface = velocityInterfaceCompositeInterface!.getVelocityProperties() as VelocityInterface;;
+    
+
+    let maxDistancePerTick: number = (velocityInterface!.getMaxForwardVelocity()>>velocityInterface!.getVelocityXBasicDecimalP()!.getScaledFactor());;
+    
+
+    let halfWidth: number = ownerLayerInterface!.getWidth() *2 +maxDistancePerTick +1;;
+    
+
+    let halfHeight: number = ownerLayerInterface!.getHeight() *2 +maxDistancePerTick +1;;
+    
+
+    let point: GPoint = PointFactory.getInstance()!.createXY(halfWidth, halfHeight +60)!;;
+    
+
+    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
+    
+
+    let rectangle: Rectangle = new Rectangle(point, (displayInfo!.getLastWidth() -halfWidth -point.getX()), (displayInfo!.getLastHeight() -halfHeight -point.getY()));;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new BoundBounceAI(ownerLayerInterface, gameInput, new TopULayerBounds(rectangle), new ReverseVelocityBoundsVisitor(ownerLayerInterface));
+    
+}
+
+
+}
+

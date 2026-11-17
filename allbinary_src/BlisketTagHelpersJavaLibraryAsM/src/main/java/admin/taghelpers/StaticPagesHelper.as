@@ -1,0 +1,285 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { HashMap } from '../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { PageContext } from '../../javax/servlet/jsp/PageContext.js';
+//not GWT import const PageContext
+
+import { Portion } from '../../org/allbinary/business/installer/Portion.js';
+//not GWT import const Portion
+
+import { StaticPagesEntityFactory } from '../../org/allbinary/data/tables/staticpages/StaticPagesEntityFactory.js';
+//not GWT import const StaticPagesEntityFactory
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AbSqlTableUtil } from '../../org/allbinary/logic/communication/sql/AbSqlTableUtil.js';
+//not GWT import const AbSqlTableUtil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicTable } from './BasicTable.js';
+//sameFolderImports - not GWT import - same folder const BasicTable
+
+export class StaticPagesHelper extends BasicTable {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly portion: Portion;
+
+public constructor (hashMap: HashMap<any, any>, pageContext: PageContext){
+
+            super();
+        this.portion= new Portion(hashMap);
+    
+}
+
+
+    public drop(): string{
+
+ try { 
+    let success: string = StaticPagesEntityFactory.getInstance()!.getStaticPagesEntityInstance()!.dropTable()!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, this.commonStrings!.DROP);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to drop staticpages table";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.DROP, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public create(): string{
+
+ try { 
+    let success: string = StaticPagesEntityFactory.getInstance()!.getStaticPagesEntityInstance()!.createTable()!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "create()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to create new staticpage table";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "create()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public restore(): string{
+
+ try { 
+    let success: string = "Restore Successful";;
+    
+
+    let result: string = AbSqlTableUtil.getInstance()!.restoreTable(StaticPagesEntityFactory.getInstance()!.getStaticPagesEntityInstance(), this.portion)!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "restore()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to restore backup";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "restore()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public backup(): string{
+
+ try { 
+    let success: string = "Restore Successful";;
+    
+
+    let result: string = AbSqlTableUtil.getInstance()!.backupTable(StaticPagesEntityFactory.getInstance()!.getStaticPagesEntityInstance())!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "backup()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to make backup";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "backup()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

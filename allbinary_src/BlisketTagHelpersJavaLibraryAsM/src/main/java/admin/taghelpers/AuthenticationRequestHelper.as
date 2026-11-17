@@ -1,0 +1,586 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { HashMap } from '../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { HttpServletRequest } from '../../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { PageContext } from '../../javax/servlet/jsp/PageContext.js';
+//not GWT import const PageContext
+
+import { UserData } from '../../org/allbinary/business/user/UserData.js';
+//not GWT import const UserData
+
+import { UserInterface } from '../../org/allbinary/business/user/UserInterface.js';
+//not GWT import const UserInterface
+
+import { Password } from '../../org/allbinary/business/user/password/Password.js';
+//not GWT import const Password
+
+import { BasicUserRole } from '../../org/allbinary/business/user/role/BasicUserRole.js';
+//not GWT import const BasicUserRole
+
+import { UserEntityFactory } from '../../org/allbinary/data/tables/user/UserEntityFactory.js';
+//not GWT import const UserEntityFactory
+
+import { UserEntityInterface } from '../../org/allbinary/data/tables/user/UserEntityInterface.js';
+//not GWT import const UserEntityInterface
+
+import { GLOBALS2 } from '../../org/allbinary/globals/GLOBALS2.js';
+//not GWT import const GLOBALS2
+
+import { WeblisketSession } from '../../org/allbinary/logic/communication/http/request/session/WeblisketSession.js';
+//not GWT import const WeblisketSession
+
+import { WeblisketSessionData } from '../../org/allbinary/logic/communication/http/request/session/WeblisketSessionData.js';
+//not GWT import const WeblisketSessionData
+
+import { WeblisketSessionInterface } from '../../org/allbinary/logic/communication/http/request/session/WeblisketSessionInterface.js';
+//not GWT import const WeblisketSessionInterface
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { NewPasswordEmail } from '../../org/allbinary/logic/communication/smtp/email/NewPasswordEmail.js';
+//not GWT import const NewPasswordEmail
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { AbeClientInformationInterface } from '../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
+//not GWT import const AbeClientInformationInterface
+
+import { ServiceClientInformationInterfaceFactory } from '../../org/allbinary/logic/system/security/licensing/ServiceClientInformationInterfaceFactory.js';
+//not GWT import const ServiceClientInformationInterfaceFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TagHelper } from './TagHelper.js';
+//sameFolderImports - not GWT import - same folder const TagHelper
+
+export class AuthenticationRequestHelper extends TagHelper {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly abeClientInformation: AbeClientInformationInterface = ServiceClientInformationInterfaceFactory.getInstance()!;
+
+    private weblisketSession: WeblisketSession;
+
+    private request: HttpServletRequest;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 2 && args[0] instanceof HashMap && args[1] instanceof PageContext) {
+            
+            this.constructor$0(args[0], args[1]);
+            
+        }
+        else if(args.length === 2) {
+            
+            this.constructor$1(args[0], args[1]);
+            
+        }
+        
+    }
+    
+    private constructor$0(hashMap: HashMap<any, any>, pageContext: PageContext): void {
+        this.weblisketSession= new WeblisketSession(hashMap, pageContext);
+    
+this.request= pageContext!.getRequest() as HttpServletRequest;
+    
+
+    }
+    
+    private constructor$1(hashMap: HashMap<any, any>, httpServletRequest: HttpServletRequest): void {
+        this.weblisketSession= new WeblisketSession(hashMap, httpServletRequest);
+    
+this.request= httpServletRequest;
+    
+
+    }
+    
+                //@Throws(Exception.constructor)
+            
+    generateNewPassword(): string{
+
+                        if(this.weblisketSession != 
+                                    null
+                                 && this.weblisketSession!.getId() != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let startIndex: number = this.weblisketSession!.getId()!.length()!;;
+    
+
+                        if(startIndex >= 8)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.weblisketSession!.getId()!.substring(startIndex -8);;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("Error Generating New Password");
+                    
+
+                        }
+                            
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("No Session Available For Generating New Password");
+                    
+
+                        }
+                            
+}
+
+
+    public newPassword(): Boolean{
+
+ try { 
+    let userName: string = this.request.getParameter(WeblisketSessionData.REMOVABLEUSERNAME)!;;
+    
+
+    let email: string = this.request.getParameter(UserData.MAINEMAIL)!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPER))
+                        
+                                    {
+                                    this.logUtil!.putF("Generating New Password For: " +userName, this, "newPassword()");
+    
+
+                                    }
+                                
+
+    let userEntityInterface: UserEntityInterface = UserEntityFactory.getInstance()!;;
+    
+
+    let userInterface: UserInterface = userEntityInterface!.getUser(userName)!;;
+    
+
+                        if(userInterface!.getMainEmail()!.compareTo(email) != 0)
+                        
+                                    {
+                                    
+                        if(userInterface!.getSecondaryEmail() != 
+                                    null
+                                 && userInterface!.getSecondaryEmail()!.compareTo(email) != 0)
+                        
+                                    {
+                                    
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPER))
+                        
+                                    {
+                                    this.logUtil!.putF("Requested Email Is Not In User Profile", this, "newPassword()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                                    }
+                                
+
+    let newPassword: string = this.generateNewPassword()!;;
+    
+userInterface!.setPassword(newPassword);
+    
+
+    let newPasswordHashMap: HashMap<any, any> = userInterface!.toPasswordHashMap()!;;
+    
+UserEntityFactory.getInstance()!.update(userName, newPasswordHashMap);
+    
+new NewPasswordEmail(this.abeClientInformation, userInterface, newPassword).process();
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPER))
+                        
+                                    {
+                                    this.logUtil!.putF("Generated New Password For: " +userName, this, "newPassword()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPERERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "newPassword()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    public changePassword(): Boolean{
+
+ try { 
+    let userName: string = this.request.getParameter(WeblisketSessionData.REMOVABLEUSERNAME)!;;
+    
+
+    let passwordString: string = this.request.getParameter(WeblisketSessionData.REMOVABLEPASSWORD)!;;
+    
+
+    let newPassword: string = this.request.getParameter(WeblisketSessionData.REMOVABLENEWPASSWORD)!;;
+    
+
+    let newReenteredPassword: string = this.request.getParameter(WeblisketSessionData.REMOVABLEREENTERNEWPASSWORD)!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPER))
+                        
+                                    {
+                                    this.logUtil!.putF("Changing Password For User: " +userName, this, "changePassword()");
+    
+
+                                    }
+                                
+
+    let password: Password = new Password(newPassword);;
+    
+
+                        if(!password.isValid().valueOf())
+                        
+                                    {
+                                    
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPER))
+                        
+                                    {
+                                    this.logUtil!.putF("New Password Is Not Valid", this, "changePassword()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                        if(newPassword!.compareTo(newReenteredPassword) != 0)
+                        
+                                    {
+                                    
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPER))
+                        
+                                    {
+                                    this.logUtil!.putF("New Password Fields Do Not Match", this, "changePassword()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let sessionPassword: string = this.weblisketSession!.getPassword()!;;
+    
+
+    let userEntityInterface: UserEntityInterface = UserEntityFactory.getInstance()!;;
+    
+
+    let userInterface: UserInterface = userEntityInterface!.getUser(userName)!;;
+    
+
+    let login: string = userEntityInterface!.login(userName, passwordString)!;;
+    
+
+                        if(login.compareTo(GLOBALS2.LOGINSUCCESS) == 0)
+                        
+                                    {
+                                    
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPER))
+                        
+                                    {
+                                    this.logUtil!.putF("Authentication Successful", this, "changePassword()");
+    
+
+                                    }
+                                
+
+    let newPasswordHashMap: HashMap<any, any> = password.toHashMap(
+                            null)!;;
+    
+UserEntityFactory.getInstance()!.update(userName, newPasswordHashMap);
+    
+new NewPasswordEmail(this.abeClientInformation, userInterface, newPassword).process();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPER))
+                        
+                                    {
+                                    this.logUtil!.putF("Authentication Failed", this, "changePassword()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPERERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Authentication Failed", this, "changePassword()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    public isRoleValid(userName: string, password: string, roles: BasicArrayList): Boolean{
+
+ try { 
+    let userEntityInterface: UserEntityInterface = UserEntityFactory.getInstance()!;;
+    
+
+    let userInterface: UserInterface = userEntityInterface!.getUser(userName)!;;
+    
+
+                        if(userInterface!.getRole() == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPER))
+                        
+                                    {
+                                    this.logUtil!.putF("Role is null: " +userInterface!.getRole() +" Valid Roles: " +roles.toString(), this, "isRoleValid()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let basicUserRoleArray: any[] = roles.toArray()!;;
+    
+
+    let size: number = basicUserRoleArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let nextRole: BasicUserRole = basicUserRoleArray[index]! as BasicUserRole;;
+    
+
+                        if((userInterface!.getRole()!.getBasicUserRole() === nextRole))
+                        
+                                    {
+                                    userInterface!.validateSession(this.weblisketSession as WeblisketSessionInterface);
+    
+this.request.removeAttribute(WeblisketSessionData.REMOVABLEUSERNAME);
+    
+this.request.removeAttribute(WeblisketSessionData.REMOVABLEPASSWORD);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+}
+
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPER))
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Role is not valid: ");
+    
+stringBuffer!.append(userInterface!.getRole()!.toString());
+    
+stringBuffer!.append(" Valid Roles: ");
+    
+stringBuffer!.append(roles.toString());
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, "isRoleValid()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPERERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "isRoleValid()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

@@ -1,0 +1,88 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GeographicMapCellType } from './GeographicMapCellType.js';
+//sameFolderImports - not GWT import - same folder const GeographicMapCellType
+import { BasicGeographicMap } from './BasicGeographicMap.js';
+//sameFolderImports - not GWT import - same folder const BasicGeographicMap
+import { GeographicMapCellPosition } from './GeographicMapCellPosition.js';
+//sameFolderImports - not GWT import - same folder const GeographicMapCellPosition
+
+export class MultiGeographicMapBehavior
+            extends Object
+         {
+        
+
+                //@Throws(Exception.constructor)
+            
+    public getCellTypeAt(geographicMapInterfaceArray: BasicGeographicMap[], geographicMapCellTypeArray: GeographicMapCellType[], geographicMapCellPosition: GeographicMapCellPosition): GeographicMapCellType[]{
+
+    let size: number = geographicMapInterfaceArray!.length
+                ;;
+    
+
+    let cellType: GeographicMapCellType = GeographicMapCellType.NULL_GEOGRAPHIC_MAP_CELL_TYPE;;
+    
+
+
+
+
+                        for (
+    let index: number = size;--index >= 0; )
+        {
+cellType= geographicMapInterfaceArray[index]!.getCellTypeAt(geographicMapCellPosition);
+    
+geographicMapCellTypeArray[index]= cellType;
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return geographicMapCellTypeArray;
+    
+}
+
+
+}
+

@@ -1,0 +1,160 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+import { GPoint } from '../../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { TsUtil } from '../../../../../../org/allbinary/TsUtil.js';
+//not GWT import const TsUtil
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { CacheableInterface } from '../../../../../../org/allbinary/logic/util/cache/CacheableInterface.js';
+//not GWT import const CacheableInterface
+
+import { ColorDelta } from '../../../../../../org/allbinary/media/image/comparison/color/ColorDelta.js';
+//not GWT import const ColorDelta
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class PixelDelta
+            extends Object
+         implements CacheableInterface {
+        
+static getKey(...args: any[]): any {
+   
+   
+    if (args.length === 2) return this.getKey$overload2(args[0], args[1]);
+   
+   throw new TypeError('No matching overload: getKey'); }
+  
+    public static getKey$overload2(point: GPoint, colorDelta: ColorDelta): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new StringMaker().appendint(TsUtil.getInstance()!.hashCode(point))!.append(CommonSeps.getInstance()!.UNDERSCORE)!.append(colorDelta!.getKey()!.toString())!.toString();;
+    
+}
+
+
+    private point: GPoint;
+
+    private colorDelta: ColorDelta;
+
+    private key: any;
+
+public constructor (point: GPoint, colorDelta: ColorDelta){
+
+            super();
+        this.setPoint(point);
+    
+this.setColorDelta(colorDelta);
+    
+this.key= PixelDelta.getKey(this.getPoint(), this.getColorDelta());
+    
+}
+
+getKey(...args: any[]): any {
+   
+   
+    if (args.length === 0) return this.getKey$overload1();
+   
+   throw new TypeError('No matching overload: getKey'); }
+  
+    public getKey$overload1(): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.key;
+    
+}
+
+
+    public getPoint(): GPoint{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.point;
+    
+}
+
+
+    public setPoint(point: GPoint){
+this.point= point;
+    
+}
+
+
+    public getColorDelta(): ColorDelta{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.colorDelta;
+    
+}
+
+
+    public setColorDelta(colorDelta: ColorDelta){
+this.colorDelta= colorDelta;
+    
+}
+
+
+    public toString(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new StringMaker().append("PixelDelta: Point: ")!.append(this.point.toString())!.append(CommonSeps.getInstance()!.SPACE)!.append(this.colorDelta!.toString())!.toString();;
+    
+}
+
+
+}
+

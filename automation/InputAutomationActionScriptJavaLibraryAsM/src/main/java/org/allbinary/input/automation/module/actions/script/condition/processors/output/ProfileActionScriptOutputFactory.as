@@ -1,0 +1,105 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../../../../java/lang/Exception.js';
+        
+import { DomSearchHelper } from '../../../../../../../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
+//not GWT import const DomSearchHelper
+
+import { Node } from '../../../../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ProfileActionScriptOutputInterface } from './ProfileActionScriptOutputInterface.js';
+//sameFolderImports - not GWT import - same folder const ProfileActionScriptOutputInterface
+import { ImageActionScriptOutputData } from './ImageActionScriptOutputData.js';
+//sameFolderImports - not GWT import - same folder const ImageActionScriptOutputData
+import { ImageActionScriptOutput } from './ImageActionScriptOutput.js';
+//sameFolderImports - not GWT import - same folder const ImageActionScriptOutput
+
+export class ProfileActionScriptOutputFactory
+            extends Object
+         {
+        
+
+                //@Throws(Exception.constructor)
+            
+    public static getInstance(node: Node): ProfileActionScriptOutputInterface{
+
+    let profileActionScriptOutputInterface: ProfileActionScriptOutputInterface = 
+                null
+            ;;
+    
+
+                        if(DomSearchHelper.getNodeNoThrow(ImageActionScriptOutputData.NAME, node.getChildNodes()) != 
+                                    null
+                                )
+                        
+                                    {
+                                    profileActionScriptOutputInterface= new ImageActionScriptOutput(node);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("No Such ActionScript Output");
+                    
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return profileActionScriptOutputInterface;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

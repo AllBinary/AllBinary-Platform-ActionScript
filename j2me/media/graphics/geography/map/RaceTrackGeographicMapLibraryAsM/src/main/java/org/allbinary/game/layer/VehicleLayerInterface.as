@@ -1,0 +1,93 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+import { RotationAnimation } from '../../../../org/allbinary/animation/RotationAnimation.js';
+//not GWT import const RotationAnimation
+
+import { LayerInterface } from '../../../../org/allbinary/layer/LayerInterface.js';
+//not GWT import const LayerInterface
+
+import { BasicDecimal } from '../../../../org/allbinary/logic/math/BasicDecimal.js';
+//not GWT import const BasicDecimal
+
+import { GeographicMapCellHistory } from '../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellHistory.js';
+//not GWT import const GeographicMapCellHistory
+
+import { GeographicMapCellPositionTracking } from '../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPositionTracking.js';
+//not GWT import const GeographicMapCellPositionTracking
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { VehiclePropertiesCompositeInterface } from './VehiclePropertiesCompositeInterface.js';
+//sameFolderImports - not GWT import - same folder const VehiclePropertiesCompositeInterface
+
+export interface VehicleLayerInterface extends LayerInterface, VehiclePropertiesCompositeInterface {
+        
+
+    getGameKeyEventList(): BasicArrayList;
+
+    getSpeedBasicDecimal(): BasicDecimal;
+
+    isReadyForExplosion(): boolean;
+
+    getRotationAnimationInterface(): RotationAnimation;
+
+    setRotationAnimationInterface(animationInterface: RotationAnimation): void;
+
+    isDestroyed(): boolean;
+
+    isFinish(): boolean;
+
+    getFinalPosition(): number;
+
+                //@Throws(Exception.constructor)
+            
+    handleFinish(): void;
+
+    getGeographicMapCellPositionTracking(): GeographicMapCellPositionTracking;
+
+    getGeographicMapCellHistoryArray(): GeographicMapCellHistory[];
+
+    setGeographicMapCellHistoryArray(geographicMapCellHistory: GeographicMapCellHistory[]): void;
+
+}
+

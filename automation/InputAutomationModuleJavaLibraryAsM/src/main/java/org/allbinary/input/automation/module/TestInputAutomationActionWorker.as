@@ -1,0 +1,145 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { Thread } from '../../../../../java/lang/Thread.js';
+        
+import { Set } from '../../../../../java/util/Set.js';
+//not GWT import const Set
+
+import { InputRobotFactory } from '../../../../../org/allbinary/input/automation/robot/InputRobotFactory.js';
+//not GWT import const InputRobotFactory
+
+import { InputRobotInterface } from '../../../../../org/allbinary/input/automation/robot/InputRobotInterface.js';
+//not GWT import const InputRobotInterface
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { ImageComparatorConstraintsInterface } from '../../../../../org/allbinary/media/image/comparison/ImageComparatorConstraintsInterface.js';
+//not GWT import const ImageComparatorConstraintsInterface
+
+import { MotionRectangleConstraintsInterface } from '../../../../../org/allbinary/media/image/comparison/motion/MotionRectangleConstraintsInterface.js';
+//not GWT import const MotionRectangleConstraintsInterface
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AbstractInputAutomationWorker } from './AbstractInputAutomationWorker.js';
+//sameFolderImports - not GWT import - same folder const AbstractInputAutomationWorker
+import { InputAutomationActionInterface } from './InputAutomationActionInterface.js';
+//sameFolderImports - not GWT import - same folder const InputAutomationActionInterface
+
+export class TestInputAutomationActionWorker extends AbstractInputAutomationWorker {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private sleep: number;
+
+public constructor (sleep: number, inputAutomationActionInterface: InputAutomationActionInterface, imageComparatorConstraintsInterface: ImageComparatorConstraintsInterface, motionRectangleConstraintsInterface: MotionRectangleConstraintsInterface){
+            super(inputAutomationActionInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.logUtil!.putF("BasicTestAttackWorder", this, this.commonStrings!.CONSTRUCTOR);
+    
+this.sleep= sleep;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processBetweenWorkers(){
+Thread.sleep(2000);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public process(){
+this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.PROCESS);
+    
+
+    let hashtable: ABHashtable<any, any> = InputRobotFactory.getInstance()!.get()!;;
+    
+
+    let set: Set = hashtable.keys()!;;
+    
+
+    let inputTypeNameArray: any[] = set.toArray()!;;
+    
+
+    let size: number = inputTypeNameArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let inputTypeNameString: string = inputTypeNameArray[index]! as string;;
+    
+
+    let robot: InputRobotInterface = hashtable.get(inputTypeNameString) as InputRobotInterface;;
+    
+
+                        if(this.sleep > 0)
+                        
+                                    {
+                                    Thread.sleep(this.sleep);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+}
+

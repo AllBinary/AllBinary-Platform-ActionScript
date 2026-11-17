@@ -1,0 +1,287 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            //import { Class } from '../../java/lang/Class.js';
+            const Class = (globalThis.java?.lang?.Class ?? class {}) as typeof globalThis.java.lang.Class;
+            type Class<T = any, U = any> = typeof Class extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Class;
+        
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { Method } from '../../java/lang/reflect/Method.js';
+//not GWT import const Method
+
+import { HttpServletRequest } from '../../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { JspTagException } from '../../javax/servlet/jsp/JspTagException.js';
+//not GWT import const JspTagException
+
+import { OrderHistoryHelperFactory } from '../../admin/taghelpers/OrderHistoryHelperFactory.js';
+//not GWT import const OrderHistoryHelperFactory
+
+import { OrderHistoryRequestHelperFactory } from '../../admin/taghelpers/OrderHistoryRequestHelperFactory.js';
+//not GWT import const OrderHistoryRequestHelperFactory
+
+import { OrderHistoryData } from '../../org/allbinary/business/user/commerce/inventory/order/OrderHistoryData.js';
+//not GWT import const OrderHistoryData
+
+import { AbResponseHandler } from '../../org/allbinary/logic/communication/http/request/AbResponseHandler.js';
+//not GWT import const AbResponseHandler
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { LicensingException } from '../../org/allbinary/logic/system/security/licensing/LicensingException.js';
+//not GWT import const LicensingException
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TableTag } from './TableTag.js';
+//sameFolderImports - not GWT import - same folder const TableTag
+
+export class OrderHistoryTag extends TableTag {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private status: string;
+
+public constructor (){
+
+            super();
+        this.setTagHelperFactory(new OrderHistoryHelperFactory());
+    
+this.setTagRequestHelperFactory(new OrderHistoryRequestHelperFactory());
+    
+}
+
+
+    public setStatus(value: string){
+this.status= value;
+    
+}
+
+
+                //@Throws(LicensingException.constructor)
+            
+    setOrderStatus(): string{
+
+ try { 
+    let request: HttpServletRequest = this.pageContext!.getRequest() as HttpServletRequest;;
+    
+
+    let anyType: any = new OrderHistoryRequestHelperFactory().getInstance(this.getPropertiesHashMap(), pageContext)!;;
+    
+
+                        if(this.status == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let helperClass: Function = anyType!.constructor!;;
+    
+
+    let method: Method = helperClass!.getMethod("setOrderStatus", 
+                            null)!;;
+    
+
+    let result: string = method.invoke(anyType, 
+                            null) as string;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+
+                                    }
+                                
+                        else {
+                            
+    let helperClass: Function = anyType!.constructor!;;
+    
+
+    let methodParams: Function[] = 
+                                                        [
+                                                            this.status.constructor
+                                                        ];;
+    
+
+    let method: Method = helperClass!.getMethod("setOrderStatus", methodParams)!;;
+    
+
+    let methodArgs: any[] = 
+                                                        [
+                                                            this.status
+                                                        ];;
+    
+
+    let result: string = method.invoke(anyType, methodArgs) as string;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+
+                        }
+                            
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+  else {
+  const e = caught;
+  
+
+    let error: string = "Failed to set Order Status";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "setOrderStatus()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(JspTagException.constructor)
+            
+    public doStartTag(): number{
+
+ try { 
+                        if(this.isEnabled())
+                        
+                                    {
+                                    
+                        if(this.getCommand() != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.getPropertiesHashMap()!.put(OrderHistoryData.STATUS, this.status);
+    
+
+                        if(this.getCommand()!.compareTo(OrderHistoryData.SETSTATUS) == 0)
+                        
+                                    {
+                                    this.setOrderStatus();
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.doStartTag();;
+    
+
+                        }
+                            
+
+                                    }
+                                
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagLicensingRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+  else {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

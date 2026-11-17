@@ -1,0 +1,274 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            import { Math } from '../../../../java/lang/Math.js';
+        
+import { Image } from '../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { PlaynImmutableImage } from '../../../../org/microemu/device/playn/PlaynImmutableImage.js';
+//not GWT import const PlaynImmutableImage
+
+import { PlaynMutableImage } from '../../../../org/microemu/device/playn/PlaynMutableImage.js';
+//not GWT import const PlaynMutableImage
+
+//not plain js import { Canvas } 
+const Canvas = globalThis.playn.core.Canvas;
+type Canvas<T = any, U = any> = typeof Canvas extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Canvas;
+
+//not plain js import { CoreImage } 
+const CoreImage = globalThis.playn.core.CoreImage;
+type CoreImage<T = any, U = any> = typeof CoreImage extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CoreImage;
+
+//not plain js import { ImageImpl } 
+const ImageImpl = globalThis.playn.core.ImageImpl;
+type ImageImpl<T = any, U = any> = typeof ImageImpl extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ImageImpl;
+
+//not plain js import { HTMLPlaynUtil } 
+const HTMLPlaynUtil = globalThis.playn.html.HTMLPlaynUtil;
+type HTMLPlaynUtil<T = any, U = any> = typeof HTMLPlaynUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof HTMLPlaynUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ImageCreationUtil } from './ImageCreationUtil.js';
+//sameFolderImports - not GWT import - same folder const ImageCreationUtil
+
+export class ImageRotationUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: ImageRotationUtil = new ImageRotationUtil();
+
+    public static getInstance(): ImageRotationUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ImageRotationUtil.instance;
+    
+}
+
+
+    private readonly playnUtil: HTMLPlaynUtil = HTMLPlaynUtil.getInstance()!;
+
+private constructor (){
+
+            super();
+        }
+
+
+    public rotateImage(originalImage: Image, image: Image, totalAngle: number): Image{
+
+                        if(image.isMutable())
+                        
+                                    {
+                                    
+    let htmlImage: PlaynMutableImage = image as PlaynMutableImage;;
+    
+
+    let canvasImage: ImageImpl = htmlImage!.getImage() as ImageImpl;;
+    
+
+    let canvas: Canvas = this.playnUtil!.getCanvas(canvasImage)!;;
+    
+canvas.save();
+    
+canvas.clear();
+    
+canvas.translate(originalImage!.getWidth() /2, originalImage!.getHeight() /2);
+    
+
+    let image2: Image = this.rotateImageCanvasSurface(originalImage, image, canvas, totalAngle)!;;
+    
+this.drawImage(originalImage, image, canvas);
+    
+canvas.restore();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return image2;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+                        }
+                            
+}
+
+
+    public rotateImageCanvasSurfaceClear(originalImage: Image, image: Image, canvasSurface: Canvas, totalAngle: number): Image{
+
+                        if(image.isMutable())
+                        
+                                    {
+                                    canvasSurface!.translate( -originalImage!.getWidth() /2,  -originalImage!.getHeight() /2);
+    
+canvasSurface!.clear();
+    
+canvasSurface!.translate(originalImage!.getWidth() /2, originalImage!.getHeight() /2);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.rotateImageCanvasSurface(originalImage, image, canvasSurface, totalAngle);;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+                        }
+                            
+}
+
+
+    public rotateImageCanvasSurface(originalImage: Image, image: Image, canvasSurface: Canvas, totalAngle: number): Image{
+
+                        if(image.isMutable())
+                        
+                                    {
+                                    canvasSurface!.rotate(Math.toRadians(totalAngle));
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return image;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+                        }
+                            
+}
+
+
+    public drawImage(originalImage: Image, image: Image, canvasSurface: Canvas){
+
+    let originalPlayNImage: CoreImage = 
+                null
+            ;;
+    
+
+                        if(originalImage!.isMutable())
+                        
+                                    {
+                                    
+    let originalHTMLImage: PlaynMutableImage = originalImage as PlaynMutableImage;;
+    
+originalPlayNImage= originalHTMLImage!.getImage() as CoreImage;
+    
+
+                                    }
+                                
+                        else {
+                            
+    let originalHTMLImage: PlaynImmutableImage = originalImage as PlaynImmutableImage;;
+    
+originalPlayNImage= originalHTMLImage!.getImage() as CoreImage;
+    
+
+                        }
+                            
+canvasSurface!.draw(originalPlayNImage,  -originalImage!.getWidth() /2,  -originalImage!.getHeight() /2);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public createRotatedImage(originalImage: Image, rotationInDegrees: number): Image{
+
+    let image: Image = ImageCreationUtil.getInstance()!.createImageWH(originalImage!.getWidth(), originalImage!.getHeight())!;;
+    
+
+    let rotatedImage: Image = this.rotateImage(originalImage, image, rotationInDegrees)!;;
+    
+
+                        if(rotatedImage == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("Not Mutable");
+                    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return rotatedImage;
+    
+}
+
+
+}
+

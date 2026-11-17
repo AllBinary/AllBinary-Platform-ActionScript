@@ -1,0 +1,360 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            const Short = (globalThis.java?.lang?.Short ?? class {}) as typeof globalThis.java.lang.Short;
+        
+            import { Thread } from '../../../../java/lang/Thread.js';
+        
+import { awt } from '../../../../java/awt.js';
+//not GWT import const awt
+
+import { BufferedImage } from '../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+import { RenderedImage } from '../../../../java/awt/image/RenderedImage.js';
+//not GWT import const RenderedImage
+
+import { File } from '../../../../java/io/File.js';
+//not GWT import const File
+
+import { IOException } from '../../../../java/io/IOException.js';
+//not GWT import const IOException
+
+import { ImageIO } from '../../../../javax/imageio/ImageIO.js';
+//not GWT import const ImageIO
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { ImageArrayRotationUtil } from '../../../../org/allbinary/media/image/ImageArrayRotationUtil.js';
+//not GWT import const ImageArrayRotationUtil
+
+import { ImageProcessedVisitor } from '../../../../org/allbinary/media/image/ImageProcessedVisitor.js';
+//not GWT import const ImageProcessedVisitor
+
+import { ImageProcessorInput } from '../../../../org/allbinary/media/image/ImageProcessorInput.js';
+//not GWT import const ImageProcessorInput
+
+import { ImageStrings } from '../../../../org/allbinary/media/image/ImageStrings.js';
+//not GWT import const ImageStrings
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JPanel } from './JPanel.js';
+//sameFolderImports - not GWT import - same folder const JPanel
+import { Graphics } from './Graphics.js';
+//sameFolderImports - not GWT import - same folder const Graphics
+import { JLabel } from './JLabel.js';
+//sameFolderImports - not GWT import - same folder const JLabel
+import { JButton } from './JButton.js';
+//sameFolderImports - not GWT import - same folder const JButton
+import { JComboBox } from './JComboBox.js';
+//sameFolderImports - not GWT import - same folder const JComboBox
+import { JCheckBox } from './JCheckBox.js';
+//sameFolderImports - not GWT import - same folder const JCheckBox
+import { GroupLayout } from './GroupLayout.js';
+//sameFolderImports - not GWT import - same folder const GroupLayout
+import { ActionListener } from './ActionListener.js';
+//sameFolderImports - not GWT import - same folder const ActionListener
+import { ActionEvent } from './ActionEvent.js';
+//sameFolderImports - not GWT import - same folder const ActionEvent
+import { DefaultComboBoxModel } from './DefaultComboBoxModel.js';
+//sameFolderImports - not GWT import - same folder const DefaultComboBoxModel
+
+export class RotationImageJPanel extends javax.swing.JPanel implements ImageProcessedVisitor {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly imageStrings: ImageStrings = ImageStrings.getInstance()!;
+
+    private imageProcessorInput: ImageProcessorInput;
+
+    private result: BufferedImage;
+
+public constructor (imageProcessorInput: ImageProcessorInput){
+            super();
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.initComponents();
+    
+this.imageProcessorInput= imageProcessorInput;
+    
+}
+
+
+    public process(){
+new class extends Thread
+                                {
+                                
+    public run(){
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+
+ try { 
+    let angleAsString: string = outer$RotationImageJPanel.totalAngleJComboBox!.getSelectedItem() as string;;
+    
+ImageArrayRotationUtil.getInstance()!.process(outer$RotationImageJPanel.getImageProcessorInput(), angleAsString, outer$RotationImageJPanel);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN, e);
+    
+
+ }
+   }
+ 
+}
+
+                                }().start();
+    
+}
+
+
+    initComponents(){
+this.jPanel1= new class extends javax.swing.JPanel
+                                {
+                                
+    public paint(graphics: Graphics){
+
+                        if(outer$RotationImageJPanel.result != 
+                                    null
+                                )
+                        
+                                    {
+                                    graphics.drawImage(outer$RotationImageJPanel.result, 0, 0, outer$RotationImageJPanel.result.getWidth(
+                            null), outer$RotationImageJPanel.result.getHeight(
+                            null), 
+                            null);
+    
+
+                                    }
+                                
+}
+
+                                }();
+    
+this.jPanel2= new javax.swing.JPanel();
+    
+this.jLabel1= new javax.swing.JLabel();
+    
+this.generateJButton= new javax.swing.JButton();
+    
+this.totalAngleJComboBox= new javax.swing.JComboBox();
+    
+this.jLabel3= new javax.swing.JLabel();
+    
+this.writeOverOriginalJCheckBox= new javax.swing.JCheckBox();
+    
+this.jPanel3= new javax.swing.JPanel();
+    
+this.jLabel2= new javax.swing.JLabel();
+    
+
+    let jPanel1Layout: org.jdesktop.layout.GroupLayout = new org.jdesktop.layout.GroupLayout(this.jPanel1);;
+    
+this.jPanel1!.setLayout(jPanel1Layout);
+    
+jPanel1Layout!.setHorizontalGroup(jPanel1Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(0, 436, Short.MAX_VALUE));
+    
+jPanel1Layout!.setVerticalGroup(jPanel1Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(0, 227, Short.MAX_VALUE));
+    
+this.generateJButton!.setText("Generate");
+    
+this.generateJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+generateJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.totalAngleJComboBox!.setModel(new javax.swing.DefaultComboBoxModel([
+this.commonStrings!.UP,this.commonStrings!.DOWN,"-90","90"
+                                                ]));
+    
+this.totalAngleJComboBox!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+totalAngleJComboBoxActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.jLabel3!.setText("Total Angle:");
+    
+this.writeOverOriginalJCheckBox!.setText("Write Over Original");
+    
+
+    let jPanel2Layout: org.jdesktop.layout.GroupLayout = new org.jdesktop.layout.GroupLayout(this.jPanel2);;
+    
+this.jPanel2!.setLayout(jPanel2Layout);
+    
+jPanel2Layout!.setHorizontalGroup(jPanel2Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(jPanel2Layout!.createSequentialGroup()!.add(8, 8, 8)!.add(this.jLabel1)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.jLabel3)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.totalAngleJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.writeOverOriginalJCheckBox)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.generateJButton)!.addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+    
+jPanel2Layout!.setVerticalGroup(jPanel2Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(jPanel2Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)!.add(this.jLabel1)!.add(this.generateJButton)!.add(this.totalAngleJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)!.add(this.jLabel3)!.add(this.writeOverOriginalJCheckBox)));
+    
+this.jLabel2!.setText("Results:");
+    
+
+    let jPanel3Layout: org.jdesktop.layout.GroupLayout = new org.jdesktop.layout.GroupLayout(this.jPanel3);;
+    
+this.jPanel3!.setLayout(jPanel3Layout);
+    
+jPanel3Layout!.setHorizontalGroup(jPanel3Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(jPanel3Layout!.createSequentialGroup()!.add(this.jLabel2)!.addContainerGap(377, Short.MAX_VALUE)));
+    
+jPanel3Layout!.setVerticalGroup(jPanel3Layout!.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(this.jLabel2));
+    
+
+    let layout: org.jdesktop.layout.GroupLayout = new org.jdesktop.layout.GroupLayout(this);;
+    
+this.setLayout(layout);
+    
+layout.setHorizontalGroup(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(org.jdesktop.layout.GroupLayout.TRAILING, this.jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.add(layout.createSequentialGroup()!.addContainerGap()!.add(this.jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.addContainerGap())!.add(this.jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+    
+layout.setVerticalGroup(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)!.add(layout.createSequentialGroup()!.add(this.jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)!.add(this.jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)!.add(this.jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+    
+}
+
+
+    generateJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.process();
+    
+}
+
+
+    totalAngleJComboBoxActionPerformed(evt: java.awt.event.ActionEvent){
+}
+
+
+    private generateJButton: javax.swing.JButton;
+
+    private jLabel1: javax.swing.JLabel;
+
+    private jLabel2: javax.swing.JLabel;
+
+    private jLabel3: javax.swing.JLabel;
+
+    private jPanel1: javax.swing.JPanel;
+
+    private jPanel2: javax.swing.JPanel;
+
+    private jPanel3: javax.swing.JPanel;
+
+    private totalAngleJComboBox: javax.swing.JComboBox;
+
+    private writeOverOriginalJCheckBox: javax.swing.JCheckBox;
+
+    public getImageProcessorInput(): ImageProcessorInput{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.imageProcessorInput;
+    
+}
+
+
+    public setImageProcessorInput(imageProcessorInput: ImageProcessorInput){
+this.imageProcessorInput= imageProcessorInput;
+    
+}
+
+
+                //@Throws(IOException.constructor)
+            
+    public visit(generatedBufferedImage: BufferedImage, name: string, index: number){
+this.result= generatedBufferedImage;
+    
+this.getParent()!.repaint();
+    
+
+    let file: File = this.imageProcessorInput!.getFiles()[index]!;;
+    
+
+                        if(!this.writeOverOriginalJCheckBox!.isSelected())
+                        
+                                    {
+                                    
+    let filePath: string = file.getAbsolutePath()!;;
+    
+
+    let extensionIndex: number = filePath!.indexOf(this.imageStrings!.PNG_EXTENSION)!;;
+    
+filePath= new StringMaker().append(filePath!.substring(0, extensionIndex))!.append(CommonSeps.getInstance()!.UNDERSCORE)!.append(name)!.append(this.imageStrings!.PNG_EXTENSION)!.toString();
+    
+file= new File(filePath);
+    
+
+                                    }
+                                
+
+    let isWritten: boolean = ImageIO.write(this.result as RenderedImage, this.imageStrings!.PNG, file)!;;
+    
+this.logUtil!.putF("File: " +file +" Wrote: " +isWritten, this, this.commonStrings!.RUN);
+    
+}
+
+
+}
+

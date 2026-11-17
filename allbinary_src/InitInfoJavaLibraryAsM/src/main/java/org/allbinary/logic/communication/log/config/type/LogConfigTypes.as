@@ -1,0 +1,200 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+import { DomNodeHelper } from '../../../../../../../org/allbinary/data/tree/dom/DomNodeHelper.js';
+//not GWT import const DomNodeHelper
+
+import { DomSearchHelper } from '../../../../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
+//not GWT import const DomSearchHelper
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+import { LoggingInitInfo } from '../../../../../../../org/allbinary/logic/communication/log/config/LoggingInitInfo.js';
+//not GWT import const LoggingInitInfo
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { Node } from '../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { LogConfigTypeFactory } from './LogConfigTypeFactory.js';
+//sameFolderImports - not GWT import - same folder const LogConfigTypeFactory
+import { LogConfigTypeData } from './LogConfigTypeData.js';
+//sameFolderImports - not GWT import - same folder const LogConfigTypeData
+import { LogConfigType } from './LogConfigType.js';
+//sameFolderImports - not GWT import - same folder const LogConfigType
+
+export class LogConfigTypes
+            extends Object
+         {
+        
+
+    public static readonly JSP_ERROR_NO_FUNCTION: string = "in JSP Not In Function";
+
+    public static LOGGING: BasicArrayList = new BasicArrayListD();
+
+                private static initResult: number = LogConfigTypes.init();
+                private static init(): number { 
+                    
+LogConfigTypes.init();
+    
+
+
+                    return 0;
+                }
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public static init(){
+
+ try { PreLogUtil.put("Initialize LogconfigTypes", "LogConfigTypes", "init()");
+    
+LogConfigTypeFactory.getInstance();
+    
+
+    let loggingInitInfo: LoggingInitInfo = new LoggingInitInfo();;
+    
+
+    let logConfigTypeVector: BasicArrayList = loggingInitInfo!.getTypeList()!;;
+    
+PreLogUtil.put("Number Of Log Configs: " +loggingInitInfo!.getNumberOfLogConfigs(), "LogConfigTypes", "init()");
+    
+PreLogUtil.put("Number Of Log Config Type Names: " +logConfigTypeVector!.size(), "LogConfigTypes", "init()");
+    
+LogConfigTypes.LOGGING.addAllList(logConfigTypeVector);
+    
+LogConfigTypes.LOGGING.add(LogConfigTypeFactory.getInstance()!.NETBEANS_MODULE);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+PreLogUtil.putSE("Unable to initialize LogConfigTypes", "LogConfigTypes", "init()", e);
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public static getInstance(node: Node): LogConfigType{
+
+    let nameValueNode: Node = DomSearchHelper.getNode(LogConfigTypeData.getInstance()!.NAME, node.getChildNodes())!;;
+    
+
+    let name: string = DomNodeHelper.getTextNodeValue(nameValueNode)!;;
+    
+
+    let descriptionValueNode: Node = DomSearchHelper.getNodeNoThrow(LogConfigTypeData.getInstance()!.DESCRIPTION, node.getChildNodes())!;;
+    
+
+                        if(descriptionValueNode != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let description: string = DomNodeHelper.getTextNodeValue(descriptionValueNode)!;;
+    
+
+                                    }
+                                
+
+    let availableLogConfigTypes: BasicArrayList = LogConfigType.availableLogConfigTypes;;
+    
+
+    let size: number = availableLogConfigTypes!.size()!;;
+    
+
+    let logConfigType: LogConfigType;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+logConfigType= availableLogConfigTypes!.get(index) as LogConfigType;
+    
+
+                        if(logConfigType!.getName()!.compareTo(name) == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return logConfigType;
+    
+
+                                    }
+                                
+}
+
+
+
+
+                            throw new Exception("No Such LogConfigType: " +name);
+                    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

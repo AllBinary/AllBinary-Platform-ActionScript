@@ -1,0 +1,781 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            import { IllegalArgumentException } from '../../../../../../java/lang/IllegalArgumentException.js';
+        
+            import { Integer } from '../../../../../../java/lang/Integer.js';
+        
+import { Graphics } from '../../../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { Image } from '../../../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { NullImage } from '../../../../../../javax/microedition/lcdui/NullImage.js';
+//not GWT import const NullImage
+
+import { Activity } from '../../../../../../android/app/Activity.js';
+//not GWT import const Activity
+
+import { AndroidUtil } from '../../../../../../org/allbinary/AndroidUtil.js';
+//not GWT import const AndroidUtil
+
+import { GameFeatureImageCacheFactory } from '../../../../../../org/allbinary/image/GameFeatureImageCacheFactory.js';
+//not GWT import const GameFeatureImageCacheFactory
+
+import { PreResourceImageUtil } from '../../../../../../org/allbinary/image/PreResourceImageUtil.js';
+//not GWT import const PreResourceImageUtil
+
+//not plain js import { ForcedLogUtil } 
+const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
+type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
+
+//not plain js import { ExceptionUtil } 
+const ExceptionUtil = globalThis.org.allbinary.logic.java.exception.ExceptionUtil;
+type ExceptionUtil<T = any, U = any> = typeof ExceptionUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ExceptionUtil;
+
+import { Animation } from '../../../../../../org/allbinary/animation/Animation.js';
+//not GWT import const Animation
+
+import { NullAnimationFactory } from '../../../../../../org/allbinary/animation/NullAnimationFactory.js';
+//not GWT import const NullAnimationFactory
+
+import { Features } from '../../../../../../org/allbinary/game/configuration/feature/Features.js';
+//not GWT import const Features
+
+import { MainFeatureFactory } from '../../../../../../org/allbinary/game/configuration/feature/MainFeatureFactory.js';
+//not GWT import const MainFeatureFactory
+
+import { BasicColor } from '../../../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { DisplayInfoSingleton } from '../../../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
+//not GWT import const DisplayInfoSingleton
+
+import { DisplayChangeEvent } from '../../../../../../org/allbinary/graphics/displayable/event/DisplayChangeEvent.js';
+//not GWT import const DisplayChangeEvent
+
+import { DisplayChangeEventHandler } from '../../../../../../org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.js';
+//not GWT import const DisplayChangeEventHandler
+
+import { DisplayChangeEventListener } from '../../../../../../org/allbinary/graphics/displayable/event/DisplayChangeEventListener.js';
+//not GWT import const DisplayChangeEventListener
+
+import { ImageCacheFactory } from '../../../../../../org/allbinary/image/ImageCacheFactory.js';
+//not GWT import const ImageCacheFactory
+
+import { ImageScaleUtil } from '../../../../../../org/allbinary/media/image/ImageScaleUtil.js';
+//not GWT import const ImageScaleUtil
+
+import { AllBinaryEventObject } from '../../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
+//not GWT import const AllBinaryEventObject
+
+import { AnimationBehavior } from '../../../../../../org/allbinary/animation/AnimationBehavior.js';
+//not GWT import const AnimationBehavior
+
+import { ImageAnimation } from '../../../../../../org/allbinary/animation/image/ImageAnimation.js';
+//not GWT import const ImageAnimation
+
+//not plain js import { ResourceUtil } 
+const ResourceUtil = globalThis.org.allbinary.data.resource.ResourceUtil;
+type ResourceUtil<T = any, U = any> = typeof ResourceUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ResourceUtil;
+
+import { EventStrings } from '../../../../../../org/allbinary/logic/util/event/EventStrings.js';
+//not GWT import const EventStrings
+
+//not plain js import { ARunnable } 
+const ARunnable = globalThis.org.allbinary.thread.ARunnable;
+type ARunnable<T = any, U = any> = typeof ARunnable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ARunnable;
+
+//not plain js import { NullRunnable } 
+const NullRunnable = globalThis.org.allbinary.thread.NullRunnable;
+type NullRunnable<T = any, U = any> = typeof NullRunnable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullRunnable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ProgressCanvas } from './ProgressCanvas.js';
+//sameFolderImports - not GWT import - same folder const ProgressCanvas
+import { ShowTitleProgressBarRunnable } from './ShowTitleProgressBarRunnable.js';
+//sameFolderImports - not GWT import - same folder const ShowTitleProgressBarRunnable
+import { DismissTitleProgressBarRunnable } from './DismissTitleProgressBarRunnable.js';
+//sameFolderImports - not GWT import - same folder const DismissTitleProgressBarRunnable
+import { TitleProgressBarSetProgressRunnable } from './TitleProgressBarSetProgressRunnable.js';
+//sameFolderImports - not GWT import - same folder const TitleProgressBarSetProgressRunnable
+import { TitleProgressBarPortionSetProgressRunnable } from './TitleProgressBarPortionSetProgressRunnable.js';
+//sameFolderImports - not GWT import - same folder const TitleProgressBarPortionSetProgressRunnable
+
+export class AndroidBasicTitleProgressBar extends ProgressCanvas implements DisplayChangeEventListener {
+        
+
+    public static readonly RESOURCE: string = "ProgressImage";
+
+    private static background: number= 0;
+
+    public static setBackgroundResource(background: number){
+AndroidBasicTitleProgressBar.background= background;
+    
+}
+
+
+    private showTitleProgressBarRunnable: ARunnable = NullRunnable.getInstance()!;
+
+    private dismissTitleProgressBarRunnable: ARunnable = NullRunnable.getInstance()!;
+
+    private titleProgressDialogPortionSetProgressRunnable: ARunnable = NullRunnable.getInstance()!;
+
+    private titleProgressDialogSetProgressRunnable: ARunnable = NullRunnable.getInstance()!;
+
+    private midletActivity: Activity = AndroidUtil.NULL_ACTIVITY;
+
+    private portion: number = 0;
+
+    private readonly IMAGE: Image[] = new Array(4);
+
+    private image: Image = NullImage.NULL_IMAGE;
+
+    private animation: Animation = NullAnimationFactory.getFactoryInstance()!.getInstance(0)!;
+
+ constructor (title: string, backgroundBasicColor: BasicColor, foregroundBasicColor: BasicColor){
+            super(title, backgroundBasicColor, foregroundBasicColor);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.init();
+    
+DisplayChangeEventHandler.getInstance()!.addListenerInterface(this);
+    
+
+    let size: number = this.IMAGE.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+this.IMAGE[index]= NullImage.NULL_IMAGE;
+    
+}
+
+}
+
+
+    init(){
+
+ try { 
+                        if(AndroidBasicTitleProgressBar.background != 0)
+                        
+                                    {
+                                    ResourceUtil.getInstance()!.addResource(AndroidBasicTitleProgressBar.RESOURCE, new Integer(AndroidBasicTitleProgressBar.background));
+    
+GameFeatureImageCacheFactory.init();
+    
+this.image= ImageCacheFactory.getInstance()!.getWithKey(AndroidBasicTitleProgressBar.RESOURCE);
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.INIT, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public initActivity(activity: Activity){
+
+ try { 
+                        if(this.midletActivity != activity)
+                        
+                                    {
+                                    this.midletActivity= activity;
+    
+this.showTitleProgressBarRunnable= new ShowTitleProgressBarRunnable(this.midletActivity, this);
+    
+this.dismissTitleProgressBarRunnable= new DismissTitleProgressBarRunnable(this.midletActivity, this);
+    
+this.titleProgressDialogSetProgressRunnable= new TitleProgressBarSetProgressRunnable(this.midletActivity, this);
+    
+this.titleProgressDialogPortionSetProgressRunnable= new TitleProgressBarPortionSetProgressRunnable(this.midletActivity, this);
+    
+this.loadProgressImages();
+    
+
+                                    }
+                                
+this.updateCurrent();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.INIT, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    updateCurrent(){
+
+ try { 
+                        if(!this.isBackground())
+                        
+                                    {
+                                    this.animation= NullAnimationFactory.getFactoryInstance()!.getInstance(0);
+    
+
+                                    }
+                                
+                             else 
+                        if(AndroidBasicTitleProgressBar.background != 0)
+                        
+                                    {
+                                    
+    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
+    
+
+    let currentImage: Image;;
+    
+
+                        if(displayInfo!.isPortrait())
+                        
+                                    {
+                                    currentImage= this.getImage(0);
+    
+
+                                    }
+                                
+                        else {
+                            currentImage= this.getImage(2);
+    
+
+                        }
+                            
+
+                        if(currentImage == 
+                                    null
+                                )
+                        
+                                    {
+                                    this.animation= NullAnimationFactory.getFactoryInstance()!.getInstance(0);
+    
+
+                                    }
+                                
+                        else {
+                            this.animation= new ImageAnimation(currentImage, AnimationBehavior.getInstance());
+    
+
+                        }
+                            
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.UPDATE, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public onEvent(eventObject: AllBinaryEventObject){
+ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
+    
+}
+
+
+    public onDisplayChangeEvent(displayChangeEvent: DisplayChangeEvent){
+
+ try { this.loadProgressImages();
+    
+this.updateCurrent();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.putF(this.commonStrings!.EXCEPTION_LABEL +ExceptionUtil.getInstance()!.getStackTrace(e), this, this.canvasStrings!.ON_DISPLAY_CHANGE_EVENT);
+    
+this.animation= NullAnimationFactory.getFactoryInstance()!.getInstance(0);
+    
+
+ }
+   }
+ 
+}
+
+
+    loadProgressImages(){
+
+ try { 
+    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
+    
+
+    let lastWidth: number = displayInfo!.getLastWidth()!;;
+    
+
+    let lastHeight: number = displayInfo!.getLastHeight()!;;
+    
+
+                        if(displayInfo!.isPortraitWH(lastWidth, lastHeight))
+                        
+                                    {
+                                    this.setImages(0, lastWidth, lastHeight);
+    
+
+                                    }
+                                
+                        else {
+                            this.setImages(2, lastWidth, lastHeight);
+    
+
+                        }
+                            
+ }
+ catch (caught: any) {
+ if (caught instanceof IllegalArgumentException) {
+  const e = caught;
+  
+this.logUtil!.putF("IllegalArgumentException " +ExceptionUtil.getInstance()!.getStackTrace(e), this, "loadProgressImages");
+    
+this.animation= NullAnimationFactory.getFactoryInstance()!.getInstance(0);
+    
+
+ }
+  else {
+  const e = caught;
+  
+this.logUtil!.putF(this.commonStrings!.EXCEPTION_LABEL +ExceptionUtil.getInstance()!.getStackTrace(e), this, "loadProgressImages");
+    
+this.animation= NullAnimationFactory.getFactoryInstance()!.getInstance(0);
+    
+
+ }
+   }
+ 
+}
+
+
+    public isInitialized(): boolean{
+
+                        if(this.midletActivity != AndroidUtil.NULL_ACTIVITY)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+    public start(){
+
+ try { this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.START_METHOD_NAME);
+    
+super.start();
+    
+this.midletActivity!.runOnUiThread(this.showTitleProgressBarRunnable);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.START_METHOD_NAME, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public end(){
+
+ try { this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.END_METHOD_NAME);
+    
+this.midletActivity!.runOnUiThread(this.dismissTitleProgressBarRunnable);
+    
+super.end();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.END_METHOD_NAME, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public addEarlyPortion(value: number, text: string, index: number){
+
+ try { this.portion= value;
+    
+super.addEarlyPortion(value, text, index);
+    
+
+                        if(this.midletActivity != AndroidUtil.NULL_ACTIVITY)
+                        
+                                    {
+                                    this.midletActivity!.runOnUiThread(this.titleProgressDialogPortionSetProgressRunnable);
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.ADD_PORTION, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public addPortion(value: number, text: string, index: number){
+
+ try { this.portion= value;
+    
+super.addPortion(value, text, index);
+    
+this.midletActivity!.runOnUiThread(this.titleProgressDialogPortionSetProgressRunnable);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.ADD_PORTION, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public addNormalPortion(value: number, text: string){
+
+ try { this.portion= value;
+    
+super.addNormalPortion(value, text);
+    
+this.midletActivity!.runOnUiThread(this.titleProgressDialogPortionSetProgressRunnable);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.ADD_PORTION, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    setValue(value: number){
+
+ try { super.setValue(value);
+    
+this.midletActivity!.runOnUiThread(this.titleProgressDialogSetProgressRunnable);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "setValue", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public waitUntilDisplayed(){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    setImages(index: number, lastWidth: number, lastHeight: number){
+
+    let image: Image = this.image;;
+    
+
+                        if(image != NullImage.NULL_IMAGE)
+                        
+                                    {
+                                    
+                        if(Features.getInstance()!.isFeature(MainFeatureFactory.getInstance()!.FULL_SCREEN))
+                        
+                                    {
+                                    
+                        if(this.IMAGE[index] == NullImage.NULL_IMAGE)
+                        
+                                    {
+                                    this.IMAGE[index]= ImageScaleUtil.getInstance()!.createImage2(ImageCacheFactory.getInstance(), image, lastWidth, image.getWidth(), lastHeight -20, image.getHeight(), false);
+    
+
+                                    }
+                                
+
+                                    }
+                                
+                        else {
+                            
+    let nextIndex: number = index +1;;
+    
+
+                        if(this.IMAGE[nextIndex] == NullImage.NULL_IMAGE)
+                        
+                                    {
+                                    this.IMAGE[nextIndex]= ImageScaleUtil.getInstance()!.createImage2(ImageCacheFactory.getInstance(), image, lastWidth, image.getWidth(), lastHeight -28, image.getHeight(), false);
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public initOpenGL(graphics: Graphics){
+this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.INIT);
+    
+this.image= GameFeatureImageCacheFactory.getInstance()!.getWithKey(AndroidBasicTitleProgressBar.RESOURCE);
+    
+
+    let preResourceImageUtil: PreResourceImageUtil = PreResourceImageUtil.getInstance()!;;
+    
+
+    let size: number = this.IMAGE.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+                        if(this.IMAGE[index] != NullImage.NULL_IMAGE)
+                        
+                                    {
+                                    this.IMAGE[index]= preResourceImageUtil!.encapsulate(this.IMAGE[index]!);
+    
+
+                                    }
+                                
+}
+
+this.updateCurrent();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public update(graphics: Graphics){
+this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.UPDATE);
+    
+this.initOpenGL(graphics);
+    
+this.image= GameFeatureImageCacheFactory.getInstance()!.getWithKey(AndroidBasicTitleProgressBar.RESOURCE);
+    
+
+    let preResourceImageUtil: PreResourceImageUtil = PreResourceImageUtil.getInstance()!;;
+    
+
+    let size: number = this.IMAGE.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+                        if(this.IMAGE[index] != NullImage.NULL_IMAGE)
+                        
+                                    {
+                                    preResourceImageUtil!.update(graphics, this.IMAGE[index]!);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getImage(index: number): Image{
+
+    let image: Image = NullImage.NULL_IMAGE;;
+    
+
+                        if(Features.getInstance()!.isFeature(MainFeatureFactory.getInstance()!.FULL_SCREEN))
+                        
+                                    {
+                                    image= this.IMAGE[index]!;
+    
+
+                                    }
+                                
+                        else {
+                            image= this.IMAGE[index +1]!;
+    
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return image;
+    
+}
+
+
+    public paint2(graphics: Graphics){
+
+ try { this.animation.paintXY(graphics, 0, 20);
+    
+super.paint2(graphics);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.canvasStrings!.PAINT, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    setBackground(background: boolean){
+super.setBackground(background);
+    
+this.updateCurrent();
+    
+}
+
+
+    setPortion(portion: number){
+this.portion= portion;
+    
+}
+
+
+    getPortion(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.portion;
+    
+}
+
+
+}
+

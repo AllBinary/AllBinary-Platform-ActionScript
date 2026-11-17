@@ -1,0 +1,406 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2006 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { Font } from '../../../../../javax/microedition/lcdui/Font.js';
+//not GWT import const Font
+
+import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { NumberStringHud } from '../../../../../org/allbinary/game/ag/layer/hud/basic/NumberStringHud.js';
+//not GWT import const NumberStringHud
+
+import { NumberStringHudFactory } from '../../../../../org/allbinary/game/ag/layer/hud/basic/NumberStringHudFactory.js';
+//not GWT import const NumberStringHudFactory
+
+import { SelectionHudPaintable } from '../../../../../org/allbinary/game/layer/SelectionHudPaintable.js';
+//not GWT import const SelectionHudPaintable
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { BasicHudFactory } from '../../../../../org/allbinary/game/graphics/hud/BasicHudFactory.js';
+//not GWT import const BasicHudFactory
+
+import { NullPathFindingLayer } from '../../../../../org/allbinary/game/layer/NullPathFindingLayer.js';
+//not GWT import const NullPathFindingLayer
+
+import { PathFindingLayerInterface } from '../../../../../org/allbinary/game/layer/PathFindingLayerInterface.js';
+//not GWT import const PathFindingLayerInterface
+
+import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { MyFontProcessor } from '../../../../../org/allbinary/graphics/font/MyFontProcessor.js';
+//not GWT import const MyFontProcessor
+
+//not plain js import { MathUtil } 
+const MathUtil = globalThis.org.allbinary.logic.math.MathUtil;
+type MathUtil<T = any, U = any> = typeof MathUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof MathUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BuildingLayer } from './BuildingLayer.js';
+//sameFolderImports - not GWT import - same folder const BuildingLayer
+
+export class BuildingInfoHudPaintable extends SelectionHudPaintable {
+        
+
+    private static readonly instance: BuildingInfoHudPaintable = new BuildingInfoHudPaintable();
+
+    public static getInstance(): BuildingInfoHudPaintable{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return BuildingInfoHudPaintable.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly HEALTH: string = "Health:";
+
+    private readonly productivityHud: NumberStringHud;
+
+    private readonly efficiencyHud: NumberStringHud;
+
+    private readonly healthHud: NumberStringHud;
+
+    private readonly maxHealthHud: NumberStringHud;
+
+    private rtsLayer: PathFindingLayerInterface = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;
+
+    private currentHealth: number = 0;
+
+private constructor (){
+
+            super();
+        
+    let numberStringHudFactory: NumberStringHudFactory = NumberStringHudFactory.getInstance()!;;
+    
+
+    let productivityHud: NumberStringHud = numberStringHudFactory!.NULL_NUMBER_STRING_HUD;;
+    
+
+    let efficiencyHud: NumberStringHud = numberStringHudFactory!.NULL_NUMBER_STRING_HUD;;
+    
+
+    let healthHud: NumberStringHud = numberStringHudFactory!.NULL_NUMBER_STRING_HUD;;
+    
+
+    let maxHealthHud: NumberStringHud = numberStringHudFactory!.NULL_NUMBER_STRING_HUD;;
+    
+
+ try { 
+    let index: number = 0;;
+    
+
+    let basicHudFactory: BasicHudFactory = BasicHudFactory.getInstance()!;;
+    
+
+    let basicColor: BasicColor = this.getBasicColorP()!;;
+    
+
+    let textX: number = this.textX;;
+    
+
+    let y: number = this.y;;
+    
+
+    let firstIndex: number = index;;
+    
+
+//inner=true member= isStatic=
+class ProductivityNumberStringHud extends NumberStringHud {
+        
+
+ constructor (){
+            super("Productivity:", 999, basicHudFactory!.ABSOLUTE, basicHudFactory!.HORIZONTAL, 0, basicColor);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public updateMeasurement(graphics: Graphics){
+
+    let font: Font = graphics.getFont()!;;
+    
+this.updateMaxWidth= textX;
+    
+this.updateMaxHeight= y +((firstIndex +1) *font.getHeight());
+    
+super.updateMeasurement(graphics);
+    
+}
+
+
+}
+
+                    //Otherwise - statement - EmptyStmt
+
+productivityHud= new ProductivityNumberStringHud();
+    
+index++;
+    
+
+    let secondIndex: number = index;;
+    
+
+//inner=true member= isStatic=
+class EfficiencyNumberStringHud extends NumberStringHud {
+        
+
+ constructor (){
+            super("Efficiency:", 999, basicHudFactory!.ABSOLUTE, basicHudFactory!.HORIZONTAL, 0, basicColor);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public updateMeasurement(graphics: Graphics){
+super.updateMeasurement(graphics);
+    
+
+    let font: Font = graphics.getFont()!;;
+    
+this.updateMaxWidth= textX;
+    
+this.updateMaxHeight= y +((secondIndex +1) *font.getHeight());
+    
+}
+
+
+}
+
+                    //Otherwise - statement - EmptyStmt
+
+efficiencyHud= new EfficiencyNumberStringHud();
+    
+index++;
+    
+
+    let HEALTH: string = this.HEALTH;;
+    
+
+    let thirdIndex: number = index;;
+    
+
+//inner=true member= isStatic=
+class HealthNumberStringHud extends NumberStringHud {
+        
+
+ constructor (){
+            super(HEALTH, 99999, basicHudFactory!.ABSOLUTE, basicHudFactory!.HORIZONTAL, 0, basicColor);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public updateMeasurement(graphics: Graphics){
+
+    let font: Font = graphics.getFont()!;;
+    
+this.updateMaxWidth= textX;
+    
+this.updateMaxHeight= y +((thirdIndex +1) *font.getHeight());
+    
+super.updateMeasurement(graphics);
+    
+}
+
+
+}
+
+                    //Otherwise - statement - EmptyStmt
+
+
+    let totalLength: number = HEALTH.length +1;;
+    
+healthHud= new HealthNumberStringHud();
+    
+
+    let fourthIndex: number = index;;
+    
+
+//inner=true member= isStatic=
+class MaxHealthNumberStringHud extends NumberStringHud {
+        
+
+ constructor (){
+            super("/ ", 99999, basicHudFactory!.ABSOLUTE, basicHudFactory!.HORIZONTAL, 0, basicColor);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public updateMeasurement(graphics: Graphics){
+super.updateMeasurement(graphics);
+    
+
+    let font: Font = graphics.getFont()!;;
+    
+this.updateMaxWidth= textX +(totalLength *font.getHeight());
+    
+this.updateMaxHeight= y +((fourthIndex +1) *font.getHeight());
+    
+}
+
+
+}
+
+                    //Otherwise - statement - EmptyStmt
+
+maxHealthHud= new MaxHealthNumberStringHud();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.CONSTRUCTOR, e);
+    
+
+ }
+   }
+ 
+this.productivityHud= productivityHud;
+    
+this.efficiencyHud= efficiencyHud;
+    
+this.healthHud= healthHud;
+    
+this.maxHealthHud= maxHealthHud;
+    
+}
+
+
+    public updateMeasurement(graphics: Graphics){
+
+    let font: Font = graphics.getFont()!;;
+    
+
+    let totalLength: number = this.HEALTH.length +MathUtil.getInstance()!.getTotalDigits(this.currentHealth);;
+    
+this.maxHealthHud!.setX(this.textX +MyFontProcessor.defaultStringWidth(font, totalLength));
+    
+this.myFontProcessor= MyFontProcessor.getInstance();
+    
+}
+
+
+    public setBasicColorP(basicColor: BasicColor){
+super.setBasicColorP(basicColor);
+    
+this.productivityHud!.setBasicColorP(basicColor);
+    
+this.efficiencyHud!.setBasicColorP(basicColor);
+    
+this.healthHud!.setBasicColorP(basicColor);
+    
+this.maxHealthHud!.setBasicColorP(basicColor);
+    
+}
+
+
+    public paint(graphics: Graphics){
+super.paint(graphics);
+    
+this.myFontProcessor!.process(graphics);
+    
+this.productivityHud!.paint(graphics);
+    
+this.efficiencyHud!.paint(graphics);
+    
+this.healthHud!.paint(graphics);
+    
+this.maxHealthHud!.paint(graphics);
+    
+this.getAnimationInterface()!.paintXY(graphics, this.imageX, this.y);
+    
+}
+
+
+    public updateSelectionInfo(){
+
+    let buildingLayer: BuildingLayer = this.rtsLayer as BuildingLayer;;
+    
+this.setName(buildingLayer!.getName());
+    
+this.setAnimationInterface(buildingLayer!.getVerticleBuildAnimationInterface());
+    
+this.productivityHud!.set(buildingLayer!.getProductivity());
+    
+this.efficiencyHud!.set(buildingLayer!.getEfficiency() /100);
+    
+this.currentHealth= buildingLayer!.getHealthInterface()!.getHealth();
+    
+this.healthHud!.set(this.currentHealth);
+    
+this.myFontProcessor= this.updateMyFontProcessor;
+    
+this.maxHealthHud!.set(buildingLayer!.getHealthInterface()!.getMaxHealth());
+    
+}
+
+
+    public setRtsLayer(rtsLayer: PathFindingLayerInterface){
+this.rtsLayer= rtsLayer;
+    
+}
+
+
+}
+

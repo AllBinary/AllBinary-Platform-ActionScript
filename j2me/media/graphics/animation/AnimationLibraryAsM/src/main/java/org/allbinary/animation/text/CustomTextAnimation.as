@@ -1,0 +1,192 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
+        
+import { Font } from '../../../../javax/microedition/lcdui/Font.js';
+//not GWT import const Font
+
+import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
+//not GWT import const AnimationBehavior
+
+import { FontDebugFactory } from '../../../../org/allbinary/graphics/font/FontDebugFactory.js';
+//not GWT import const FontDebugFactory
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TextAnimation } from './TextAnimation.js';
+//sameFolderImports - not GWT import - same folder const TextAnimation
+import { TextInterface } from './TextInterface.js';
+//sameFolderImports - not GWT import - same folder const TextInterface
+import { TextChangeListener } from './TextChangeListener.js';
+//sameFolderImports - not GWT import - same folder const TextChangeListener
+
+export class CustomTextAnimation extends TextAnimation implements TextInterface {
+        
+
+    readonly fontDebugFactory: FontDebugFactory = FontDebugFactory.getInstance()!;
+
+    readonly fontSize: number;
+
+    font: Font;
+
+    private lastText: string = StringUtil.getInstance()!.INIT_STRING;
+
+    hasChanged: boolean = true;
+
+public constructor (text: string, fontSize: number, animationBehavior: AnimationBehavior){
+            super(text, animationBehavior);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.fontSize= fontSize;
+    
+this.font= Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, fontSize);
+    
+}
+
+
+    public paintXY(graphics: Graphics, x: number, y: number){
+this.myFontProcessor!.process(graphics);
+    
+
+    let existingFont: Font = graphics.getFont()!;;
+    
+this.fontDebugFactory!.setFont(this.font, graphics);
+    
+super.paintXYNoUpdate(graphics, x, y);
+    
+this.fontDebugFactory!.setFont(existingFont, graphics);
+    
+}
+
+
+    public setScale(scaleX: number, scaleY: number){
+
+                        if(scaleX != scaleY)
+                        
+                                    {
+                                    
+
+
+                            throw new RuntimeException();
+                    
+
+                                    }
+                                
+this.hasChanged= true;
+    
+this.font= Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, globalThis.Math.trunc((this.fontSize *scaleX)));
+    
+}
+
+
+    public setTextWithOnMeasure(text: string, textChangeListener: TextChangeListener){
+super.setTextWithOnMeasure(text, textChangeListener);
+    
+}
+
+
+    public setText(text: string){
+
+                        if(this.lastText != text)
+                        
+                                    {
+                                    this.hasChanged= true;
+    
+this.lastText= text;
+    
+super.setText(text);
+    
+
+                                    }
+                                
+}
+
+
+    public getText(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.lastText;
+    
+}
+
+
+    private textWidth: number= 0;
+
+    public getWidth(): number{
+
+                        if(this.hasChanged)
+                        
+                                    {
+                                    this.textWidth= this.font.stringWidth(this.textArrayP[0]!);
+    
+this.hasChanged= false;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.textWidth;
+    
+}
+
+
+    public getFontHeight(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.font.getHeight();;
+    
+}
+
+
+}
+

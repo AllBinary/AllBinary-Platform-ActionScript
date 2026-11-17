@@ -1,0 +1,222 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+import { DataInputStream } from '../../../../../../../java/io/DataInputStream.js';
+//not GWT import const DataInputStream
+
+import { InputStream } from '../../../../../../../java/io/InputStream.js';
+//not GWT import const InputStream
+
+import { OutputStream } from '../../../../../../../java/io/OutputStream.js';
+//not GWT import const OutputStream
+
+import { AbDataOutputStream } from '../../../../../../../org/allbinary/logic/io/AbDataOutputStream.js';
+//not GWT import const AbDataOutputStream
+
+import { FileStreamFactory } from '../../../../../../../org/allbinary/logic/io/FileStreamFactory.js';
+//not GWT import const FileStreamFactory
+
+import { StreamUtil } from '../../../../../../../org/allbinary/logic/io/StreamUtil.js';
+//not GWT import const StreamUtil
+
+import { FileFactory } from '../../../../../../../org/allbinary/logic/io/file/FileFactory.js';
+//not GWT import const FileFactory
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class RegistrationConfiguration
+            extends Object
+         {
+        
+
+    private static readonly SINGLETON: RegistrationConfiguration = new RegistrationConfiguration();
+
+    public static getInstance(): RegistrationConfiguration{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return RegistrationConfiguration.SINGLETON;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private registrationCode: string = "No Registration Code";
+
+    public readonly NAME: string = "registrationid";
+
+    private readonly FILE: string = "Registration.dat";
+
+private constructor (){
+
+            super();
+        
+ try { 
+                        if(FileFactory.getInstance()!.isFile(this.FILE))
+                        
+                                    {
+                                    this.read();
+    
+
+                                    }
+                                
+                        else {
+                            this.write();
+    
+
+                        }
+                            
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.CONSTRUCTOR, e);
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    read(){
+
+    let fileInputStreamFactory: FileStreamFactory = FileStreamFactory.getInstance()!;;
+    
+
+    let fileInputStream: InputStream = fileInputStreamFactory!.getFileInputStreamInstance(StringUtil.getInstance()!.EMPTY_STRING, this.FILE)!;;
+    
+
+    let dataInputStream: DataInputStream = new DataInputStream(fileInputStream);;
+    
+this.setRegistrationCode(dataInputStream!.readUTF());
+    
+PreLogUtil.put(new StringMaker().append("Read Configuration: ")!.append(this.toString())!.toString(), this, "read");
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public write(){
+
+    let dataOutputStream: AbDataOutputStream = 
+                null
+            ;;
+    
+
+ try { this.logUtil!.putF(new StringMaker().append("Write Configuration: ")!.append(this.toString())!.toString(), this, "write");
+    
+
+    let fileInputStreamFactory: FileStreamFactory = FileStreamFactory.getInstance()!;;
+    
+
+    let fileOutputStream: OutputStream = fileInputStreamFactory!.getFileOutputStreamInstance(StringUtil.getInstance()!.EMPTY_STRING, this.FILE)!;;
+    
+dataOutputStream= new AbDataOutputStream(fileOutputStream);
+    
+dataOutputStream!.writeUTF(this.getRegistrationCode());
+    
+dataOutputStream!.flush();
+    
+ }
+ finally { StreamUtil.getInstance()!.close(dataOutputStream);
+    
+ }
+}
+
+
+    public toString(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new StringMaker().append("Registration Code: ")!.append(this.getRegistrationCode())!.toString();;
+    
+}
+
+
+    public setRegistrationCode(registrationCode: string){
+this.registrationCode= registrationCode;
+    
+}
+
+
+    public getRegistrationCode(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.registrationCode;
+    
+}
+
+
+}
+

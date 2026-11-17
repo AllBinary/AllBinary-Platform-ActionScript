@@ -1,0 +1,263 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+import { awt } from '../../../../../java/awt.js';
+//not GWT import const awt
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ColorRangeInterface } from './ColorRangeInterface.js';
+//sameFolderImports - not GWT import - same folder const ColorRangeInterface
+import { Color } from './Color.js';
+//sameFolderImports - not GWT import - same folder const Color
+
+export class ColorRange
+            extends Object
+         implements ColorRangeInterface {
+        
+
+    private minRed: number;
+
+    private maxRed: number;
+
+    private minGreen: number;
+
+    private maxGreen: number;
+
+    private minBlue: number;
+
+    private maxBlue: number;
+
+public constructor (){
+
+            super();
+        this.minRed= 0;
+    
+this.maxRed= 0;
+    
+this.minGreen= 0;
+    
+this.maxGreen= 0;
+    
+this.minBlue= 0;
+    
+this.maxBlue= 0;
+    
+}
+
+
+    public getMinRed(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.minRed;
+    
+}
+
+
+    public setMinRed(minRed: number){
+this.minRed= minRed;
+    
+}
+
+
+    public getMaxRed(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.maxRed;
+    
+}
+
+
+    public setMaxRed(maxRed: number){
+this.maxRed= maxRed;
+    
+}
+
+
+    public getMinGreen(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.minGreen;
+    
+}
+
+
+    public setMinGreen(minGreen: number){
+this.minGreen= minGreen;
+    
+}
+
+
+    public getMaxGreen(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.maxGreen;
+    
+}
+
+
+    public setMaxGreen(maxGreen: number){
+this.maxGreen= maxGreen;
+    
+}
+
+
+    public getMinBlue(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.minBlue;
+    
+}
+
+
+    public setMinBlue(minBlue: number){
+this.minBlue= minBlue;
+    
+}
+
+
+    public getMaxBlue(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.maxBlue;
+    
+}
+
+
+    public setMaxBlue(maxBlue: number){
+this.maxBlue= maxBlue;
+    
+}
+
+
+    public isInRange(color: Color): boolean{
+
+                        if(color.getRed() >= this.getMinRed() && color.getRed() <= this.getMaxRed() && color.getGreen() >= this.getMinGreen() && color.getGreen() <= this.getMaxGreen() && color.getBlue() >= this.getMinBlue() && color.getBlue() <= this.getMaxBlue())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+    public toString(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("getMinRed(): ");
+    
+stringBuffer!.appendint(this.getMinRed());
+    
+stringBuffer!.append(CommonSeps.getInstance()!.NEW_LINE);
+    
+stringBuffer!.append("getMaxRed(): ");
+    
+stringBuffer!.appendint(this.getMaxRed());
+    
+stringBuffer!.append(CommonSeps.getInstance()!.NEW_LINE);
+    
+stringBuffer!.append("getMinGreen(): ");
+    
+stringBuffer!.appendint(this.getMinGreen());
+    
+stringBuffer!.append(CommonSeps.getInstance()!.NEW_LINE);
+    
+stringBuffer!.append("getMaxGreen(): ");
+    
+stringBuffer!.appendint(this.getMaxGreen());
+    
+stringBuffer!.append(CommonSeps.getInstance()!.NEW_LINE);
+    
+stringBuffer!.append("getMinBlue(): ");
+    
+stringBuffer!.appendint(this.getMinGreen());
+    
+stringBuffer!.append(CommonSeps.getInstance()!.NEW_LINE);
+    
+stringBuffer!.append("getMaxBlue(): ");
+    
+stringBuffer!.appendint(this.getMaxBlue());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+}
+

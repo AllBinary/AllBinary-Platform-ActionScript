@@ -1,0 +1,118 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import hilog from '@ohos.hilog';
+        
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+//not plain js import { NullUtil } 
+const NullUtil = globalThis.org.allbinary.logic.NullUtil;
+type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
+
+//not plain js import { LogFormatUtil } 
+const LogFormatUtil = globalThis.org.allbinary.logic.communication.log.LogFormatUtil;
+type LogFormatUtil<T = any, U = any> = typeof LogFormatUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogFormatUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //not plain js - same folder import { Log } 
+const Log = globalThis.org.allbinary.logic.communication.log.Log;
+//ActualPlatform
+/*actual*/ export class PreLogUtil
+            extends Object
+         {
+        
+
+            static readonly PUBLIC: string = '%{public}s';
+            
+
+    /*actual*/ public static put(specialMessage: string, anyType: any, functionName: string){
+PreLogUtil.putOE(specialMessage, anyType, functionName, NullUtil.getInstance()!.NULL_OBJECT);
+    
+}
+
+
+    private static readonly LABEL: string = "org.allbinary";
+
+    /*actual*/ public static putOE(specialMessage: string, anyType: any, functionName: string, exception: any){
+
+    let className: string = PreLogUtil.LABEL;;
+    
+
+    let actualClassName: string = anyType!.constructor.name.toString()!!;;
+    
+
+                        if(actualClassName != 
+                                    null
+                                )
+                        
+                                    {
+                                    className= actualClassName;
+    
+
+                                    }
+                                
+
+    let message: string = LogFormatUtil.getInstance()!.get(className, functionName, specialMessage, exception)!;;
+    
+hilog.info(0x0000, className, PreLogUtil.PUBLIC, message);
+    
+}
+
+
+    /*actual*/ public static putS(specialMessage: string, className: string, functionName: string){
+PreLogUtil.putSE(specialMessage, className, functionName, NullUtil.getInstance()!.NULL_OBJECT);
+    
+}
+
+
+    /*actual*/ public static putSE(specialMessage: string, className: string, functionName: string, exception: any){
+
+    let message: string = LogFormatUtil.getInstance()!.get(className, functionName, specialMessage, exception)!;;
+    
+hilog.info(0x0000, className, PreLogUtil.PUBLIC, message);
+    
+}
+
+
+public constructor (){
+
+            super();
+        }
+
+
+}
+

@@ -1,0 +1,163 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Image } from '../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { NullImage } from '../../../../javax/microedition/lcdui/NullImage.js';
+//not GWT import const NullImage
+
+import { Animation } from '../../../../org/allbinary/animation/Animation.js';
+//not GWT import const Animation
+
+import { AnimationBehaviorFactory } from '../../../../org/allbinary/animation/AnimationBehaviorFactory.js';
+//not GWT import const AnimationBehaviorFactory
+
+import { VectorAnimation } from '../../../../org/allbinary/animation/VectorAnimation.js';
+//not GWT import const VectorAnimation
+
+import { GameConfigurationCentral } from '../../../../org/allbinary/game/configuration/GameConfigurationCentral.js';
+//not GWT import const GameConfigurationCentral
+
+import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { AnimationFrameToImageUtil } from '../../../../org/allbinary/image/AnimationFrameToImageUtil.js';
+//not GWT import const AnimationFrameToImageUtil
+
+import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
+//not GWT import const PrimitiveIntUtil
+
+import { AngleFactory } from '../../../../org/allbinary/math/AngleFactory.js';
+//not GWT import const AngleFactory
+
+import { AngleInfo } from '../../../../org/allbinary/math/AngleInfo.js';
+//not GWT import const AngleInfo
+
+import { ScaleProperties } from '../../../../org/allbinary/media/ScaleProperties.js';
+//not GWT import const ScaleProperties
+
+import { ImageToRotationImageArrayUtil } from '../../../../org/allbinary/media/image/ImageToRotationImageArrayUtil.js';
+//not GWT import const ImageToRotationImageArrayUtil
+
+import { VectorInfo } from '../../../../org/allbinary/vector/VectorInfo.js';
+//not GWT import const VectorInfo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BaseImageAnimationFactory } from './BaseImageAnimationFactory.js';
+//sameFolderImports - not GWT import - same folder const BaseImageAnimationFactory
+import { AdjustedImageArrayRotationAnimation } from './AdjustedImageArrayRotationAnimation.js';
+//sameFolderImports - not GWT import - same folder const AdjustedImageArrayRotationAnimation
+
+export class VectorToImageArrayRotationAnimationFactory extends BaseImageAnimationFactory {
+        
+
+    private imageArray: Image[] = NullImage.NULL_IMAGE_ARRAY;
+
+    private angleIncrement: number= 0;
+
+public constructor (vectorInfo: VectorInfo, basicColor: BasicColor, animationBehaviorFactory: AnimationBehaviorFactory){
+            super(AnimationFrameToImageUtil.getInstance()!.getInstanceTranslate(vectorInfo!.getWidth(), vectorInfo!.getHeight(), VectorAnimation.createVectorAnimation(vectorInfo!.getPoints(), basicColor, animationBehaviorFactory!.getOrCreateInstance())), PrimitiveIntUtil.getArrayInstance(), 0, 0, 0, 0, animationBehaviorFactory);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.init();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    init(){
+
+    let angleFactory: AngleFactory = AngleFactory.getInstance()!;;
+    
+this.angleIncrement= angleFactory!.TOTAL_ANGLE /GameConfigurationCentral.getInstance()!.getGameControlFidelity();
+    
+this.imageArray= ImageToRotationImageArrayUtil.getInstance()!.generate(this.getImage(), this.getAngleIncrement(), globalThis.Math.trunc(angleFactory!.TOTAL_ANGLE));
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getInstance(instanceId: number): Animation{
+
+                        if(this.animationFactoryInitializationVisitor!.dx != 0 || this.animationFactoryInitializationVisitor!.dy != 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new AdjustedImageArrayRotationAnimation(this.imageArray, AngleInfo.getInstance(this.getAngleIncrement()), globalThis.Math.trunc(AngleFactory.getInstance()!.TOTAL_ANGLE), this.animationFactoryInitializationVisitor!.dx, this.animationFactoryInitializationVisitor!.dy, this.animationBehaviorFactory!.getOrCreateInstance());
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return AdjustedImageArrayRotationAnimation.createAnimation(this.imageArray, AngleInfo.getInstance(this.angleIncrement), globalThis.Math.trunc(AngleFactory.getInstance()!.TOTAL_ANGLE), this.animationBehaviorFactory!.getOrCreateInstance());;
+    
+
+                        }
+                            
+}
+
+
+    getAngleIncrement(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.angleIncrement;
+    
+}
+
+
+    public setInitialScale(scaleProperties: ScaleProperties){
+}
+
+
+}
+

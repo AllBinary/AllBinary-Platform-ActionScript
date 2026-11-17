@@ -1,0 +1,106 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { Context } from '../../../android/content/Context.js';
+//not GWT import const Context
+
+import { Vibrator } from '../../../android/os/Vibrator.js';
+//not GWT import const Vibrator
+
+//not plain js import { ResourceUtil } 
+const ResourceUtil = globalThis.org.allbinary.data.resource.ResourceUtil;
+type ResourceUtil<T = any, U = any> = typeof ResourceUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ResourceUtil;
+
+import { GameConfigurationCentral } from '../../../org/allbinary/game/configuration/GameConfigurationCentral.js';
+//not GWT import const GameConfigurationCentral
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AllBinaryVibrationME } from './AllBinaryVibrationME.js';
+//sameFolderImports - not GWT import - same folder const AllBinaryVibrationME
+import { AllBinaryNoVibration } from './AllBinaryNoVibration.js';
+//sameFolderImports - not GWT import - same folder const AllBinaryNoVibration
+
+export class AllBinaryVibration extends AllBinaryVibrationME {
+        
+
+    private static VIBRATION: AllBinaryVibrationME = AllBinaryNoVibration.NO_VIBRATION;
+
+    public static getInstance(): AllBinaryVibrationME{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return AllBinaryVibration.VIBRATION;
+    
+}
+
+
+    public static init(){
+
+                        if(GameConfigurationCentral.getInstance()!.VIBRATION.getValue()!.intValue() == 0)
+                        
+                                    {
+                                    AllBinaryVibration.VIBRATION= AllBinaryNoVibration.NO_VIBRATION;
+    
+
+                                    }
+                                
+                        else {
+                            AllBinaryVibration.VIBRATION= new AllBinaryVibration();
+    
+
+                        }
+                            
+}
+
+
+    private readonly vibrator: Vibrator = ResourceUtil.getInstance()!.getContext()!.getSystemService(Context.VIBRATOR_SERVICE) as unknown as Vibrator;
+
+protected constructor (){
+
+            super();
+        }
+
+
+    public vibrate(duration: number, type: number, volume: number){
+this.vibrator.vibrate(duration);
+    
+}
+
+
+}
+

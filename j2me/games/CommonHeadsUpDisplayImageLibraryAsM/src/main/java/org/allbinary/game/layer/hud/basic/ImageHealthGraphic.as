@@ -1,0 +1,119 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { Graphics } from '../../../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { Image } from '../../../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { AnimationInterface } from '../../../../../../org/allbinary/animation/AnimationInterface.js';
+//not GWT import const AnimationInterface
+
+import { HealthInterface } from '../../../../../../org/allbinary/game/health/HealthInterface.js';
+//not GWT import const HealthInterface
+
+import { Anchor } from '../../../../../../org/allbinary/graphics/Anchor.js';
+//not GWT import const Anchor
+
+import { ImageCacheFactory } from '../../../../../../org/allbinary/image/ImageCacheFactory.js';
+//not GWT import const ImageCacheFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { HealthGraphic } from './HealthGraphic.js';
+//sameFolderImports - not GWT import - same folder const HealthGraphic
+
+export class ImageHealthGraphic extends HealthGraphic {
+        
+
+    private image: Image[];
+
+public constructor (animationInterface: AnimationInterface, healthInterface: HealthInterface, location: number, direction: number){
+            super(animationInterface, healthInterface, location, direction);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.image= new Array(this.healthInterface!.getMaxHealth());
+    
+
+    let imageCacheFactory: ImageCacheFactory = ImageCacheFactory.getInstance()!;;
+    
+
+
+
+
+                        for (
+    let numOfHealth: number = 0;numOfHealth <= max; numOfHealth++)
+        {
+this.image[numOfHealth]= imageCacheFactory!.get(this, numOfHealth +1 *10, 10);
+    
+}
+
+
+
+
+
+                        for (
+    let numOfHealth: number = 0;numOfHealth <= max; numOfHealth++)
+        {
+
+
+
+
+                        for (
+    let index: number = 0;index < numOfHealth; index++)
+        {
+this.animationInterface!.paint(this.image[numOfHealth]!.getGraphics(), numOfHealth *10, 0);
+    
+}
+
+}
+
+}
+
+
+    public paint(graphics: Graphics){
+graphics.drawImage(this.image[max]!, x, y, Anchor.TOP_LEFT);
+    
+}
+
+
+}
+

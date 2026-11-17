@@ -1,0 +1,118 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Long } from '../../../../../../java/lang/Long.js';
+        
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { CacheableInterface } from '../../../../../../org/allbinary/logic/util/cache/CacheableInterface.js';
+//not GWT import const CacheableInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { MotionRectangles } from './MotionRectangles.js';
+//sameFolderImports - not GWT import - same folder const MotionRectangles
+
+export class MotionRectanglesResultsFrameCacheable
+            extends Object
+         implements CacheableInterface {
+        
+
+    private motionRectangles: MotionRectangles;
+
+    private frame: Long;
+
+public constructor (motionRectangles: MotionRectangles, frame: Long){
+
+            super();
+        this.frame= frame;
+    
+this.setMotionRectangles(motionRectangles);
+    
+}
+
+
+    public getKey(): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.frame;
+    
+}
+
+
+    public getMotionRectangles(): MotionRectangles{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.motionRectangles;
+    
+}
+
+
+    public setMotionRectangles(motionRectangles: MotionRectangles){
+this.motionRectangles= motionRectangles;
+    
+}
+
+
+    public toString(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.constructor.name.toString()!);
+    
+stringBuffer!.append(" Frame: ");
+    
+stringBuffer!.append(this.getKey()!.toString());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+}
+

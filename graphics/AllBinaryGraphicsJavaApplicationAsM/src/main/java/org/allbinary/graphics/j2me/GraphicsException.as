@@ -1,0 +1,103 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { GuiLog } from '../../../../org/allbinary/logic/communication/log/GuiLog.js';
+//not GWT import const GuiLog
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class GraphicsException extends java.lang.Exception {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly guiLog: GuiLog = GuiLog.getInstance()!;
+
+public constructor (msg: string, obj: any, method: string){
+            super(msg);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+ try { this.guiLog!.showDialog(msg);
+    
+this.logUtil!.put(msg, obj, method, this);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+ }
+   }
+ 
+}
+
+
+public constructor (msg: string, className: string, method: string){
+            super(msg);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+ try { this.guiLog!.showDialog(msg);
+    
+this.logUtil!.put(msg, className, method, this);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+ }
+   }
+ 
+}
+
+
+}
+

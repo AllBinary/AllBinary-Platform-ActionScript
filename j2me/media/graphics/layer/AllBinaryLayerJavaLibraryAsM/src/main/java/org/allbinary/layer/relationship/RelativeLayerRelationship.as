@@ -1,0 +1,100 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { GPoint } from '../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { RelativeRelationship } from '../../../../org/allbinary/graphics/RelativeRelationship.js';
+//not GWT import const RelativeRelationship
+
+import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class RelativeLayerRelationship extends RelativeRelationship {
+        
+
+    private layer: AllBinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
+
+public constructor (layer: AllBinaryLayer, point: GPoint, typesAllowedList: BasicArrayList){
+            super(point, typesAllowedList);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.layer= layer;
+    
+}
+
+
+    public getX(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.layer.getXP() +super.getX();
+    
+}
+
+
+    public getY(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.layer.getYP() +super.getY();
+    
+}
+
+
+    public getZ(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.layer.getZP() +super.getZ();
+    
+}
+
+
+}
+

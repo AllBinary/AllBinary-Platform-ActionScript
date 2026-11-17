@@ -1,0 +1,237 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../java/lang/Exception.js';
+        
+import { XmlDocumentHelper } from '../../../org/allbinary/data/tree/dom/document/XmlDocumentHelper.js';
+//not GWT import const XmlDocumentHelper
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { TransformFactory } from '../../../org/allbinary/logic/visual/transform/TransformFactory.js';
+//not GWT import const TransformFactory
+
+import { TransformInterface } from '../../../org/allbinary/logic/visual/transform/TransformInterface.js';
+//not GWT import const TransformInterface
+
+import { GeneratorTransformInfoData } from '../../../org/allbinary/logic/visual/transform/info/GeneratorTransformInfoData.js';
+//not GWT import const GeneratorTransformInfoData
+
+import { RootTransformInfoData } from '../../../org/allbinary/logic/visual/transform/info/RootTransformInfoData.js';
+//not GWT import const RootTransformInfoData
+
+import { TransformInfoHttp } from '../../../org/allbinary/logic/visual/transform/info/TransformInfoHttp.js';
+//not GWT import const TransformInfoHttp
+
+import { TransformInfoInterface } from '../../../org/allbinary/logic/visual/transform/info/TransformInfoInterface.js';
+//not GWT import const TransformInfoInterface
+
+import { TransformInfoObjectConfigAndManipulatorFactory } from '../../../org/allbinary/logic/visual/transform/info/objectConfig/TransformInfoObjectConfigAndManipulatorFactory.js';
+//not GWT import const TransformInfoObjectConfigAndManipulatorFactory
+
+import { TransformInfoObjectConfigInterface } from '../../../org/allbinary/logic/visual/transform/info/objectConfig/TransformInfoObjectConfigInterface.js';
+//not GWT import const TransformInfoObjectConfigInterface
+
+import { TransformTemplateInterface } from '../../../org/allbinary/logic/visual/transform/template/TransformTemplateInterface.js';
+//not GWT import const TransformTemplateInterface
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+import { Document } from '../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { HttpStoreComponentView } from '../../../views/business/context/modules/storefront/HttpStoreComponentView.js';
+//not GWT import const HttpStoreComponentView
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class OverrideObjectConfigRootContextView extends HttpStoreComponentView {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+public constructor (transformInfoInterface: Object){
+            super(transformInfoInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("View Name: " +transformInfoInterface!.getName(), this, "OverrideObjectRootContextView()");
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public view(): string{
+
+ try { 
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("View Name: " +this.getTransformInfoInterface()!.getName(), this, "view()");
+    
+
+                                    }
+                                
+
+    let rootTransformInfoInterface: TransformInfoInterface = new TransformInfoHttp(this.getTransformInfoInterface() as TransformInfoHttp) as TransformInfoInterface;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.getTransformInfoInterface()!.getStoreName());
+    
+stringBuffer!.append(CommonSeps.getInstance()!.SPACE);
+    
+
+    let nameStart: string = stringBuffer!.toString()!;;
+    
+
+                        if(this.getTransformInfoInterface()!.getName()!.indexOf(GeneratorTransformInfoData.NAME) > 0)
+                        
+                                    {
+                                    rootTransformInfoInterface!.setName(nameStart +GeneratorTransformInfoData.NAME);
+    
+
+                                    }
+                                
+                             else 
+                        if(this.getTransformInfoInterface()!.getName()!.indexOf(RootTransformInfoData.NAME) > 0)
+                        
+                                    {
+                                    rootTransformInfoInterface!.setName(nameStart +RootTransformInfoData.NAME);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("Override Currently Not Supported");
+                    
+
+                        }
+                            
+
+    let overrideObjectConfigDocument: Document = this.getTransformInfoInterface()!.getObjectConfigInterface()!.toXmlDoc()!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("Retrieved OverrideObjectConfig: " +XmlDocumentHelper.toString(overrideObjectConfigDocument), this, "view()");
+    
+
+                                    }
+                                
+
+    let transformFactory: TransformFactory = TransformFactory.getInstance()!;;
+    
+
+    let rootComponentInterface: TransformInterface = transformFactory!.getInstance(this.abeClientInformation, rootTransformInfoInterface!.getName(), rootTransformInfoInterface)!;;
+    
+
+    let transformTemplateInterface: TransformTemplateInterface = rootComponentInterface as TransformTemplateInterface;;
+    
+
+    let componentInterface: TransformInterface = transformFactory!.getInstance(this.abeClientInformation, transformTemplateInterface!.getName(), rootComponentInterface!.getTransformInfoInterface())!;;
+    
+
+    let transformInfoObjectConfigInterface: TransformInfoObjectConfigInterface = TransformInfoObjectConfigAndManipulatorFactory.getInstance()!.getInstance(this.abeClientInformation, componentInterface!.getTransformInfoInterface(), overrideObjectConfigDocument)!;;
+    
+componentInterface!.getTransformInfoInterface()!.setObjectConfigInterface(transformInfoObjectConfigInterface);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("Set OverrideObjectConfig: " +componentInterface!.getTransformInfoInterface()!.getObjectConfigInterface()!.toString(), this, "view()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return componentInterface!.view();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPERERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "view()", e);
+    
+
+                                    }
+                                
+
+
+
+                            throw e;
+                    
+
+ }
+   }
+ 
+}
+
+
+}
+

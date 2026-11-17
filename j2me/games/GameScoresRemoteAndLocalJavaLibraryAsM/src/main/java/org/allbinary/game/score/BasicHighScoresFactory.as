@@ -1,0 +1,232 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+//not plain js import { ARunnable } 
+const ARunnable = globalThis.org.allbinary.thread.ARunnable;
+type ARunnable<T = any, U = any> = typeof ARunnable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ARunnable;
+
+import { BasicHighScoresGameInfoFactory } from '../../../../org/allbinary/game/BasicHighScoresGameInfoFactory.js';
+//not GWT import const BasicHighScoresGameInfoFactory
+
+import { GameInfo } from '../../../../org/allbinary/game/GameInfo.js';
+//not GWT import const GameInfo
+
+import { GameType } from '../../../../org/allbinary/game/GameType.js';
+//not GWT import const GameType
+
+import { GameTypeFactory } from '../../../../org/allbinary/game/GameTypeFactory.js';
+//not GWT import const GameTypeFactory
+
+import { RemoteHighScores } from '../../../../org/allbinary/game/score/remote/RemoteHighScores.js';
+//not GWT import const RemoteHighScores
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { BooleanFactory } from '../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
+//not GWT import const BooleanFactory
+
+import { SoftwareInformation } from '../../../../org/allbinary/logic/system/SoftwareInformation.js';
+//not GWT import const SoftwareInformation
+
+import { AbeClientInformationInterface } from '../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
+//not GWT import const AbeClientInformationInterface
+
+import { SecondaryThreadPool } from '../../../../org/allbinary/thread/SecondaryThreadPool.js';
+//not GWT import const SecondaryThreadPool
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { HighScoresBase } from './HighScoresBase.js';
+//sameFolderImports - not GWT import - same folder const HighScoresBase
+import { HighScores } from './HighScores.js';
+//sameFolderImports - not GWT import - same folder const HighScores
+import { HighScoresResultsListener } from './HighScoresResultsListener.js';
+//sameFolderImports - not GWT import - same folder const HighScoresResultsListener
+import { RecordStoreHighScores } from './RecordStoreHighScores.js';
+//sameFolderImports - not GWT import - same folder const RecordStoreHighScores
+import { ScoreComparator } from './ScoreComparator.js';
+//sameFolderImports - not GWT import - same folder const ScoreComparator
+import { LastFetchHighScoresFactory } from './LastFetchHighScoresFactory.js';
+//sameFolderImports - not GWT import - same folder const LastFetchHighScoresFactory
+import { HighScoresHelper2 } from './HighScoresHelper2.js';
+//sameFolderImports - not GWT import - same folder const HighScoresHelper2
+import { HighScoresHelperBaseInterface } from './HighScoresHelperBaseInterface.js';
+//sameFolderImports - not GWT import - same folder const HighScoresHelperBaseInterface
+
+export class BasicHighScoresFactory extends HighScoresBase {
+        
+
+    public static loaded(index2: number): boolean{
+
+                        if(index2 >= 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly abeClientInformation: AbeClientInformationInterface;
+
+    private readonly softwareInformation: SoftwareInformation;
+
+public constructor (abeClientInformation: AbeClientInformationInterface, softwareInformation: SoftwareInformation){
+
+            super();
+        this.abeClientInformation= abeClientInformation;
+    
+this.softwareInformation= softwareInformation;
+    
+}
+
+
+    private readonly highScoresArray: HighScores[] = new Array(2);
+
+    private readonly TOP: string = "Top";
+
+    private readonly SCORES: string = "Scores";
+
+    private readonly PERSONAL_HIGH_SCORES: string = "Personal Top Scores";
+
+    private readonly WORLD_TOP_SCORES: string = "World Top Scores";
+
+    private readonly FETCH: string = "fetchHighScores";
+
+    public fetchHighScores(gameInfo: GameInfo, highScoresResultsListener: HighScoresResultsListener){
+this.logUtil!.putF("Getting Remote/Local HighScores", this, this.FETCH);
+    
+this.fetchHighScoresPreload(gameInfo, highScoresResultsListener, true);
+    
+}
+
+
+    public fetchHighScoresPreload(gameInfo: GameInfo, highScoresResultsListener: HighScoresResultsListener, preload: boolean){
+SecondaryThreadPool.getInstance()!.runTask(new class extends ARunnable
+                                {
+                                
+    public run(){
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+
+ try { logUtil!.putF(outer$BasicHighScoresFactory.commonStrings!.START, this, FETCH);
+    
+highScoresArray[0]= RecordStoreHighScores.getInstance(abeClientInformation, gameInfo, TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
+    
+
+    let gameType: GameType = gameInfo!.getGameType()!;;
+    
+
+    let gameTypeFactory: GameTypeFactory = GameTypeFactory.getInstance()!;;
+    
+
+    let gameInfo2: GameInfo = gameInfo;;
+    
+
+                        if(gameType == gameTypeFactory!.SINGLE_PLAYER || gameType == gameTypeFactory!.BOT)
+                        
+                                    {
+                                    gameInfo2= BasicHighScoresGameInfoFactory.getInstance()!.SINGLE_PLAYER_SERVER;
+    
+
+                                    }
+                                
+                             else 
+                        if(gameType == gameTypeFactory!.MULTI_PLAYER)
+                        
+                                    {
+                                    gameInfo2= BasicHighScoresGameInfoFactory.getInstance()!.MULTI_PLAYER_SERVER;
+    
+
+                                    }
+                                
+highScoresArray[1]= RemoteHighScores.getInstancePreload(abeClientInformation, softwareInformation, gameInfo2, WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance()!.FALSE, preload);
+    
+logUtil!.putF(outer$BasicHighScoresFactory.commonStrings!.END, this, FETCH);
+    
+LastFetchHighScoresFactory.getInstance()!.highScoresArray= highScoresArray;
+    
+highScoresResultsListener!.setHighScoresArray(highScoresArray);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+logUtil!.put(commonStrings!.EXCEPTION, this, FETCH, e);
+    
+
+ }
+   }
+ 
+}
+
+                                }());
+    
+}
+
+
+    public createHighScoresHelper(): HighScoresHelperBaseInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new HighScoresHelper2();
+    
+}
+
+
+}
+

@@ -1,0 +1,93 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { AllBinaryGameLayer } from '../../../../org/allbinary/game/layer/AllBinaryGameLayer.js';
+//not GWT import const AllBinaryGameLayer
+
+import { BasicVelocityProperties } from '../../../../org/allbinary/game/physics/velocity/BasicVelocityProperties.js';
+//not GWT import const BasicVelocityProperties
+
+import { BasicDecimal } from '../../../../org/allbinary/logic/math/BasicDecimal.js';
+//not GWT import const BasicDecimal
+
+import { GameTickTimeDelayHelperFactory } from '../../../../org/allbinary/time/GameTickTimeDelayHelperFactory.js';
+//not GWT import const GameTickTimeDelayHelperFactory
+
+import { TimeDelayHelper } from '../../../../org/allbinary/time/TimeDelayHelper.js';
+//not GWT import const TimeDelayHelper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicConstantVelocityMovement } from './BasicConstantVelocityMovement.js';
+//sameFolderImports - not GWT import - same folder const BasicConstantVelocityMovement
+
+export class DelayedConstantVelocityMovement extends BasicConstantVelocityMovement {
+        
+
+    private readonly timeDelayHelper: TimeDelayHelper = new TimeDelayHelper(60);
+
+public constructor (basicDecimal: BasicDecimal, velocityProperties: BasicVelocityProperties){
+            super(basicDecimal, velocityProperties);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public init(speedBasicDecimal: BasicDecimal, angle: number, otherAngle: number){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public process(layer: AllBinaryGameLayer){
+
+                        if(this.timeDelayHelper!.isTime(GameTickTimeDelayHelperFactory.getInstance()!.startTime))
+                        
+                                    {
+                                    super.process(layer);
+    
+
+                                    }
+                                
+}
+
+
+}
+

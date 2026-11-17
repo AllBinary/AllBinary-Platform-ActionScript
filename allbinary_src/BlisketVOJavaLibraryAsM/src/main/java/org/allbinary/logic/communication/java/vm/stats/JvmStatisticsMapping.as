@@ -1,0 +1,157 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { TableMappingInterface } from '../../../../../../../org/allbinary/data/tables/TableMappingInterface.js';
+//not GWT import const TableMappingInterface
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JvmStatistics } from './JvmStatistics.js';
+//sameFolderImports - not GWT import - same folder const JvmStatistics
+import { JvmStatisticsData } from './JvmStatisticsData.js';
+//sameFolderImports - not GWT import - same folder const JvmStatisticsData
+
+export class JvmStatisticsMapping extends JvmStatistics implements TableMappingInterface {
+        
+
+public constructor (){
+            super();
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put(JvmStatisticsData.FREE_MEMORY_BYTES, this.getFreeMemoryBytesString());
+    
+hashMap!.put(JvmStatisticsData.FREE_MEMORY_KILOBYTES, this.getFreeMemoryKilobytesString());
+    
+hashMap!.put(JvmStatisticsData.FREE_MEMORY_MEGABYTES, this.getFreeMemoryMegabytesString());
+    
+hashMap!.put(JvmStatisticsData.MAX_MEMORY_BYTES, this.getMaxMemoryBytesString());
+    
+hashMap!.put(JvmStatisticsData.MAX_MEMORY_KILOBYTES, this.getMaxMemoryKilobytesString());
+    
+hashMap!.put(JvmStatisticsData.MAX_MEMORY_MEGABYTES, this.getMaxMemoryMegabytesString());
+    
+hashMap!.put(JvmStatisticsData.NUMBER_OF_THREADS, this.getNumberOfThreadsString());
+    
+hashMap!.put(JvmStatisticsData.TOTAL_MEMORY_BYTES, this.getTotalMemoryBytesString());
+    
+hashMap!.put(JvmStatisticsData.TOTAL_MEMORY_KILOBYTES, this.getTotalMemoryKilobytesString());
+    
+hashMap!.put(JvmStatisticsData.TOTAL_MEMORY_MEGABYTES, this.getTotalMemoryMegabytesString());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getKey(): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return JvmStatisticsData.NAME;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toVector(): BasicArrayList{
+
+    let vector: BasicArrayList = new BasicArrayListD();;
+    
+vector.add(this.getFreeMemoryBytesString());
+    
+vector.add(this.getFreeMemoryKilobytesString());
+    
+vector.add(this.getFreeMemoryMegabytesString());
+    
+vector.add(this.getMaxMemoryBytesString());
+    
+vector.add(this.getMaxMemoryKilobytesString());
+    
+vector.add(this.getMaxMemoryMegabytesString());
+    
+vector.add(this.getNumberOfThreadsString());
+    
+vector.add(this.getTotalMemoryBytesString());
+    
+vector.add(this.getTotalMemoryKilobytesString());
+    
+vector.add(this.getTotalMemoryMegabytesString());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return vector;
+    
+}
+
+
+}
+

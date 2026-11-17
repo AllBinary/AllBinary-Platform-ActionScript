@@ -1,0 +1,148 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../java/lang/Integer.js';
+        
+import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { PointFactory } from '../../../../../org/allbinary/graphics/PointFactory.js';
+//not GWT import const PointFactory
+
+import { MotionEventCircularPool } from '../../../../../org/allbinary/input/motion/gesture/observer/MotionEventCircularPool.js';
+//not GWT import const MotionEventCircularPool
+
+import { MotionGestureEvent } from '../../../../../org/allbinary/input/motion/gesture/observer/MotionGestureEvent.js';
+//not GWT import const MotionGestureEvent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class MirrorMotionGestureEventUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: MirrorMotionGestureEventUtil = new MirrorMotionGestureEventUtil();
+
+    public static getInstance(): MirrorMotionGestureEventUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return MirrorMotionGestureEventUtil.instance;
+    
+}
+
+
+    private readonly motionEventCircularPool: MotionEventCircularPool;
+
+private constructor (){
+
+            super();
+        this.motionEventCircularPool= MotionEventCircularPool.createPool(Integer.MAX_VALUE);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public mirrorVerticle(motionGestureEvent: MotionGestureEvent, halfWidth: number): MotionGestureEvent{
+
+    let event: MotionGestureEvent = this.motionEventCircularPool!.getInstance(motionGestureEvent!.getMotionGesture())!;;
+    
+
+    let previousNewX: number = this.getNewX(motionGestureEvent!.getPreviousPoint()!.getX(), halfWidth)!;;
+    
+
+    let currentNewX: number = this.getNewX(motionGestureEvent!.getCurrentPoint()!.getX(), halfWidth)!;;
+    
+
+    let pointFactory: PointFactory = PointFactory.getInstance()!;;
+    
+
+    let mirroredPreviousPoint: GPoint = pointFactory!.createXY(previousNewX, motionGestureEvent!.getPreviousPoint()!.getY())!;;
+    
+
+    let mirroredCurrentPoint: GPoint = pointFactory!.createXY(currentNewX, motionGestureEvent!.getCurrentPoint()!.getY())!;;
+    
+event.setPreviousPoint(mirroredPreviousPoint);
+    
+event.setCurrentPoint(mirroredCurrentPoint);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return event;
+    
+}
+
+
+    public getNewX(x: number, halfWidth: number): number{
+
+    let newX: number= 0;;
+    
+
+                        if(x > halfWidth)
+                        
+                                    {
+                                    newX= halfWidth -(x -halfWidth);
+    
+
+                                    }
+                                
+                        else {
+                            newX= halfWidth +(halfWidth -x);
+    
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return newX;
+    
+}
+
+
+}
+

@@ -1,0 +1,124 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+import { BufferedImage } from '../../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+import { IIOImage } from '../../../../../javax/imageio/IIOImage.js';
+//not GWT import const IIOImage
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { CacheableInterface } from '../../../../../org/allbinary/logic/util/cache/CacheableInterface.js';
+//not GWT import const CacheableInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class IIOImageCacheable
+            extends Object
+         implements CacheableInterface {
+        
+
+    private key: string;
+
+    private iioImage: IIOImage;
+
+public constructor (key: string){
+
+            super();
+        this.key= key;
+    
+}
+
+
+    public getKey(): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.key;
+    
+}
+
+
+    public setBufferedImage(bufferedImage: BufferedImage){
+this.setIioImage(new IIOImage(bufferedImage, 
+                            null, 
+                            null));
+    
+}
+
+
+    public getIioImage(): IIOImage{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.iioImage;
+    
+}
+
+
+    setIioImage(iioImage: IIOImage){
+this.iioImage= iioImage;
+    
+}
+
+
+    public toString(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.constructor.name.toString()!);
+    
+stringBuffer!.append(" Reusable IIOImage");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+}
+

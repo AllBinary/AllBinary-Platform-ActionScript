@@ -1,0 +1,171 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { PageContext } from '../../../../../../javax/servlet/jsp/PageContext.js';
+//not GWT import const PageContext
+
+import { StoreFrontFactory } from '../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontFactory.js';
+//not GWT import const StoreFrontFactory
+
+import { StoreFrontInterface } from '../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontInterface.js';
+//not GWT import const StoreFrontInterface
+
+import { WeblisketSession } from '../../../../../../org/allbinary/logic/communication/http/request/session/WeblisketSession.js';
+//not GWT import const WeblisketSession
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { StringValidationUtil } from '../../../../../../org/allbinary/logic/string/StringValidationUtil.js';
+//not GWT import const StringValidationUtil
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TransformInfoHttpContext } from './TransformInfoHttpContext.js';
+//sameFolderImports - not GWT import - same folder const TransformInfoHttpContext
+import { TransformInfoInterface } from './TransformInfoInterface.js';
+//sameFolderImports - not GWT import - same folder const TransformInfoInterface
+import { TransformInfoHttpStore } from './TransformInfoHttpStore.js';
+//sameFolderImports - not GWT import - same folder const TransformInfoHttpStore
+
+export class TransformInfoHttpFactory
+            extends Object
+         {
+        
+
+                //@Throws(Exception.constructor)
+            
+    public static getInstance(propertiesHashMap: HashMap<any, any>, pageContext: PageContext): TransformInfoInterface{
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+
+ try { 
+    let weblisketSession: WeblisketSession = new WeblisketSession(propertiesHashMap, pageContext);;
+    
+
+                        if(!StringValidationUtil.getInstance()!.isEmpty(weblisketSession!.getStoreName()))
+                        
+                                    {
+                                    
+    let storeFrontInterface: StoreFrontInterface = StoreFrontFactory.getInstance(weblisketSession!.getStoreName())!;;
+    
+
+                        if(storeFrontInterface != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new TransformInfoHttpStore(storeFrontInterface, propertiesHashMap, pageContext) as TransformInfoInterface;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("No StoreFront with: " +weblisketSession!.getStoreName());
+                    
+
+                        }
+                            
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new TransformInfoHttpContext(propertiesHashMap, pageContext) as TransformInfoInterface;
+    
+
+                        }
+                            
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.TAGHELPERFACTORYERROR))
+                        
+                                    {
+                                    
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+logUtil!.put(commonStrings!.EXCEPTION, "TransformInfoFactory", commonStrings!.GET_INSTANCE, e);
+    
+
+                                    }
+                                
+
+
+
+                            throw e;
+                    
+
+ }
+   }
+ 
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

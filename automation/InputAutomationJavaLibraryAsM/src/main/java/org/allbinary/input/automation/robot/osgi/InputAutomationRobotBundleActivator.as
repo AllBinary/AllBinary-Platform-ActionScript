@@ -1,0 +1,311 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            import { RuntimeException } from '../../../../../../java/lang/RuntimeException.js';
+        
+import { BundleActivator } from '../../../../../../org/osgi/framework/BundleActivator.js';
+//not GWT import const BundleActivator
+
+import { BundleContext } from '../../../../../../org/osgi/framework/BundleContext.js';
+//not GWT import const BundleContext
+
+import { ServiceFactory } from '../../../../../../org/osgi/framework/ServiceFactory.js';
+//not GWT import const ServiceFactory
+
+import { ServiceReference } from '../../../../../../org/osgi/framework/ServiceReference.js';
+//not GWT import const ServiceReference
+
+import { InputAutomationRobotChangeListener } from '../../../../../../bundle/input/automation/robot/InputAutomationRobotChangeListener.js';
+//not GWT import const InputAutomationRobotChangeListener
+
+import { InputAutomationRobotServiceInterface } from '../../../../../../bundle/input/automation/robot/InputAutomationRobotServiceInterface.js';
+//not GWT import const InputAutomationRobotServiceInterface
+
+import { InputRobotInterface } from '../../../../../../org/allbinary/input/automation/robot/InputRobotInterface.js';
+//not GWT import const InputRobotInterface
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { OSGIActivatorUtil } from '../../../../../../org/allbinary/osgi/OSGIActivatorUtil.js';
+//not GWT import const OSGIActivatorUtil
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { InputAutomationRobotUtil } from './InputAutomationRobotUtil.js';
+//sameFolderImports - not GWT import - same folder const InputAutomationRobotUtil
+import { InputAutomationRobotChangeEvent } from './InputAutomationRobotChangeEvent.js';
+//sameFolderImports - not GWT import - same folder const InputAutomationRobotChangeEvent
+
+export class InputAutomationRobotBundleActivator
+            extends Object
+         implements BundleActivator {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private inputRobotInterface: InputRobotInterface[];
+
+    private serviceFactory: ServiceFactory;
+
+public constructor (){
+
+            super();
+        this.init();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public init(){
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public registerAsService(bundleContext: BundleContext){
+OSGIActivatorUtil.registerAsService(bundleContext, getServiceFactory(), InputAutomationRobotServiceInterface.toString()!);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getInputAutomationRobotChangeListener(context: BundleContext): InputAutomationRobotChangeListener{
+
+    let serviceReference: ServiceReference = context.getServiceReference(InputAutomationRobotChangeListener.toString()!)!;;
+    
+
+                        if(serviceReference != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let inputAutomationRobotChangeListener: InputAutomationRobotChangeListener = context.getService(serviceReference) as InputAutomationRobotChangeListener;;
+    
+
+                        if(inputAutomationRobotChangeListener == 
+                                    null
+                                )
+                        
+                                    throw new Exception("No Service For ServiceReference");
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return inputAutomationRobotChangeListener;
+    
+
+                                    }
+                                
+                        else {
+                            this.logUtil!.putF("No ServiceReference: " +InputAutomationRobotChangeListener.toString()!, this, "getInputAutomationRobotChangeListener");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+                        }
+                            
+}
+
+
+    addRobots(context: BundleContext){
+
+ try { this.logUtil!.putF(this.commonStrings!.START, this, "addRobots");
+    
+
+    let inputAutomationRobotChangeListener: InputAutomationRobotChangeListener = this.getInputAutomationRobotChangeListener(context)!;;
+    
+
+                        if(inputAutomationRobotChangeListener != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+
+                        for (
+    let index: number = 0;index < this.getInputRobotInterface()!.length; index++)
+        {
+
+    let inputAutomationRobotChangeEvent: InputAutomationRobotChangeEvent = InputAutomationRobotUtil.getChangeEvent(this.getInputRobotInterface()[index]!)!;;
+    
+inputAutomationRobotChangeListener!.onAdd(inputAutomationRobotChangeEvent);
+    
+}
+
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.putF(this.commonStrings!.EXCEPTION, this, "addModules");
+    
+
+ }
+   }
+ 
+}
+
+
+    removeRobots(context: BundleContext){
+
+ try { this.logUtil!.putF(this.commonStrings!.START, this, "removeRobots");
+    
+
+    let inputAutomationRobotChangeListener: InputAutomationRobotChangeListener = this.getInputAutomationRobotChangeListener(context)!;;
+    
+
+                        if(inputAutomationRobotChangeListener != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+
+                        for (
+    let index: number = 0;index < this.getInputRobotInterface()!.length; index++)
+        {
+
+    let inputAutomationRobotChangeEvent: InputAutomationRobotChangeEvent = InputAutomationRobotUtil.getChangeEvent(this.getInputRobotInterface()[index]!)!;;
+    
+inputAutomationRobotChangeListener!.onRemove(inputAutomationRobotChangeEvent);
+    
+}
+
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.putF(this.commonStrings!.EXCEPTION, this, "removeRobots");
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public start(context: BundleContext){
+this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.START);
+    
+this.addRobots(context);
+    
+this.registerAsService(context);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public stop(context: BundleContext){
+this.logUtil!.putF("Stop", this, this.commonStrings!.START);
+    
+this.removeRobots(context);
+    
+}
+
+
+    getServiceFactory(): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.serviceFactory;
+    
+}
+
+
+    setServiceFactory(serviceObject: ServiceFactory){
+this.serviceFactory= serviceObject;
+    
+}
+
+
+    public getInputRobotInterface(): InputRobotInterface[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.inputRobotInterface;
+    
+}
+
+
+    public setInputRobotInterface(inputRobotInterface: InputRobotInterface[]){
+this.inputRobotInterface= inputRobotInterface;
+    
+}
+
+
+}
+

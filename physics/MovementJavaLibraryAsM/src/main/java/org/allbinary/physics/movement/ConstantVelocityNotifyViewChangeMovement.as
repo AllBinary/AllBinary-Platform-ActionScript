@@ -1,0 +1,143 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { AllBinaryGameLayer } from '../../../../org/allbinary/game/layer/AllBinaryGameLayer.js';
+//not GWT import const AllBinaryGameLayer
+
+import { BasicVelocityProperties } from '../../../../org/allbinary/game/physics/velocity/BasicVelocityProperties.js';
+//not GWT import const BasicVelocityProperties
+
+import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { BasicDecimal } from '../../../../org/allbinary/logic/math/BasicDecimal.js';
+//not GWT import const BasicDecimal
+
+import { AxisMathVectorUtil } from '../../../../org/allbinary/logic/math/vector/AxisMathVectorUtil.js';
+//not GWT import const AxisMathVectorUtil
+
+import { AngleFactory } from '../../../../org/allbinary/math/AngleFactory.js';
+//not GWT import const AngleFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { Movement } from './Movement.js';
+//sameFolderImports - not GWT import - same folder const Movement
+
+export class ConstantVelocityNotifyViewChangeMovement extends Movement {
+        
+
+    basicVelocityProperties: BasicVelocityProperties;
+
+    private speedBasicDecimal: BasicDecimal;
+
+    private readonly axisMathVectorUtil: AxisMathVectorUtil = AxisMathVectorUtil.getInstance()!;
+
+public constructor (){
+
+            super();
+        this.speedBasicDecimal= BasicDecimal.ZERO_BIGDECIMAL;
+    
+this.basicVelocityProperties= new BasicVelocityProperties();
+    
+}
+
+
+    public init(speedBasicDecimal: BasicDecimal, angle: number, otherAngle: number){
+this.speedBasicDecimal= speedBasicDecimal;
+    
+
+    let angleFactory: AngleFactory = AngleFactory.getInstance()!;;
+    
+this.basicVelocityProperties!.setVelocityWithBigDecimal(speedBasicDecimal, angleFactory!.getAt(angle), angleFactory!.getAt(otherAngle));
+    
+}
+
+
+    public moveOutsideRadius(layer: AllBinaryLayer, radius: number, angle: number, otherAngle: number){
+
+    let scaleFactorValue: number = this.speedBasicDecimal!.getScaledFactorValue()!;;
+    
+
+    let xVector: number = globalThis.Math.trunc((this.axisMathVectorUtil!.calculateX(radius, angle) /scaleFactorValue));;
+    
+
+    let yVector: number = globalThis.Math.trunc((this.axisMathVectorUtil!.calculateY(radius, angle) /scaleFactorValue));;
+    
+
+    let zVector: number = globalThis.Math.trunc((this.axisMathVectorUtil!.calculateZ(radius, otherAngle) /scaleFactorValue));;
+    
+layer.moveDXYZ(xVector, yVector, zVector);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public process(layer: AllBinaryGameLayer){
+
+    let x: number = this.basicVelocityProperties!.getVelocityXBasicDecimalP()!.getScaled()!;;
+    
+
+    let y: number = this.basicVelocityProperties!.getVelocityYBasicDecimalP()!.getScaled()!;;
+    
+
+    let z: number = this.basicVelocityProperties!.getVelocityZBasicDecimalP()!.getScaled()!;;
+    
+layer.moveDXYZ(x, y, z);
+    
+
+                        if(x != 0 || y != 0 || z != 0)
+                        
+                                    {
+                                    layer.onViewPositionChangeEvent();
+    
+
+                                    }
+                                
+}
+
+
+    public stop(){
+this.basicVelocityProperties!.zero();
+    
+}
+
+
+}
+

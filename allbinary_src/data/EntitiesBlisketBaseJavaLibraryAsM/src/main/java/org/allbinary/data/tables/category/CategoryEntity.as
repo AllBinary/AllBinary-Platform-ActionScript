@@ -1,0 +1,267 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { Category } from '../../../../../org/allbinary/business/category/Category.js';
+//not GWT import const Category
+
+import { CategoryData } from '../../../../../org/allbinary/business/category/CategoryData.js';
+//not GWT import const CategoryData
+
+import { CategoryFactoryInterface } from '../../../../../org/allbinary/business/category/CategoryFactoryInterface.js';
+//not GWT import const CategoryFactoryInterface
+
+import { InventoryDbInitInfo } from '../../../../../org/allbinary/business/init/db/InventoryDbInitInfo.js';
+//not GWT import const InventoryDbInitInfo
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AbSqlBean } from '../../../../../org/allbinary/logic/communication/sql/AbSqlBean.js';
+//not GWT import const AbSqlBean
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { CategoryEntityInterface } from './CategoryEntityInterface.js';
+//sameFolderImports - not GWT import - same folder const CategoryEntityInterface
+
+export class CategoryEntity extends AbSqlBean implements CategoryEntityInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly tableName: string = "categories";
+
+public constructor (categoryFactoryInterface: CategoryFactoryInterface){
+            super(new InventoryDbInitInfo());
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.setTableName(this.tableName);
+    
+}
+
+
+public constructor (){
+            super(new InventoryDbInitInfo());
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.setTableName(this.tableName);
+    
+}
+
+insert(...args: any[]): any {
+   
+   
+    if (args.length === 1 && args[0] instanceof BasicArrayList) return this.insert$overload2(args[0]);
+    
+    if (args.length === 1) return this.insert$overload1(args[0]);
+   
+    if (args.length === 1 && args[0] == null) return this.insert$overload2(args[0]);
+   
+    if (args.length === 1) return this.insert$overload2(args[0]);
+    
+   throw new TypeError('No matching overload: insert'); }
+  
+    public insert$overload1(category: Category){
+
+ try { 
+    let categoryVector: BasicArrayList = category.toVector()!;;
+    
+
+    let values: BasicArrayList = new BasicArrayListD();;
+    
+values.add(categoryVector!.get(0));
+    
+values.add(categoryVector!.get(1));
+    
+super.insert(values);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.SUCCESS, this, INSERT);
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.FAILURE, this, INSERT, e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+}
+
+
+    public delete(value: string){
+
+ try { super.deleteWhere(CategoryData.getInstance()!.NAME, value);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.SUCCESS, this, this.commonStrings!.delete);
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.FAILURE, this, this.commonStrings!.delete, e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+}
+
+
+    public createTableStatement(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.sqlStrings!.CREATE_TABLE);
+    
+stringBuffer!.append(this.tableName);
+    
+stringBuffer!.append(this.sqlStrings!.START);
+    
+stringBuffer!.append(CategoryData.getInstance()!.NAME);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL);
+    
+stringBuffer!.append(CategoryData.getInstance()!.LEVEL);
+    
+stringBuffer!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL);
+    
+stringBuffer!.append(this.sqlStrings!.PRIMARY_KEY);
+    
+stringBuffer!.append(CategoryData.getInstance()!.NAME);
+    
+stringBuffer!.append(this.sqlStrings!.END);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+    public createTable(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.createTable(this.createTableStatement());;
+    
+}
+
+
+    public update(updatedValues: HashMap<any, any>){
+super.updateWhere(CategoryData.getInstance()!.NAME, updatedValues!.get(CategoryData.getInstance()!.NAME) as string, updatedValues);
+    
+}
+
+
+    public dropTable(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.dropTable();;
+    
+}
+
+
+    public insert$overload2(values: BasicArrayList){
+super.insert(values);
+    
+}
+
+
+}
+

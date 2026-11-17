@@ -1,0 +1,170 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+            import { RuntimeException } from '../../../../../../../java/lang/RuntimeException.js';
+        
+import { KeySpec } from '../../../../../../../java/security/spec/KeySpec.js';
+//not GWT import const KeySpec
+
+import { DESKeySpec } from '../../../../../../../javax/crypto/spec/DESKeySpec.js';
+//not GWT import const DESKeySpec
+
+import { DESedeKeySpec } from '../../../../../../../javax/crypto/spec/DESedeKeySpec.js';
+//not GWT import const DESedeKeySpec
+
+import { TsUtil } from '../../../../../../../org/allbinary/TsUtil.js';
+//not GWT import const TsUtil
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class KeySpecFactory
+            extends Object
+         {
+        
+
+    private static readonly instance: KeySpecFactory = new KeySpecFactory();
+static getInstance(...args: any[]): any {
+   
+   
+    if (args.length === 0) return this.getInstance$overload1();
+   
+   throw new TypeError('No matching overload: getInstance'); }
+  
+    public static getInstance$overload1(): KeySpecFactory{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return KeySpecFactory.instance;
+    
+}
+
+
+    public readonly DES: string = "DES";
+
+    public readonly DESEDE: string = "DESede";
+
+    public readonly BLOWFISH: string = "Blowfish";
+
+private constructor (){
+
+            super();
+        }
+
+getInstance(...args: any[]): any {
+   
+   
+    if (args.length === 2 && typeof args[0] === 'string') return this.getInstance$overload2(args[0], args[1]);
+   
+   throw new TypeError('No matching overload: getInstance'); }
+  
+    public getInstance$overload2(algorithm: string, keyData: number[]): KeySpec{
+
+ try { 
+    let tsUtil: TsUtil = TsUtil.getInstance()!;;
+    
+
+                        if(tsUtil!.compareTo(algorithm, this.DES) == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new DESKeySpec(keyData);
+    
+
+                                    }
+                                
+                             else 
+                        if(tsUtil!.compareTo(algorithm, this.DESEDE) == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new DESedeKeySpec(keyData);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new RuntimeException();
+                    
+
+                        }
+                            
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+PreLogUtil.putOE(commonStrings!.EXCEPTION, this, commonStrings!.GET_INSTANCE, e);
+    
+
+
+
+                            throw new RuntimeException();
+                    
+
+ }
+   }
+ 
+}
+
+
+}
+

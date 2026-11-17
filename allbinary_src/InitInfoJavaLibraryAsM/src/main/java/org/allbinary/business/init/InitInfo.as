@@ -1,0 +1,503 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+import { LogConfigTypeFactory } from '../../../../org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.js';
+//not GWT import const LogConfigTypeFactory
+
+import { LogConfigTypes } from '../../../../org/allbinary/logic/communication/log/config/type/LogConfigTypes.js';
+//not GWT import const LogConfigTypes
+
+import { AbPath } from '../../../../org/allbinary/logic/io/path/AbPath.js';
+//not GWT import const AbPath
+
+import { BooleanUtil } from '../../../../org/allbinary/logic/java/bool/BooleanUtil.js';
+//not GWT import const BooleanUtil
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { InitInfoEntity } from './InitInfoEntity.js';
+//sameFolderImports - not GWT import - same folder const InitInfoEntity
+
+export class InitInfo
+            extends Object
+         {
+        
+
+    private static readonly instance: InitInfo = new InitInfo();
+
+    public static getInstance(): InitInfo{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return InitInfo.instance;
+    
+}
+
+
+    public readonly TESTING: string = "TESTING";
+
+    public readonly MAINPATH: string = "MAINPATH";
+
+    public readonly TESTHTMLPATH: string = "TESTHTMLPATH";
+
+    private testing: string = 
+                null
+            ;
+
+    private mainPath: AbPath = 
+                null
+            ;
+
+    private testHtmlPath: AbPath = 
+                null
+            ;
+
+    private hasRead: boolean = false;
+
+private constructor (){
+
+            super();
+        }
+
+set(...args: any[]): any {
+   
+   
+    if (args.length === 0) return this.set$overload1();
+   
+    if (args.length === 1) return this.set$overload2(args[0]);
+   
+   throw new TypeError('No matching overload: set'); }
+  
+                //@Throws(InitException.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public set$overload1(){
+
+ try { 
+    let initInfoEntity: InitInfoEntity = new InitInfoEntity();;
+    
+
+                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADER))
+                        
+                                    {
+                                    PreLogUtil.put("created entity", "InitInfo", "set()");
+    
+
+                                    }
+                                
+
+                        if(!initInfoEntity!.is())
+                        
+                                    {
+                                    
+                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADER))
+                        
+                                    {
+                                    PreLogUtil.put("adding", "InitInfo", "set()");
+    
+
+                                    }
+                                
+initInfoEntity!.add();
+    
+
+                                    }
+                                
+                        else {
+                            
+                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADER))
+                        
+                                    {
+                                    PreLogUtil.put("update", "InitInfo", "set()");
+    
+
+                                    }
+                                
+initInfoEntity!.update();
+    
+
+                        }
+                            
+this.hasRead= false;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADERERROR))
+                        
+                                    {
+                                    PreLogUtil.putOE("error", "InitInfo", "set()", e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public set$overload2(hashMap: HashMap<any, any>){
+
+ try { this.testing= hashMap!.get(this.TESTING) as string;
+    
+this.mainPath= new AbPath(hashMap!.get(this.MAINPATH) as string, StringUtil.getInstance()!.EMPTY_STRING);
+    
+this.testHtmlPath= new AbPath(hashMap!.get(this.TESTHTMLPATH) as string, StringUtil.getInstance()!.EMPTY_STRING);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADERERROR))
+                        
+                                    {
+                                    PreLogUtil.putOE("error", "InitInfo", "set()", e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    get(){
+
+ try { this.testing= 
+                                        null
+                                    ;
+    
+this.mainPath= 
+                                        null
+                                    ;
+    
+this.testHtmlPath= 
+                                        null
+                                    ;
+    
+
+    let initInfoEntity: InitInfoEntity = new InitInfoEntity();;
+    
+initInfoEntity!.get();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADERERROR))
+                        
+                                    {
+                                    PreLogUtil.putOE("error", "InitInfo", "set()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+ }
+   }
+ 
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public setHasRead(value: boolean){
+this.hasRead= value;
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    updateIfNeeded(){
+
+ try { 
+                        if(!this.hasRead)
+                        
+                                    {
+                                    this.hasRead= true;
+    
+this.get();
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADERERROR))
+                        
+                                    {
+                                    PreLogUtil.putOE("error", "InitInfo", "updateIfNeeded()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+ }
+   }
+ 
+}
+
+
+    public isTesting(): boolean{
+
+ try { this.updateIfNeeded();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return BooleanUtil.getInstance()!.getFromString(this.testing);;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADERERROR))
+                        
+                                    {
+                                    PreLogUtil.putOE("error", "InitInfo", "updateIfNeeded()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    public getTesting(): string{
+this.updateIfNeeded();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.testing;
+    
+}
+
+
+    public getTestHtmlPath(): string{
+this.updateIfNeeded();
+    
+
+                        if(this.testHtmlPath != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.testHtmlPath!.toString();;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+                        }
+                            
+}
+
+
+    public getMainPath(): string{
+this.updateIfNeeded();
+    
+
+                        if(this.mainPath != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.mainPath!.toString();;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+                        }
+                            
+}
+
+
+    public setTesting(value: string){
+this.testing= value;
+    
+}
+
+
+    public setTestHtmlPath(value: AbPath){
+this.testHtmlPath= value;
+    
+}
+
+
+    public setMainPath(value: AbPath){
+this.mainPath= value;
+    
+}
+
+
+    public isMainPathValid(abPath: AbPath): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+    public isTestHtmlPathValid(abPath: AbPath): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public isTestingValid(testing: string): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return BooleanUtil.getInstance()!.isStringBoolean(testing);;
+    
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put(this.TESTING, this.getTesting());
+    
+hashMap!.put(this.MAINPATH, this.getMainPath());
+    
+hashMap!.put(this.TESTHTMLPATH, this.getTestHtmlPath());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+}
+

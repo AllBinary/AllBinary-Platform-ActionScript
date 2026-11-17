@@ -1,0 +1,187 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+            //import { Class } from '../../../../../../../java/lang/Class.js';
+            const Class = (globalThis.java?.lang?.Class ?? class {}) as typeof globalThis.java.lang.Class;
+            type Class<T = any, U = any> = typeof Class extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Class;
+        
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { EventListenerList } from './EventListenerList.js';
+//sameFolderImports - not GWT import - same folder const EventListenerList
+import { EventListener } from './EventListener.js';
+//sameFolderImports - not GWT import - same folder const EventListener
+import { MyCanvasEventListener } from './MyCanvasEventListener.js';
+//sameFolderImports - not GWT import - same folder const MyCanvasEventListener
+import { MyCanvasEvent } from './MyCanvasEvent.js';
+//sameFolderImports - not GWT import - same folder const MyCanvasEvent
+
+export class MyCanvasEventService
+            extends Object
+         {
+        
+
+    private static listenerList: javax.swing.event.EventListenerList = new javax.swing.event.EventListenerList();
+
+    public static DELETE: string = "delete";
+
+    public static DUPLICATE: string = "duplicate";
+
+    public static SELECT: string = "select";
+
+    public static ROTATE: string = "rotate";
+
+    public static EXPLODE: string = "explode";
+
+    public static AUTOEXPLODE: string = "autoExplode";
+
+    public static CENTER: string = "center";
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public static addListener(listener: MyCanvasEventListener){
+MyCanvasEventService.listenerList!.add(listener.constructor as Class<any>, listener as java.util.EventListener);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public static removeListener(listener: MyCanvasEventListener){
+MyCanvasEventService.listenerList!.remove(listener.constructor as Class<any>, listener as java.util.EventListener);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public static fire(evt: MyCanvasEvent){
+
+    let listeners: any[] = listenerList!.getListenerList()!;;
+    
+
+
+
+
+                        for (
+    let i: number = 0;i < listeners.length; i += 2)
+        {
+
+                        if(listeners[i] == listeners[i +1]!.constructor)
+                        
+                                    {
+                                    
+                        if(evt.getCommand()!.compareTo(MyCanvasEventService.DELETE) == 0)
+                        
+                                    {
+                                    (listeners[i +1]! as MyCanvasEventListener).delete(evt);
+    
+
+                                    }
+                                
+                             else 
+                        if(evt.getCommand()!.compareTo(MyCanvasEventService.DUPLICATE) == 0)
+                        
+                                    {
+                                    (listeners[i +1]! as MyCanvasEventListener).duplicate(evt);
+    
+
+                                    }
+                                
+                             else 
+                        if(evt.getCommand()!.compareTo(MyCanvasEventService.SELECT) == 0)
+                        
+                                    {
+                                    (listeners[i +1]! as MyCanvasEventListener).select(evt);
+    
+
+                                    }
+                                
+                             else 
+                        if(evt.getCommand()!.compareTo(MyCanvasEventService.ROTATE) == 0)
+                        
+                                    {
+                                    (listeners[i +1]! as MyCanvasEventListener).rotate(evt);
+    
+
+                                    }
+                                
+                             else 
+                        if(evt.getCommand()!.compareTo(MyCanvasEventService.EXPLODE) == 0)
+                        
+                                    {
+                                    (listeners[i +1]! as MyCanvasEventListener).explode(evt);
+    
+
+                                    }
+                                
+                             else 
+                        if(evt.getCommand()!.compareTo(MyCanvasEventService.AUTOEXPLODE) == 0)
+                        
+                                    {
+                                    (listeners[i +1]! as MyCanvasEventListener).autoExplode(evt);
+    
+
+                                    }
+                                
+                             else 
+                        if(evt.getCommand()!.compareTo(MyCanvasEventService.CENTER) == 0)
+                        
+                                    {
+                                    (listeners[i +1]! as MyCanvasEventListener).center(evt);
+    
+
+                                    }
+                                
+
+                                    }
+                                
+}
+
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

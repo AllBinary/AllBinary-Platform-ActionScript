@@ -1,0 +1,166 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { HashMap } from '../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { PageContext } from '../../javax/servlet/jsp/PageContext.js';
+//not GWT import const PageContext
+
+import { StoreFrontData } from '../../org/allbinary/business/context/modules/storefront/StoreFrontData.js';
+//not GWT import const StoreFrontData
+
+import { StoreFrontFactory } from '../../org/allbinary/business/context/modules/storefront/StoreFrontFactory.js';
+//not GWT import const StoreFrontFactory
+
+import { StoreFrontInterface } from '../../org/allbinary/business/context/modules/storefront/StoreFrontInterface.js';
+//not GWT import const StoreFrontInterface
+
+import { BasketInterface } from '../../org/allbinary/business/user/commerce/inventory/basket/BasketInterface.js';
+//not GWT import const BasketInterface
+
+import { WeblisketSession } from '../../org/allbinary/logic/communication/http/request/session/WeblisketSession.js';
+//not GWT import const WeblisketSession
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TagHelper } from './TagHelper.js';
+//sameFolderImports - not GWT import - same folder const TagHelper
+
+export class BasketHelper extends TagHelper {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private weblisketSession: WeblisketSession;
+
+    private storeFrontInterface: StoreFrontInterface;
+
+    private propertiesHashMap: HashMap<any, any>;
+
+    private pageContext: PageContext;
+
+    private readonly MAX: number = 200;
+
+public constructor (hashMap: HashMap<any, any>, pageContext: PageContext){
+
+            super();
+        this.propertiesHashMap= hashMap;
+    
+this.pageContext= pageContext;
+    
+
+    let storeName: string = this.propertiesHashMap!.get(StoreFrontData.getInstance()!.NAME) as string;;
+    
+
+                        if(storeName != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.storeFrontInterface= StoreFrontFactory.getInstance(storeName);
+    
+
+                                    }
+                                
+this.weblisketSession= new WeblisketSession(hashMap, pageContext);
+    
+}
+
+
+    public isBasketEmpty(): Boolean{
+
+ try { 
+    let basket: BasketInterface = this.weblisketSession!.getOrder()!.getBasket()!;;
+    
+
+                        if(basket.getNumberOfItems()!.intValue() <= 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "isBasketEmpty()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

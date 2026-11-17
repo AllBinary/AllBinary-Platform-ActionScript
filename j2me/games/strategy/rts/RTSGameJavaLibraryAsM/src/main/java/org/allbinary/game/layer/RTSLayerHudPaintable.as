@@ -1,0 +1,176 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2003 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { Font } from '../../../../javax/microedition/lcdui/Font.js';
+//not GWT import const Font
+
+import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { AndroidUtil } from '../../../../org/allbinary/AndroidUtil.js';
+//not GWT import const AndroidUtil
+
+import { CollidableDestroyableDamageableLayer } from '../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.js';
+//not GWT import const CollidableDestroyableDamageableLayer
+
+import { BasicWeaponPart } from '../../../../org/allbinary/game/part/weapon/BasicWeaponPart.js';
+//not GWT import const BasicWeaponPart
+
+import { UpdateMyFontInterface } from '../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
+//not GWT import const UpdateMyFontInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { SelectionHudPaintable } from './SelectionHudPaintable.js';
+//sameFolderImports - not GWT import - same folder const SelectionHudPaintable
+import { RTSLayer } from './RTSLayer.js';
+//sameFolderImports - not GWT import - same folder const RTSLayer
+
+export class RTSLayerHudPaintable extends SelectionHudPaintable implements UpdateMyFontInterface {
+        
+
+    private static readonly instance: RTSLayerHudPaintable = new RTSLayerHudPaintable();
+
+    public static getInstance(): RTSLayerHudPaintable{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return RTSLayerHudPaintable.instance;
+    
+}
+
+
+    private weaponProperties: string[] = StringUtil.getInstance()!.getArrayInstance()!;
+
+    private rtsLayer: CollidableDestroyableDamageableLayer = CollidableDestroyableDamageableLayer.getNullInstance()!;
+
+    costY: number= 0;
+
+    costY1: number= 0;
+
+    private fontHeight: number= 0;
+
+private constructor (){
+
+            super();
+        }
+
+
+    public updateMeasurement(graphics: Graphics){
+super.updateMeasurement(graphics);
+    
+
+    let font: Font = graphics.getFont()!;;
+    
+this.fontHeight= font.getHeight();
+    
+this.costY1= (this.y +((this.weaponProperties!.length +1) *this.fontHeight));
+    
+
+                        if(!AndroidUtil.isAndroid())
+                        
+                                    {
+                                    this.costY= this.costY1;
+    
+
+                                    }
+                                
+                        else {
+                            this.costY= (this.y +((this.weaponProperties!.length +2) *this.fontHeight));
+    
+
+                        }
+                            
+}
+
+
+    public updateSelectionInfo(){
+this.setName(this.getRtsLayer()!.getName());
+    
+
+    let partInterface: BasicWeaponPart = this.getRtsLayer()!.getPartInterfaceArray()[0]! as BasicWeaponPart;;
+    
+this.weaponProperties= partInterface!.getWeaponProperties()!.toStringArray();
+    
+this.myFontProcessor= this.updateMyFontProcessor;
+    
+}
+
+
+    public paint(graphics: Graphics){
+super.paint(graphics);
+    
+
+    let size: number = this.weaponProperties!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+graphics.drawString(this.weaponProperties[index]!, this.textX, this.y +((index +1) *this.fontHeight), 0);
+    
+}
+
+}
+
+
+    public setRtsLayer(rtsLayer: RTSLayer){
+this.rtsLayer= rtsLayer;
+    
+}
+
+
+    getRtsLayer(): CollidableDestroyableDamageableLayer{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.rtsLayer;
+    
+}
+
+
+}
+

@@ -1,0 +1,137 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+import { GameAdState } from '../../../../org/allbinary/game/GameAdState.js';
+//not GWT import const GameAdState
+
+import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
+//not GWT import const DisplayInfoSingleton
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GameAdStateFactory } from './GameAdStateFactory.js';
+//sameFolderImports - not GWT import - same folder const GameAdStateFactory
+
+export class BottomLimiter
+            extends Object
+         {
+        
+
+    private static readonly instance: BottomLimiter = new BottomLimiter();
+
+    public static getInstance(): BottomLimiter{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return BottomLimiter.instance;
+    
+}
+
+
+    private bottom: number= 0;
+
+    private deltaY: number= 0;
+
+    private lower: number= 0;
+
+    private higher: number= 0;
+
+private constructor (){
+
+            super();
+        }
+
+
+    public init(lower: number, higher: number){
+this.lower= lower;
+    
+this.higher= higher;
+    
+}
+
+
+    public update(){
+
+    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
+    
+
+    let gameAdState: GameAdState = GameAdStateFactory.getInstance()!.getCurrentInstance()!;;
+    
+
+                        if(gameAdState!.isShowingAt())
+                        
+                                    {
+                                    this.deltaY= this.higher;
+    
+
+                                    }
+                                
+                        else {
+                            this.deltaY= this.lower;
+    
+
+                        }
+                            
+this.bottom= displayInfo!.getLastHeight() -this.deltaY;
+    
+}
+
+
+    public getDeltaY(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.deltaY;
+    
+}
+
+
+    public getBottom(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.bottom;
+    
+}
+
+
+}
+

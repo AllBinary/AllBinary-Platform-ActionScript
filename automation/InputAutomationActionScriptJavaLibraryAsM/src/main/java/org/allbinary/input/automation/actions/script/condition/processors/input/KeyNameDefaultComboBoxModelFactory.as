@@ -1,0 +1,97 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../../../java/lang/Object.js';
+        
+            import { Integer } from '../../../../../../../../../java/lang/Integer.js';
+        
+import { KeyEvent } from '../../../../../../../../../java/awt/event/KeyEvent.js';
+//not GWT import const KeyEvent
+
+import { swing } from '../../../../../../../../../javax/swing.js';
+//not GWT import const swing
+
+import { KeySingletonFactory } from '../../../../../../../../../org/allbinary/input/KeySingletonFactory.js';
+//not GWT import const KeySingletonFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { DefaultComboBoxModel } from './DefaultComboBoxModel.js';
+//sameFolderImports - not GWT import - same folder const DefaultComboBoxModel
+
+export class KeyNameDefaultComboBoxModelFactory
+            extends Object
+         {
+        
+
+    public static getInstance(): DefaultComboBoxModel{
+
+    let defaultComboBoxModel: DefaultComboBoxModel = new DefaultComboBoxModel();;
+    
+
+    let keyArray: Integer[] = KeySingletonFactory.getArray()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < keyArray!.length; index++)
+        {
+
+    let keyAsString: string = KeyEvent.getKeyText(keyArray[index]!)!;;
+    
+defaultComboBoxModel!.addElement(keyAsString);
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return defaultComboBoxModel;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

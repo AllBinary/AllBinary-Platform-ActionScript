@@ -1,0 +1,156 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2009 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { MotionEvent } from '../../../../../android/view/MotionEvent.js';
+//not GWT import const MotionEvent
+
+import { SingleKeyPressGameKeyFromMotionGestureEventListener } from '../../../../../org/allbinary/game/input/motion/action/SingleKeyPressGameKeyFromMotionGestureEventListener.js';
+//not GWT import const SingleKeyPressGameKeyFromMotionGestureEventListener
+
+import { DownTrackballInputToGameKeyEventAction } from '../../../../../org/allbinary/input/motion/trackball/action/DownTrackballInputToGameKeyEventAction.js';
+//not GWT import const DownTrackballInputToGameKeyEventAction
+
+import { LeftTrackballInputToGameKeyEventAction } from '../../../../../org/allbinary/input/motion/trackball/action/LeftTrackballInputToGameKeyEventAction.js';
+//not GWT import const LeftTrackballInputToGameKeyEventAction
+
+import { RightTrackballInputToGameKeyEventAction } from '../../../../../org/allbinary/input/motion/trackball/action/RightTrackballInputToGameKeyEventAction.js';
+//not GWT import const RightTrackballInputToGameKeyEventAction
+
+import { UpTrackballInputToGameKeyEventAction } from '../../../../../org/allbinary/input/motion/trackball/action/UpTrackballInputToGameKeyEventAction.js';
+//not GWT import const UpTrackballInputToGameKeyEventAction
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { MotionEventProcessor } from './MotionEventProcessor.js';
+//sameFolderImports - not GWT import - same folder const MotionEventProcessor
+
+export class TrackballGameInputMotionEventProcessor extends MotionEventProcessor {
+        
+
+    private static PROCESSOR: TrackballGameInputMotionEventProcessor = new TrackballGameInputMotionEventProcessor();
+
+    public static getInstance(): TrackballGameInputMotionEventProcessor{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return TrackballGameInputMotionEventProcessor.PROCESSOR;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly listener: SingleKeyPressGameKeyFromMotionGestureEventListener = new SingleKeyPressGameKeyFromMotionGestureEventListener();
+
+private constructor (){
+
+            super();
+        }
+
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    public process(motionEvent: MotionEvent){
+
+ try { 
+    let x: number = motionEvent!.getX()!;;
+    
+
+    let y: number = motionEvent!.getY()!;;
+    
+
+                        if(x < 0)
+                        
+                                    {
+                                    this.listener.onCompleteMotionGestureInputEvent(LeftTrackballInputToGameKeyEventAction.getInstance());
+    
+
+                                    }
+                                
+                             else 
+                        if(x > 0)
+                        
+                                    {
+                                    this.listener.onCompleteMotionGestureInputEvent(RightTrackballInputToGameKeyEventAction.getInstance());
+    
+
+                                    }
+                                
+
+                        if(y < 0)
+                        
+                                    {
+                                    this.listener.onCompleteMotionGestureInputEvent(UpTrackballInputToGameKeyEventAction.getInstance());
+    
+
+                                    }
+                                
+                             else 
+                        if(y > 0)
+                        
+                                    {
+                                    this.listener.onCompleteMotionGestureInputEvent(DownTrackballInputToGameKeyEventAction.getInstance());
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.PROCESS, e);
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

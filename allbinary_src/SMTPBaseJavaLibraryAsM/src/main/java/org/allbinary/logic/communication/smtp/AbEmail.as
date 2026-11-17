@@ -1,0 +1,167 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { MimeMessage } from '../../../../../javax/mail/internet/MimeMessage.js';
+//not GWT import const MimeMessage
+
+import { Document } from '../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { EmailInterface } from './EmailInterface.js';
+//sameFolderImports - not GWT import - same folder const EmailInterface
+import { Email } from './Email.js';
+//sameFolderImports - not GWT import - same folder const Email
+
+export class AbEmail
+            extends Object
+         implements EmailInterface {
+        
+
+    private email: Email;
+
+public constructor (server: string, from: string, to: string, subject: string, textBody: string, htmlAttachment: string, contentBase: string){
+
+            super();
+        
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.EMAILLOGGINGERROR))
+                        
+                                    {
+                                    this.email= new Email(from, to, subject, server, textBody, htmlAttachment, contentBase, true);
+    
+
+                                    }
+                                
+                        else {
+                            this.email= new Email(from, to, subject, server, textBody, htmlAttachment, contentBase);
+    
+
+                        }
+                            
+}
+
+
+    public getMimeMessage(): MimeMessage{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.email.getMimeMessage();;
+    
+}
+
+
+    public getDebugInfo(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.email.getDebugInfo();;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public log(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.email.log();;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toHashMap(): HashMap<any, any>{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.email.toHashMap();;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.email.toXmlNode(document);;
+    
+}
+
+
+    public getEmail(): Email{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.email as Email;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlDoc(): Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.email.toXmlDoc();;
+    
+}
+
+
+}
+

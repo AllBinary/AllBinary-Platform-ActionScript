@@ -1,0 +1,96 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2006 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { BasicGeographicMap } from '../../../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { GeographicMapCellPosition } from '../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+import { GeographicMapCellType } from '../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellType.js';
+//not GWT import const GeographicMapCellType
+
+import { RaceTrackGeographicMapCellType } from '../../../../../../org/allbinary/media/graphics/geography/map/racetrack/RaceTrackGeographicMapCellType.js';
+//not GWT import const RaceTrackGeographicMapCellType
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { PathFindingNodeCostInfoFactoryBase } from './PathFindingNodeCostInfoFactoryBase.js';
+//sameFolderImports - not GWT import - same folder const PathFindingNodeCostInfoFactoryBase
+
+export class PathFindingNodeCostInfoFactory extends PathFindingNodeCostInfoFactoryBase {
+        
+
+public constructor (max: number){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            
+    public create(geographicMapInterface: BasicGeographicMap, goingToGeographicMapCellPosition: GeographicMapCellPosition, geographicMapCellPosition: GeographicMapCellPosition, costFromStart: number, costToEnd: number){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getTotalCost(geographicMapInterface: BasicGeographicMap, comingFromGeographicMapCellPosition: GeographicMapCellPosition, geographicMapCellPosition: GeographicMapCellPosition): number{
+
+    let geographicMapCellType: GeographicMapCellType = geographicMapInterface!.getCellTypeAt(comingFromGeographicMapCellPosition)!;;
+    
+
+    let geographicMapCellType2: GeographicMapCellType = geographicMapInterface!.getCellTypeAt(geographicMapCellPosition)!;;
+    
+
+    let raceTrackGeographicMapCellType: RaceTrackGeographicMapCellType = geographicMapCellType as RaceTrackGeographicMapCellType;;
+    
+
+    let raceTrackGeographicMapCellType2: RaceTrackGeographicMapCellType = geographicMapCellType2 as RaceTrackGeographicMapCellType;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return raceTrackGeographicMapCellType!.getTravelCost() +raceTrackGeographicMapCellType2!.getTravelCost();
+    
+}
+
+
+}
+

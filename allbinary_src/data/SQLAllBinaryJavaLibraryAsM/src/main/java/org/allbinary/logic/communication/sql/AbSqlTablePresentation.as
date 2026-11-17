@@ -1,0 +1,58 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { DbConnectionInfo } from '../../../../../org/allbinary/business/init/db/DbConnectionInfo.js';
+//not GWT import const DbConnectionInfo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AbSqlBasic } from './AbSqlBasic.js';
+//sameFolderImports - not GWT import - same folder const AbSqlBasic
+
+export class AbSqlTablePresentation extends AbSqlBasic {
+        
+
+public constructor (databaseConnectionInfoInterface: DbConnectionInfo){
+            super(databaseConnectionInfoInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+}
+

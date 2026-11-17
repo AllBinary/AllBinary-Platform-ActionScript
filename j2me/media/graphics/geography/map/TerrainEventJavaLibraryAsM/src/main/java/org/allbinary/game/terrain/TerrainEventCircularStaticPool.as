@@ -1,0 +1,97 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { AllBinaryEventCircularPool } from '../../../../org/allbinary/logic/util/event/AllBinaryEventCircularPool.js';
+//not GWT import const AllBinaryEventCircularPool
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TerrainEventFactory } from './TerrainEventFactory.js';
+//sameFolderImports - not GWT import - same folder const TerrainEventFactory
+import { TerrainEvent } from './TerrainEvent.js';
+//sameFolderImports - not GWT import - same folder const TerrainEvent
+import { BasicTerrainInfo } from './BasicTerrainInfo.js';
+//sameFolderImports - not GWT import - same folder const BasicTerrainInfo
+
+export class TerrainEventCircularStaticPool
+            extends Object
+         {
+        
+
+    private static readonly instance: TerrainEventCircularStaticPool = new TerrainEventCircularStaticPool();
+
+    public static getInstance(): TerrainEventCircularStaticPool{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return TerrainEventCircularStaticPool.instance;
+    
+}
+
+
+    private EVENT_POOL: AllBinaryEventCircularPool = new AllBinaryEventCircularPool(20);
+
+    public init(){
+this.EVENT_POOL.initAllBinaryEventCircularPool(new TerrainEventFactory());
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public getNext(basicTerrainInfo: BasicTerrainInfo): TerrainEvent{
+
+    let trackingEvent: TerrainEvent = this.EVENT_POOL.getNextInstance() as TerrainEvent;;
+    
+trackingEvent!.setBasicTerrainInfoForCircularStaticPool(basicTerrainInfo);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return trackingEvent;
+    
+}
+
+
+}
+

@@ -1,0 +1,204 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { PickedUpLayerInterface } from '../../../../org/allbinary/game/layer/pickup/PickedUpLayerInterface.js';
+//not GWT import const PickedUpLayerInterface
+
+//not plain js import { ForcedLogUtil } 
+const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
+type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
+
+import { CollidableInterfaceCompositeInterface } from '../../../../org/allbinary/game/collision/CollidableInterfaceCompositeInterface.js';
+//not GWT import const CollidableInterfaceCompositeInterface
+
+import { CollisionType } from '../../../../org/allbinary/game/collision/CollisionType.js';
+//not GWT import const CollisionType
+
+import { CollisionTypeFactory } from '../../../../org/allbinary/game/collision/CollisionTypeFactory.js';
+//not GWT import const CollisionTypeFactory
+
+import { CollidableDestroyableDamageableBehavior } from '../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableBehavior.js';
+//not GWT import const CollidableDestroyableDamageableBehavior
+
+import { CollidableDestroyableDamageableLayer } from '../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.js';
+//not GWT import const CollidableDestroyableDamageableLayer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { VehiclePropertiesCompositeInterface } from './VehiclePropertiesCompositeInterface.js';
+//sameFolderImports - not GWT import - same folder const VehiclePropertiesCompositeInterface
+import { CollidableCompositeLayer } from './CollidableCompositeLayer.js';
+//sameFolderImports - not GWT import - same folder const CollidableCompositeLayer
+import { VehicleProperties } from './VehicleProperties.js';
+//sameFolderImports - not GWT import - same folder const VehicleProperties
+import { VehicleFrictionProperties } from './VehicleFrictionProperties.js';
+//sameFolderImports - not GWT import - same folder const VehicleFrictionProperties
+
+export class CollidableVehicleBehavior extends CollidableDestroyableDamageableBehavior {
+        
+
+    totalImpactVelocity: number = 0;
+
+public constructor (collidable: boolean){
+            super(collidable);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public collide(ownerLayer: CollidableCompositeLayer, collidableInterfaceCompositeInterface: CollidableCompositeLayer){
+
+    let collisionTypeFactory: CollisionTypeFactory = CollisionTypeFactory.getInstance()!;;
+    
+
+    let collisionType: CollisionType = collidableInterfaceCompositeInterface!.getCollidableInferface()!.getCollisionTypeWith(ownerLayer)!;;
+    
+
+                        if(collisionType == collisionTypeFactory!.PICKUP)
+                        
+                                    {
+                                    
+    let collidableDestroyableDamageableLayer: CollidableDestroyableDamageableLayer = (ownerLayer as CollidableDestroyableDamageableLayer);;
+    
+collidableDestroyableDamageableLayer!.getPickupBehavior()!.doPickupLayer(collidableInterfaceCompositeInterface as PickedUpLayerInterface);
+    
+
+                                    }
+                                
+                             else 
+                        if(collisionType == collisionTypeFactory!.COLLISION)
+                        
+                                    {
+                                    super.collide(ownerLayer, collidableInterfaceCompositeInterface);
+    
+
+                                    }
+                                
+                        else {
+                            this.collideVehicle(ownerLayer, collidableInterfaceCompositeInterface as VehiclePropertiesCompositeInterface);
+    
+
+                        }
+                            
+}
+
+
+    public collideInterface(ownerLayer: CollidableCompositeLayer, collidableInterfaceCompositeInterface: CollidableInterfaceCompositeInterface){
+ForcedLogUtil.log("Don't Use Interface Version It Is Slower", this);
+    
+}
+
+
+    private halfImpactVelocityX: number= 0;
+
+    private halfImpactVelocityY: number= 0;
+
+    collideVehicle(ownerLayer: CollidableCompositeLayer, vehiclePropertiesCompositeInterface: VehiclePropertiesCompositeInterface){
+
+    let ownerVehicleLayerInterface: VehiclePropertiesCompositeInterface = (ownerLayer as VehiclePropertiesCompositeInterface);;
+    
+
+    let ownerVehicleProperties: VehicleProperties = ownerVehicleLayerInterface!.getVehicleProperties()!;;
+    
+
+    let vehicleProperties: VehicleProperties = vehiclePropertiesCompositeInterface!.getVehicleProperties()!;;
+    
+
+    let impactVelocityX: number = ownerVehicleProperties!.getVelocityProperties()!.getVelocityXBasicDecimalP()!.getUnscaled() -vehicleProperties!.getVelocityProperties()!.getVelocityXBasicDecimalP()!.getUnscaled();;
+    
+
+    let impactVelocityY: number = ownerVehicleProperties!.getVelocityProperties()!.getVelocityYBasicDecimalP()!.getUnscaled() -vehicleProperties!.getVelocityProperties()!.getVelocityYBasicDecimalP()!.getUnscaled();;
+    
+
+                        if(impactVelocityX != 0)
+                        
+                                    {
+                                    this.halfImpactVelocityX= (impactVelocityX>>1);
+    
+ownerVehicleProperties!.getVelocityProperties()!.getVelocityXBasicDecimalP()!.addlong(this.halfImpactVelocityX);
+    
+vehicleProperties!.getVelocityProperties()!.getVelocityXBasicDecimalP()!.addlong(this.halfImpactVelocityX);
+    
+
+                                    }
+                                
+                        else {
+                            
+                        }
+                            
+
+                        if(impactVelocityY != 0)
+                        
+                                    {
+                                    this.halfImpactVelocityY= (impactVelocityY>>1);
+    
+ownerVehicleProperties!.getVelocityProperties()!.getVelocityYBasicDecimalP()!.addlong(this.halfImpactVelocityY);
+    
+vehicleProperties!.getVelocityProperties()!.getVelocityXBasicDecimalP()!.addlong(this.halfImpactVelocityY);
+    
+
+                                    }
+                                
+                        else {
+                            
+                        }
+                            
+this.collideFriction(ownerVehicleLayerInterface);
+    
+this.collideFriction(vehiclePropertiesCompositeInterface);
+    
+this.totalImpactVelocity= impactVelocityX +impactVelocityY;
+    
+}
+
+
+    collideFriction(vehiclePropertiesCompositeInterface: VehiclePropertiesCompositeInterface){
+
+    let vehicleFrictionProperties: VehicleFrictionProperties = vehiclePropertiesCompositeInterface!.getVehicleProperties()!.getVehicleFrictionProperties()!;;
+    
+vehiclePropertiesCompositeInterface!.getVehicleProperties()!.getVehicleFrictionProperties()!.friction(vehiclePropertiesCompositeInterface!.getVehicleProperties()!.getVelocityProperties(), vehicleFrictionProperties!.getCrashFrictionNominator());
+    
+}
+
+
+}
+

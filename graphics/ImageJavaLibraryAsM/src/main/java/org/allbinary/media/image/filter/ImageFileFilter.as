@@ -1,0 +1,107 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { File } from '../../../../../java/io/File.js';
+//not GWT import const File
+
+import { FileFilter } from '../../../../../javax/swing/filechooser/FileFilter.js';
+//not GWT import const FileFilter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //TWB - replace with file visitor version
+export class ImageFileFilter extends FileFilter {
+        
+
+    public accept(f: File): boolean{
+
+                        if(f.isDirectory())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+
+    let s: string = f.getName()!;;
+    
+
+    let i: number = s.lastIndexOf('.')!;;
+    
+
+                        if(i > 0 && i < s.length -1)
+                        
+                                    {
+                                    
+    let ext: string = s.substring(i +1)!.toLowerCase()!;;
+    
+
+                        if((ext === "jpg") || (ext === "jpeg"))
+                        
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public getDescription(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Accepts .jpg and .jpeg files";
+    
+}
+
+
+}
+

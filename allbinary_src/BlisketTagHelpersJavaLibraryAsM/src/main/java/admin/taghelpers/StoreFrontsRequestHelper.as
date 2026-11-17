@@ -1,0 +1,453 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { HashMap } from '../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { HttpServletRequest } from '../../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { PageContext } from '../../javax/servlet/jsp/PageContext.js';
+//not GWT import const PageContext
+
+import { StoreFront } from '../../org/allbinary/business/context/modules/storefront/StoreFront.js';
+//not GWT import const StoreFront
+
+import { StoreFrontInterface } from '../../org/allbinary/business/context/modules/storefront/StoreFrontInterface.js';
+//not GWT import const StoreFrontInterface
+
+import { Portion } from '../../org/allbinary/business/installer/Portion.js';
+//not GWT import const Portion
+
+import { StoreFrontsEntityFactory } from '../../org/allbinary/data/tables/context/module/storefronts/StoreFrontsEntityFactory.js';
+//not GWT import const StoreFrontsEntityFactory
+
+import { WeblisketSession } from '../../org/allbinary/logic/communication/http/request/session/WeblisketSession.js';
+//not GWT import const WeblisketSession
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { UserEmailEventNameData } from '../../org/allbinary/logic/communication/smtp/event/UserEmailEventNameData.js';
+//not GWT import const UserEmailEventNameData
+
+import { UserEmailEventHandler } from '../../org/allbinary/logic/communication/smtp/event/handler/UserEmailEventHandler.js';
+//not GWT import const UserEmailEventHandler
+
+import { AdminUserEmailEventHandlerSingletons } from '../../org/allbinary/logic/communication/smtp/event/handler/factory/AdminUserEmailEventHandlerSingletons.js';
+//not GWT import const AdminUserEmailEventHandlerSingletons
+
+import { StoreAdminUserEmailEventHandlerSingletons } from '../../org/allbinary/logic/communication/smtp/event/handler/factory/StoreAdminUserEmailEventHandlerSingletons.js';
+//not GWT import const StoreAdminUserEmailEventHandlerSingletons
+
+import { AdminEmailInfo } from '../../org/allbinary/logic/communication/smtp/info/AdminEmailInfo.js';
+//not GWT import const AdminEmailInfo
+
+import { BasicEmailInfo } from '../../org/allbinary/logic/communication/smtp/info/BasicEmailInfo.js';
+//not GWT import const BasicEmailInfo
+
+import { EmailInfo } from '../../org/allbinary/logic/communication/smtp/info/EmailInfo.js';
+//not GWT import const EmailInfo
+
+import { StoreEmailInfo } from '../../org/allbinary/logic/communication/smtp/info/StoreEmailInfo.js';
+//not GWT import const StoreEmailInfo
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { AbeClientInformationInterface } from '../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
+//not GWT import const AbeClientInformationInterface
+
+import { ServiceClientInformationInterfaceFactory } from '../../org/allbinary/logic/system/security/licensing/ServiceClientInformationInterfaceFactory.js';
+//not GWT import const ServiceClientInformationInterfaceFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ModifyTable } from './ModifyTable.js';
+//sameFolderImports - not GWT import - same folder const ModifyTable
+
+export class StoreFrontsRequestHelper extends ModifyTable {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly abeClientInformation: AbeClientInformationInterface = ServiceClientInformationInterfaceFactory.getInstance()!;
+
+    private readonly pageContext: PageContext;
+
+    private readonly request: HttpServletRequest;
+
+    private readonly weblisketSession: WeblisketSession;
+
+    private storeName: string;
+
+    private modifyingStoreFrontInterface: StoreFrontInterface;
+
+    private readonly portion: Portion;
+
+public constructor (hashMap: HashMap<any, any>, pageContext: PageContext){
+
+            super();
+        this.pageContext= pageContext;
+    
+this.request= pageContext!.getRequest() as HttpServletRequest;
+    
+this.weblisketSession= new WeblisketSession(hashMap, pageContext);
+    
+this.portion= new Portion(hashMap);
+    
+this.getFormData();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getFormData(){
+this.storeName= this.weblisketSession!.getStoreName();
+    
+this.modifyingStoreFrontInterface= new StoreFront(this.request) as StoreFrontInterface;
+    
+}
+
+
+    public update(): string{
+
+ try { 
+    let success: string = "Updated Successfully";;
+    
+
+    let hashMapData: HashMap<any, any> = this.modifyingStoreFrontInterface!.toHashMap()!;;
+    
+StoreFrontsEntityFactory.getInstance()!.getStoreFrontsEntityInstance()!.update(hashMapData);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "update()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to update storefronts table";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "update()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public sendStoreCreatedEmails(){
+
+    let storeManagerEmailSubject: string = "Store Manager Nofification For Store: " +this.modifyingStoreFrontInterface!.getName();;
+    
+
+    let adminEmailSubject: string = "Admin Notification For Store: " +this.modifyingStoreFrontInterface!.getName();;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Store Created: ");
+    
+stringBuffer!.append(this.modifyingStoreFrontInterface!.getName());
+    
+stringBuffer!.append("\n\n");
+    
+stringBuffer!.append("Click here for the Admin Interface:\n");
+    
+stringBuffer!.append(this.modifyingStoreFrontInterface!.getCurrentHomeHostName());
+    
+stringBuffer!.append("/admin/login.jsp\n\n");
+    
+stringBuffer!.append("Goto Your Store:\n");
+    
+stringBuffer!.append(this.modifyingStoreFrontInterface!.getCurrentHomeHostName());
+    
+stringBuffer!.append(this.modifyingStoreFrontInterface!.getName());
+    
+stringBuffer!.append("/index.jsp");
+    
+stringBuffer!.append("\n\n");
+    
+stringBuffer!.append("UserName: ");
+    
+stringBuffer!.append(this.weblisketSession!.getUserName());
+    
+
+    let adminEmailTextBody: string = stringBuffer!.toString()!;;
+    
+
+    let adminBasicEmailInfo: BasicEmailInfo = new AdminEmailInfo(adminEmailSubject, adminEmailTextBody) as BasicEmailInfo;;
+    
+
+    let storeAdminBasicEmailInfo: BasicEmailInfo = new StoreEmailInfo(this.modifyingStoreFrontInterface, storeManagerEmailSubject, adminEmailTextBody) as BasicEmailInfo;;
+    
+
+    let storeAdminEmailInfo: EmailInfo = new EmailInfo(storeAdminBasicEmailInfo);;
+    
+
+    let adminEmailInfo: EmailInfo = new EmailInfo(adminBasicEmailInfo);;
+    
+
+    let adminUserEmailEventHandler: UserEmailEventHandler = AdminUserEmailEventHandlerSingletons.getInstance()!.getInstance(this.abeClientInformation, UserEmailEventNameData.STORECREATED)!;;
+    
+
+    let storeAdminUserEmailEventHandler: UserEmailEventHandler = StoreAdminUserEmailEventHandlerSingletons.getInstance()!.getInstance(UserEmailEventNameData.STORECREATED, this.abeClientInformation, this.modifyingStoreFrontInterface)!;;
+    
+storeAdminUserEmailEventHandler!.receiveEmailInfo(UserEmailEventNameData.STORECREATED, storeAdminEmailInfo);
+    
+adminUserEmailEventHandler!.receiveEmailInfo(UserEmailEventNameData.STORECREATED, adminEmailInfo);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public install(): string{
+
+ try { 
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Intall StoreFront Successfully: ");
+    
+stringBuffer!.appendint(this.portion.getCurrent()!.intValue());
+    
+stringBuffer!.append(" of ");
+    
+stringBuffer!.appendint(this.portion.getTotal()!.intValue());
+    
+
+    let success: string = stringBuffer!.toString()!;;
+    
+this.modifyingStoreFrontInterface!.install(this.portion.getCurrent()!.intValue(), this.portion.getTotal()!.intValue());
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "install()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to Install storefront";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "install()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public insert(): string{
+
+ try { 
+    let success: string = "Added Successfully";;
+    
+
+    let values: BasicArrayList = this.modifyingStoreFrontInterface!.toVector()!;;
+    
+StoreFrontsEntityFactory.getInstance()!.getStoreFrontsEntityInstance()!.insert(values);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "insert()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to add storefront";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "insert()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public delete(): string{
+
+ try { 
+    let success: string = "Delete Successfully";;
+    
+StoreFrontsEntityFactory.getInstance()!.getStoreFrontsEntityInstance()!.delete(this.storeName);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "delete()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to delete storefronts table";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "delete()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

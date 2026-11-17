@@ -1,0 +1,138 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2025 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+import { Cipher } from '../../../../../../../javax/crypto/Cipher.js';
+//not GWT import const Cipher
+
+import { SecretKey } from '../../../../../../../javax/crypto/SecretKey.js';
+//not GWT import const SecretKey
+
+import { ByteUtil } from '../../../../../../../org/allbinary/logic/java/byteutil/ByteUtil.js';
+//not GWT import const ByteUtil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BaseSecretComposite } from './BaseSecretComposite.js';
+//sameFolderImports - not GWT import - same folder const BaseSecretComposite
+
+export class SecretComposite extends BaseSecretComposite {
+        
+
+    private readonly byteUtil: ByteUtil = ByteUtil.getInstance()!;
+
+    private readonly cipher: Cipher;
+
+    private readonly secretKey: SecretKey;
+
+    private key: number[];
+
+public constructor (secretKey: SecretKey, cipher: Cipher, key: number[]){
+
+            super();
+        this.secretKey= secretKey;
+    
+this.cipher= cipher;
+    
+this.key= key;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public encrypt(array: number[]): number[]{
+array= this.mutilate(array);
+    
+this.cipher.init(Cipher.ENCRYPT_MODE, this.secretKey);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.cipher.doFinal(array);;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public decrypt(array: number[]): number[]{
+this.cipher.init(Cipher.DECRYPT_MODE, this.secretKey);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.mutilate(this.cipher.doFinal(array));;
+    
+}
+
+
+    mutilate(array: number[]): number[]{
+
+
+
+
+                        for (
+    let index: number = 0;index < this.key.length; index++)
+        {
+
+    let value: number = this.key[index]!;;
+    
+
+                        if(value < 8 && value > 0)
+                        
+                                    {
+                                    array= this.byteUtil!.xorByte(array, globalThis.Math.trunc(value));
+    
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return array;
+    
+}
+
+
+}
+

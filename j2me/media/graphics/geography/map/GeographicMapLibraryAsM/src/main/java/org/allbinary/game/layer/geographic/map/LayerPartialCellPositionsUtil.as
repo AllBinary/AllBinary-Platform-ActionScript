@@ -1,0 +1,202 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+import { AllBinaryLayer } from '../../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { BasicGeographicMap } from '../../../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { GeographicMapCellPosition } from '../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+import { SimpleGeographicMapCellPositionFactory } from '../../../../../../org/allbinary/media/graphics/geography/map/SimpleGeographicMapCellPositionFactory.js';
+//not GWT import const SimpleGeographicMapCellPositionFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class LayerPartialCellPositionsUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: LayerPartialCellPositionsUtil = new LayerPartialCellPositionsUtil();
+
+    public static getInstance(): LayerPartialCellPositionsUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return LayerPartialCellPositionsUtil.instance;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getAll(geographicMapInterface: BasicGeographicMap, layerInterface: AllBinaryLayer, reusableList: BasicArrayList): BasicArrayList{
+reusableList!.clear();
+    
+
+    let topLeftGeographicMapCellPosition: GeographicMapCellPosition = geographicMapInterface!.getCellPositionAtXYNoThrow(layerInterface!.getXP(), layerInterface!.getYP())!;;
+    
+
+    let topRightGeographicMapCellPosition: GeographicMapCellPosition = geographicMapInterface!.getCellPositionAtXYNoThrow(layerInterface!.getXP() +layerInterface!.getWidth(), layerInterface!.getYP())!;;
+    
+
+    let bottomLeftGeographicMapCellPosition: GeographicMapCellPosition = geographicMapInterface!.getCellPositionAtXYNoThrow(layerInterface!.getXP(), layerInterface!.getYP() +layerInterface!.getHeight())!;;
+    
+
+    let bottomRightGeographicMapCellPosition: GeographicMapCellPosition = geographicMapInterface!.getCellPositionAtXYNoThrow(layerInterface!.getXP() +layerInterface!.getWidth(), layerInterface!.getYP() +layerInterface!.getHeight())!;;
+    
+
+                        if(topLeftGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
+                        
+                                    {
+                                    reusableList!.add(topLeftGeographicMapCellPosition);
+    
+
+                                    }
+                                
+
+                        if(topRightGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION && topLeftGeographicMapCellPosition != topRightGeographicMapCellPosition)
+                        
+                                    {
+                                    reusableList!.add(topRightGeographicMapCellPosition);
+    
+
+                                    }
+                                
+
+                        if(bottomLeftGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION && !reusableList!.contains(bottomLeftGeographicMapCellPosition))
+                        
+                                    {
+                                    reusableList!.add(bottomLeftGeographicMapCellPosition);
+    
+
+                                    }
+                                
+
+                        if(bottomRightGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION && !reusableList!.contains(bottomRightGeographicMapCellPosition))
+                        
+                                    {
+                                    reusableList!.add(bottomRightGeographicMapCellPosition);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return reusableList;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getAllDXY(geographicMapInterface: BasicGeographicMap, layerInterface: AllBinaryLayer, dx: number, dy: number, reusableList: BasicArrayList): BasicArrayList{
+reusableList!.clear();
+    
+
+    let topLeftGeographicMapCellPosition: GeographicMapCellPosition = geographicMapInterface!.getCellPositionAtXYNoThrow(layerInterface!.getXP() +dx, layerInterface!.getYP() +dy)!;;
+    
+
+    let topRightGeographicMapCellPosition: GeographicMapCellPosition = geographicMapInterface!.getCellPositionAtXYNoThrow(layerInterface!.getXP() +layerInterface!.getWidth() +dx, layerInterface!.getYP() +dy)!;;
+    
+
+    let bottomLeftGeographicMapCellPosition: GeographicMapCellPosition = geographicMapInterface!.getCellPositionAtXYNoThrow(layerInterface!.getXP() +dx, layerInterface!.getYP() +layerInterface!.getHeight() +dy)!;;
+    
+
+    let bottomRightGeographicMapCellPosition: GeographicMapCellPosition = geographicMapInterface!.getCellPositionAtXYNoThrow(layerInterface!.getXP() +layerInterface!.getWidth() +dx, layerInterface!.getYP() +layerInterface!.getHeight() +dy)!;;
+    
+
+                        if(topLeftGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
+                        
+                                    {
+                                    reusableList!.add(topLeftGeographicMapCellPosition);
+    
+
+                                    }
+                                
+
+                        if(topRightGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION && topLeftGeographicMapCellPosition != topRightGeographicMapCellPosition)
+                        
+                                    {
+                                    reusableList!.add(topRightGeographicMapCellPosition);
+    
+
+                                    }
+                                
+
+                        if(bottomLeftGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION && !reusableList!.contains(bottomLeftGeographicMapCellPosition))
+                        
+                                    {
+                                    reusableList!.add(bottomLeftGeographicMapCellPosition);
+    
+
+                                    }
+                                
+
+                        if(bottomRightGeographicMapCellPosition != SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION && !reusableList!.contains(bottomRightGeographicMapCellPosition))
+                        
+                                    {
+                                    reusableList!.add(bottomRightGeographicMapCellPosition);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return reusableList;
+    
+}
+
+
+}
+

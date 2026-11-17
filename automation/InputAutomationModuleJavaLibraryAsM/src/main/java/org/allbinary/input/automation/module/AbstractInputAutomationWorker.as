@@ -1,0 +1,318 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { RuntimeException } from '../../../../../java/lang/RuntimeException.js';
+        
+            import { Thread } from '../../../../../java/lang/Thread.js';
+        
+import { CaptureWorkerInterface } from '../../../../../org/allbinary/input/media/image/capture/CaptureWorkerInterface.js';
+//not GWT import const CaptureWorkerInterface
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { ImageComparisonWorker } from '../../../../../org/allbinary/media/image/comparison/ImageComparisonWorker.js';
+//not GWT import const ImageComparisonWorker
+
+import { MotionRectanglesWorker } from '../../../../../org/allbinary/media/image/comparison/motion/MotionRectanglesWorker.js';
+//not GWT import const MotionRectanglesWorker
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { RunnableInterface } from '../../../../../org/allbinary/thread/RunnableInterface.js';
+//not GWT import const RunnableInterface
+
+import { TimeDelayHelper } from '../../../../../org/allbinary/time/TimeDelayHelper.js';
+//not GWT import const TimeDelayHelper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { InputAutomationActionInterface } from './InputAutomationActionInterface.js';
+//sameFolderImports - not GWT import - same folder const InputAutomationActionInterface
+
+export class AbstractInputAutomationWorker
+            extends Object
+         implements RunnableInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private index: number= 0;
+
+    private running: boolean= false;
+
+    private inputAutomationActionInterface: InputAutomationActionInterface;
+
+    private captureWorkerInterface: CaptureWorkerInterface;
+
+    private imageComparisonWorker: ImageComparisonWorker;
+
+    private motionRectanglesWorker: MotionRectanglesWorker;
+
+    private captureThread: Thread;
+
+public constructor (inputAutomationActionInterface: InputAutomationActionInterface){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            
+    public setThread(thread: Thread){
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public isRunning(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.running;
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public setRunning(running: boolean){
+this.running= running;
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    isAnyDataWorkerRunning(): boolean{
+
+                        if(this.captureThread != 
+                                    null
+                                 && (this.captureThread!.isAlive() || this.getCaptureWorker()!.isRunning() || this.getMotionRectanglesWorker()!.isRunning() || this.getImageComparisonWorker()!.isRunning()))
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    startDataWorkers(){
+
+                        if(!isAnyDataWorkerRunning())
+                        
+                                    {
+                                    this.captureThread= new Thread(this.getCaptureWorker());
+    
+this.logUtil!.putF("Starting CaptureWorkers - Need more images - Thread State: " +this.captureThread!.getState()!.toString(), this, "startCaptureWorkers");
+    
+this.captureThread!.start();
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    waitForDataWorkers(){
+
+        while(isAnyDataWorkerRunning())
+        {
+this.logUtil!.putF("Waiting", this, this.commonStrings!.RUN);
+    
+Thread.sleep(250);
+    
+}
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    stopDataWorkers(){
+this.getCaptureWorker()!.setRunning(false);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public process(){
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public run(){
+
+ try { this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.RUN);
+    
+this.setRunning(true);
+    
+
+    let timeHelper: TimeDelayHelper = new TimeDelayHelper(1000);;
+    
+
+        while(this.isRunning())
+        {
+timeHelper!.setStartTimeTNT();
+    
+this.process();
+    
+this.index++;
+    
+this.logUtil!.putF(CommonLabels.getInstance()!.ELAPSED +timeHelper!.getElapsedTNT() +" Index: " +this.index, this, this.commonStrings!.RUN);
+    
+}
+
+this.stopDataWorkers();
+    
+this.waitForDataWorkers();
+    
+this.logUtil!.putF(this.commonStrings!.END, this, this.commonStrings!.RUN);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.RUN, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public getInputAutomationActionInterface(): InputAutomationActionInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.inputAutomationActionInterface;
+    
+}
+
+
+    public setInputAutomationActionInterface(inputAutomationActionInterface: InputAutomationActionInterface){
+this.inputAutomationActionInterface= inputAutomationActionInterface;
+    
+}
+
+
+    getCaptureWorker(): CaptureWorkerInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.captureWorkerInterface;
+    
+}
+
+
+    setCaptureWorker(captureWorkerInterface: CaptureWorkerInterface){
+this.captureWorkerInterface= captureWorkerInterface;
+    
+}
+
+
+    getImageComparisonWorker(): ImageComparisonWorker{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.imageComparisonWorker;
+    
+}
+
+
+    setImageComparisonWorker(imageComparisonWorker: ImageComparisonWorker){
+this.imageComparisonWorker= imageComparisonWorker;
+    
+}
+
+
+    getMotionRectanglesWorker(): MotionRectanglesWorker{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.motionRectanglesWorker;
+    
+}
+
+
+    setMotionRectanglesWorker(motionRectanglesWorker: MotionRectanglesWorker){
+this.motionRectanglesWorker= motionRectanglesWorker;
+    
+}
+
+
+}
+

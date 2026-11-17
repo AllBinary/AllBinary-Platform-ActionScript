@@ -1,0 +1,513 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2011 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../../../java/lang/Integer.js';
+        
+            import { Long } from '../../../../../../../../java/lang/Long.js';
+        
+import { Calendar } from '../../../../../../../../java/util/Calendar.js';
+//not GWT import const Calendar
+
+import { HashMap } from '../../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { Random } from '../../../../../../../../java/util/Random.js';
+//not GWT import const Random
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { EntryData } from '../../../../../../../../org/allbinary/business/entry/EntryData.js';
+//not GWT import const EntryData
+
+import { UserDbInitInfo } from '../../../../../../../../org/allbinary/business/init/db/UserDbInitInfo.js';
+//not GWT import const UserDbInitInfo
+
+import { UserData } from '../../../../../../../../org/allbinary/business/user/UserData.js';
+//not GWT import const UserData
+
+import { Payment } from '../../../../../../../../org/allbinary/business/user/commerce/money/payment/Payment.js';
+//not GWT import const Payment
+
+import { PaymentData } from '../../../../../../../../org/allbinary/business/user/commerce/money/payment/PaymentData.js';
+//not GWT import const PaymentData
+
+import { PaymentInterface } from '../../../../../../../../org/allbinary/business/user/commerce/money/payment/PaymentInterface.js';
+//not GWT import const PaymentInterface
+
+import { PaymentIdGenerator } from '../../../../../../../../org/allbinary/data/generator/PaymentIdGenerator.js';
+//not GWT import const PaymentIdGenerator
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AbSqlBean } from '../../../../../../../../org/allbinary/logic/communication/sql/AbSqlBean.js';
+//not GWT import const AbSqlBean
+
+import { SuperCrypt } from '../../../../../../../../org/allbinary/logic/control/crypt/SuperCrypt.js';
+//not GWT import const SuperCrypt
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { PaymentEntityInterface } from './PaymentEntityInterface.js';
+//sameFolderImports - not GWT import - same folder const PaymentEntityInterface
+
+export class PaymentEntity extends AbSqlBean implements PaymentEntityInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly tableName: string = "payment";
+
+public constructor (){
+            super(new UserDbInitInfo());
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.setTableName(this.tableName);
+    
+}
+
+
+    public getLastId(userName: string): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getLargestIntegerInColumnWhere(PaymentData.ID, UserData.USERNAME, userName);;
+    
+}
+
+
+    public setDefault(userName: string, index: Integer){
+
+ try { 
+    let updateKeyAndValue: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+
+    let whereKeyAndValue: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+whereKeyAndValue!.put(UserData.USERNAME, userName);
+    
+
+    let paymentInterface: PaymentInterface = this.getDefault(userName)!;;
+    
+
+                        if(paymentInterface != 
+                                    null
+                                )
+                        
+                                    {
+                                    updateKeyAndValue!.put(EntryData.getInstance()!.DEFAULT, StringUtil.getInstance()!.EMPTY_STRING);
+    
+whereKeyAndValue!.put(PaymentData.ID, paymentInterface!.getId());
+    
+super.updateWhere(whereKeyAndValue, updateKeyAndValue);
+    
+
+                                    }
+                                
+updateKeyAndValue!.put(EntryData.getInstance()!.DEFAULT, EntryData.getInstance()!.DEFAULT);
+    
+whereKeyAndValue!.put(PaymentData.ID, index.toString());
+    
+super.updateWhere(whereKeyAndValue, updateKeyAndValue);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.SUCCESS, this, "setDefault");
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.FAILURE, this, "setDefault", e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+}
+
+
+    public get(userName: string): BasicArrayList{
+
+ try { 
+    let paymentVector: BasicArrayList = new BasicArrayListD();;
+    
+
+    let keyAndValue: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+keyAndValue!.put(UserData.USERNAME, userName);
+    
+
+    let paymentList: BasicArrayList = super.getRows(keyAndValue)!;;
+    
+
+    let size: number = paymentList!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let paymentHashMap: HashMap<any, any> = paymentList!.get(index) as HashMap<any, any>;;
+    
+
+    let payment: Payment = new Payment(paymentHashMap);;
+    
+
+                        if(payment != 
+                                    null
+                                )
+                        
+                                    {
+                                    paymentVector!.add(payment);
+    
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return paymentVector;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.FAILURE, this, this.commonStrings!.GET, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+ }
+   }
+ 
+}
+
+
+    public getDefault(userName: string): PaymentInterface{
+
+ try { 
+    let paymentHashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+
+    let updateKeyAndValue: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+updateKeyAndValue!.put(EntryData.getInstance()!.DEFAULT, EntryData.getInstance()!.DEFAULT);
+    
+updateKeyAndValue!.put(UserData.USERNAME, userName);
+    
+paymentHashMap= super.getRow(updateKeyAndValue);
+    
+
+                        if(paymentHashMap != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let payment: Payment = new Payment(paymentHashMap);;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.SUCCESS, this, "getDefault");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return payment as PaymentInterface;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+                        }
+                            
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.FAILURE, this, "getDefault", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+ }
+   }
+ 
+}
+
+
+    public remove(userName: string, index: Integer){
+
+ try { 
+    let whereHashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+whereHashMap!.put(UserData.USERNAME, userName);
+    
+whereHashMap!.put(PaymentData.ID, index.toString() as string);
+    
+super.deleteWhere(whereHashMap);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.SUCCESS, this, "remove");
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.FAILURE, this, "remove", e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+}
+
+
+    public add(userName: string, paymentInterface: PaymentInterface){
+
+ try { 
+    let vector: BasicArrayList = new BasicArrayListD();;
+    
+vector.add(new PaymentIdGenerator().getNext());
+    
+vector.add(userName);
+    
+vector.add(StringUtil.getInstance()!.EMPTY_STRING);
+    
+vector.add(paymentInterface!.getName());
+    
+vector.add(paymentInterface!.getType());
+    
+vector.add(paymentInterface!.getExpiration());
+    
+
+    let random: number = new Random().nextInt(SuperCrypt.KEYMAX)!;;
+    
+vector.add(new SuperCrypt(random).encrypt(paymentInterface!.getNumber()));
+    
+vector.add(new Integer(random).toString());
+    
+
+    let calendar: Calendar = Calendar.getInstance()!;;
+    
+
+    let time: string = new Long(calendar.getTimeInMillis()).toString();;
+    
+vector.add(time);
+    
+super.insert(vector);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.SUCCESS, this, "add");
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.FAILURE, this, "add", e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+}
+
+
+    public createTableStatement(): string{
+
+    let entryData: EntryData = EntryData.getInstance()!;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.sqlStrings!.CREATE_TABLE)!.append(this.tableName)!.append(this.sqlStrings!.START)!.append(PaymentData.ID)!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_AUTO_INCREMENT_NOT_NULL)!.append(UserData.USERNAME)!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL)!.append(entryData!.DEFAULT)!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL)!.append(PaymentData.NAME)!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL)!.append(PaymentData.TYPE)!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL)!.append(PaymentData.EXPIRATION)!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL)!.append(PaymentData.NUMBER)!.append(this.sqlTypeStrings!.MAX_CHAR_COLUMN_NOT_NULL)!.append(entryData!.ENCRYPTION)!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL)!.append(entryData!.TIMECREATED)!.append(this.sqlTypeStrings!.MAX_BIG_INT_UNSIGNED_NOT_NULL)!.append(this.sqlStrings!.PRIMARY_KEY)!.append(PaymentData.ID)!.append(this.sqlStrings!.END);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+    public createTable(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.createTable(this.createTableStatement());;
+    
+}
+
+
+    public drop(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.dropTable();;
+    
+}
+
+
+    public insert(values: BasicArrayList){
+super.insert(values);
+    
+}
+
+
+    public dropTable(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.dropTable();;
+    
+}
+
+
+}
+

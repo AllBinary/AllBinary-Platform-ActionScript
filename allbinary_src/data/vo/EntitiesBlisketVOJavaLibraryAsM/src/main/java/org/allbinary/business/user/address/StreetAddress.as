@@ -1,0 +1,714 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { Set } from '../../../../../java/util/Set.js';
+//not GWT import const Set
+
+import { HttpServletRequest } from '../../../../../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { DomNodeHelper } from '../../../../../org/allbinary/data/tree/dom/DomNodeHelper.js';
+//not GWT import const DomNodeHelper
+
+import { DomSearchHelper } from '../../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
+//not GWT import const DomSearchHelper
+
+import { ModDomHelper } from '../../../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { StringValidationUtil } from '../../../../../org/allbinary/logic/string/StringValidationUtil.js';
+//not GWT import const StringValidationUtil
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { Document } from '../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { StreetAddressData } from './StreetAddressData.js';
+//sameFolderImports - not GWT import - same folder const StreetAddressData
+
+export class StreetAddress
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private id: string;
+
+    private name: string;
+
+    private street: string;
+
+    private city: string;
+
+    private state: string;
+
+    private code: string;
+
+    private country: string;
+
+    private isDefault: boolean = false;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 0) {
+            
+            this.constructor$0();
+            
+        }
+        else if(args.length === 1 && args[0] instanceof Node) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        else if(args.length === 1 && args[0] instanceof StreetAddress) {
+            
+            this.constructor$2(args[0]);
+            
+        }
+        else if(args.length === 1 && args[0] instanceof HttpServletRequest) {
+            
+            this.constructor$3(args[0]);
+            
+        }
+        else if(args.length === 6) {
+            
+            this.constructor$4(args[0], args[1], args[2], args[3], args[4], args[5]);
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$5(args[0]);
+            
+        }
+        
+    }
+    
+    private constructor$0(): void {
+        
+    }
+    
+    private constructor$1(node: Node): void {
+        
+    let nameNode: Node = DomSearchHelper.getNode(StreetAddressData.NAME, node.getChildNodes())!;;
+    
+this.name= DomNodeHelper.getTextNodeValue(nameNode);
+    
+
+    let streetNode: Node = DomSearchHelper.getNode(StreetAddressData.STREET, node.getChildNodes())!;;
+    
+this.street= DomNodeHelper.getTextNodeValue(streetNode);
+    
+
+    let cityNode: Node = DomSearchHelper.getNode(StreetAddressData.CITY, node.getChildNodes())!;;
+    
+this.city= DomNodeHelper.getTextNodeValue(cityNode);
+    
+
+    let stateNode: Node = DomSearchHelper.getNode(StreetAddressData.STATE, node.getChildNodes())!;;
+    
+this.state= DomNodeHelper.getTextNodeValue(stateNode);
+    
+
+    let codeNode: Node = DomSearchHelper.getNode(StreetAddressData.CODE, node.getChildNodes())!;;
+    
+this.code= DomNodeHelper.getTextNodeValue(codeNode);
+    
+
+    let countryNode: Node = DomSearchHelper.getNode(StreetAddressData.COUNTRY, node.getChildNodes())!;;
+    
+this.country= DomNodeHelper.getTextNodeValue(countryNode);
+    
+this.log();
+    
+
+    }
+    
+    private constructor$2(streetAddress: StreetAddress): void {
+        this.id= streetAddress!.getId();
+    
+this.name= streetAddress!.getName();
+    
+this.street= streetAddress!.getStreet();
+    
+this.city= streetAddress!.getCity();
+    
+this.state= streetAddress!.getState();
+    
+this.code= streetAddress!.getCode();
+    
+this.country= streetAddress!.getCountry();
+    
+this.isDefault= streetAddress!.isDefault();
+    
+this.log();
+    
+
+    }
+    
+    private constructor$3(request: HttpServletRequest): void {
+        this.setId(request.getParameter(StreetAddressData.ID));
+    
+this.setName(request.getParameter(StreetAddressData.NAME));
+    
+this.setStreet(request.getParameter(StreetAddressData.STREET));
+    
+this.setCity(request.getParameter(StreetAddressData.CITY));
+    
+this.setState(request.getParameter(StreetAddressData.STATE));
+    
+this.setCode(request.getParameter(StreetAddressData.CODE));
+    
+this.setCountry(request.getParameter(StreetAddressData.COUNTRY));
+    
+this.log();
+    
+
+    }
+    
+    private constructor$4(name: string, street: string, city: string, state: string, code: string, country: string): void {
+        this.name= name;
+    
+this.street= street;
+    
+this.city= city;
+    
+this.state= state;
+    
+this.code= code;
+    
+this.country= country;
+    
+this.log();
+    
+
+    }
+    
+    private constructor$5(address: HashMap<any, any>): void {
+        this.id= address.get(StreetAddressData.ID) as string;
+    
+this.name= address.get(StreetAddressData.NAME) as string;
+    
+this.street= address.get(StreetAddressData.STREET) as string;
+    
+this.city= address.get(StreetAddressData.CITY) as string;
+    
+this.state= address.get(StreetAddressData.STATE) as string;
+    
+this.code= address.get(StreetAddressData.CODE) as string;
+    
+this.country= address.get(StreetAddressData.COUNTRY) as string;
+    
+
+    let def: string = address.get(StreetAddressData.DEFAULT) as string;;
+    
+
+                        if(def != 
+                                    null
+                                 && def.compareTo(StreetAddressData.DEFAULT) == 0)
+                        
+                                    {
+                                    this.isDefault= true;
+    
+
+                                    }
+                                
+                        else {
+                            this.isDefault= false;
+    
+
+                        }
+                            
+this.log();
+    
+
+    }
+    
+    log(){
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF("Created Address: \n" +this.toHashMap(), this, "log");
+    
+
+                                    }
+                                
+}
+
+
+    public setId(id: string){
+this.id= id;
+    
+}
+
+
+    public setName(name: string){
+this.name= name;
+    
+}
+
+
+    public setStreet(value: string){
+this.street= value;
+    
+}
+
+
+    public setCity(value: string){
+this.city= value;
+    
+}
+
+
+    public setState(value: string){
+this.state= value;
+    
+}
+
+
+    public setCode(value: string){
+this.code= value;
+    
+}
+
+
+    public setCountry(value: string){
+this.country= value;
+    
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.name;
+    
+}
+
+
+    public getStreet(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.street;
+    
+}
+
+
+    public getCity(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.city;
+    
+}
+
+
+    public getState(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.state;
+    
+}
+
+
+    public getCode(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.code;
+    
+}
+
+
+    public getCountry(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.country;
+    
+}
+
+
+    public getId(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.id;
+    
+}
+
+
+    public isDefault(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.isDefault;
+    
+}
+
+
+    public isEmpty(): Boolean{
+
+    let EMPTY_STRING: string = StringUtil.getInstance()!.EMPTY_STRING;;
+    
+
+                        if(this.getName() == 
+                                    null
+                                 && this.getName()!.compareTo(EMPTY_STRING) == 0 && this.getStreet() == 
+                                    null
+                                 && this.getStreet()!.compareTo(EMPTY_STRING) == 0 && this.getCity() == 
+                                    null
+                                 && this.getCity()!.compareTo(EMPTY_STRING) == 0 && this.getState() == 
+                                    null
+                                 && this.getState()!.compareTo(EMPTY_STRING) == 0 && this.getCode() == 
+                                    null
+                                 && this.getCode()!.compareTo(EMPTY_STRING) == 0 && this.getCountry() == 
+                                    null
+                                 && this.getCountry()!.compareTo(EMPTY_STRING) == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public isValid(): Boolean{
+
+    let EMPTY_STRING: string = StringUtil.getInstance()!.EMPTY_STRING;;
+    
+
+                        if(this.getName() == 
+                                    null
+                                 || this.getName()!.compareTo(EMPTY_STRING) == 0 || this.getStreet() == 
+                                    null
+                                 || this.getStreet()!.compareTo(EMPTY_STRING) == 0 || this.getCity() == 
+                                    null
+                                 || this.getCity()!.compareTo(EMPTY_STRING) == 0 || this.getState() == 
+                                    null
+                                 || this.getState()!.compareTo(EMPTY_STRING) == 0 || this.getCode() == 
+                                    null
+                                 || this.getCode()!.compareTo(EMPTY_STRING) == 0 || this.getCountry() == 
+                                    null
+                                 || this.getCountry()!.compareTo(EMPTY_STRING) == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+    public validationInfo(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Address Failed To Validate - All fields must contain data.<br></br>");
+    
+
+    let stringValidationUtil: StringValidationUtil = StringValidationUtil.getInstance()!;;
+    
+
+                        if(!stringValidationUtil!.isValidRequired(this.getName(), StreetAddressData.MIN, StreetAddressData.MAX))
+                        
+                                    {
+                                    stringBuffer!.append("Please enter a valid name");
+    
+stringBuffer!.append("<br></br>");
+    
+
+                                    }
+                                
+
+                        if(!stringValidationUtil!.isValidRequired(this.getStreet(), StreetAddressData.MIN, StreetAddressData.MAX))
+                        
+                                    {
+                                    stringBuffer!.append("Please enter a valid street");
+    
+stringBuffer!.append("<br></br>");
+    
+
+                                    }
+                                
+
+                        if(!stringValidationUtil!.isValidRequired(this.getCity(), StreetAddressData.MIN, StreetAddressData.MAX))
+                        
+                                    {
+                                    stringBuffer!.append("Please enter a valid city");
+    
+stringBuffer!.append("<br></br>");
+    
+
+                                    }
+                                
+
+                        if(!stringValidationUtil!.isValidRequired(this.getState(), StreetAddressData.MIN, StreetAddressData.MAX))
+                        
+                                    {
+                                    stringBuffer!.append("Please enter a valid state");
+    
+stringBuffer!.append("<br></br>");
+    
+
+                                    }
+                                
+
+                        if(!stringValidationUtil!.isValidRequired(this.getCode(), StreetAddressData.MIN, StreetAddressData.MAX))
+                        
+                                    {
+                                    stringBuffer!.append("Please enter a valid zipcode");
+    
+stringBuffer!.append("<br></br>");
+    
+
+                                    }
+                                
+
+                        if(!stringValidationUtil!.isValidRequired(this.getCountry(), StreetAddressData.MIN, StreetAddressData.MAX))
+                        
+                                    {
+                                    stringBuffer!.append("Please enter a valid country");
+    
+stringBuffer!.append("<br></br>");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+    toValidationInfoDoc(): Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    toValidationInfoNode(document: Document): Node{
+
+ try { 
+    let node: Node = document.createElement(StreetAddressData.FORM)!;;
+    
+node.appendChild(this.toXmlNode(document));
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGERROR))
+                        
+                                    {
+                                    
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, "toValidationInfoNode", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+ }
+   }
+ 
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put(StreetAddressData.ID, this.id);
+    
+hashMap!.put(StreetAddressData.NAME, this.name);
+    
+hashMap!.put(StreetAddressData.STREET, this.street);
+    
+hashMap!.put(StreetAddressData.CITY, this.city);
+    
+hashMap!.put(StreetAddressData.STATE, this.state);
+    
+hashMap!.put(StreetAddressData.CODE, this.code);
+    
+hashMap!.put(StreetAddressData.COUNTRY, this.country);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let stringUtil: StringUtil = StringUtil.getInstance()!;;
+    
+
+    let hashMap: HashMap<any, any> = this.toHashMap()!;;
+    
+
+    let keySet: Set = hashMap!.keys()!;;
+    
+
+    let keyArray: any[] = keySet!.toArray()!;;
+    
+
+    let size: number = keyArray!.length
+                ;;
+    
+
+    let node: Node = document.createElement(StreetAddressData.ADDRESS)!;;
+    
+
+
+
+
+                        for (
+    let i: number = 0;i < size; i++)
+        {
+
+    let name: string = keyArray[i]! as string;;
+    
+
+    let value: string = stringUtil!.getNonNull(hashMap!.get(name) as string)!;;
+    
+node.appendChild(ModDomHelper.createNameValueNodes(document, name, value));
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+}
+

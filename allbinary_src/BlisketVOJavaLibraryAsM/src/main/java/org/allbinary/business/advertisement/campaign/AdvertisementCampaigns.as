@@ -1,0 +1,123 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { AdvertisementInterface } from '../../../../../org/allbinary/business/advertisement/AdvertisementInterface.js';
+//not GWT import const AdvertisementInterface
+
+import { AdvertisementsInterface } from '../../../../../org/allbinary/business/advertisement/AdvertisementsInterface.js';
+//not GWT import const AdvertisementsInterface
+
+import { AdvertisementSearchInterface } from '../../../../../org/allbinary/business/advertisement/search/AdvertisementSearchInterface.js';
+//not GWT import const AdvertisementSearchInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AdvertisementCampaignsInterface } from './AdvertisementCampaignsInterface.js';
+//sameFolderImports - not GWT import - same folder const AdvertisementCampaignsInterface
+
+export class AdvertisementCampaigns
+            extends Object
+         implements AdvertisementCampaignsInterface {
+        
+
+    private advertisementsVector: BasicArrayList;
+
+public constructor (vector: BasicArrayList){
+
+            super();
+        this.advertisementsVector= this.advertisementsVector;
+    
+}
+
+
+    public add(advertisementInterface: AdvertisementInterface){
+this.advertisementsVector!.add(advertisementInterface);
+    
+}
+
+
+    public get(index: number): AdvertisementInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.advertisementsVector!.get(index) as AdvertisementInterface;
+    
+}
+
+
+    public size(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.advertisementsVector!.size();;
+    
+}
+
+
+    public isEnabled(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+    public search(advertisementSearchInterface: AdvertisementSearchInterface): AdvertisementsInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+}
+

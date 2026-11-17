@@ -1,0 +1,499 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            import { Math } from '../../../../../../java/lang/Math.js';
+        
+            //import { Double } from '../../../../../../java/lang/Double.js';
+            const Double = (globalThis.java?.lang?.Double ?? class {}) as typeof globalThis.java.lang.Double;
+        
+import { awt } from '../../../../../../java/awt.js';
+//not GWT import const awt
+
+import { HashMap } from '../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { MutableTreeNode } from '../../../../../../javax/swing/tree/MutableTreeNode.js';
+//not GWT import const MutableTreeNode
+
+import { GPoint } from '../../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { PointFactory } from '../../../../../../org/allbinary/graphics/PointFactory.js';
+//not GWT import const PointFactory
+
+import { BasicColorFactory } from '../../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { CanvasDom } from '../../../../../../org/allbinary/graphics/j2me/workarea/canvas/CanvasDom.js';
+//not GWT import const CanvasDom
+
+import { CanvasJPanel } from '../../../../../../org/allbinary/graphics/j2me/workarea/canvas/CanvasJPanel.js';
+//not GWT import const CanvasJPanel
+
+import { IntegerDimension } from '../../../../../../org/allbinary/graphics/j2me/workarea/canvas/IntegerDimension.js';
+//not GWT import const IntegerDimension
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { RectangleCollisionPointUtil } from '../../../../../../org/allbinary/math/RectangleCollisionPointUtil.js';
+//not GWT import const RectangleCollisionPointUtil
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { Node } from '../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GraphicItemInterface } from './GraphicItemInterface.js';
+//sameFolderImports - not GWT import - same folder const GraphicItemInterface
+import { Color } from './Color.js';
+//sameFolderImports - not GWT import - same folder const Color
+import { Points } from './Points.js';
+//sameFolderImports - not GWT import - same folder const Points
+import { LinesGraphicItem } from './LinesGraphicItem.js';
+//sameFolderImports - not GWT import - same folder const LinesGraphicItem
+import { Graphics } from './Graphics.js';
+//sameFolderImports - not GWT import - same folder const Graphics
+import { MouseEvent } from './MouseEvent.js';
+//sameFolderImports - not GWT import - same folder const MouseEvent
+import { MouseStrings } from './MouseStrings.js';
+//sameFolderImports - not GWT import - same folder const MouseStrings
+import { KeyEvent } from './KeyEvent.js';
+//sameFolderImports - not GWT import - same folder const KeyEvent
+
+export class SelectionTool
+            extends Object
+         implements GraphicItemInterface {
+        
+
+    private static readonly NAME: string = "Selection Tool";
+
+    public static getStaticName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SelectionTool.NAME;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly canvasJPanel: CanvasJPanel;
+
+    private active: boolean = true;
+
+public constructor (canvasJPanel: CanvasJPanel){
+
+            super();
+        this.canvasJPanel= canvasJPanel;
+    
+}
+
+
+    public setColor(color: Color){
+}
+
+
+    public getTreeNode(): MutableTreeNode{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public getPointsInterface(): Points{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public setPointsInterface(points: Points){
+}
+
+
+    public isValid(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+    public isActive(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.active;
+    
+}
+
+
+    public deactivate(){
+}
+
+
+    public activate(){
+}
+
+
+    public setFulcrumPoint(point: GPoint){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public translate(x: number, y: number){
+}
+
+
+    public setRotate(theta: number){
+}
+
+
+    public addRotate(theta: number){
+}
+
+
+    public setAngle(angle: number){
+}
+
+
+    public addAngle(angle: number){
+}
+
+
+    public getAngle(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 0;
+    
+}
+
+
+    private controlIdDown: boolean= false;
+
+    makeSelection(){
+
+    let xRect: number = this.getXRect()!;;
+    
+
+    let xRect2: number = Math.abs(this.endPoint!.getX() -this.startPoint!.getX()) +xRect;;
+    
+
+    let yRect: number = this.getYRect()!;;
+    
+
+    let yRect2: number = Math.abs(this.endPoint!.getY() -this.startPoint!.getY()) +yRect;;
+    
+
+    let hashMap: HashMap<any, any> = this.canvasJPanel!.getGraphicItemHashMap()!;;
+    
+
+    let graphicItemArray: any[] = hashMap!.keys().toArray()!;;
+    
+
+    let size: number = graphicItemArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let item: GraphicItemInterface = hashMap!.get(graphicItemArray[index]!) as GraphicItemInterface;;
+    
+
+                        if(item.getName() == LinesGraphicItem.getStaticName())
+                        
+                                    {
+                                    
+                        if(RectangleCollisionPointUtil.allPointsInsideCell(xRect, yRect, xRect2, yRect2, item.getPointsInterface()!.getPoints(), this.canvasJPanel!.getXPixelsPerWorkAreaPixel(), this.canvasJPanel!.getYPixelsPerWorkAreaPixel()))
+                        
+                                    {
+                                    item.setColor(Color.YELLOW);
+    
+item.activate();
+    
+
+                                    }
+                                
+                             else 
+                        if(!this.controlIdDown)
+                        
+                                    {
+                                    item.setColor(Color.WHITE);
+    
+item.deactivate();
+    
+
+                                    }
+                                
+
+                                    }
+                                
+}
+
+}
+
+
+    private readonly rectColor: Color = new Color(BasicColorFactory.getInstance()!.RED.intValue());
+
+    public getXRect(): number{
+
+    let xDiff: number = this.endPoint!.getX() -this.startPoint!.getX();;
+    
+
+    let xRect: number = this.startPoint!.getX()!;;
+    
+
+                        if(xDiff < 0)
+                        
+                                    {
+                                    xRect= this.endPoint!.getX();
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return xRect;
+    
+}
+
+
+    public getYRect(): number{
+
+    let yDiff: number = this.endPoint!.getY() -this.startPoint!.getY();;
+    
+
+    let yRect: number = this.startPoint!.getY()!;;
+    
+
+                        if(yDiff < 0)
+                        
+                                    {
+                                    yRect= this.endPoint!.getY();
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return yRect;
+    
+}
+
+
+    public paint(g: Graphics, canvasAngle: number, dimension: IntegerDimension, x: number, y: number){
+g.setColor(this.rectColor);
+    
+
+    let xRect: number = this.getXRect()!;;
+    
+
+    let width: number = Math.abs(this.endPoint!.getX() -this.startPoint!.getX())!;;
+    
+
+    let yRect: number = this.getYRect()!;;
+    
+
+    let height: number = Math.abs(this.endPoint!.getY() -this.startPoint!.getY())!;;
+    
+g.drawRect(xRect, yRect, width, height);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toDom(canvasDom: CanvasDom): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public removePoint(): GPoint{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public addPoint(point: GPoint){
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SelectionTool.NAME;
+    
+}
+
+
+    private startPoint: GPoint = PointFactory.getInstance()!.ZERO_ZERO;
+
+    private endPoint: GPoint = this.startPoint;
+
+    public mouseClicked(mouseEvent: java.awt.event.MouseEvent, xPixelsPerCell: number, yPixelsPerCell: number){
+}
+
+
+    public mouseMoved(mouseEvent: java.awt.event.MouseEvent, xPixelsPerCell: number, yPixelsPerCell: number){
+}
+
+
+    public mouseEntered(mouseEvent: java.awt.event.MouseEvent){
+}
+
+
+    public mouseExited(mouseEvent: java.awt.event.MouseEvent){
+}
+
+
+    public mousePressed(mouseEvent: java.awt.event.MouseEvent, xPixelsPerCell: number, yPixelsPerCell: number){
+this.logUtil!.putF(this.commonStrings!.START, this, MouseStrings.getInstance()!.MOUSE_PRESSED);
+    
+this.startPoint= PointFactory.getInstance()!.createXY(mouseEvent!.getX(), mouseEvent!.getY());
+    
+this.endPoint= this.startPoint;
+    
+}
+
+
+    public mouseReleased(mouseEvent: java.awt.event.MouseEvent, xPixelsPerCell: number, yPixelsPerCell: number){
+this.logUtil!.putF(this.commonStrings!.START, this, MouseStrings.getInstance()!.MOUSE_RELEASED);
+    
+this.endPoint= PointFactory.getInstance()!.createXY(mouseEvent!.getX(), mouseEvent!.getY());
+    
+this.active= false;
+    
+this.makeSelection();
+    
+}
+
+
+    public mouseDragged(mouseEvent: java.awt.event.MouseEvent, xPixelsPerCell: number, yPixelsPerCell: number){
+this.endPoint= PointFactory.getInstance()!.createXY(mouseEvent!.getX(), mouseEvent!.getY());
+    
+}
+
+
+    public keyPressed(keyEvent: java.awt.event.KeyEvent){
+
+                        if(keyEvent!.getKeyCode() == keyEvent!.VK_CONTROL)
+                        
+                                    {
+                                    this.controlIdDown= true;
+    
+
+                                    }
+                                
+}
+
+
+    public keyReleased(keyEvent: java.awt.event.KeyEvent){
+
+                        if(keyEvent!.getKeyCode() == keyEvent!.VK_CONTROL)
+                        
+                                    {
+                                    this.controlIdDown= false;
+    
+
+                                    }
+                                
+}
+
+
+    public keyTyped(keyEvent: java.awt.event.KeyEvent){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public duplicate(): GraphicItemInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+}
+

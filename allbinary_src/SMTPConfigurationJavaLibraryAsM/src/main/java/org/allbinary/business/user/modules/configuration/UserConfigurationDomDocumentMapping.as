@@ -1,0 +1,111 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { DomDocumentHelper } from '../../../../../../org/allbinary/data/tree/dom/document/DomDocumentHelper.js';
+//not GWT import const DomDocumentHelper
+
+import { XmlDocumentHelper } from '../../../../../../org/allbinary/data/tree/dom/document/XmlDocumentHelper.js';
+//not GWT import const XmlDocumentHelper
+
+import { DomDocumentMappingInterface } from '../../../../../../org/allbinary/data/tree/dom/document/mapping/DomDocumentMappingInterface.js';
+//not GWT import const DomDocumentMappingInterface
+
+import { Document } from '../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { UserConfigurationInterface } from './UserConfigurationInterface.js';
+//sameFolderImports - not GWT import - same folder const UserConfigurationInterface
+import { UserConfigurationView } from './UserConfigurationView.js';
+//sameFolderImports - not GWT import - same folder const UserConfigurationView
+
+export class UserConfigurationDomDocumentMapping
+            extends Object
+         implements DomDocumentMappingInterface {
+        
+
+    private userConfigurationInterface: UserConfigurationInterface;
+
+public constructor (userConfigurationInterface: UserConfigurationInterface){
+
+            super();
+        this.userConfigurationInterface= userConfigurationInterface;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlDoc(): Document{
+
+    let document: Document = DomDocumentHelper.create()!;;
+    
+
+    let node: Node = new UserConfigurationView(this.userConfigurationInterface).toXmlNode(document)!;;
+    
+document.appendChild(node);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return document;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toDomDocumentString(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return XmlDocumentHelper.toString(this.toXmlDoc());;
+    
+}
+
+
+}
+

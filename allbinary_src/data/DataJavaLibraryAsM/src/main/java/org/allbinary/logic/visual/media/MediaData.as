@@ -1,0 +1,199 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { MediaTypeData } from './MediaTypeData.js';
+//sameFolderImports - not GWT import - same folder const MediaTypeData
+import { MediaDataFactory } from './MediaDataFactory.js';
+//sameFolderImports - not GWT import - same folder const MediaDataFactory
+
+export class MediaData
+            extends Object
+         {
+        
+
+    private static hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;
+
+                //@Throws(Exception.constructor)
+            
+    public static get(a_Name: string): MediaData{
+
+    let mediaData: MediaData = MediaData.hashMap!.get(a_Name) as MediaData;;
+    
+
+                        if(mediaData != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return mediaData;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("No Such MediaData");
+                    
+
+                        }
+                            
+}
+
+
+    public static getDefault(): MediaData{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return MediaDataFactory.getInstance()!.JPG;
+    
+}
+
+
+    public static toHashMap(): HashMap<any, any>{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return MediaData.hashMap;
+    
+}
+
+
+    private name: string;
+
+    private type: string;
+
+    private extension: string;
+
+protected constructor (a_Name: string){
+
+            super();
+        this.name= a_Name;
+    
+this.extension= "." +this.name;
+    
+this.type= MediaTypeData.getInstance()!.NOT_RESIZABLE_MEDIA;
+    
+MediaData.hashMap!.put(a_Name, this);
+    
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.name;
+    
+}
+
+
+    public getType(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.type;
+    
+}
+
+
+    public getExtension(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.extension;
+    
+}
+
+
+    public isConvertableTo(mediaData: MediaData): boolean{
+
+                        if(this == MediaDataFactory.getInstance()!.GIF && mediaData == MediaDataFactory.getInstance()!.JPG)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public toString(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.getName();;
+    
+}
+
+
+}
+

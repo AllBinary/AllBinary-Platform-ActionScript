@@ -1,0 +1,151 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+//not plain js import { NullUtil } 
+const NullUtil = globalThis.org.allbinary.logic.NullUtil;
+type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { GeographicMapCellPosition } from '../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+import { SimpleGeographicMapCellPositionFactory } from '../../../../../../org/allbinary/media/graphics/geography/map/SimpleGeographicMapCellPositionFactory.js';
+//not GWT import const SimpleGeographicMapCellPositionFactory
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class PathFindingNode
+            extends Object
+         {
+        
+
+    public parent: any = NullUtil.getInstance()!.NULL_OBJECT;
+
+    public geographicMapCellPosition: GeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+
+public constructor (parent: any, geographicMapCellPosition: GeographicMapCellPosition){
+
+            super();
+        this.parent= parent;
+    
+this.setGeographicMapCellPositionP(geographicMapCellPosition);
+    
+
+                        if(this.geographicMapCellPosition == SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION)
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("No GeographicMapCellPosition");
+                    
+
+                                    }
+                                
+}
+
+
+    public getParentP(): PathFindingNode{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.parent as PathFindingNode;
+    
+}
+
+
+    public setGeographicMapCellPositionP(geographicMapCellPosition: GeographicMapCellPosition){
+this.geographicMapCellPosition= geographicMapCellPosition;
+    
+}
+
+
+    public toString(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.constructor.name.toString()!);
+    
+stringBuffer!.append(CommonLabels.getInstance()!.COLON_SEP);
+    
+stringBuffer!.append(" Path: ");
+    
+stringBuffer!.append(this.geographicMapCellPosition!.toString());
+    
+
+    let pathFindingNode: PathFindingNode = this.getParentP()!;;
+    
+
+        while(pathFindingNode != 
+                                    null
+                                )
+        {
+stringBuffer!.append(pathFindingNode!.geographicMapCellPosition!.toString());
+    
+stringBuffer!.append(CommonSeps.getInstance()!.SPACE);
+    
+pathFindingNode= pathFindingNode!.getParentP();
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+}
+

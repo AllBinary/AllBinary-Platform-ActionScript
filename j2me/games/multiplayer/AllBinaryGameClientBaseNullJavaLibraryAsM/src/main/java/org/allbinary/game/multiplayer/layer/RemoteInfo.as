@@ -1,0 +1,54 @@
+
+        /*
+                *  
+                *  To change this license header, choose License Headers in Project Properties. 
+                *  To change this template file, choose Tools | Templates  and open the template in the editor.  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class RemoteInfo
+            extends Object
+         {
+        
+
+    public static readonly NEW_PLAYER_ID: number = 0;
+
+    public static readonly REMOTE_INFO: RemoteInfo = new RemoteInfo(StringUtil.getInstance()!.EMPTY_STRING,  -1,  -1, RemoteInfo.NEW_PLAYER_ID);
+
+public constructor (username: string, actorSessionId: number, playerInputId: number, id: number){
+
+            super();
+        }
+
+
+}
+

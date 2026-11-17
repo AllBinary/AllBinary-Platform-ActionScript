@@ -1,0 +1,88 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { AllBinaryEventObject } from '../../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
+//not GWT import const AllBinaryEventObject
+
+import { EventListenerInterface } from '../../../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
+//not GWT import const EventListenerInterface
+
+import { BasicEventHandler } from '../../../../../../org/allbinary/logic/util/event/handler/BasicEventHandler.js';
+//not GWT import const BasicEventHandler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { InputMappingEventListenerInterface } from './InputMappingEventListenerInterface.js';
+//sameFolderImports - not GWT import - same folder const InputMappingEventListenerInterface
+import { InputMappingEvent } from './InputMappingEvent.js';
+//sameFolderImports - not GWT import - same folder const InputMappingEvent
+
+export class InputMappingEventHandler extends BasicEventHandler {
+        
+
+    private static readonly gameKeyEventHandler: InputMappingEventHandler = new InputMappingEventHandler();
+
+    public static getInstance(): InputMappingEventHandler{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return InputMappingEventHandler.gameKeyEventHandler;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            
+    process(eventObject: AllBinaryEventObject, eventListenerInterface: EventListenerInterface){
+
+    let inputMappingEventListenerInterface: InputMappingEventListenerInterface = eventListenerInterface as InputMappingEventListenerInterface;;
+    
+inputMappingEventListenerInterface!.onInputMappingEvent(eventObject as InputMappingEvent);
+    
+}
+
+
+}
+

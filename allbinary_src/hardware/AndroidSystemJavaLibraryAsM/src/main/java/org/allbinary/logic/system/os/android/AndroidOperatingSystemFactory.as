@@ -1,0 +1,173 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import hilog from '@ohos.hilog';
+        
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { TsUtil } from '../../../../../../org/allbinary/TsUtil.js';
+//not GWT import const TsUtil
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { GenericOperatingSystem } from '../../../../../../org/allbinary/logic/system/os/GenericOperatingSystem.js';
+//not GWT import const GenericOperatingSystem
+
+import { NoOperatingSystem } from '../../../../../../org/allbinary/logic/system/os/NoOperatingSystem.js';
+//not GWT import const NoOperatingSystem
+
+import { OperatingSystems } from '../../../../../../org/allbinary/logic/system/os/OperatingSystems.js';
+//not GWT import const OperatingSystems
+
+//not plain js import { SystemProperties } 
+const SystemProperties = globalThis.org.allbinary.logic.system.os.SystemProperties;
+type SystemProperties<T = any, U = any> = typeof SystemProperties extends abstract new (...args: any[]) => infer Instance ? Instance : typeof SystemProperties;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AndroidOS } from './AndroidOS.js';
+//sameFolderImports - not GWT import - same folder const AndroidOS
+
+export class AndroidOperatingSystemFactory
+            extends Object
+         {
+        
+
+    private static readonly instance: AndroidOperatingSystemFactory = new AndroidOperatingSystemFactory();
+
+    public static getInstance(): AndroidOperatingSystemFactory{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return AndroidOperatingSystemFactory.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly tsUtil: TsUtil = TsUtil.getInstance()!;
+
+private constructor (){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            
+    public getOperatingSystemInstance(): GenericOperatingSystem{
+
+ try { 
+    let GenericOperatingSystem: GenericOperatingSystem;;
+    
+
+    let systemProperties: SystemProperties = SystemProperties.getInstance()!;;
+    
+
+    let osName: string = systemProperties!.getName()!;;
+    
+
+                        if(this.tsUtil!.compareTo(osName, OperatingSystems.getInstance()!.ANDROID) == 0)
+                        
+                                    {
+                                    GenericOperatingSystem= new AndroidOS();
+    
+
+                                    }
+                                
+                        else {
+                            
+                        if(OperatingSystems.getInstance()!.isUnknownSpecificOSAllowed())
+                        
+                                    {
+                                    GenericOperatingSystem= new AndroidOS();
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("Specific Android OS Not Supported: " +osName);
+                    
+
+                        }
+                            
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return GenericOperatingSystem;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put("Failed to get OperatingSystem returning NoOperatingSystem", this, commonStrings!.GET_INSTANCE, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return NoOperatingSystem.NO_OPERATING_SYSTEM;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

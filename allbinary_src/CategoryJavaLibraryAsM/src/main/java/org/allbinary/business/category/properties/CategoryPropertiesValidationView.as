@@ -1,0 +1,156 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { ValidationInterface } from '../../../../../org/allbinary/logic/control/validate/ValidationInterface.js';
+//not GWT import const ValidationInterface
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { Document } from '../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { CategoryPropertiesView } from './CategoryPropertiesView.js';
+//sameFolderImports - not GWT import - same folder const CategoryPropertiesView
+import { CategoryPropertiesInterface } from './CategoryPropertiesInterface.js';
+//sameFolderImports - not GWT import - same folder const CategoryPropertiesInterface
+
+export class CategoryPropertiesValidationView extends CategoryPropertiesView implements ValidationInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+public constructor (categoryPropertiesInterface: CategoryPropertiesInterface){
+            super(categoryPropertiesInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public isValid(): Boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.categoryPropertiesInterface!.isValid();;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public validationInfo(): string{
+
+ try { 
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.categoryPropertiesInterface!.validationInfo());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEWERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Failed to generate validation info error", this, "validationInfo()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Error Validating Data";
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toValidationInfoDoc(): Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toValidationInfoNode(document: Document): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+}
+

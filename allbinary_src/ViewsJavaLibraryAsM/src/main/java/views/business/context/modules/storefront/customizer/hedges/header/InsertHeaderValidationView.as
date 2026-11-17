@@ -1,0 +1,261 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { StoreFrontFactory } from '../../../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontFactory.js';
+//not GWT import const StoreFrontFactory
+
+import { StoreFrontInterface } from '../../../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontInterface.js';
+//not GWT import const StoreFrontInterface
+
+import { DomNodeInterface } from '../../../../../../../../org/allbinary/data/tree/dom/DomNodeInterface.js';
+//not GWT import const DomNodeInterface
+
+import { URLGLOBALS } from '../../../../../../../../org/allbinary/globals/URLGLOBALS.js';
+//not GWT import const URLGLOBALS
+
+import { MultipartRequestParams } from '../../../../../../../../org/allbinary/logic/communication/http/request/MultipartRequestParams.js';
+//not GWT import const MultipartRequestParams
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { ValidationComponentInterface } from '../../../../../../../../org/allbinary/logic/control/validate/ValidationComponentInterface.js';
+//not GWT import const ValidationComponentInterface
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { TransformInfoInterface } from '../../../../../../../../org/allbinary/logic/visual/transform/info/TransformInfoInterface.js';
+//not GWT import const TransformInfoInterface
+
+import { HeadingValidation } from '../../../../../../../../org/allbinary/logic/visual/transform/template/customizer/hedges/heading/HeadingValidation.js';
+//not GWT import const HeadingValidation
+
+import { LogoData } from '../../../../../../../../org/allbinary/logic/visual/transform/template/customizer/widgets/logo/LogoData.js';
+//not GWT import const LogoData
+
+import { Document } from '../../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+import { CustomizerUtil } from '../../../../../../../../views/business/context/modules/storefront/customizer/CustomizerUtil.js';
+//not GWT import const CustomizerUtil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TopBarView } from './TopBarView.js';
+//sameFolderImports - not GWT import - same folder const TopBarView
+
+export class InsertHeaderValidationView extends TopBarView implements ValidationComponentInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly LOGOPATH: string = "logo/";
+
+public constructor (transformInfoInterface: TransformInfoInterface){
+            super(transformInfoInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+    let multipartRequestHashMap: HashMap<any, any> = new MultipartRequestParams(this.getPageContext()).toHashMap()!;;
+    
+
+    let storeFrontInterface: StoreFrontInterface = StoreFrontFactory.getInstance(this.getWeblisketSession()!.getStoreName())!;;
+    
+
+    let fullPath: string = URLGLOBALS.getWebappPath() +storeFrontInterface!.getCurrentHostNamePath() +this.LOGOPATH;;
+    
+multipartRequestHashMap!.put(LogoData.getInstance()!.IMAGEPATH, fullPath);
+    
+this.heading= new HeadingValidation(multipartRequestHashMap);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlDoc(): Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public isValid(): Boolean{
+
+ try { 
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("topbarValidation", this, this.commonStrings!.IS_VALID);
+    
+
+                                    }
+                                
+
+    let isValid: Boolean = this.heading.isValid()!;;
+    
+
+                        if(isValid == true)
+                        
+                                    {
+                                    CustomizerUtil.getInstance()!.insert(this.getTransformInfoInterface(), this as DomNodeInterface);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return isValid;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEWERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Failed to validate", this, this.commonStrings!.IS_VALID, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    public validationInfo(): string{
+
+ try { 
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.heading.validationInfo());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEWERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Failed to generate validation error info", this, "validationInfo()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Error Getting Validation Info";
+    
+
+ }
+   }
+ 
+}
+
+
+    public toValidationInfoDoc(): Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public toValidationInfoNode(document: Document): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getTransformInfoInterface(): TransformInfoInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getTransformInfoInterface();;
+    
+}
+
+
+}
+

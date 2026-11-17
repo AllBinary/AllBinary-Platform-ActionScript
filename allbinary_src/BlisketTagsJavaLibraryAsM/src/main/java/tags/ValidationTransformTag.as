@@ -1,0 +1,393 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            //import { Class } from '../java/lang/Class.js';
+            const Class = (globalThis.java?.lang?.Class ?? class {}) as typeof globalThis.java.lang.Class;
+            type Class<T = any, U = any> = typeof Class extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Class;
+        
+            import { Exception } from '../java/lang/Exception.js';
+        
+import { Method } from '../java/lang/reflect/Method.js';
+//not GWT import const Method
+
+import { HttpServletRequest } from '../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { JspTagException } from '../javax/servlet/jsp/JspTagException.js';
+//not GWT import const JspTagException
+
+import { AbResponseHandler } from '../org/allbinary/logic/communication/http/request/AbResponseHandler.js';
+//not GWT import const AbResponseHandler
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { LicensingException } from '../org/allbinary/logic/system/security/licensing/LicensingException.js';
+//not GWT import const LicensingException
+
+import { ValidatedViewHelperFactory } from '../taghelpers/ValidatedViewHelperFactory.js';
+//not GWT import const ValidatedViewHelperFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TransformTag } from './TransformTag.js';
+//sameFolderImports - not GWT import - same folder const TransformTag
+
+export class ValidationTransformTag extends TransformTag {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private xslFile: string;
+
+    private logic: boolean;
+
+public constructor (){
+            super(new ValidatedViewHelperFactory());
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.logic= true;
+    
+}
+
+
+    public setXsl(value: string){
+this.xslFile= value;
+    
+this.setTemplateFile(this.xslFile);
+    
+}
+
+
+    public setLogic(logic: boolean){
+this.logic= logic;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    isValid(): boolean{
+
+ try { 
+    let helperClass: Function = this.getHelper()!.constructor!;;
+    
+
+    let method: Method = helperClass!.getMethod(commonStrings!.IS_VALID, 
+                            null)!;;
+    
+
+    let result: Boolean = method.invoke(this.getHelper(), 
+                            null) as Boolean;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result.valueOf();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.IS_VALID, e);
+    
+
+                                    }
+                                
+
+
+
+                            throw e;
+                    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    validationInfo(): string{
+
+ try { 
+    let addressHelperClass: Function = this.getHelper()!.constructor!;;
+    
+
+    let method: Method = addressHelperClass!.getMethod("validationInfo", 
+                            null)!;;
+    
+
+    let result: string = method.invoke(this.getHelper(), 
+                            null) as string;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "validationInfo()", e);
+    
+
+                                    }
+                                
+
+
+
+                            throw e;
+                    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(JspTagException.constructor)
+            
+    public doStartTag(): number{
+
+ try { 
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.JSPTAG))
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+
+    let request: HttpServletRequest = this.pageContext!.getRequest() as HttpServletRequest;;
+    
+stringBuffer!.append("ValidationViewTag Start For: ");
+    
+stringBuffer!.append(this.getName());
+    
+stringBuffer!.append("\nView FIle: ");
+    
+stringBuffer!.append(this.getObjectFile());
+    
+stringBuffer!.append("\nRequest URI: ");
+    
+stringBuffer!.append(request.getRequestURI());
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, tagStrings!.DO_START_TAG);
+    
+
+                                    }
+                                
+this.setHelper();
+    
+
+                        if(this.isValid())
+                        
+                                    {
+                                    super.doStartTag();
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.JSPTAG))
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("View File: ");
+    
+stringBuffer!.append(this.getObjectFile());
+    
+stringBuffer!.append("\nLogic includes body if true=");
+    
+stringBuffer!.appendboolean(this.logic);
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, tagStrings!.DO_START_TAG);
+    
+
+                                    }
+                                
+
+                        if(this.logic)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return EVAL_BODY_INCLUDE;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+                        }
+                            
+
+                                    }
+                                
+                        else {
+                            pageContext!.getOut()!.print(this.validationInfo());
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.JSPTAG))
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("View File: ");
+    
+stringBuffer!.append(this.getObjectFile());
+    
+stringBuffer!.append("\nisValid()=false");
+    
+stringBuffer!.append("\nLogic skips body if true=");
+    
+stringBuffer!.appendboolean(this.logic);
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, tagStrings!.DO_START_TAG);
+    
+
+                                    }
+                                
+
+                        if(this.logic)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return EVAL_BODY_INCLUDE;
+    
+
+                        }
+                            
+
+                        }
+                            
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagLicensingRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+  else {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+   }
+ 
+}
+
+
+    public doEndTag(): number{
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.JSPTAG))
+                        
+                                    {
+                                    this.logUtil!.putF("Tag Ended", this, "doEndTag");
+    
+
+                                    }
+                                
+this.logic= true;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.doEndTag();;
+    
+}
+
+
+}
+

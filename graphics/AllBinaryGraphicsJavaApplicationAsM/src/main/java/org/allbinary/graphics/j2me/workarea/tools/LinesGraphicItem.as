@@ -1,0 +1,872 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            import { Math } from '../../../../../../java/lang/Math.js';
+        
+            import { Integer } from '../../../../../../java/lang/Integer.js';
+        
+            //import { Double } from '../../../../../../java/lang/Double.js';
+            const Double = (globalThis.java?.lang?.Double ?? class {}) as typeof globalThis.java.lang.Double;
+        
+import { awt } from '../../../../../../java/awt.js';
+//not GWT import const awt
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { DefaultMutableTreeNode } from '../../../../../../javax/swing/tree/DefaultMutableTreeNode.js';
+//not GWT import const DefaultMutableTreeNode
+
+import { MutableTreeNode } from '../../../../../../javax/swing/tree/MutableTreeNode.js';
+//not GWT import const MutableTreeNode
+
+import { DomHelper } from '../../../../../../org/allbinary/dom/DomHelper.js';
+//not GWT import const DomHelper
+
+import { GameInputStrings } from '../../../../../../org/allbinary/game/input/GameInputStrings.js';
+//not GWT import const GameInputStrings
+
+import { GPoint } from '../../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { PointFactory } from '../../../../../../org/allbinary/graphics/PointFactory.js';
+//not GWT import const PointFactory
+
+import { BasicColorFactory } from '../../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { StatusFactory } from '../../../../../../org/allbinary/graphics/j2me/StatusFactory.js';
+//not GWT import const StatusFactory
+
+import { CanvasDom } from '../../../../../../org/allbinary/graphics/j2me/workarea/canvas/CanvasDom.js';
+//not GWT import const CanvasDom
+
+import { IntegerDimension } from '../../../../../../org/allbinary/graphics/j2me/workarea/canvas/IntegerDimension.js';
+//not GWT import const IntegerDimension
+
+import { BasicGraphicsPipeline } from '../../../../../../org/allbinary/graphics/pipeline/BasicGraphicsPipeline.js';
+//not GWT import const BasicGraphicsPipeline
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { PositionStrings } 
+const PositionStrings = globalThis.org.allbinary.math.PositionStrings;
+type PositionStrings<T = any, U = any> = typeof PositionStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PositionStrings;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+import { Node } from '../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+import { NodeList } from '../../../../../../org/w3c/dom/NodeList.js';
+//not GWT import const NodeList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GraphicItemInterface } from './GraphicItemInterface.js';
+//sameFolderImports - not GWT import - same folder const GraphicItemInterface
+import { Color } from './Color.js';
+//sameFolderImports - not GWT import - same folder const Color
+import { Points } from './Points.js';
+//sameFolderImports - not GWT import - same folder const Points
+import { PointsDomUtil } from './PointsDomUtil.js';
+//sameFolderImports - not GWT import - same folder const PointsDomUtil
+import { Graphics2D } from './Graphics2D.js';
+//sameFolderImports - not GWT import - same folder const Graphics2D
+import { BasicStroke } from './BasicStroke.js';
+//sameFolderImports - not GWT import - same folder const BasicStroke
+import { PointsUtil } from './PointsUtil.js';
+//sameFolderImports - not GWT import - same folder const PointsUtil
+import { Graphics } from './Graphics.js';
+//sameFolderImports - not GWT import - same folder const Graphics
+import { MouseEvent } from './MouseEvent.js';
+//sameFolderImports - not GWT import - same folder const MouseEvent
+import { KeyEvent } from './KeyEvent.js';
+//sameFolderImports - not GWT import - same folder const KeyEvent
+
+export class LinesGraphicItem
+            extends Object
+         implements GraphicItemInterface {
+        
+
+    private static readonly RECT: string = "rect";
+
+    private static readonly ARC: string = "arc";
+
+    private static readonly STRING: string = "string";
+
+    private static readonly CHAR: string = "char";
+
+    private static readonly IMAGE: string = "image";
+
+    private static item: number = 0;
+
+    private static readonly NAME: string = "Line Tool";
+
+    public static getStaticName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return LinesGraphicItem.NAME;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly gameInputStrings: GameInputStrings = GameInputStrings.getInstance()!;
+
+    private treeNode: DefaultMutableTreeNode;
+
+    private pointTreeNodeVector: BasicArrayList;
+
+    private currentMousePoint: GPoint;
+
+    private fulcrumPoint: GPoint;
+
+    private active: boolean = false;
+
+    private theta: number = 0;
+
+    private color: Color = new Color(BasicColorFactory.getInstance()!.WHITE.intValue());
+
+    private points: Points;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 0) {
+            
+            this.constructor$0();
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        
+    }
+    
+    private constructor$0(): void {
+        this.points= new Points();
+    
+
+ try { this.init();
+    
+this.active= true;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.CONSTRUCTOR, e);
+    
+
+ }
+   }
+ 
+
+    }
+    
+    private constructor$1(linesNode: Node): void {
+        this.points= new Points();
+    
+this.init();
+    
+this.active= false;
+    
+
+    let lineNodes: BasicArrayList = DomHelper.getInstance()!.getWithoutTextNodes(linesNode!.getChildNodes())!;;
+    
+
+    let numberOfLines: number = lineNodes!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < numberOfLines; index++)
+        {
+
+    let lineNode: Node = lineNodes!.get(index) as Node;;
+    
+
+    let pointNodes: BasicArrayList = DomHelper.getInstance()!.getWithoutTextNodes(lineNode!.getChildNodes())!;;
+    
+
+    let pointOneNode: Node = DomHelper.getInstance()!.searchNodeList(PointsDomUtil.getInstance()!.POINTONE, pointNodes)!;;
+    
+this.addPoint(pointOneNode!.getChildNodes());
+    
+
+                        if(index == numberOfLines -1)
+                        
+                                    {
+                                    
+    let pointTwoNode: Node = DomHelper.getInstance()!.searchNodeList(PointsDomUtil.getInstance()!.POINTTWO, pointNodes)!;;
+    
+this.addPoint(pointTwoNode!.getChildNodes());
+    
+
+                                    }
+                                
+}
+
+
+                        if(numberOfLines == 0)
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("Lines node does not contain a line");
+                    
+
+                                    }
+                                
+
+    }
+    
+                //@Throws(Exception.constructor)
+            
+    public init(){
+this.treeNode= new DefaultMutableTreeNode(PointsDomUtil.getInstance()!.LINES +LinesGraphicItem.item);
+    
+LinesGraphicItem.item++;
+    
+this.points.init();
+    
+this.pointTreeNodeVector= new BasicArrayListD();
+    
+this.fulcrumPoint= PointFactory.getInstance()!.createXY(0, 0);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public translate(x: number, y: number){
+StatusFactory.getInstance()!.setStatus("Translating: " +this.points.getPoints());
+    
+
+    let basicGraphicsPipeline: BasicGraphicsPipeline = new BasicGraphicsPipeline(this.points.getPoints());;
+    
+basicGraphicsPipeline!.translate(x, y);
+    
+this.points= new Points();
+    
+this.points.addPoints(basicGraphicsPipeline!.getMatrix());
+    
+}
+
+
+    public setRotate(theta: number){
+
+        while(theta > 2 *Math.PI)
+        {
+theta -= 2 *Math.PI;
+    
+}
+
+
+        while(theta < 0)
+        {
+theta += 2 *Math.PI;
+    
+}
+
+this.theta= theta;
+    
+}
+
+
+    public addRotate(theta: number){
+this.setRotate(this.theta +theta);
+    
+}
+
+
+    public setAngle(angle: number){
+this.setRotate(Math.toRadians(angle));
+    
+}
+
+
+    public addAngle(angle: number){
+this.setRotate(this.theta +Math.toRadians(angle));
+    
+}
+
+
+    public getTreeNode(): MutableTreeNode{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.treeNode as MutableTreeNode;
+    
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return LinesGraphicItem.NAME;
+    
+}
+
+addPoint(...args: any[]): any {
+   
+   
+    if (args.length === 1 && args[0] instanceof GPoint) return this.addPoint$overload2(args[0]);
+    
+    if (args.length === 1) return this.addPoint$overload1(args[0]);
+   
+    if (args.length === 1 && args[0] == null) return this.addPoint$overload2(args[0]);
+   
+    if (args.length === 1) return this.addPoint$overload2(args[0]);
+    
+   throw new TypeError('No matching overload: addPoint'); }
+  
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    addPoint$overload1(pointNodes: NodeList){
+
+    let list: BasicArrayList = DomHelper.getInstance()!.getWithoutTextNodes(pointNodes)!;;
+    
+
+    let xNode: Node = DomHelper.getInstance()!.searchNodeList(PositionStrings.getInstance()!.X, list)!;;
+    
+
+    let xTextNode: Node = xNode!.getFirstChild()!;;
+    
+
+    let xInteger: Integer = new Integer(xTextNode!.getNodeValue());;
+    
+
+    let yNode: Node = DomHelper.getInstance()!.searchNodeList(PositionStrings.getInstance()!.Y, list)!;;
+    
+
+    let yTextNode: Node = yNode!.getFirstChild()!;;
+    
+
+    let yInteger: Integer = new Integer(yTextNode!.getNodeValue());;
+    
+
+    let point: GPoint = PointFactory.getInstance()!.createXY(xInteger!.intValue(), yInteger!.intValue())!;;
+    
+this.addPoint(point);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public addPoint$overload2(point: GPoint){
+this.points.getPoints()!.add(point);
+    
+this.logUtil!.putF(point.toString(), this, "addPoint");
+    
+this.pointTreeNodeVector!.add(new DefaultMutableTreeNode(point.toString()));
+    
+this.treeNode!.add(this.pointTreeNodeVector!.get(this.pointTreeNodeVector!.size() -1) as DefaultMutableTreeNode);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public removePoint(): GPoint{
+
+    let point: GPoint = 
+                null
+            ;;
+    
+
+                        if(this.points.getSize() > 0)
+                        
+                                    {
+                                    
+    let lastPoint: number = this.points.getSize() -1;;
+    
+point= this.points.getPoints()!.removeAt(lastPoint) as GPoint;
+    
+
+    let index: number = this.pointTreeNodeVector!.size() -1;;
+    
+
+                        if(index > 0)
+                        
+                                    {
+                                    this.treeNode!.remove(this.pointTreeNodeVector!.get(index) as DefaultMutableTreeNode);
+    
+this.pointTreeNodeVector!.remove(index);
+    
+
+                                    }
+                                
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return point;
+    
+}
+
+
+    public isActive(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.active;
+    
+}
+
+
+    public deactivate(){
+this.active= false;
+    
+}
+
+
+    public activate(){
+this.active= true;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public duplicatePoints(list: BasicArrayList){
+
+    let size: number = list.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let point: GPoint = list.get(index) as GPoint;;
+    
+
+                        if(point != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.points.getPoints()!.add(PointFactory.getInstance()!.createXY(point.getX(), point.getY()));
+    
+this.pointTreeNodeVector!.add(new DefaultMutableTreeNode(point.toString()));
+    
+this.treeNode!.add(this.pointTreeNodeVector!.get(this.pointTreeNodeVector!.size() -1) as DefaultMutableTreeNode);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public duplicate(): GraphicItemInterface{
+
+    let linesGraphicItem: LinesGraphicItem = new LinesGraphicItem();;
+    
+linesGraphicItem!.duplicatePoints(this.points.getPoints());
+    
+linesGraphicItem!.deactivate();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return linesGraphicItem;
+    
+}
+
+
+    public getAngle(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return Math.toDegrees(this.theta);;
+    
+}
+
+
+    public setFulcrumPoint(point: GPoint){
+this.fulcrumPoint= point;
+    
+}
+
+
+    public paint(g: Graphics, canvasAngle: number, dimension: IntegerDimension, x: number, y: number){
+
+ try { 
+    let graphics: Graphics2D = g as Graphics2D;;
+    
+graphics.setColor(getColor());
+    
+graphics.setStroke(new BasicStroke(x));
+    
+
+                        if(this.isActive() && this.currentMousePoint != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.points.getPoints()!.add(this.currentMousePoint);
+    
+
+                                    }
+                                
+
+    let tempPointVector: BasicArrayList = PointsUtil.getInstance()!.doTransforms(this.points.getPoints(), canvasAngle, PointFactory.getInstance()!.createXY(dimension.getWidth(), dimension.getHeight()))!;;
+    
+
+                        if(this.isActive() && this.currentMousePoint != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.currentMousePoint= this.points.getPoints()!.removeAt(this.points.getSize() -1) as GPoint;
+    
+
+                                    }
+                                
+
+    let size: number = tempPointVector!.size()!;;
+    
+
+    let firstPoint: GPoint = 
+                null
+            ;;
+    
+
+                        if(size > 0)
+                        
+                                    {
+                                    firstPoint= tempPointVector!.get(0) as GPoint;
+    
+
+                                    }
+                                
+
+
+
+
+                        for (
+    let index: number = 1;index < size; index++)
+        {
+
+    let secondPoint: GPoint = tempPointVector!.get(index) as GPoint;;
+    
+graphics.drawLine((firstPoint!.getX() *x) -(globalThis.Math.trunc(x /4)), (firstPoint!.getY() *y) -(globalThis.Math.trunc(y /4)), (secondPoint!.getX() *x) -(globalThis.Math.trunc(x /4)), (secondPoint!.getY() *y) -(globalThis.Math.trunc(y /4)));
+    
+firstPoint= secondPoint;
+    
+}
+
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "mouseMoved", e);
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toDom(canvasDom: CanvasDom): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return PointsDomUtil.getInstance()!.toDom(canvasDom, this.points.getPoints());;
+    
+}
+
+
+    public isValid(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.points.isValid();;
+    
+}
+
+
+    public getPointsInterface(): Points{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.points;
+    
+}
+
+
+    public setPointsInterface(points: Points){
+this.points= points;
+    
+}
+
+
+    public getColor(): Color{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.color;
+    
+}
+
+
+    public setColor(color: Color){
+this.color= color;
+    
+}
+
+
+    public mouseClicked(mouseEvent: java.awt.event.MouseEvent, x: number, y: number){
+
+ try { 
+    let mousePoint: GPoint = PointFactory.getInstance()!.createXY(mouseEvent!.getPoint()!.x, mouseEvent!.getPoint()!.y)!;;
+    
+
+                        if((mouseEvent!.getModifiers()&mouseEvent!.BUTTON1_MASK) == mouseEvent!.BUTTON1_MASK)
+                        
+                                    {
+                                    
+    let point: GPoint = PointFactory.getInstance()!.createXY(mousePoint!.getX() /x, mousePoint!.getY() /y)!;;
+    
+StatusFactory.getInstance()!.setStatus("Line Point Added: " +point.toString());
+    
+this.addPoint(point);
+    
+
+                                    }
+                                
+                             else 
+                        if((mouseEvent!.getModifiers()&mouseEvent!.BUTTON3_MASK) == mouseEvent!.BUTTON3_MASK)
+                        
+                                    {
+                                    StatusFactory.getInstance()!.setStatus("Line Point Removed");
+    
+this.removePoint();
+    
+
+                                    }
+                                
+this.currentMousePoint= mousePoint;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "mouseMoved", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public mouseEntered(mouseEvent: java.awt.event.MouseEvent){
+}
+
+
+    public mouseExited(mouseEvent: java.awt.event.MouseEvent){
+}
+
+
+    public mousePressed(mouseEvent: java.awt.event.MouseEvent, xPixelsPerCell: number, yPixelsPerCell: number){
+}
+
+
+    public mouseReleased(mouseEvent: java.awt.event.MouseEvent, xPixelsPerCell: number, yPixelsPerCell: number){
+}
+
+
+    public mouseDragged(mouseEvent: java.awt.event.MouseEvent, xPixelsPerCell: number, yPixelsPerCell: number){
+}
+
+
+    public mouseMoved(mouseEvent: java.awt.event.MouseEvent, x: number, y: number){
+
+ try { 
+    let mousePoint: GPoint = PointFactory.getInstance()!.createXY(mouseEvent!.getPoint()!.x, mouseEvent!.getPoint()!.y)!;;
+    
+
+    let point: GPoint = PointFactory.getInstance()!.createXY(mousePoint!.getX() /x, mousePoint!.getY() /y)!;;
+    
+this.currentMousePoint= point;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "mouseMoved", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public keyPressed(keyEvent: java.awt.event.KeyEvent){
+
+ try { 
+    let keyCode: number = keyEvent!.getKeyCode()!;;
+    
+
+                        if(keyCode == keyEvent!.VK_ESCAPE)
+                        
+                                    {
+                                    StatusFactory.getInstance()!.setStatus("Deactivated");
+    
+this.deactivate();
+    
+
+                                    }
+                                
+                             else 
+                        if(keyCode == keyEvent!.VK_UP)
+                        
+                                    {
+                                    this.translate(0,  -1);
+    
+
+                                    }
+                                
+                             else 
+                        if(keyCode == keyEvent!.VK_DOWN)
+                        
+                                    {
+                                    this.translate(0, 1);
+    
+
+                                    }
+                                
+                             else 
+                        if(keyCode == keyEvent!.VK_LEFT)
+                        
+                                    {
+                                    this.translate( -1, 0);
+    
+
+                                    }
+                                
+                             else 
+                        if(keyCode == keyEvent!.VK_RIGHT)
+                        
+                                    {
+                                    this.translate(1, 0);
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.gameInputStrings!.KEY_PRESSED, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public keyReleased(keyEvent: java.awt.event.KeyEvent){
+}
+
+
+    public keyTyped(keyEvent: java.awt.event.KeyEvent){
+}
+
+
+}
+

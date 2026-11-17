@@ -1,0 +1,74 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { BaseCircularPool } from '../../../org/allbinary/logic/util/cache/BaseCircularPool.js';
+//not GWT import const BaseCircularPool
+
+//not plain js import { CircularIndexUtil } 
+const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
+type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { CustomGPoint } from './CustomGPoint.js';
+//sameFolderImports - not GWT import - same folder const CustomGPoint
+
+export class GPointCircularPool extends BaseCircularPool {
+        
+
+public constructor (size: number){
+
+            super();
+        this.circularIndexUtil= CircularIndexUtil.createInstance(size);
+    
+this.OBJECT_ARRAY= new Array(size);
+    
+
+
+
+
+                        for (
+    let index: number = size -1;index >= 0; index--)
+        {
+this.OBJECT_ARRAY[index]= CustomGPoint.getInstance3(0, 0);
+    
+}
+
+}
+
+
+}
+

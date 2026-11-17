@@ -1,0 +1,96 @@
+
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+import { GameState } from '../../../../org/allbinary/game/state/GameState.js';
+//not GWT import const GameState
+
+import { GameStateFactory } from '../../../../org/allbinary/game/state/GameStateFactory.js';
+//not GWT import const GameStateFactory
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class GameMidletStateFactory
+            extends Object
+         {
+        
+
+    private static readonly INSTANCE: GameMidletStateFactory = new GameMidletStateFactory();
+
+    public static getInstance(): GameMidletStateFactory{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return GameMidletStateFactory.INSTANCE;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private currentGameState: GameState = GameStateFactory.getInstance()!.NO_GAME_STATE;
+
+private constructor (){
+
+            super();
+        }
+
+
+    public getCurrentGameState(): GameState{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.currentGameState;
+    
+}
+
+
+    public setCurrentGameState(currentGameState: GameState){
+this.logUtil!.putF(new StringMaker().append(CommonLabels.getInstance()!.CURRENT)!.append(" GameState: ")!.append(StringUtil.getInstance()!.toString(currentGameState))!.toString(), this, "setCurrentGameState");
+    
+this.currentGameState= currentGameState;
+    
+}
+
+
+}
+

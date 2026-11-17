@@ -1,0 +1,106 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { System } from '../../../../../java/lang/System.js';
+        
+//not plain js import { NullUtil } 
+const NullUtil = globalThis.org.allbinary.logic.NullUtil;
+type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //not plain js - same folder import { LogFormatUtil } 
+const LogFormatUtil = globalThis.org.allbinary.logic.communication.log.LogFormatUtil;
+//ActualPlatform
+/*actual*/ export class PreLogUtil
+            extends Object
+         {
+        
+
+    /*actual*/ public static put(specialMessage: string, anyType: any, functionName: string){
+PreLogUtil.putOE(specialMessage, anyType, functionName, NullUtil.getInstance()!.NULL_OBJECT);
+    
+}
+
+
+    private static readonly LOG_SUCCESS: string = "org.allbinary: ";
+
+    /*actual*/ public static putOE(specialMessage: string, anyType: any, functionName: string, exception: any){
+
+    let className: string = CommonStrings.getInstance()!.EMPTY;;
+    
+
+                        if(anyType!.constructor.name.toString()! != 
+                                    null
+                                )
+                        
+                                    {
+                                    className= anyType!.constructor.name.toString()!;
+    
+
+                                    }
+                                
+
+    let message: string = LogFormatUtil.getInstance()!.get(className, functionName, specialMessage, exception)!;;
+    
+console.log(LOG_SUCCESS + message);
+    
+}
+
+
+    /*actual*/ public static putSE(specialMessage: string, className: string, functionName: string, exception: any){
+
+    let message: string = LogFormatUtil.getInstance()!.get(className, functionName, specialMessage, exception)!;;
+    
+console.log(LOG_SUCCESS + message);
+    
+}
+
+
+public constructor (){
+
+            super();
+        }
+
+
+}
+

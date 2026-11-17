@@ -1,0 +1,178 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../java/lang/Object.js';
+        
+            import { Exception } from '../../java/lang/Exception.js';
+        
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { BasicUserRole } from '../../org/allbinary/business/user/role/BasicUserRole.js';
+//not GWT import const BasicUserRole
+
+import { UserRole } from '../../org/allbinary/business/user/role/UserRole.js';
+//not GWT import const UserRole
+
+import { URLGLOBALS } from '../../org/allbinary/globals/URLGLOBALS.js';
+//not GWT import const URLGLOBALS
+
+import { HttpFilePermissions } from '../../org/allbinary/logic/communication/http/file/upload/HttpFilePermissions.js';
+//not GWT import const HttpFilePermissions
+
+import { HttpRequestUtil } from '../../org/allbinary/logic/communication/http/request/HttpRequestUtil.js';
+//not GWT import const HttpRequestUtil
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AbPath } from '../../org/allbinary/logic/io/path/AbPath.js';
+//not GWT import const AbPath
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AuthenticationHelper } from './AuthenticationHelper.js';
+//sameFolderImports - not GWT import - same folder const AuthenticationHelper
+
+export class AuthenticationHelperUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: AuthenticationHelperUtil = new AuthenticationHelperUtil();
+
+    public static getInstance(): AuthenticationHelperUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return AuthenticationHelperUtil.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+                //@Throws(Exception.constructor)
+            
+    public isAuthorized(authenticationHelper: AuthenticationHelper, filePath: string): boolean{
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEWERROR))
+                        
+                                    {
+                                    this.logUtil!.putF(CommonLabels.getInstance()!.START +filePath, this, "isAuthorized()");
+    
+
+                                    }
+                                
+
+    let endIndex: number = HttpRequestUtil.getInstance()!.getLastSeparatorIndex(filePath)!;;
+    
+
+    let fullPath: AbPath = new AbPath(URLGLOBALS.getWebappPath() +filePath!.substring(0, endIndex), StringUtil.getInstance()!.EMPTY_STRING);;
+    
+
+    let downloadFilePermissions: HttpFilePermissions = new HttpFilePermissions(fullPath);;
+    
+
+    let userRoles: BasicArrayList = downloadFilePermissions!.getUserRoles()!;;
+    
+
+    let userRole: UserRole = authenticationHelper!.getRole()!;;
+    
+
+    let basicUserRole: BasicUserRole = userRole!.getBasicUserRole()!;;
+    
+
+                        if(userRoles!.contains(basicUserRole))
+                        
+                                    {
+                                    
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("Authorized", this, "isAuthorized()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("Not Authorized: " +basicUserRole!.toString(), this, "isAuthorized()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+}
+

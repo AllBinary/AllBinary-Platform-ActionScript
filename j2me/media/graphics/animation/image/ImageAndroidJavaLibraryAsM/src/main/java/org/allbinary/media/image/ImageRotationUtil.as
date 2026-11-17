@@ -1,0 +1,141 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Image } from '../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
+//not GWT import const Anchor
+
+import { Bitmap } from '../../../../android/graphics/Bitmap.js';
+//not GWT import const Bitmap
+
+import { Canvas } from '../../../../android/graphics/Canvas.js';
+//not GWT import const Canvas
+
+import { Matrix } from '../../../../android/graphics/Matrix.js';
+//not GWT import const Matrix
+
+import { AndroidImageInterface } from '../../../../org/microemu/android/device/AndroidImageInterface.js';
+//not GWT import const AndroidImageInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ImageCreationUtil } from './ImageCreationUtil.js';
+//sameFolderImports - not GWT import - same folder const ImageCreationUtil
+
+export class ImageRotationUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: ImageRotationUtil = new ImageRotationUtil();
+
+    public static getInstance(): ImageRotationUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ImageRotationUtil.instance;
+    
+}
+
+
+    private readonly matrix: Matrix = new Matrix();
+
+private constructor (){
+
+            super();
+        }
+
+
+    private anchor: number = Anchor.TOP_LEFT;
+
+                //@Throws(Exception.constructor)
+            
+    public createRotatedImage(originalImage: Image, rotationInDegrees: number): Image{
+
+    let image: Image = ImageCreationUtil.getInstance()!.createImageWH(originalImage!.getWidth(), originalImage!.getHeight())!;;
+    
+
+                        if(image.isMutable())
+                        
+                                    {
+                                    
+    let bitmap: Bitmap = (image as AndroidImageInterface).getBitmap()!;;
+    
+
+    let width: number = bitmap.getWidth()!;;
+    
+
+    let height: number = bitmap.getHeight()!;;
+    
+this.matrix.setRotate(rotationInDegrees, (width>>1), (height>>1));
+    
+
+    let canvas: Canvas = (image as AndroidImageInterface).getCanvas()!;;
+    
+canvas.concat(this.matrix);
+    
+image.getGraphics()!.drawImage(originalImage, 0, 0, this.anchor);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return image;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("Not Mutable");
+                    
+
+                        }
+                            
+}
+
+
+}
+

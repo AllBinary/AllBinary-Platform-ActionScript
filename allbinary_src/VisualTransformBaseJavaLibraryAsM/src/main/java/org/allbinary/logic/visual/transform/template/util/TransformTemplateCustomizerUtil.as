@@ -1,0 +1,220 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { GLOBALS2 } from '../../../../../../../org/allbinary/globals/GLOBALS2.js';
+//not GWT import const GLOBALS2
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { Replace } from '../../../../../../../org/allbinary/logic/string/regex/replace/Replace.js';
+//not GWT import const Replace
+
+import { CustomizerTransformInfoData } from '../../../../../../../org/allbinary/logic/visual/transform/info/CustomizerTransformInfoData.js';
+//not GWT import const CustomizerTransformInfoData
+
+import { BodyData } from '../../../../../../../org/allbinary/logic/visual/transform/template/customizer/bodies/BodyData.js';
+//not GWT import const BodyData
+
+import { TitleData } from '../../../../../../../org/allbinary/logic/visual/transform/template/customizer/widgets/title/TitleData.js';
+//not GWT import const TitleData
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class TransformTemplateCustomizerUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: TransformTemplateCustomizerUtil = new TransformTemplateCustomizerUtil();
+
+    public static getInstance(): TransformTemplateCustomizerUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return TransformTemplateCustomizerUtil.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly CUSTOMIZER_NAME: string;
+
+    private readonly BODY_VIEWNAMEKEY: string;
+
+    private readonly TITLE_VIEWNAMEKEY: string;
+
+    private readonly GLOBALS_NEW: string;
+
+    private readonly GLOBALS_INSERT: string;
+
+    private readonly GLOBALS_DELETE: string;
+
+    private readonly GLOBALS_EDIT: string;
+
+    private readonly GLOBALS_UPDATE: string;
+
+private constructor (){
+
+            super();
+        
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+
+    let SPACE: string = CommonSeps.getInstance()!.SPACE;;
+    
+this.CUSTOMIZER_NAME= SPACE +CustomizerTransformInfoData.NAME;
+    
+this.BODY_VIEWNAMEKEY= SPACE +BodyData.getInstance()!.VIEWNAMEKEY;
+    
+this.TITLE_VIEWNAMEKEY= SPACE +TitleData.getInstance()!.VIEWNAMEKEY;
+    
+this.GLOBALS_NEW= GLOBALS2.NEW +SPACE;
+    
+this.GLOBALS_INSERT= commonStrings!.INSERT +SPACE;
+    
+this.GLOBALS_DELETE= commonStrings!.DELETE +SPACE;
+    
+this.GLOBALS_EDIT= GLOBALS2.EDIT +SPACE;
+    
+this.GLOBALS_UPDATE= commonStrings!.UPDATE +SPACE;
+    
+}
+
+
+    public getPageNameHack(viewName: string, storeName: string): string{
+
+    let SPACE: string = CommonSeps.getInstance()!.SPACE;;
+    
+
+    let ONE_EMPTY_STRING_ARRAY: string[] = StringUtil.getInstance()!.ONE_EMPTY_STRING_ARRAY;;
+    
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put([
+viewName +SPACE
+                                                ], ONE_EMPTY_STRING_ARRAY);
+    
+hashMap!.put([
+storeName +SPACE
+                                                ], ONE_EMPTY_STRING_ARRAY);
+    
+hashMap!.put([
+this.CUSTOMIZER_NAME
+                                                ], ONE_EMPTY_STRING_ARRAY);
+    
+hashMap!.put([
+this.BODY_VIEWNAMEKEY
+                                                ], ONE_EMPTY_STRING_ARRAY);
+    
+hashMap!.put([
+this.TITLE_VIEWNAMEKEY
+                                                ], ONE_EMPTY_STRING_ARRAY);
+    
+hashMap!.put([
+this.GLOBALS_NEW
+                                                ], ONE_EMPTY_STRING_ARRAY);
+    
+hashMap!.put([
+this.GLOBALS_INSERT
+                                                ], ONE_EMPTY_STRING_ARRAY);
+    
+hashMap!.put([
+this.GLOBALS_DELETE
+                                                ], ONE_EMPTY_STRING_ARRAY);
+    
+hashMap!.put([
+this.GLOBALS_EDIT
+                                                ], ONE_EMPTY_STRING_ARRAY);
+    
+hashMap!.put([
+this.GLOBALS_UPDATE
+                                                ], ONE_EMPTY_STRING_ARRAY);
+    
+
+    let replace: Replace = 
+                null
+            ;;
+    
+
+    let rootViewName: string = replace.all(viewName)!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("RootViewName for ObjectConfig: " +rootViewName, this, "getPageNameHack");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return rootViewName;
+    
+}
+
+
+}
+

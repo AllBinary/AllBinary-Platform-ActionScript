@@ -1,0 +1,156 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AbeLicenseInterface } from './AbeLicenseInterface.js';
+//sameFolderImports - not GWT import - same folder const AbeLicenseInterface
+import { LicenseTypeFactory } from './LicenseTypeFactory.js';
+//sameFolderImports - not GWT import - same folder const LicenseTypeFactory
+import { LicenseType } from './LicenseType.js';
+//sameFolderImports - not GWT import - same folder const LicenseType
+
+export class AbeNoLicense
+            extends Object
+         implements AbeLicenseInterface {
+        
+
+    private static abeNoLicense: AbeNoLicense = new AbeNoLicense();
+
+    public static getInstance(): AbeNoLicense{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return AbeNoLicense.abeNoLicense;
+    
+}
+
+
+    public serverVector: BasicArrayList = new BasicArrayListD();
+
+private constructor (){
+
+            super();
+        }
+
+
+    public hasKey(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public getKey(keyName: string): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return StringUtil.getInstance()!.EMPTY_STRING;
+    
+}
+
+
+    public getLicenseId(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return StringUtil.getInstance()!.EMPTY_STRING;
+    
+}
+
+
+    public getSpecial(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return StringUtil.getInstance()!.EMPTY_STRING;
+    
+}
+
+
+    public getServers(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.serverVector;
+    
+}
+
+
+    public isValid(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public getLicenseType(): LicenseType{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return LicenseTypeFactory.getInstance()!.UNKNOWN;
+    
+}
+
+
+}
+

@@ -1,0 +1,116 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { ValidationInterface } from '../../../../../../org/allbinary/logic/control/validate/ValidationInterface.js';
+//not GWT import const ValidationInterface
+
+import { Document } from '../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { StoreThemeCategoryPathView } from './StoreThemeCategoryPathView.js';
+//sameFolderImports - not GWT import - same folder const StoreThemeCategoryPathView
+import { StoreThemeCategoryInterface } from './StoreThemeCategoryInterface.js';
+//sameFolderImports - not GWT import - same folder const StoreThemeCategoryInterface
+
+export class StoreThemeCategoryPathValidationView extends StoreThemeCategoryPathView implements ValidationInterface {
+        
+
+public constructor (categoryInterface: StoreThemeCategoryInterface){
+            super(categoryInterface as StoreThemeCategoryInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public isValid(): Boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toValidationInfoDoc(): Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toValidationInfoNode(document: Document): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public validationInfo(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Error";
+    
+}
+
+
+}
+

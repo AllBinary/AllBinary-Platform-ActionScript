@@ -1,0 +1,273 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { PathFindingLayerInterface } from '../../../../../org/allbinary/game/layer/PathFindingLayerInterface.js';
+//not GWT import const PathFindingLayerInterface
+
+import { WaypointBehaviorBase } from '../../../../../org/allbinary/game/layer/WaypointBehaviorBase.js';
+//not GWT import const WaypointBehaviorBase
+
+import { CollidableDestroyableDamageableLayer } from '../../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.js';
+//not GWT import const CollidableDestroyableDamageableLayer
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { GeographicMapCellPosition } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { WaypointLogHelper } from './WaypointLogHelper.js';
+//sameFolderImports - not GWT import - same folder const WaypointLogHelper
+
+export class WaypointSelectedLogHelper extends WaypointLogHelper {
+        
+
+    private static readonly instanceC: WaypointSelectedLogHelper = new WaypointSelectedLogHelper();
+
+    public static getInstance(): WaypointSelectedLogHelper{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return WaypointSelectedLogHelper.instanceC;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonSeps: CommonSeps = CommonSeps.getInstance()!;
+
+    private readonly stringUtil: StringUtil = StringUtil.getInstance()!;
+
+    public onWaypointEvent(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, advancedRTSGameLayer: PathFindingLayerInterface){
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(associatedAdvancedRTSGameLayer!.getName());
+    
+stringBuffer!.append(" onWaypointEvent: ");
+    
+stringBuffer!.append(advancedRTSGameLayer!.getName());
+    
+
+                        if(advancedRTSGameLayer!.getParentLayer() != 
+                                    null
+                                )
+                        
+                                    {
+                                    stringBuffer!.append(" With Parent: ");
+    
+stringBuffer!.append(advancedRTSGameLayer!.getParentLayer()!.getName());
+    
+
+                                    }
+                                
+this.logUtil!.putF(stringBuffer!.toString(), this, "onWaypointEvent");
+    
+}
+
+
+    public addWaypointFromBuilding(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, advancedRTSGameLayer: PathFindingLayerInterface){
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(associatedAdvancedRTSGameLayer!.getName());
+    
+stringBuffer!.append(" Adding Waypoint: ");
+    
+stringBuffer!.append(advancedRTSGameLayer!.getName());
+    
+
+                        if(advancedRTSGameLayer!.getParentLayer() != 
+                                    null
+                                )
+                        
+                                    {
+                                    stringBuffer!.append(" With Parent: ");
+    
+stringBuffer!.append(advancedRTSGameLayer!.getParentLayer()!.getName());
+    
+
+                                    }
+                                
+this.logUtil!.putF(stringBuffer!.toString(), this, "selected: onWaypointEvent");
+    
+}
+
+
+    public addWaypointFromBuildingList(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, advancedRTSGameLayer: PathFindingLayerInterface, list: BasicArrayList){
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(associatedAdvancedRTSGameLayer!.getName());
+    
+stringBuffer!.append(" Waypoints: ");
+    
+stringBuffer!.append(this.stringUtil!.toString(list));
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, "selected: onWaypointEvent");
+    
+}
+
+
+    public insertWaypoint(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, index: number, rtsLayer: CollidableDestroyableDamageableLayer, waypointName: string){
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(associatedAdvancedRTSGameLayer!.getName());
+    
+stringBuffer!.append(this.commonSeps!.SPACE);
+    
+stringBuffer!.append(waypointName);
+    
+stringBuffer!.append(" Insert: ");
+    
+stringBuffer!.append(rtsLayer!.getName());
+    
+stringBuffer!.append(" for Waypoint: ");
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, "selected: insertWaypoint");
+    
+}
+
+
+    public insertWaypointList(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, index: number, rtsLayer: CollidableDestroyableDamageableLayer, waypointName: string, list: BasicArrayList){
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(associatedAdvancedRTSGameLayer!.getName());
+    
+stringBuffer!.append(this.commonSeps!.SPACE);
+    
+stringBuffer!.append(waypointName);
+    
+stringBuffer!.append(" Insert: ");
+    
+stringBuffer!.append(rtsLayer!.getName());
+    
+stringBuffer!.append(" Waypoints: ");
+    
+stringBuffer!.append(this.stringUtil!.toString(list));
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, "selected: insertWaypoint");
+    
+}
+
+
+    public setRandomGeographicMapCellHistoryList(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, pathsList: BasicArrayList){
+
+    let size: number = pathsList!.size()!;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(associatedAdvancedRTSGameLayer!.getName());
+    
+stringBuffer!.append(this.commonSeps!.SPACE);
+    
+stringBuffer!.append(CommonLabels.getInstance()!.START);
+    
+stringBuffer!.appendint(size);
+    
+stringBuffer!.append(" -> ");
+    
+stringBuffer!.append(this.stringUtil!.toString(pathsList));
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, "selected: setRandomGeographicMapCellHistory");
+    
+}
+
+
+    public moveAwayFromBuilding(associatedAdvancedRTSGameLayer: PathFindingLayerInterface){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" Trying to move away from building")!.toString(), this, "selected: moveAwayFromBuilding");
+    
+}
+
+
+    public needToMove(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, unitWaypointBehavior: WaypointBehaviorBase){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(unitWaypointBehavior!.getMovementLogicAsString())!.toString(), this, "needToMove");
+    
+}
+
+
+    public setRandomGeographicMapCellHistory(associatedAdvancedRTSGameLayer: PathFindingLayerInterface){
+this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" pathsList is null")!.toString(), this, "setRandomGeographicMapCellHistory");
+    
+}
+
+
+    public setCurrentPathGeographicMapCellPosition(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, existingCurrentPathGeographicMapCellPosition: GeographicMapCellPosition, currentPathGeographicMapCellPosition: GeographicMapCellPosition){
+
+                        if(existingCurrentPathGeographicMapCellPosition == 
+                                    null
+                                )
+                        this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" currentPathGeographicMapCellPosition: ")!.append(this.stringUtil!.toString(currentPathGeographicMapCellPosition))!.toString(), this, "setCurrentPathGeographicMapCellPosition")
+}
+
+
+    public setNextUnvisitedPathGeographicMapCellPosition(associatedAdvancedRTSGameLayer: PathFindingLayerInterface, existingNextUnvisitedPathGeographicMapCellPosition: GeographicMapCellPosition, nextUnvisitedPathGeographicMapCellPosition: GeographicMapCellPosition){
+
+                        if(existingNextUnvisitedPathGeographicMapCellPosition != nextUnvisitedPathGeographicMapCellPosition)
+                        this.logUtil!.putF(new StringMaker().append(associatedAdvancedRTSGameLayer!.getName())!.append(" nextUnvisitedPathGeographicMapCellPosition: ")!.append(this.stringUtil!.toString(nextUnvisitedPathGeographicMapCellPosition))!.toString(), this, "setNextUnvisitedPathGeographicMapCellPosition")
+}
+
+
+}
+

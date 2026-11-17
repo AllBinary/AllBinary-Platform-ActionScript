@@ -1,0 +1,264 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../java/lang/Integer.js';
+        
+import { HashMap } from '../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { Random } from '../../../../../java/util/Random.js';
+//not GWT import const Random
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { EntryData } from '../../../../../org/allbinary/business/entry/EntryData.js';
+//not GWT import const EntryData
+
+import { UserData } from '../../../../../org/allbinary/business/user/UserData.js';
+//not GWT import const UserData
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { SuperCrypt } from '../../../../../org/allbinary/logic/control/crypt/SuperCrypt.js';
+//not GWT import const SuperCrypt
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { StringValidationUtil } from '../../../../../org/allbinary/logic/string/StringValidationUtil.js';
+//not GWT import const StringValidationUtil
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class Password
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private password: string;
+
+public constructor (password: string){
+
+            super();
+        this.password= password;
+    
+}
+
+
+    public set(value: string){
+this.password= value;
+    
+}
+
+
+    public get(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.password;
+    
+}
+
+
+    public isValid(): Boolean{
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+
+ try { 
+    let valid: Boolean = Boolean.TRUE;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VALIDATION))
+                        
+                                    {
+                                    this.logUtil!.putF("Password: " +this.password, this, commonStrings!.IS_VALID);
+    
+
+                                    }
+                                
+
+                        if(!StringValidationUtil.getInstance()!.isValidRequired(this.password, 6, UserData.MAXLEN))
+                        
+                                    {
+                                    
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VALIDATION))
+                        
+                                    {
+                                    this.logUtil!.putF("Password is invalid", this, commonStrings!.IS_VALID);
+    
+
+                                    }
+                                
+valid= false;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return valid;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VALIDATIONERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Failed to validate form", "Password", commonStrings!.IS_VALID, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    public getValidationInfo(): string{
+
+                        if(!StringValidationUtil.getInstance()!.isValidRequired(this.password, 6, UserData.MAXLEN))
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Please enter a Password with more than 6 characters.<br />";
+    
+
+                                    }
+                                
+
+    let stringUtil: StringUtil = StringUtil.getInstance()!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringUtil!.EMPTY_STRING;
+    
+}
+
+
+    public toVector(secret: string): BasicArrayList{
+this.password= StringUtil.getInstance()!.getNonNull(this.password);
+    
+
+    let random: number = new Random().nextInt(SuperCrypt.KEYMAX)!;;
+    
+
+    let vector: BasicArrayList = new BasicArrayListD();;
+    
+vector.add(new Integer(random).toString());
+    
+vector.add(secret);
+    
+vector.add(new SuperCrypt(random).encrypt(this.password));
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return vector;
+    
+}
+
+
+    public toHashMap(secret: string): HashMap<any, any>{
+this.password= StringUtil.getInstance()!.getNonNull(this.password);
+    
+
+    let values: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+
+    let random: number = new Random().nextInt(SuperCrypt.KEYMAX)!;;
+    
+values.put(EntryData.getInstance()!.ENCRYPTION, new Integer(random).toString());
+    
+values.put(UserData.SECRET, secret);
+    
+values.put(UserData.PASSWORD, new SuperCrypt(random).encrypt(this.password));
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return values;
+    
+}
+
+
+}
+

@@ -1,0 +1,290 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Math } from '../../../../java/lang/Math.js';
+        
+import { Graphics2D } from '../../../../java/awt/Graphics2D.js';
+//not GWT import const Graphics2D
+
+import { Image } from '../../../../java/awt/Image.js';
+//not GWT import const Image
+
+import { BufferedImage } from '../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ImageUtil } from './ImageUtil.js';
+//sameFolderImports - not GWT import - same folder const ImageUtil
+import { ImageJ2SEUtil } from './ImageJ2SEUtil.js';
+//sameFolderImports - not GWT import - same folder const ImageJ2SEUtil
+
+export class ImageJ2SERotationUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: ImageJ2SERotationUtil = new ImageJ2SERotationUtil();
+
+    public static getInstance(): ImageJ2SERotationUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ImageJ2SERotationUtil.instance;
+    
+}
+
+
+    private readonly imageUtil: ImageUtil = ImageUtil.getInstance()!;
+
+    private readonly imageJ2SEUtil: ImageJ2SEUtil = ImageJ2SEUtil.getInstance()!;
+
+private constructor (){
+
+            super();
+        }
+
+
+    public getRotatedImage(bufferedImage: Image, totalAngle: number): BufferedImage{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.getRotatedImageRadians(bufferedImage, this.TWO_PIE *totalAngle /360);;
+    
+}
+
+
+    public getRotatedImageRadians(bufferedImage: Image, radians: number): BufferedImage{
+
+    let newBufferedImage: BufferedImage = this.imageUtil!.create(bufferedImage!.getWidth(
+                            null), bufferedImage!.getHeight(
+                            null))!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, newBufferedImage!.createGraphics(), radians);;
+    
+}
+
+
+    drawRotatedImageRadians(bufferedImage: Image, newBufferedImage: BufferedImage, g: Graphics2D, radians: number): BufferedImage{
+g.rotate(radians, newBufferedImage!.getWidth(
+                            null) /2, newBufferedImage!.getHeight(
+                            null) /2);
+    
+g.drawImage(bufferedImage, 0, 0, bufferedImage!.getWidth(
+                            null), bufferedImage!.getHeight(
+                            null), 
+                            null);
+    
+g.dispose();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return newBufferedImage;
+    
+}
+
+
+    private readonly TWO_PIE: number = 2 *Math.PI;
+
+    public rotateImage(bufferedImage: Image, newBufferedImage: BufferedImage, totalAngle: number): BufferedImage{
+
+    let g: Graphics2D = newBufferedImage!.createGraphics()!;;
+    
+g.setBackground(this.imageJ2SEUtil!.TRANSPARENT_COLOR);
+    
+g.clearRect(0, 0, newBufferedImage!.getWidth(), newBufferedImage!.getHeight());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, g, this.TWO_PIE *totalAngle /360);;
+    
+}
+
+
+    public createRotatedImage(bufferedImage: Image, newBufferedImage: BufferedImage, totalAngle: number): BufferedImage{
+
+    let g: Graphics2D = newBufferedImage!.createGraphics()!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, g, this.TWO_PIE *totalAngle /360);;
+    
+}
+
+
+    public getRotatedImages(bufferedImage: Image, numberOfFrames: number, totalAngle: number): BufferedImage[]{
+
+    let bufferedImageArray: BufferedImage[] = new Array(numberOfFrames);;
+    
+
+    let arc: number = () *totalAngle /360;;
+    
+
+    let size: number = bufferedImageArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let radians: number = (arc /size) *index;;
+    
+bufferedImageArray[index]= this.getRotatedImageRadians(bufferedImage, radians);
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return bufferedImageArray;
+    
+}
+
+
+    public createSpriteImage(bufferedImageArray: BufferedImage[]): BufferedImage{
+
+    let columns: number = 9;;
+    
+
+    let rows: number = 0;;
+    
+
+    let size: number = bufferedImageArray!.length
+                ;;
+    
+
+                        if(size < columns)
+                        
+                                    {
+                                    columns= size;
+    
+
+                                    }
+                                
+rows= (globalThis.Math.trunc(size /columns));
+    
+
+                        if(size % columns != 0)
+                        
+                                    {
+                                    rows++;
+    
+
+                                    }
+                                
+
+    let firstBufferedImage: BufferedImage = bufferedImageArray[0]!;;
+    
+
+    let bufferedImage: BufferedImage = this.imageUtil!.create(firstBufferedImage!.getWidth(
+                            null) *columns, firstBufferedImage!.getHeight(
+                            null) *rows)!;;
+    
+
+    let g: Graphics2D = bufferedImage!.createGraphics()!;;
+    
+
+    let columnIndex: number = 0;;
+    
+
+    let rowIndex: number = 0;;
+    
+
+    let nextBufferedImage: BufferedImage;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+                        if(globalThis.Math.trunc(index /9) != 0 && index % 9 == 0)
+                        
+                                    {
+                                    rowIndex++;
+    
+columnIndex= 0;
+    
+
+                                    }
+                                
+nextBufferedImage= bufferedImageArray[index]!;
+    
+g.drawImage(nextBufferedImage, nextBufferedImage!.getWidth(
+                            null) *columnIndex, nextBufferedImage!.getHeight(
+                            null) *rowIndex, nextBufferedImage!.getWidth(
+                            null), nextBufferedImage!.getHeight(
+                            null), 
+                            null);
+    
+columnIndex++;
+    
+}
+
+g.dispose();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return bufferedImage;
+    
+}
+
+
+}
+

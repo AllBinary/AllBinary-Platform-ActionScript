@@ -1,0 +1,155 @@
+
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { Image } from '../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { DisposalUtil } from '../../../org/allbinary/DisposalUtil.js';
+//not GWT import const DisposalUtil
+
+import { PlatformBitmapBase } from '../../../org/allbinary/platform/graphics/PlatformBitmapBase.js';
+//not GWT import const PlatformBitmapBase
+
+import { SwtImmutableImage } from '../../../org/microemu/device/swt/SwtImmutableImage.js';
+//not GWT import const SwtImmutableImage
+
+import { SwtMutableImage } from '../../../org/microemu/device/swt/SwtMutableImage.js';
+//not GWT import const SwtMutableImage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class OpenGLBitmap extends PlatformBitmapBase {
+        
+
+    public readonly image: Image;
+
+public constructor (bitmap: any){
+
+            super();
+        this.image= bitmap as Image;
+    
+}
+
+
+    public getImage(): Image{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.image;
+    
+}
+
+
+    public getDepth(): number{
+
+                        if(this.image.isMutable())
+                        
+                                    {
+                                    
+    let mutableImage: SwtMutableImage = this.image as SwtMutableImage;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return mutableImage!.getDepth();;
+    
+
+                                    }
+                                
+                        else {
+                            
+    let immutableImage: SwtImmutableImage = this.image as SwtImmutableImage;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return immutableImage!.getDepth();;
+    
+
+                        }
+                            
+}
+
+
+    public getPixels(pixels: number[], offset: number, stride: number, x: number, y: number, width: number, height: number){
+
+                        if(this.image.isMutable())
+                        
+                                    {
+                                    
+    let mutableImage: SwtMutableImage = this.image as SwtMutableImage;;
+    
+mutableImage!.getRGB(pixels, offset, stride, x, y, width, height);
+    
+
+                                    }
+                                
+                        else {
+                            
+    let immutableImage: SwtImmutableImage = this.image as SwtImmutableImage;;
+    
+immutableImage!.getRGB(pixels, offset, stride, x, y, width, height);
+    
+
+                        }
+                            
+}
+
+
+    public setPixels(pixels: number[], offset: number, stride: number, x: number, y: number, width: number, height: number){
+this.image.setRGB2(pixels, offset, height, x, y, width, height);
+    
+}
+
+
+    public getWidth(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.image.getWidth();;
+    
+}
+
+
+    public getHeight(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.image.getHeight();;
+    
+}
+
+
+    public recycle(){
+DisposalUtil.getInstance()!.disposeImage(this.image);
+    
+}
+
+
+}
+

@@ -1,0 +1,151 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { Replace } from '../../../../../../org/allbinary/logic/string/regex/replace/Replace.js';
+//not GWT import const Replace
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class DocumentToNode
+            extends Object
+         {
+        
+
+    private static readonly XMLROOT: string = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+
+    private static readonly XMLROOTSTART: string = "<?xml";
+
+    private static readonly XMLROOTEND: string = "?>";
+
+    private static readonly XMLJSPROOTSTART: string = "<jsp:root";
+
+    private static readonly XMLEND: string = ">";
+
+    private static readonly XMLJSPROOTENDSTART: string = "</jsp:root";
+
+                //@Throws(Exception.constructor)
+            
+    public static convertDocumentToNodeString(documentString: string): string{
+documentString= DocumentToNode.remove(documentString, DocumentToNode.XMLJSPROOTSTART, DocumentToNode.XMLEND);
+    
+documentString= DocumentToNode.remove(documentString, DocumentToNode.XMLJSPROOTENDSTART, DocumentToNode.XMLEND);
+    
+
+    let replaceXmlRoot: Replace = new Replace(XMLROOT, StringUtil.getInstance()!.EMPTY_STRING);;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return replaceXmlRoot!.all(documentString);;
+    
+}
+
+
+    public static removeXmlDefinitionFromDocumentString(documentString: string): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return DocumentToNode.remove(documentString, XMLROOTSTART, XMLROOTEND);;
+    
+}
+
+
+    public static remove(documentString: string, start: string, end: string): string{
+
+    let startIndex: number= 0;;
+    
+
+        while((startIndex= documentString!.indexOf(start)) !=  -1)
+        {
+
+                        if(startIndex >= 0)
+                        
+                                    {
+                                    
+    let endIndex: number = documentString!.indexOf(end, startIndex)!;;
+    
+
+                        if(endIndex >= 0)
+                        
+                                    {
+                                    
+    let startString: string = documentString!.substring(0, startIndex)!;;
+    
+
+    let resultString: string = documentString!.substring(endIndex +1)!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return startString +resultString;
+    
+
+                                    }
+                                
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return documentString;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

@@ -1,0 +1,388 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../../../../java/lang/Integer.js';
+        
+            import { Long } from '../../../../../../../../../java/lang/Long.js';
+        
+import { awt } from '../../../../../../../../../java/awt.js';
+//not GWT import const awt
+
+import { InputEvent } from '../../../../../../../../../java/awt/event/InputEvent.js';
+//not GWT import const InputEvent
+
+import { HashMap } from '../../../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { DomNodeHelper } from '../../../../../../../../../org/allbinary/data/tree/dom/DomNodeHelper.js';
+//not GWT import const DomNodeHelper
+
+import { DomSearchHelper } from '../../../../../../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
+//not GWT import const DomSearchHelper
+
+import { ModDomHelper } from '../../../../../../../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { BooleanFactory } from '../../../../../../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
+//not GWT import const BooleanFactory
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { Document } from '../../../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+import { NodeList } from '../../../../../../../../../org/w3c/dom/NodeList.js';
+//not GWT import const NodeList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicProfileActionScriptInput } from './BasicProfileActionScriptInput.js';
+//sameFolderImports - not GWT import - same folder const BasicProfileActionScriptInput
+import { MouseActionScriptInputInterface } from './MouseActionScriptInputInterface.js';
+//sameFolderImports - not GWT import - same folder const MouseActionScriptInputInterface
+import { Point } from './Point.js';
+//sameFolderImports - not GWT import - same folder const Point
+import { MouseActionScriptInputJPanel } from './MouseActionScriptInputJPanel.js';
+//sameFolderImports - not GWT import - same folder const MouseActionScriptInputJPanel
+import { MouseActionScriptInputData } from './MouseActionScriptInputData.js';
+//sameFolderImports - not GWT import - same folder const MouseActionScriptInputData
+import { MouseInputAutomationProcessor } from './MouseInputAutomationProcessor.js';
+//sameFolderImports - not GWT import - same folder const MouseInputAutomationProcessor
+
+export class MouseActionScriptInput extends BasicProfileActionScriptInput implements MouseActionScriptInputInterface {
+        
+
+    private static readonly NAME: string = "Mouse";
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private point: Point;
+
+    private buttons: number= 0;
+
+    private mouseActionScriptInputJPanel: MouseActionScriptInputJPanel;
+
+public constructor (node: Node){
+            super(NAME, node);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    
+this.point= new Point();
+    
+
+    let actionNode: Node = DomSearchHelper.getNode(MouseActionScriptInputData.NAME, node.getChildNodes())!;;
+    
+
+                        if(actionNode != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let nodeList: NodeList = actionNode!.getChildNodes()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < nodeList!.getLength(); index++)
+        {
+
+    let childNode: Node = nodeList!.item(index)!;;
+    
+
+                        if(childNode!.getNodeName()!.compareTo(MouseActionScriptInputData.BUTTONS) == 0)
+                        
+                                    {
+                                    
+    let buttons: string = DomNodeHelper.getTextNodeValue(childNode)!;;
+    
+this.setButtonClicks(Integer.valueOf(buttons)!.intValue());
+    
+
+                                    }
+                                
+                             else 
+                        if(childNode!.getNodeName()!.compareTo(MouseActionScriptInputData.MOVE) == 0)
+                        
+                                    {
+                                    
+    let mouseXNode: Node = DomSearchHelper.getNode(MouseActionScriptInputData.MOVE_X, childNode!.getChildNodes())!;;
+    
+
+    let mouseXString: string = DomNodeHelper.getTextNodeValue(mouseXNode)!;;
+    
+
+    let mouseXInteger: Integer = Integer.valueOf(mouseXString)!;;
+    
+
+    let mouseYNode: Node = DomSearchHelper.getNode(MouseActionScriptInputData.MOVE_Y, childNode!.getChildNodes())!;;
+    
+
+    let mouseYString: string = DomNodeHelper.getTextNodeValue(mouseYNode)!;;
+    
+
+    let mouseYInteger: Integer = Integer.valueOf(mouseYString)!;;
+    
+
+    let newPoint: Point = new Point(mouseXInteger!.intValue(), mouseYInteger!.intValue());;
+    
+this.setPoint(newPoint);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("Action Script Input Unknown Node");
+                    
+
+                        }
+                            
+}
+
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("Action Script Input Node Null");
+                    
+
+                        }
+                            
+this.setAllowsChildren(false);
+    
+this.mouseActionScriptInputJPanel= new MouseActionScriptInputJPanel(this);
+    
+}
+
+
+public constructor (){
+            super(NAME);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.point= new Point();
+    
+this.setAllowsChildren(false);
+    
+this.mouseActionScriptInputJPanel= new MouseActionScriptInputJPanel(this);
+    
+}
+
+
+    public setPoint(point: Point){
+this.point= point;
+    
+}
+
+
+    public getPoint(): Point{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.point;
+    
+}
+
+
+    public getButtonClicks(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.buttons;
+    
+}
+
+
+    public setButtonClicks(buttons: number){
+this.buttons= buttons;
+    
+}
+
+
+    public showDialog(){
+this.mouseActionScriptInputJPanel!.getMouseActionJDialog()!.setVisible(true);
+    
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put(MouseActionScriptInputData.BUTTONS, Integer.toString(this.getButtonClicks()));
+    
+this.logUtil!.putF("HashMap: " +hashMap!.toString(), this, "toHashMap()");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let node: Node = super.toXmlNode(document)!;;
+    
+
+    let mouseNode: Node = ModDomHelper.createNodeWithValueNodes(document, MouseActionScriptInputData.NAME, this.toHashMap())!;;
+    
+node.appendChild(mouseNode);
+    
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put(MouseActionScriptInputData.MOVE_X, Integer.toString(this.getPoint()!.x));
+    
+hashMap!.put(MouseActionScriptInputData.MOVE_Y, Integer.toString(this.getPoint()!.y));
+    
+mouseNode!.appendChild(ModDomHelper.createNodeWithValueNodes(document, MouseActionScriptInputData.MOVE, hashMap));
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public process(frame: Long){
+MouseInputAutomationProcessor.process(this);
+    
+}
+
+
+    public log(){
+
+    let buttonStringBuffer: StringMaker = new StringMaker();;
+    
+buttonStringBuffer!.append("1: ");
+    
+
+    let booleanFactory: BooleanFactory = BooleanFactory.getInstance()!;;
+    
+
+                        if((this.getButtonClicks()&InputEvent.BUTTON1_MASK) != 0)
+                        
+                                    {
+                                    buttonStringBuffer!.append(booleanFactory!.TRUE_STRING);
+    
+
+                                    }
+                                
+                        else {
+                            buttonStringBuffer!.append(booleanFactory!.FALSE_STRING);
+    
+
+                        }
+                            
+buttonStringBuffer!.append(" 2: ");
+    
+
+                        if((this.getButtonClicks()&InputEvent.BUTTON2_MASK) != 0)
+                        
+                                    {
+                                    buttonStringBuffer!.append(booleanFactory!.TRUE_STRING);
+    
+
+                                    }
+                                
+                        else {
+                            buttonStringBuffer!.append(booleanFactory!.FALSE_STRING);
+    
+
+                        }
+                            
+buttonStringBuffer!.append(" 3: ");
+    
+
+                        if((this.getButtonClicks()&InputEvent.BUTTON3_MASK) != 0)
+                        
+                                    {
+                                    buttonStringBuffer!.append(booleanFactory!.TRUE_STRING);
+    
+
+                                    }
+                                
+                        else {
+                            buttonStringBuffer!.append(booleanFactory!.FALSE_STRING);
+    
+
+                        }
+                            
+this.logUtil!.putF("Input Type: " +this.getInputRobotInterface()!.getName() +" Point: " +this.getPoint() +" Buttons Clicked: " +buttonStringBuffer!.toString(), this, "log");
+    
+}
+
+
+}
+

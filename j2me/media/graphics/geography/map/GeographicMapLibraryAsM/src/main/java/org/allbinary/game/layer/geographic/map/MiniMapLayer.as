@@ -1,0 +1,314 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { Graphics } from '../../../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+//not plain js import { ForcedLogUtil } 
+const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
+type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
+
+import { CircleFilledAnimation } from '../../../../../../org/allbinary/animation/vector/CircleFilledAnimation.js';
+//not GWT import const CircleFilledAnimation
+
+import { AllBinaryTiledLayer } from '../../../../../../org/allbinary/game/layer/AllBinaryTiledLayer.js';
+//not GWT import const AllBinaryTiledLayer
+
+import { GPoint } from '../../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { PointFactory } from '../../../../../../org/allbinary/graphics/PointFactory.js';
+//not GWT import const PointFactory
+
+import { Rectangle } from '../../../../../../org/allbinary/graphics/Rectangle.js';
+//not GWT import const Rectangle
+
+import { BasicColor } from '../../../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { BasicColorFactory } from '../../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { ColorCompositeInterface } from '../../../../../../org/allbinary/graphics/color/ColorCompositeInterface.js';
+//not GWT import const ColorCompositeInterface
+
+import { AllBinaryLayer } from '../../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { AllBinaryEventObject } from '../../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
+//not GWT import const AllBinaryEventObject
+
+import { EventStrings } from '../../../../../../org/allbinary/logic/util/event/EventStrings.js';
+//not GWT import const EventStrings
+
+import { BasicGeographicMap } from '../../../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { BasicGeographicMapCellPositionFactory } from '../../../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMapCellPositionFactory.js';
+//not GWT import const BasicGeographicMapCellPositionFactory
+
+import { GeographicMapCellPosition } from '../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+import { GeographicMapCellPositionEvent } from '../../../../../../org/allbinary/media/graphics/geography/map/event/GeographicMapCellPositionEvent.js';
+//not GWT import const GeographicMapCellPositionEvent
+
+import { GeographicMapCellPositionEventHandler } from '../../../../../../org/allbinary/media/graphics/geography/map/event/GeographicMapCellPositionEventHandler.js';
+//not GWT import const GeographicMapCellPositionEventHandler
+
+import { GeographicMapCellPositionEventListenerInterface } from '../../../../../../org/allbinary/media/graphics/geography/map/event/GeographicMapCellPositionEventListenerInterface.js';
+//not GWT import const GeographicMapCellPositionEventListenerInterface
+
+import { ViewPositionBase } from '../../../../../../org/allbinary/view/ViewPositionBase.js';
+//not GWT import const ViewPositionBase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class MiniMapLayer extends AllBinaryLayer implements GeographicMapCellPositionEventListenerInterface {
+        
+
+    readonly allBinaryTiledLayer: AllBinaryTiledLayer;
+
+    private readonly geographicMapCellPositionFactory: BasicGeographicMapCellPositionFactory;
+
+    private readonly list: BasicArrayList;
+
+    private readonly basicColorList: BasicArrayList;
+
+    private readonly positionList: BasicArrayList;
+
+    private animationInterface: CircleFilledAnimation;
+
+public constructor (geographicMapInterface: BasicGeographicMap, viewPosition: ViewPositionBase){
+            super(StringUtil.getInstance()!.EMPTY_STRING, new Rectangle(PointFactory.getInstance()!.createXY(0, viewPosition!.getY()), geographicMapInterface!.getAllBinaryTiledLayer()!.getWidth(), geographicMapInterface!.getAllBinaryTiledLayer()!.getHeight()), viewPosition);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.allBinaryTiledLayer= geographicMapInterface!.getAllBinaryTiledLayer();
+    
+this.geographicMapCellPositionFactory= geographicMapInterface!.getGeographicMapCellPositionFactory();
+    
+this.animationInterface= new CircleFilledAnimation(this.allBinaryTiledLayer!.getCellWidth(), this.allBinaryTiledLayer!.getCellHeight(), BasicColorFactory.getInstance()!.WHITE);
+    
+this.list= new BasicArrayListD();
+    
+this.basicColorList= new BasicArrayListD();
+    
+this.positionList= new BasicArrayListD();
+    
+GeographicMapCellPositionEventHandler.getInstance()!.addListener(this);
+    
+this.init();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    init(){
+this.allBinaryTiledLayer!.setPosition(this.x, this.y, this.z);
+    
+}
+
+
+    public onEvent(eventObject: AllBinaryEventObject){
+ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public onRemoveGeographicMapCellPositionEvent(geographicMapCellPositionEvent: GeographicMapCellPositionEvent){
+
+    let colorCompositeInterface: ColorCompositeInterface = geographicMapCellPositionEvent!.getSource() as ColorCompositeInterface;;
+    
+
+    let index: number = this.list.indexOf(colorCompositeInterface)!;;
+    
+
+                        if(index >= 0)
+                        
+                                    {
+                                    this.list.removeAt(index);
+    
+this.basicColorList!.removeAt(index);
+    
+this.positionList!.removeAt(index);
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public onGeographicMapCellPositionEvent(geographicMapCellPositionEvent: GeographicMapCellPositionEvent){
+
+    let colorCompositeInterface: ColorCompositeInterface = geographicMapCellPositionEvent!.getSource() as ColorCompositeInterface;;
+    
+
+    let layerIndex: number =  -1;;
+    
+
+    let size: number = this.list.size()!;;
+    
+
+    let nextColorCompositeInterface: ColorCompositeInterface;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+nextColorCompositeInterface= this.list.get(index) as ColorCompositeInterface;
+    
+
+                        if(nextColorCompositeInterface == colorCompositeInterface)
+                        
+                                    {
+                                    layerIndex= index;
+    
+break;
+
+                    
+
+                                    }
+                                
+}
+
+
+    let geographicMapCellPosition: GeographicMapCellPosition = this.geographicMapCellPositionFactory!.getInstance(geographicMapCellPositionEvent!.getGeographicMapCellPosition())!;;
+    
+
+    let point: GPoint = geographicMapCellPosition!.getPoint()!;;
+    
+
+                        if(layerIndex ==  -1)
+                        
+                                    {
+                                    this.list.add(colorCompositeInterface);
+    
+
+    let basicColor: BasicColor = colorCompositeInterface!.getBasicColorP()!;;
+    
+this.basicColorList!.add(basicColor);
+    
+this.positionList!.add(point);
+    
+layerIndex= this.basicColorList!.size() -1;
+    
+
+                                    }
+                                
+                        else {
+                            this.positionList!.set(layerIndex, point);
+    
+
+                        }
+                            
+}
+
+
+    public paintDots(graphics: Graphics){
+
+    let localPositionList: BasicArrayList = this.positionList;;
+    
+
+    let localBasicColorList: BasicArrayList = this.basicColorList;;
+    
+
+    let length: number = localPositionList!.size()!;;
+    
+
+    let point: GPoint;;
+    
+
+    let basicColor: BasicColor;;
+    
+
+
+
+
+                        for (
+    let index: number = length;--index >= 0; )
+        {
+point= localPositionList!.get(index) as GPoint;
+    
+basicColor= localBasicColorList!.get(index) as BasicColor;
+    
+graphics.setColor(basicColor!.intValue());
+    
+this.animationInterface!.setBasicColorP(basicColor);
+    
+this.animationInterface!.paintXY(graphics, point.getX() +this.x, point.getY() +this.y);
+    
+}
+
+}
+
+
+    public paint(graphics: Graphics){
+this.allBinaryTiledLayer!.paint(graphics);
+    
+this.paintDots(graphics);
+    
+}
+
+
+}
+

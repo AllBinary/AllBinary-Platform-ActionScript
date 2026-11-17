@@ -1,0 +1,91 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class HtmlTableData
+            extends Object
+         {
+        
+
+    private static readonly instance: HtmlTableData = new HtmlTableData();
+
+    public static getInstance(): HtmlTableData{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return HtmlTableData.instance;
+    
+}
+
+
+    public readonly LEFT: string = CommonStrings.getInstance()!.LEFT;
+
+    public readonly RIGHT: string = CommonStrings.getInstance()!.RIGHT;
+
+    public readonly NONE: string = "none";
+
+    public readonly TOP: string = "top";
+
+    public readonly BOTTOM: string = "bottom";
+
+    public readonly TOPBOT: string = "topbot";
+
+    public readonly SIDES: string = "sides";
+
+    public readonly ALL: string = "all";
+
+    public readonly BORDERED: string = "border";
+
+    public readonly BASIC: string = "basic";
+
+    public readonly ROWS: string = "rows";
+
+    public readonly FRAMES: string[] = 
+                                                        [
+                                                            this.NONE,this.TOP,this.BOTTOM,this.TOPBOT,this.SIDES,this.ALL,this.BORDERED
+                                                        ];
+
+}
+

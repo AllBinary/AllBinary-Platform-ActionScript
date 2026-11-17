@@ -1,0 +1,126 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+//not plain js import { AbPathData } 
+const AbPathData = globalThis.org.allbinary.logic.io.path.AbPathData;
+type AbPathData<T = any, U = any> = typeof AbPathData extends abstract new (...args: any[]) => infer Instance ? Instance : typeof AbPathData;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class HttpRequestUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: HttpRequestUtil = new HttpRequestUtil();
+
+    public static getInstance(): HttpRequestUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return HttpRequestUtil.instance;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+    public getLastSeparatorIndex(requestPath: string): number{
+
+    let beginIndex: number = requestPath!.lastIndexOf(AbPathData.getInstance()!.SEPARATOR)!;;
+    
+
+                        if(beginIndex < 0)
+                        
+                                    {
+                                    beginIndex= requestPath!.lastIndexOf("\\");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return beginIndex;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public generateFileName(requestPath: string): string{
+
+    let beginIndex: number = this.getLastSeparatorIndex(requestPath)!;;
+    
+
+                        if(beginIndex < 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return requestPath;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return requestPath!.substring(beginIndex +1);;
+    
+
+                        }
+                            
+}
+
+
+}
+

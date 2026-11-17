@@ -1,0 +1,108 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { ContextConfigurationInterface } from '../../../../../../org/allbinary/business/context/configuration/ContextConfigurationInterface.js';
+//not GWT import const ContextConfigurationInterface
+
+import { StoreFrontInterface } from '../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontInterface.js';
+//not GWT import const StoreFrontInterface
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { EmailServerConfigurationInterface } from '../../../../../../org/allbinary/logic/communication/smtp/configuration/server/EmailServerConfigurationInterface.js';
+//not GWT import const EmailServerConfigurationInterface
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicEmailInfo } from './BasicEmailInfo.js';
+//sameFolderImports - not GWT import - same folder const BasicEmailInfo
+
+export class StoreEmailInfo extends BasicEmailInfo {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private storeFrontInterface: StoreFrontInterface;
+
+public constructor (storeFrontInterface: StoreFrontInterface, subject: string, textBody: string){
+            super(subject, textBody);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.EMAILLOGGING))
+                        
+                                    {
+                                    
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.putF(commonStrings!.START, this, commonStrings!.CONSTRUCTOR);
+    
+
+                                    }
+                                
+this.storeFrontInterface= storeFrontInterface;
+    
+this.init();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    init(){
+
+    let contextConfigurationInterface: ContextConfigurationInterface = this.storeFrontInterface!.getContextConfigurationInterface()!;;
+    
+
+    let emailServerConfigurationInterface: EmailServerConfigurationInterface = contextConfigurationInterface!.getEmailServerConfigurationInterface()!;;
+    
+this.setEmailServerConfigurationInterface(emailServerConfigurationInterface);
+    
+}
+
+
+}
+

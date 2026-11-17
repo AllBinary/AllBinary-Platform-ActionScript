@@ -1,0 +1,156 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import hilog from '@ohos.hilog';
+        
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Integer } from '../../../../../java/lang/Integer.js';
+        
+//not plain js import { NullUtil } 
+const NullUtil = globalThis.org.allbinary.logic.NullUtil;
+type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
+
+import { TsUtil } from '../../../../../org/allbinary/TsUtil.js';
+//not GWT import const TsUtil
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //not plain js - same folder import { LogFormatUtil } 
+const LogFormatUtil = globalThis.org.allbinary.logic.communication.log.LogFormatUtil;
+//not plain js - same folder import { Log } 
+const Log = globalThis.org.allbinary.logic.communication.log.Log;
+//ActualPlatform
+/*actual*/ export class LogUtil
+            extends Object
+         {
+        
+
+            static readonly PUBLIC: string = '%{public}s';
+            
+
+    private static readonly instance: LogUtil = new LogUtil();
+
+    /*actual*/ public static getInstance(): LogUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return LogUtil.instance;
+    
+}
+
+
+    private readonly commonSeps: CommonSeps = CommonSeps.getInstance()!;
+
+    private readonly logFormatUtil: LogFormatUtil = LogFormatUtil.getInstance()!;
+
+    private readonly LABEL: string = "org.allbinary";
+
+private constructor (){
+
+            super();
+        }
+
+
+    /*actual*/ public putL(log: Log){
+
+    let specialMessage: string = log.getSpecialMessage()!;;
+    
+
+    let anyType: any = log.getObject()!;;
+    
+
+    let functionName: string = log.getFunctionName()!;;
+    
+
+    let exception: any = log.getThrowable()!;;
+    
+this.put(specialMessage, anyType, functionName, exception);
+    
+}
+
+
+    /*actual*/ public putF(specialMessage: string, anyType: any, functionName: string){
+this.put(specialMessage, anyType, functionName, NullUtil.getInstance()!.NULL_OBJECT);
+    
+}
+
+
+    public putFS(specialMessage: string, string: string, functionName: string){
+this.putS(specialMessage, string, functionName, NullUtil.getInstance()!.NULL_OBJECT);
+    
+}
+
+
+    /*actual*/ public put(specialMessage: string, anyType: any, functionName: string, exception: any){
+
+    let className: string = this.LABEL;;
+    
+className= new StringMaker().append(anyType!.constructor.name.toString()!)!.append(this.commonSeps!.COLON)!.append(Integer.toHexString(TsUtil.getInstance()!.hashCode(anyType)))!.toString();
+    
+
+    let message: string = this.logFormatUtil!.get(className, functionName, specialMessage, exception)!;;
+    
+hilog.info(0x0000, className, LogUtil.PUBLIC, message);
+    
+}
+
+
+    /*actual*/ public putS(specialMessage: string, string: string, functionName: string, exception: any){
+
+    let className: string = this.LABEL;;
+    
+className= new StringMaker().append(string)!.append(this.commonSeps!.COLON)!.append(Integer.toHexString(TsUtil.getInstance()!.hashCode(string)))!.toString();
+    
+
+    let message: string = this.logFormatUtil!.get(className, functionName, specialMessage, exception)!;;
+    
+hilog.info(0x0000, className, LogUtil.PUBLIC, message);
+    
+}
+
+
+}
+

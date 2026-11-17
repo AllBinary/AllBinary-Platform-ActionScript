@@ -1,0 +1,130 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2003 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            import { Thread } from '../../../../java/lang/Thread.js';
+        
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { GeographicMapCellPosition } from '../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { WaypointPathRunnableBase } from './WaypointPathRunnableBase.js';
+//sameFolderImports - not GWT import - same folder const WaypointPathRunnableBase
+import { WaypointBehaviorBase } from './WaypointBehaviorBase.js';
+//sameFolderImports - not GWT import - same folder const WaypointBehaviorBase
+
+export class WaypointPathRunnable extends WaypointPathRunnableBase {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+public constructor (){
+
+            super();
+        }
+
+
+    public run(){
+
+ try { this.pathFindingLayer!.getWaypointRunnableLogHelper()!.start(this.pathFindingLayer);
+    
+
+    let waypointBehavior: WaypointBehaviorBase = this.pathFindingLayer!.getWaypointBehavior()!;;
+    
+
+    let geographicMapCellPosition: GeographicMapCellPosition = this.pathFindingLayer!.getCurrentGeographicMapCellPosition()!;;
+    
+
+                        if(geographicMapCellPosition == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("Should never be running here");
+                    
+
+                                    }
+                                
+waypointBehavior!.setWaypointPathsList(this.targetPathFindingLayer!.getWaypointBehavior()!.getWaypoint()!.getPathsListRunnable(geographicMapCellPosition));
+    
+this.pathFindingLayer!.getWaypointRunnableLogHelper()!.end(this.pathFindingLayer);
+    
+Thread.sleep(15 +(this.priorityP *2));
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN, e);
+    
+this.setRunning(false);
+    
+
+ }
+   }
+ 
+}
+
+
+    public isDone(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+}
+

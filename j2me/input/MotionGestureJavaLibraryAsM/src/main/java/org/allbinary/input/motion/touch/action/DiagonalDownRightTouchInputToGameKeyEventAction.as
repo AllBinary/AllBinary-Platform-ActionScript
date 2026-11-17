@@ -1,0 +1,87 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { PlatformInputMappingFactory } from '../../../../../../org/allbinary/game/input/PlatformInputMappingFactory.js';
+//not GWT import const PlatformInputMappingFactory
+
+import { GameKeyCompleteMotionGestureInputEvent } from '../../../../../../org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.js';
+//not GWT import const GameKeyCompleteMotionGestureInputEvent
+
+import { TouchMotionGestureFactory } from '../../../../../../org/allbinary/input/motion/gesture/TouchMotionGestureFactory.js';
+//not GWT import const TouchMotionGestureFactory
+
+//not plain js import { NullUtil } 
+const NullUtil = globalThis.org.allbinary.logic.NullUtil;
+type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class DiagonalDownRightTouchInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent {
+        
+
+    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
+
+    public static getInstance(): GameKeyCompleteMotionGestureInputEvent{
+
+                        if(DiagonalDownRightTouchInputToGameKeyEventAction.instance == NullUtil.getInstance()!.NULL_OBJECT)
+                        
+                                    {
+                                    DiagonalDownRightTouchInputToGameKeyEventAction.instance= new DiagonalDownRightTouchInputToGameKeyEventAction();
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return DiagonalDownRightTouchInputToGameKeyEventAction.instance as GameKeyCompleteMotionGestureInputEvent;
+    
+}
+
+
+private constructor (){
+            super("Diagonal Down Right Action", TouchMotionGestureFactory.getInstance()!.DIAGONAL_DOWN_RIGHT, PlatformInputMappingFactory.getInstance()!.getPersistentInputMappingInstance()!.getInputMapping());
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+}
+

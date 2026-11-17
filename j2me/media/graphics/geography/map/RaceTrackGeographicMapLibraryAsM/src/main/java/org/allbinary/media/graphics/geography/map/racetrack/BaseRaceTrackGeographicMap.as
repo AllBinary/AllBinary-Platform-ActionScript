@@ -1,0 +1,282 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../../java/lang/Integer.js';
+        
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AllBinaryTiledLayer } from '../../../../../../../org/allbinary/game/layer/AllBinaryTiledLayer.js';
+//not GWT import const AllBinaryTiledLayer
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { BasicGeographicMap } from '../../../../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { GeographicMapCellPositionBaseFactory } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPositionBaseFactory.js';
+//not GWT import const GeographicMapCellPositionBaseFactory
+
+import { GeographicMapCellPositionFactoryInterface } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPositionFactoryInterface.js';
+//not GWT import const GeographicMapCellPositionFactoryInterface
+
+import { GeographicMapCellTypeFactory } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellTypeFactory.js';
+//not GWT import const GeographicMapCellTypeFactory
+
+import { BasicColor } from '../../../../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { GeographicMapCellPosition } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+import { GeographicMapCellType } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellType.js';
+//not GWT import const GeographicMapCellType
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { RaceTrackGeographicMapInterface } from './RaceTrackGeographicMapInterface.js';
+//sameFolderImports - not GWT import - same folder const RaceTrackGeographicMapInterface
+import { RaceTrackInfo } from './RaceTrackInfo.js';
+//sameFolderImports - not GWT import - same folder const RaceTrackInfo
+import { RaceTrackData } from './RaceTrackData.js';
+//sameFolderImports - not GWT import - same folder const RaceTrackData
+
+export class BaseRaceTrackGeographicMap extends BasicGeographicMap implements RaceTrackGeographicMapInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private raceTrackInfo: RaceTrackInfo;
+
+    private raceTrackData: RaceTrackData;
+
+    private miniGeographicMap: BasicGeographicMap;
+
+public constructor (raceTrackInfo: RaceTrackInfo, raceTrackData: RaceTrackData, tiledLayer: AllBinaryTiledLayer, miniGeographicMap: BasicGeographicMap, geographicMapCellPositionFactoryInterface: GeographicMapCellPositionFactoryInterface, geographicMapCellPositionBaseFactory: GeographicMapCellPositionBaseFactory, geographicMapCellTypeFactory: GeographicMapCellTypeFactory){
+            super(raceTrackInfo!.getId(), raceTrackInfo!.getName(), raceTrackData!.getCellTypeIdToGeographicMapCellTypeArray(), tiledLayer, raceTrackInfo!.getForegroundBasicColor(), raceTrackInfo!.getBackgroundBasicColor(), geographicMapCellPositionFactoryInterface, geographicMapCellPositionBaseFactory, geographicMapCellTypeFactory);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.raceTrackInfo= raceTrackInfo;
+    
+this.raceTrackData= raceTrackData;
+    
+this.miniGeographicMap= miniGeographicMap;
+    
+
+    let miniTiledLayer: AllBinaryTiledLayer = this.miniGeographicMap!.getAllBinaryTiledLayer()!;;
+    
+
+                        if(miniTiledLayer!.getColumns() != this.getGeographicMapCellPositionFactory()!.getColumns())
+                        
+                                    {
+                                    
+    let error: string = new StringMaker().append("RaceTrackMap has incorrect Mini Map columns: ")!.appendint(miniTiledLayer!.getColumns())!.append(" != ")!.appendint(this.getGeographicMapCellPositionFactory()!.getColumns())!.toString()!;;
+    
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.putF(commonStrings!.EXCEPTION, this, commonStrings!.CONSTRUCTOR);
+    
+
+
+
+                            throw new Exception(error);
+                    
+
+                                    }
+                                
+
+                        if(miniTiledLayer!.getRows() != this.getGeographicMapCellPositionFactory()!.getRows())
+                        
+                                    {
+                                    
+    let error: string = "RaceTrackMap has incorrect Mini Map rows";;
+    
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.putF(commonStrings!.EXCEPTION, this, commonStrings!.CONSTRUCTOR);
+    
+
+
+
+                            throw new Exception(error);
+                    
+
+                                    }
+                                
+}
+
+
+    public getRaceTrackInfo(): RaceTrackInfo{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.raceTrackInfo;
+    
+}
+
+
+    public setRaceTrackInfo(aRaceTrackInfo: RaceTrackInfo){
+this.raceTrackInfo= aRaceTrackInfo;
+    
+}
+
+
+    public setMiniBasicGeographicMap(miniBasicGeographicMap: BasicGeographicMap){
+this.miniGeographicMap= miniBasicGeographicMap;
+    
+}
+
+
+    public getMiniBasicGeographicMap(): BasicGeographicMap{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.miniGeographicMap;
+    
+}
+
+
+    public getRaceTrackData(): RaceTrackData{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.raceTrackData;
+    
+}
+
+
+    public setRaceTrackData(raceTrackData: RaceTrackData){
+this.raceTrackData= raceTrackData;
+    
+}
+
+
+    public getId(): Integer{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getId();;
+    
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getName();;
+    
+}
+
+
+    public reset(){
+super.reset();
+    
+}
+
+
+    public getAllBinaryTiledLayer(): AllBinaryTiledLayer{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getAllBinaryTiledLayer();;
+    
+}
+
+
+    public getCellTypeFromMapCellTypeInt(cellTypeId: number): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getCellTypeFromMapCellTypeInt(cellTypeId);;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getCellTypeAt(cellPosition: GeographicMapCellPosition): GeographicMapCellType{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getCellTypeAt(cellPosition);;
+    
+}
+
+
+    public getForegroundBasicColor(): BasicColor{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getForegroundBasicColor();;
+    
+}
+
+
+    public getBackgroundBasicColor(): BasicColor{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getBackgroundBasicColor();;
+    
+}
+
+
+}
+

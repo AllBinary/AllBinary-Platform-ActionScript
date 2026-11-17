@@ -1,0 +1,119 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { NullAnimationFactory } from '../../../../../org/allbinary/animation/NullAnimationFactory.js';
+//not GWT import const NullAnimationFactory
+
+import { BasicGroupFactory } from '../../../../../org/allbinary/game/identification/BasicGroupFactory.js';
+//not GWT import const BasicGroupFactory
+
+import { AllBinaryTiledLayer } from '../../../../../org/allbinary/game/layer/AllBinaryTiledLayer.js';
+//not GWT import const AllBinaryTiledLayer
+
+import { RemoteInfo } from '../../../../../org/allbinary/game/multiplayer/layer/RemoteInfo.js';
+//not GWT import const RemoteInfo
+
+import { TileLayerPositionIntoViewPosition } from '../../../../../org/allbinary/game/view/TileLayerPositionIntoViewPosition.js';
+//not GWT import const TileLayerPositionIntoViewPosition
+
+import { PointFactory } from '../../../../../org/allbinary/graphics/PointFactory.js';
+//not GWT import const PointFactory
+
+import { Rectangle } from '../../../../../org/allbinary/graphics/Rectangle.js';
+//not GWT import const Rectangle
+
+import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { ViewPosition } from '../../../../../org/allbinary/view/ViewPosition.js';
+//not GWT import const ViewPosition
+
+import { ViewPositionEventHandler } from '../../../../../org/allbinary/view/event/ViewPositionEventHandler.js';
+//not GWT import const ViewPositionEventHandler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { PickupLayer } from './PickupLayer.js';
+//sameFolderImports - not GWT import - same folder const PickupLayer
+import { CountedPickedUpLayerInterfaceFactory } from './CountedPickedUpLayerInterfaceFactory.js';
+//sameFolderImports - not GWT import - same folder const CountedPickedUpLayerInterfaceFactory
+
+export class RaceTrackPickupLayer extends PickupLayer {
+        
+
+    private static readonly NAME: string = "RaceTrackPickupLayer";
+
+public constructor (){
+            super(NAME, RemoteInfo.REMOTE_INFO, 0, CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY, NullAnimationFactory.getFactoryInstance()!.getInstance(0), new Rectangle(PointFactory.getInstance()!.ZERO_ZERO, 0, 0), new TileLayerPositionIntoViewPosition());
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    private readonly viewPositionEventHandler: ViewPositionEventHandler = ViewPositionEventHandler.getInstance()!;
+
+    public setTiledLayer(tiledLayer: AllBinaryTiledLayer){
+
+    let viewPosition: TileLayerPositionIntoViewPosition = this.getViewPosition() as TileLayerPositionIntoViewPosition;;
+    
+viewPosition!.setTiledLayer(tiledLayer);
+    
+this.viewPositionEventHandler!.addListener(this as AllBinaryLayer);
+    
+}
+
+
+    public setDestroyed(destroyed: boolean){
+super.setDestroyed(destroyed);
+    
+
+                        if(this.isDestroyed())
+                        
+                                    {
+                                    this.viewPositionEventHandler!.removeListener(this);
+    
+
+                                    }
+                                
+}
+
+
+}
+

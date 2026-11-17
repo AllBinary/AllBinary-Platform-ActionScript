@@ -1,0 +1,101 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2002 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *    Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { GameInfo } from '../../../../org/allbinary/game/GameInfo.js';
+//not GWT import const GameInfo
+
+import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { BasicGeographicMap } from '../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { GeographicMapCellType } from '../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellType.js';
+//not GWT import const GeographicMapCellType
+
+import { GeographicMapCompositeInterface } from '../../../../org/allbinary/media/graphics/geography/map/GeographicMapCompositeInterface.js';
+//not GWT import const GeographicMapCompositeInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AllBinaryGameLayerManager } from './AllBinaryGameLayerManager.js';
+//sameFolderImports - not GWT import - same folder const AllBinaryGameLayerManager
+
+export class FakeLayerManager extends AllBinaryGameLayerManager implements GeographicMapCompositeInterface {
+        
+
+    private geographicMapInterfaceArray: BasicGeographicMap[] = BasicGeographicMap.NULL_BASIC_GEOGRAPHIC_MAP_ARRAY;
+
+    private geographicMapCellTypeArray: GeographicMapCellType[] = GeographicMapCellType.NULL_GEOGRAPHIC_MAP_CELL_TYPE_ARRAY;
+
+public constructor (gameInfo: GameInfo){
+            super(BasicColorFactory.getInstance()!.BLACK, BasicColorFactory.getInstance()!.WHITE, gameInfo);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public getGeographicMapInterface(): BasicGeographicMap[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.geographicMapInterfaceArray;
+    
+}
+
+
+    public setGeographicMapInterface(geographicMapInterfaceArray: BasicGeographicMap[]){
+this.geographicMapInterfaceArray= geographicMapInterfaceArray;
+    
+this.geographicMapCellTypeArray= new Array(this.geographicMapInterfaceArray!.length);
+    
+}
+
+
+    public geographicMapCellTypeArray(): GeographicMapCellType[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.geographicMapCellTypeArray;
+    
+}
+
+
+}
+

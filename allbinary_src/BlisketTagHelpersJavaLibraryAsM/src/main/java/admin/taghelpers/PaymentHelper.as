@@ -1,0 +1,525 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../java/lang/Exception.js';
+        
+            import { Integer } from '../../java/lang/Integer.js';
+        
+import { HashMap } from '../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { HttpServletRequest } from '../../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { PageContext } from '../../javax/servlet/jsp/PageContext.js';
+//not GWT import const PageContext
+
+import { Portion } from '../../org/allbinary/business/installer/Portion.js';
+//not GWT import const Portion
+
+import { PaymentFactory } from '../../org/allbinary/business/user/commerce/money/payment/PaymentFactory.js';
+//not GWT import const PaymentFactory
+
+import { PaymentInterface } from '../../org/allbinary/business/user/commerce/money/payment/PaymentInterface.js';
+//not GWT import const PaymentInterface
+
+import { PaymentEntity } from '../../org/allbinary/data/tables/user/commerce/money/payment/PaymentEntity.js';
+//not GWT import const PaymentEntity
+
+import { PaymentEntityFactory } from '../../org/allbinary/data/tables/user/commerce/money/payment/PaymentEntityFactory.js';
+//not GWT import const PaymentEntityFactory
+
+import { WeblisketSession } from '../../org/allbinary/logic/communication/http/request/session/WeblisketSession.js';
+//not GWT import const WeblisketSession
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AbSqlTableUtil } from '../../org/allbinary/logic/communication/sql/AbSqlTableUtil.js';
+//not GWT import const AbSqlTableUtil
+
+import { LicensingException } from '../../org/allbinary/logic/system/security/licensing/LicensingException.js';
+//not GWT import const LicensingException
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { Table } from './Table.js';
+//sameFolderImports - not GWT import - same folder const Table
+
+export class PaymentHelper extends Table {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private weblisketSession: WeblisketSession;
+
+    private request: HttpServletRequest;
+
+    private value: string;
+
+    private readonly portion: Portion;
+
+public constructor (hashMap: HashMap<any, any>, pageContext: PageContext){
+
+            super();
+        this.request= pageContext!.getRequest() as HttpServletRequest;
+    
+this.weblisketSession= new WeblisketSession(hashMap, pageContext);
+    
+this.portion= new Portion(hashMap);
+    
+this.getFormData();
+    
+}
+
+
+    getFormData(){
+this.value= this.request.getParameter("VALUE");
+    
+}
+
+
+    public insert(): string{
+
+ try { 
+    let success: string = "Successfully Added Payment";;
+    
+
+    let paymentEntity: PaymentEntity = PaymentEntityFactory.getInstance()!.getPaymentEntityInstance()!;;
+    
+
+    let paymentInterface: PaymentInterface = PaymentFactory.getInstance(this.request)!;;
+    
+paymentEntity!.add(this.weblisketSession!.getUserName(), paymentInterface);
+    
+paymentEntity!.setDefault(this.weblisketSession!.getUserName(), new Integer(paymentEntity!.getLastId(this.weblisketSession!.getUserName())));
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "addPayment()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to add Payment";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "addPayment()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public select(): string{
+
+ try { 
+    let success: string = "Successfully Selected Payment";;
+    
+
+    let paymentEntity: PaymentEntity = PaymentEntityFactory.getInstance()!.getPaymentEntityInstance()!;;
+    
+paymentEntity!.setDefault(this.weblisketSession!.getUserName(), new Integer(this.value));
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "selectPayment()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to select Payment";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "selectPayment()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public delete(): string{
+
+ try { 
+    let success: string = "Successfully Removed Payment";;
+    
+
+    let paymentEntity: PaymentEntity = PaymentEntityFactory.getInstance()!.getPaymentEntityInstance()!;;
+    
+paymentEntity!.remove(this.weblisketSession!.getUserName(), new Integer(this.value));
+    
+
+    let paymentInterface: PaymentInterface = paymentEntity!.getDefault(this.weblisketSession!.getUserName())!;;
+    
+
+                        if(paymentInterface == 
+                                    null
+                                )
+                        
+                                    {
+                                    paymentEntity!.setDefault(this.weblisketSession!.getUserName(), new Integer(paymentEntity!.getLastId(this.weblisketSession!.getUserName())));
+    
+
+                                    }
+                                
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "removePayment()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to remove Payment";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "removePayment()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public drop(): string{
+
+ try { 
+    let paymentEntity: PaymentEntity = PaymentEntityFactory.getInstance()!.getPaymentEntityInstance()!;;
+    
+
+    let success: string = paymentEntity!.dropTable()!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, this.commonStrings!.DROP);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to drop Admin table";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.DROP, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public create(): string{
+
+ try { 
+    let paymentEntity: PaymentEntity = PaymentEntityFactory.getInstance()!.getPaymentEntityInstance()!;;
+    
+
+    let success: string = paymentEntity!.createTable()!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "create()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to create user table";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "create()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public restore(): string{
+
+ try { 
+    let success: string = "Restore Successful";;
+    
+
+    let result: string = AbSqlTableUtil.getInstance()!.restoreTable(PaymentEntityFactory.getInstance()!.getPaymentEntityInstance(), this.portion)!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "restore()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to restore backup";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "restore()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public backup(): string{
+
+ try { 
+    let success: string = "Backup Successful";;
+    
+
+    let result: string = AbSqlTableUtil.getInstance()!.backupTable(PaymentEntityFactory.getInstance()!.getPaymentEntityInstance())!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "backup()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to make backup";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "backup()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(LicensingException.constructor)
+            
+    public update(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return commonStrings!.NOT_IMPLEMENTED;
+    
+}
+
+
+}
+

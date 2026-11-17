@@ -1,0 +1,353 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { DomData } from '../../../../../../../org/allbinary/data/tree/dom/DomData.js';
+//not GWT import const DomData
+
+import { DomNodeHelper } from '../../../../../../../org/allbinary/data/tree/dom/DomNodeHelper.js';
+//not GWT import const DomNodeHelper
+
+import { DomNodeInterface } from '../../../../../../../org/allbinary/data/tree/dom/DomNodeInterface.js';
+//not GWT import const DomNodeInterface
+
+import { DomSearchHelper } from '../../../../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
+//not GWT import const DomSearchHelper
+
+import { ModDomHelper } from '../../../../../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { CssPropertiesValidationFactory } from '../../../../../../../org/allbinary/logic/visual/dhtml/style/css/property/CssPropertiesValidationFactory.js';
+//not GWT import const CssPropertiesValidationFactory
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { Document } from '../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+import { NodeList } from '../../../../../../../org/w3c/dom/NodeList.js';
+//not GWT import const NodeList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { CssElementData } from './CssElementData.js';
+//sameFolderImports - not GWT import - same folder const CssElementData
+import { CssElementsValidationFactory } from './CssElementsValidationFactory.js';
+//sameFolderImports - not GWT import - same folder const CssElementsValidationFactory
+
+export class CssElementView
+            extends Object
+         implements DomNodeInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly TITLE: string = "title";
+
+    private readonly DESCRIPTION: string = "description";
+
+    private value: string;
+
+    private title: string;
+
+    private description: string;
+
+    cssElementVector: BasicArrayList;
+
+    cssPropertyVector: BasicArrayList;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 0) {
+            
+            this.constructor$0();
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        
+    }
+    
+    private constructor$0(): void {
+        this.cssPropertyVector= new BasicArrayListD();
+    
+
+    let stringUtil: StringUtil = StringUtil.getInstance()!;;
+    
+this.title= stringUtil!.EMPTY_STRING;
+    
+this.description= stringUtil!.EMPTY_STRING;
+    
+this.value= stringUtil!.EMPTY_STRING;
+    
+
+    }
+    
+    private constructor$1(node: Node): void {
+        
+ try { 
+    let valueNode: Node = DomSearchHelper.getNode(DomData.VALUE, node.getChildNodes())!;;
+    
+this.value= DomNodeHelper.getTextNodeValue(valueNode);
+    
+
+    let titleValueNode: Node = DomSearchHelper.getNodeNoThrow(this.TITLE, node.getChildNodes())!;;
+    
+
+                        if(titleValueNode != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.title= DomNodeHelper.getTextNodeValue(titleValueNode);
+    
+
+                                    }
+                                
+                        else {
+                            
+    let stringUtil: StringUtil = StringUtil.getInstance()!;;
+    
+this.title= stringUtil!.EMPTY_STRING;
+    
+
+                        }
+                            
+
+    let descriptionValueNode: Node = DomSearchHelper.getNodeNoThrow(this.DESCRIPTION, node.getChildNodes())!;;
+    
+
+                        if(descriptionValueNode != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.description= DomNodeHelper.getTextNodeValue(descriptionValueNode);
+    
+
+                                    }
+                                
+                        else {
+                            this.description= StringUtil.getInstance()!.EMPTY_STRING;
+    
+
+                        }
+                            
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF(new StringMaker().append("Value: ")!.append(this.value)!.append("\nTitle: ")!.append(this.title)!.append("\nDescription: ")!.append(this.description)!.toString(), this, this.commonStrings!.CONSTRUCTOR);
+    
+
+                                    }
+                                
+
+    let cssElementStyleNodeVector: BasicArrayList = DomSearchHelper.getAllNodes(CssElementData.getInstance()!.NAME, node.getChildNodes())!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("Child Css Elements: " +cssElementStyleNodeVector!.size(), this, "CssElementView()");
+    
+
+                                    }
+                                
+this.cssElementVector= CssElementsValidationFactory.getInstance(cssElementStyleNodeVector);
+    
+
+    let nodeList: NodeList = node.getChildNodes()!;;
+    
+this.cssPropertyVector= CssPropertiesValidationFactory.getInstance(nodeList);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEWERROR))
+                        
+                                    {
+                                    this.logUtil!.put(new StringMaker().append("Value: ")!.append(this.value)!.append("\nTitle: ")!.append(this.title)!.append("\nDescription: ")!.append(this.description)!.toString(), this, this.commonStrings!.CONSTRUCTOR, e);
+    
+
+                                    }
+                                
+
+
+
+                            throw new Exception("CssElementView");
+                    
+
+ }
+   }
+ 
+
+    }
+    
+    public getValue(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.value;
+    
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put(DomData.VALUE, this.value);
+    
+hashMap!.put(this.TITLE, this.title);
+    
+hashMap!.put(this.DESCRIPTION, this.description);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let hashMap: HashMap<any, any> = this.toHashMap()!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("CssView HashMap: " +hashMap!.toString(), this, "toXmlNode");
+    
+
+                                    }
+                                
+
+    let node: Node = ModDomHelper.createNodeWithValueNodes(document, CssElementData.getInstance()!.NAME, hashMap)!;;
+    
+
+    let size: number = this.cssPropertyVector!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let cssPropertyDomNodeInterface: DomNodeInterface = this.cssPropertyVector!.get(index) as DomNodeInterface;;
+    
+node.appendChild(cssPropertyDomNodeInterface!.toXmlNode(document));
+    
+}
+
+
+    let size2: number = this.cssElementVector!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size2; index++)
+        {
+
+    let cssElementDomNodeInterface: DomNodeInterface = this.cssElementVector!.get(index) as DomNodeInterface;;
+    
+node.appendChild(cssElementDomNodeInterface!.toXmlNode(document));
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+}
+

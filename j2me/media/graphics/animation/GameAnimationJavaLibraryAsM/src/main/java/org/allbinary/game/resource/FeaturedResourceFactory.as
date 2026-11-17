@@ -1,0 +1,231 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Features } from '../../../../org/allbinary/game/configuration/feature/Features.js';
+//not GWT import const Features
+
+import { GameFeatureControlledInterface } from '../../../../org/allbinary/game/configuration/feature/GameFeatureControlledInterface.js';
+//not GWT import const GameFeatureControlledInterface
+
+import { GraphicsFeatureFactory } from '../../../../org/allbinary/game/configuration/feature/GraphicsFeatureFactory.js';
+//not GWT import const GraphicsFeatureFactory
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ResourceLoadingLevelFactory } from './ResourceLoadingLevelFactory.js';
+//sameFolderImports - not GWT import - same folder const ResourceLoadingLevelFactory
+
+export class FeaturedResourceFactory
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly list: BasicArrayList = new BasicArrayListD();
+
+public constructor (){
+
+            super();
+        }
+
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly ANIMATION_FEATURES: string = "Animation Features: Vector: ";
+
+    private readonly IMAGE_LABEL: string = " Image: ";
+
+    private readonly IMAGE_GRAPHICS_ARRAY: string = "Image Array: ";
+
+    private readonly IMAGE_GRAPHICS_ROTATION: string = "Image Rotate: ";
+
+    private readonly SPRITE_QUARTER: string = " Sprite Quarter: ";
+
+    private readonly SPRITE_FULL: string = " Sprite Full: ";
+
+    private readonly IS_LOADING_LEVEL_LABEL: string = " isLoadingLevel ";
+
+    private readonly IS_FEATURE: string = " isFeature: ";
+
+    private readonly GAME_FEATURE_CONTROLLED: string = "GameFeatureControlledInterface: ";
+
+                //@Throws(Exception.constructor)
+            
+    public init(level: number){
+
+    let size: number = this.list.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let featureInterface: GameFeatureControlledInterface = this.list.objectArray[index]! as GameFeatureControlledInterface;;
+    
+
+    let isLoadingLevel: boolean = featureInterface!.isLoadingLevel(level)!;;
+    
+
+    let isFeature: boolean = featureInterface!.isFeature()!;;
+    
+this.logUtil!.putF(new StringMaker().append(this.GAME_FEATURE_CONTROLLED)!.append(featureInterface!.toString())!.append(this.IS_LOADING_LEVEL_LABEL)!.append(ResourceLoadingLevelFactory.getInstance()!.getLevelString(level))!.append(CommonSeps.getInstance()!.COLON_SEP)!.appendboolean(isLoadingLevel)!.append(this.IS_FEATURE)!.appendboolean(isFeature)!.toString(), this, this.commonStrings!.INIT);
+    
+
+                        if(isLoadingLevel && isFeature)
+                        
+                                    {
+                                    featureInterface!.init(level);
+    
+
+                                    }
+                                
+}
+
+
+    let features: Features = Features.getInstance()!;;
+    
+
+    let graphicsFeatureFactory: GraphicsFeatureFactory = GraphicsFeatureFactory.getInstance()!;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.ANIMATION_FEATURES);
+    
+stringBuffer!.appendboolean(features.isFeature(graphicsFeatureFactory!.VECTOR_GRAPHICS));
+    
+stringBuffer!.append(this.IMAGE_LABEL);
+    
+stringBuffer!.appendboolean(features.isFeature(graphicsFeatureFactory!.IMAGE_GRAPHICS));
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.commonStrings!.INIT);
+    
+
+                        if(features.isFeature(graphicsFeatureFactory!.IMAGE_GRAPHICS))
+                        
+                                    {
+                                    stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(this.IMAGE_GRAPHICS_ARRAY);
+    
+stringBuffer!.appendboolean(features.isFeature(graphicsFeatureFactory!.IMAGE_TO_ARRAY_GRAPHICS));
+    
+stringBuffer!.append(this.IMAGE_GRAPHICS_ROTATION);
+    
+stringBuffer!.appendboolean(features.isFeature(graphicsFeatureFactory!.IMAGE_TO_ARRAY_GRAPHICS));
+    
+stringBuffer!.append(this.SPRITE_QUARTER);
+    
+stringBuffer!.appendboolean(features.isFeature(graphicsFeatureFactory!.SPRITE_QUARTER_ROTATION_GRAPHICS));
+    
+stringBuffer!.append(this.SPRITE_FULL);
+    
+stringBuffer!.appendboolean(features.isFeature(graphicsFeatureFactory!.SPRITE_FULL_GRAPHICS));
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.commonStrings!.INIT);
+    
+
+                                    }
+                                
+}
+
+
+    public clear(){
+this.list.clear();
+    
+}
+
+
+    public add(featureInterface: GameFeatureControlledInterface){
+this.logUtil!.putF(new StringMaker().append(CommonLabels.getInstance()!.START_LABEL)!.append(StringUtil.getInstance()!.toString(featureInterface))!.toString(), this, this.commonStrings!.ADD);
+    
+this.list.add(featureInterface);
+    
+}
+
+
+    public getList(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.list;
+    
+}
+
+
+}
+

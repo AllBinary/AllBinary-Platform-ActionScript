@@ -1,0 +1,149 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+//not plain js import { AbPathData } 
+const AbPathData = globalThis.org.allbinary.logic.io.path.AbPathData;
+type AbPathData<T = any, U = any> = typeof AbPathData extends abstract new (...args: any[]) => infer Instance ? Instance : typeof AbPathData;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class FREEBLISKET_PATH_GLOBALS
+            extends Object
+         {
+        
+
+    private static readonly instance: FREEBLISKET_PATH_GLOBALS = new FREEBLISKET_PATH_GLOBALS();
+
+    public static getInstance(): FREEBLISKET_PATH_GLOBALS{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return FREEBLISKET_PATH_GLOBALS.instance;
+    
+}
+
+
+    public readonly INSTALLPATH: string;
+
+    public readonly XSLPATH: string;
+
+    public readonly TEMPLATEPATH: string = "template" +AbPathData.getInstance()!.SEPARATOR;
+
+    public readonly STYLEPATH: string = this.TEMPLATEPATH +"style" +AbPathData.getInstance()!.SEPARATOR;
+
+    public readonly THEMEPATH: string = this.STYLEPATH +"theme" +AbPathData.getInstance()!.SEPARATOR;
+
+    public readonly DBINITPATH: string = PATH_GLOBALS.getInstance()!.INIT_PATH +"db" +AbPathData.getInstance()!.SEPARATOR;
+
+    public readonly LINEDATAPATH: string = PATH_GLOBALS.getInstance()!.INIT_PATH +"lineData" +AbPathData.getInstance()!.SEPARATOR;
+
+    public readonly CONFIGURATIONPATH: string;
+
+    public readonly USERCONFIGURATIONPATH: string;
+
+    public readonly CONTEXTCONFIGURATIONPATH: string;
+
+    public readonly LICENSEERRORPAGE: string = "LicensingError.jsp";
+
+    public readonly ERRORPAGE: string = "Error.jsp";
+
+private constructor (){
+
+            super();
+        
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("install");
+    
+stringBuffer!.append(AbPathData.getInstance()!.SEPARATOR);
+    
+this.INSTALLPATH= stringBuffer!.toString();
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(PATH_GLOBALS.getInstance()!.INIT_PATH);
+    
+stringBuffer!.append("views");
+    
+stringBuffer!.append(AbPathData.getInstance()!.SEPARATOR);
+    
+this.XSLPATH= stringBuffer!.toString();
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(this.XSLPATH);
+    
+stringBuffer!.append("configuration");
+    
+stringBuffer!.append(AbPathData.getInstance()!.SEPARATOR);
+    
+this.CONFIGURATIONPATH= stringBuffer!.toString();
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(this.CONFIGURATIONPATH);
+    
+stringBuffer!.append("user");
+    
+stringBuffer!.append(AbPathData.getInstance()!.SEPARATOR);
+    
+this.USERCONFIGURATIONPATH= stringBuffer!.toString();
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(this.CONFIGURATIONPATH);
+    
+stringBuffer!.append("context");
+    
+stringBuffer!.append(AbPathData.getInstance()!.SEPARATOR);
+    
+this.CONTEXTCONFIGURATIONPATH= stringBuffer!.toString();
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+}
+
+
+}
+

@@ -1,0 +1,323 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2002 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *    Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../java/lang/Integer.js';
+        
+import { ABCustomItem } from '../../../../../org/allbinary/graphics/form/item/ABCustomItem.js';
+//not GWT import const ABCustomItem
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { AdvancedPlayerOwnedRTSLayers } from '../../../../../org/allbinary/game/layer/AdvancedPlayerOwnedRTSLayers.js';
+//not GWT import const AdvancedPlayerOwnedRTSLayers
+
+import { AdvancedRTSGameLayer } from '../../../../../org/allbinary/game/layer/AdvancedRTSGameLayer.js';
+//not GWT import const AdvancedRTSGameLayer
+
+import { AdvancedRTSPlayerLayerInterface } from '../../../../../org/allbinary/game/layer/AdvancedRTSPlayerLayerInterface.js';
+//not GWT import const AdvancedRTSPlayerLayerInterface
+
+import { RTSGameStrings } from '../../../../../org/allbinary/game/layer/RTSGameStrings.js';
+//not GWT import const RTSGameStrings
+
+import { RTSLayer } from '../../../../../org/allbinary/game/layer/RTSLayer.js';
+//not GWT import const RTSLayer
+
+import { RTSPlayerLayerInterface } from '../../../../../org/allbinary/game/layer/RTSPlayerLayerInterface.js';
+//not GWT import const RTSPlayerLayerInterface
+
+import { Capital } from '../../../../../org/allbinary/game/layer/capital/Capital.js';
+//not GWT import const Capital
+
+import { UnitLayer } from '../../../../../org/allbinary/game/layer/unit/UnitLayer.js';
+//not GWT import const UnitLayer
+
+import { WorkWaypoint } from '../../../../../org/allbinary/game/layer/waypoint/WorkWaypoint.js';
+//not GWT import const WorkWaypoint
+
+import { BuildingSound } from '../../../../../org/allbinary/media/audio/BuildingSound.js';
+//not GWT import const BuildingSound
+
+import { BooleanFactory } from '../../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
+//not GWT import const BooleanFactory
+
+import { Group } from '../../../../../org/allbinary/game/identification/Group.js';
+//not GWT import const Group
+
+import { AllBinaryGameLayerManager } from '../../../../../org/allbinary/game/layer/AllBinaryGameLayerManager.js';
+//not GWT import const AllBinaryGameLayerManager
+
+import { GeographicMapCellPositionAreaBase } from '../../../../../org/allbinary/game/layer/GeographicMapCellPositionAreaBase.js';
+//not GWT import const GeographicMapCellPositionAreaBase
+
+import { GameNotificationEvent } from '../../../../../org/allbinary/game/layer/hud/event/GameNotificationEvent.js';
+//not GWT import const GameNotificationEvent
+
+import { GameNotificationEventHandler } from '../../../../../org/allbinary/game/layer/hud/event/GameNotificationEventHandler.js';
+//not GWT import const GameNotificationEventHandler
+
+import { CollidableDestroyableDamageableLayer } from '../../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.js';
+//not GWT import const CollidableDestroyableDamageableLayer
+
+import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { BasicColorFactory } from '../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
+//not GWT import const AllBinaryLayerManager
+
+import { Layer } from '../../../../../org/allbinary/layer/Layer.js';
+//not GWT import const Layer
+
+import { SmallIntegerSingletonFactory } from '../../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
+//not GWT import const SmallIntegerSingletonFactory
+
+import { ErrorSound } from '../../../../../org/allbinary/media/audio/ErrorSound.js';
+//not GWT import const ErrorSound
+
+import { BasicGeographicMap } from '../../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { GeographicMapCellPosition } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+import { GeographicMapCompositeInterface } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCompositeInterface.js';
+//not GWT import const GeographicMapCompositeInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { RTSFormInput } from './RTSFormInput.js';
+//sameFolderImports - not GWT import - same folder const RTSFormInput
+import { AssignWaypointsUtil } from './AssignWaypointsUtil.js';
+//sameFolderImports - not GWT import - same folder const AssignWaypointsUtil
+import { PlayersSingletonFactory } from './PlayersSingletonFactory.js';
+//sameFolderImports - not GWT import - same folder const PlayersSingletonFactory
+
+export class UnitRTSFormInput extends RTSFormInput {
+        
+
+    public static readonly DECAL_ID: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(23)!;
+
+    readonly noMoneyGameNotificationEvent: GameNotificationEvent;
+
+    readonly newUnitGameNotificationEvent: GameNotificationEvent;
+
+public constructor (groupInterface: Group[]){
+            super(groupInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+    let smallIntegerSingletonFactory: SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance()!;;
+    
+
+    let basicColorFactory: BasicColorFactory = BasicColorFactory.getInstance()!;;
+    
+this.noMoneyGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.NO_MONEY, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.WHITE, BooleanFactory.getInstance()!.FALSE);
+    
+this.newUnitGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.NEW_UNIT, smallIntegerSingletonFactory!.getAt(2), basicColorFactory!.WHITE, BooleanFactory.getInstance()!.FALSE);
+    
+this.getHashtable()!.put(WorkWaypoint.ID, smallIntegerSingletonFactory!.getAt(50));
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setAllBinaryGameLayerManager(allBinaryGameLayerManager: AllBinaryGameLayerManager){
+super.setAllBinaryGameLayerManager(allBinaryGameLayerManager);
+    
+
+    let geographicMapCompositeInterface: GeographicMapCompositeInterface = allBinaryGameLayerManager as GeographicMapCompositeInterface;;
+    
+
+    let geographicMapInterface: BasicGeographicMap = geographicMapCompositeInterface!.getGeographicMapInterface()[0]!;;
+    
+this.noMoneyGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.newUnitGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processGameSpecific(associatedRtsLayer: CollidableDestroyableDamageableLayer, rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, item: ABCustomItem, itemIndex: number){
+super.process(layerManager);
+    
+
+    let associatedRtsLayer2: RTSLayer = associatedRtsLayer as RTSLayer;;
+    
+
+    let geographicMapCellPositionArea: GeographicMapCellPositionAreaBase = associatedRtsLayer2!.geographicMapCellPositionAreaBase;;
+    
+
+    let geographicMapCellPosition: GeographicMapCellPosition = geographicMapCellPositionArea!.getNextSurroundingGeographicMapCellPosition()!;;
+    
+this.getHashtable()!.put(Layer.ID, associatedRtsLayer);
+    
+this.getHashtable()!.put(UnitRTSFormInput.DECAL_ID, (rtsPlayerLayerInterface as AdvancedRTSPlayerLayerInterface).getDecalBasicColor());
+    
+
+                        if(this.newUnconstructedRTSLayerInterfaceArray[itemIndex] == CollidableDestroyableDamageableLayer.getNullInstance())
+                        
+                                    {
+                                    this.newUnconstructedRTSLayerInterfaceArray[itemIndex]= this.getInstance(layerManager, item, geographicMapCellPosition);
+    
+
+                                    }
+                                
+                        else {
+                            
+    let cellPoint: GPoint = geographicMapCellPosition!.getPoint()!;;
+    
+
+    let rtsLayer: RTSLayer = this.newUnconstructedRTSLayerInterfaceArray[itemIndex]! as RTSLayer;;
+    
+rtsLayer!.setPosition(cellPoint!.getX(), cellPoint!.getY(), rtsLayer!.getZP());
+    
+
+    let geographicMapCompositeInterface: GeographicMapCompositeInterface = rtsLayer!.allBinaryGameLayerManagerP as GeographicMapCompositeInterface;;
+    
+
+    let geographicMapInterface: BasicGeographicMap = geographicMapCompositeInterface!.getGeographicMapInterface()[0]!;;
+    
+rtsLayer!.geographicMapCellPositionAreaBase!.update(geographicMapInterface);
+    
+
+                        }
+                            
+
+    let cellPoint: GPoint = geographicMapCellPosition!.getMidPoint()!;;
+    
+
+    let rtsLayer: RTSLayer = this.newUnconstructedRTSLayerInterfaceArray[itemIndex]! as RTSLayer;;
+    
+rtsLayer!.setPosition(cellPoint!.getX() -rtsLayer!.getHalfWidth(), cellPoint!.getY() -rtsLayer!.getHalfHeight(), rtsLayer!.getZP());
+    
+this.attemptBuild(associatedRtsLayer2, rtsPlayerLayerInterface, layerManager, rtsLayer as RTSLayer, itemIndex);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    attemptBuild(associatedRtsLayer: RTSLayer, rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, layerInterface: RTSLayer, itemIndex: number){
+
+    let cost: number = layerInterface!.getCost()!;;
+    
+
+    let capital: Capital = rtsPlayerLayerInterface!.getCapital()!;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Trying to Build: ");
+    
+stringBuffer!.append(layerInterface!.getName());
+    
+stringBuffer!.append(" for: $");
+    
+stringBuffer!.appendint(cost);
+    
+stringBuffer!.append(" with ");
+    
+stringBuffer!.appendint(capital.getTotalMoney());
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, "attemptBuild");
+    
+
+                        if(cost <= capital.getTotalMoney())
+                        
+                                    {
+                                    layerInterface!.construct(rtsPlayerLayerInterface);
+    
+this.newUnconstructedRTSLayerInterfaceArray[itemIndex]= CollidableDestroyableDamageableLayer.getNullInstance();
+    
+rtsPlayerLayerInterface!.add(BuildingSound.getInstance());
+    
+capital.removeMoney(cost);
+    
+AssignWaypointsUtil.getInstance()!.set(layerInterface as UnitLayer, associatedRtsLayer as AdvancedRTSGameLayer);
+    
+layerManager!.appendAt(layerInterface, PlayersSingletonFactory.total);
+    
+
+    let advancedRTSPlayerLayerInterface: AdvancedRTSPlayerLayerInterface = rtsPlayerLayerInterface as AdvancedRTSPlayerLayerInterface;;
+    
+
+    let advancedPlayerOwnedRTSLayers: AdvancedPlayerOwnedRTSLayers = advancedRTSPlayerLayerInterface!.getAdvancedPlayerOwnedRTSLayers()!;;
+    
+advancedPlayerOwnedRTSLayers!.addUnit(layerInterface);
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.newUnitGameNotificationEvent);
+    
+
+                                    }
+                                
+
+                                    }
+                                
+                        else {
+                            rtsPlayerLayerInterface!.add(ErrorSound.getInstance());
+    
+
+                        if(!rtsPlayerLayerInterface!.implmentsArtificialIntelligenceCompositeInterface())
+                        
+                                    {
+                                    GameNotificationEventHandler.getInstance()!.fireEvent(this.noMoneyGameNotificationEvent);
+    
+
+                                    }
+                                
+
+                        }
+                            
+}
+
+
+}
+

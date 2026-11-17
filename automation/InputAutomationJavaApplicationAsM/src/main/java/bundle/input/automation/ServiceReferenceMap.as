@@ -1,0 +1,198 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+import { Collection } from '../../../java/util/Collection.js';
+//not GWT import const Collection
+
+import { Map } from '../../../java/util/Map.js';
+//not GWT import const Map
+
+import { Set } from '../../../java/util/Set.js';
+//not GWT import const Set
+
+import { ServiceReference } from '../../../org/osgi/framework/ServiceReference.js';
+//not GWT import const ServiceReference
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class ServiceReferenceMap
+            extends Object
+         implements Map {
+        
+
+    public static toString(map: Map): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+    private serviceReference: ServiceReference;
+
+public constructor (serviceReference: ServiceReference){
+
+            super();
+        this.serviceReference= serviceReference;
+    
+}
+
+
+    public size(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return  -1;
+    
+}
+
+
+    public isEmpty(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public containsKey(key: any): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public containsValue(value: any): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public get(key: any): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.serviceReference!.getProperty(key as string);;
+    
+}
+
+
+    public put(key: any, value: any): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public remove(key: any): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public putAll(m: Map){
+}
+
+
+    public clear(){
+}
+
+
+    public keySet(): Set{
+
+    let keyStringArray: string[] = this.serviceReference!.getPropertyKeys()!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public values(): Collection<any>{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public entrySet(): Set{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+}
+

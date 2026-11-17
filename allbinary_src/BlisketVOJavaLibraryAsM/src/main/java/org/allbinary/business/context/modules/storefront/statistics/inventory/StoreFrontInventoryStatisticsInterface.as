@@ -1,0 +1,56 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Long } from '../../../../../../../../java/lang/Long.js';
+        
+import { Money } from '../../../../../../../../org/allbinary/business/user/commerce/money/Money.js';
+//not GWT import const Money
+
+import { TableMappingInterface } from '../../../../../../../../org/allbinary/data/tables/TableMappingInterface.js';
+//not GWT import const TableMappingInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export interface StoreFrontInventoryStatisticsInterface extends TableMappingInterface {
+        
+
+    getNumber(): Long;
+
+    getTotal(): Money;
+
+}
+

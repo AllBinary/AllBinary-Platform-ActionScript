@@ -1,0 +1,112 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+import { GameInfo } from '../../../../../org/allbinary/game/GameInfo.js';
+//not GWT import const GameInfo
+
+import { MyCanvas } from '../../../../../org/allbinary/graphics/displayable/MyCanvas.js';
+//not GWT import const MyCanvas
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class EndGameInfo
+            extends Object
+         {
+        
+
+    private readonly NORMAL_GAME_OVER: string = "Game Over";
+
+    readonly NORMAL_GAME_OVER_WIN: string = "You Won";
+
+    private gameOverStr: string = StringUtil.getInstance()!.EMPTY_STRING;
+
+    private winStr: string = this.gameOverStr;
+
+public constructor (){
+
+            super();
+        }
+
+
+    public update(gameInfo: GameInfo, myCanvas: MyCanvas){
+this.setGameOverStr(this.NORMAL_GAME_OVER);
+    
+this.setWinStr(this.NORMAL_GAME_OVER_WIN);
+    
+}
+
+
+    public getGameOverStr(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.gameOverStr;
+    
+}
+
+
+    public setGameOverStr(gameOverStr: string){
+this.gameOverStr= gameOverStr;
+    
+}
+
+
+    public getWinStr(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.winStr;
+    
+}
+
+
+    public setWinStr(winStr: string){
+this.winStr= winStr;
+    
+}
+
+
+}
+

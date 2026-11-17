@@ -1,0 +1,84 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            import { RuntimeException } from '../../../../../../java/lang/RuntimeException.js';
+        
+import { BasicGeographicMap } from '../../../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { GeographicMapCellPosition } from '../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { PathFindingNodeCostInfoFactoryBaseInterface } from './PathFindingNodeCostInfoFactoryBaseInterface.js';
+//sameFolderImports - not GWT import - same folder const PathFindingNodeCostInfoFactoryBaseInterface
+
+export class PathFindingNodeCostInfoFactoryBase
+            extends Object
+         implements PathFindingNodeCostInfoFactoryBaseInterface {
+        
+
+    public static readonly NULL_PATH_FINDING_NODE_COST_INFO_FACTORY_BASE: PathFindingNodeCostInfoFactoryBase = new PathFindingNodeCostInfoFactoryBase();
+
+                //@Throws(Exception.constructor)
+            
+    public create(geographicMapInterface: BasicGeographicMap, comingFromGeographicMapCellPosition: GeographicMapCellPosition, geographicMapCellPosition: GeographicMapCellPosition, costFromStart: number, costToEnd: number){
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getTotalCost(geographicMapInterface: BasicGeographicMap, comingFromGeographicMapCellPosition: GeographicMapCellPosition, geographicMapCellPosition: GeographicMapCellPosition): number{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+}
+

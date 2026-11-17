@@ -1,0 +1,192 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { ABTextFieldItem } from '../../../../../../org/allbinary/graphics/form/item/ABTextFieldItem.js';
+//not GWT import const ABTextFieldItem
+
+import { ValidatorBase } from '../../../../../../org/allbinary/logic/control/validate/ValidatorBase.js';
+//not GWT import const ValidatorBase
+
+import { BooleanFactory } from '../../../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
+//not GWT import const BooleanFactory
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class TextFieldItemValidator extends ValidatorBase {
+        
+
+    private readonly textFieldItem: ABTextFieldItem;
+
+    private min: number;
+
+    private max: number;
+
+    private allowOnEmpty: boolean;
+
+public constructor (textFieldItem: ABTextFieldItem, min: number, max: number, allowOnEmpty: boolean){
+
+            super();
+        this.textFieldItem= textFieldItem;
+    
+this.min= min;
+    
+this.max= max;
+    
+this.allowOnEmpty= allowOnEmpty;
+    
+}
+
+
+    public isValid(): Boolean{
+
+    let booleanFactory: BooleanFactory = BooleanFactory.getInstance()!;;
+    
+
+    let result: Boolean = booleanFactory!.TRUE;;
+    
+
+    let string: string = this.textFieldItem!.getString()!;;
+    
+
+    let textLength: number = string.length!;;
+    
+
+                        if((textLength == 0 && this.allowOnEmpty) || textLength > this.min && textLength < this.max)
+                        
+                                    {
+                                    
+                                    }
+                                
+                        else {
+                            
+                        if(textLength < this.min)
+                        
+                                    {
+                                    result= booleanFactory!.FALSE;
+    
+
+                                    }
+                                
+                             else 
+                        if(textLength > this.max)
+                        
+                                    {
+                                    result= booleanFactory!.FALSE;
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+}
+
+
+    public toList(): BasicArrayList{
+
+    let list: BasicArrayList = new BasicArrayListD();;
+    
+
+    let string: string = this.textFieldItem!.getString()!;;
+    
+
+    let textLength: number = string.length!;;
+    
+
+                        if(textLength > this.min && textLength < this.max)
+                        
+                                    {
+                                    
+                                    }
+                                
+                        else {
+                            
+    let label: string = this.textFieldItem!.getLabel()!;;
+    
+
+    let name: string = label.substring(0, label.length -2)!;;
+    
+
+                        if(textLength < this.min)
+                        
+                                    {
+                                    list.add(new StringMaker().append(name)!.append(" is to short")!.toString());
+    
+
+                                    }
+                                
+                             else 
+                        if(textLength > this.max)
+                        
+                                    {
+                                    list.add(new StringMaker().append(name)!.append(" is to long")!.toString());
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return list;
+    
+}
+
+
+}
+

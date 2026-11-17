@@ -1,0 +1,184 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Image } from '../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { Features } from '../../../../org/allbinary/game/configuration/feature/Features.js';
+//not GWT import const Features
+
+import { OpenGLFeatureFactory } from '../../../../org/allbinary/graphics/opengles/OpenGLFeatureFactory.js';
+//not GWT import const OpenGLFeatureFactory
+
+import { OpenGLESImage } from '../../../../org/allbinary/image/opengles/OpenGLESImage.js';
+//not GWT import const OpenGLESImage
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+import { GC } from '../../../../org/eclipse/swt/graphics/GC.js';
+//not GWT import const GC
+
+import { SwtImmutableImage } from '../../../../org/microemu/device/swt/SwtImmutableImage.js';
+//not GWT import const SwtImmutableImage
+
+import { SwtMutableImage } from '../../../../org/microemu/device/swt/SwtMutableImage.js';
+//not GWT import const SwtMutableImage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ImageSwtRotationUtil } from './ImageSwtRotationUtil.js';
+//sameFolderImports - not GWT import - same folder const ImageSwtRotationUtil
+
+export class ImageRotationUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: ImageRotationUtil = new ImageRotationUtil();
+
+    public static getInstance(): ImageRotationUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ImageRotationUtil.instance;
+    
+}
+
+
+    private readonly imageSwtRotationUtil: ImageSwtRotationUtil = ImageSwtRotationUtil.getInstance()!;
+
+private constructor (){
+
+            super();
+        }
+
+
+    private readonly features: Features = Features.getInstance()!;
+
+    public rotateImage(originalImage: Image, image: Image, totalAngle: number){
+
+    let originalImage2: Image = originalImage;;
+    
+
+                        if(this.features.isFeature(OpenGLFeatureFactory.getInstance()!.OPENGL))
+                        
+                                    {
+                                    
+                        if(image.getType() >= OpenGLESImage.TYPE)
+                        
+                                    {
+                                    
+    let openGLESImage: OpenGLESImage = (image as OpenGLESImage);;
+    
+openGLESImage!.openGLESImageProperties!.angle= totalAngle;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+                        else {
+                            PreLogUtil.put("OpenGL but image is: " +image +" type: " +image.getType(), this, "rotateImage");
+    
+
+                        }
+                            
+
+                                    }
+                                
+
+    let originalSwtImage: org.eclipse.swt.graphics.Image = (originalImage2!.getImage() as org.eclipse.swt.graphics.Image);;
+    
+
+    let gc: GC = 
+                null
+            ;;
+    
+
+    let copySwtImage: org.eclipse.swt.graphics.Image = 
+                null
+            ;;
+    
+
+                        if(image.isMutable())
+                        
+                                    {
+                                    
+    let swtImage: SwtMutableImage = image as SwtMutableImage;;
+    
+copySwtImage= swtImage!.getImage() as org.eclipse.swt.graphics.Image;
+    
+gc= swtImage!.getGc();
+    
+this.imageSwtRotationUtil!.rotateImage(originalSwtImage, copySwtImage, gc, totalAngle);
+    
+
+                                    }
+                                
+                        else {
+                            PreLogUtil.put("No rotation for: " +image.toString(), this, "rotateImage");
+    
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public createRotatedImage(originalImage: Image, rotationInDegrees: number): Image{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return originalImage;
+    
+}
+
+
+}
+

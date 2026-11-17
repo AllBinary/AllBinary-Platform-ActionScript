@@ -1,0 +1,188 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../java/lang/Exception.js';
+        
+            import { Thread } from '../../../java/lang/Thread.js';
+        
+import { BundleActivator } from '../../../org/osgi/framework/BundleActivator.js';
+//not GWT import const BundleActivator
+
+import { BundleContext } from '../../../org/osgi/framework/BundleContext.js';
+//not GWT import const BundleContext
+
+import { InputAutomationConfigurationModuleChangeListener } from '../../../bundle/input/automation/module/configuration/InputAutomationConfigurationModuleChangeListener.js';
+//not GWT import const InputAutomationConfigurationModuleChangeListener
+
+import { InputAutomationRobotChangeListener } from '../../../bundle/input/automation/robot/InputAutomationRobotChangeListener.js';
+//not GWT import const InputAutomationRobotChangeListener
+
+import { InputAutomationJFrame } from '../../../org/allbinary/input/automation/InputAutomationJFrame.js';
+//not GWT import const InputAutomationJFrame
+
+import { InputAutomationModuleServiceConsumer } from '../../../org/allbinary/input/automation/module/osgi/InputAutomationModuleServiceConsumer.js';
+//not GWT import const InputAutomationModuleServiceConsumer
+
+import { InputAutomationNewBundleRunnable } from '../../../org/allbinary/input/automation/module/osgi/InputAutomationNewBundleRunnable.js';
+//not GWT import const InputAutomationNewBundleRunnable
+
+import { InputAutomationServiceFactory } from '../../../org/allbinary/input/automation/osgi/InputAutomationServiceFactory.js';
+//not GWT import const InputAutomationServiceFactory
+
+import { InputAutomationRobotServiceConsumer } from '../../../org/allbinary/input/automation/robot/osgi/InputAutomationRobotServiceConsumer.js';
+//not GWT import const InputAutomationRobotServiceConsumer
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { OSGIActivatorUtil } from '../../../org/allbinary/osgi/OSGIActivatorUtil.js';
+//not GWT import const OSGIActivatorUtil
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { InputAutomationBundleActivatorListenerInterface } from './InputAutomationBundleActivatorListenerInterface.js';
+//sameFolderImports - not GWT import - same folder const InputAutomationBundleActivatorListenerInterface
+
+export class InputAutomationBundleActivator
+            extends Object
+         implements BundleActivator, InputAutomationBundleActivatorListenerInterface {
+        
+
+    private static moduleManagementThread: Thread;
+
+    private static bundleContext: BundleContext;
+
+    public static getBundleContext(): BundleContext{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return InputAutomationBundleActivator.bundleContext;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+                //@Throws(Exception.constructor)
+            
+    public start(bundleContext: BundleContext){
+
+ try { this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.START);
+    
+this.bundleContext= bundleContext;
+    
+InputAutomationBundleActivator.moduleManagementThread= new Thread(new InputAutomationNewBundleRunnable(this));
+    
+InputAutomationBundleActivator.moduleManagementThread!.start();
+    
+InputAutomationJFrame.create(this);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.START, e);
+    
+
+
+
+                            throw e;
+                    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public registerAsService(){
+OSGIActivatorUtil.registerAsService(this.getBundleContext(), InputAutomationServiceFactory.getInstance(), InputAutomationConfigurationModuleChangeListener.toString()!);
+    
+OSGIActivatorUtil.registerAsService(this.getBundleContext(), InputAutomationServiceFactory.getInstance(), InputAutomationRobotChangeListener.toString()!);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public useServices(){
+new InputAutomationRobotServiceConsumer(this.getBundleContext()).process();
+    
+new InputAutomationModuleServiceConsumer(this.getBundleContext()).process();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public stop(context: BundleContext){
+this.logUtil!.putF(this.commonStrings!.START, this, "stop");
+    
+
+                        if(InputAutomationJFrame.getInstance() != 
+                                    null
+                                )
+                        
+                                    {
+                                    InputAutomationJFrame.destroy();
+    
+
+                                    }
+                                
+                        else {
+                            this.logUtil!.putF("Nothing to stop", this, "stop");
+    
+
+                        }
+                            
+}
+
+
+}
+

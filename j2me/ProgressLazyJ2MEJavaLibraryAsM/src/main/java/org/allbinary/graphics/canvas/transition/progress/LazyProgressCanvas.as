@@ -1,0 +1,130 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { Processor } from '../../../../../../org/allbinary/canvas/Processor.js';
+//not GWT import const Processor
+
+import { BasicColor } from '../../../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { NullPaintable } from '../../../../../../org/allbinary/graphics/paint/NullPaintable.js';
+//not GWT import const NullPaintable
+
+import { ImageCacheFactory } from '../../../../../../org/allbinary/image/ImageCacheFactory.js';
+//not GWT import const ImageCacheFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ProgressCanvas } from './ProgressCanvas.js';
+//sameFolderImports - not GWT import - same folder const ProgressCanvas
+
+export class LazyProgressCanvas extends ProgressCanvas {
+        
+
+public constructor (title: string, backgroundBasicColor: BasicColor, foregroundBasicColor: BasicColor){
+            super(title, backgroundBasicColor, foregroundBasicColor);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public start(){
+super.start();
+    
+this.hasPainted= false;
+    
+}
+
+
+    public end(){
+
+ try { this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.END_METHOD_NAME);
+    
+this.endActual();
+    
+this.paintable= this.GAUGE_PAINTABLE;
+    
+ImageCacheFactory.getInstance()!.runTask();
+    
+ImageCacheFactory.getInstance()!.progressEnded();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.putF(this.commonStrings!.EXCEPTION, this, this.commonStrings!.END_METHOD_NAME);
+    
+
+ }
+   }
+ 
+}
+
+
+    public inGame(){
+this.inGameProcessor= Processor.getInstance();
+    
+}
+
+
+    public endFromInitialLazyLoadingComplete(){
+super.endFromInitialLazyLoadingComplete();
+    
+this.paintable= NullPaintable.getInstance();
+    
+}
+
+
+    public endIfPaintedSinceStart(){
+
+                        if(this.paintable == this.GAUGE_PAINTABLE && this.hasPainted)
+                        
+                                    {
+                                    this.endFromInitialLazyLoadingComplete();
+    
+
+                                    }
+                                
+}
+
+
+}
+

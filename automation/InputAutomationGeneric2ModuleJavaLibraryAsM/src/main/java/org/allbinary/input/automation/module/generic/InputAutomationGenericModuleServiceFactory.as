@@ -1,0 +1,97 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { InputAutomationModuleFactoryInterface } from '../../../../../../org/allbinary/input/automation/module/InputAutomationModuleFactoryInterface.js';
+//not GWT import const InputAutomationModuleFactoryInterface
+
+import { InputAutomationModuleServiceFactory } from '../../../../../../org/allbinary/input/automation/module/osgi/InputAutomationModuleServiceFactory.js';
+//not GWT import const InputAutomationModuleServiceFactory
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GenericModuleFactory } from './GenericModuleFactory.js';
+//sameFolderImports - not GWT import - same folder const GenericModuleFactory
+
+export class InputAutomationGenericModuleServiceFactory extends InputAutomationModuleServiceFactory {
+        
+
+    private static inputAutomationGenericModuleServiceFactory: InputAutomationGenericModuleServiceFactory = new InputAutomationGenericModuleServiceFactory();
+
+    public static getInstance(): InputAutomationGenericModuleServiceFactory{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return InputAutomationGenericModuleServiceFactory.inputAutomationGenericModuleServiceFactory;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+public constructor (){
+
+            super();
+        
+ try { 
+    let inputAutomationModuleInterfaceArray: InputAutomationModuleFactoryInterface[] = new Array(1);;
+    
+inputAutomationModuleInterfaceArray[0]= new GenericModuleFactory();
+    
+this.setInputAutomationModuleInterfaceArray(inputAutomationModuleInterfaceArray);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.CONSTRUCTOR, e);
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

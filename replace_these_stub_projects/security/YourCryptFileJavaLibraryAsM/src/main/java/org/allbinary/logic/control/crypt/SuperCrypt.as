@@ -1,0 +1,62 @@
+
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class SuperCrypt
+            extends Object
+         {
+        
+
+    public static KEYMAX: number = 0;
+
+public constructor (key: number){
+
+            super();
+        }
+
+
+    public encrypt(value: string): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public decrypt(value: string): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+}
+

@@ -1,0 +1,584 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+            import { Long } from '../../../../../../../java/lang/Long.js';
+        
+//import { Date } from '../../../../../../../java/util/Date.js';
+//not GWT import const Date
+
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { Set } from '../../../../../../../java/util/Set.js';
+//not GWT import const Set
+
+import { StoreFrontData } from '../../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontData.js';
+//not GWT import const StoreFrontData
+
+import { EntryData } from '../../../../../../../org/allbinary/business/entry/EntryData.js';
+//not GWT import const EntryData
+
+import { UserData } from '../../../../../../../org/allbinary/business/user/UserData.js';
+//not GWT import const UserData
+
+import { BillingAddressData } from '../../../../../../../org/allbinary/business/user/address/BillingAddressData.js';
+//not GWT import const BillingAddressData
+
+import { ShippingAddressData } from '../../../../../../../org/allbinary/business/user/address/ShippingAddressData.js';
+//not GWT import const ShippingAddressData
+
+import { StreetAddress } from '../../../../../../../org/allbinary/business/user/address/StreetAddress.js';
+//not GWT import const StreetAddress
+
+import { BasketInterface } from '../../../../../../../org/allbinary/business/user/commerce/inventory/basket/BasketInterface.js';
+//not GWT import const BasketInterface
+
+import { Money } from '../../../../../../../org/allbinary/business/user/commerce/money/Money.js';
+//not GWT import const Money
+
+import { MoneyException } from '../../../../../../../org/allbinary/business/user/commerce/money/MoneyException.js';
+//not GWT import const MoneyException
+
+import { Payment } from '../../../../../../../org/allbinary/business/user/commerce/money/payment/Payment.js';
+//not GWT import const Payment
+
+import { PaymentData } from '../../../../../../../org/allbinary/business/user/commerce/money/payment/PaymentData.js';
+//not GWT import const PaymentData
+
+import { ShippingMethodData } from '../../../../../../../org/allbinary/business/user/commerce/shipping/ShippingMethodData.js';
+//not GWT import const ShippingMethodData
+
+import { ModDomHelper } from '../../../../../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { Document } from '../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { Order } from './Order.js';
+//sameFolderImports - not GWT import - same folder const Order
+import { OrderHistoryInterface } from './OrderHistoryInterface.js';
+//sameFolderImports - not GWT import - same folder const OrderHistoryInterface
+import { OrderData } from './OrderData.js';
+//sameFolderImports - not GWT import - same folder const OrderData
+import { OrderHistoryData } from './OrderHistoryData.js';
+//sameFolderImports - not GWT import - same folder const OrderHistoryData
+
+export class OrderHistory extends Order implements OrderHistoryInterface {
+        
+
+    private userName: string;
+
+    private shippingAddress: StreetAddress;
+
+    private billingAddress: StreetAddress;
+
+    private payment: Payment;
+
+    private shipDate: string;
+
+    private orderDate: string;
+
+    private transDate: string;
+
+    private cancelDate: string;
+
+    private status: string;
+
+    private subTotal: Money;
+
+    private shippingCost: Money;
+
+    private taxes: Money;
+
+    private total: Money;
+
+    public constructor(...args: any[]) {
+        if(args.length === 1) {
+            const basketInterface = args[0];
+            super(basketInterface);
+            this.constructor$0(basketInterface);
+            
+        }
+        else if(args.length === 2 && args[0] instanceof BasketInterface && args[1] instanceof OrderHistory) {
+            const basketInterface = args[0];
+            const orderHistory = args[1];
+            super(orderHistory!.getStoreName(), basketInterface, orderHistory!.getId(), orderHistory!.getShippingMethod(), orderHistory!.getSpecial(), orderHistory!.getPaymentMethod());
+            this.constructor$1(basketInterface, orderHistory);
+            
+        }
+        else if(args.length === 2) {
+            const basketInterface = args[0];
+            const orderHistoryHashMap = args[1];
+            super(orderHistoryHashMap!.get(StoreFrontData.getInstance()!.NAME) as string, basketInterface, orderHistoryHashMap!.get(OrderData.ID) as string, orderHistoryHashMap!.get(ShippingMethodData.NAME) as string, orderHistoryHashMap!.get(EntryData.getInstance()!.SPECIAL) as string, orderHistoryHashMap!.get(PaymentData.METHOD) as string);
+            this.constructor$2(basketInterface, orderHistoryHashMap);
+            
+        }
+        
+    }
+    
+    private constructor$0(basketInterface: BasketInterface): void {
+        
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+    }
+    
+    private constructor$1(basketInterface: BasketInterface, orderHistory: OrderHistory): void {
+        
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.userName= orderHistory!.getUserName();
+    
+this.shippingAddress= orderHistory!.getShippingAddress();
+    
+this.billingAddress= orderHistory!.getBillingAddress();
+    
+this.payment= orderHistory!.getPaymentInfo();
+    
+this.shipDate= orderHistory!.getShipDate();
+    
+this.orderDate= orderHistory!.getOrderDate();
+    
+this.transDate= orderHistory!.getTransDate();
+    
+this.cancelDate= orderHistory!.getCancelDate();
+    
+this.status= orderHistory!.getStatus();
+    
+this.subTotal= orderHistory!.getSubTotal();
+    
+this.shippingCost= orderHistory!.getShippingCost();
+    
+this.taxes= orderHistory!.getTaxes();
+    
+this.total= orderHistory!.getTotal();
+    
+super.setUserComments(orderHistory!.getUserComments() as string);
+    
+super.setUserCancelComments(orderHistory!.getUserCancelComments() as string);
+    
+super.setStoreComments(orderHistory!.getStoreComments() as string);
+    
+super.setStoreCancelComments(orderHistory!.getStoreCancelComments() as string);
+    
+
+    }
+    
+    private constructor$2(basketInterface: BasketInterface, orderHistoryHashMap: HashMap<any, any>): void {
+        
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.shippingAddress= new StreetAddress(orderHistoryHashMap!.get(ShippingAddressData.NAME) as string, orderHistoryHashMap!.get(ShippingAddressData.STREET) as string, orderHistoryHashMap!.get(ShippingAddressData.CITY) as string, orderHistoryHashMap!.get(ShippingAddressData.STATE) as string, orderHistoryHashMap!.get(ShippingAddressData.CODE) as string, orderHistoryHashMap!.get(ShippingAddressData.COUNTRY) as string);
+    
+this.billingAddress= new StreetAddress(orderHistoryHashMap!.get(BillingAddressData.NAME) as string, orderHistoryHashMap!.get(BillingAddressData.STREET) as string, orderHistoryHashMap!.get(BillingAddressData.CITY) as string, orderHistoryHashMap!.get(BillingAddressData.STATE) as string, orderHistoryHashMap!.get(BillingAddressData.CODE) as string, orderHistoryHashMap!.get(BillingAddressData.COUNTRY) as string);
+    
+this.payment= new Payment(orderHistoryHashMap);
+    
+this.userName= orderHistoryHashMap!.get(UserData.USERNAME) as string;
+    
+this.orderDate= orderHistoryHashMap!.get(OrderHistoryData.ORDERDATE) as string;
+    
+this.shipDate= orderHistoryHashMap!.get(OrderHistoryData.SHIPPEDDATE) as string;
+    
+this.transDate= orderHistoryHashMap!.get(OrderHistoryData.TRANSDATE) as string;
+    
+this.cancelDate= orderHistoryHashMap!.get(OrderHistoryData.CANCELDATE) as string;
+    
+this.status= orderHistoryHashMap!.get(OrderHistoryData.STATUS) as string;
+    
+this.subTotal= new Money(orderHistoryHashMap!.get(OrderHistoryData.SUBTOTAL) as string);
+    
+this.total= new Money(orderHistoryHashMap!.get(OrderHistoryData.TOTAL) as string);
+    
+this.shippingCost= new Money(orderHistoryHashMap!.get(OrderHistoryData.SHIPPINGCOST) as string);
+    
+this.taxes= new Money(orderHistoryHashMap!.get(OrderHistoryData.TAX) as string);
+    
+super.setUserComments(orderHistoryHashMap!.get(OrderData.CUSTOMERCOMMENT) as string);
+    
+super.setUserCancelComments(orderHistoryHashMap!.get(OrderData.CUSTOMERCANCELCOMMENT) as string);
+    
+super.setStoreComments(orderHistoryHashMap!.get(OrderData.STORECOMMENT) as string);
+    
+super.setStoreCancelComments(orderHistoryHashMap!.get(OrderData.STORECANCELCOMMENT) as string);
+    
+
+    }
+    
+    public setUserName(value: string){
+this.userName= value;
+    
+}
+
+
+    public setDefaultShippingAddress(shippingAddress: StreetAddress){
+this.shippingAddress= shippingAddress;
+    
+}
+
+
+    public setBillingAddress(billingAddress: StreetAddress){
+this.billingAddress= billingAddress;
+    
+}
+
+
+    public setPaymentInfo(payment: Payment){
+this.payment= payment;
+    
+}
+
+
+    public setShipDate(value: string){
+this.shipDate= value;
+    
+}
+
+
+    public setOrderDate(value: string){
+this.orderDate= value;
+    
+}
+
+
+    public setTransDate(value: string){
+this.transDate= value;
+    
+}
+
+
+    public setCancelDate(value: string){
+this.cancelDate= value;
+    
+}
+
+
+    public setStatus(value: string){
+this.status= value;
+    
+}
+
+
+    public setSubTotal(value: Money){
+this.subTotal= value;
+    
+}
+
+
+    public setShippingCost(value: Money){
+this.shippingCost= value;
+    
+}
+
+
+    public setTaxes(value: Money){
+this.taxes= value;
+    
+}
+
+
+    public setTotal(value: Money){
+this.total= value;
+    
+}
+
+
+    public getUserName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.userName;
+    
+}
+
+
+    public getShippingAddress(): StreetAddress{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.shippingAddress;
+    
+}
+
+
+    public getBillingAddress(): StreetAddress{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.billingAddress;
+    
+}
+
+
+    public getPaymentInfo(): Payment{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.payment;
+    
+}
+
+
+    public getShipDate(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.shipDate;
+    
+}
+
+
+    public getOrderDate(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.orderDate;
+    
+}
+
+
+    public getTransDate(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.transDate;
+    
+}
+
+
+    public getCancelDate(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.cancelDate;
+    
+}
+
+
+    public getStatus(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.status;
+    
+}
+
+
+    public getSubTotal(): Money{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.subTotal;
+    
+}
+
+
+    public getShippingCost(): Money{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.shippingCost;
+    
+}
+
+
+    public getTaxes(): Money{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.taxes;
+    
+}
+
+
+    public getTotal(): Money{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.total;
+    
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put(UserData.USERNAME, this.userName);
+    
+hashMap!.put(OrderHistoryData.ORDERDATE, this.orderDate);
+    
+hashMap!.put(OrderHistoryData.SHIPPEDDATE, this.shipDate);
+    
+hashMap!.put(OrderHistoryData.TRANSDATE, this.transDate);
+    
+hashMap!.put(OrderHistoryData.CANCELDATE, this.cancelDate);
+    
+hashMap!.put(OrderHistoryData.ORDERDATEFORMATTED, new Date(new Long(this.orderDate).longValue()).toString());
+    
+hashMap!.put(OrderHistoryData.SHIPPEDDATEFORMATTED, new Date(new Long(this.shipDate).longValue()).toString());
+    
+hashMap!.put(OrderHistoryData.TRANSDATEFORMATTED, new Date(new Long(this.transDate).longValue()).toString());
+    
+hashMap!.put(OrderHistoryData.CANCELDATEFORMATTED, new Date(new Long(this.cancelDate).longValue()).toString());
+    
+hashMap!.put(OrderHistoryData.STATUS, this.status);
+    
+hashMap!.put(OrderHistoryData.SUBTOTAL, this.subTotal!.toString());
+    
+hashMap!.put(OrderHistoryData.TOTAL, this.total.toString());
+    
+hashMap!.put(OrderHistoryData.SHIPPINGCOST, this.shippingCost!.toString());
+    
+hashMap!.put(OrderHistoryData.TAX, this.taxes.toString());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let hashMap: HashMap<any, any> = this.toHashMap()!;;
+    
+
+    let keySet: Set = hashMap!.keys()!;;
+    
+
+    let keyArray: any[] = keySet!.toArray()!;;
+    
+
+    let size: number = keyArray!.length
+                ;;
+    
+
+    let node: Node = document.createElement(OrderHistoryData.ORDERHISTORY)!;;
+    
+node.appendChild(super.toXmlNode(document));
+    
+
+    let billingAddressNode: Node = document.createElement(BillingAddressData.BILLINGADDRESS)!;;
+    
+billingAddressNode!.appendChild(this.billingAddress!.toXmlNode(document));
+    
+
+    let shippingAddressNode: Node = document.createElement(ShippingAddressData.SHIPPINGADDRESS)!;;
+    
+shippingAddressNode!.appendChild(this.shippingAddress!.toXmlNode(document));
+    
+node.appendChild(billingAddressNode);
+    
+node.appendChild(shippingAddressNode);
+    
+node.appendChild(this.payment.toXmlNode(document));
+    
+
+
+
+
+                        for (
+    let i: number = 0;i < size; i++)
+        {
+
+    let name: string = keyArray[i]! as string;;
+    
+
+    let value: string = hashMap!.get(name) as string;;
+    
+value= StringUtil.getInstance()!.getNonNull(value);
+    
+node.appendChild(ModDomHelper.createNameValueNodes(document, name, value));
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+    public getPaymentMethod(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getPaymentMethod();;
+    
+}
+
+
+}
+

@@ -1,0 +1,580 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../../java/lang/Exception.js';
+        
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AbSqlData } from '../../../../../../../../org/allbinary/logic/communication/sql/AbSqlData.js';
+//not GWT import const AbSqlData
+
+import { Validation } from '../../../../../../../../org/allbinary/logic/control/validate/Validation.js';
+//not GWT import const Validation
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { StringValidationUtil } from '../../../../../../../../org/allbinary/logic/string/StringValidationUtil.js';
+//not GWT import const StringValidationUtil
+
+import { Document } from '../../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { DownloadableItem } from './DownloadableItem.js';
+//sameFolderImports - not GWT import - same folder const DownloadableItem
+
+export class DownloadableItemValidation extends Validation {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private downloadableItem: DownloadableItem;
+
+public constructor (downloadableItem: DownloadableItem){
+
+            super();
+        this.downloadableItem= downloadableItem;
+    
+}
+
+
+    public isValid(): Boolean{
+
+ try { 
+                        if(this.downloadableItem!.getId() == 
+                                    null
+                                 || this.downloadableItem!.getId()!.length() < 1 || this.downloadableItem!.getId()!.length() > AbSqlData.MAXNUM)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getId() != 
+                                    null
+                                 && !StringValidationUtil.getInstance()!.isNumber(this.downloadableItem!.getId()))
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getSystem() == 
+                                    null
+                                 || this.downloadableItem!.getSystem()!.length() < 1 || this.downloadableItem!.getSystem()!.length() > AbSqlData.MAXSTRING)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getPlatform() == 
+                                    null
+                                 || this.downloadableItem!.getPlatform()!.length() < 1 || this.downloadableItem!.getPlatform()!.length() > AbSqlData.MAXSTRING)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getSpecialName() == 
+                                    null
+                                 || this.downloadableItem!.getSpecialName()!.length() < 0 || this.downloadableItem!.getSpecialName()!.length() > AbSqlData.MAXSTRING)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getVersion() == 
+                                    null
+                                 || this.downloadableItem!.getVersion()!.length() < 1 || this.downloadableItem!.getVersion()!.length() > AbSqlData.MAXSTRING)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getChanges() == 
+                                    null
+                                 || this.downloadableItem!.getChanges()!.length() < 1 || this.downloadableItem!.getChanges()!.length() > AbSqlData.MAXBLOB)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getSize() == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+                        else {
+                            
+    let size: string = this.downloadableItem!.getSize()!.toString()!;;
+    
+
+                        if(size.length < 1 || size.length > AbSqlData.MAXNUM)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+                        if(this.downloadableItem!.getValidTime() == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+                        else {
+                            
+    let size: string = this.downloadableItem!.getValidTime()!.toString()!;;
+    
+
+                        if(size.length < 1 || size.length > AbSqlData.MAXNUM)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+                        if(this.downloadableItem!.getRetries() == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+                        else {
+                            
+    let size: string = this.downloadableItem!.getRetries()!.toString()!;;
+    
+
+                        if(size.length < 1 || size.length > AbSqlData.MAXNUM)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Failed to validate form", this, this.commonStrings!.IS_VALID, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    public validationInfo(): string{
+
+ try { 
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+
+                        if(this.downloadableItem!.getId() == 
+                                    null
+                                 || this.downloadableItem!.getId()!.length() < 1 || this.downloadableItem!.getId()!.length() > AbSqlData.MAXNUM)
+                        
+                                    {
+                                    stringBuffer!.append("Id is invalid. Must be number < ");
+    
+stringBuffer!.appendint(AbSqlData.MAXNUM);
+    
+stringBuffer!.append(" and > 0 digits.<br/>");
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getId() != 
+                                    null
+                                 && !StringValidationUtil.getInstance()!.isNumber(this.downloadableItem!.getId()))
+                        
+                                    {
+                                    stringBuffer!.append("Id is invalid. Must be > 0.<br/>");
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getSystem() == 
+                                    null
+                                 || this.downloadableItem!.getSystem()!.length() < 1 || this.downloadableItem!.getSystem()!.length() > AbSqlData.MAXSTRING)
+                        
+                                    {
+                                    stringBuffer!.append("System value is invalid. Must be < ");
+    
+stringBuffer!.appendint(AbSqlData.MAXSTRING);
+    
+stringBuffer!.append(" and > 0 characters long.<br/>");
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getPlatform() == 
+                                    null
+                                 || this.downloadableItem!.getPlatform()!.length() < 1 || this.downloadableItem!.getPlatform()!.length() > AbSqlData.MAXSTRING)
+                        
+                                    {
+                                    stringBuffer!.append("Platform value is invalid. Must be < ");
+    
+stringBuffer!.appendint(AbSqlData.MAXSTRING);
+    
+stringBuffer!.append(" and > 0 characters long.<br/>");
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getSpecialName() == 
+                                    null
+                                 || this.downloadableItem!.getSpecialName()!.length() < 0 || this.downloadableItem!.getSpecialName()!.length() > AbSqlData.MAXSTRING)
+                        
+                                    {
+                                    stringBuffer!.append("Special Name value is invalid. Must be < ");
+    
+stringBuffer!.appendint(AbSqlData.MAXSTRING);
+    
+stringBuffer!.append(" and > 0 characters long.<br/>");
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getVersion() == 
+                                    null
+                                 || this.downloadableItem!.getVersion()!.length() < 1 || this.downloadableItem!.getVersion()!.length() > AbSqlData.MAXSTRING)
+                        
+                                    {
+                                    stringBuffer!.append("Version value is invalid. Must be < ");
+    
+stringBuffer!.appendint(AbSqlData.MAXSTRING);
+    
+stringBuffer!.append(" and > 0 characters long.<br/>");
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getChanges() == 
+                                    null
+                                 || this.downloadableItem!.getChanges()!.length() < 0 || this.downloadableItem!.getChanges()!.length() > AbSqlData.MAXBLOB)
+                        
+                                    {
+                                    stringBuffer!.append("Changes value is invalid. Must be < ");
+    
+stringBuffer!.appendint(AbSqlData.MAXBLOB);
+    
+stringBuffer!.append(" and >= 0 characters long.<br/>");
+    
+
+                                    }
+                                
+
+                        if(this.downloadableItem!.getSize() == 
+                                    null
+                                )
+                        
+                                    {
+                                    stringBuffer!.append("File Size is null");
+    
+
+                                    }
+                                
+                        else {
+                            
+    let size: string = this.downloadableItem!.getSize()!.toString()!;;
+    
+
+                        if(size.length < 1 || size.length > AbSqlData.MAXNUM)
+                        
+                                    {
+                                    stringBuffer!.append("File Size is invalid. Must be number < ");
+    
+stringBuffer!.appendint(AbSqlData.MAXNUM);
+    
+stringBuffer!.append(" and > 0 digits.<br/>");
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+                        if(this.downloadableItem!.getValidTime() == 
+                                    null
+                                )
+                        
+                                    {
+                                    stringBuffer!.append("Valid Time is null");
+    
+
+                                    }
+                                
+                        else {
+                            
+    let size: string = this.downloadableItem!.getValidTime()!.toString()!;;
+    
+
+                        if(size.length < 1 || size.length > AbSqlData.MAXNUM)
+                        
+                                    {
+                                    stringBuffer!.append("Valid Time is invalid. Must be number < ");
+    
+stringBuffer!.appendint(AbSqlData.MAXNUM);
+    
+stringBuffer!.append(" and > 0 digits.<br/>");
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+                        if(this.downloadableItem!.getRetries() == 
+                                    null
+                                )
+                        
+                                    {
+                                    stringBuffer!.append("Retries is null");
+    
+
+                                    }
+                                
+                        else {
+                            
+    let size: string = this.downloadableItem!.getRetries()!.toString()!;;
+    
+
+                        if(size.length < 1 || size.length > AbSqlData.MAXNUM)
+                        
+                                    {
+                                    stringBuffer!.append("Retries is invalid. Must be number < ");
+    
+stringBuffer!.appendint(AbSqlData.MAXNUM);
+    
+stringBuffer!.append(" and > 0 digits.<br/>");
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Failed to generate validation error info", this, "validationInfo()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Error Validating Form";
+    
+
+ }
+   }
+ 
+}
+
+
+    public toValidationInfoDoc(): Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public toValidationInfoNode(document: Document): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+}
+

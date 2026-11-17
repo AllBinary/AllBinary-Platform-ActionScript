@@ -1,0 +1,89 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2026 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+import { Vector } from '../../../java/util/Vector.js';
+//not GWT import const Vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class VectorUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: VectorUtil = new VectorUtil();
+
+    public static getInstance(): VectorUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return VectorUtil.instance;
+    
+}
+
+
+    public getSize(anyType: any): number{
+
+    let vector: Vector<any> = anyType as Vector<any>;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return vector.length;;
+    
+}
+
+
+    public elementAt(anyType: any, index: number): any{
+
+    let vector: Vector<any> = anyType as Vector<any>;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return vector.elementAt(index);;
+    
+}
+
+
+}
+

@@ -1,0 +1,243 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            //import { Class } from '../../../../../java/lang/Class.js';
+            const Class = (globalThis.java?.lang?.Class ?? class {}) as typeof globalThis.java.lang.Class;
+            type Class<T = any, U = any> = typeof Class extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Class;
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../java/lang/Integer.js';
+        
+import { Method } from '../../../../../java/lang/reflect/Method.js';
+//not GWT import const Method
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { WorkFlowInterface } from './WorkFlowInterface.js';
+//sameFolderImports - not GWT import - same folder const WorkFlowInterface
+
+export class WorkFlowWrapper
+            extends Object
+         implements WorkFlowInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private anyType: any;
+
+public constructor (anyType: any){
+
+            super();
+        this.anyType= anyType;
+    
+}
+
+
+    getWorkFlowObject(): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.anyType;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getName(): string{
+
+ try { 
+    let helperClass: Function = this.anyType!.constructor!;;
+    
+
+    let method: Method = helperClass!.getMethod("getName", 
+                            null)!;;
+    
+
+    let result: string = method.invoke(this.anyType, 
+                            null) as string;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Reflection Exception";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "getName()", e);
+    
+
+                                    }
+                                
+
+
+
+                            throw new Exception(error);
+                    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getStoreName(): string{
+
+ try { 
+    let helperClass: Function = this.anyType!.constructor!;;
+    
+
+    let method: Method = helperClass!.getMethod("getStoreName", 
+                            null)!;;
+    
+
+    let result: string = method.invoke(this.anyType, 
+                            null) as string;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Reflection Exception";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "getStoreName()", e);
+    
+
+                                    }
+                                
+
+
+
+                            throw new Exception(error);
+                    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public process(): Integer{
+
+ try { 
+    let helperClass: Function = this.anyType!.constructor!;;
+    
+
+    let method: Method = helperClass!.getMethod(this.commonStrings!.PROCESS, 
+                            null)!;;
+    
+
+    let result: Integer = method.invoke(this.anyType, 
+                            null) as Integer;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Reflection Exception";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.PROCESS, e);
+    
+
+                                    }
+                                
+
+
+
+                            throw new Exception(error);
+                    
+
+ }
+   }
+ 
+}
+
+
+}
+

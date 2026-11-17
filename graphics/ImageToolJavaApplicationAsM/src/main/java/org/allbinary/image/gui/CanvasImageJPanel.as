@@ -1,0 +1,450 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../java/lang/Integer.js';
+        
+            const Short = (globalThis.java?.lang?.Short ?? class {}) as typeof globalThis.java.lang.Short;
+        
+            import { Thread } from '../../../../java/lang/Thread.js';
+        
+import { awt } from '../../../../java/awt.js';
+//not GWT import const awt
+
+import { BufferedImage } from '../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+import { RenderedImage } from '../../../../java/awt/image/RenderedImage.js';
+//not GWT import const RenderedImage
+
+import { File } from '../../../../java/io/File.js';
+//not GWT import const File
+
+import { IOException } from '../../../../java/io/IOException.js';
+//not GWT import const IOException
+
+import { ImageIO } from '../../../../javax/imageio/ImageIO.js';
+//not GWT import const ImageIO
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { CanvasExpandUtil } from '../../../../org/allbinary/media/image/CanvasExpandUtil.js';
+//not GWT import const CanvasExpandUtil
+
+import { CanvasTrimUtil } from '../../../../org/allbinary/media/image/CanvasTrimUtil.js';
+//not GWT import const CanvasTrimUtil
+
+import { ImageProcessedVisitor } from '../../../../org/allbinary/media/image/ImageProcessedVisitor.js';
+//not GWT import const ImageProcessedVisitor
+
+import { ImageProcessorInput } from '../../../../org/allbinary/media/image/ImageProcessorInput.js';
+//not GWT import const ImageProcessorInput
+
+import { ImageStrings } from '../../../../org/allbinary/media/image/ImageStrings.js';
+//not GWT import const ImageStrings
+
+//not plain js import { CommonPhoneStrings } 
+const CommonPhoneStrings = globalThis.org.allbinary.string.CommonPhoneStrings;
+type CommonPhoneStrings<T = any, U = any> = typeof CommonPhoneStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonPhoneStrings;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JPanel } from './JPanel.js';
+//sameFolderImports - not GWT import - same folder const JPanel
+import { JCheckBox } from './JCheckBox.js';
+//sameFolderImports - not GWT import - same folder const JCheckBox
+import { Graphics } from './Graphics.js';
+//sameFolderImports - not GWT import - same folder const Graphics
+import { JButton } from './JButton.js';
+//sameFolderImports - not GWT import - same folder const JButton
+import { JLabel } from './JLabel.js';
+//sameFolderImports - not GWT import - same folder const JLabel
+import { JTextField } from './JTextField.js';
+//sameFolderImports - not GWT import - same folder const JTextField
+import { ActionListener } from './ActionListener.js';
+//sameFolderImports - not GWT import - same folder const ActionListener
+import { ActionEvent } from './ActionEvent.js';
+//sameFolderImports - not GWT import - same folder const ActionEvent
+import { GroupLayout } from './GroupLayout.js';
+//sameFolderImports - not GWT import - same folder const GroupLayout
+
+export class CanvasImageJPanel extends javax.swing.JPanel implements ImageProcessedVisitor {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly commonSeps: CommonSeps = CommonSeps.getInstance()!;
+
+    private readonly imageStrings: ImageStrings = ImageStrings.getInstance()!;
+
+    private imageProcessorInput: ImageProcessorInput;
+
+    private result: BufferedImage;
+
+public constructor (imageProcessorInput: ImageProcessorInput){
+            super();
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+initComponents();
+    
+this.imageProcessorInput= imageProcessorInput;
+    
+}
+
+
+    public process(){
+new class extends Thread
+                                {
+                                
+    public run(){
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+
+ try { 
+    let canvasTrimUtil: CanvasTrimUtil = CanvasTrimUtil.getInstance()!;;
+    
+
+    let canvasExpandUtil: CanvasExpandUtil = CanvasExpandUtil.getInstance()!;;
+    
+
+    let leftReduction: number = Integer.valueOf(widthReductionTextField1!.getText())!;;
+    
+
+    let topReduction: number = Integer.valueOf(heightReductionTextField1!.getText())!;;
+    
+
+    let widthReduction: number = Integer.valueOf(widthReductionTextField!.getText())!;;
+    
+
+    let heightReduction: number = Integer.valueOf(heightReductionTextField!.getText())!;;
+    
+
+                        if(leftReduction <= 0 || topReduction <= 0 || widthReduction <= 0 || heightReduction <= 0)
+                        
+                                    {
+                                    canvasTrimUtil!.process(outer$CanvasImageJPanel.getImageProcessorInput(),  -leftReduction,  -topReduction,  -widthReduction,  -heightReduction, outer$CanvasImageJPanel);
+    
+
+                                    }
+                                
+                        else {
+                            canvasExpandUtil!.process(outer$CanvasImageJPanel.getImageProcessorInput(), leftReduction, topReduction, outer$CanvasImageJPanel);
+    
+
+                        }
+                            
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN, e);
+    
+
+ }
+   }
+ 
+}
+
+                                }().start();
+    
+}
+
+
+    initComponents(){
+this.writeOverOriginalJCheckBox= new javax.swing.JCheckBox();
+    
+this.jPanel1= new class extends javax.swing.JPanel
+                                {
+                                
+    public paint(graphics: Graphics){
+
+                        if(outer$CanvasImageJPanel.result != 
+                                    null
+                                )
+                        
+                                    {
+                                    graphics.drawImage(outer$CanvasImageJPanel.result, 0, 0, outer$CanvasImageJPanel.result.getWidth(
+                            null), outer$CanvasImageJPanel.result.getHeight(
+                            null), 
+                            null);
+    
+
+                                    }
+                                
+}
+
+                                }();
+    
+this.generateJButton= new javax.swing.JButton();
+    
+this.jLabel4= new javax.swing.JLabel();
+    
+this.jPanel2= new javax.swing.JPanel();
+    
+this.jLabel5= new javax.swing.JLabel();
+    
+this.widthReductionTextField= new javax.swing.JTextField();
+    
+this.jLabel6= new javax.swing.JLabel();
+    
+this.heightReductionTextField= new javax.swing.JTextField();
+    
+this.widthReductionTextField1= new javax.swing.JTextField();
+    
+this.jLabel7= new javax.swing.JLabel();
+    
+this.jLabel8= new javax.swing.JLabel();
+    
+this.heightReductionTextField1= new javax.swing.JTextField();
+    
+this.writeOverOriginalJCheckBox!.setSelected(true);
+    
+this.writeOverOriginalJCheckBox!.setText("Write Over Original");
+    
+this.writeOverOriginalJCheckBox!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+writeOverOriginalJCheckBoxActionPerformed(evt);
+    
+}
+
+                                }());
+    
+
+    let jPanel1Layout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this.jPanel1);;
+    
+this.jPanel1!.setLayout(jPanel1Layout);
+    
+jPanel1Layout!.setHorizontalGroup(jPanel1Layout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGap(0, 0, Short.MAX_VALUE));
+    
+jPanel1Layout!.setVerticalGroup(jPanel1Layout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGap(0, 196, Short.MAX_VALUE));
+    
+this.generateJButton!.setText("Generate");
+    
+this.generateJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+generateJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.jLabel4!.setText("Results:");
+    
+this.jLabel5!.setText("Right:");
+    
+this.widthReductionTextField!.setText(CommonPhoneStrings.getInstance()!.ZERO);
+    
+this.widthReductionTextField!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+widthReductionTextFieldActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.jLabel6!.setText("Bottom");
+    
+this.heightReductionTextField!.setText(CommonPhoneStrings.getInstance()!.ZERO);
+    
+this.widthReductionTextField1!.setText(CommonPhoneStrings.getInstance()!.ZERO);
+    
+this.widthReductionTextField1!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+widthReductionTextField1ActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.jLabel7!.setText("Top");
+    
+this.jLabel8!.setText("Left:");
+    
+this.heightReductionTextField1!.setText(CommonPhoneStrings.getInstance()!.ZERO);
+    
+
+    let jPanel2Layout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this.jPanel2);;
+    
+this.jPanel2!.setLayout(jPanel2Layout);
+    
+jPanel2Layout!.setHorizontalGroup(jPanel2Layout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(jPanel2Layout!.createSequentialGroup()!.addContainerGap()!.addComponent(this.jLabel8)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.widthReductionTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.jLabel5)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.widthReductionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.jLabel7)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.heightReductionTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.jLabel6)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.heightReductionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)!.addContainerGap(140, Short.MAX_VALUE)));
+    
+jPanel2Layout!.setVerticalGroup(jPanel2Layout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout!.createSequentialGroup()!.addGap(0, 16, Short.MAX_VALUE)!.addGroup(jPanel2Layout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(jPanel2Layout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.jLabel6)!.addComponent(this.heightReductionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))!.addGroup(jPanel2Layout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.jLabel8)!.addComponent(this.widthReductionTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)!.addComponent(this.jLabel7)!.addComponent(this.heightReductionTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))!.addGroup(jPanel2Layout!.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.jLabel5)!.addComponent(this.widthReductionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))));
+    
+
+    let layout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this);;
+    
+this.setLayout(layout);
+    
+layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addComponent(this.jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.addGap(78, 78, 78))!.addGroup(layout.createSequentialGroup()!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addContainerGap()!.addComponent(this.jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))!.addGroup(layout.createSequentialGroup()!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addComponent(this.jLabel4)!.addGroup(layout.createSequentialGroup()!.addComponent(this.writeOverOriginalJCheckBox)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.generateJButton)))!.addGap(0, 0, Short.MAX_VALUE)))!.addContainerGap()));
+    
+layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addComponent(this.jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addComponent(this.generateJButton)!.addComponent(this.writeOverOriginalJCheckBox))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.jLabel4)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+    
+}
+
+
+    writeOverOriginalJCheckBoxActionPerformed(evt: java.awt.event.ActionEvent){
+}
+
+
+    generateJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.process();
+    
+}
+
+
+    widthReductionTextFieldActionPerformed(evt: java.awt.event.ActionEvent){
+}
+
+
+    widthReductionTextField1ActionPerformed(evt: java.awt.event.ActionEvent){
+}
+
+
+    private generateJButton: javax.swing.JButton;
+
+    private heightReductionTextField: javax.swing.JTextField;
+
+    private heightReductionTextField1: javax.swing.JTextField;
+
+    private jLabel4: javax.swing.JLabel;
+
+    private jLabel5: javax.swing.JLabel;
+
+    private jLabel6: javax.swing.JLabel;
+
+    private jLabel7: javax.swing.JLabel;
+
+    private jLabel8: javax.swing.JLabel;
+
+    private jPanel1: javax.swing.JPanel;
+
+    private jPanel2: javax.swing.JPanel;
+
+    private widthReductionTextField: javax.swing.JTextField;
+
+    private widthReductionTextField1: javax.swing.JTextField;
+
+    private writeOverOriginalJCheckBox: javax.swing.JCheckBox;
+
+    public getImageProcessorInput(): ImageProcessorInput{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.imageProcessorInput;
+    
+}
+
+
+    public setImageProcessorInput(imageProcessorInput: ImageProcessorInput){
+this.imageProcessorInput= imageProcessorInput;
+    
+}
+
+
+                //@Throws(IOException.constructor)
+            
+    public visit(generatedBufferedImage: BufferedImage, name: string, index: number){
+this.logUtil!.putF(this.commonStrings!.VISIT, this, this.commonStrings!.VISIT);
+    
+this.result= generatedBufferedImage;
+    
+this.getParent()!.repaint();
+    
+
+    let file: File = this.imageProcessorInput!.getFiles()[index]!;;
+    
+
+                        if(!this.writeOverOriginalJCheckBox!.isSelected())
+                        
+                                    {
+                                    
+    let filePath: string = file.getAbsolutePath()!;;
+    
+
+    let extensionIndex: number = filePath!.indexOf(this.imageStrings!.PNG_EXTENSION)!;;
+    
+filePath= new StringMaker().append(filePath!.substring(0, extensionIndex))!.append(this.commonSeps!.UNDERSCORE)!.append(name)!.append(this.imageStrings!.PNG_EXTENSION)!.toString();
+    
+file= new File(filePath);
+    
+
+                                    }
+                                
+
+    let isWritten: boolean = ImageIO.write(this.result as RenderedImage, this.imageStrings!.PNG, file)!;;
+    
+this.logUtil!.putF(new StringMaker().append("File: ")!.append(StringUtil.getInstance()!.toString(file))!.append(" Wrote: ")!.appendboolean(isWritten)!.toString(), this, this.commonStrings!.RUN);
+    
+}
+
+
+}
+

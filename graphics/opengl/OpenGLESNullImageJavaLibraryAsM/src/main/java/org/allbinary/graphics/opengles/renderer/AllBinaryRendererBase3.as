@@ -1,0 +1,100 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { GL10 } from '../../../../../javax/microedition/khronos/opengles/GL10.js';
+//not GWT import const GL10
+
+import { Image } from '../../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { OpenGLESImage } from '../../../../../org/allbinary/image/opengles/OpenGLESImage.js';
+//not GWT import const OpenGLESImage
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class AllBinaryRendererBase3
+            extends Object
+         {
+        
+
+    public readonly list: BasicArrayList = new BasicArrayListD();
+
+                //@Throws(Exception.constructor)
+            
+    update(gl: GL10){
+
+        while(this.list.size() > 0)
+        {
+
+    let openGLESImage: OpenGLESImage = this.list.removeAt(0) as OpenGLESImage;;
+    
+
+                        if(openGLESImage != 
+                                    null
+                                )
+                        
+                                    {
+                                    openGLESImage!.set(gl);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+    public add(image: Image){
+this.list.add(image);
+    
+}
+
+
+}
+

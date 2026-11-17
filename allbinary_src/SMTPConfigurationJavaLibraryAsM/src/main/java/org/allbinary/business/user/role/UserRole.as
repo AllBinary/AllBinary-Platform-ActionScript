@@ -1,0 +1,124 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { Serializable } from '../../../../../java/io/Serializable.js';
+//not GWT import const Serializable
+
+import { UserFactoryInterface } from '../../../../../org/allbinary/business/user/UserFactoryInterface.js';
+//not GWT import const UserFactoryInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicUserRole } from './BasicUserRole.js';
+//sameFolderImports - not GWT import - same folder const BasicUserRole
+
+export class UserRole
+            extends Object
+         implements Serializable {
+        
+
+    private basicUserRole: BasicUserRole;
+
+    private userFactoryInterface: UserFactoryInterface;
+
+protected constructor (aBasicUserRole: BasicUserRole, aUserFactoryInterface: UserFactoryInterface){
+
+            super();
+        this.basicUserRole= aBasicUserRole;
+    
+this.userFactoryInterface= aUserFactoryInterface;
+    
+}
+
+
+    public toString(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.basicUserRole!.toString();;
+    
+}
+
+
+    public getBasicUserRole(): BasicUserRole{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.basicUserRole;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getUserFactory(): UserFactoryInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.userFactoryInterface;
+    
+}
+
+
+    public getSessionTimeout(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.basicUserRole!.getSessionTimeout();;
+    
+}
+
+
+    public getSessionInactivityTimeout(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.basicUserRole!.getSessionInactivityTimeout();;
+    
+}
+
+
+}
+

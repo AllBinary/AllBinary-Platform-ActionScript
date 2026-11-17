@@ -1,0 +1,150 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../java/lang/Exception.js';
+        
+import { AllMotionRecognizer } from '../../../org/allbinary/input/motion/AllMotionRecognizer.js';
+//not GWT import const AllMotionRecognizer
+
+import { BasicMotionGesturesHandler } from '../../../org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.js';
+//not GWT import const BasicMotionGesturesHandler
+
+import { GameMotionGestureListener } from '../../../org/allbinary/input/motion/gesture/observer/GameMotionGestureListener.js';
+//not GWT import const GameMotionGestureListener
+
+import { MotionGestureReceiveInterfaceFactory } from '../../../org/allbinary/input/motion/gesture/observer/MotionGestureReceiveInterfaceFactory.js';
+//not GWT import const MotionGestureReceiveInterfaceFactory
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //TouchJ2ME
+export class TouchJ2ME
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly DEVICE_ID: number = 0;
+
+    private motionRecognizer: AllMotionRecognizer = new AllMotionRecognizer();
+
+public constructor (){
+
+            super();
+        
+    let motionGesturesHandler: BasicMotionGesturesHandler = this.motionRecognizer!.getMotionGestureRecognizer()!.getMotionGesturesHandler()!;;
+    
+motionGesturesHandler!.addListenerInterface(new GameMotionGestureListener(MotionGestureReceiveInterfaceFactory.getInstance()));
+    
+}
+
+
+    public pointerDragged(x: number, y: number){
+
+ try { this.motionRecognizer!.processDraggedMotionEvent(x, y, this.DEVICE_ID, 0);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, "pointerDragged", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public pointerPressed(x: number, y: number){
+
+ try { this.motionRecognizer!.processStartMotionEvent(x, y, this.DEVICE_ID, 0);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, "pointerPressed", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public pointerReleased(x: number, y: number){
+
+ try { this.motionRecognizer!.processEndMotionEvent(x, y, this.DEVICE_ID, 0);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, "pointerReleased", e);
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

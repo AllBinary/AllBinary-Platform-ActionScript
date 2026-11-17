@@ -1,0 +1,122 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { MESSAGES } from '../../../../org/allbinary/globals/MESSAGES.js';
+//not GWT import const MESSAGES
+
+import { ValidationComponentInterface } from '../../../../org/allbinary/logic/control/validate/ValidationComponentInterface.js';
+//not GWT import const ValidationComponentInterface
+
+import { TransformInfoInterface } from '../../../../org/allbinary/logic/visual/transform/info/TransformInfoInterface.js';
+//not GWT import const TransformInfoInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { MiniBasketView } from './MiniBasketView.js';
+//sameFolderImports - not GWT import - same folder const MiniBasketView
+import { Document } from './Document.js';
+//sameFolderImports - not GWT import - same folder const Document
+import { Node } from './Node.js';
+//sameFolderImports - not GWT import - same folder const Node
+
+export class ValidationView extends MiniBasketView implements ValidationComponentInterface {
+        
+
+public constructor (transformInfoInterface: TransformInfoInterface){
+            super(transformInfoInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public isValid(): Boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+    public toValidationInfoDoc(): org.w3c.dom.Document{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public toValidationInfoNode(document: org.w3c.dom.Document): org.w3c.dom.Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    public validationInfo(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return MESSAGES.CONTACTADMIN;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getTransformInfoInterface(): TransformInfoInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getTransformInfoInterface();;
+    
+}
+
+
+}
+

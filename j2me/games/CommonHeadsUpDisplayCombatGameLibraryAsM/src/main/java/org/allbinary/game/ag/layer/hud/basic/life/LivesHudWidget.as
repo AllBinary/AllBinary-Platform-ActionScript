@@ -1,0 +1,162 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../../java/lang/Exception.js';
+        
+import { Graphics } from '../../../../../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { Animation } from '../../../../../../../../org/allbinary/animation/Animation.js';
+//not GWT import const Animation
+
+import { Life } from '../../../../../../../../org/allbinary/game/ag/life/Life.js';
+//not GWT import const Life
+
+import { BasicHud } from '../../../../../../../../org/allbinary/game/graphics/hud/BasicHud.js';
+//not GWT import const BasicHud
+
+import { BasicColorFactory } from '../../../../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { DisplayChangeEvent } from '../../../../../../../../org/allbinary/graphics/displayable/event/DisplayChangeEvent.js';
+//not GWT import const DisplayChangeEvent
+
+import { PaintableInterface } from '../../../../../../../../org/allbinary/graphics/paint/PaintableInterface.js';
+//not GWT import const PaintableInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class LivesHudWidget extends BasicHud implements PaintableInterface {
+        
+
+    private readonly lifeInterface: Life;
+
+    private readonly xArray: number[];
+
+    private readonly animationInterface: Animation;
+
+public constructor (animationInterface: Animation, lifeInterface: Life, location: number, direction: number){
+            super(location, direction, 2, BasicColorFactory.getInstance()!.WHITE);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.lifeInterface= lifeInterface;
+    
+
+    let size: number = globalThis.Math.trunc(this.getLifeInterface()!.getMaxlives());;
+    
+this.xArray= new Array(size).fill(0);
+    
+this.animationInterface= animationInterface;
+    
+this.updateMaxWidth= this.lifeInterface!.getMaxlives() *16;
+    
+this.updateMaxHeight= 16;
+    
+}
+
+
+    public updateMeasurement(graphics: Graphics){
+super.updateMeasurement(graphics);
+    
+
+    let maxLives: number = globalThis.Math.trunc(this.getLifeInterface()!.getMaxlives());;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < maxLives; index++)
+        {
+this.xArray[index]= this.getX() +(index *16);
+    
+}
+
+}
+
+
+    public onDisplayChangeEvent(displayChangeEvent: DisplayChangeEvent){
+super.onDisplayChangeEvent(displayChangeEvent);
+    
+this.myFontProcessor= this.updateMyFontProcessor;
+    
+}
+
+
+    public setX(x: number){
+super.setX(x);
+    
+this.myFontProcessor= this.updateMyFontProcessor;
+    
+}
+
+
+    public paint(graphics: Graphics){
+this.myFontProcessor!.process(graphics);
+    
+
+
+
+
+                        for (
+    let index: number = globalThis.Math.trunc(this.getLifeInterface()!.get());--index >= 0; )
+        {
+this.animationInterface!.paintXY(graphics, this.xArray[index]!, this.getY());
+    
+}
+
+}
+
+
+    public paintThreed(graphics: Graphics){
+}
+
+
+    public getLifeInterface(): Life{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.lifeInterface;
+    
+}
+
+
+}
+

@@ -1,0 +1,132 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { Animation } from '../../../../org/allbinary/animation/Animation.js';
+//not GWT import const Animation
+
+import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { ColorCompositeInterface } from '../../../../org/allbinary/graphics/color/ColorCompositeInterface.js';
+//not GWT import const ColorCompositeInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class RectangleAdjustedAnimation extends Animation implements ColorCompositeInterface {
+        
+
+    private width: number;
+
+    private height: number;
+
+    private offsetX: number;
+
+    private offsetY: number;
+
+public constructor (width: number, height: number, offsetX: number, offsetY: number, basicColor: BasicColor){
+
+            super();
+        this.width= width;
+    
+this.height= height;
+    
+this.offsetX= offsetX;
+    
+this.offsetY= offsetY;
+    
+this.setBasicColorP(basicColor);
+    
+}
+
+
+    public nextFrame(){
+}
+
+
+    public paintXY(graphics: Graphics, x: number, y: number){
+this.basicSetColorUtil!.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
+    
+graphics.drawRect(x +this.offsetX, y +this.offsetY, this.width, this.height);
+    
+}
+
+
+    public setWidth(width: number){
+this.width= width;
+    
+}
+
+
+    public setHeight(height: number){
+this.height= height;
+    
+}
+
+
+    public setOffsetX(offsetX: number){
+this.offsetX= offsetX;
+    
+}
+
+
+    public setOffsetY(offsetY: number){
+this.offsetY= offsetY;
+    
+}
+
+
+    public getBasicColorP(): BasicColor{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getBasicColorP();;
+    
+}
+
+
+    public setBasicColorP(basicColor: BasicColor){
+super.setBasicColorP(basicColor);
+    
+}
+
+
+}
+

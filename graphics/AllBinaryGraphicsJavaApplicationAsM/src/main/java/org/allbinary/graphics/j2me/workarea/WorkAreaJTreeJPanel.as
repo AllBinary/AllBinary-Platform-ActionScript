@@ -1,0 +1,763 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { swing } from '../../../../../javax/swing.js';
+//not GWT import const swing
+
+import { DefaultMutableTreeNode } from '../../../../../javax/swing/tree/DefaultMutableTreeNode.js';
+//not GWT import const DefaultMutableTreeNode
+
+import { MutableTreeNode } from '../../../../../javax/swing/tree/MutableTreeNode.js';
+//not GWT import const MutableTreeNode
+
+import { TreePath } from '../../../../../javax/swing/tree/TreePath.js';
+//not GWT import const TreePath
+
+import { CanvasTreeLabel } from '../../../../../org/allbinary/graphics/j2me/workarea/canvas/CanvasTreeLabel.js';
+//not GWT import const CanvasTreeLabel
+
+import { MyCanvasEvent } from '../../../../../org/allbinary/graphics/j2me/workarea/canvas/event/MyCanvasEvent.js';
+//not GWT import const MyCanvasEvent
+
+import { MyCanvasEventService } from '../../../../../org/allbinary/graphics/j2me/workarea/canvas/event/MyCanvasEventService.js';
+//not GWT import const MyCanvasEventService
+
+import { MyCanvasEventSource } from '../../../../../org/allbinary/graphics/j2me/workarea/canvas/event/MyCanvasEventSource.js';
+//not GWT import const MyCanvasEventSource
+
+import { MyGraphicItemEvent } from '../../../../../org/allbinary/graphics/j2me/workarea/tools/event/MyGraphicItemEvent.js';
+//not GWT import const MyGraphicItemEvent
+
+import { MyGraphicItemEventService } from '../../../../../org/allbinary/graphics/j2me/workarea/tools/event/MyGraphicItemEventService.js';
+//not GWT import const MyGraphicItemEventService
+
+import { MyGraphicItemEventSource } from '../../../../../org/allbinary/graphics/j2me/workarea/tools/event/MyGraphicItemEventSource.js';
+//not GWT import const MyGraphicItemEventSource
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JPanel } from './JPanel.js';
+//sameFolderImports - not GWT import - same folder const JPanel
+import { JTree } from './JTree.js';
+//sameFolderImports - not GWT import - same folder const JTree
+import { MouseAdapter } from './MouseAdapter.js';
+//sameFolderImports - not GWT import - same folder const MouseAdapter
+import { MouseEvent } from './MouseEvent.js';
+//sameFolderImports - not GWT import - same folder const MouseEvent
+import { JPopupMenu } from './JPopupMenu.js';
+//sameFolderImports - not GWT import - same folder const JPopupMenu
+import { JMenuItem } from './JMenuItem.js';
+//sameFolderImports - not GWT import - same folder const JMenuItem
+import { JScrollPane } from './JScrollPane.js';
+//sameFolderImports - not GWT import - same folder const JScrollPane
+import { PopupMenuListener } from './PopupMenuListener.js';
+//sameFolderImports - not GWT import - same folder const PopupMenuListener
+import { PopupMenuEvent } from './PopupMenuEvent.js';
+//sameFolderImports - not GWT import - same folder const PopupMenuEvent
+import { GridLayout } from './GridLayout.js';
+//sameFolderImports - not GWT import - same folder const GridLayout
+
+export class WorkAreaJTreeJPanel extends javax.swing.JPanel {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private rootTreeNode: DefaultMutableTreeNode;
+
+    private workAreaJTree: JTree;
+
+    private highlightedBasicArrayList: BasicArrayList;
+
+public constructor (workAreaName: string){
+
+            super();
+        this.initComponents();
+    
+this.rootTreeNode= new DefaultMutableTreeNode(workAreaName);
+    
+this.workAreaPropertiesJPanel!.removeAll();
+    
+this.updateTree();
+    
+this.highlightedBasicArrayList= new BasicArrayListD();
+    
+}
+
+
+    public add(treeNode: MutableTreeNode){
+this.rootTreeNode!.add(treeNode);
+    
+}
+
+
+    public updateTree(){
+this.workAreaJTree= new JTree(this.rootTreeNode);
+    
+this.workAreaJTree!.addMouseListener(new class extends java.awt.event.MouseAdapter
+                                {
+                                
+    public mousePressed(evt: java.awt.event.MouseEvent){
+workAreaJTreeMousePressed(evt);
+    
+}
+
+                                }());
+    
+this.workAreaPropertiesJPanel!.removeAll();
+    
+this.workAreaPropertiesJPanel!.add(this.workAreaJTree);
+    
+}
+
+getNode(...args: any[]): any {
+   
+   
+    if (args.length === 1) return this.getNode$overload1(args[0]);
+   
+    if (args.length === 1) return this.getNode$overload2(args[0]);
+   
+   throw new TypeError('No matching overload: getNode'); }
+  
+    public getNode$overload1(treePathArray: TreePath[]): BasicArrayList{
+
+    let basicArrayList: BasicArrayList = new BasicArrayListD();;
+    
+
+                        if(treePathArray != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+
+                        for (
+    let index: number = 0;index < treePathArray!.length; index++)
+        {
+basicArrayList!.add(this.getNode(treePathArray[index]!));
+    
+}
+
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return basicArrayList;
+    
+}
+
+
+    public getNode$overload2(treePath: TreePath): DefaultMutableTreeNode{
+
+                        if(treePath != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let obj: any[] = treePath!.getPath()!;;
+    
+
+                        if(obj != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let node: DefaultMutableTreeNode = obj[obj.length -1]! as DefaultMutableTreeNode;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+
+                                    }
+                                
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public deselectAll(){
+
+    let size: number = this.highlightedBasicArrayList!.size()!;;
+    
+this.logUtil!.putF("size: " +size, this, "deselectAll");
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let node: DefaultMutableTreeNode = this.highlightedBasicArrayList!.get(index) as DefaultMutableTreeNode;;
+    
+MyGraphicItemEventService.fire(new MyGraphicItemEvent(new MyGraphicItemEventSource(MyGraphicItemEventService.DESELECT, node)));
+    
+}
+
+this.highlightedBasicArrayList!.clear();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public selectGraphicItem(node: DefaultMutableTreeNode){
+this.highlightedBasicArrayList!.add(node);
+    
+MyGraphicItemEventService.fire(new MyGraphicItemEvent(new MyGraphicItemEventSource(MyGraphicItemEventService.SELECT, node)));
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public removeGraphicItem(node: DefaultMutableTreeNode){
+MyGraphicItemEventService.fire(new MyGraphicItemEvent(new MyGraphicItemEventSource(MyGraphicItemEventService.DELETE, node)));
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public removeCanvas(node: DefaultMutableTreeNode){
+MyCanvasEventService.fire(new MyCanvasEvent(new MyCanvasEventSource(MyCanvasEventService.DELETE, node)));
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public remove(treePath: TreePath){
+
+    let node: DefaultMutableTreeNode = this.getNode(treePath)!;;
+    
+
+                        if(node != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+                        if(node.getUserObject() instanceof CanvasTreeLabel)
+                        
+                                    {
+                                    this.removeCanvas(node);
+    
+
+                                    }
+                                
+                        else {
+                            this.removeGraphicItem(node);
+    
+
+                        }
+                            
+
+                                    }
+                                
+
+    let parent: DefaultMutableTreeNode = node.getParent() as DefaultMutableTreeNode;;
+    
+parent.remove(node);
+    
+}
+
+copy(...args: any[]): any {
+   
+   
+    if (args.length === 0) return this.copy$overload1();
+   
+    if (args.length === 1) return this.copy$overload2(args[0]);
+   
+   throw new TypeError('No matching overload: copy'); }
+  
+                //@Throws(Exception.constructor)
+            
+    copy$overload1(){
+
+    let treePath: TreePath = this.workAreaJTree!.getSelectionPath()!;;
+    
+this.copy(treePath);
+    
+this.updateTree();
+    
+this.expand();
+    
+this.repaint();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    copy$overload2(treePath: TreePath){
+
+    let node: DefaultMutableTreeNode = this.getNode(treePath)!;;
+    
+
+                        if(node != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+                        if(node.getUserObject() instanceof CanvasTreeLabel)
+                        
+                                    {
+                                    MyCanvasEventService.fire(new MyCanvasEvent(new MyCanvasEventSource(MyCanvasEventService.DUPLICATE, node)));
+    
+
+                                    }
+                                
+                        else {
+                            MyGraphicItemEventService.fire(new MyGraphicItemEvent(new MyGraphicItemEventSource(MyGraphicItemEventService.DUPLICATE, node)));
+    
+
+                        }
+                            
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public rotate(treePath: TreePath, angle: number){
+
+    let node: DefaultMutableTreeNode = this.getNode(treePath)!;;
+    
+
+                        if(node != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+                        if(node.getUserObject() instanceof CanvasTreeLabel)
+                        
+                                    {
+                                    MyCanvasEventService.fire(new MyCanvasEvent(new MyCanvasEventSource(MyCanvasEventService.ROTATE, angle, node)));
+    
+
+                                    }
+                                
+                        else {
+                            MyGraphicItemEventService.fire(new MyGraphicItemEvent(new MyGraphicItemEventSource(MyGraphicItemEventService.ROTATE, angle, node)));
+    
+
+                        }
+                            
+
+                                    }
+                                
+}
+
+
+    public getRootTreeNode(): MutableTreeNode{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.rootTreeNode;
+    
+}
+
+expand(...args: any[]): any {
+   
+   
+    if (args.length === 0) return this.expand$overload1();
+   
+    if (args.length === 1) return this.expand$overload2(args[0]);
+   
+   throw new TypeError('No matching overload: expand'); }
+  
+    public expand$overload1(){
+this.workAreaJTree!.expandRow(0);
+    
+this.workAreaJTree!.expandRow(1);
+    
+}
+
+
+    public expand$overload2(treePath: TreePath){
+this.workAreaJTree!.expandPath(treePath);
+    
+}
+
+
+    initComponents(){
+this.itemJPopupMenu= new javax.swing.JPopupMenu();
+    
+this.deleteJMenuItem= new javax.swing.JMenuItem();
+    
+this.copyJMenuItem= new javax.swing.JMenuItem();
+    
+this.rotateJMenuItem= new javax.swing.JMenuItem();
+    
+this.itemJScrollPane1= new javax.swing.JScrollPane();
+    
+this.workAreaPropertiesJPanel= new javax.swing.JPanel();
+    
+this.itemJPopupMenu!.addPopupMenuListener(new class extends javax.swing.event.PopupMenuListener
+                                {
+                                
+    public popupMenuCanceled(evt: javax.swing.event.PopupMenuEvent){
+}
+
+    public popupMenuWillBecomeInvisible(evt: javax.swing.event.PopupMenuEvent){
+itemJPopupMenuPopupMenuWillBecomeInvisible(evt);
+    
+}
+
+    public popupMenuWillBecomeVisible(evt: javax.swing.event.PopupMenuEvent){
+itemJPopupMenuPopupMenuWillBecomeVisible(evt);
+    
+}
+
+                                }());
+    
+this.deleteJMenuItem!.setText("Delete");
+    
+this.deleteJMenuItem!.addMouseListener(new class extends java.awt.event.MouseAdapter
+                                {
+                                
+    public mousePressed(evt: java.awt.event.MouseEvent){
+deleteJMenuItemMousePressed(evt);
+    
+}
+
+                                }());
+    
+this.itemJPopupMenu!.add(this.deleteJMenuItem);
+    
+this.copyJMenuItem!.setText("Copy");
+    
+this.copyJMenuItem!.addMouseListener(new class extends java.awt.event.MouseAdapter
+                                {
+                                
+    public mousePressed(evt: java.awt.event.MouseEvent){
+copyJMenuItemMousePressed(evt);
+    
+}
+
+                                }());
+    
+this.itemJPopupMenu!.add(this.copyJMenuItem);
+    
+this.rotateJMenuItem!.setText("Rotate 45*");
+    
+this.rotateJMenuItem!.addMouseListener(new class extends java.awt.event.MouseAdapter
+                                {
+                                
+    public mousePressed(evt: java.awt.event.MouseEvent){
+rotateJMenuItemMousePressed(evt);
+    
+}
+
+                                }());
+    
+this.itemJPopupMenu!.add(this.rotateJMenuItem);
+    
+setLayout(new java.awt.GridLayout(1, 1));
+    
+this.workAreaPropertiesJPanel!.addMouseListener(new class extends java.awt.event.MouseAdapter
+                                {
+                                
+    public mousePressed(evt: java.awt.event.MouseEvent){
+workAreaPropertiesJPanelMousePressed(evt);
+    
+}
+
+                                }());
+    
+this.workAreaPropertiesJPanel!.setLayout(new java.awt.GridLayout(1, 0));
+    
+this.itemJScrollPane1!.setViewportView(this.workAreaPropertiesJPanel);
+    
+add(this.itemJScrollPane1);
+    
+}
+
+
+    rotateJMenuItemMousePressed(evt: java.awt.event.MouseEvent){
+
+ try { 
+    let treePath: TreePath = this.workAreaJTree!.getSelectionPath()!;;
+    
+this.rotate(treePath, 45);
+    
+this.updateTree();
+    
+this.expand();
+    
+this.repaint();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "rotateJMenuItemMousePressed", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    workAreaJTreeMousePressed(evt: java.awt.event.MouseEvent){
+
+ try { 
+    let selectedTreePathArray: TreePath[] = this.workAreaJTree!.getSelectionPaths()!;;
+    
+
+    let list: BasicArrayList = this.getNode(selectedTreePathArray)!;;
+    
+
+                        if(list.size() > 0)
+                        
+                                    {
+                                    
+                        if((evt.getModifiers()&evt.BUTTON3_MASK) == evt.BUTTON3_MASK)
+                        
+                                    {
+                                    
+
+
+
+                        for (
+    let index: number = 0;index < selectedTreePathArray!.length; index++)
+        {
+
+    let defaultMutableTreeNode: DefaultMutableTreeNode = list.get(index) as DefaultMutableTreeNode;;
+    
+
+                        if(defaultMutableTreeNode!.getUserObject() instanceof CanvasTreeLabel)
+                        
+                                    {
+                                    this.itemJPopupMenu!.show(this, evt.getX(), evt.getY());
+    
+
+                                    }
+                                
+                        else {
+                            this.itemJPopupMenu!.show(this, evt.getX(), evt.getY());
+    
+
+                        }
+                            
+}
+
+
+                                    }
+                                
+
+                        if((evt.getModifiers()&evt.BUTTON1_MASK) == evt.BUTTON1_MASK)
+                        
+                                    {
+                                    this.deselectAll();
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < selectedTreePathArray!.length; index++)
+        {
+
+    let defaultMutableTreeNode: DefaultMutableTreeNode = list.get(index) as DefaultMutableTreeNode;;
+    
+
+                        if(defaultMutableTreeNode!.getUserObject() instanceof CanvasTreeLabel)
+                        
+                                    {
+                                    MyCanvasEventService.fire(new MyCanvasEvent(new MyCanvasEventSource(MyCanvasEventService.SELECT, defaultMutableTreeNode)));
+    
+
+                                    }
+                                
+                        else {
+                            this.selectGraphicItem(defaultMutableTreeNode);
+    
+
+                        }
+                            
+}
+
+
+                                    }
+                                
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "workAreaJTreeMousePressed", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    itemJPopupMenuPopupMenuWillBecomeInvisible(evt: javax.swing.event.PopupMenuEvent){
+}
+
+
+    itemJPopupMenuPopupMenuWillBecomeVisible(evt: javax.swing.event.PopupMenuEvent){
+}
+
+
+    copyJMenuItemMousePressed(evt: java.awt.event.MouseEvent){
+
+ try { this.copy();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "copyJMenuItemMousePressed", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    deleteJMenuItemMousePressed(evt: java.awt.event.MouseEvent){
+
+ try { 
+    let selectedTreePathArray: TreePath[] = this.workAreaJTree!.getSelectionPaths()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < selectedTreePathArray!.length; index++)
+        {
+
+    let treePath: TreePath = selectedTreePathArray[index]!;;
+    
+this.remove(treePath);
+    
+this.updateTree();
+    
+this.expand();
+    
+this.repaint();
+    
+}
+
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "deleteJMenuItemMousePressed", e);
+    
+
+ }
+   }
+ 
+}
+
+
+    workAreaPropertiesJPanelMousePressed(evt: java.awt.event.MouseEvent){
+}
+
+
+    private copyJMenuItem: javax.swing.JMenuItem;
+
+    private deleteJMenuItem: javax.swing.JMenuItem;
+
+    private itemJPopupMenu: javax.swing.JPopupMenu;
+
+    private itemJScrollPane1: javax.swing.JScrollPane;
+
+    private rotateJMenuItem: javax.swing.JMenuItem;
+
+    private workAreaPropertiesJPanel: javax.swing.JPanel;
+
+}
+

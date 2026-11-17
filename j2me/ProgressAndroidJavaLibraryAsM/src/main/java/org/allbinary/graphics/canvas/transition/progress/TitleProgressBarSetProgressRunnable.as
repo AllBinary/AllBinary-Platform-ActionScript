@@ -1,0 +1,93 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { Activity } from '../../../../../../android/app/Activity.js';
+//not GWT import const Activity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ProgressRunnable } from './ProgressRunnable.js';
+//sameFolderImports - not GWT import - same folder const ProgressRunnable
+import { ProgressCanvas } from './ProgressCanvas.js';
+//sameFolderImports - not GWT import - same folder const ProgressCanvas
+
+export class TitleProgressBarSetProgressRunnable extends ProgressRunnable {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+public constructor (midletActivity: Activity, progressCanvas: ProgressCanvas){
+            super(midletActivity, progressCanvas);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public run(){
+
+ try { this.midletActivity!.onSetProgress(globalThis.Math.trunc(this.progressCanvas!.getValue()), this.progressCanvas!.getText());
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN, e);
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

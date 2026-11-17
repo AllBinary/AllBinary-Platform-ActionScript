@@ -1,0 +1,81 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+import { awt } from '../../../../java/awt.js';
+//not GWT import const awt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { PointFactory } from './PointFactory.js';
+//sameFolderImports - not GWT import - same folder const PointFactory
+import { Point } from './Point.js';
+//sameFolderImports - not GWT import - same folder const Point
+import { Rectangle } from './Rectangle.js';
+//sameFolderImports - not GWT import - same folder const Rectangle
+
+export class PointHelper
+            extends Object
+         {
+        
+
+    private static readonly two: number = 2;
+
+    public static getCenterPoint(rectangle: Rectangle): Point{
+
+    let x: number = rectangle.getX() +rectangle.getWidth() /PointHelper.two;;
+    
+
+    let y: number = rectangle.getY() +rectangle.getHeight() /PointHelper.two;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return PointFactory.getInstance(globalThis.Math.trunc(x), globalThis.Math.trunc(y));;
+    
+}
+
+
+public constructor (){
+
+            super();
+        }
+
+
+}
+

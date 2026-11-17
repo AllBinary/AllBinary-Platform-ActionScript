@@ -1,0 +1,198 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2006 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AllBinaryTiledLayer } from './AllBinaryTiledLayer.js';
+//sameFolderImports - not GWT import - same folder const AllBinaryTiledLayer
+
+export class TiledLayerUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: TiledLayerUtil = new TiledLayerUtil();
+
+    public static getInstance(): TiledLayerUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return TiledLayerUtil.instance;
+    
+}
+
+
+    public keepOnBorderdMapX(terrainTiledLayer: AllBinaryTiledLayer, x: number, width: number, mapBorderBufferWidth: number): number{
+
+    let newX: number = x;;
+    
+
+    let maxRight: number = terrainTiledLayer!.getWidth() -width -mapBorderBufferWidth;;
+    
+
+                        if(x +width > maxRight)
+                        
+                                    {
+                                    newX= maxRight;
+    
+
+                                    }
+                                
+
+                        if(x < mapBorderBufferWidth)
+                        
+                                    {
+                                    newX= mapBorderBufferWidth;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return newX;
+    
+}
+
+
+    public keepOnBorderdMapY(terrainTiledLayer: AllBinaryTiledLayer, y: number, height: number, mapBorderBufferHeight: number): number{
+
+    let newY: number = y;;
+    
+
+    let maxBottom: number = terrainTiledLayer!.getHeight() -height -mapBorderBufferHeight;;
+    
+
+                        if(y +height > maxBottom)
+                        
+                                    {
+                                    newY= maxBottom;
+    
+
+                                    }
+                                
+
+                        if(y < mapBorderBufferHeight)
+                        
+                                    {
+                                    newY= mapBorderBufferHeight;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return newY;
+    
+}
+
+
+    public keepOnMapX(terrainTiledLayer: AllBinaryTiledLayer, x: number, width: number): number{
+
+    let newX: number = x;;
+    
+
+    let maxRight: number = terrainTiledLayer!.getWidth() -width;;
+    
+
+                        if(x >= maxRight)
+                        
+                                    {
+                                    newX= maxRight;
+    
+
+                                    }
+                                
+
+                        if(x < 0)
+                        
+                                    {
+                                    newX= 0;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return newX;
+    
+}
+
+
+    public keepOnMapY(terrainTiledLayer: AllBinaryTiledLayer, y: number, height: number): number{
+
+    let newY: number = y;;
+    
+
+    let maxBottom: number = terrainTiledLayer!.getHeight() -height;;
+    
+
+                        if(y >= maxBottom)
+                        
+                                    {
+                                    newY= maxBottom;
+    
+
+                                    }
+                                
+
+                        if(y < 0)
+                        
+                                    {
+                                    newY= 0;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return newY;
+    
+}
+
+
+}
+

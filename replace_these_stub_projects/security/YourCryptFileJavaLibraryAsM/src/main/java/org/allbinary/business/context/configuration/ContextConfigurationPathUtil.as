@@ -1,0 +1,88 @@
+
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { AbFile } from '../../../../../org/allbinary/logic/io/file/AbFile.js';
+//not GWT import const AbFile
+
+import { AbPath } from '../../../../../org/allbinary/logic/io/path/AbPath.js';
+//not GWT import const AbPath
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class ContextConfigurationPathUtil
+            extends Object
+         {
+        
+
+                //@Throws(Exception.constructor)
+            
+    public static getAbFile(contextName: string): AbFile{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public static getAbPath(contextName: string): AbPath{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    static getPath(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+    static getFileName(contextName: string): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+}
+
+
+}
+

@@ -1,0 +1,143 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Integer } from '../../../../../java/lang/Integer.js';
+        
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+import { SmallIntegerSingletonFactory } from '../../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
+//not GWT import const SmallIntegerSingletonFactory
+
+import { TimeDelayHelper } from '../../../../../org/allbinary/time/TimeDelayHelper.js';
+//not GWT import const TimeDelayHelper
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class InputProbability
+            extends Object
+         {
+        
+
+    public static INPUT_PROBABILITY: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(0)!;
+
+    private readonly likelyhoodIntegerArray: Integer[][];
+
+    private readonly repeatLikelyhoodIntegerArray: Integer[];
+
+    private readonly max: number;
+
+    private readonly timeDelayHelper: TimeDelayHelper;
+
+public constructor (likelyhoodIntegerArray: Integer[][], repeatLikelyhoodIntegerArray: Integer[], max: number, timeDelayHelper: TimeDelayHelper){
+
+            super();
+        this.likelyhoodIntegerArray= likelyhoodIntegerArray;
+    
+this.repeatLikelyhoodIntegerArray= repeatLikelyhoodIntegerArray;
+    
+this.max= max;
+    
+this.timeDelayHelper= timeDelayHelper;
+    
+}
+
+
+    public getLikelyhoodIntegerArray(): Integer[][]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.likelyhoodIntegerArray;
+    
+}
+
+
+    public getRepeatLikelyhoodIntegerArray(): Integer[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.repeatLikelyhoodIntegerArray;
+    
+}
+
+
+    public getMax(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.max;
+    
+}
+
+
+    public getTimeDelayHelper(): TimeDelayHelper{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.timeDelayHelper;
+    
+}
+
+
+    public toHashtable(): ABHashtable<any, any>{
+
+    let hashtable: ABHashtable<any, any> = StdUtil.getInstance()!.createHashtable()!;;
+    
+hashtable.put(InputProbability.INPUT_PROBABILITY, this);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashtable;
+    
+}
+
+
+}
+

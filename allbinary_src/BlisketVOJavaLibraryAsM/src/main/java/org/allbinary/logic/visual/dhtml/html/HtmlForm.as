@@ -1,0 +1,183 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { HtmlInput } from '../../../../../../org/allbinary/logic/visual/dhtml/html/input/HtmlInput.js';
+//not GWT import const HtmlInput
+
+import { HtmlTable } from '../../../../../../org/allbinary/logic/visual/dhtml/html/table/HtmlTable.js';
+//not GWT import const HtmlTable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class HtmlForm
+            extends Object
+         {
+        
+
+    private readonly FORMBEGIN: string = "<form ";
+
+    private readonly END: string = ">";
+
+    private readonly FORMEND: string = "</form>";
+
+    private readonly ACTION: string = "ACTION=\"";
+
+    private readonly GET: string = "GET\"";
+
+    private readonly POST: string = "POST\"";
+
+    private readonly METHODS: string[] = 
+                                                        [
+                                                            this.GET,this.POST
+                                                        ];
+
+    private readonly METHOD: string = "METHOD=\"";
+
+    private method: string;
+
+    private action: string;
+
+    inputs: BasicArrayList;
+
+public constructor (action: string){
+
+            super();
+        this.action= action;
+    
+this.inputs= new BasicArrayListD();
+    
+}
+
+
+    public setPost(){
+this.method= this.POST;
+    
+}
+
+
+    public setGet(){
+this.method= this.GET;
+    
+}
+
+
+    public addInput(htmlInput: HtmlInput){
+this.inputs.add(htmlInput);
+    
+}
+
+
+    public addTable(htmlTable: HtmlTable){
+this.inputs.add(htmlTable);
+    
+}
+
+
+    public toString(): string{
+
+    let stringUtil: StringUtil = StringUtil.getInstance()!;;
+    
+
+    let result: string = stringUtil!.EMPTY_STRING;;
+    
+
+    let inputArray: any[] = this.inputs.toArray()!;;
+    
+
+    let inputSize: number = inputArray!.length
+                ;;
+    
+result= this.FORMBEGIN;
+    
+result += this.METHOD;
+    
+result += this.method;
+    
+result += "\" ";
+    
+result += this.ACTION;
+    
+result += this.action;
+    
+result += "\" ";
+    
+result += this.END;
+    
+
+
+
+
+                        for (
+    let i: number = 0;i < inputSize; i++)
+        {
+result += inputArray[i]!.toString();
+    
+result += " ";
+    
+}
+
+result += this.FORMEND;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+}
+
+
+}
+

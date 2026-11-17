@@ -1,0 +1,162 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { FREEBLISKET_PATH_GLOBALS } from '../../../../../../org/allbinary/globals/FREEBLISKET_PATH_GLOBALS.js';
+//not GWT import const FREEBLISKET_PATH_GLOBALS
+
+import { URLGLOBALS } from '../../../../../../org/allbinary/globals/URLGLOBALS.js';
+//not GWT import const URLGLOBALS
+
+import { SearchRequest } from '../../../../../../org/allbinary/logic/control/search/SearchRequest.js';
+//not GWT import const SearchRequest
+
+import { AbPath } from '../../../../../../org/allbinary/logic/io/path/AbPath.js';
+//not GWT import const AbPath
+
+//not plain js import { AbPathData } 
+const AbPathData = globalThis.org.allbinary.logic.io.path.AbPathData;
+type AbPathData<T = any, U = any> = typeof AbPathData extends abstract new (...args: any[]) => infer Instance ? Instance : typeof AbPathData;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TransformInfoHttp } from './TransformInfoHttp.js';
+//sameFolderImports - not GWT import - same folder const TransformInfoHttp
+
+export class TransformInfoHttpSearch extends TransformInfoHttp {
+        
+
+public constructor (searchRequest: SearchRequest){
+            super(searchRequest!.getPropertiesHashMap(), searchRequest!.getPageContext());
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+                        if(searchRequest!.getStoreFront()!.getName() != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.setStoreName(searchRequest!.getStoreFront()!.getName());
+    
+
+                                    }
+                                
+                        else {
+                            this.setStoreName(StringUtil.getInstance()!.EMPTY_STRING);
+    
+
+                        }
+                            
+
+    let dataFileName: string = searchRequest!.getXslFile()!;;
+    
+this.setTemplateFile(dataFileName);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getPath(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(URLGLOBALS.getMainPath());
+    
+stringBuffer!.append(FREEBLISKET_PATH_GLOBALS.getInstance()!.XSLPATH);
+    
+stringBuffer!.append(this.getStoreName());
+    
+stringBuffer!.append(AbPathData.getInstance()!.SEPARATOR);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getTemplateFilePath(): AbPath{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new AbPath(this.getPath(), this.getTemplateFile());
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getObjectConfigFilePath(): AbPath{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new AbPath(this.getPath(), this.getObjectConfigFile());
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getDataFilePath(): AbPath{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new AbPath(this.getPath(), this.getDataFile());
+    
+}
+
+
+}
+

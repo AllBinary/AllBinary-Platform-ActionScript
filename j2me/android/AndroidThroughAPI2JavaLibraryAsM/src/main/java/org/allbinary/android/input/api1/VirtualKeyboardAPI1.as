@@ -1,0 +1,81 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { VirtualKeyboard } from '../../../../../org/allbinary/android/input/VirtualKeyboard.js';
+//not GWT import const VirtualKeyboard
+
+import { VirtualKeyboardEventListenerInterface } from '../../../../../org/allbinary/input/event/VirtualKeyboardEventListenerInterface.js';
+//not GWT import const VirtualKeyboardEventListenerInterface
+
+import { Activity } from '../../../../../android/app/Activity.js';
+//not GWT import const Activity
+
+import { VirtualKeyboardEvent } from '../../../../../org/allbinary/input/event/VirtualKeyboardEvent.js';
+//not GWT import const VirtualKeyboardEvent
+
+import { AllBinaryEventObject } from '../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
+//not GWT import const AllBinaryEventObject
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class VirtualKeyboardAPI1 extends VirtualKeyboard implements VirtualKeyboardEventListenerInterface {
+        
+
+    public static MIN_API: number = 1;
+
+    public static MAX_API: number = 2;
+
+public constructor (activity: Activity){
+
+            super();
+        }
+
+
+    public onVirtualKeyboardEvent(virtualKeyboardEvent: VirtualKeyboardEvent){
+super.onVirtualKeyboardEvent(virtualKeyboardEvent);
+    
+}
+
+
+    public onEvent(eventObject: AllBinaryEventObject){
+super.onEvent(eventObject);
+    
+}
+
+
+}
+

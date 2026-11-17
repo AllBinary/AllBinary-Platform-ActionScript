@@ -1,0 +1,92 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+import { CellPositionFactory } from '../../../../../../../org/allbinary/graphics/CellPositionFactory.js';
+//not GWT import const CellPositionFactory
+
+import { GeographicMapCellPositionTracking } from '../../../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPositionTracking.js';
+//not GWT import const GeographicMapCellPositionTracking
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GeographicMapCellPositionEvent } from './GeographicMapCellPositionEvent.js';
+//sameFolderImports - not GWT import - same folder const GeographicMapCellPositionEvent
+import { GeographicMapCellPositionEventHandler } from './GeographicMapCellPositionEventHandler.js';
+//sameFolderImports - not GWT import - same folder const GeographicMapCellPositionEventHandler
+
+export class GeographicMapCellPositionEventUtil
+            extends Object
+         {
+        
+
+    private readonly geographicMapCellPositionEvent: GeographicMapCellPositionEvent;
+
+    private readonly geographicMapCellPositionEventHandler: GeographicMapCellPositionEventHandler = GeographicMapCellPositionEventHandler.getInstance()!;
+
+public constructor (anyType: any){
+
+            super();
+        this.geographicMapCellPositionEvent= new GeographicMapCellPositionEvent(anyType, CellPositionFactory.getInstance()!.NONE);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public update(geographicMapCellPositionTracking: GeographicMapCellPositionTracking){
+this.geographicMapCellPositionEvent!.setGeographicMapCellPosition(geographicMapCellPositionTracking!.getCurrentGeographicMapCellPosition());
+    
+this.geographicMapCellPositionEventHandler!.fireEvent(this.geographicMapCellPositionEvent);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public remove(geographicMapCellPositionTracking: GeographicMapCellPositionTracking){
+this.geographicMapCellPositionEvent!.setGeographicMapCellPosition(geographicMapCellPositionTracking!.getCurrentGeographicMapCellPosition());
+    
+this.geographicMapCellPositionEventHandler!.fireRemoveEvent(this.geographicMapCellPositionEvent);
+    
+}
+
+
+}
+

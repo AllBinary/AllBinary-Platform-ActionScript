@@ -1,0 +1,420 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../java/lang/Integer.js';
+        
+import { HashMap } from '../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { Set } from '../../../../../java/util/Set.js';
+//not GWT import const Set
+
+import { HttpServletRequest } from '../../../../../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { ModDomHelper } from '../../../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+import { ToDomHelper } from '../../../../../org/allbinary/data/tree/dom/ToDomHelper.js';
+//not GWT import const ToDomHelper
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+import { Document } from '../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { SearchData } from './SearchData.js';
+//sameFolderImports - not GWT import - same folder const SearchData
+
+export class SearchParams
+            extends Object
+         {
+        
+
+    private columnsAndSearchValues: HashMap<any, any>;
+
+    private order: string;
+
+    private sortBy: string;
+
+    private listLength: string;
+
+    private startPage: string;
+
+    private endPage: string;
+
+public constructor (request: HttpServletRequest){
+
+            super();
+        this.columnsAndSearchValues= StdUtil.getInstance()!.createHashMap();
+    
+this.setLength(request.getParameter(SearchData.LENGTH));
+    
+this.setOrder(request.getParameter(SearchData.ORDER));
+    
+
+    let page: string = request.getParameter(SearchData.PAGE)!;;
+    
+this.setStartPage(page);
+    
+this.setEndPage(page);
+    
+this.setSortBy(request.getParameter(SearchData.SORTBY));
+    
+
+    let index: number = 0;;
+    
+
+    let columnName: string = request.getParameter(SearchData.COLUMNNAME +"[0]")!;;
+    
+
+    let columnValue: string = request.getParameter(SearchData.COLUMNVALUE +"[0]")!;;
+    
+
+        while(columnName != 
+                                    null
+                                )
+        {
+this.add(columnName, columnValue);
+    
+index++;
+    
+columnName= request.getParameter(SearchData.COLUMNNAME +"[" +index +"]");
+    
+columnValue= request.getParameter(SearchData.COLUMNVALUE +"[" +index +"]");
+    
+}
+
+}
+
+
+    public add(column: string, value: string){
+this.columnsAndSearchValues!.put(column, value);
+    
+}
+
+
+    public setOrder(value: string){
+this.order= value;
+    
+}
+
+
+    public setSortBy(value: string){
+this.sortBy= value;
+    
+}
+
+
+    public setLength(value: string){
+this.listLength= value;
+    
+}
+
+
+    public setStartPage(value: string){
+this.startPage= value;
+    
+}
+
+
+    public setEndPage(value: string){
+this.endPage= value;
+    
+}
+
+
+    public get(): HashMap<any, any>{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.columnsAndSearchValues;
+    
+}
+
+
+    public getOrder(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.order;
+    
+}
+
+
+    public getSortBy(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.sortBy;
+    
+}
+
+
+    public getLength(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.listLength;
+    
+}
+
+
+    public getLengthInt(): Integer{
+
+                        if(this.listLength != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new Integer(this.listLength);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new Integer(0);
+    
+
+                        }
+                            
+}
+
+
+    public getStartPage(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.startPage;
+    
+}
+
+
+    public getEndPage(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.endPage;
+    
+}
+
+
+    public getStartPageInt(): Integer{
+
+                        if(this.startPage != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new Integer(this.startPage);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new Integer(0);
+    
+
+                        }
+                            
+}
+
+
+    public getEndPageInt(): Integer{
+
+                        if(this.endPage != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new Integer(this.endPage);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new Integer(0);
+    
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getParamsNode(document: Document): Node{
+
+    let paramsNode: Node = ModDomHelper.createNameValueNodes(document, SearchData.PARAMS, SearchData.PARAMS)!;;
+    
+paramsNode!.appendChild(this.getFieldsNode(document));
+    
+paramsNode!.appendChild(this.getOrderNode(document));
+    
+paramsNode!.appendChild(this.getSortByNode(document));
+    
+paramsNode!.appendChild(this.getLengthNode(document));
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return paramsNode;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getFieldsNode(document: Document): Node{
+
+    let fieldsNode: Node = ModDomHelper.createNameValueNodes(document, SearchData.FIELDS, new Integer(this.columnsAndSearchValues!.size()).toString())!;;
+    
+
+    let set: Set = this.columnsAndSearchValues!.keySet()!;;
+    
+
+    let searchValueArray: any[] = set.toArray()!;;
+    
+
+    let size: number = searchValueArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let key: string = searchValueArray[index]! as string;;
+    
+
+    let searchValue: string = this.columnsAndSearchValues!.get(key) as string;;
+    
+fieldsNode!.appendChild(ModDomHelper.createNameValueNodes(document, SearchData.FIELD, key, ToDomHelper.convertNull(searchValue)));
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return fieldsNode;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getOrderNode(document: Document): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ModDomHelper.createNameValueNodes(document, SearchData.ORDER, ToDomHelper.convertNull(this.getOrder()));;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getSortByNode(document: Document): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ModDomHelper.createNameValueNodes(document, SearchData.SORTBY, ToDomHelper.convertNull(this.getSortBy()));;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getLengthNode(document: Document): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ModDomHelper.createNameValueNodes(document, SearchData.LENGTH, ToDomHelper.convertNull(this.getLength()));;
+    
+}
+
+
+}
+

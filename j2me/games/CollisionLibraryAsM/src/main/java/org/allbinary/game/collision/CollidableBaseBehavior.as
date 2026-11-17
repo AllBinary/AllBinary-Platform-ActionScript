@@ -1,0 +1,187 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { CollidableCompositeLayer } from '../../../../org/allbinary/game/layer/CollidableCompositeLayer.js';
+//not GWT import const CollidableCompositeLayer
+
+import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { CollidableInterface } from './CollidableInterface.js';
+//sameFolderImports - not GWT import - same folder const CollidableInterface
+import { LayerCollisionUtil } from './LayerCollisionUtil.js';
+//sameFolderImports - not GWT import - same folder const LayerCollisionUtil
+import { CollidableInterfaceCompositeInterface } from './CollidableInterfaceCompositeInterface.js';
+//sameFolderImports - not GWT import - same folder const CollidableInterfaceCompositeInterface
+import { CollisionTypeFactory } from './CollisionTypeFactory.js';
+//sameFolderImports - not GWT import - same folder const CollisionTypeFactory
+import { CollisionType } from './CollisionType.js';
+//sameFolderImports - not GWT import - same folder const CollisionType
+
+export class CollidableBaseBehavior
+            extends Object
+         implements CollidableInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    readonly layerCollisionUtil: LayerCollisionUtil = LayerCollisionUtil.getInstance()!;
+
+    private collidable: boolean = true;
+
+public constructor (collidable: boolean){
+
+            super();
+        this.collidable= collidable;
+    
+}
+
+
+    public update(){
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.constructor.name.toString()!;;
+    
+}
+
+
+    public setCollidable(collidable: boolean){
+this.collidable= collidable;
+    
+}
+
+
+    public isCollidable(ownerLayer: CollidableCompositeLayer): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.collidable;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public collide(ownerLayer: CollidableCompositeLayer, allbinaryCollidableLayer: CollidableCompositeLayer){
+
+
+
+                            throw new Exception(new StringMaker().append(this.commonStrings!.NOT_IMPLEMENTED)!.append(CommonLabels.getInstance()!.COLON_SEP)!.append(this.constructor.name.toString()!)!.toString());
+                    
+}
+
+
+    public isCollision(ownerLayer: CollidableCompositeLayer, collisionLayer: CollidableCompositeLayer): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.layerCollisionUtil!.isCollision(ownerLayer, collisionLayer);;
+    
+}
+
+
+    public isCollisionInterface(ownerLayer: CollidableCompositeLayer, collidableInterfaceCompositeInterface: CollidableInterfaceCompositeInterface): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.layerCollisionUtil!.isCollision(ownerLayer, collidableInterfaceCompositeInterface as unknown as AllBinaryLayer);;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public collideInterface(ownerLayer: CollidableCompositeLayer, collidableInterfaceCompositeInterface: CollidableInterfaceCompositeInterface){
+
+
+
+                            throw new Exception(this.commonStrings!.NOT_IMPLEMENTED);
+                    
+}
+
+
+    public paint(ownerLayer: CollidableCompositeLayer, graphics: Graphics){
+}
+
+
+    public getCollisionTypeWith(layerInterface: AllBinaryLayer): CollisionType{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return CollisionTypeFactory.getInstance()!.NONE;
+    
+}
+
+
+}
+

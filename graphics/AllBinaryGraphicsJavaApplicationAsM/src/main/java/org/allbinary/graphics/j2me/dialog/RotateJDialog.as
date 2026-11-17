@@ -1,0 +1,239 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { System } from '../../../../../java/lang/System.js';
+        
+            import { Integer } from '../../../../../java/lang/Integer.js';
+        
+            const Short = (globalThis.java?.lang?.Short ?? class {}) as typeof globalThis.java.lang.Short;
+        
+//not plain js import { ARunnable } 
+const ARunnable = globalThis.org.allbinary.thread.ARunnable;
+type ARunnable<T = any, U = any> = typeof ARunnable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ARunnable;
+
+import { HashMap } from '../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { HashMapJDialogListenerInterface } from '../../../../../org/allbinary/gui/dialog/HashMapJDialogListenerInterface.js';
+//not GWT import const HashMapJDialogListenerInterface
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JDialog } from './JDialog.js';
+//sameFolderImports - not GWT import - same folder const JDialog
+import { Frame } from './Frame.js';
+//sameFolderImports - not GWT import - same folder const Frame
+import { JTextField } from './JTextField.js';
+//sameFolderImports - not GWT import - same folder const JTextField
+import { JLabel } from './JLabel.js';
+//sameFolderImports - not GWT import - same folder const JLabel
+import { JPanel } from './JPanel.js';
+//sameFolderImports - not GWT import - same folder const JPanel
+import { JButton } from './JButton.js';
+//sameFolderImports - not GWT import - same folder const JButton
+import { ActionListener } from './ActionListener.js';
+//sameFolderImports - not GWT import - same folder const ActionListener
+import { ActionEvent } from './ActionEvent.js';
+//sameFolderImports - not GWT import - same folder const ActionEvent
+import { GroupLayout } from './GroupLayout.js';
+//sameFolderImports - not GWT import - same folder const GroupLayout
+import { EventQueue } from './EventQueue.js';
+//sameFolderImports - not GWT import - same folder const EventQueue
+import { JFrame } from './JFrame.js';
+//sameFolderImports - not GWT import - same folder const JFrame
+import { WindowAdapter } from './WindowAdapter.js';
+//sameFolderImports - not GWT import - same folder const WindowAdapter
+import { WindowEvent } from './WindowEvent.js';
+//sameFolderImports - not GWT import - same folder const WindowEvent
+
+export class RotateJDialog extends javax.swing.JDialog {
+        
+
+    public static main(args: string[]){
+java.awt.EventQueue.invokeLater(new class extends ARunnable
+                                {
+                                
+    public run(){
+
+    let dialog: RotateJDialog = new RotateJDialog(new javax.swing.JFrame(), true);;
+    
+dialog.addWindowListener(new class extends java.awt.event.WindowAdapter
+                                {
+                                
+    public windowClosing(e: java.awt.event.WindowEvent){
+System.exit(0);
+    
+}
+
+                                }());
+    
+dialog.setVisible(true);
+    
+}
+
+                                }());
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;
+
+public constructor (parent: java.awt.Frame, modal: boolean){
+            super(parent, modal);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.initComponents();
+    
+}
+
+
+    initComponents(){
+this.angleIncrementJTextField= new javax.swing.JTextField();
+    
+this.jLabel1= new javax.swing.JLabel();
+    
+this.totalRotationJTextField= new javax.swing.JTextField();
+    
+this.jLabel2= new javax.swing.JLabel();
+    
+this.jPanel1= new javax.swing.JPanel();
+    
+this.jButton1= new javax.swing.JButton();
+    
+setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+    
+this.angleIncrementJTextField!.setText("36");
+    
+this.jLabel1!.setText("Angle Increment:");
+    
+this.totalRotationJTextField!.setText("360");
+    
+this.jLabel2!.setText("Total Angular Rotation:");
+    
+this.jButton1!.setText("OK");
+    
+this.jButton1!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+jButton1ActionPerformed(evt);
+    
+}
+
+                                }());
+    
+
+    let jPanel1Layout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this.jPanel1);;
+    
+this.jPanel1!.setLayout(jPanel1Layout);
+    
+jPanel1Layout!.setHorizontalGroup(jPanel1Layout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(jPanel1Layout!.createSequentialGroup()!.addGap(62, 62, 62)!.addComponent(this.jButton1)!.addContainerGap(62, Short.MAX_VALUE)));
+    
+jPanel1Layout!.setVerticalGroup(jPanel1Layout!.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addComponent(this.jButton1));
+    
+
+    let layout: javax.swing.GroupLayout = new javax.swing.GroupLayout(getContentPane());;
+    
+getContentPane()!.setLayout(layout);
+    
+layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addContainerGap()!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)!.addComponent(this.jLabel1)!.addComponent(this.jLabel2))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addComponent(this.totalRotationJTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)!.addComponent(this.angleIncrementJTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))!.addContainerGap())!.addComponent(this.jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+    
+layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addContainerGap()!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.angleIncrementJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addComponent(this.jLabel1))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.totalRotationJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addComponent(this.jLabel2))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)!.addComponent(this.jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addContainerGap()));
+    
+pack();
+    
+}
+
+
+    jButton1ActionPerformed(evt: java.awt.event.ActionEvent){
+
+ try { this.hashMap!.put(Integer.valueOf(0)Integer.valueOf(this.angleIncrementJTextField!.getText()));
+    
+this.hashMap!.put(Integer.valueOf(1)Integer.valueOf(this.totalRotationJTextField!.getText()));
+    
+(this.getParent() as HashMapJDialogListenerInterface).onHashMap(this.hashMap);
+    
+this.setVisible(false);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.putF(commonStrings!.EXCEPTION, this, "jButton1ActionPerformed");
+    
+
+ }
+   }
+ 
+}
+
+
+    private angleIncrementJTextField: javax.swing.JTextField;
+
+    private jButton1: javax.swing.JButton;
+
+    private jLabel1: javax.swing.JLabel;
+
+    private jLabel2: javax.swing.JLabel;
+
+    private jPanel1: javax.swing.JPanel;
+
+    private totalRotationJTextField: javax.swing.JTextField;
+
+}
+

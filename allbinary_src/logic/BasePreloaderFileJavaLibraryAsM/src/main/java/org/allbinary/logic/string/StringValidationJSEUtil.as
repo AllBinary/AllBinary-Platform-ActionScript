@@ -1,0 +1,96 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            //not plain js import { Character }
+            const Character = (globalThis.java?.lang?.Character ?? class {}) as typeof globalThis.java.lang.Character;
+            type Character<T = any, U = any> = typeof Character extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Character;
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class StringValidationJSEUtil
+            extends Object
+         {
+        
+
+    public static isBlank(string: string): boolean{
+
+    let len: number = string.length!;;
+    
+
+
+
+
+                        for (
+    let i: number = 0;i < len; i++)
+        {
+
+    let c: string = string[i]!;;
+    
+
+                        if(Character.isWhitespace(c) == false)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

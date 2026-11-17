@@ -1,0 +1,141 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { GameKey } from '../../../../../org/allbinary/game/input/GameKey.js';
+//not GWT import const GameKey
+
+import { GameKeyEventSourceInterface } from '../../../../../org/allbinary/game/input/GameKeyEventSourceInterface.js';
+//not GWT import const GameKeyEventSourceInterface
+
+import { Input } from '../../../../../org/allbinary/game/input/Input.js';
+//not GWT import const Input
+
+import { InputFactory } from '../../../../../org/allbinary/game/input/InputFactory.js';
+//not GWT import const InputFactory
+
+import { GameKeyEvent } from '../../../../../org/allbinary/game/input/event/GameKeyEvent.js';
+//not GWT import const GameKeyEvent
+
+import { GameKeyEventFactory } from '../../../../../org/allbinary/game/input/event/GameKeyEventFactory.js';
+//not GWT import const GameKeyEventFactory
+
+import { InputToGameKeyMapping } from '../../../../../org/allbinary/game/input/mapping/InputToGameKeyMapping.js';
+//not GWT import const InputToGameKeyMapping
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class TouchButtonInput extends Input implements GameKeyEventSourceInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly gameKeyEventFactory: GameKeyEventFactory = GameKeyEventFactory.getInstance()!;
+
+    private readonly TOUCH_BUTTON_SOURCE_ID: number = this.gameKeyEventFactory!.TOUCH_BUTTON_SOURCE_ID;
+
+    private gameKeyEvent: GameKeyEvent = GameKeyEvent.NONE;
+
+public constructor (id: number, name: string){
+            super(id, name);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+    let inputFactory: InputFactory = InputFactory.getInstance()!;;
+    
+inputFactory!.add(this.getId(), this);
+    
+}
+
+
+    public update(inputToGameKeyMapping: InputToGameKeyMapping){
+
+ try { 
+    let gameKey: GameKey = inputToGameKeyMapping!.getInstance(this.getId())!;;
+    
+this.gameKeyEvent= this.gameKeyEventFactory!.getInstanceForInput(this, gameKey);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.UPDATE, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public getSourceId(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.TOUCH_BUTTON_SOURCE_ID;
+    
+}
+
+
+    public getGameKeyEvent(): GameKeyEvent{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.gameKeyEvent;
+    
+}
+
+
+}
+

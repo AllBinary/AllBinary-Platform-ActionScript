@@ -1,0 +1,161 @@
+
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../java/lang/Exception.js';
+        
+            import { RuntimeException } from '../../../java/lang/RuntimeException.js';
+        
+//not plain js import { Stack } 
+const Stack = (globalThis.java?.util?.Stack ?? class {}) as typeof globalThis.java.util.Stack;
+type Stack<T = any, U = any> = typeof Stack extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Stack;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { Canvas } from './Canvas.js';
+//sameFolderImports - not GWT import - same folder const Canvas
+import { Command } from './Command.js';
+//sameFolderImports - not GWT import - same folder const Command
+import { CommandListener } from './CommandListener.js';
+//sameFolderImports - not GWT import - same folder const CommandListener
+import { Graphics } from './Graphics.js';
+//sameFolderImports - not GWT import - same folder const Graphics
+
+export class NullCanvas extends Canvas {
+        
+
+    public static readonly NULL_CANVAS: NullCanvas = new NullCanvas();
+
+public constructor (){
+
+            super();
+        }
+
+
+    public setFullScreenMode(mode: boolean){
+}
+
+
+    sizeChanged(w: number, h: number){
+}
+
+
+    public getCommandStack(): Stack<any>{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public isCommand(command: Command): boolean{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public addCommand(command: Command){
+}
+
+
+    public removeCommand(command: Command){
+}
+
+
+    public removeAllCommands(){
+}
+
+
+    public setCommandListener(l: CommandListener){
+}
+
+
+    public getCustomCommandListener(): CommandListener{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public isPaused(): boolean{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public removePauseCommand(){
+}
+
+
+    public pause(){
+}
+
+
+    public unPause(){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    process(){
+}
+
+
+    paint(graphics: Graphics){
+}
+
+
+    public destroy(){
+}
+
+
+    setPaused(isPaused: boolean){
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    pointerDragged(x: number, y: number){
+}
+
+
+    pointerPressed(x: number, y: number){
+}
+
+
+    pointerReleased(x: number, y: number){
+}
+
+
+}
+

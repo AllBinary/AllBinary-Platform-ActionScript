@@ -1,0 +1,93 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { BufferedImage } from '../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+import { File } from '../../../../java/io/File.js';
+//not GWT import const File
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class ImageProcessorInput
+            extends Object
+         {
+        
+
+    private bufferedImageArray: BufferedImage[];
+
+    private files: File[];
+
+public constructor (files: File[], bufferedImageArray: BufferedImage[]){
+            super();
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.bufferedImageArray= bufferedImageArray;
+    
+this.files= files;
+    
+}
+
+
+    public getBufferedImageArray(): BufferedImage[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.bufferedImageArray;
+    
+}
+
+
+    public getFiles(): File[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.files;
+    
+}
+
+
+}
+

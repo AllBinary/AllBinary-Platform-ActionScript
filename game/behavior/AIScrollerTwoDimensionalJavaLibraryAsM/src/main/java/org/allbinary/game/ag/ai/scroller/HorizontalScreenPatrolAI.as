@@ -1,0 +1,215 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../java/lang/Integer.js';
+        
+import { Canvas } from '../../../../../../javax/microedition/lcdui/Canvas.js';
+//not GWT import const Canvas
+
+import { BasicAI } from '../../../../../../org/allbinary/game/ai/BasicAI.js';
+//not GWT import const BasicAI
+
+import { GameInput } from '../../../../../../org/allbinary/game/input/GameInput.js';
+//not GWT import const GameInput
+
+import { AllBinaryGameLayerManager } from '../../../../../../org/allbinary/game/layer/AllBinaryGameLayerManager.js';
+//not GWT import const AllBinaryGameLayerManager
+
+//not plain js import { MyRandomFactory } 
+const MyRandomFactory = globalThis.org.allbinary.game.rand.MyRandomFactory;
+type MyRandomFactory<T = any, U = any> = typeof MyRandomFactory extends abstract new (...args: any[]) => infer Instance ? Instance : typeof MyRandomFactory;
+
+import { DisplayInfoSingleton } from '../../../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
+//not GWT import const DisplayInfoSingleton
+
+import { AllBinaryLayer } from '../../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { AllBinaryLayerManager } from '../../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
+//not GWT import const AllBinaryLayerManager
+
+import { SmallIntegerSingletonFactory } from '../../../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
+//not GWT import const SmallIntegerSingletonFactory
+
+import { PlayerQueue } from '../../../../../../org/allbinary/media/audio/PlayerQueue.js';
+//not GWT import const PlayerQueue
+
+import { SecondaryPlayerQueueFactory } from '../../../../../../org/allbinary/media/audio/SecondaryPlayerQueueFactory.js';
+//not GWT import const SecondaryPlayerQueueFactory
+
+import { Sound } from '../../../../../../org/allbinary/media/audio/Sound.js';
+//not GWT import const Sound
+
+import { TimeDelayHelper } from '../../../../../../org/allbinary/time/TimeDelayHelper.js';
+//not GWT import const TimeDelayHelper
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class HorizontalScreenPatrolAI extends BasicAI {
+        
+
+    public static readonly SOUND: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(433)!;
+
+    keyDirection: number = Canvas.LEFT;
+
+    private readonly displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
+
+    private firingX: number = this.displayInfoSingleton!.getLastHalfWidth()!;
+
+    private firedIndex: number = 0;
+
+    private readonly MAX_FIRE: number = 28;
+
+    private readonly timeDelayHelper: TimeDelayHelper = new TimeDelayHelper(240);
+
+    private readonly secondaryPlayerQueue: PlayerQueue = SecondaryPlayerQueueFactory.getInstance()!;
+
+    private readonly sound: Sound;
+
+public constructor (hashtable: ABHashtable<any, any>, ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
+            super(ownerLayerInterface, gameInput);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.sound= hashtable.get(HorizontalScreenPatrolAI.SOUND) as Sound;
+    
+
+                        if(this.sound == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("No Sound Provided!!");
+                    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
+super.processKeyAI(this.keyDirection);
+    
+
+                        if(this.timeDelayHelper!.isTimeTNT())
+                        
+                                    {
+                                    
+    let layerInterface: AllBinaryLayer = this.getOwnerLayerInterface()!;;
+    
+
+    let currentOwnerLayerX: number = layerInterface!.getXP()!;;
+    
+
+                        if(currentOwnerLayerX <  -layerInterface!.getWidth())
+                        
+                                    {
+                                    
+    let y: number = MyRandomFactory.getInstance()!.getAbsoluteNextIntAllowZero(50)!;;
+    
+layerInterface!.setPosition(this.displayInfoSingleton!.getLastWidth() +layerInterface!.getWidth() +50, y, layerInterface!.getZP());
+    
+this.firedIndex= 0;
+    
+this.firingX= this.displayInfoSingleton!.getLastHalfWidth() +MyRandomFactory.getInstance()!.getNextInt(this.displayInfoSingleton!.getLastHalfWidth());
+    
+this.secondaryPlayerQueue!.add(this.sound);
+    
+
+                                    }
+                                
+
+                        if(currentOwnerLayerX < this.firingX && currentOwnerLayerX >  -layerInterface!.getWidth())
+                        
+                                    {
+                                    super.processKeyAI(Canvas.KEY_NUM1);
+    
+
+    let gameLayerManager: AllBinaryGameLayerManager = allBinaryLayerManager as AllBinaryGameLayerManager;;
+    
+
+    let FIRE: number = (gameLayerManager!.getGameInfo()!.getCurrentLevel() +12)>>2;;
+    
+
+                        if(FIRE > this.MAX_FIRE)
+                        
+                                    {
+                                    FIRE= this.MAX_FIRE;
+    
+
+                                    }
+                                
+
+                        if(this.firedIndex > FIRE)
+                        
+                                    {
+                                    this.firedIndex= 0;
+    
+this.firingX= Integer.MIN_VALUE;
+    
+
+                                    }
+                                
+this.firedIndex++;
+    
+
+                                    }
+                                
+
+                                    }
+                                
+}
+
+
+    nextDirection(){
+}
+
+
+}
+

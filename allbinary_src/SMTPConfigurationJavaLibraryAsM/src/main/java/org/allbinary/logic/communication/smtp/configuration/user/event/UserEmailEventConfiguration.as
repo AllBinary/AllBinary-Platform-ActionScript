@@ -1,0 +1,159 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../../java/lang/Object.js';
+        
+import { HashMap } from '../../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { UserEmailEventConfigurationInterface } from './UserEmailEventConfigurationInterface.js';
+//sameFolderImports - not GWT import - same folder const UserEmailEventConfigurationInterface
+import { UserEmailEventConfigurationData } from './UserEmailEventConfigurationData.js';
+//sameFolderImports - not GWT import - same folder const UserEmailEventConfigurationData
+
+export class UserEmailEventConfiguration
+            extends Object
+         implements UserEmailEventConfigurationInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private name: string;
+
+    private eventListenerClassPath: string;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 0) {
+            
+            this.constructor$0();
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        
+    }
+    
+    private constructor$0(): void {
+        this.setName(StringUtil.getInstance()!.EMPTY_STRING);
+    
+this.setEventListenerClassPath(StringUtil.getInstance()!.EMPTY_STRING);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.EMAILLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF("New", this, " Constructor");
+    
+
+                                    }
+                                
+
+    }
+    
+    private constructor$1(hashMap: HashMap<any, any>): void {
+        this.setName(hashMap!.get(UserEmailEventConfigurationData.NAME) as string);
+    
+this.setEventListenerClassPath(hashMap!.get(UserEmailEventConfigurationData.LISTENER_CLASSPATH) as string);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.EMAILLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF("Log: " +this.log(), this, " Constructor");
+    
+
+                                    }
+                                
+
+    }
+    
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.name;
+    
+}
+
+
+    public setName(name: string){
+this.name= name;
+    
+}
+
+
+    public getEventListenerClassPath(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.eventListenerClassPath;
+    
+}
+
+
+    public setEventListenerClassPath(eventListenerClassPath: string){
+this.eventListenerClassPath= eventListenerClassPath;
+    
+}
+
+
+    public log(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "\nUser Email Event Log Info:" +"\nName: " +this.getName() +"\nEventListenerClassPath: " +this.getEventListenerClassPath();
+    
+}
+
+
+}
+

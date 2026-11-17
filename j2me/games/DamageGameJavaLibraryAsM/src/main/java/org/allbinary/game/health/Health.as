@@ -1,0 +1,299 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+//not plain js import { ForcedLogUtil } 
+const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
+type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { HealthInterface } from './HealthInterface.js';
+//sameFolderImports - not GWT import - same folder const HealthInterface
+import { NullHealthListener } from './NullHealthListener.js';
+//sameFolderImports - not GWT import - same folder const NullHealthListener
+import { HealthListenerInterface } from './HealthListenerInterface.js';
+//sameFolderImports - not GWT import - same folder const HealthListenerInterface
+
+export class Health
+            extends Object
+         implements HealthInterface {
+        
+
+    public static readonly NULL_HEALTH: Health = new Health(0);
+
+    public static readonly NAME: string = "Health Resource";
+
+    private static readonly HEALTH_LABEL: string = "Health: ";
+
+    private static readonly MAX_HEALTH_LABEL: string = " Max: ";
+
+    private health: number= 0;
+
+    private maxHealth: number= 0;
+
+    private healthListenerInterface: HealthListenerInterface = NullHealthListener.NULL_HEALTH_LISTENER;
+
+public constructor (maxHealth: number){
+
+            super();
+        this.setMaxHealth(maxHealth);
+    
+this.setHealth(maxHealth);
+    
+}
+
+
+    public heal(ahealth: number){
+
+    let newHealth: number = this.getHealth() +ahealth;;
+    
+
+                        if(newHealth > this.getMaxHealth())
+                        
+                                    {
+                                    this.setHealth(this.getMaxHealth());
+    
+
+                                    }
+                                
+                        else {
+                            this.setHealth(newHealth);
+    
+
+                        }
+                            
+}
+
+
+    public healMax(){
+this.setHealth(this.getMaxHealth());
+    
+}
+
+
+    public isDamaged(): boolean{
+
+                        if(this.getHealth() != this.getMaxHealth())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+    public damage(ahealth: number){
+
+                        if(ahealth < 0)
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("******* Trying to heal when damaging. Damage: ");
+    
+stringBuffer!.appendint(ahealth);
+    
+stringBuffer!.append(CommonSeps.getInstance()!.SPACE);
+    
+stringBuffer!.append(this.toString());
+    
+ForcedLogUtil.log(stringBuffer!.toString(), this);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+
+    let health: number = this.getHealth() -ahealth;;
+    
+this.setHealth(health);
+    
+}
+
+
+    public isAlive(): boolean{
+
+                        if(this.getHealth() <= 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                        }
+                            
+}
+
+
+    public getMaxHealth(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.maxHealth;
+    
+}
+
+
+    public setMaxHealth(maxHealth: number){
+this.maxHealth= maxHealth;
+    
+}
+
+
+    public setHealth(health: number){
+
+                        if(health > this.getMaxHealth())
+                        
+                                    {
+                                    this.health= this.getMaxHealth();
+    
+
+                                    }
+                                
+                             else 
+                        if(health < 0)
+                        
+                                    {
+                                    this.health= 0;
+    
+
+                                    }
+                                
+                        else {
+                            this.health= health;
+    
+
+                        }
+                            
+
+                        if(this.healthListenerInterface != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.healthListenerInterface!.onHealthChange();
+    
+
+                                    }
+                                
+}
+
+
+    public getHealth(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.health;
+    
+}
+
+
+    public addListener(healthGraphic: HealthListenerInterface){
+this.healthListenerInterface= healthGraphic;
+    
+}
+
+
+    public toString(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(Health.HEALTH_LABEL);
+    
+stringBuffer!.appendint(this.health);
+    
+stringBuffer!.append(Health.MAX_HEALTH_LABEL);
+    
+stringBuffer!.appendint(this.maxHealth);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+}
+

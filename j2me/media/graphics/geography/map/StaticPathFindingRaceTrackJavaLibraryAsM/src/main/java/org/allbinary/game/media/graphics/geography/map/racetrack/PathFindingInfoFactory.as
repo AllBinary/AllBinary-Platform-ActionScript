@@ -1,0 +1,115 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../../java/lang/Exception.js';
+        
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+import { BasicGeographicMap } from '../../../../../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { BasePathFindingInfoFactory } from '../../../../../../../../org/allbinary/media/graphics/geography/map/racetrack/BasePathFindingInfoFactory.js';
+//not GWT import const BasePathFindingInfoFactory
+
+import { RaceTrackRoadsGeographicMapCellHistoryFactory } from '../../../../../../../../org/allbinary/media/graphics/geography/map/racetrack/RaceTrackRoadsGeographicMapCellHistoryFactory.js';
+//not GWT import const RaceTrackRoadsGeographicMapCellHistoryFactory
+
+import { PathFindingInfo } from '../../../../../../../../org/allbinary/media/graphics/geography/pathfinding/PathFindingInfo.js';
+//not GWT import const PathFindingInfo
+
+import { PathFindingNodeCostInfoFactoryBase } from '../../../../../../../../org/allbinary/media/graphics/geography/pathfinding/PathFindingNodeCostInfoFactoryBase.js';
+//not GWT import const PathFindingNodeCostInfoFactoryBase
+
+//not plain js import { BasicArrayListS } 
+const BasicArrayListS = globalThis.org.allbinary.util.BasicArrayListS;
+type BasicArrayListS<T = any, U = any> = typeof BasicArrayListS extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListS;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class PathFindingInfoFactory extends BasePathFindingInfoFactory {
+        
+
+    private static readonly instance: PathFindingInfoFactory = new PathFindingInfoFactory();
+
+    public static getInstance(): PathFindingInfoFactory{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return PathFindingInfoFactory.instance;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            
+    public getInstancePathFindingInfo(geographicMapInterface: BasicGeographicMap, graphArray: number[][]): PathFindingInfo{
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+PreLogUtil.put(commonStrings!.START, this, commonStrings!.GET_INSTANCE);
+    
+
+    let pathFindingInfo: PathFindingInfo = new PathFindingInfo(new PathFindingNodeCostInfoFactoryBase(), new BasicArrayListS(1), new BasicArrayListS(1));;
+    
+RaceTrackRoadsGeographicMapCellHistoryFactory.getInstance()!.init();
+    
+this.init(geographicMapInterface, pathFindingInfo, graphArray);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return pathFindingInfo;
+    
+}
+
+
+}
+

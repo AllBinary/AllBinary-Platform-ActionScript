@@ -1,0 +1,337 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            //import { Class } from '../../../../java/lang/Class.js';
+            const Class = (globalThis.java?.lang?.Class ?? class {}) as typeof globalThis.java.lang.Class;
+            type Class<T = any, U = any> = typeof Class extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Class;
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Method } from '../../../../java/lang/reflect/Method.js';
+//not GWT import const Method
+
+import { DbConnectionInfo } from '../../../../org/allbinary/business/init/db/DbConnectionInfo.js';
+//not GWT import const DbConnectionInfo
+
+import { LicensingException } from '../../../../org/allbinary/logic/system/security/licensing/LicensingException.js';
+//not GWT import const LicensingException
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //Warning you must have sql root access
+export class InitDb
+            extends Object
+         {
+        
+
+    private anyType: any;
+
+    private readonly METHOD_CALL_GET_HOST_NAME: string = "getHostName";
+
+    private readonly METHOD_CALL_ADD_USERS: string = "addUsers";
+
+    private readonly METHOD_CALL_ADD_DATABASES: string = "addDatabases";
+
+    private readonly METHOD_CALL_ADD_TABLES: string = "addTables";
+
+    private readonly METHOD_CALL_TEMP_MAIN_PATH: string = "useTemporaryMainPath";
+
+    private readonly METHOD_CALL_MAIN_PATH: string = "useNormalMainPath";
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 0) {
+            
+            this.constructor$0();
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        
+    }
+    
+    private constructor$0(): void {
+        
+    }
+    
+    private constructor$1(dbConnectionInfo: DbConnectionInfo): void {
+        
+    }
+    
+    setHelper(anyType: any){
+this.anyType= anyType;
+    
+}
+
+
+    getHelper(): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.anyType;
+    
+}
+
+
+    getHostName(): string{
+
+ try { 
+    let dynamicClass: Function = this.anyType!.constructor!;;
+    
+
+    let method: Method = dynamicClass!.getMethod(this.METHOD_CALL_GET_HOST_NAME, 
+                            null)!;;
+    
+
+    let result: string = method.invoke(this.anyType, 
+                            null) as string;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return null;
+    
+
+ }
+   }
+ 
+}
+
+
+    public addUsers(): boolean{
+
+ try { 
+    let dynamicClass: Function = this.anyType!.constructor!;;
+    
+
+    let method: Method = dynamicClass!.getMethod(this.METHOD_CALL_ADD_USERS, 
+                            null)!;;
+    
+
+    let result: Boolean = method.invoke(this.anyType, 
+                            null) as Boolean;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result.valueOf();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    public addDatabases(): boolean{
+
+ try { 
+    let dynamicClass: Function = this.anyType!.constructor!;;
+    
+
+    let method: Method = dynamicClass!.getMethod(this.METHOD_CALL_ADD_DATABASES, 
+                            null)!;;
+    
+
+    let result: Boolean = method.invoke(this.anyType, 
+                            null) as Boolean;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result.valueOf();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    public addTables(): boolean{
+
+ try { 
+    let dynamicClass: Function = this.anyType!.constructor!;;
+    
+
+    let method: Method = dynamicClass!.getMethod(this.METHOD_CALL_ADD_TABLES, 
+                            null)!;;
+    
+
+    let result: Boolean = method.invoke(this.anyType, 
+                            null) as Boolean;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result.valueOf();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    public useTemporaryMainPath(): boolean{
+
+ try { 
+    let dynamicClass: Function = this.anyType!.constructor!;;
+    
+
+    let method: Method = dynamicClass!.getMethod(this.METHOD_CALL_TEMP_MAIN_PATH, 
+                            null)!;;
+    
+
+    let result: Boolean = method.invoke(this.anyType, 
+                            null) as Boolean;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result.valueOf();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    public useNormalMainPath(): boolean{
+
+ try { 
+    let dynamicClass: Function = this.anyType!.constructor!;;
+    
+
+    let method: Method = dynamicClass!.getMethod(this.METHOD_CALL_MAIN_PATH, 
+                            null)!;;
+    
+
+    let result: Boolean = method.invoke(this.anyType, 
+                            null) as Boolean;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result.valueOf();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

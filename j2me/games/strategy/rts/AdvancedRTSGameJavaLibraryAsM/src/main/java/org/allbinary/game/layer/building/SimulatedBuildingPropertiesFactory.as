@@ -1,0 +1,142 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2025 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { DamageFloaters } from '../../../../../org/allbinary/game/combat/damage/DamageFloaters.js';
+//not GWT import const DamageFloaters
+
+import { TrackingEvent } from '../../../../../org/allbinary/game/tracking/TrackingEvent.js';
+//not GWT import const TrackingEvent
+
+import { TrackingEventHandler } from '../../../../../org/allbinary/game/tracking/TrackingEventHandler.js';
+//not GWT import const TrackingEventHandler
+
+import { NullPaintable } from '../../../../../org/allbinary/graphics/paint/NullPaintable.js';
+//not GWT import const NullPaintable
+
+import { Paintable } from '../../../../../org/allbinary/graphics/paint/Paintable.js';
+//not GWT import const Paintable
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BuildingPropertiesFactory } from './BuildingPropertiesFactory.js';
+//sameFolderImports - not GWT import - same folder const BuildingPropertiesFactory
+import { BuildingLayer } from './BuildingLayer.js';
+//sameFolderImports - not GWT import - same folder const BuildingLayer
+
+export class SimulatedBuildingPropertiesFactory extends BuildingPropertiesFactory {
+        
+
+    private static readonly instanceC: SimulatedBuildingPropertiesFactory = new SimulatedBuildingPropertiesFactory();
+
+    public static getInstance(): SimulatedBuildingPropertiesFactory{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SimulatedBuildingPropertiesFactory.instanceC;
+    
+}
+
+
+    public getEfficiencyPerLevel(buildingLayer: BuildingLayer): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 0;
+    
+}
+
+
+    public getDamageFloaters(buildingLayer: BuildingLayer): DamageFloaters{
+
+    let damageFloaters: DamageFloaters = DamageFloaters.getInstance()!;;
+    
+this.damageFloatersPaintableInterface= damageFloaters;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return damageFloaters;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getHealthBar(buildingLayer: BuildingLayer): Paintable{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return NullPaintable.getInstance();;
+    
+}
+
+
+    public getHashtable(): ABHashtable<any, any>{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return StdUtil.getInstance()!.NULL_TABLE;
+    
+}
+
+
+    public getTrackingEvent(buildingLayer: BuildingLayer): TrackingEvent{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new TrackingEvent(TrackingEventHandler.getInstance());
+    
+}
+
+
+}
+

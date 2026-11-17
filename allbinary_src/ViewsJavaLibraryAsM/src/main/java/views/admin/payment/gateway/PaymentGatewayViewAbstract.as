@@ -1,0 +1,100 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { HttpServletRequest } from '../../../../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { PaymentGatewayData } from '../../../../org/allbinary/business/user/commerce/money/payment/gateway/PaymentGatewayData.js';
+//not GWT import const PaymentGatewayData
+
+import { PaymentGatewayPrimaryKey } from '../../../../org/allbinary/business/user/commerce/money/payment/gateway/PaymentGatewayPrimaryKey.js';
+//not GWT import const PaymentGatewayPrimaryKey
+
+import { TransformInfoHttpComposite } from '../../../../org/allbinary/logic/visual/transform/info/TransformInfoHttpComposite.js';
+//not GWT import const TransformInfoHttpComposite
+
+import { TransformInfoInterface } from '../../../../org/allbinary/logic/visual/transform/info/TransformInfoInterface.js';
+//not GWT import const TransformInfoInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class PaymentGatewayViewAbstract extends TransformInfoHttpComposite {
+        
+
+    private paymentGatewayPrimaryKey: PaymentGatewayPrimaryKey;
+
+public constructor (transformInfoInterface: TransformInfoInterface){
+            super(transformInfoInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.getFormData(this.getPageContext()!.getRequest() as HttpServletRequest);
+    
+}
+
+
+    public getFormData(request: HttpServletRequest){
+
+    let storeName: string = this.getWeblisketSession()!.getStoreName()!;;
+    
+
+    let gatewayName: string = request.getParameter(PaymentGatewayData.NAME.toString())!;;
+    
+this.setPaymentGatewayPrimaryKey(new PaymentGatewayPrimaryKey(storeName, gatewayName));
+    
+}
+
+
+    public getPaymentGatewayPrimaryKey(): PaymentGatewayPrimaryKey{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.paymentGatewayPrimaryKey;
+    
+}
+
+
+    public setPaymentGatewayPrimaryKey(paymentGatewayPrimaryKey: PaymentGatewayPrimaryKey){
+this.paymentGatewayPrimaryKey= paymentGatewayPrimaryKey;
+    
+}
+
+
+}
+

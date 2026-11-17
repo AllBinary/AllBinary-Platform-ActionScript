@@ -1,0 +1,437 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../../java/lang/Integer.js';
+        
+            import { Long } from '../../../../../../../java/lang/Long.js';
+        
+import { Color } from '../../../../../../../java/awt/Color.js';
+//not GWT import const Color
+
+import { Point } from '../../../../../../../java/awt/Point.js';
+//not GWT import const Point
+
+import { BufferedImage } from '../../../../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { DomNodeHelper } from '../../../../../../../org/allbinary/data/tree/dom/DomNodeHelper.js';
+//not GWT import const DomNodeHelper
+
+import { DomSearchHelper } from '../../../../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
+//not GWT import const DomSearchHelper
+
+import { ModDomHelper } from '../../../../../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+import { ColorCacheFactory } from '../../../../../../../org/allbinary/graphics/color/ColorCacheFactory.js';
+//not GWT import const ColorCacheFactory
+
+import { ColorCacheable } from '../../../../../../../org/allbinary/graphics/color/ColorCacheable.js';
+//not GWT import const ColorCacheable
+
+import { CapturedBufferedImagesCacheSingleton } from '../../../../../../../org/allbinary/input/media/image/capture/CapturedBufferedImagesCacheSingleton.js';
+//not GWT import const CapturedBufferedImagesCacheSingleton
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { AutomaticCacheInterface } from '../../../../../../../org/allbinary/logic/util/cache/AutomaticCacheInterface.js';
+//not GWT import const AutomaticCacheInterface
+
+import { ColorRange } from '../../../../../../../org/allbinary/media/image/analysis/ColorRange.js';
+//not GWT import const ColorRange
+
+import { ColorRangeInterface } from '../../../../../../../org/allbinary/media/image/analysis/ColorRangeInterface.js';
+//not GWT import const ColorRangeInterface
+
+import { BufferedImageFrameCacheable } from '../../../../../../../org/allbinary/media/image/cache/BufferedImageFrameCacheable.js';
+//not GWT import const BufferedImageFrameCacheable
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+import { Document } from '../../../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+import { NodeList } from '../../../../../../../org/w3c/dom/NodeList.js';
+//not GWT import const NodeList
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicProfileActionScriptCondition } from './BasicProfileActionScriptCondition.js';
+//sameFolderImports - not GWT import - same folder const BasicProfileActionScriptCondition
+import { ColorAtActionScriptConditionInterface } from './ColorAtActionScriptConditionInterface.js';
+//sameFolderImports - not GWT import - same folder const ColorAtActionScriptConditionInterface
+import { ColorAtActionScriptConditionJPanel } from './ColorAtActionScriptConditionJPanel.js';
+//sameFolderImports - not GWT import - same folder const ColorAtActionScriptConditionJPanel
+import { ColorAtActionScriptConditionData } from './ColorAtActionScriptConditionData.js';
+//sameFolderImports - not GWT import - same folder const ColorAtActionScriptConditionData
+
+export class ColorAtActionScriptCondition extends BasicProfileActionScriptCondition implements ColorAtActionScriptConditionInterface {
+        
+
+    private static readonly NAME: string = "If Color At";
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private colorAtActionScriptConditionJPanel: ColorAtActionScriptConditionJPanel;
+
+    private point: Point;
+
+    private colorRangeInterface: ColorRangeInterface = new ColorRange() as ColorRangeInterface;
+
+public constructor (node: Node){
+            super(ColorAtActionScriptCondition.NAME, node);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.point= new Point(0, 0);
+    
+
+    let actionNode: Node = DomSearchHelper.getNode(ColorAtActionScriptConditionData.NAME, node.getChildNodes())!;;
+    
+
+                        if(actionNode != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let nodeList: NodeList = actionNode!.getChildNodes()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < nodeList!.getLength(); index++)
+        {
+
+    let childNode: Node = nodeList!.item(index)!;;
+    
+
+                        if(childNode!.getNodeName()!.compareTo(ColorAtActionScriptConditionData.LOCATION_X) == 0)
+                        
+                                    {
+                                    
+    let locationX: string = DomNodeHelper.getTextNodeValue(childNode)!;;
+    
+this.point.x= Integer.valueOf(locationX);
+    
+
+                                    }
+                                
+                             else 
+                        if(childNode!.getNodeName()!.compareTo(ColorAtActionScriptConditionData.LOCATION_Y) == 0)
+                        
+                                    {
+                                    
+    let locationY: string = DomNodeHelper.getTextNodeValue(childNode)!;;
+    
+this.point.y= Integer.valueOf(locationY);
+    
+
+                                    }
+                                
+                             else 
+                        if(childNode!.getNodeName()!.compareTo(ColorAtActionScriptConditionData.MIN_RED) == 0)
+                        
+                                    {
+                                    
+    let string: string = DomNodeHelper.getTextNodeValue(childNode)!;;
+    
+this.getColorRangeInterface()!.setMinRed(string.valueOf());
+    
+
+                                    }
+                                
+                             else 
+                        if(childNode!.getNodeName()!.compareTo(ColorAtActionScriptConditionData.MAX_RED) == 0)
+                        
+                                    {
+                                    
+    let string: string = DomNodeHelper.getTextNodeValue(childNode)!;;
+    
+this.getColorRangeInterface()!.setMaxRed(string.valueOf());
+    
+
+                                    }
+                                
+                             else 
+                        if(childNode!.getNodeName()!.compareTo(ColorAtActionScriptConditionData.MIN_GREEN) == 0)
+                        
+                                    {
+                                    
+    let string: string = DomNodeHelper.getTextNodeValue(childNode)!;;
+    
+this.getColorRangeInterface()!.setMinGreen(string.valueOf());
+    
+
+                                    }
+                                
+                             else 
+                        if(childNode!.getNodeName()!.compareTo(ColorAtActionScriptConditionData.MAX_GREEN) == 0)
+                        
+                                    {
+                                    
+    let string: string = DomNodeHelper.getTextNodeValue(childNode)!;;
+    
+this.getColorRangeInterface()!.setMaxGreen(string.valueOf());
+    
+
+                                    }
+                                
+                             else 
+                        if(childNode!.getNodeName()!.compareTo(ColorAtActionScriptConditionData.MIN_BLUE) == 0)
+                        
+                                    {
+                                    
+    let string: string = DomNodeHelper.getTextNodeValue(childNode)!;;
+    
+this.getColorRangeInterface()!.setMinBlue(string.valueOf());
+    
+
+                                    }
+                                
+                             else 
+                        if(childNode!.getNodeName()!.compareTo(ColorAtActionScriptConditionData.MAX_BLUE) == 0)
+                        
+                                    {
+                                    
+    let string: string = DomNodeHelper.getTextNodeValue(childNode)!;;
+    
+this.getColorRangeInterface()!.setMaxBlue(string.valueOf());
+    
+
+                                    }
+                                
+}
+
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("Color At Action Script Condition Node Null");
+                    
+
+                        }
+                            
+this.init();
+    
+}
+
+
+public constructor (){
+            super(ColorAtActionScriptCondition.NAME);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.point= new Point(0, 0);
+    
+this.init();
+    
+}
+
+
+    init(){
+this.colorAtActionScriptConditionJPanel= new ColorAtActionScriptConditionJPanel(this);
+    
+}
+
+
+    public getPoint(): Point{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.point;
+    
+}
+
+
+    public setPoint(point: Point){
+this.point= point;
+    
+}
+
+
+    public showDialog(){
+this.colorAtActionScriptConditionJPanel!.getColorAtActionJDialog()!.setVisible(true);
+    
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put(ColorAtActionScriptConditionData.LOCATION_X, Integer.toString(this.getPoint()!.x));
+    
+hashMap!.put(ColorAtActionScriptConditionData.LOCATION_Y, Integer.toString(this.getPoint()!.y));
+    
+hashMap!.put(ColorAtActionScriptConditionData.MIN_RED, Integer.toString(this.getColorRangeInterface()!.getMinRed()));
+    
+hashMap!.put(ColorAtActionScriptConditionData.MAX_RED, Integer.toString(this.getColorRangeInterface()!.getMaxRed()));
+    
+hashMap!.put(ColorAtActionScriptConditionData.MIN_GREEN, Integer.toString(this.getColorRangeInterface()!.getMinGreen()));
+    
+hashMap!.put(ColorAtActionScriptConditionData.MAX_GREEN, Integer.toString(this.getColorRangeInterface()!.getMaxGreen()));
+    
+hashMap!.put(ColorAtActionScriptConditionData.MIN_BLUE, Integer.toString(this.getColorRangeInterface()!.getMinBlue()));
+    
+hashMap!.put(ColorAtActionScriptConditionData.MAX_BLUE, Integer.toString(this.getColorRangeInterface()!.getMaxBlue()));
+    
+this.logUtil!.putF("HashMap: " +hashMap!.toString(), this, "toHashMap()");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public toXmlNode(document: Document): Node{
+
+    let node: Node = super.toXmlNode(document)!;;
+    
+node.appendChild(ModDomHelper.createNodeWithValueNodes(document, ColorAtActionScriptConditionData.NAME, this.toHashMap()));
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return node;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public shouldProcess(frame: number): boolean{
+
+    let capturedBufferedImageCacheable: BufferedImageFrameCacheable = (CapturedBufferedImagesCacheSingleton.getInstance() as AutomaticCacheInterface).get(Number(frame)) as BufferedImageFrameCacheable;;
+    
+
+    let bufferedImage: BufferedImage = capturedBufferedImageCacheable!.getBufferedImage()!;;
+    
+
+    let automaticCacheInterface: AutomaticCacheInterface = ColorCacheFactory.getInstance()!;;
+    
+
+    let colorInteger: Integer = Integer.valueOf(bufferedImage!.getRGB(this.getPoint()!.x, this.getPoint()!.y))!;;
+    
+
+    let colorCacheable: ColorCacheable = automaticCacheInterface!.get(colorInteger) as ColorCacheable;;
+    
+
+    let color: Color = colorCacheable!.getColor()!;;
+    
+
+                        if(this.colorRangeInterface!.isInRange(color))
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.shouldProcess(frame);;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public log(){
+
+    let message: string = new StringMaker().append("getPoint(): ")!.append(this.getPoint()!.toString())!.append(CommonSeps.getInstance()!.NEW_LINE)!.append(this.getColorRangeInterface()!.toString())!.toString()!;;
+    
+this.logUtil!.putF(message, this, "log");
+    
+}
+
+
+    public getColorRangeInterface(): ColorRangeInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.colorRangeInterface;
+    
+}
+
+
+    public setColorRangeInterface(colorRangeInterface: ColorRangeInterface){
+this.colorRangeInterface= colorRangeInterface;
+    
+}
+
+
+}
+

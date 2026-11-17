@@ -1,0 +1,483 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2011 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../java/lang/Integer.js';
+        
+import { Graphics } from '../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { BasicGroupFactory } from '../../../org/allbinary/game/identification/BasicGroupFactory.js';
+//not GWT import const BasicGroupFactory
+
+import { Group } from '../../../org/allbinary/game/identification/Group.js';
+//not GWT import const Group
+
+import { GPoint } from '../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { Rectangle } from '../../../org/allbinary/graphics/Rectangle.js';
+//not GWT import const Rectangle
+
+import { RectangleFactory } from '../../../org/allbinary/graphics/RectangleFactory.js';
+//not GWT import const RectangleFactory
+
+import { OpenGLFeatureUtil } from '../../../org/allbinary/graphics/opengles/OpenGLFeatureUtil.js';
+//not GWT import const OpenGLFeatureUtil
+
+import { TsUtil } from '../../../org/allbinary/TsUtil.js';
+//not GWT import const TsUtil
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { PositionStrings } 
+const PositionStrings = globalThis.org.allbinary.math.PositionStrings;
+type PositionStrings<T = any, U = any> = typeof PositionStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PositionStrings;
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+import { ViewPositionBase } from '../../../org/allbinary/view/ViewPositionBase.js';
+//not GWT import const ViewPositionBase
+
+import { ViewPositionEvent } from '../../../org/allbinary/view/event/ViewPositionEvent.js';
+//not GWT import const ViewPositionEvent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { Layer } from './Layer.js';
+//sameFolderImports - not GWT import - same folder const Layer
+import { LayerInterface } from './LayerInterface.js';
+//sameFolderImports - not GWT import - same folder const LayerInterface
+
+export class AllBinaryLayer extends Layer implements LayerInterface {
+        
+
+    public static readonly NULL_ALLBINARY_LAYER: AllBinaryLayer = new AllBinaryLayer(StringUtil.getInstance()!.EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION);
+
+    private static readonly TYPE: string = "Type: ";
+
+    readonly viewPositionEvent: ViewPositionEvent = new ViewPositionEvent(this);
+
+    private halfWidth: number= 0;
+
+    private halfHeight: number= 0;
+
+    private readonly name: string;
+
+    private viewPosition: ViewPositionBase = ViewPositionBase.NULL_VIEW_POSITION;
+
+public constructor (name: string, rectangle: Rectangle, viewPosition: ViewPositionBase){
+            super(rectangle.getWidth(), rectangle.getHeight());
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+    let localName: string;;
+    
+localName= new StringMaker().append(name)!.append(CommonSeps.getInstance()!.COLON)!.append(Integer.toHexString(TsUtil.getInstance()!.hashCode(this)))!.toString();
+    
+this.name= localName;
+    
+
+    let point: GPoint = rectangle.getPoint()!;;
+    
+this.setPosition(point.getX(), point.getY(), point.getZ());
+    
+this.setHalfWidth((this.getWidth()>>1));
+    
+this.setHalfHeight((this.getHeight()>>1));
+    
+this.viewPosition= viewPosition;
+    
+this.viewPosition!.setAllbinaryLayer(this);
+    
+}
+
+
+    public setPosition(x: number, y: number, z: number){
+super.setPosition(x, y, z);
+    
+}
+
+
+    public moveDXYZ(dx: number, dy: number, dz: number){
+super.moveDXYZ(dx, dy, dz);
+    
+}
+
+
+    public getXP(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getXP();;
+    
+}
+
+
+    public getYP(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getYP();;
+    
+}
+
+
+    public getZP(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getZP();;
+    
+}
+
+
+    public getWidth(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getWidth();;
+    
+}
+
+
+    public getHeight(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getHeight();;
+    
+}
+
+
+    public setVisible(visible: boolean){
+super.setVisible(visible);
+    
+}
+
+
+    public isVisible(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.isVisible();;
+    
+}
+
+
+    public paint(graphics: Graphics){
+super.paint(graphics);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public onChangeEvent(layerManagerEvent: ViewPositionEvent){
+}
+
+
+    public paintThreed(graphics: Graphics){
+}
+
+
+    public getX2(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.getXP() +this.getWidth();
+    
+}
+
+
+    public getY2(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.getYP() +this.getHeight();
+    
+}
+
+
+    public getZ2(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return globalThis.Math.trunc((this.getZP() +this.getDepth()));
+    
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.name;
+    
+}
+
+
+    setHalfWidth(halfWidth: number){
+this.halfWidth= halfWidth;
+    
+}
+
+
+    public getHalfWidth(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.halfWidth;
+    
+}
+
+
+    setHalfHeight(halfHeight: number){
+this.halfHeight= halfHeight;
+    
+}
+
+
+    public getHalfHeight(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.halfHeight;
+    
+}
+
+
+    public getHalfDepth(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return globalThis.Math.trunc(globalThis.Math.trunc(this.getDepth()) /2);
+    
+}
+
+
+    public getViewPosition(): ViewPositionBase{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.viewPosition;
+    
+}
+
+
+    public setViewPosition(viewPosition: ViewPositionBase){
+this.viewPosition= viewPosition;
+    
+}
+
+
+    public getGroupInterface(): Group[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return BasicGroupFactory.getInstance()!.NONE_ARRAY;
+    
+}
+
+
+    public implmentsTickableInterface(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public implmentsGameInputInterface(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public implmentsArtificialIntelligenceCompositeInterface(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public implmentsCollidableInterface(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public implementsThreedInterface(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return OpenGLFeatureUtil.getInstance()!.isAnyThreed();;
+    
+}
+
+
+    public getType(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return  -1;
+    
+}
+
+
+    public getMultiPlayerType(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return  -1;
+    
+}
+
+
+    public toStringAppend(stringBuffer: StringMaker){
+
+    let commonSeps: CommonSeps = CommonSeps.getInstance()!;;
+    
+
+    let positionStrings: PositionStrings = PositionStrings.getInstance()!;;
+    
+
+    let commonLabels: CommonLabels = CommonLabels.getInstance()!;;
+    
+stringBuffer!.append(this.getName());
+    
+stringBuffer!.append(commonSeps!.COLON);
+    
+stringBuffer!.append(AllBinaryLayer.TYPE);
+    
+stringBuffer!.appendint(this.getType());
+    
+stringBuffer!.append(commonSeps!.SPACE);
+    
+stringBuffer!.append(positionStrings!.X_LABEL);
+    
+stringBuffer!.appendint(this.getXP());
+    
+stringBuffer!.append(commonSeps!.SPACE);
+    
+stringBuffer!.append(positionStrings!.Y_LABEL);
+    
+stringBuffer!.appendint(this.getYP());
+    
+stringBuffer!.append(commonSeps!.SPACE);
+    
+stringBuffer!.append(positionStrings!.Z_LABEL);
+    
+stringBuffer!.appendint(this.getZP());
+    
+stringBuffer!.append(commonSeps!.SPACE);
+    
+stringBuffer!.append(commonLabels!.WIDTH_LABEL);
+    
+stringBuffer!.appendint(this.getWidth());
+    
+stringBuffer!.append(commonSeps!.SPACE);
+    
+stringBuffer!.append(commonLabels!.HEIGHT_LABEL);
+    
+stringBuffer!.appendint(this.getHeight());
+    
+}
+
+
+    public toString(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+this.toStringAppend(stringBuffer);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+}
+

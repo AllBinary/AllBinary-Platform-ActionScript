@@ -1,0 +1,364 @@
+
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            import { Runnable } from '../../../../java/lang/Runnable.js';
+        
+import { GL10 } from '../../../../javax/microedition/khronos/opengles/GL10.js';
+//not GWT import const GL10
+
+import { Image } from '../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { LoadTextures } from '../../../../org/allbinary/device/LoadTextures.js';
+//not GWT import const LoadTextures
+
+import { OpenGLESGraphics } from '../../../../org/allbinary/device/OpenGLESGraphics.js';
+//not GWT import const OpenGLESGraphics
+
+import { ProgressCanvas } from '../../../../org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.js';
+//not GWT import const ProgressCanvas
+
+import { ProgressCanvasFactory } from '../../../../org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.js';
+//not GWT import const ProgressCanvasFactory
+
+import { CanvasStrings } from '../../../../org/allbinary/graphics/displayable/CanvasStrings.js';
+//not GWT import const CanvasStrings
+
+import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
+//not GWT import const DisplayInfoSingleton
+
+import { RendererStrings } from '../../../../org/allbinary/graphics/opengles/renderer/RendererStrings.js';
+//not GWT import const RendererStrings
+
+import { PreResourceImageUtil } from '../../../../org/allbinary/image/PreResourceImageUtil.js';
+//not GWT import const PreResourceImageUtil
+
+import { OpenGLESImage } from '../../../../org/allbinary/image/opengles/OpenGLESImage.js';
+//not GWT import const OpenGLESImage
+
+import { OpenGLImageCache } from '../../../../org/allbinary/image/opengles/OpenGLImageCache.js';
+//not GWT import const OpenGLImageCache
+
+import { OpenGLImageCacheFactory } from '../../../../org/allbinary/image/opengles/OpenGLImageCacheFactory.js';
+//not GWT import const OpenGLImageCacheFactory
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { SynchObject } from '../../../../org/allbinary/thread/SynchObject.js';
+//not GWT import const SynchObject
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { OpenGLCapabilities } from './OpenGLCapabilities.js';
+//sameFolderImports - not GWT import - same folder const OpenGLCapabilities
+import { OpenGLLogUtil } from './OpenGLLogUtil.js';
+//sameFolderImports - not GWT import - same folder const OpenGLLogUtil
+
+export class OpenGLUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: OpenGLUtil = new OpenGLUtil();
+
+    public static getInstance(): OpenGLUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return OpenGLUtil.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly renderStrings: RendererStrings = RendererStrings.getInstance()!;
+
+    readonly canvasStrings: CanvasStrings = CanvasStrings.getInstance()!;
+
+    readonly displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
+
+    private readonly preResourceImageUtil: PreResourceImageUtil = PreResourceImageUtil.getInstance()!;
+
+    private readonly lockObject: SynchObject = new SynchObject();
+
+    private readonly anyType: SynchObject = new SynchObject();
+
+    private readonly list: BasicArrayList = new BasicArrayListD();
+
+    public readonly runnableList: BasicArrayList = new BasicArrayListD();
+
+    private created: boolean = false;
+onSurfaceCreated(...args: any[]): any {
+   
+   
+    if (args.length === 1) return this.onSurfaceCreated$overload1(args[0]);
+   
+    if (args.length === 2) return this.onSurfaceCreated$overload2(args[0], args[1]);
+   
+   throw new TypeError('No matching overload: onSurfaceCreated'); }
+  
+    public onSurfaceCreated$overload1(gl: GL10){
+
+ try { 
+                        if(!this.created)
+                        
+                                    {
+                                    this.created= true;
+    
+PreLogUtil.put(CommonLabels.getInstance()!.START_LABEL +OpenGLCapabilities.getInstance()!.toString(), this, this.renderStrings!.ON_SURFACE_CREATED);
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.renderStrings!.ON_SURFACE_CREATED, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    public onSurfaceCreated$overload2(gl: GL10, loadTextures: LoadTextures){
+
+ try { loadTextures!.load(gl);
+    
+OpenGLLogUtil.getInstance()!.logError(gl);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.renderStrings!.ON_SURFACE_CREATED, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    private surfaceCreatedAndInitialized: boolean = false;
+
+                //@Throws(Exception.constructor)
+            
+    public onSurfaceChanged(gl: GL10, graphics: OpenGLESGraphics){
+
+                        if(!this.surfaceCreatedAndInitialized)
+                        
+                                    {
+                                    graphics.init();
+    
+this.surfaceCreatedAndInitialized= true;
+    
+
+                                    }
+                                
+graphics.update();
+    
+
+    let progressCanvas: ProgressCanvas = ProgressCanvasFactory.getInstance()!;;
+    
+progressCanvas!.update(graphics);
+    
+(OpenGLImageCacheFactory.getInstance() as OpenGLImageCache).update(gl);
+    
+this.processRunnables();
+    
+this.set(gl);
+    
+}
+
+
+    public addImage(image: Image): Image{
+
+    let encapsulateImage: Image = this.preResourceImageUtil!.encapsulate(image)!;;
+    
+
+                        if(encapsulateImage != image)
+                        
+                                    {
+                                    
+        
+        //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+        //synchronized(this.anyType) 
+
+        //mutex.withLock
+        
+this.list.add(encapsulateImage);
+    
+
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return encapsulateImage;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return image;
+    
+}
+
+
+    public clear(){
+
+        
+        //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+        //synchronized(this.anyType) 
+
+        //mutex.withLock
+        
+this.list.clear();
+    
+
+
+}
+
+
+    public addRunnable(runnable: Runnable){
+
+        
+        //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+        //synchronized(this.lockObject) 
+
+        //mutex.withLock
+        
+
+                        if(!this.runnableList!.contains(runnable))
+                        
+                                    {
+                                    this.runnableList!.add(runnable);
+    
+this.displayInfoSingleton!.add(this.canvasStrings!.SCALED_IMAGES);
+    
+
+                                    }
+                                
+
+
+}
+
+
+    processRunnables(){
+
+        
+        //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+        //synchronized(this.lockObject) 
+
+        //mutex.withLock
+        
+
+    let runnable: Runnable;;
+    
+
+    let size: number = this.runnableList!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+runnable= this.runnableList!.get(index) as Runnable;
+    
+runnable.run();
+    
+}
+
+this.runnableList!.clear();
+    
+
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    set(gl: GL10){
+
+    let size: number = this.list.size()!;;
+    
+
+    let image: OpenGLESImage;;
+    
+
+
+
+
+                        for (
+    let index2: number = 0;index2 < size; index2++)
+        {
+image= this.list.get(index2) as OpenGLESImage;
+    
+image.set(gl);
+    
+}
+
+}
+
+
+}
+

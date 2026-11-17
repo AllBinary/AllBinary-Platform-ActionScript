@@ -1,0 +1,202 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { TouchMotionGestureFactory } from '../../../../org/allbinary/input/motion/gesture/TouchMotionGestureFactory.js';
+//not GWT import const TouchMotionGestureFactory
+
+import { MotionGestureConfiguration } from '../../../../org/allbinary/input/motion/gesture/configuration/MotionGestureConfiguration.js';
+//not GWT import const MotionGestureConfiguration
+
+import { MotionGestureConfigurationFactory } from '../../../../org/allbinary/input/motion/gesture/configuration/MotionGestureConfigurationFactory.js';
+//not GWT import const MotionGestureConfigurationFactory
+
+import { DiagonalDownLeftTouchInputToGameKeyEventAction } from '../../../../org/allbinary/input/motion/touch/action/DiagonalDownLeftTouchInputToGameKeyEventAction.js';
+//not GWT import const DiagonalDownLeftTouchInputToGameKeyEventAction
+
+import { DiagonalDownRightTouchInputToGameKeyEventAction } from '../../../../org/allbinary/input/motion/touch/action/DiagonalDownRightTouchInputToGameKeyEventAction.js';
+//not GWT import const DiagonalDownRightTouchInputToGameKeyEventAction
+
+import { DiagonalUpLeftTouchInputToGameKeyEventAction } from '../../../../org/allbinary/input/motion/touch/action/DiagonalUpLeftTouchInputToGameKeyEventAction.js';
+//not GWT import const DiagonalUpLeftTouchInputToGameKeyEventAction
+
+import { DiagonalUpRightTouchInputToGameKeyEventAction } from '../../../../org/allbinary/input/motion/touch/action/DiagonalUpRightTouchInputToGameKeyEventAction.js';
+//not GWT import const DiagonalUpRightTouchInputToGameKeyEventAction
+
+import { DownTouchInputToGameKeyEventAction } from '../../../../org/allbinary/input/motion/touch/action/DownTouchInputToGameKeyEventAction.js';
+//not GWT import const DownTouchInputToGameKeyEventAction
+
+import { LeftTouchInputToGameKeyEventAction } from '../../../../org/allbinary/input/motion/touch/action/LeftTouchInputToGameKeyEventAction.js';
+//not GWT import const LeftTouchInputToGameKeyEventAction
+
+import { ReleaseTouchInputToGameKeyEventAction } from '../../../../org/allbinary/input/motion/touch/action/ReleaseTouchInputToGameKeyEventAction.js';
+//not GWT import const ReleaseTouchInputToGameKeyEventAction
+
+import { RightTouchInputToGameKeyEventAction } from '../../../../org/allbinary/input/motion/touch/action/RightTouchInputToGameKeyEventAction.js';
+//not GWT import const RightTouchInputToGameKeyEventAction
+
+import { UpTouchInputToGameKeyEventAction } from '../../../../org/allbinary/input/motion/touch/action/UpTouchInputToGameKeyEventAction.js';
+//not GWT import const UpTouchInputToGameKeyEventAction
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class CompleteMotionGestureInputToGameMotionGestureInput
+            extends Object
+         {
+        
+
+    private static readonly instance: CompleteMotionGestureInputToGameMotionGestureInput = new CompleteMotionGestureInputToGameMotionGestureInput();
+
+    public static getInstance(): CompleteMotionGestureInputToGameMotionGestureInput{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return CompleteMotionGestureInputToGameMotionGestureInput.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    public init(){
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+
+ try { PreLogUtil.put("Compound Motion Gestures", this, commonStrings!.INIT);
+    
+
+    let motionGestureConfiguration: MotionGestureConfiguration = MotionGestureConfigurationFactory.getInstance()!;;
+    
+
+    let touchMotionGestureFactory: TouchMotionGestureFactory = TouchMotionGestureFactory.getInstance()!;;
+    
+
+    let list: BasicArrayList = new BasicArrayListD();;
+    
+list.add(touchMotionGestureFactory!.DIAGONAL_DOWN_LEFT);
+    
+motionGestureConfiguration!.addMotionGestureAction(list, DiagonalDownLeftTouchInputToGameKeyEventAction.getInstance());
+    
+list= new BasicArrayListD();
+    
+list.add(touchMotionGestureFactory!.DIAGONAL_DOWN_RIGHT);
+    
+motionGestureConfiguration!.addMotionGestureAction(list, DiagonalDownRightTouchInputToGameKeyEventAction.getInstance());
+    
+list= new BasicArrayListD();
+    
+list.add(touchMotionGestureFactory!.DIAGONAL_UP_LEFT);
+    
+motionGestureConfiguration!.addMotionGestureAction(list, DiagonalUpLeftTouchInputToGameKeyEventAction.getInstance());
+    
+list= new BasicArrayListD();
+    
+list.add(touchMotionGestureFactory!.DIAGONAL_UP_RIGHT);
+    
+motionGestureConfiguration!.addMotionGestureAction(list, DiagonalUpRightTouchInputToGameKeyEventAction.getInstance());
+    
+list= new BasicArrayListD();
+    
+list.add(touchMotionGestureFactory!.LEFT);
+    
+motionGestureConfiguration!.addMotionGestureAction(list, LeftTouchInputToGameKeyEventAction.getInstance());
+    
+list= new BasicArrayListD();
+    
+list.add(touchMotionGestureFactory!.RIGHT);
+    
+motionGestureConfiguration!.addMotionGestureAction(list, RightTouchInputToGameKeyEventAction.getInstance());
+    
+list= new BasicArrayListD();
+    
+list.add(touchMotionGestureFactory!.DOWN);
+    
+motionGestureConfiguration!.addMotionGestureAction(list, DownTouchInputToGameKeyEventAction.getInstance());
+    
+list= new BasicArrayListD();
+    
+list.add(touchMotionGestureFactory!.UP);
+    
+motionGestureConfiguration!.addMotionGestureAction(list, UpTouchInputToGameKeyEventAction.getInstance());
+    
+list= new BasicArrayListD();
+    
+list.add(touchMotionGestureFactory!.RELEASED);
+    
+motionGestureConfiguration!.addMotionGestureAction(list, ReleaseTouchInputToGameKeyEventAction.getInstance());
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.INIT, e);
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

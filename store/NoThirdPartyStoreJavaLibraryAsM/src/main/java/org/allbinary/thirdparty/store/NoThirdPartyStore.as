@@ -1,0 +1,68 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { AbeClientInformationInterface } from '../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
+//not GWT import const AbeClientInformationInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ThirdPartyStore } from './ThirdPartyStore.js';
+//sameFolderImports - not GWT import - same folder const ThirdPartyStore
+
+export class NoThirdPartyStore extends ThirdPartyStore {
+        
+
+ constructor (){
+            super(StringUtil.getInstance()!.EMPTY_STRING);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public authorize(clientInformationInterface: AbeClientInformationInterface){
+this.setAuthorized(true);
+    
+}
+
+
+}
+

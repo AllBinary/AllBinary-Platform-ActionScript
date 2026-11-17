@@ -1,0 +1,475 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { Math } from '../../../../../java/lang/Math.js';
+        
+import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { Line } from '../../../../../org/allbinary/graphics/Line.js';
+//not GWT import const Line
+
+import { PointFactory } from '../../../../../org/allbinary/graphics/PointFactory.js';
+//not GWT import const PointFactory
+
+import { MotionGestureConfiguration } from '../../../../../org/allbinary/input/motion/gesture/configuration/MotionGestureConfiguration.js';
+//not GWT import const MotionGestureConfiguration
+
+import { MotionGestureConfigurationFactory } from '../../../../../org/allbinary/input/motion/gesture/configuration/MotionGestureConfigurationFactory.js';
+//not GWT import const MotionGestureConfigurationFactory
+
+import { BasicMotionGesturesHandler } from '../../../../../org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.js';
+//not GWT import const BasicMotionGesturesHandler
+
+import { MotionEventCircularPool } from '../../../../../org/allbinary/input/motion/gesture/observer/MotionEventCircularPool.js';
+//not GWT import const MotionEventCircularPool
+
+import { MotionGestureEvent } from '../../../../../org/allbinary/input/motion/gesture/observer/MotionGestureEvent.js';
+//not GWT import const MotionGestureEvent
+
+import { MovedMotionGesturesHandler } from '../../../../../org/allbinary/input/motion/gesture/observer/MovedMotionGesturesHandler.js';
+//not GWT import const MovedMotionGesturesHandler
+
+import { ScrolledMotionGesturesHandler } from '../../../../../org/allbinary/input/motion/gesture/observer/ScrolledMotionGesturesHandler.js';
+//not GWT import const ScrolledMotionGesturesHandler
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { J2SEMath } from '../../../../../org/allbinary/logic/math/J2SEMath.js';
+//not GWT import const J2SEMath
+
+import { BasicEventHandler } from '../../../../../org/allbinary/logic/util/event/handler/BasicEventHandler.js';
+//not GWT import const BasicEventHandler
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TouchMotionGestureFactory } from './TouchMotionGestureFactory.js';
+//sameFolderImports - not GWT import - same folder const TouchMotionGestureFactory
+import { MotionGestureInput } from './MotionGestureInput.js';
+//sameFolderImports - not GWT import - same folder const MotionGestureInput
+
+export class MotionGestureRecognizer
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly j2seMath: J2SEMath = J2SEMath.getInstance()!;
+
+    private readonly origin: GPoint = PointFactory.getInstance()!.ZERO_ZERO;
+
+    private previous: GPoint = this.origin;
+
+    private intermediate: GPoint = this.origin;
+
+    private readonly line: Line = new Line(this.origin, this.origin);
+
+    private readonly motionGesturesHandler: BasicMotionGesturesHandler;
+
+    private readonly movedMotionGesturesHandler: BasicEventHandler;
+
+    private readonly scrolledMotionGesturesHandler: BasicEventHandler;
+
+    private readonly motionEventCircularPool: MotionEventCircularPool;
+
+public constructor (id: number){
+
+            super();
+        this.motionEventCircularPool= MotionEventCircularPool.createPool(id);
+    
+
+    let motionGesturesHandler: BasicEventHandler = new BasicEventHandler();;
+    
+
+    let movedMotionGesturesHandler: BasicEventHandler = motionGesturesHandler;;
+    
+
+    let scrolledMotionGesturesHandler: BasicEventHandler = motionGesturesHandler;;
+    
+
+ try { motionGesturesHandler= BasicMotionGesturesHandler.getInstance();
+    
+movedMotionGesturesHandler= MovedMotionGesturesHandler.getInstance();
+    
+scrolledMotionGesturesHandler= ScrolledMotionGesturesHandler.getInstance();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.CONSTRUCTOR, e);
+    
+
+ }
+   }
+ 
+this.motionGesturesHandler= motionGesturesHandler as BasicMotionGesturesHandler;
+    
+this.movedMotionGesturesHandler= movedMotionGesturesHandler;
+    
+this.scrolledMotionGesturesHandler= scrolledMotionGesturesHandler;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processPressedMotionEvent(current: GPoint, deviceId: number, button: number): boolean{
+this.intermediate= this.origin;
+    
+this.previous= this.origin;
+    
+
+    let event: MotionGestureEvent = this.motionEventCircularPool!.getInstance(TouchMotionGestureFactory.getInstance()!.PRESSED)!;;
+    
+event.setPreviousPoint(this.previous);
+    
+event.setCurrentPoint(current);
+    
+this.motionGesturesHandler!.fireEvent(event);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processReleasedMotionEvent(current: GPoint, deviceId: number, button: number): boolean{
+
+    let event: MotionGestureEvent = this.motionEventCircularPool!.getInstance(TouchMotionGestureFactory.getInstance()!.RELEASED)!;;
+    
+event.setPreviousPoint(this.previous);
+    
+event.setCurrentPoint(current);
+    
+this.motionGesturesHandler!.fireEvent(event);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processDraggedMotionEvent(current: GPoint, deviceId: number, buttonMask: number){
+
+                        if(this.previous == this.origin || this.intermediate == this.origin)
+                        
+                                    {
+                                    this.previous= current;
+    
+this.intermediate= current;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+this.line.setP1(this.previous);
+    
+this.line.setP2(current);
+    
+
+    let minimumMotionGesture: number = MotionGestureConfigurationFactory.getInstance()!.getMinimumMotionGesture()!;;
+    
+
+                        if(this.j2seMath!.abs(this.line.getDeltaX()) < minimumMotionGesture && this.j2seMath!.abs(this.line.getDeltaY()) < minimumMotionGesture)
+                        
+                                    {
+                                    this.intermediate= current;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+
+    let gradient: number = this.line.getGradient()!;;
+    
+
+    let absGradient: number = this.j2seMath!.abs(gradient);;
+    
+
+    let conf: MotionGestureConfiguration = MotionGestureConfigurationFactory.getInstance()!;;
+    
+
+    let touchMotionGestureFactory: TouchMotionGestureFactory = TouchMotionGestureFactory.getInstance()!;;
+    
+
+    let newMotionGesture: MotionGestureInput = touchMotionGestureFactory!.NO_MOTION;;
+    
+
+    let diagonalToleranceHigher: number = 12.0;;
+    
+
+    let diagonalToleranceLower: number = 12.0;;
+    
+
+                        if(conf.isDiagonalMotionGestureAllowed())
+                        
+                                    {
+                                    diagonalToleranceHigher= (90 -conf.getDiagonalTolerance());
+    
+diagonalToleranceLower= conf.getDiagonalTolerance();
+    
+
+                                    }
+                                
+
+                        if(absGradient > Math.tan(Math.toRadians(diagonalToleranceHigher)))
+                        
+                                    {
+                                    
+                        if(this.line.getDeltaY() > 0)
+                        
+                                    {
+                                    newMotionGesture= touchMotionGestureFactory!.UP;
+    
+
+                                    }
+                                
+                        else {
+                            newMotionGesture= touchMotionGestureFactory!.DOWN;
+    
+
+                        }
+                            
+
+                                    }
+                                
+                        else {
+                            
+                        if(absGradient < Math.tan(Math.toRadians(diagonalToleranceLower)))
+                        
+                                    {
+                                    
+                        if(this.line.getDeltaX() > 0)
+                        
+                                    {
+                                    newMotionGesture= touchMotionGestureFactory!.LEFT;
+    
+
+                                    }
+                                
+                        else {
+                            newMotionGesture= touchMotionGestureFactory!.RIGHT;
+    
+
+                        }
+                            
+
+                                    }
+                                
+                        else {
+                            
+                        if(gradient > 0)
+                        
+                                    {
+                                    
+                        if(this.line.getDeltaX() > 0)
+                        
+                                    {
+                                    newMotionGesture= touchMotionGestureFactory!.DIAGONAL_UP_LEFT;
+    
+
+                                    }
+                                
+                        else {
+                            newMotionGesture= touchMotionGestureFactory!.DIAGONAL_DOWN_RIGHT;
+    
+
+                        }
+                            
+
+                                    }
+                                
+                        else {
+                            
+                        if(this.line.getDeltaX() > 0)
+                        
+                                    {
+                                    newMotionGesture= touchMotionGestureFactory!.DIAGONAL_DOWN_LEFT;
+    
+
+                                    }
+                                
+                        else {
+                            newMotionGesture= touchMotionGestureFactory!.DIAGONAL_UP_RIGHT;
+    
+
+                        }
+                            
+
+                        }
+                            
+
+                        }
+                            
+
+                        }
+                            
+this.previous= current;
+    
+this.intermediate= current;
+    
+
+    let event: MotionGestureEvent = this.motionEventCircularPool!.getInstance(newMotionGesture)!;;
+    
+event.setPreviousPoint(this.previous);
+    
+event.setCurrentPoint(current);
+    
+this.motionGesturesHandler!.fireEvent(event);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processMovedMotionEvent(current: GPoint, deviceId: number, button: number): boolean{
+
+    let event: MotionGestureEvent = this.motionEventCircularPool!.getInstance(TouchMotionGestureFactory.getInstance()!.NO_MOTION)!;;
+    
+event.setPreviousPoint(this.previous);
+    
+event.setCurrentPoint(current);
+    
+this.movedMotionGesturesHandler!.fireEvent(event);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processScrolledMotionEvent(current: GPoint, deviceId: number, button: number): boolean{
+
+    let touchMotionGestureFactory: TouchMotionGestureFactory = TouchMotionGestureFactory.getInstance()!;;
+    
+
+    let newMotionGesture: MotionGestureInput = touchMotionGestureFactory!.NO_MOTION;;
+    
+
+                        if(button > 0)
+                        
+                                    {
+                                    newMotionGesture= touchMotionGestureFactory!.SCROLL_UP;
+    
+
+                                    }
+                                
+                             else 
+                        if(button < 0)
+                        
+                                    {
+                                    newMotionGesture= touchMotionGestureFactory!.SCROLL_DOWN;
+    
+
+                                    }
+                                
+
+    let event: MotionGestureEvent = this.motionEventCircularPool!.getInstance(newMotionGesture)!;;
+    
+event.setPreviousPoint(this.previous);
+    
+event.setCurrentPoint(current);
+    
+this.scrolledMotionGesturesHandler!.fireEvent(event);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+    public getMotionGesturesHandler(): BasicMotionGesturesHandler{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.motionGesturesHandler;
+    
+}
+
+
+}
+

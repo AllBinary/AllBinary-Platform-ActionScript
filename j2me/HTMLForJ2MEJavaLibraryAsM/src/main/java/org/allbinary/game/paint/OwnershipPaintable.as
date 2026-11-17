@@ -1,0 +1,157 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { Font } from '../../../../javax/microedition/lcdui/Font.js';
+//not GWT import const Font
+
+import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
+//not GWT import const Anchor
+
+import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
+//not GWT import const BasicColor
+
+import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
+//not GWT import const DisplayInfoSingleton
+
+import { MyFontProcessor } from '../../../../org/allbinary/graphics/font/MyFontProcessor.js';
+//not GWT import const MyFontProcessor
+
+import { UpdateMyFontInterface } from '../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
+//not GWT import const UpdateMyFontInterface
+
+import { UpdateMyFontProcessor } from '../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
+//not GWT import const UpdateMyFontProcessor
+
+import { Paintable } from '../../../../org/allbinary/graphics/paint/Paintable.js';
+//not GWT import const Paintable
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //HTMLForJ2ME
+export class OwnershipPaintable extends Paintable implements UpdateMyFontInterface {
+        
+
+    public static getInstance(): OwnershipPaintable{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new OwnershipPaintable();
+    
+}
+
+
+    private readonly displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
+
+    private myFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
+
+    private readonly COPYRIGHT: string = "AllBinary Copyright (c) 2011";
+
+    private basicColor: BasicColor = BasicColorFactory.getInstance()!.WHITE;
+
+    private color: number = this.basicColor!.intValue()!;
+
+    private anchor: number = Anchor.TOP_LEFT;
+
+    private COPYRIGHT_Y: number= 0;
+
+    private beginWidth: number= 0;
+
+private constructor (){
+
+            super();
+        }
+
+
+    public updateMeasurement(graphics: Graphics){
+
+    let font: Font = graphics.getFont()!;;
+    
+this.COPYRIGHT_Y= 2 *font.getHeight();
+    
+this.beginWidth= (font.stringWidth(this.COPYRIGHT)>>1);
+    
+this.myFontProcessor= MyFontProcessor.getInstance();
+    
+}
+
+
+    public setBasicColorP(basicColor: BasicColor){
+this.basicColor= basicColor;
+    
+this.color= basicColor!.intValue();
+    
+}
+
+
+    public getBasicColorP(): BasicColor{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.basicColor;
+    
+}
+
+
+    public paint(graphics: Graphics){
+this.myFontProcessor!.process(graphics);
+    
+graphics.setColor(this.color);
+    
+
+    let halfWidth: number = this.displayInfo!.getLastHalfWidth()!;;
+    
+
+    let height: number = this.displayInfo!.getLastHeight()!;;
+    
+graphics.drawString(this.COPYRIGHT, halfWidth -this.beginWidth, height -this.COPYRIGHT_Y, this.anchor);
+    
+}
+
+
+}
+

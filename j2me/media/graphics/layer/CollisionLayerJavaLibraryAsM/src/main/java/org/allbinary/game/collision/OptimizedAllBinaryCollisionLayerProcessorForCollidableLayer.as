@@ -1,0 +1,156 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { CollidableCompositeLayer } from '../../../../org/allbinary/game/layer/CollidableCompositeLayer.js';
+//not GWT import const CollidableCompositeLayer
+
+import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { AllBinaryLayerManager } from '../../../../org/allbinary/layer/AllBinaryLayerManager.js';
+//not GWT import const AllBinaryLayerManager
+
+import { LayerManager } from '../../../../org/allbinary/layer/LayerManager.js';
+//not GWT import const LayerManager
+
+import { LayerProcessor } from '../../../../org/allbinary/layer/LayerProcessor.js';
+//not GWT import const LayerProcessor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { OptimizedAllBinaryCollisionLayerManager } from './OptimizedAllBinaryCollisionLayerManager.js';
+//sameFolderImports - not GWT import - same folder const OptimizedAllBinaryCollisionLayerManager
+import { CollidableBaseBehavior } from './CollidableBaseBehavior.js';
+//sameFolderImports - not GWT import - same folder const CollidableBaseBehavior
+
+export class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer extends LayerProcessor {
+        
+
+public constructor (){
+            super(new OptimizedAllBinaryCollisionLayerManager());
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processAt(allBinaryLayerManager: AllBinaryLayerManager, layerInterface: AllBinaryLayer, startIndex: number){
+
+    let collidableInterfaceCompositeInterface: CollidableCompositeLayer = layerInterface as CollidableCompositeLayer;;
+    
+
+    let collidableBase: CollidableBaseBehavior = collidableInterfaceCompositeInterface!.getCollidableInferface()!;;
+    
+
+                        if(collidableBase!.isCollidable(collidableInterfaceCompositeInterface))
+                        
+                                    {
+                                    
+    let layerManager: LayerManager = this.getLayerManager()!;;
+    
+
+    let size: number = layerManager!.getSize()!;;
+    
+
+    let collidableInterfaceCompositeInterface2: CollidableCompositeLayer;;
+    
+
+    let collidableBase2: CollidableBaseBehavior;;
+    
+
+
+
+
+                        for (
+    let index: number = startIndex +1;index < size; index++)
+        {
+collidableInterfaceCompositeInterface2= layerManager!.getLayerAt(index) as CollidableCompositeLayer;
+    
+collidableBase2= collidableInterfaceCompositeInterface2!.getCollidableInferface();
+    
+
+                        if(collidableBase2!.isCollidable(collidableInterfaceCompositeInterface) && collidableBase!.isCollision(collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2))
+                        
+                                    {
+                                    collidableBase!.collide(collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2);
+    
+collidableBase2!.collide(collidableInterfaceCompositeInterface2, collidableInterfaceCompositeInterface);
+    
+
+                                    }
+                                
+}
+
+
+                                    }
+                                
+}
+
+
+    public isProcessorLayer(layerInterface: AllBinaryLayer): boolean{
+
+                        if(layerInterface!.implmentsCollidableInterface())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+}
+

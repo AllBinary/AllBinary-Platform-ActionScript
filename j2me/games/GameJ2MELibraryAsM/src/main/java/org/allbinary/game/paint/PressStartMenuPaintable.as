@@ -1,0 +1,199 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { Font } from '../../../../javax/microedition/lcdui/Font.js';
+//not GWT import const Font
+
+import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { AppletUtil } from '../../../../org/allbinary/AppletUtil.js';
+//not GWT import const AppletUtil
+
+import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
+//not GWT import const Anchor
+
+import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
+//not GWT import const DisplayInfoSingleton
+
+import { MyFontProcessor } from '../../../../org/allbinary/graphics/font/MyFontProcessor.js';
+//not GWT import const MyFontProcessor
+
+import { UpdateMyFontInterface } from '../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
+//not GWT import const UpdateMyFontInterface
+
+import { UpdateMyFontProcessor } from '../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
+//not GWT import const UpdateMyFontProcessor
+
+import { Paintable } from '../../../../org/allbinary/graphics/paint/Paintable.js';
+//not GWT import const Paintable
+
+import { TouchScreenFactory } from '../../../../org/allbinary/input/motion/button/TouchScreenFactory.js';
+//not GWT import const TouchScreenFactory
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { TimeDelayHelper } from '../../../../org/allbinary/time/TimeDelayHelper.js';
+//not GWT import const TimeDelayHelper
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class PressStartMenuPaintable extends Paintable implements UpdateMyFontInterface {
+        
+
+    private readonly displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
+
+    private readonly PRESS_START: string = "Press Screen To Start";
+
+    private readonly KEY_START: string = "Press or Click F2 To Begin";
+
+    private readonly MENU_START: string = "Press Start From The Menu To Begin";
+
+    private myFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
+
+    private startString: string = StringUtil.getInstance()!.EMPTY_STRING;
+
+    private timeDelayHelper: TimeDelayHelper = new TimeDelayHelper(1100);
+
+    private flash: boolean= false;
+
+public constructor (){
+
+            super();
+        
+                        if(TouchScreenFactory.getInstance()!.isTouch())
+                        
+                                    {
+                                    this.startString= this.PRESS_START;
+    
+
+                                    }
+                                
+                             else 
+                        if(AppletUtil.isAppletLoader(this))
+                        
+                                    {
+                                    this.startString= this.KEY_START;
+    
+
+                                    }
+                                
+                        else {
+                            this.startString= this.MENU_START;
+    
+
+                        }
+                            
+}
+
+
+    private anchor: number = Anchor.TOP_LEFT;
+
+    private beginWidth: number= 0;
+
+    private line: number= 0;
+
+    public updateMeasurement(graphics: Graphics){
+
+    let font: Font = graphics.getFont()!;;
+    
+this.beginWidth= (graphics.getFont()!.stringWidth(this.startString)>>1);
+    
+this.line= (4 *MyFontProcessor.defaultCharWidth(font)) +(font.getHeight()>>1);
+    
+this.myFontProcessor= MyFontProcessor.getInstance();
+    
+}
+
+
+    public paint(graphics: Graphics){
+
+                        if(this.timeDelayHelper!.isTimeTNT())
+                        
+                                    {
+                                    
+                        if(this.isFlash())
+                        
+                                    {
+                                    this.setFlash(false);
+    
+
+                                    }
+                                
+                        else {
+                            this.setFlash(true);
+    
+
+                        }
+                            
+
+                                    }
+                                
+
+                        if(this.isFlash())
+                        
+                                    {
+                                    this.myFontProcessor!.process(graphics);
+    
+graphics.drawString(this.startString, this.displayInfo!.getLastHalfWidth() -this.beginWidth, this.displayInfo!.getLastHeight() -this.line, this.anchor);
+    
+
+                                    }
+                                
+}
+
+
+    setFlash(flash: boolean){
+this.flash= flash;
+    
+}
+
+
+    isFlash(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.flash;
+    
+}
+
+
+}
+

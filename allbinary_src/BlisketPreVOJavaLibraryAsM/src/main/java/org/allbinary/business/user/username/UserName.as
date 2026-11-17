@@ -1,0 +1,261 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { UserData } from '../../../../../org/allbinary/business/user/UserData.js';
+//not GWT import const UserData
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { BooleanFactory } from '../../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
+//not GWT import const BooleanFactory
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { StringValidationUtil } from '../../../../../org/allbinary/logic/string/StringValidationUtil.js';
+//not GWT import const StringValidationUtil
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class UserName
+            extends Object
+         {
+        
+
+    private static readonly instance: UserName = new UserName();
+
+    public static getInstance(): UserName{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return UserName.instance;
+    
+}
+
+
+    public static getValidationInfo(aUserName: string): string{
+
+                        if(!StringValidationUtil.getInstance()!.isValidRequired(aUserName, 5, UserData.MAXLEN))
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Please enter a User Name with more than 5 characters.<br/>";
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return StringUtil.getInstance()!.EMPTY_STRING;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private userName: string;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 0) {
+            
+            this.constructor$0();
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        
+    }
+    
+    private constructor$0(): void {
+        
+    }
+    
+    private constructor$1(hashMap: HashMap<any, any>): void {
+        this.userName= hashMap!.get(UserData.USERNAME) as string;
+    
+
+    }
+    isValid(...args: any[]): any {
+   
+   
+    if (args.length === 0) return this.isValid$overload1();
+   
+    if (args.length === 1 && typeof args[0] === 'string') return this.isValid$overload2(args[0]);
+   
+   throw new TypeError('No matching overload: isValid'); }
+  
+    public isValid$overload1(): Boolean{
+
+ try { 
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.isValid(this.userName);;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Failed to validate form", this, "isUserNameValid()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+    public get(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.userName;
+    
+}
+
+
+    public isValid$overload2(aUserName: string): Boolean{
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+
+ try { 
+    let booleanFactory: BooleanFactory = BooleanFactory.getInstance()!;;
+    
+
+    let valid: Boolean = booleanFactory!.TRUE;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VALIDATION))
+                        
+                                    {
+                                    this.logUtil!.putF("UserName: " +aUserName, this, commonStrings!.IS_VALID);
+    
+
+                                    }
+                                
+
+                        if(!StringValidationUtil.getInstance()!.isValidRequired(aUserName, 5, UserData.MAXLEN))
+                        
+                                    {
+                                    
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VALIDATION))
+                        
+                                    {
+                                    this.logUtil!.putF("UserName is invalid", this, commonStrings!.IS_VALID);
+    
+
+                                    }
+                                
+valid= booleanFactory!.FALSE;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return valid;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Failed to validate form", this, commonStrings!.IS_VALID, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

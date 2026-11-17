@@ -1,0 +1,48 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2026 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+//not plain js import { Stack } 
+const Stack = (globalThis.java?.util?.Stack ?? class {}) as typeof globalThis.java.util.Stack;
+type Stack<T = any, U = any> = typeof Stack extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Stack;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class ABStack extends Stack<E> {
+        
+
+}
+

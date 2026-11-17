@@ -1,0 +1,172 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { Animation } from '../../../../../org/allbinary/animation/Animation.js';
+//not GWT import const Animation
+
+import { WeaponProperties } from '../../../../../org/allbinary/game/combat/weapon/WeaponProperties.js';
+//not GWT import const WeaponProperties
+
+import { WeaponLayer } from '../../../../../org/allbinary/game/layer/weapon/WeaponLayer.js';
+//not GWT import const WeaponLayer
+
+import { WeaponLayerCircularPool } from '../../../../../org/allbinary/game/layer/weapon/WeaponLayerCircularPool.js';
+//not GWT import const WeaponLayerCircularPool
+
+import { NoScoreable } from '../../../../../org/allbinary/game/score/NoScoreable.js';
+//not GWT import const NoScoreable
+
+import { ScoreableInterface } from '../../../../../org/allbinary/game/score/ScoreableInterface.js';
+//not GWT import const ScoreableInterface
+
+import { RelativeRelationship } from '../../../../../org/allbinary/graphics/RelativeRelationship.js';
+//not GWT import const RelativeRelationship
+
+import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
+//not GWT import const AllBinaryLayerManager
+
+import { NoDecimalTrigTable } from '../../../../../org/allbinary/math/NoDecimalTrigTable.js';
+//not GWT import const NoDecimalTrigTable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicWeaponPart } from './BasicWeaponPart.js';
+//sameFolderImports - not GWT import - same folder const BasicWeaponPart
+
+export class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
+        
+
+    public static createStraightMultiProjectileWeaponPart(animationInterface: Animation, weaponLayerCircularStaticPool: WeaponLayerCircularPool): StraightMultiProjectileWeaponPart{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new StraightMultiProjectileWeaponPart(animationInterface, AllBinaryLayer.NULL_ALLBINARY_LAYER, weaponLayerCircularStaticPool, 2, WeaponProperties.NULL_WEAPON_PROPERTIES, NoScoreable.getInstance(), RelativeRelationship.NULL_RELATIVE_RELATIONSHIP);
+    
+}
+
+
+    private readonly weaponLayerCircularStaticPool: WeaponLayerCircularPool;
+
+    private readonly total: number;
+
+public constructor (animationInterface: Animation, sourceLayerInterface: AllBinaryLayer, weaponLayerCircularStaticPool: WeaponLayerCircularPool, total: number, weaponProperties: WeaponProperties, scoreableInterface: ScoreableInterface, relativeRelationship: RelativeRelationship){
+            super(animationInterface, sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.total= total;
+    
+this.weaponLayerCircularStaticPool= weaponLayerCircularStaticPool;
+    
+}
+
+
+    private readonly noDecimalTrigTable: NoDecimalTrigTable = NoDecimalTrigTable.getInstance()!;
+
+                //@Throws(Exception.constructor)
+            
+    public processScore(allbinaryLayerManager: AllBinaryLayerManager, angle: number, otherAngle: number, weaponProperties: WeaponProperties, scoreableInterface: ScoreableInterface){
+
+    let sourceLayerInterface: AllBinaryLayer = this.getOwnerLayerInterface()!;;
+    
+
+    let reducedWidth: number = (sourceLayerInterface!.getWidth() *8 /10);;
+    
+
+    let halfWidth: number = (reducedWidth>>1);;
+    
+
+    let x: number = this.relativeRelationship!.getX()!;;
+    
+
+    let y: number = this.relativeRelationship!.getY()!;;
+    
+
+    let sine: number= 0;;
+    
+
+    let beamX: number= 0;;
+    
+
+    let cosine: number= 0;;
+    
+
+    let beamY: number= 0;;
+    
+
+    let weaponLayer: WeaponLayer;;
+    
+
+    let increment: number = globalThis.Math.trunc(reducedWidth /(this.total -1));;
+    
+
+    let next: number =  -halfWidth;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < this.total; index++)
+        {
+sine= (next *this.noDecimalTrigTable!.sin(globalThis.Math.trunc(angle)));
+    
+beamX= globalThis.Math.trunc((sine /this.noDecimalTrigTable!.SCALE));
+    
+cosine= (next *this.noDecimalTrigTable!.cos(globalThis.Math.trunc(angle)));
+    
+beamY=  -globalThis.Math.trunc((cosine /this.noDecimalTrigTable!.SCALE));
+    
+weaponLayer= this.weaponLayerCircularStaticPool!.getInstanceWeaponLayer(sourceLayerInterface, x +beamX, y +beamY, 0, globalThis.Math.trunc(angle), globalThis.Math.trunc(otherAngle), weaponProperties, scoreableInterface);
+    
+allbinaryLayerManager!.append(weaponLayer);
+    
+next += increment;
+    
+}
+
+}
+
+
+}
+

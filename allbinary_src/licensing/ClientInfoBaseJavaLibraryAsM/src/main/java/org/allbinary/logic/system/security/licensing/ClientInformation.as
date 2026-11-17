@@ -1,0 +1,393 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+import { TsUtil } from '../../../../../../org/allbinary/TsUtil.js';
+//not GWT import const TsUtil
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { HardwareInterface } from '../../../../../../org/allbinary/logic/system/hardware/HardwareInterface.js';
+//not GWT import const HardwareInterface
+
+import { SystemHardwareFactory } from '../../../../../../org/allbinary/logic/system/hardware/SystemHardwareFactory.js';
+//not GWT import const SystemHardwareFactory
+
+import { GenericOperatingSystem } from '../../../../../../org/allbinary/logic/system/os/GenericOperatingSystem.js';
+//not GWT import const GenericOperatingSystem
+
+import { NoOperatingSystem } from '../../../../../../org/allbinary/logic/system/os/NoOperatingSystem.js';
+//not GWT import const NoOperatingSystem
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListUtil } 
+const BasicArrayListUtil = globalThis.org.allbinary.util.BasicArrayListUtil;
+type BasicArrayListUtil<T = any, U = any> = typeof BasicArrayListUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListUtil;
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AbeClientInformationInterface } from './AbeClientInformationInterface.js';
+//sameFolderImports - not GWT import - same folder const AbeClientInformationInterface
+import { AbeClientInformationData } from './AbeClientInformationData.js';
+//sameFolderImports - not GWT import - same folder const AbeClientInformationData
+// This is the information sent to the license server
+export class ClientInformation
+            extends Object
+         implements AbeClientInformationInterface {
+        
+
+    private operatingSystemInterface: GenericOperatingSystem = NoOperatingSystem.NO_OPERATING_SYSTEM;
+
+    private readonly tsUtil: TsUtil = TsUtil.getInstance()!;
+
+    private readonly name: string;
+
+    private readonly shortName: string;
+
+    private readonly version: string;
+
+    private readonly specialName: string;
+
+    private hardSale: boolean = true;
+
+    private licenseId: string = StringUtil.getInstance()!.EMPTY_STRING;
+
+    private licenseServers: BasicArrayList = BasicArrayListUtil.getInstance()!.getImmutableInstance()!;
+
+public constructor (name: string, version: string, specialName: string, shortName: string){
+
+            super();
+        this.name= name;
+    
+this.version= version;
+    
+this.specialName= specialName;
+    
+this.shortName= new StringMaker().append(shortName)!.append(CommonSeps.getInstance()!.UNDERSCORE)!.append(version)!.toString();
+    
+this.init();
+    
+}
+
+
+    public init(){
+}
+
+
+    public getOperatingSystemInterface(): GenericOperatingSystem{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.operatingSystemInterface;
+    
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.name;
+    
+}
+
+
+    public getSpecialName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.specialName;
+    
+}
+
+
+    public getVersion(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.version;
+    
+}
+
+
+    public getLicenseId(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.licenseId;
+    
+}
+
+
+    public getLicenseServers(): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.licenseServers;
+    
+}
+
+
+    public getLicenseServer(index: number): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.licenseServers!.objectArray[index]! as string;
+    
+}
+
+
+    public getNumberOfLicenseServers(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.licenseServers!.size();;
+    
+}
+
+
+    public toHashtable(): ABHashtable<any, any>{
+
+    let abeClientInformationData: AbeClientInformationData = AbeClientInformationData.getInstance()!;;
+    
+
+    let genericOperatingSystem: GenericOperatingSystem = this.getOperatingSystemInterface()!;;
+    
+
+    let clientInfoHashtable: ABHashtable<any, any> = StdUtil.getInstance()!.createHashtable()!;;
+    
+clientInfoHashtable!.put(abeClientInformationData!.NAME, this.name);
+    
+clientInfoHashtable!.put(abeClientInformationData!.VERSION, this.version);
+    
+clientInfoHashtable!.put(abeClientInformationData!.SPECIALNAME, this.specialName);
+    
+clientInfoHashtable!.put(abeClientInformationData!.LICENSEID, this.getLicenseId());
+    
+clientInfoHashtable!.put(abeClientInformationData!.OSNAME, genericOperatingSystem!.getName());
+    
+clientInfoHashtable!.put(abeClientInformationData!.OSARCH, genericOperatingSystem!.getArch());
+    
+clientInfoHashtable!.put(abeClientInformationData!.OSVERSION, genericOperatingSystem!.getVersion());
+    
+clientInfoHashtable!.put(abeClientInformationData!.OS, genericOperatingSystem!.toString());
+    
+
+    let hardwareInterface: HardwareInterface = SystemHardwareFactory.getInstance()!.getInstance(genericOperatingSystem)!;;
+    
+
+    let hardwareString: string = hardwareInterface!.toString()!;;
+    
+clientInfoHashtable!.put(abeClientInformationData!.HARDWARE, hardwareString);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return clientInfoHashtable;
+    
+}
+
+
+    public isSameId(alicenseId: string): boolean{
+
+                        if(this.tsUtil!.compareTo(this.getLicenseId(), alicenseId) == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+    public isLargerOrDifferentServerList(list: BasicArrayList): boolean{
+
+    let size: number = list.size() -1;;
+    
+
+    let currentSize: number = this.licenseServers!.size() -1;;
+    
+
+                        if(size > currentSize)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+
+
+
+
+                        for (
+    let index: number = size;index >= 0; index--)
+        {
+
+    let newServerName: string = list.objectArray[index]! as string;;
+    
+
+
+
+
+                        for (
+    let index2: number = currentSize;index2 >= 0; index2--)
+        {
+
+    let nextOldServerName: string = this.licenseServers!.objectArray[index]! as string;;
+    
+
+                        if(this.tsUtil!.compareTo(newServerName, nextOldServerName) != 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+}
+
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    setHardSale(hardSale: boolean){
+this.hardSale= hardSale;
+    
+}
+
+
+    public isHardSale(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.hardSale;
+    
+}
+
+
+    setOperatingSystemInterface(operatingSystemInterface: GenericOperatingSystem){
+this.operatingSystemInterface= operatingSystemInterface;
+    
+}
+
+
+    setLicenseId(licenseId: string){
+this.licenseId= licenseId;
+    
+}
+
+
+    setLicenseServers(licenseServers: BasicArrayList){
+this.licenseServers= licenseServers;
+    
+}
+
+
+    public toShortString(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.shortName;
+    
+}
+
+
+}
+

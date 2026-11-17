@@ -1,0 +1,120 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { TiledLayer } from '../../../../javax/microedition/lcdui/game/TiledLayer.js';
+//not GWT import const TiledLayer
+
+import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { SmallIntegerSingletonFactory } from '../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
+//not GWT import const SmallIntegerSingletonFactory
+
+import { AllBinaryTiledLayerFactoryInterface } from '../../../../org/allbinary/media/graphics/geography/map/racetrack/AllBinaryTiledLayerFactoryInterface.js';
+//not GWT import const AllBinaryTiledLayerFactoryInterface
+
+import { RaceTrackData } from '../../../../org/allbinary/media/graphics/geography/map/racetrack/RaceTrackData.js';
+//not GWT import const RaceTrackData
+
+import { RaceTrackInfo } from '../../../../org/allbinary/media/graphics/geography/map/racetrack/RaceTrackInfo.js';
+//not GWT import const RaceTrackInfo
+
+import { TiledLayerFactory } from '../../../../org/allbinary/media/graphics/geography/map/racetrack/TiledLayerFactory.js';
+//not GWT import const TiledLayerFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AllBinaryTiledLayer } from './AllBinaryTiledLayer.js';
+//sameFolderImports - not GWT import - same folder const AllBinaryTiledLayer
+import { AllBinaryJ2METiledLayer } from './AllBinaryJ2METiledLayer.js';
+//sameFolderImports - not GWT import - same folder const AllBinaryJ2METiledLayer
+
+export class AllBinaryTiledLayerFactory
+            extends Object
+         implements AllBinaryTiledLayerFactoryInterface {
+        
+
+                //@Throws(Exception.constructor)
+            
+    public getInstance(raceTrackInfo: RaceTrackInfo, raceTrackData: RaceTrackData): AllBinaryTiledLayer{
+
+    let allbinaryTiledLayer: AllBinaryTiledLayer;;
+    
+
+    let tiledLayer: TiledLayer = new TiledLayerFactory().getInstance(raceTrackData)!;;
+    
+allbinaryTiledLayer= new AllBinaryJ2METiledLayer(raceTrackData!.getId(), tiledLayer, raceTrackData!.getMapArray(), BasicColorFactory.getInstance()!.RED.intValue());
+    
+allbinaryTiledLayer!.setCells(raceTrackData!.getMapArray());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return allbinaryTiledLayer;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getMiniInstance(raceTrackData: RaceTrackData): AllBinaryTiledLayer{
+
+    let smallIntegerSingletonFactory: SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance()!;;
+    
+
+    let tiledLayer: TiledLayer = new TiledLayerFactory().getMiniInstance(raceTrackData)!;;
+    
+
+    let allbinaryTiledLayer: AllBinaryTiledLayer = new AllBinaryJ2METiledLayer(smallIntegerSingletonFactory!.getAt(raceTrackData!.getId()!.intValue() +100 +1), tiledLayer, raceTrackData!.getMapArray(), BasicColorFactory.getInstance()!.RED.intValue());;
+    
+allbinaryTiledLayer!.setCells(raceTrackData!.getMapArray());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return allbinaryTiledLayer;
+    
+}
+
+
+}
+

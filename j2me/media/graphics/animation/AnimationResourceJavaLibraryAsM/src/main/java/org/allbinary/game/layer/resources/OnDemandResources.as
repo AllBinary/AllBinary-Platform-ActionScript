@@ -1,0 +1,94 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { BaseResourceAnimationInterfaceFactoryInterfaceFactory } from '../../../../../org/allbinary/animation/resource/BaseResourceAnimationInterfaceFactoryInterfaceFactory.js';
+//not GWT import const BaseResourceAnimationInterfaceFactoryInterfaceFactory
+
+import { ImageCache } from '../../../../../org/allbinary/image/ImageCache.js';
+//not GWT import const ImageCache
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class OnDemandResources
+            extends Object
+         {
+        
+
+    public static readonly NULL_ON_DEMAND_RESOURCES: OnDemandResources = new OnDemandResources();
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+protected constructor (){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            
+    public waitFor(){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public init(){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public initAt(imageCache: ImageCache, resourceAnimationInterfaceFactoryInterfaceFactory: BaseResourceAnimationInterfaceFactoryInterfaceFactory, portion: number, loadingString: string, index: number): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 0;
+    
+}
+
+
+}
+

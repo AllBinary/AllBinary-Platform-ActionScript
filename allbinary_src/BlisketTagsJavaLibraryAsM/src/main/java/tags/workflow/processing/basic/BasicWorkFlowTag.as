@@ -1,0 +1,120 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { JspTagException } from '../../../../javax/servlet/jsp/JspTagException.js';
+//not GWT import const JspTagException
+
+import { DynamicObjectData } from '../../../../org/allbinary/business/DynamicObjectData.js';
+//not GWT import const DynamicObjectData
+
+import { AbResponseHandler } from '../../../../org/allbinary/logic/communication/http/request/AbResponseHandler.js';
+//not GWT import const AbResponseHandler
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { StoreWorkFlowTag } from '../../../../tags/StoreWorkFlowTag.js';
+//not GWT import const StoreWorkFlowTag
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //and remove the hidden fields
+export class BasicWorkFlowTag extends StoreWorkFlowTag {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+public constructor (){
+
+            super();
+        
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.JSPTAG))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(JspTagException.constructor)
+            
+    public doStartTag(): number{
+
+ try { 
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.JSPTAG))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.START, this, tagStrings!.DO_START_TAG);
+    
+
+                                    }
+                                
+this.getPropertiesHashMap()!.put(DynamicObjectData.NAME, "workflows.template.data.BasicStoreWorkFlow");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.doStartTag();;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

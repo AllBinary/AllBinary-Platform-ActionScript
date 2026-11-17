@@ -1,0 +1,189 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { DbConnectionInfo } from '../../../../../org/allbinary/business/init/db/DbConnectionInfo.js';
+//not GWT import const DbConnectionInfo
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AbSqlBasic } from './AbSqlBasic.js';
+//sameFolderImports - not GWT import - same folder const AbSqlBasic
+
+export class AbSqlTable extends AbSqlBasic {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private tableName: string;
+
+    private readonly METHOD_CREATED_TABLE: string = "createTable()";
+
+    private readonly METHOD_DROP_TABLE: string = "dropTable()";
+
+    private readonly TABLE_CREATION_SUCCESS: string = "Table Creation Successful: ";
+
+    private readonly DROPPED_SUCCESS: string = " Dropped Successfully";
+
+public constructor (databaseConnectionInfoInterface: DbConnectionInfo){
+            super(databaseConnectionInfoInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public setTableName(tableName: string){
+this.tableName= tableName;
+    
+}
+
+
+    public getTableName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.tableName;
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public createTable(data: string): string{
+
+ try { this.executeSQLStatement(data);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.TABLE_CREATION_SUCCESS +this.tableName +" with statement: " +data, this, this.METHOD_CREATED_TABLE);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.tableName +this.sqlStrings!.CREATE_RETURN;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Table Creation Failed: " +this.tableName +" with statement: " +data, this, this.METHOD_CREATED_TABLE, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Failed to Create " +this.tableName +" table.";
+    
+
+ }
+   }
+ 
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public dropTable(): string{
+
+    let sqlStatement: string = this.sqlStrings!.DROP_TABLE +this.tableName;;
+    
+
+ try { this.executeSQLStatement(sqlStatement);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.SUCCESS_SQL_STATEMENT +sqlStatement, this, this.METHOD_DROP_TABLE);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.tableName +this.DROPPED_SUCCESS;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.FAILED_SQL_STATEMENT +sqlStatement, this, this.METHOD_DROP_TABLE, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Failed to Drop " +this.tableName +" table.";
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

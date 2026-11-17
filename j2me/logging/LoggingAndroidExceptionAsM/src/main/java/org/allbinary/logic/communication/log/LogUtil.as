@@ -1,0 +1,130 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import hilog from '@ohos.hilog';
+        
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //not plain js - same folder import { LogFormatUtil } 
+const LogFormatUtil = globalThis.org.allbinary.logic.communication.log.LogFormatUtil;
+//not plain js - same folder import { Log } 
+const Log = globalThis.org.allbinary.logic.communication.log.Log;
+//ActualPlatform
+/*actual*/ export class LogUtil
+            extends Object
+         {
+        
+
+            static readonly PUBLIC: string = '%{public}s';
+            
+
+    private static readonly instance: LogUtil = new LogUtil();
+
+    /*actual*/ public static getInstance(): LogUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return LogUtil.instance;
+    
+}
+
+
+    private readonly logFormatUtil: LogFormatUtil = LogFormatUtil.getInstance()!;
+
+    private readonly LABEL: string = "org.allbinary";
+
+    private readonly LOG_SUCCESS: string = "org.allbinary: ";
+
+private constructor (){
+
+            super();
+        }
+
+
+    /*actual*/ public putL(log: Log){
+
+    let specialMessage: string = log.getSpecialMessage()!;;
+    
+
+    let anyType: any = log.getObject()!;;
+    
+
+    let functionName: string = log.getFunctionName()!;;
+    
+
+    let exception: any = log.getThrowable()!;;
+    
+
+                        if(log != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.put(specialMessage, anyType, functionName, exception);
+    
+
+                                    }
+                                
+}
+
+
+    /*actual*/ public putF(specialMessage: string, anyType: any, functionName: string){
+}
+
+
+    /*actual*/ public putFS(specialMessage: string, className: string, functionName: string){
+}
+
+
+    /*actual*/ public put(specialMessage: string, anyType: any, functionName: string, exception: any){
+
+    let className: string = this.LABEL;;
+    
+className= anyType!.constructor.name.toString()!;
+    
+
+    let message: string = this.logFormatUtil!.get(className, functionName, specialMessage, exception)!;;
+    
+android.util.Log.i(this.LABEL, this.LOG_SUCCESS +message);
+    
+}
+
+
+}
+

@@ -1,0 +1,156 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+import { HashMap } from '../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { EntryData } from '../../../../../../org/allbinary/business/entry/EntryData.js';
+//not GWT import const EntryData
+
+import { TimeCreated } from '../../../../../../org/allbinary/business/time/created/TimeCreated.js';
+//not GWT import const TimeCreated
+
+import { TimeLastModified } from '../../../../../../org/allbinary/business/time/modified/TimeLastModified.js';
+//not GWT import const TimeLastModified
+
+import { UserEmailConfiguration } from '../../../../../../org/allbinary/logic/communication/smtp/configuration/user/UserEmailConfiguration.js';
+//not GWT import const UserEmailConfiguration
+
+import { UserEmailConfigurationInterface } from '../../../../../../org/allbinary/logic/communication/smtp/configuration/user/UserEmailConfigurationInterface.js';
+//not GWT import const UserEmailConfigurationInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { UserConfigurationInterface } from './UserConfigurationInterface.js';
+//sameFolderImports - not GWT import - same folder const UserConfigurationInterface
+
+export class UserConfiguration
+            extends Object
+         implements UserConfigurationInterface {
+        
+
+    private userEmailConfigurationInterface: UserEmailConfigurationInterface;
+
+    private timeCreated: TimeCreated;
+
+    private timeLastModified: TimeLastModified;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 0) {
+            
+            this.constructor$0();
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        
+    }
+    
+    private constructor$0(): void {
+        this.userEmailConfigurationInterface= new UserEmailConfiguration() as UserEmailConfigurationInterface;
+    
+this.timeCreated= new TimeCreated(0);
+    
+this.timeLastModified= new TimeLastModified(0);
+    
+
+    }
+    
+    private constructor$1(hashMap: HashMap<any, any>): void {
+        this.userEmailConfigurationInterface= new UserEmailConfiguration(hashMap) as UserEmailConfigurationInterface;
+    
+this.timeCreated= new TimeCreated(hashMap!.get(EntryData.getInstance()!.TIMECREATED) as string);
+    
+this.timeLastModified= new TimeLastModified(hashMap!.get(EntryData.getInstance()!.LASTMODIFIED) as string);
+    
+
+    }
+    
+    public getUserEmailConfigurationInterface(): UserEmailConfigurationInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.userEmailConfigurationInterface;
+    
+}
+
+
+    public setUserEmailConfigurationInterface(userEmailConfigurationInterface: UserEmailConfigurationInterface){
+this.userEmailConfigurationInterface= userEmailConfigurationInterface;
+    
+}
+
+
+    public getTimeCreated(): TimeCreated{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.timeCreated;
+    
+}
+
+
+    public getTimeLastModified(): TimeLastModified{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.timeLastModified;
+    
+}
+
+
+    public setTimeCreated(timeCreated: TimeCreated){
+this.timeCreated= timeCreated;
+    
+}
+
+
+    public setTimeLastModified(timeLastModified: TimeLastModified){
+this.timeLastModified= timeLastModified;
+    
+}
+
+
+}
+

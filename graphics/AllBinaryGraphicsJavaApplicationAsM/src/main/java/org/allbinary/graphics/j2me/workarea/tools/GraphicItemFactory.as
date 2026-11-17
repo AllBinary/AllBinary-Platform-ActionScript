@@ -1,0 +1,182 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { LOGGING } from '../../../../../../org/allbinary/log/LOGGING.js';
+//not GWT import const LOGGING
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+import { Node } from '../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { SelectionToolFactory } from './SelectionToolFactory.js';
+//sameFolderImports - not GWT import - same folder const SelectionToolFactory
+import { GraphicsItemInterfaceFactoryInterface } from './GraphicsItemInterfaceFactoryInterface.js';
+//sameFolderImports - not GWT import - same folder const GraphicsItemInterfaceFactoryInterface
+import { LinesGraphicItem } from './LinesGraphicItem.js';
+//sameFolderImports - not GWT import - same folder const LinesGraphicItem
+import { LinesGraphicItemFactory } from './LinesGraphicItemFactory.js';
+//sameFolderImports - not GWT import - same folder const LinesGraphicItemFactory
+import { GraphicItemBuilder } from './GraphicItemBuilder.js';
+//sameFolderImports - not GWT import - same folder const GraphicItemBuilder
+import { GraphicItemInterface } from './GraphicItemInterface.js';
+//sameFolderImports - not GWT import - same folder const GraphicItemInterface
+
+export class GraphicItemFactory
+            extends Object
+         {
+        
+
+    private static readonly instance: GraphicItemFactory = new GraphicItemFactory();
+static getInstance(...args: any[]): any {
+   
+   
+    if (args.length === 0) return this.getInstance$overload1();
+   
+   throw new TypeError('No matching overload: getInstance'); }
+  
+    public static getInstance$overload1(): GraphicItemFactory{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return GraphicItemFactory.instance;
+    
+}
+
+
+    private readonly graphicItems: HashMap<any, any>;
+
+    private readonly DEFAULT: GraphicsItemInterfaceFactoryInterface = new SelectionToolFactory();
+
+private constructor (){
+
+            super();
+        this.graphicItems= StdUtil.getInstance()!.createHashMap();
+    
+this.graphicItems!.put(LinesGraphicItem.getStaticName(), new LinesGraphicItemFactory());
+    
+}
+
+getInstance(...args: any[]): any {
+   
+   
+    if (args.length === 1 && typeof args[0] === 'string') return this.getInstance$overload2(args[0]);
+   
+    if (args.length === 1) return this.getInstance$overload3(args[0]);
+   
+   throw new TypeError('No matching overload: getInstance'); }
+  
+    public getInstance$overload2(itemName: string): GraphicsItemInterfaceFactoryInterface{
+
+    let graphicsItemInterfaceFactoryInterface: GraphicsItemInterfaceFactoryInterface = this.graphicItems!.get(itemName) as GraphicsItemInterfaceFactoryInterface;;
+    
+
+                        if(graphicsItemInterfaceFactoryInterface == 
+                                    null
+                                )
+                        
+                                    {
+                                    graphicsItemInterfaceFactoryInterface= this.DEFAULT;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return graphicsItemInterfaceFactoryInterface;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getInstance$overload3(graphicItemNodeList: BasicArrayList): HashMap<any, any>{
+
+    let numberOfItems: number = graphicItemNodeList!.size()!;;
+    
+
+    let graphicItemHashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+
+                        if(LOGGING.contains(LOGGING.MENUEVENT))
+                        
+                                    {
+                                    
+                                    }
+                                
+
+
+
+
+                        for (
+    let index: number = 0;index < numberOfItems; index++)
+        {
+
+    let graphicItem: GraphicItemInterface = GraphicItemBuilder.getInstance(graphicItemNodeList!.get(index) as Node)!;;
+    
+graphicItemHashMap!.put(graphicItem!.getTreeNode(), graphicItem);
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return graphicItemHashMap;
+    
+}
+
+
+}
+

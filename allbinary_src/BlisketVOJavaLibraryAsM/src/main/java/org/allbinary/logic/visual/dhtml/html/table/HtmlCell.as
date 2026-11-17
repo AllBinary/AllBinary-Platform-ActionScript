@@ -1,0 +1,164 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { HtmlTag } from '../../../../../../../org/allbinary/logic/visual/dhtml/html/HtmlTag.js';
+//not GWT import const HtmlTag
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class HtmlCell extends HtmlTag {
+        
+
+    private readonly END: string = ">";
+
+    private readonly START: string = "<td ";
+
+    private readonly ENDTAG: string = "</td>";
+
+    private readonly HEIGHT: string = "height";
+
+    private readonly WIDTH: string = "width";
+
+    private height: string;
+
+    private width: string;
+
+    private before: string;
+
+    private body: string;
+
+    private after: string;
+
+public constructor (before: string, width: string, height: string, after: string){
+
+            super();
+        this.before= before.toCharArray().slice(0, ).join('');
+    
+this.after= after.toCharArray().slice(0, ).join('');
+    
+this.height= height.toCharArray().slice(0, ).join('');
+    
+this.width= width.toCharArray().slice(0, ).join('');
+    
+addAttribute(this.HEIGHT, this.height);
+    
+addAttribute(this.WIDTH, this.width);
+    
+}
+
+
+    public addText(body: string){
+this.body= body;
+    
+}
+
+
+    public toString(): string{
+
+    let stringUtil: StringUtil = StringUtil.getInstance()!;;
+    
+
+    let result: string = stringUtil!.EMPTY_STRING;;
+    
+
+    let attributeKeys: any[] = this.otherAttributes!.keySet()!.toArray()!;;
+    
+
+    let attributeSize: number = attributeKeys!.length
+                ;;
+    
+result= this.before;
+    
+result += this.START;
+    
+result += " ";
+    
+
+
+
+
+                        for (
+    let i: number = 0;i < attributeSize; i++)
+        {
+
+    let key: string = attributeKeys[i]! as string;;
+    
+
+    let value: string = otherAttributes!.get(key) as string;;
+    
+
+                        if(value != 
+                                    null
+                                 && value.compareTo(stringUtil!.EMPTY_STRING) != 0)
+                        
+                                    {
+                                    result += key;
+    
+result += "=\"";
+    
+result += value;
+    
+result += "\" ";
+    
+
+                                    }
+                                
+}
+
+result += this.END;
+    
+result += this.body;
+    
+result += this.ENDTAG;
+    
+result += this.after;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+}
+
+
+}
+

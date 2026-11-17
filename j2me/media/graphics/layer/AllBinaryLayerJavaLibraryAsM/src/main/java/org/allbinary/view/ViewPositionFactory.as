@@ -1,0 +1,64 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ViewPositionFactoryInterface } from './ViewPositionFactoryInterface.js';
+//sameFolderImports - not GWT import - same folder const ViewPositionFactoryInterface
+import { ViewPosition } from './ViewPosition.js';
+//sameFolderImports - not GWT import - same folder const ViewPosition
+import { ViewPositionBase } from './ViewPositionBase.js';
+//sameFolderImports - not GWT import - same folder const ViewPositionBase
+
+export class ViewPositionFactory
+            extends Object
+         implements ViewPositionFactoryInterface {
+        
+
+    public getInstance(): ViewPositionBase{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ViewPosition.getInstanceD();;
+    
+}
+
+
+}
+

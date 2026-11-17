@@ -1,0 +1,466 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { Method } from '../../java/lang/reflect/Method.js';
+//not GWT import const Method
+
+import { HashMap } from '../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { JspTagException } from '../../javax/servlet/jsp/JspTagException.js';
+//not GWT import const JspTagException
+
+import { BasketHelperFactory } from '../../admin/taghelpers/BasketHelperFactory.js';
+//not GWT import const BasketHelperFactory
+
+import { BasketRequestHelperFactory } from '../../admin/taghelpers/BasketRequestHelperFactory.js';
+//not GWT import const BasketRequestHelperFactory
+
+import { StoreFrontData } from '../../org/allbinary/business/context/modules/storefront/StoreFrontData.js';
+//not GWT import const StoreFrontData
+
+import { BasketData } from '../../org/allbinary/business/user/commerce/inventory/basket/BasketData.js';
+//not GWT import const BasketData
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+import { AbResponseHandler } from '../../org/allbinary/logic/communication/http/request/AbResponseHandler.js';
+//not GWT import const AbResponseHandler
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { LicensingException } from '../../org/allbinary/logic/system/security/licensing/LicensingException.js';
+//not GWT import const LicensingException
+
+import { CustomTagSupport } from '../../tags/CustomTagSupport.js';
+//not GWT import const CustomTagSupport
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class BasketTag extends CustomTagSupport {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private command: string;
+
+    private storeName: string;
+
+    private propertiesHashMap: HashMap<any, any>;
+
+public constructor (){
+
+            super();
+        }
+
+
+    public setCommand(command: string){
+this.command= command;
+    
+}
+
+
+    public setStoreName(value: string){
+this.storeName= value;
+    
+}
+
+
+                //@Throws(LicensingException.constructor)
+            
+    isBasketEmpty(): boolean{
+
+ try { 
+    let anyType: any = new BasketHelperFactory().getInstance(this.propertiesHashMap, this.pageContext)!;;
+    
+
+    let method: Method = anyType!.constructor.name.getMethod("isBasketEmpty", 
+                            null)!;;
+    
+
+    let emptyBoolean: Boolean = method.invoke(anyType, 
+                            null) as Boolean;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return emptyBoolean.valueOf();;
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+  else {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "isBasketEmpty()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(LicensingException.constructor)
+            
+    addItemToBasket(): boolean{
+
+ try { 
+    let anyType: any = new BasketRequestHelperFactory().getInstance(this.propertiesHashMap, this.pageContext)!;;
+    
+
+    let method: Method = anyType!.constructor.name.getMethod("addItemToBasket", 
+                            null)!;;
+    
+
+    let emptyBoolean: Boolean = method.invoke(anyType, 
+                            null) as Boolean;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return emptyBoolean.valueOf();;
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+  else {
+  const e = caught;
+  
+
+    let error: string = "Failed to add item from Basket";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "addItemToBasket()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(LicensingException.constructor)
+            
+    removeItemFromBasket(): boolean{
+
+ try { 
+    let anyType: any = new BasketRequestHelperFactory().getInstance(this.propertiesHashMap, this.pageContext)!;;
+    
+
+    let method: Method = anyType!.constructor.name.getMethod("removeItemFromBasket", 
+                            null)!;;
+    
+
+    let emptyBoolean: Boolean = method.invoke(anyType, 
+                            null) as Boolean;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return emptyBoolean.valueOf();;
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+  else {
+  const e = caught;
+  
+
+    let error: string = "Failed to remove item from Basket";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "removeItemFromBasket()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(LicensingException.constructor)
+            
+    adjustBasket(): boolean{
+
+ try { 
+    let anyType: any = new BasketRequestHelperFactory().getInstance(this.propertiesHashMap, this.pageContext)!;;
+    
+
+    let method: Method = anyType!.constructor.name.getMethod("adjustBasket", 
+                            null)!;;
+    
+
+    let emptyBoolean: Boolean = method.invoke(anyType, 
+                            null) as Boolean;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return emptyBoolean.valueOf();;
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+  else {
+  const e = caught;
+  
+
+    let error: string = "Failed to Adjust Basket";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "adjustBasket()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(JspTagException.constructor)
+            
+    public doStartTag(): number{
+
+ try { 
+                        if(this.command != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.propertiesHashMap= StdUtil.getInstance()!.createHashMap();
+    
+this.propertiesHashMap!.put(StoreFrontData.getInstance()!.NAME, this.storeName);
+    
+
+                        if(this.command.compareTo(BasketData.INSERT) == 0)
+                        
+                                    {
+                                    
+                        if(!this.addItemToBasket())
+                        
+                                    {
+                                    this.pageContext!.getOut()!.println("Item is not currently being sold.<p/>");
+    
+
+                                    }
+                                
+
+                                    }
+                                
+                             else 
+                        if(this.command.compareTo(BasketData.DELETE) == 0)
+                        
+                                    {
+                                    this.removeItemFromBasket();
+    
+
+                                    }
+                                
+                             else 
+                        if(this.command.compareTo(BasketData.ADJUST) == 0)
+                        
+                                    {
+                                    this.adjustBasket();
+    
+
+                                    }
+                                
+                             else 
+                        if(this.command.compareTo(BasketData.ISEMPTY) == 0)
+                        
+                                    {
+                                    
+                        if(this.isBasketEmpty())
+                        
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.EVAL_BODY_INCLUDE;
+    
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+                        }
+                            
+
+                                    }
+                                
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagLicensingRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+  else {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

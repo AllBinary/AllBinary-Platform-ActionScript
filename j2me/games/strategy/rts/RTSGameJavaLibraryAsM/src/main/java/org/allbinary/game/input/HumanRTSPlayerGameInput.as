@@ -1,0 +1,885 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2003 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { RTSFormInput } from '../../../../org/allbinary/game/input/form/RTSFormInput.js';
+//not GWT import const RTSFormInput
+
+import { MultiSelectPaintable } from '../../../../org/allbinary/game/layer/MultiSelectPaintable.js';
+//not GWT import const MultiSelectPaintable
+
+import { RTSGameStrings } from '../../../../org/allbinary/game/layer/RTSGameStrings.js';
+//not GWT import const RTSGameStrings
+
+import { RTSLayer } from '../../../../org/allbinary/game/layer/RTSLayer.js';
+//not GWT import const RTSLayer
+
+import { RTSLayerInfoPaintable } from '../../../../org/allbinary/game/layer/RTSLayerInfoPaintable.js';
+//not GWT import const RTSLayerInfoPaintable
+
+import { RTSPlayerLayerInterface } from '../../../../org/allbinary/game/layer/RTSPlayerLayerInterface.js';
+//not GWT import const RTSPlayerLayerInterface
+
+import { GameStateFactory } from '../../../../org/allbinary/game/state/GameStateFactory.js';
+//not GWT import const GameStateFactory
+
+import { EndLevelNoBuildingSelectedTouchButtonsBuilder } from '../../../../org/allbinary/input/motion/button/EndLevelNoBuildingSelectedTouchButtonsBuilder.js';
+//not GWT import const EndLevelNoBuildingSelectedTouchButtonsBuilder
+
+import { EndLevelTouchButtonsBuilder } from '../../../../org/allbinary/input/motion/button/EndLevelTouchButtonsBuilder.js';
+//not GWT import const EndLevelTouchButtonsBuilder
+
+import { NoBuildingSelectedTouchButtonsBuilder } from '../../../../org/allbinary/input/motion/button/NoBuildingSelectedTouchButtonsBuilder.js';
+//not GWT import const NoBuildingSelectedTouchButtonsBuilder
+
+import { RTSTouchButtonsBuilder } from '../../../../org/allbinary/input/motion/button/RTSTouchButtonsBuilder.js';
+//not GWT import const RTSTouchButtonsBuilder
+
+import { SelectBuildingSound } from '../../../../org/allbinary/media/audio/SelectBuildingSound.js';
+//not GWT import const SelectBuildingSound
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { BooleanFactory } from '../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
+//not GWT import const BooleanFactory
+
+import { AllBinaryGameCanvas } from '../../../../org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.js';
+//not GWT import const AllBinaryGameCanvas
+
+import { AllBinaryGameLayerManager } from '../../../../org/allbinary/game/layer/AllBinaryGameLayerManager.js';
+//not GWT import const AllBinaryGameLayerManager
+
+import { GameNotificationEvent } from '../../../../org/allbinary/game/layer/hud/event/GameNotificationEvent.js';
+//not GWT import const GameNotificationEvent
+
+import { GameNotificationEventHandler } from '../../../../org/allbinary/game/layer/hud/event/GameNotificationEventHandler.js';
+//not GWT import const GameNotificationEventHandler
+
+import { CollidableDestroyableDamageableLayer } from '../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.js';
+//not GWT import const CollidableDestroyableDamageableLayer
+
+import { GPoint } from '../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { PointFactory } from '../../../../org/allbinary/graphics/PointFactory.js';
+//not GWT import const PointFactory
+
+import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
+//not GWT import const BasicColorFactory
+
+import { ScrollSelectionForm } from '../../../../org/allbinary/graphics/form/ScrollSelectionForm.js';
+//not GWT import const ScrollSelectionForm
+
+import { ABCustomItem } from '../../../../org/allbinary/graphics/form/item/ABCustomItem.js';
+//not GWT import const ABCustomItem
+
+import { NullInitUpdatePaintable } from '../../../../org/allbinary/graphics/paint/NullInitUpdatePaintable.js';
+//not GWT import const NullInitUpdatePaintable
+
+import { TouchButtonsBuilderFactory } from '../../../../org/allbinary/input/motion/button/TouchButtonsBuilderFactory.js';
+//not GWT import const TouchButtonsBuilderFactory
+
+import { MotionGestureInput } from '../../../../org/allbinary/input/motion/gesture/MotionGestureInput.js';
+//not GWT import const MotionGestureInput
+
+import { TouchMotionGestureFactory } from '../../../../org/allbinary/input/motion/gesture/TouchMotionGestureFactory.js';
+//not GWT import const TouchMotionGestureFactory
+
+import { BaseMotionGestureEventListener } from '../../../../org/allbinary/input/motion/gesture/observer/BaseMotionGestureEventListener.js';
+//not GWT import const BaseMotionGestureEventListener
+
+import { BasicMotionGesturesHandler } from '../../../../org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.js';
+//not GWT import const BasicMotionGesturesHandler
+
+import { MotionGestureEvent } from '../../../../org/allbinary/input/motion/gesture/observer/MotionGestureEvent.js';
+//not GWT import const MotionGestureEvent
+
+import { AllBinaryLayerManager } from '../../../../org/allbinary/layer/AllBinaryLayerManager.js';
+//not GWT import const AllBinaryLayerManager
+
+import { SmallIntegerSingletonFactory } from '../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
+//not GWT import const SmallIntegerSingletonFactory
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { RectangleCollisionUtil } from '../../../../org/allbinary/math/RectangleCollisionUtil.js';
+//not GWT import const RectangleCollisionUtil
+
+import { ErrorSound } from '../../../../org/allbinary/media/audio/ErrorSound.js';
+//not GWT import const ErrorSound
+
+import { BasicGeographicMap } from '../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { GeographicMapCellPosition } from '../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+import { GeographicMapCompositeInterface } from '../../../../org/allbinary/media/graphics/geography/map/GeographicMapCompositeInterface.js';
+//not GWT import const GeographicMapCompositeInterface
+
+import { ViewPositionBase } from '../../../../org/allbinary/view/ViewPositionBase.js';
+//not GWT import const ViewPositionBase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { RTSPlayerGameInput } from './RTSPlayerGameInput.js';
+//sameFolderImports - not GWT import - same folder const RTSPlayerGameInput
+import { LayerPositionFinderInterface } from './LayerPositionFinderInterface.js';
+//sameFolderImports - not GWT import - same folder const LayerPositionFinderInterface
+import { SelectRTSLayerVisitorFactoryInterface } from './SelectRTSLayerVisitorFactoryInterface.js';
+//sameFolderImports - not GWT import - same folder const SelectRTSLayerVisitorFactoryInterface
+
+export class HumanRTSPlayerGameInput extends RTSPlayerGameInput implements BaseMotionGestureEventListener {
+        
+
+    private isDragging: boolean = false;
+
+    readonly gameStateFactory: GameStateFactory = GameStateFactory.getInstance()!;
+
+    private readonly rectangleCollisionUtil: RectangleCollisionUtil = RectangleCollisionUtil.getInstance()!;
+
+    private readonly touchMotionGestureFactory: TouchMotionGestureFactory = TouchMotionGestureFactory.getInstance()!;
+
+    private readonly PRESSED: MotionGestureInput = this.touchMotionGestureFactory!.PRESSED;
+
+    private readonly RELEASED: MotionGestureInput = this.touchMotionGestureFactory!.RELEASED;
+
+    private readonly touchButtonsBuilderFactory: TouchButtonsBuilderFactory;
+
+    private readonly notYoursGameNotificationEvent: GameNotificationEvent;
+
+    private selectedRtsLayer: CollidableDestroyableDamageableLayer = CollidableDestroyableDamageableLayer.getNullInstance()!;
+
+public constructor (gameCanvas: AllBinaryGameCanvas, inputList: BasicArrayList, playerInputId: number, towerInfoPaintable: RTSLayerInfoPaintable, rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerPositionFinderInterface: LayerPositionFinderInterface, selectRTSLayerVisitorFactoryInterface: SelectRTSLayerVisitorFactoryInterface, touchButtonsBuilderFactory: TouchButtonsBuilderFactory){
+            super(gameCanvas, inputList, playerInputId, towerInfoPaintable, rtsPlayerLayerInterface, layerPositionFinderInterface, selectRTSLayerVisitorFactoryInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.touchButtonsBuilderFactory= touchButtonsBuilderFactory;
+    
+
+    let basicColorFactory: BasicColorFactory = BasicColorFactory.getInstance()!;;
+    
+this.notYoursGameNotificationEvent= new GameNotificationEvent(this, RTSGameStrings.getInstance()!.NOT_YOURS, SmallIntegerSingletonFactory.getInstance()!.getAt(2), basicColorFactory!.PINK, BooleanFactory.getInstance()!.FALSE);
+    
+BasicMotionGesturesHandler.getInstance()!.addListenerInterface(this);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setAllBinaryGameLayerManager(allBinaryGameLayerManager: AllBinaryGameLayerManager){
+
+    let geographicMapCompositeInterface: GeographicMapCompositeInterface = allBinaryGameLayerManager as GeographicMapCompositeInterface;;
+    
+
+    let geographicMapInterface: BasicGeographicMap = geographicMapCompositeInterface!.getGeographicMapInterface()[0]!;;
+    
+this.notYoursGameNotificationEvent!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    processDraggingMotionInput(layerManager: AllBinaryLayerManager): boolean{
+
+    let motionGestureEvent: MotionGestureEvent = this.getMotionGestureInputList()!.get(this.getMotionGestureInputList()!.size() -1) as MotionGestureEvent;;
+    
+
+    let motionGestureInput: MotionGestureInput = motionGestureEvent!.getMotionGesture()!;;
+    
+
+    let rtsFormInput: RTSFormInput = this.getSelectedRtsFormInput()!;;
+    
+
+                        if(motionGestureInput == this.PRESSED)
+                        
+                                    {
+                                    
+    let point: GPoint = motionGestureEvent!.getCurrentPoint()!;;
+    
+
+                        if(this.getRtsPlayerLayerInterface()!.getCurrentScrollSelectionForm()!.isInForm(point))
+                        
+                                    {
+                                    this.isDragging= rtsFormInput!.processSticky(this.getSelectedRtsLayer(), this.getRtsPlayerLayerInterface(), layerManager, point);
+    
+
+                                    }
+                                
+
+                                    }
+                                
+                             else 
+                        if(motionGestureInput == this.RELEASED)
+                        
+                                    {
+                                    
+    let point: GPoint = motionGestureEvent!.getCurrentPoint()!;;
+    
+
+                        if(this.getRtsPlayerLayerInterface()!.getCurrentScrollSelectionForm()!.isInForm(point))
+                        
+                                    {
+                                    rtsFormInput!.processAtPoint(this.getSelectedRtsLayer(), this.getRtsPlayerLayerInterface(), layerManager, point);
+    
+
+                                    }
+                                
+                             else 
+                        if(rtsFormInput!.isStickyItemSelected())
+                        
+                                    {
+                                    
+    let previousRtsFormInput: RTSFormInput = rtsFormInput;;
+    
+this.select(motionGestureEvent);
+    
+this.getSelectedBuildingPlayerGameInput()!.selectAllPreselected();
+    
+previousRtsFormInput!.processAtPoint(this.getSelectedRtsLayer(), this.getRtsPlayerLayerInterface(), layerManager, point);
+    
+this.getSelectedBuildingPlayerGameInput()!.deselectAllPreselected();
+    
+
+                                    }
+                                
+                        else {
+                            this.select(motionGestureEvent);
+    
+
+                        }
+                            
+rtsFormInput!.setStickyItemSelected(false);
+    
+rtsFormInput!.setSelectedStickyItem(ABCustomItem.getNullInstance());
+    
+rtsFormInput!.setSelectedStickyItemIndex( -1);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    private startPoint: GPoint = PointFactory.getInstance()!.ZERO_ZERO;
+
+    private endPoint: GPoint = PointFactory.getInstance()!.ZERO_ZERO;
+
+    readonly POSSIBLE: string = "Possible: ";
+
+    readonly AT: string = "At: ";
+
+    readonly METHOD: string = "makeSelection";
+
+    readonly ADDING: string = "Adding: ";
+
+    readonly SPACE: string = CommonSeps.getInstance()!.SPACE;
+
+    makeSelection(){
+
+    let rtsLayerList: BasicArrayList = this.getRtsPlayerLayerInterface()!.getPlayerOwnedRTSLayers()!.rtsLayerList;;
+    
+
+    let rectX1: number = this.startPoint!.getX()!;;
+    
+
+    let rectY1: number = this.startPoint!.getY()!;;
+    
+
+    let rectX2: number = this.endPoint!.getX()!;;
+    
+
+    let rectY2: number = this.endPoint!.getY()!;;
+    
+
+                        if(rectX1 > rectX2)
+                        
+                                    {
+                                    rectX2= rectX1;
+    
+rectX1= this.endPoint!.getX();
+    
+
+                                    }
+                                
+
+                        if(rectY1 > rectY2)
+                        
+                                    {
+                                    rectY2= rectY1;
+    
+rectY1= this.endPoint!.getY();
+    
+
+                                    }
+                                
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.AT);
+    
+stringBuffer!.appendint(rectX1);
+    
+stringBuffer!.append(this.SPACE);
+    
+stringBuffer!.appendint(rectY1);
+    
+stringBuffer!.append(this.SPACE);
+    
+stringBuffer!.appendint(rectX2);
+    
+stringBuffer!.append(this.SPACE);
+    
+stringBuffer!.appendint(rectY2);
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.METHOD);
+    
+
+    let rtsLayer: RTSLayer;;
+    
+
+
+
+
+                        for (
+    let index: number = rtsLayerList!.size() -1;index >= 0; index--)
+        {
+rtsLayer= rtsLayerList!.get(index) as RTSLayer;
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+
+    let viewPosition: ViewPositionBase = rtsLayer!.getViewPosition()!;;
+    
+stringBuffer!.append(this.POSSIBLE);
+    
+stringBuffer!.append(rtsLayer!.getName());
+    
+stringBuffer!.append(this.SPACE);
+    
+stringBuffer!.append(this.AT);
+    
+stringBuffer!.appendint((viewPosition!.getX() +rtsLayer!.getHalfWidth()));
+    
+stringBuffer!.append(this.SPACE);
+    
+stringBuffer!.appendint((viewPosition!.getY() +rtsLayer!.getHalfHeight()));
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, this.METHOD);
+    
+
+                        if(this.rectangleCollisionUtil!.isInside(rectX1, rectY1, rectX2, rectY2, viewPosition!.getX() +rtsLayer!.getHalfWidth(), viewPosition!.getY() +rtsLayer!.getHalfHeight()))
+                        
+                                    {
+                                    this.logUtil!.putF(new StringMaker().append(this.ADDING)!.append(rtsLayer!.getName())!.toString(), this, this.METHOD);
+    
+rtsLayer!.select();
+    
+this.getSelectedBuildingPlayerGameInput()!.addSelectedRTSLayer(rtsLayer);
+    
+
+                                    }
+                                
+}
+
+
+    let gameLayer: CollidableDestroyableDamageableLayer = this.getSelectedBuildingPlayerGameInput()!.getLastSelectedRtsLayer()!;;
+    
+
+                        if(gameLayer != CollidableDestroyableDamageableLayer.getNullInstance())
+                        
+                                    {
+                                    
+    let lastRTSLayer: RTSLayer = gameLayer as RTSLayer;;
+    
+
+                        if(lastRTSLayer!.getScrollSelectionForm() != ScrollSelectionForm.getNullScrollSelectionForm())
+                        
+                                    {
+                                    this.updateForm(lastRTSLayer!.getScrollSelectionForm(), lastRTSLayer!.getRTSFormInput());
+    
+this.setSelectedRtsLayer(lastRTSLayer);
+    
+
+                                    }
+                                
+
+                                    }
+                                
+this.updatePaintable();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    processSelectionBoxMotionInput(layerManager: AllBinaryLayerManager){
+
+
+
+
+                        for (
+    let index: number = this.getMotionGestureInputList()!.size() -1;index >= 0; index--)
+        {
+
+    let motionGestureEvent: MotionGestureEvent = this.getMotionGestureInputList()!.get(index) as MotionGestureEvent;;
+    
+
+    let motionGestureInput: MotionGestureInput = motionGestureEvent!.getMotionGesture()!;;
+    
+
+    let point: GPoint = motionGestureEvent!.getCurrentPoint()!;;
+    
+
+                        if(motionGestureInput == this.touchMotionGestureFactory!.PRESSED)
+                        
+                                    {
+                                    this.startPoint= point;
+    
+this.endPoint= point;
+    
+
+                                    }
+                                
+                             else 
+                        if(motionGestureInput == this.touchMotionGestureFactory!.RELEASED)
+                        
+                                    {
+                                    this.endPoint= point;
+    
+this.makeSelection();
+    
+this.startPoint= PointFactory.getInstance()!.ZERO_ZERO;
+    
+this.endPoint= PointFactory.getInstance()!.ZERO_ZERO;
+    
+
+                                    }
+                                
+                        else {
+                            this.endPoint= point;
+    
+
+                        }
+                            
+}
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processMotionInput(layerManager: AllBinaryLayerManager){
+
+                        if(this.getMotionGestureInputList()!.size() > 0)
+                        
+                                    {
+                                    
+    let endDrag: boolean = this.processDraggingMotionInput(layerManager)!;;
+    
+
+                        if(!this.isDragging)
+                        
+                                    {
+                                    this.processSelectionBoxMotionInput(layerManager);
+    
+
+                                    }
+                                
+
+                        if(endDrag)
+                        
+                                    {
+                                    this.isDragging= false;
+    
+
+                                    }
+                                
+
+                                    }
+                                
+this.getMotionGestureInputList()!.clear();
+    
+}
+
+
+    public setSelectedRtsFormInput(selectedRtsFormInput: RTSFormInput){
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+this.logUtil!.putF(new StringMaker().append(CommonLabels.getInstance()!.START)!.append(StringUtil.getInstance()!.toString(selectedRtsFormInput))!.toString(), this, "setSelectedRtsFormInput");
+    
+super.setSelectedRtsFormInput(selectedRtsFormInput);
+    
+this.setSelectedRtsLayer(CollidableDestroyableDamageableLayer.getNullInstance());
+    
+}
+
+
+    updateFormForLayer(rtsLayer: RTSLayer){
+
+    let scrollSelectionForm: ScrollSelectionForm = rtsLayer!.getScrollSelectionForm()!;;
+    
+
+                        if(scrollSelectionForm != ScrollSelectionForm.getNullScrollSelectionForm() && this.getRtsPlayerLayerInterface()!.getGroupInterface()[0] == rtsLayer!.getGroupInterface()[0])
+                        
+                                    {
+                                    this.updateForm(scrollSelectionForm, rtsLayer!.getRTSFormInput());
+    
+this.getSelectedBuildingPlayerGameInput()!.setSelectedRTSLayer(CollidableDestroyableDamageableLayer.getNullInstance());
+    
+this.setSelectedRtsLayer(rtsLayer);
+    
+
+                                    }
+                                
+                        else {
+                            this.getRtsPlayerLayerInterface()!.setCurrentScrollSelectionForm(this.getRtsPlayerLayerInterface()!.getBuildingScrollSelectionForm());
+    
+this.setSelectedRtsFormInput(this.getRtsPlayerLayerInterface()!.getRTSFormInput());
+    
+this.getSelectedBuildingPlayerGameInput()!.setSelectedRTSLayer(CollidableDestroyableDamageableLayer.getNullInstance());
+    
+
+                        }
+                            
+}
+
+
+    updateForm(scrollSelectionForm: ScrollSelectionForm, rtfFormInput: RTSFormInput){
+this.getRtsPlayerLayerInterface()!.setCurrentScrollSelectionForm(scrollSelectionForm);
+    
+this.setSelectedRtsFormInput(rtfFormInput);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setSelectedRTSLayer(rtSLayer: CollidableDestroyableDamageableLayer, geographicMapCellPosition: GeographicMapCellPosition){
+
+                        if(rtSLayer != CollidableDestroyableDamageableLayer.getNullInstance() && this.getRtsPlayerLayerInterface()!.getGroupInterface()[0] != rtSLayer!.getGroupInterface()[0])
+                        
+                                    {
+                                    this.getRtsPlayerLayerInterface()!.add(ErrorSound.getInstance());
+    
+GameNotificationEventHandler.getInstance()!.fireEvent(this.notYoursGameNotificationEvent);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+
+    let gameCanvas: AllBinaryGameCanvas = this.getGameCanvas()!;;
+    
+
+                        if(rtSLayer != CollidableDestroyableDamageableLayer.getNullInstance())
+                        
+                                    {
+                                    this.getRtsPlayerLayerInterface()!.add(SelectBuildingSound.getInstance());
+    
+
+    let rtsLayer: RTSLayer = rtSLayer as RTSLayer;;
+    
+rtsLayer!.select();
+    
+this.updateFormForLayer(rtsLayer);
+    
+
+                        if(gameCanvas!.getGameState() == this.gameStateFactory!.PLAYING_GAME_STATE)
+                        
+                                    {
+                                    
+                        if(rtsLayer!.isSelfUpgradeable())
+                        
+                                    {
+                                    gameCanvas!.updateCurrentTouchInputFactory(new RTSTouchButtonsBuilder());
+    
+
+                                    }
+                                
+                        else {
+                            gameCanvas!.updateCurrentTouchInputFactory(new NoBuildingSelectedTouchButtonsBuilder());
+    
+
+                        }
+                            
+
+                                    }
+                                
+                        else {
+                            
+    let endLevelTouchButtonsBuilder: EndLevelTouchButtonsBuilder = new EndLevelTouchButtonsBuilder();;
+    
+
+                        if(this.touchButtonsBuilderFactory != 
+                                    null
+                                )
+                        
+                                    {
+                                    endLevelTouchButtonsBuilder!.add(this.touchButtonsBuilderFactory!.getInstance());
+    
+
+                                    }
+                                
+gameCanvas!.updateCurrentTouchInputFactory(endLevelTouchButtonsBuilder);
+    
+
+                        }
+                            
+
+                                    }
+                                
+                        else {
+                            this.logUtil!.putF("Set Player Default Form", this, "setSelectedRTSLayer");
+    
+this.getRtsPlayerLayerInterface()!.setCurrentScrollSelectionForm(this.getRtsPlayerLayerInterface()!.getBuildingScrollSelectionForm());
+    
+this.setSelectedRtsFormInput(this.getRtsPlayerLayerInterface()!.getRTSFormInput());
+    
+this.getSelectedBuildingPlayerGameInput()!.setSelectedRTSLayer(CollidableDestroyableDamageableLayer.getNullInstance());
+    
+
+                        if(gameCanvas!.getGameState() == this.gameStateFactory!.PLAYING_GAME_STATE)
+                        
+                                    {
+                                    gameCanvas!.updateCurrentTouchInputFactory(new NoBuildingSelectedTouchButtonsBuilder());
+    
+
+                                    }
+                                
+                        else {
+                            
+    let endLevelNoBuildingSelectedTouchButtonsBuilder: EndLevelNoBuildingSelectedTouchButtonsBuilder = new EndLevelNoBuildingSelectedTouchButtonsBuilder();;
+    
+
+                        if(this.touchButtonsBuilderFactory != 
+                                    null
+                                )
+                        
+                                    {
+                                    endLevelNoBuildingSelectedTouchButtonsBuilder!.add(this.touchButtonsBuilderFactory!.getInstance());
+    
+
+                                    }
+                                
+gameCanvas!.updateCurrentTouchInputFactory(endLevelNoBuildingSelectedTouchButtonsBuilder);
+    
+
+                        }
+                            
+
+                        }
+                            
+this.getSelectedRtsFormInput()!.setSelectedGeographicCellPosition(geographicMapCellPosition);
+    
+this.getSelectedBuildingPlayerGameInput()!.setSelectedRTSLayer(rtSLayer);
+    
+this.updatePaintable();
+    
+}
+
+
+    private readonly multiSelectPaintable: MultiSelectPaintable = new MultiSelectPaintable();
+
+    public updatePaintable(){
+
+    let list: BasicArrayList = this.getSelectedBuildingPlayerGameInput()!.getSelectedBasicArrayList()!;;
+    
+
+                        if(list.size() > 1)
+                        
+                                    {
+                                    
+    let geographicMapCompositeInterface: GeographicMapCompositeInterface = this.getGameCanvas() as GeographicMapCompositeInterface;;
+    
+
+    let geographicMapInterface: BasicGeographicMap = geographicMapCompositeInterface!.getGeographicMapInterface()[0]!;;
+    
+this.multiSelectPaintable!.setBasicColorP(geographicMapInterface!.getForegroundBasicColor());
+    
+this.multiSelectPaintable!.update(list);
+    
+this.getRTSLayerInfoPaintable()!.updateRTSLayerInfoSelection(this.multiSelectPaintable);
+    
+
+                                    }
+                                
+                             else 
+                        if(list.size() == 1)
+                        
+                                    {
+                                    
+    let rtsLayer: RTSLayer = list.get(0) as RTSLayer;;
+    
+this.getRTSLayerInfoPaintable()!.updateRTSLayerInfoSelection(rtsLayer!.createHudPaintable());
+    
+
+                                    }
+                                
+                        else {
+                            this.getRTSLayerInfoPaintable()!.updateRTSLayerInfoInit(NullInitUpdatePaintable.getInstance());
+    
+
+                        }
+                            
+}
+
+
+    public paint(graphics: Graphics){
+super.paint(graphics);
+    
+
+                        if(this.startPoint != PointFactory.getInstance()!.ZERO_ZERO && this.endPoint != PointFactory.getInstance()!.ZERO_ZERO)
+                        
+                                    {
+                                    graphics.setColor(BasicColorFactory.getInstance()!.RED.intValue());
+    
+
+    let rectX1: number = this.startPoint!.getX()!;;
+    
+
+    let rectY1: number = this.startPoint!.getY()!;;
+    
+
+    let rectX2: number = this.endPoint!.getX()!;;
+    
+
+    let rectY2: number = this.endPoint!.getY()!;;
+    
+
+                        if(rectX1 > rectX2)
+                        
+                                    {
+                                    rectX2= rectX1;
+    
+rectX1= this.endPoint!.getX();
+    
+
+                                    }
+                                
+
+                        if(rectY1 > rectY2)
+                        
+                                    {
+                                    rectY2= rectY1;
+    
+rectY1= this.endPoint!.getY();
+    
+
+                                    }
+                                
+graphics.drawRect(rectX1, rectY1, rectX2 -rectX1, rectY2 -rectY1);
+    
+
+                                    }
+                                
+}
+
+
+    public onMotionGestureEvent(motionGestureEvent: MotionGestureEvent){
+this.getMotionGestureInputList()!.add(motionGestureEvent);
+    
+}
+
+
+    public onScrolledMotionGestureEvent(motionGestureEvent: MotionGestureEvent){
+}
+
+
+    getSelectedRtsLayer(): CollidableDestroyableDamageableLayer{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.selectedRtsLayer;
+    
+}
+
+
+    setSelectedRtsLayer(selectedRtsLayer: CollidableDestroyableDamageableLayer){
+this.selectedRtsLayer= selectedRtsLayer;
+    
+}
+
+
+}
+

@@ -1,0 +1,380 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../java/lang/Integer.js';
+        
+import { HashMap } from '../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { Tokenizer } from '../../../../../../org/allbinary/logic/string/tokens/Tokenizer.js';
+//not GWT import const Tokenizer
+
+import { HtmlNameMathData } from '../../../../../../org/allbinary/logic/visual/dhtml/html/name/HtmlNameMathData.js';
+//not GWT import const HtmlNameMathData
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { NameSpaceRequestParamData } from './NameSpaceRequestParamData.js';
+//sameFolderImports - not GWT import - same folder const NameSpaceRequestParamData
+
+export class NameSpaceRequestParam
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private nameSpaceVector: BasicArrayList;
+
+    private nameSpacePropertiesHashMap: HashMap<any, any>;
+
+    private value: string;
+
+public constructor (nameSpace: string, value: string){
+
+            super();
+        this.nameSpaceVector= new BasicArrayListD();
+    
+this.nameSpacePropertiesHashMap= StdUtil.getInstance()!.createHashMap();
+    
+this.value= value;
+    
+
+    let beginIndex: number = nameSpace!.indexOf(NameSpaceRequestParamData.NAME)!;;
+    
+
+                        if(beginIndex < 0)
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("Not a NameSpaceRequest");
+                    
+
+                                    }
+                                
+
+    let packages: string = nameSpace!.substring(beginIndex +NameSpaceRequestParamData.NAME.length() +NameSpaceRequestParamData.SEP.length())!;;
+    
+
+    let sepTokenizer: Tokenizer = new Tokenizer(NameSpaceRequestParamData.SEP);;
+    
+
+    let nameSpaceWithPropertiesVector: BasicArrayList = sepTokenizer!.getTokensFromString(packages, new BasicArrayListD())!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.HTTPREQUEST))
+                        
+                                    {
+                                    this.logUtil!.putF("\nSep Tokens: " +nameSpaceWithPropertiesVector!.toString(), this, "NameSpaceRequestParam()");
+    
+
+                                    }
+                                
+
+    let nameSpaceAndPropertiesTokenizer: Tokenizer = new Tokenizer(NameSpaceRequestParamData.PROPERTIES);;
+    
+
+    let packageIndex: number = 0;;
+    
+
+    let list: BasicArrayList = new BasicArrayListD();;
+    
+
+    let index: number = 0;;
+    
+
+    let size: number = nameSpaceWithPropertiesVector!.size()!;;
+    
+
+        while(index < size)
+        {
+
+    let nameSpaceWithProperties: string = nameSpaceWithPropertiesVector!.get(index++) as string;;
+    
+list.clear();
+    
+
+    let nameSpaceAndPropertiesVector: BasicArrayList = nameSpaceAndPropertiesTokenizer!.getTokensFromString(nameSpaceWithProperties, list)!;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.HTTPREQUEST))
+                        
+                                    {
+                                    this.logUtil!.putF("\nPackageName and PackageName Properties Tokens: " +nameSpaceAndPropertiesVector!.toString(), this, "NameSpaceRequestParam()");
+    
+
+                                    }
+                                
+
+                        if(nameSpaceAndPropertiesVector!.size() > 0)
+                        
+                                    {
+                                    
+    let packageName: string = nameSpaceAndPropertiesVector!.get(0) as string;;
+    
+
+                        if(packageName == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("Package Name Is Null");
+                    
+
+                                    }
+                                
+this.nameSpaceVector!.add(packageName);
+    
+
+                        if(nameSpaceAndPropertiesVector!.size() > 1)
+                        
+                                    {
+                                    
+    let properties: string = nameSpaceAndPropertiesVector!.get(1) as string;;
+    
+
+    let packagePropertiesHashMap: HashMap<any, any> = this.generatePackagePropertiesHashMap(properties)!;;
+    
+this.nameSpacePropertiesHashMap!.put(packageIndex.toString(), packagePropertiesHashMap);
+    
+
+                                    }
+                                
+packageIndex++;
+    
+
+                                    }
+                                
+}
+
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.HTTPREQUEST))
+                        
+                                    {
+                                    this.logUtil!.putF("NameSpace: " +this.nameSpaceVector!.toString(), this, "NameSpaceRequestParam()");
+    
+
+                                    }
+                                
+}
+
+
+    public getPackages(): BasicArrayList{
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.HTTPREQUEST))
+                        
+                                    {
+                                    this.logUtil!.putF("NameSpace: " +this.nameSpaceVector!.toString(), this, "getPackages()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.nameSpaceVector;
+    
+}
+
+
+    public getPackageProperties(packageIndex: number): HashMap<any, any>{
+
+    let packagePropertiesHashMap: HashMap<any, any> = this.nameSpacePropertiesHashMap!.get(packageIndex.toString()) as HashMap<any, any>;;
+    
+
+                        if(packagePropertiesHashMap == 
+                                    null
+                                )
+                        
+                                    {
+                                    packagePropertiesHashMap= StdUtil.getInstance()!.createHashMap();
+    
+
+                                    }
+                                
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.HTTPREQUEST))
+                        
+                                    {
+                                    this.logUtil!.putF("Package Properties: " +packagePropertiesHashMap!.toString(), this, "getPackagesProperties()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return packagePropertiesHashMap;
+    
+}
+
+
+    public getValue(): string{
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.HTTPREQUEST))
+                        
+                                    {
+                                    this.logUtil!.putF("\nValue: " +this.value, this, "getValue()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.value;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    generatePackagePropertiesHashMap(properties: string): HashMap<any, any>{
+
+    let propertiesTokenizer: Tokenizer = new Tokenizer(NameSpaceRequestParamData.PROPERTIESSEPARATOR);;
+    
+
+    let packagePropertiesHashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+
+    let propertyVector: BasicArrayList = propertiesTokenizer!.getTokensFromString(properties, new BasicArrayListD())!;;
+    
+
+    let list: BasicArrayList = new BasicArrayListD();;
+    
+
+    let propertyTokenizer: Tokenizer = new Tokenizer(HtmlNameMathData.getInstance()!.EQUALS);;
+    
+
+    let index: number = 0;;
+    
+
+    let size: number = propertyVector!.size()!;;
+    
+
+        while(index < size)
+        {
+
+    let property: string = propertyVector!.get(index) as string;;
+    
+list.clear();
+    
+
+    let propertyNameValueVector: BasicArrayList = propertyTokenizer!.getTokensFromString(property, list)!;;
+    
+
+    let index2: number = 0;;
+    
+
+        while(index2 < propertyNameValueVector!.size())
+        {
+
+    let propertyName: string = propertyNameValueVector!.get(index2++) as string;;
+    
+
+                        if(propertyNameValueVector!.size() > 1)
+                        
+                                    {
+                                    
+    let propertyValue: string = propertyNameValueVector!.get(index2++) as string;;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.HTTPREQUEST))
+                        
+                                    {
+                                    this.logUtil!.putF("\nProperty Name: " +propertyName +"\nProperty Value: " +propertyValue, this, "generatePackagePropertiesHashMap()");
+    
+
+                                    }
+                                
+packagePropertiesHashMap!.put(propertyName, propertyValue);
+    
+
+                                    }
+                                
+                        else {
+                            packagePropertiesHashMap!.put(propertyName, StringUtil.getInstance()!.EMPTY_STRING);
+    
+
+                        }
+                            
+}
+
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return packagePropertiesHashMap;
+    
+}
+
+
+}
+

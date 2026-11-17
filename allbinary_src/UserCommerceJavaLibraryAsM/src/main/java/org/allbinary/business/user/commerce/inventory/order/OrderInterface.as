@@ -1,0 +1,83 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+import { BasketInterface } from '../../../../../../../org/allbinary/business/user/commerce/inventory/basket/BasketInterface.js';
+//not GWT import const BasketInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export interface OrderInterface {
+        
+
+    setShippingMethod(shippingType: string): void;
+
+    setPaymentMethod(value: string): void;
+
+    setSpecial(special: string): void;
+
+    setStoreName(value: string): void;
+
+    setUserComments(value: string): void;
+
+    setUserCancelComments(value: string): void;
+
+    setStoreComments(value: string): void;
+
+    setStoreCancelComments(value: string): void;
+
+    getBasket(): BasketInterface;
+
+    getShippingMethod(): string;
+
+    getPaymentMethod(): string;
+
+    getSpecial(): string;
+
+    getId(): string;
+
+    getStoreName(): string;
+
+    getUserComments(): string;
+
+    getUserCancelComments(): string;
+
+    getStoreComments(): string;
+
+    getStoreCancelComments(): string;
+
+}
+

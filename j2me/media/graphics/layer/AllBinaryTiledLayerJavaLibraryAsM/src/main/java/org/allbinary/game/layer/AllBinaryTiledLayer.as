@@ -1,0 +1,392 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2006 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Integer } from '../../../../java/lang/Integer.js';
+        
+import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { PaintableInterface } from '../../../../org/allbinary/graphics/paint/PaintableInterface.js';
+//not GWT import const PaintableInterface
+
+import { Layer } from '../../../../org/allbinary/layer/Layer.js';
+//not GWT import const Layer
+
+import { NamedInterface } from '../../../../org/allbinary/layer/NamedInterface.js';
+//not GWT import const NamedInterface
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class AllBinaryTiledLayer extends Layer implements NamedInterface, PaintableInterface {
+        
+
+    private cellWidth: number;
+
+    private cellHeight: number;
+
+    private readonly halfWidth: number;
+
+    private readonly halfHeight: number;
+
+    private readonly halfCellWidth: number;
+
+    private readonly halfCellHeight: number;
+
+    private readonly dataId: Integer;
+
+public constructor (dataId: Integer, width: number, height: number, cellWidth: number, cellHeight: number){
+            super(0, 0);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.dataId= dataId;
+    
+this.setLayerWidth(width);
+    
+this.setLayerHeight(height);
+    
+super.setPosition(0, 0, 0);
+    
+this.cellWidth= cellWidth;
+    
+this.cellHeight= cellHeight;
+    
+this.halfWidth= (this.getWidth()>>1);
+    
+this.halfHeight= (this.getHeight()>>1);
+    
+this.halfCellWidth= (cellWidth>>1);
+    
+this.halfCellHeight= (cellHeight>>1);
+    
+}
+
+
+    public setCells(mapTwoDArray: number[][]){
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Start: r: ");
+    
+stringBuffer!.appendint(mapTwoDArray!.length);
+    
+stringBuffer!.append(" c: ");
+    
+stringBuffer!.appendint(mapTwoDArray[0]!.length);
+    
+stringBuffer!.append(" rows: ");
+    
+stringBuffer!.appendint(this.getRows());
+    
+stringBuffer!.append(" columns: ");
+    
+stringBuffer!.appendint(this.getColumns());
+    
+this.logUtil!.putF(stringBuffer!.toString(), this, "setCells");
+    
+
+    let rows: number = this.getRows()!;;
+    
+
+    let columns: number = this.getColumns()!;;
+    
+
+
+
+
+                        for (
+    let col: number = 0;col < columns; col++)
+        {
+
+
+
+
+                        for (
+    let row: number = 0;row < rows; row++)
+        {
+this.setCell(col, row, mapTwoDArray[row]![col]!);
+    
+}
+
+}
+
+}
+
+
+    public updateCells(mapTwoDArray: number[][], fromTileId: number, toTileId: number){
+
+    let rows: number = this.getRows()!;;
+    
+
+    let columns: number = this.getColumns()!;;
+    
+
+
+
+
+                        for (
+    let col: number = 0;col < columns; col++)
+        {
+
+
+
+
+                        for (
+    let row: number = 0;row < rows; row++)
+        {
+
+                        if(fromTileId == mapTwoDArray[row]![col])
+                        
+                                    {
+                                    mapTwoDArray[row]![col]= toTileId;
+    
+this.setCell(col, row, mapTwoDArray[row]![col]!);
+    
+
+                                    }
+                                
+}
+
+}
+
+}
+
+
+    public getName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.constructor.name.toString()!;;
+    
+}
+
+
+    public paint(graphics: Graphics){
+}
+
+
+    public paintThreed(graphics: Graphics){
+}
+
+
+    public getX2(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.x +this.getWidth();
+    
+}
+
+
+    public getY2(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.y +this.getHeight();
+    
+}
+
+
+    public getZ2(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return globalThis.Math.trunc((this.z +this.getDepth()));
+    
+}
+
+
+    public getCellWidth(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.cellWidth;
+    
+}
+
+
+    public getCellHeight(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.cellHeight;
+    
+}
+
+
+    public getCell(col: number, row: number): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return  -1;
+    
+}
+
+
+    public getColumns(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return  -1;
+    
+}
+
+
+    public getRows(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return  -1;
+    
+}
+
+
+    public setCell(col: number, row: number, tileIndex: number){
+}
+
+
+    public getHalfWidth(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.halfWidth;
+    
+}
+
+
+    public getHalfHeight(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.halfHeight;
+    
+}
+
+
+    public getDataId(): Integer{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.dataId;
+    
+}
+
+
+    public getHalfCellWidth(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.halfCellWidth;
+    
+}
+
+
+    public getHalfCellHeight(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.halfCellHeight;
+    
+}
+
+
+    public isOnTileLayer(column: number, row: number): boolean{
+
+                        if(this.getColumns() > column && this.getRows() > row && row >= 0 && column >= 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+    public getAnimatedTile(animationTileIndex: number): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return animationTileIndex;
+    
+}
+
+
+}
+

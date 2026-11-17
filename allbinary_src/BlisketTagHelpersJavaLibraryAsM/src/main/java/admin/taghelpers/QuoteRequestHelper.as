@@ -1,0 +1,262 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { HashMap } from '../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { HttpServletRequest } from '../../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { PageContext } from '../../javax/servlet/jsp/PageContext.js';
+//not GWT import const PageContext
+
+import { StoreFrontData } from '../../org/allbinary/business/context/modules/storefront/StoreFrontData.js';
+//not GWT import const StoreFrontData
+
+import { StoreFrontFactory } from '../../org/allbinary/business/context/modules/storefront/StoreFrontFactory.js';
+//not GWT import const StoreFrontFactory
+
+import { StoreFrontInterface } from '../../org/allbinary/business/context/modules/storefront/StoreFrontInterface.js';
+//not GWT import const StoreFrontInterface
+
+import { QuoteRequest } from '../../org/allbinary/business/user/quoterequest/QuoteRequest.js';
+//not GWT import const QuoteRequest
+
+import { QuoteRequestEntityFactory } from '../../org/allbinary/data/tables/user/quoterequest/QuoteRequestEntityFactory.js';
+//not GWT import const QuoteRequestEntityFactory
+
+import { WeblisketSession } from '../../org/allbinary/logic/communication/http/request/session/WeblisketSession.js';
+//not GWT import const WeblisketSession
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ModifyTable } from './ModifyTable.js';
+//sameFolderImports - not GWT import - same folder const ModifyTable
+//TWB - Am I missing the correct Quote Request? Probably not
+export class QuoteRequestHelper extends ModifyTable {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private weblisketSession: WeblisketSession;
+
+    private storeFrontInterface: StoreFrontInterface;
+
+    private quoteRequest: QuoteRequest;
+
+public constructor (hashMap: HashMap<any, any>, pageContext: PageContext){
+
+            super();
+        
+    let request: HttpServletRequest = pageContext!.getRequest() as HttpServletRequest;;
+    
+this.weblisketSession= new WeblisketSession(hashMap, pageContext);
+    
+this.quoteRequest= new QuoteRequest(this.weblisketSession!.getUserName(), request);
+    
+
+    let storeName: string = hashMap!.get(StoreFrontData.getInstance()!.NAME) as string;;
+    
+
+                        if(storeName != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.storeFrontInterface= StoreFrontFactory.getInstance(storeName);
+    
+
+                                    }
+                                
+}
+
+
+    public isValid(): Boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.quoteRequest!.isValid();;
+    
+}
+
+
+    public validationInfo(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.quoteRequest!.validationInfo();;
+    
+}
+
+
+    public insert(): string{
+
+ try { 
+    let values: BasicArrayList = this.quoteRequest!.toVector()!;;
+    
+QuoteRequestEntityFactory.getInstance()!.getQuoteRequestEntityInstance()!.insert(values);
+    
+
+    let success: string = "New QuoteRequest Successfully added to the QuoteRequest Table";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "add()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to add QuoteRequest";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "add()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public update(): string{
+
+ try { 
+    let values: HashMap<any, any> = this.quoteRequest!.toHashMap()!;;
+    
+QuoteRequestEntityFactory.getInstance()!.getQuoteRequestEntityInstance()!.update(this.quoteRequest!.getUserName(), values);
+    
+
+    let success: string = "New QuoteRequest Successfully updated";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "update()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to update QuoteRequest";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "update()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public delete(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return commonStrings!.NOT_IMPLEMENTED;
+    
+}
+
+
+}
+

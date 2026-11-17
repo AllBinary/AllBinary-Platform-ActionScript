@@ -1,0 +1,104 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2025 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
+        
+import { BasicGeographicMap } from '../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { GeographicMapCellPosition } from '../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GeographicMapCellPositionAreaInterface } from './GeographicMapCellPositionAreaInterface.js';
+//sameFolderImports - not GWT import - same folder const GeographicMapCellPositionAreaInterface
+
+export class GeographicMapCellPositionAreaBase
+            extends Object
+         implements GeographicMapCellPositionAreaInterface {
+        
+
+    public static readonly NULL_GEOGRPAHIC_MAP_POSITION_AREA_BASE: GeographicMapCellPositionAreaBase = new GeographicMapCellPositionAreaBase();
+
+    public getNextSurroundingGeographicMapCellPosition(): GeographicMapCellPosition{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public getOccupyingGeographicMapCellPositionList(): BasicArrayList{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+    public getSurroundingGeographicMapCellPositionList(): BasicArrayList{
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public update(geographicMapInterface: BasicGeographicMap){
+
+
+
+                            throw new RuntimeException();
+                    
+}
+
+
+}
+

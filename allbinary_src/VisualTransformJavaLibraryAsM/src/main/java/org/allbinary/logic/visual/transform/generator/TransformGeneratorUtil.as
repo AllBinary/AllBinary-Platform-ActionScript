@@ -1,0 +1,182 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { InputOutputTypeData } from '../../../../../../org/allbinary/logic/io/InputOutputTypeData.js';
+//not GWT import const InputOutputTypeData
+
+import { AbeClientInformationInterface } from '../../../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
+//not GWT import const AbeClientInformationInterface
+
+import { TransformFactory } from '../../../../../../org/allbinary/logic/visual/transform/TransformFactory.js';
+//not GWT import const TransformFactory
+
+import { TransformInterface } from '../../../../../../org/allbinary/logic/visual/transform/TransformInterface.js';
+//not GWT import const TransformInterface
+
+import { TransformInfoDomNode } from '../../../../../../org/allbinary/logic/visual/transform/info/TransformInfoDomNode.js';
+//not GWT import const TransformInfoDomNode
+
+import { TransformInfoHttpInterface } from '../../../../../../org/allbinary/logic/visual/transform/info/TransformInfoHttpInterface.js';
+//not GWT import const TransformInfoHttpInterface
+
+import { TransformInfoInterface } from '../../../../../../org/allbinary/logic/visual/transform/info/TransformInfoInterface.js';
+//not GWT import const TransformInfoInterface
+
+import { StoreFileGenerator } from '../../../../../../org/allbinary/logic/visual/transform/info/objectConfig/generator/StoreFileGenerator.js';
+//not GWT import const StoreFileGenerator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class TransformGeneratorUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: TransformGeneratorUtil = new TransformGeneratorUtil();
+
+    public static getInstance(): TransformGeneratorUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return TransformGeneratorUtil.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+private constructor (){
+
+            super();
+        }
+
+generate(...args: any[]): any {
+   
+   
+    if (args.length === 3) return this.generate$overload1(args[0], args[1], args[2]);
+   
+    if (args.length === 3) return this.generate$overload2(args[0], args[1], args[2]);
+   
+   throw new TypeError('No matching overload: generate'); }
+  
+                //@Throws(Exception.constructor)
+            
+    public generate$overload1(abeClientInformation: AbeClientInformationInterface, transformInfoInterface: TransformInfoInterface, ownerTransformInfoInterface: TransformInfoInterface){
+
+ try { 
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
+                        
+                                    {
+                                    this.logUtil!.putF("Generating View: " +transformInfoInterface!.getName(), this, "generate()");
+    
+
+                                    }
+                                
+
+    let componentInterface: TransformInterface = TransformFactory.getInstance()!.getInstance(abeClientInformation, transformInfoInterface!.getName(), ownerTransformInfoInterface)!;;
+    
+
+    let result: string = componentInterface!.view()!;;
+    
+
+    let httpTransformInfoInterface: TransformInfoHttpInterface = componentInterface!.getTransformInfoInterface() as TransformInfoHttpInterface;;
+    
+
+    let inputOutputTypeData: InputOutputTypeData = InputOutputTypeData.getInstance()!;;
+    
+
+                        if(result.indexOf("<HTML>") >= 0)
+                        
+                                    {
+                                    httpTransformInfoInterface!.getPropertiesHashMap()!.put(inputOutputTypeData!.NAME, inputOutputTypeData!.DEFAULT);
+    
+
+                                    }
+                                
+                        else {
+                            httpTransformInfoInterface!.getPropertiesHashMap()!.put(inputOutputTypeData!.NAME, inputOutputTypeData!.DEFAULT_FRAGMENT);
+    
+
+                        }
+                            
+new StoreFileGenerator(componentInterface!.getTransformInfoInterface()).process(result);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Failed to generate a view", this, "generate()", e);
+    
+
+                                    }
+                                
+
+
+
+                            throw e;
+                    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public generate$overload2(abeClientInformation: AbeClientInformationInterface, transformInfoDomNode: TransformInfoDomNode, ownerTransformInfoInterface: TransformInfoInterface){
+this.generate(abeClientInformation, transformInfoDomNode!.getTransformInfoInterface(), ownerTransformInfoInterface);
+    
+}
+
+
+}
+

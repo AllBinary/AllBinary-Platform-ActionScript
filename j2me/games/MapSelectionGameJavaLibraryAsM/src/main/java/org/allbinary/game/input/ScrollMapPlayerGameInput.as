@@ -1,0 +1,590 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Canvas } from '../../../../javax/microedition/lcdui/Canvas.js';
+//not GWT import const Canvas
+
+import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+import { Features } from '../../../../org/allbinary/game/configuration/feature/Features.js';
+//not GWT import const Features
+
+import { InputFeatureFactory } from '../../../../org/allbinary/game/configuration/feature/InputFeatureFactory.js';
+//not GWT import const InputFeatureFactory
+
+import { GameKeyEvent } from '../../../../org/allbinary/game/input/event/GameKeyEvent.js';
+//not GWT import const GameKeyEvent
+
+import { AllBinaryGameLayerManager } from '../../../../org/allbinary/game/layer/AllBinaryGameLayerManager.js';
+//not GWT import const AllBinaryGameLayerManager
+
+import { AllBinaryTiledLayer } from '../../../../org/allbinary/game/layer/AllBinaryTiledLayer.js';
+//not GWT import const AllBinaryTiledLayer
+
+import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
+//not GWT import const DisplayInfoSingleton
+
+import { AllBinaryLayerManager } from '../../../../org/allbinary/layer/AllBinaryLayerManager.js';
+//not GWT import const AllBinaryLayerManager
+
+import { ScrollMapEvent } from '../../../../org/allbinary/layer/event/ScrollMapEvent.js';
+//not GWT import const ScrollMapEvent
+
+import { ScrollMapEventHandler } from '../../../../org/allbinary/layer/event/ScrollMapEventHandler.js';
+//not GWT import const ScrollMapEventHandler
+
+import { BasicGeographicMap } from '../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { PlayerGameInput } from './PlayerGameInput.js';
+//sameFolderImports - not GWT import - same folder const PlayerGameInput
+import { InputFactory } from './InputFactory.js';
+//sameFolderImports - not GWT import - same folder const InputFactory
+import { GameInputProcessor } from './GameInputProcessor.js';
+//sameFolderImports - not GWT import - same folder const GameInputProcessor
+import { ScrollMapUpGameInputProcessor } from './ScrollMapUpGameInputProcessor.js';
+//sameFolderImports - not GWT import - same folder const ScrollMapUpGameInputProcessor
+import { ScrollMapDownGameInputProcessor } from './ScrollMapDownGameInputProcessor.js';
+//sameFolderImports - not GWT import - same folder const ScrollMapDownGameInputProcessor
+import { ScrollMapRightGameInputProcessor } from './ScrollMapRightGameInputProcessor.js';
+//sameFolderImports - not GWT import - same folder const ScrollMapRightGameInputProcessor
+import { ScrollMapLeftGameInputProcessor } from './ScrollMapLeftGameInputProcessor.js';
+//sameFolderImports - not GWT import - same folder const ScrollMapLeftGameInputProcessor
+import { GameInputProcessorUtil } from './GameInputProcessorUtil.js';
+//sameFolderImports - not GWT import - same folder const GameInputProcessorUtil
+
+export class ScrollMapPlayerGameInput extends PlayerGameInput {
+        
+
+    readonly inputProcessorArray: GameInputProcessor[] = new Array(InputFactory.getInstance()!.MAX);
+
+    private readonly border: number = 150;
+
+    private readonly inputList: BasicArrayList;
+
+    readonly isSingleKeyProcessing: boolean = Features.getInstance()!.isFeature(InputFeatureFactory.getInstance()!.SINGLE_KEY_REPEAT_PRESS) || Features.getInstance()!.isFeature(InputFeatureFactory.getInstance()!.SINGLE_KEY_PRESS);
+
+    private readonly geographicMapInterface: BasicGeographicMap;
+
+    private maxBottom: number= 0;
+
+    private maxRight: number= 0;
+
+public constructor (geographicMapInterface: BasicGeographicMap, list: BasicArrayList, playerInputId: number){
+            super(list, new BasicArrayListD(), playerInputId);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.initInputProcessors();
+    
+this.geographicMapInterface= geographicMapInterface;
+    
+this.inputList= list;
+    
+this.init();
+    
+}
+
+
+    private readonly scrollMapEvent: ScrollMapEvent = new ScrollMapEvent(this);
+
+                //@Throws(Exception.constructor)
+            
+    move(dx: number, dy: number){
+
+    let terrainTiledLayer: AllBinaryTiledLayer = this.geographicMapInterface!.getAllBinaryTiledLayer()!;;
+    
+terrainTiledLayer!.moveDXY( -dx,  -dy);
+    
+this.scrollMapEvent!.setDxDy( -dx,  -dy);
+    
+ScrollMapEventHandler.getInstance()!.fireEvent(this.scrollMapEvent);
+    
+}
+
+
+    public init(){
+this.maxBottom= this.getSpecialHeight();
+    
+this.maxRight= this.getSpecialWidth();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public scrollMiddleX(){
+
+    let terrainTiledLayer: AllBinaryTiledLayer = this.geographicMapInterface!.getAllBinaryTiledLayer()!;;
+    
+
+    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
+    
+this.move( -terrainTiledLayer!.getXP(), 0);
+    
+
+                        if(terrainTiledLayer!.getWidth() < displayInfo!.getLastWidth())
+                        
+                                    {
+                                    
+    let diffX: number = ((displayInfo!.getLastWidth() -terrainTiledLayer!.getWidth())>>1);;
+    
+this.move( -diffX, 0);
+    
+
+                                    }
+                                
+                        else {
+                            
+    let diffX: number = ((terrainTiledLayer!.getWidth() -displayInfo!.getLastWidth())>>1);;
+    
+this.move(diffX, 0);
+    
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public scrollY(anchor: number){
+
+    let terrainTiledLayer: AllBinaryTiledLayer = this.geographicMapInterface!.getAllBinaryTiledLayer()!;;
+    
+
+    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
+    
+
+                        if(anchor == Graphics.TOP)
+                        
+                                    {
+                                    this.logUtil!.putF("Top", this, "scrollY");
+    
+
+                                    }
+                                
+                             else 
+                        if(anchor == Graphics.BOTTOM)
+                        
+                                    {
+                                    this.logUtil!.putF("Bottom", this, "scrollY");
+    
+
+    let diffY: number = (terrainTiledLayer!.getHeight() -displayInfo!.getLastHeight());;
+    
+this.move(0, diffY);
+    
+
+                                    }
+                                
+                             else 
+                        if(anchor == Graphics.VCENTER)
+                        
+                                    {
+                                    this.logUtil!.putF("Center", this, "scrollY");
+    
+
+    let diffY: number = (terrainTiledLayer!.getHeight() -displayInfo!.getLastHeight()) /2;;
+    
+this.move(0, diffY);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("No Such Anchor Supported");
+                    
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    up(){
+
+    let y: number = this.geographicMapInterface!.getAllBinaryTiledLayer()!.getYP() -10;;
+    
+
+                        if(this.keepOnMapMinY(y))
+                        
+                                    {
+                                    this.move(0,  -10);
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    down(){
+
+    let y: number =  -this.geographicMapInterface!.getAllBinaryTiledLayer()!.getYP() +10;;
+    
+
+                        if(this.keepOnMapMaxY(y))
+                        
+                                    {
+                                    this.move(0, 10);
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    right(){
+
+    let x: number = this.geographicMapInterface!.getAllBinaryTiledLayer()!.getYP() +10;;
+    
+
+                        if(this.keepOnMapMinX(x))
+                        
+                                    {
+                                    this.move(10, 0);
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    left(){
+
+    let x: number =  -this.geographicMapInterface!.getAllBinaryTiledLayer()!.getYP() -10;;
+    
+
+                        if(this.keepOnMapMaxX(x))
+                        
+                                    {
+                                    this.move( -10, 0);
+    
+
+                                    }
+                                
+}
+
+
+    public initInputProcessors(){
+this.inputProcessorArray[Canvas.UP]= new ScrollMapUpGameInputProcessor(this);
+    
+this.inputProcessorArray[Canvas.DOWN]= new ScrollMapDownGameInputProcessor(this);
+    
+this.inputProcessorArray[Canvas.KEY_NUM9]= new ScrollMapRightGameInputProcessor(this);
+    
+this.inputProcessorArray[Canvas.KEY_NUM7]= new ScrollMapLeftGameInputProcessor(this);
+    
+GameInputProcessorUtil.init(this.inputProcessorArray);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processInputKey(key: number){
+this.inputProcessorArray[key]!.processEvent(AllBinaryGameLayerManager.getNullInstance(), GameKeyEvent.NONE);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processInput(layerManager: AllBinaryLayerManager){
+
+ try { 
+    let size: number = this.inputList!.size()!;;
+    
+
+    let key: number = 0;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let gameKeyEvent: GameKeyEvent = this.inputList!.get(index) as GameKeyEvent;;
+    
+key= gameKeyEvent!.getKey();
+    
+this.processInputKey(key);
+    
+}
+
+
+                        if(this.isSingleKeyProcessing)
+                        
+                                    {
+                                    this.clear();
+    
+
+                                    }
+                                
+                        else {
+                            this.update();
+    
+
+                        }
+                            
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.gameInputStrings!.PROCESS_INPUT, e);
+    
+
+ }
+   }
+ 
+}
+
+
+    getSpecialHeight(): number{
+
+    let terrainTiledLayer: AllBinaryTiledLayer = this.geographicMapInterface!.getAllBinaryTiledLayer()!;;
+    
+
+    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
+    
+
+                        if(terrainTiledLayer!.getHeight() > displayInfo!.getLastHeight())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return terrainTiledLayer!.getHeight() -displayInfo!.getLastHeight();
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return displayInfo!.getLastHeight() -terrainTiledLayer!.getHeight() +terrainTiledLayer!.getCellHeight();
+    
+
+                        }
+                            
+}
+
+
+    getSpecialWidth(): number{
+
+    let terrainTiledLayer: AllBinaryTiledLayer = this.geographicMapInterface!.getAllBinaryTiledLayer()!;;
+    
+
+    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
+    
+
+                        if(terrainTiledLayer!.getWidth() > displayInfo!.getLastWidth())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return terrainTiledLayer!.getWidth() -displayInfo!.getLastWidth();
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return displayInfo!.getLastWidth() -terrainTiledLayer!.getWidth() +terrainTiledLayer!.getCellWidth();
+    
+
+                        }
+                            
+}
+
+
+    public keepOnMapMaxY(newY: number): boolean{
+
+    let y: number = this.geographicMapInterface!.getAllBinaryTiledLayer()!.getYP()!;;
+    
+
+                        if(y > this.maxBottom +this.border)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                        }
+                            
+}
+
+
+    public keepOnMapMinY(newY: number): boolean{
+
+    let y: number = this.geographicMapInterface!.getAllBinaryTiledLayer()!.getYP()!;;
+    
+
+                        if(y <  -this.border)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                        }
+                            
+}
+
+
+    public keepOnMapMaxX(newX: number): boolean{
+
+    let x: number = this.geographicMapInterface!.getAllBinaryTiledLayer()!.getXP()!;;
+    
+
+                        if(x <  -this.maxRight -this.border)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                        }
+                            
+}
+
+
+    public keepOnMapMinX(newX: number): boolean{
+
+    let x: number = this.geographicMapInterface!.getAllBinaryTiledLayer()!.getXP()!;;
+    
+
+                        if(x > this.border)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                        }
+                            
+}
+
+
+}
+

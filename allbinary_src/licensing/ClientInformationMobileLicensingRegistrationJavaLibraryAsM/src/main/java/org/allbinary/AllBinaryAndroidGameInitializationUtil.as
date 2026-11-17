@@ -1,0 +1,81 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../java/lang/Object.js';
+        
+            import { Integer } from '../../java/lang/Integer.js';
+        
+import { LicenseInitInfoUtil } from '../../org/allbinary/business/init/LicenseInitInfoUtil.js';
+//not GWT import const LicenseInitInfoUtil
+
+//not plain js import { ResourceUtil } 
+const ResourceUtil = globalThis.org.allbinary.data.resource.ResourceUtil;
+type ResourceUtil<T = any, U = any> = typeof ResourceUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ResourceUtil;
+
+import { PartnerIdentifierFileUtil } from '../../org/allbinary/logic/system/security/licensing/PartnerIdentifierFileUtil.js';
+//not GWT import const PartnerIdentifierFileUtil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AndroidResources } from './AndroidResources.js';
+//sameFolderImports - not GWT import - same folder const AndroidResources
+
+export class AllBinaryAndroidGameInitializationUtil
+            extends Object
+         {
+        
+
+    public static init(){
+
+    let resourceUtil: ResourceUtil = ResourceUtil.getInstance()!;;
+    
+
+    let androidResources: AndroidResources = AndroidResources.getInstance()!;;
+    
+
+    let licenseInitInfoUtil: LicenseInitInfoUtil = LicenseInitInfoUtil.getInstance()!;;
+    
+resourceUtil!.addResource(licenseInitInfoUtil!.INITFILENAME, Integer.valueOf(androidResources!.raw.licenseinitdata));
+    
+resourceUtil!.addResource(PartnerIdentifierFileUtil.getInstance()!.FILE_NAME, Integer.valueOf(androidResources!.raw.partner));
+    
+resourceUtil!.addResource(licenseInitInfoUtil!.ABOUT, Integer.valueOf(androidResources!.raw.about));
+    
+}
+
+
+}
+

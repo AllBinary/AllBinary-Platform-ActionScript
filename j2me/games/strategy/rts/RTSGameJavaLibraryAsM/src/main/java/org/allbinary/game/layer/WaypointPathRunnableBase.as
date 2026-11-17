@@ -1,0 +1,181 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../java/lang/Integer.js';
+        
+            import { Thread } from '../../../../java/lang/Thread.js';
+        
+import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+import { LayerDistanceUtil } from '../../../../org/allbinary/math/LayerDistanceUtil.js';
+//not GWT import const LayerDistanceUtil
+
+import { PriorityRunnable } from '../../../../org/allbinary/thread/PriorityRunnable.js';
+//not GWT import const PriorityRunnable
+
+import { RunnableInterface } from '../../../../org/allbinary/thread/RunnableInterface.js';
+//not GWT import const RunnableInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { NullPathFindingLayer } from './NullPathFindingLayer.js';
+//sameFolderImports - not GWT import - same folder const NullPathFindingLayer
+import { PathFindingLayerInterface } from './PathFindingLayerInterface.js';
+//sameFolderImports - not GWT import - same folder const PathFindingLayerInterface
+
+export class WaypointPathRunnableBase
+            extends Object
+         implements RunnableInterface, PriorityRunnable {
+        
+
+    private readonly layerDistanceUtil: LayerDistanceUtil = LayerDistanceUtil.getInstance()!;
+
+    pathFindingLayer: PathFindingLayerInterface = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;
+
+    targetPathFindingLayer: PathFindingLayerInterface = NullPathFindingLayer.NULL_PATH_FINDING_LAYER;
+
+    priorityP: number = Integer.MAX_VALUE;
+
+    runningP: boolean= false;
+
+    public isRunning(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.runningP;
+    
+}
+
+
+    public setRunning(isRunning: boolean){
+this.runningP= isRunning;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setThread(thread: Thread){
+}
+
+
+    public setTargetLayer(waypointLayer: PathFindingLayerInterface){
+this.targetPathFindingLayer= waypointLayer;
+    
+this.setPriority();
+    
+}
+
+
+    public setPriority(){
+
+    let pathFindingLayer: AllBinaryLayer = this.pathFindingLayer as AllBinaryLayer;;
+    
+
+    let targetLayer: AllBinaryLayer = this.targetPathFindingLayer as AllBinaryLayer;;
+    
+
+                        if(targetLayer != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let distance: number = this.layerDistanceUtil!.getDistance(targetLayer, pathFindingLayer)!;;
+    
+
+    let distanceCategory: number = globalThis.Math.trunc(distance /70);;
+    
+this.priorityP= distanceCategory;
+    
+
+                                    }
+                                
+}
+
+
+    public getTargetLayer(): PathFindingLayerInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.targetPathFindingLayer;
+    
+}
+
+
+    public setUnitLayer(unitLayer: PathFindingLayerInterface){
+this.pathFindingLayer= unitLayer;
+    
+}
+
+
+    public getPriority(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.priorityP;
+    
+}
+
+
+    public isDone(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+    public run(){
+}
+
+
+    public reset(){
+}
+
+
+}
+

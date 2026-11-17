@@ -1,0 +1,182 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2011 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { HttpServletRequest } from '../../../../../../../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { ContextConfiguration } from '../../../../../../../org/allbinary/business/context/configuration/ContextConfiguration.js';
+//not GWT import const ContextConfiguration
+
+import { ContextConfigurationData } from '../../../../../../../org/allbinary/business/context/configuration/ContextConfigurationData.js';
+//not GWT import const ContextConfigurationData
+
+import { ContextConfigurationDomDocumentMapping } from '../../../../../../../org/allbinary/business/context/configuration/ContextConfigurationDomDocumentMapping.js';
+//not GWT import const ContextConfigurationDomDocumentMapping
+
+import { ContextConfigurationInterface } from '../../../../../../../org/allbinary/business/context/configuration/ContextConfigurationInterface.js';
+//not GWT import const ContextConfigurationInterface
+
+import { ContextConfigurationInterfaceFactory } from '../../../../../../../org/allbinary/business/context/configuration/ContextConfigurationInterfaceFactory.js';
+//not GWT import const ContextConfigurationInterfaceFactory
+
+import { ContextConfigurationPathUtil } from '../../../../../../../org/allbinary/business/context/configuration/ContextConfigurationPathUtil.js';
+//not GWT import const ContextConfigurationPathUtil
+
+import { RequestParams } from '../../../../../../../org/allbinary/logic/communication/http/request/RequestParams.js';
+//not GWT import const RequestParams
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { CryptFileWriter } from '../../../../../../../org/allbinary/logic/control/crypt/file/CryptFileWriter.js';
+//not GWT import const CryptFileWriter
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { AdminConfigurationInterface } from './AdminConfigurationInterface.js';
+//sameFolderImports - not GWT import - same folder const AdminConfigurationInterface
+import { AdminConfigurationData } from './AdminConfigurationData.js';
+//sameFolderImports - not GWT import - same folder const AdminConfigurationData
+
+export class AdminConfiguration
+            extends Object
+         implements AdminConfigurationInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private contextConfigurationInterface: ContextConfigurationInterface;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 0) {
+            
+            this.constructor$0();
+            
+        }
+        else if(args.length === 1 && args[0] instanceof HttpServletRequest) {
+            
+            this.constructor$1(args[0]);
+            
+        }
+        else if(args.length === 1) {
+            
+            this.constructor$2(args[0]);
+            
+        }
+        
+    }
+    
+    private constructor$0(): void {
+        this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    
+this.contextConfigurationInterface= ContextConfigurationInterfaceFactory.getInstance()!.getInstance(AdminConfigurationData.CONTEXTNAME);
+    
+
+    }
+    
+    private constructor$1(request: HttpServletRequest): void {
+        this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    
+this.getFormData(new RequestParams(request).toHashMap());
+    
+
+    }
+    
+    private constructor$2(storeHashMap: HashMap<any, any>): void {
+        this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    
+this.getFormData(storeHashMap);
+    
+
+    }
+    
+                //@Throws(Exception.constructor)
+            
+    getFormData(storeHashMap: HashMap<any, any>){
+this.logUtil!.putF(this.commonStrings!.START, this, "getFormData");
+    
+this.setContextConfigurationInterface(new ContextConfiguration(storeHashMap) as ContextConfigurationInterface);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public write(){
+
+    let contextConfigurationDomDocumentMapping: ContextConfigurationDomDocumentMapping = new ContextConfigurationDomDocumentMapping(this.getContextConfigurationInterface());;
+    
+
+    let cryptFileWriter: CryptFileWriter = new CryptFileWriter(ContextConfigurationData.getInstance()!.UNCRYPTED_EXTENSION, ContextConfigurationData.getInstance()!.ENCRYPTED_EXTENSION);;
+    
+cryptFileWriter!.write(ContextConfigurationPathUtil.getAbPath(AdminConfigurationData.CONTEXTNAME), contextConfigurationDomDocumentMapping!.toXmlDoc());
+    
+}
+
+
+    public getContextConfigurationInterface(): ContextConfigurationInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.contextConfigurationInterface;
+    
+}
+
+
+    public setContextConfigurationInterface(contextConfigurationInterface: ContextConfigurationInterface){
+this.contextConfigurationInterface= contextConfigurationInterface;
+    
+}
+
+
+}
+

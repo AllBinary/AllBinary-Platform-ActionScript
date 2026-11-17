@@ -1,0 +1,205 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../java/lang/Exception.js';
+        
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { PrimitiveIntUtil } from '../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
+//not GWT import const PrimitiveIntUtil
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { Animation } from './Animation.js';
+//sameFolderImports - not GWT import - same folder const Animation
+import { IndexedAnimationInterface } from './IndexedAnimationInterface.js';
+//sameFolderImports - not GWT import - same folder const IndexedAnimationInterface
+import { AnimationBehavior } from './AnimationBehavior.js';
+//sameFolderImports - not GWT import - same folder const AnimationBehavior
+
+export class IndexedAnimation extends Animation implements IndexedAnimationInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    readonly animationBehaviorP: AnimationBehavior;
+
+protected constructor (animationBehavior: AnimationBehavior){
+
+            super();
+        this.animationBehaviorP= animationBehavior;
+    
+}
+
+
+    public getAnimationBehavior(): AnimationBehavior{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.animationBehaviorP;
+    
+}
+
+
+    public reset(){
+this.animationBehaviorP!.reset();
+    
+this.setFrame(0);
+    
+}
+
+
+    public setFrame(index: number){
+}
+
+
+    public getFrame(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 0;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getAnimationSize(): number{
+
+
+
+                            throw new Exception(this.commonStrings!.NOT_IMPLEMENTED);
+                    
+}
+
+
+    public getSize(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 0;
+    
+}
+
+
+    public previousFrame(){
+}
+
+
+    public isLastFrame(): boolean{
+
+                        if(this.getFrame() == this.getSize() -1)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+    public setSequence(sequence: number[]){
+}
+
+
+    public getSequence(): number[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return PrimitiveIntUtil.getArrayInstance();;
+    
+}
+
+
+    public setState(indexedAnimation: IndexedAnimation){
+this.setFrame(indexedAnimation!.getFrame());
+    
+this.setDx(indexedAnimation!.getDx());
+    
+this.setDy(indexedAnimation!.getDy());
+    
+}
+
+
+    public getWidth(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 0;
+    
+}
+
+
+    public getHeight(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 0;
+    
+}
+
+
+}
+

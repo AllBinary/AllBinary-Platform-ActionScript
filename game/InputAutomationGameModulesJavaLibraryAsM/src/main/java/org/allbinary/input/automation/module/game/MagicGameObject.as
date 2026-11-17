@@ -1,0 +1,93 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../java/lang/Integer.js';
+        
+import { BufferedImage } from '../../../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { MeteredGameObject } from './MeteredGameObject.js';
+//sameFolderImports - not GWT import - same folder const MeteredGameObject
+import { MagicGameObjectInterface } from './MagicGameObjectInterface.js';
+//sameFolderImports - not GWT import - same folder const MagicGameObjectInterface
+
+export class MagicGameObject extends MeteredGameObject implements MagicGameObjectInterface {
+        
+
+    private readonly MP_LABEL: string = "MP:";
+
+public constructor (bufferedImage: BufferedImage[], minX: Integer, maxX: Integer, y: Integer){
+            super(bufferedImage, minX, maxX, y);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public toString(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(CommonSeps.getInstance()!.NEW_LINE);
+    
+stringBuffer!.append(this.MP_LABEL);
+    
+stringBuffer!.append(super.toString());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+}
+

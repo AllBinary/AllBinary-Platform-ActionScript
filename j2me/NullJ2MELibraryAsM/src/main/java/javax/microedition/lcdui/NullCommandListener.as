@@ -1,0 +1,46 @@
+
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { CommandListener } from './CommandListener.js';
+//sameFolderImports - not GWT import - same folder const CommandListener
+import { Command } from './Command.js';
+//sameFolderImports - not GWT import - same folder const Command
+import { Displayable } from './Displayable.js';
+//sameFolderImports - not GWT import - same folder const Displayable
+
+export class NullCommandListener
+            extends Object
+         implements CommandListener {
+        
+
+    public static readonly NULL_COMMAND_LISTENER: NullCommandListener = new NullCommandListener();
+
+    public commandAction(c: Command, d: Displayable){
+}
+
+
+}
+

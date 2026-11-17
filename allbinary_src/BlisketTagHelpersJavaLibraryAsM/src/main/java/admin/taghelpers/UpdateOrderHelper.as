@@ -1,0 +1,391 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { HashMap } from '../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { HttpServletRequest } from '../../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { PageContext } from '../../javax/servlet/jsp/PageContext.js';
+//not GWT import const PageContext
+
+import { StoreFrontData } from '../../org/allbinary/business/context/modules/storefront/StoreFrontData.js';
+//not GWT import const StoreFrontData
+
+import { EntryData } from '../../org/allbinary/business/entry/EntryData.js';
+//not GWT import const EntryData
+
+import { UserData } from '../../org/allbinary/business/user/UserData.js';
+//not GWT import const UserData
+
+import { BillingAddressData } from '../../org/allbinary/business/user/address/BillingAddressData.js';
+//not GWT import const BillingAddressData
+
+import { ShippingAddressData } from '../../org/allbinary/business/user/address/ShippingAddressData.js';
+//not GWT import const ShippingAddressData
+
+import { OrderData } from '../../org/allbinary/business/user/commerce/inventory/order/OrderData.js';
+//not GWT import const OrderData
+
+import { OrderHistoryData } from '../../org/allbinary/business/user/commerce/inventory/order/OrderHistoryData.js';
+//not GWT import const OrderHistoryData
+
+import { PaymentData } from '../../org/allbinary/business/user/commerce/money/payment/PaymentData.js';
+//not GWT import const PaymentData
+
+import { ShippingMethodData } from '../../org/allbinary/business/user/commerce/shipping/ShippingMethodData.js';
+//not GWT import const ShippingMethodData
+
+import { OrderHistoryEntityFactory } from '../../org/allbinary/data/tables/user/commerce/inventory/order/OrderHistoryEntityFactory.js';
+//not GWT import const OrderHistoryEntityFactory
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TagHelper } from './TagHelper.js';
+//sameFolderImports - not GWT import - same folder const TagHelper
+
+export class UpdateOrderHelper extends TagHelper {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private request: HttpServletRequest;
+
+    private entryId: string;
+
+    private orderId: string;
+
+    private userName: string;
+
+    private storeName: string;
+
+    private shipDate: string;
+
+    private orderDate: string;
+
+    private transDate: string;
+
+    private cancelDate: string;
+
+    private status: string;
+
+    private paymentMethod: string;
+
+    private name: string;
+
+    private type: string;
+
+    private expiration: string;
+
+    private number: string;
+
+    private encryption: string;
+
+    private billingName: string;
+
+    private billingStreet: string;
+
+    private billingCity: string;
+
+    private billingState: string;
+
+    private billingCode: string;
+
+    private billingCountry: string;
+
+    private shippingName: string;
+
+    private shippingStreet: string;
+
+    private shippingCity: string;
+
+    private shippingState: string;
+
+    private shippingCode: string;
+
+    private shippingCountry: string;
+
+    private shippingMethodName: string;
+
+    private subTotal: string;
+
+    private shippingCost: string;
+
+    private tax: string;
+
+    private total: string;
+
+    private special: string;
+
+    private userComment: string;
+
+    private userCancelComment: string;
+
+    private storeComment: string;
+
+    private storeCancelComment: string;
+
+public constructor (hashMap: HashMap<any, any>, pageContext: PageContext){
+
+            super();
+        this.request= pageContext!.getRequest() as HttpServletRequest;
+    
+this.getFormData();
+    
+}
+
+
+    getFormData(){
+this.entryId= this.request.getParameter(EntryData.getInstance()!.ID);
+    
+this.orderId= this.request.getParameter(OrderData.ID);
+    
+this.userName= this.request.getParameter(UserData.USERNAME);
+    
+this.storeName= this.request.getParameter(StoreFrontData.getInstance()!.NAME);
+    
+this.shipDate= this.request.getParameter(OrderHistoryData.SHIPPEDDATE);
+    
+this.orderDate= this.request.getParameter(OrderHistoryData.ORDERDATE);
+    
+this.transDate= this.request.getParameter(OrderHistoryData.TRANSDATE);
+    
+this.cancelDate= this.request.getParameter(OrderHistoryData.CANCELDATE);
+    
+this.status= this.request.getParameter(OrderHistoryData.STATUS);
+    
+this.paymentMethod= this.request.getParameter(PaymentData.METHOD);
+    
+this.name= this.request.getParameter(PaymentData.NAME);
+    
+this.type= this.request.getParameter(PaymentData.TYPE);
+    
+this.expiration= this.request.getParameter(PaymentData.EXPIRATION);
+    
+this.number= this.request.getParameter(PaymentData.NUMBER);
+    
+this.encryption= this.request.getParameter(EntryData.getInstance()!.ENCRYPTION);
+    
+this.billingName= this.request.getParameter(BillingAddressData.NAME);
+    
+this.billingStreet= this.request.getParameter(BillingAddressData.STREET);
+    
+this.billingCity= this.request.getParameter(BillingAddressData.CITY);
+    
+this.billingState= this.request.getParameter(BillingAddressData.STATE);
+    
+this.billingCode= this.request.getParameter(BillingAddressData.CODE);
+    
+this.billingCountry= this.request.getParameter(BillingAddressData.COUNTRY);
+    
+this.shippingName= this.request.getParameter(ShippingAddressData.NAME);
+    
+this.shippingStreet= this.request.getParameter(ShippingAddressData.STREET);
+    
+this.shippingCity= this.request.getParameter(ShippingAddressData.CITY);
+    
+this.shippingState= this.request.getParameter(ShippingAddressData.STATE);
+    
+this.shippingCode= this.request.getParameter(ShippingAddressData.CODE);
+    
+this.shippingCountry= this.request.getParameter(ShippingAddressData.COUNTRY);
+    
+this.shippingMethodName= this.request.getParameter(ShippingMethodData.NAME);
+    
+this.subTotal= this.request.getParameter(OrderHistoryData.SUBTOTAL);
+    
+this.shippingCost= this.request.getParameter(OrderHistoryData.SHIPPINGCOST);
+    
+this.tax= this.request.getParameter(OrderHistoryData.TAX);
+    
+this.total= this.request.getParameter(OrderHistoryData.TOTAL);
+    
+this.special= this.request.getParameter(EntryData.getInstance()!.SPECIAL);
+    
+this.userComment= this.request.getParameter(OrderData.CUSTOMERCOMMENT);
+    
+this.userCancelComment= this.request.getParameter(OrderData.CUSTOMERCANCELCOMMENT);
+    
+this.storeComment= this.request.getParameter(OrderData.STORECOMMENT);
+    
+this.storeCancelComment= this.request.getParameter(OrderData.STORECANCELCOMMENT);
+    
+}
+
+
+    public update(): string{
+
+ try { 
+    let success: string = "Successful update";;
+    
+
+    let orderHashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+
+    let whereHashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+orderHashMap!.put(EntryData.getInstance()!.ID, this.entryId);
+    
+orderHashMap!.put(OrderData.ID, this.orderId);
+    
+orderHashMap!.put(UserData.USERNAME, this.userName);
+    
+orderHashMap!.put(StoreFrontData.getInstance()!.NAME, this.storeName);
+    
+orderHashMap!.put(OrderHistoryData.SHIPPEDDATE, this.shipDate);
+    
+orderHashMap!.put(OrderHistoryData.ORDERDATE, this.orderDate);
+    
+orderHashMap!.put(OrderHistoryData.TRANSDATE, this.transDate);
+    
+orderHashMap!.put(OrderHistoryData.CANCELDATE, this.cancelDate);
+    
+orderHashMap!.put(OrderHistoryData.STATUS, this.status);
+    
+orderHashMap!.put(PaymentData.METHOD, this.paymentMethod);
+    
+orderHashMap!.put(PaymentData.NAME, this.name);
+    
+orderHashMap!.put(PaymentData.TYPE, this.type);
+    
+orderHashMap!.put(PaymentData.EXPIRATION, this.expiration);
+    
+orderHashMap!.put(BillingAddressData.NAME, this.billingName);
+    
+orderHashMap!.put(BillingAddressData.STREET, this.billingStreet);
+    
+orderHashMap!.put(BillingAddressData.CITY, this.billingCity);
+    
+orderHashMap!.put(BillingAddressData.STATE, this.billingState);
+    
+orderHashMap!.put(BillingAddressData.CODE, this.billingCode);
+    
+orderHashMap!.put(BillingAddressData.COUNTRY, this.billingCountry);
+    
+orderHashMap!.put(ShippingAddressData.NAME, this.shippingName);
+    
+orderHashMap!.put(ShippingAddressData.STREET, this.shippingStreet);
+    
+orderHashMap!.put(ShippingAddressData.CITY, this.shippingCity);
+    
+orderHashMap!.put(ShippingAddressData.STATE, this.shippingState);
+    
+orderHashMap!.put(ShippingAddressData.CODE, this.shippingCode);
+    
+orderHashMap!.put(ShippingAddressData.COUNTRY, this.shippingCountry);
+    
+orderHashMap!.put(ShippingMethodData.NAME, this.shippingMethodName);
+    
+orderHashMap!.put(OrderHistoryData.SUBTOTAL, this.subTotal);
+    
+orderHashMap!.put(OrderHistoryData.SHIPPINGCOST, this.shippingCost);
+    
+orderHashMap!.put(OrderHistoryData.TAX, this.tax);
+    
+orderHashMap!.put(OrderHistoryData.TOTAL, this.total);
+    
+orderHashMap!.put(EntryData.getInstance()!.SPECIAL, this.special);
+    
+orderHashMap!.put(OrderData.CUSTOMERCOMMENT, this.userComment);
+    
+orderHashMap!.put(OrderData.CUSTOMERCANCELCOMMENT, this.userCancelComment);
+    
+orderHashMap!.put(OrderData.STORECOMMENT, this.storeComment);
+    
+orderHashMap!.put(OrderData.STORECANCELCOMMENT, this.storeCancelComment);
+    
+whereHashMap!.put(OrderData.ID, this.orderId);
+    
+OrderHistoryEntityFactory.getInstance()!.update(whereHashMap, orderHashMap);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "update()");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to update order table";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "update()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

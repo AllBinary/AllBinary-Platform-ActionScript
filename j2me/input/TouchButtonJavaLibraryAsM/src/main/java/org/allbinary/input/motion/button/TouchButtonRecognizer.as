@@ -1,0 +1,305 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { DownGameKeyEventHandler } from '../../../../../org/allbinary/game/input/event/DownGameKeyEventHandler.js';
+//not GWT import const DownGameKeyEventHandler
+
+import { GameKeyEvent } from '../../../../../org/allbinary/game/input/event/GameKeyEvent.js';
+//not GWT import const GameKeyEvent
+
+import { UpGameKeyEventHandler } from '../../../../../org/allbinary/game/input/event/UpGameKeyEventHandler.js';
+//not GWT import const UpGameKeyEventHandler
+
+import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { Rectangle } from '../../../../../org/allbinary/graphics/Rectangle.js';
+//not GWT import const Rectangle
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { RectangleCollisionUtil } from '../../../../../org/allbinary/math/RectangleCollisionUtil.js';
+//not GWT import const RectangleCollisionUtil
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicTouchInputFactory } from './BasicTouchInputFactory.js';
+//sameFolderImports - not GWT import - same folder const BasicTouchInputFactory
+import { TouchButtonInput } from './TouchButtonInput.js';
+//sameFolderImports - not GWT import - same folder const TouchButtonInput
+import { CurrentlyPressedTouchButtonSingleton } from './CurrentlyPressedTouchButtonSingleton.js';
+//sameFolderImports - not GWT import - same folder const CurrentlyPressedTouchButtonSingleton
+import { ReleaseHelper } from './ReleaseHelper.js';
+//sameFolderImports - not GWT import - same folder const ReleaseHelper
+import { TouchScreenFactory } from './TouchScreenFactory.js';
+//sameFolderImports - not GWT import - same folder const TouchScreenFactory
+import { MultitouchReleaseHelper } from './MultitouchReleaseHelper.js';
+//sameFolderImports - not GWT import - same folder const MultitouchReleaseHelper
+import { TouchButtonFactory } from './TouchButtonFactory.js';
+//sameFolderImports - not GWT import - same folder const TouchButtonFactory
+import { TouchButton } from './TouchButton.js';
+//sameFolderImports - not GWT import - same folder const TouchButton
+
+export class TouchButtonRecognizer
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly rectangleCollisionUtil: RectangleCollisionUtil = RectangleCollisionUtil.getInstance()!;
+
+    readonly upGameKeyEventHandler: UpGameKeyEventHandler = UpGameKeyEventHandler.getInstance()!;
+
+    private readonly downGameKeyEventHandler: DownGameKeyEventHandler = DownGameKeyEventHandler.getInstance()!;
+
+    private lastPressedTouchButtonInput: TouchButtonInput = BasicTouchInputFactory.getInstance()!.NONE;
+
+    readonly currentlyPressedTouchButtonSingleton: CurrentlyPressedTouchButtonSingleton = CurrentlyPressedTouchButtonSingleton.getInstance()!;
+
+    private readonly releaseHelper: ReleaseHelper;
+
+public constructor (){
+
+            super();
+        
+                        if(TouchScreenFactory.getInstance()!.isMultiTouch())
+                        
+                                    {
+                                    this.releaseHelper= new MultitouchReleaseHelper(this);
+    
+
+                                    }
+                                
+                        else {
+                            this.releaseHelper= new ReleaseHelper(this);
+    
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    processRelease(touchButtonInput: TouchButtonInput, deviceId: number){
+this.releaseHelper!.release(touchButtonInput, deviceId);
+    
+
+    let gameKeyEvent: GameKeyEvent = touchButtonInput!.getGameKeyEvent()!;;
+    
+this.upGameKeyEventHandler!.fireEvent(gameKeyEvent);
+    
+this.upGameKeyEventHandler!.getInstanceForDevice(deviceId)!.fireEvent(gameKeyEvent);
+    
+this.currentlyPressedTouchButtonSingleton!.remove(touchButtonInput);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public releaseTouchButtonInput(x: number, y: number, deviceId: number): boolean{
+
+    let touchButtonInput: TouchButtonInput = this.lastPressedTouchButtonInput;;
+    
+
+                        if(this.currentlyPressedTouchButtonSingleton!.contains(touchButtonInput))
+                        
+                                    {
+                                    this.lastPressedTouchButtonInput= BasicTouchInputFactory.getInstance()!.NONE;
+    
+this.processRelease(touchButtonInput, deviceId);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+    let list: BasicArrayList = TouchButtonFactory.getInstance()!.getList()!;;
+    
+
+    let rectangle: Rectangle;;
+    
+
+    let point: GPoint;;
+    
+
+    let touchButton: TouchButton;;
+    
+
+
+
+
+                        for (
+    let index: number = list.size() -1;index >= 0; index--)
+        {
+touchButton= list.objectArray[index]! as TouchButton;
+    
+rectangle= touchButton!.getRectangle();
+    
+point= rectangle.getPoint();
+    
+
+                        if(this.rectangleCollisionUtil!.isInside(point.getX(), point.getY(), rectangle.getMaxX(), rectangle.getMaxY(), x, y))
+                        
+                                    {
+                                    touchButtonInput= touchButton!.getTouchButtonInput();
+    
+this.processRelease(touchButtonInput, deviceId);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+}
+
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public pressTouchButtonInput(x: number, y: number, deviceId: number): boolean{
+
+    let list: BasicArrayList = TouchButtonFactory.getInstance()!.getList()!;;
+    
+
+    let rectangle: Rectangle;;
+    
+
+    let point: GPoint;;
+    
+
+    let touchButton: TouchButton;;
+    
+
+    let touchButtonInput: TouchButtonInput;;
+    
+
+    let gameKeyEvent: GameKeyEvent;;
+    
+
+
+
+
+                        for (
+    let index: number = list.size() -1;index >= 0; index--)
+        {
+touchButton= list.objectArray[index]! as TouchButton;
+    
+rectangle= touchButton!.getRectangle();
+    
+point= rectangle.getPoint();
+    
+
+                        if(this.rectangleCollisionUtil!.isInside(point.getX(), point.getY(), rectangle.getMaxX(), rectangle.getMaxY(), x, y))
+                        
+                                    {
+                                    touchButtonInput= touchButton!.getTouchButtonInput();
+    
+
+                        if(!this.currentlyPressedTouchButtonSingleton!.contains(touchButtonInput))
+                        
+                                    {
+                                    this.releaseHelper!.release(touchButtonInput, deviceId);
+    
+this.lastPressedTouchButtonInput= touchButtonInput;
+    
+this.currentlyPressedTouchButtonSingleton!.add(touchButtonInput);
+    
+gameKeyEvent= touchButtonInput!.getGameKeyEvent();
+    
+this.downGameKeyEventHandler!.fireEvent(gameKeyEvent);
+    
+this.downGameKeyEventHandler!.getInstanceForDevice(deviceId)!.fireEvent(gameKeyEvent);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+}
+

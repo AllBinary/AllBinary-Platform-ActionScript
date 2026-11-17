@@ -1,0 +1,154 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { GL } from '../../../../javax/microedition/khronos/opengles/GL.js';
+//not GWT import const GL
+
+import { GL10 } from '../../../../javax/microedition/khronos/opengles/GL10.js';
+//not GWT import const GL10
+
+import { Image } from '../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+import { NullImage } from '../../../../javax/microedition/lcdui/NullImage.js';
+//not GWT import const NullImage
+
+import { PlatformBitmapBase } from '../../../../org/allbinary/platform/graphics/PlatformBitmapBase.js';
+//not GWT import const PlatformBitmapBase
+
+import { PlatformBitmapBaseFactory } from '../../../../org/allbinary/platform/graphics/PlatformBitmapBaseFactory.js';
+//not GWT import const PlatformBitmapBaseFactory
+
+import { PlatformTextureBaseFactory } from '../../../../org/allbinary/platform/opengles/PlatformTextureBaseFactory.js';
+//not GWT import const PlatformTextureBaseFactory
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { OpenGLSurfaceChangedInterface } from './OpenGLSurfaceChangedInterface.js';
+//sameFolderImports - not GWT import - same folder const OpenGLSurfaceChangedInterface
+import { OpenGLESImageProperties } from './OpenGLESImageProperties.js';
+//sameFolderImports - not GWT import - same folder const OpenGLESImageProperties
+import { OpenGLESImageProcessor } from './OpenGLESImageProcessor.js';
+//sameFolderImports - not GWT import - same folder const OpenGLESImageProcessor
+import { OpenGLESImageTranslate } from './OpenGLESImageTranslate.js';
+//sameFolderImports - not GWT import - same folder const OpenGLESImageTranslate
+//OpenGLESNullImageJavaLibrary
+export class OpenGLESImage extends Image implements OpenGLSurfaceChangedInterface {
+        
+
+    public static readonly NULL_OPENGL_IMAGE: OpenGLESImage = new OpenGLESImage(NullImage.NULL_IMAGE, PlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY, PlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY);
+
+    public static readonly texture2dList: BasicArrayList = new BasicArrayListD();
+
+    public static readonly TYPE: number = 4;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    readonly textureFactory: PlatformTextureBaseFactory;
+
+    public readonly openGLBitmap: PlatformBitmapBase;
+
+    public readonly openGLESImageProperties: OpenGLESImageProperties = new OpenGLESImageProperties();
+
+    public imageProcessor: OpenGLESImageProcessor = OpenGLESImageProcessor.getInstance()!;
+
+    public openGLESImageTranslate: OpenGLESImageTranslate = OpenGLESImageTranslate.getInstance()!;
+
+public constructor (image: Image, bitmapFactory: PlatformBitmapBaseFactory, textureFactory: PlatformTextureBaseFactory){
+
+            super();
+        this.openGLBitmap= bitmapFactory!.createBitmap(image);
+    
+this.textureFactory= textureFactory;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public set(gl: GL){
+
+
+
+                            throw new Exception(this.commonStrings!.NOT_IMPLEMENTED);
+                    
+}
+
+
+    initTexture(gl: GL10): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public drawRegion(gl: GL10, viewHeight: number, x_src: number, y_src: number, width: number, height: number, x: number, y: number, z: number){
+}
+
+
+    public draw(gl: GL10, x: number, y: number, z: number){
+}
+
+
+    public getType(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return OpenGLESImage.TYPE;
+    
+}
+
+
+}
+

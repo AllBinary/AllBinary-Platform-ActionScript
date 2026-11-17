@@ -1,0 +1,82 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { CategoryHierarchyInterface } from '../../../../../org/allbinary/business/category/hierarchy/CategoryHierarchyInterface.js';
+//not GWT import const CategoryHierarchyInterface
+
+import { TableMappingInterface } from '../../../../../org/allbinary/data/tables/TableMappingInterface.js';
+//not GWT import const TableMappingInterface
+
+import { ValidationInterface } from '../../../../../org/allbinary/logic/control/validate/ValidationInterface.js';
+//not GWT import const ValidationInterface
+
+import { AbPath } from '../../../../../org/allbinary/logic/io/path/AbPath.js';
+//not GWT import const AbPath
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export interface CategoryPropertiesInterface extends TableMappingInterface, ValidationInterface {
+        
+
+    setValue(value: string): void;
+
+    getValue(): string;
+
+                //@Throws(Exception.constructor)
+            
+    getWebAppPath(): AbPath;
+
+                //@Throws(Exception.constructor)
+            
+    getPath(categoryHierarchyInterface: CategoryHierarchyInterface): AbPath;
+
+                //@Throws(Exception.constructor)
+            
+    getFileName(): string;
+
+                //@Throws(Exception.constructor)
+            
+    isRoot(): boolean;
+
+                //@Throws(Exception.constructor)
+            
+    isRealRoot(): boolean;
+
+}
+

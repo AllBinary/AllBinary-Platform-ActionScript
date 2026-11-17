@@ -1,0 +1,605 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2022 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            import { System } from '../../../../java/lang/System.js';
+        
+            import { Integer } from '../../../../java/lang/Integer.js';
+        
+            import { Float } from '../../../../java/lang/Float.js';
+        
+            const Short = (globalThis.java?.lang?.Short ?? class {}) as typeof globalThis.java.lang.Short;
+        
+            import { Thread } from '../../../../java/lang/Thread.js';
+        
+import { BufferedImage } from '../../../../java/awt/image/BufferedImage.js';
+//not GWT import const BufferedImage
+
+import { Raster } from '../../../../java/awt/image/Raster.js';
+//not GWT import const Raster
+
+import { File } from '../../../../java/io/File.js';
+//not GWT import const File
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { FileWrapperUtil } from '../../../../org/allbinary/logic/io/file/FileWrapperUtil.js';
+//not GWT import const FileWrapperUtil
+
+import { ImagePersistanceUtil } from '../../../../org/allbinary/media/image/ImagePersistanceUtil.js';
+//not GWT import const ImagePersistanceUtil
+
+import { ImageProcessorInput } from '../../../../org/allbinary/media/image/ImageProcessorInput.js';
+//not GWT import const ImageProcessorInput
+
+import { ImageProcessorInputCompositeInterface } from '../../../../org/allbinary/media/image/ImageProcessorInputCompositeInterface.js';
+//not GWT import const ImageProcessorInputCompositeInterface
+
+import { ImageUtil } from '../../../../org/allbinary/media/image/ImageUtil.js';
+//not GWT import const ImageUtil
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { JPanel } from './JPanel.js';
+//sameFolderImports - not GWT import - same folder const JPanel
+import { DefaultComboBoxModel } from './DefaultComboBoxModel.js';
+//sameFolderImports - not GWT import - same folder const DefaultComboBoxModel
+import { JLabel } from './JLabel.js';
+//sameFolderImports - not GWT import - same folder const JLabel
+import { JComboBox } from './JComboBox.js';
+//sameFolderImports - not GWT import - same folder const JComboBox
+import { JButton } from './JButton.js';
+//sameFolderImports - not GWT import - same folder const JButton
+import { JTextField } from './JTextField.js';
+//sameFolderImports - not GWT import - same folder const JTextField
+import { ActionListener } from './ActionListener.js';
+//sameFolderImports - not GWT import - same folder const ActionListener
+import { ActionEvent } from './ActionEvent.js';
+//sameFolderImports - not GWT import - same folder const ActionEvent
+import { Dimension } from './Dimension.js';
+//sameFolderImports - not GWT import - same folder const Dimension
+import { GroupLayout } from './GroupLayout.js';
+//sameFolderImports - not GWT import - same folder const GroupLayout
+
+export class ResizeImageJPanel extends javax.swing.JPanel implements ImageProcessorInputCompositeInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private imageProcessorInput: ImageProcessorInput;
+
+public constructor (imageProcessorInput: ImageProcessorInput){
+            super();
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+initComponents();
+    
+this.imageProcessorInput= imageProcessorInput;
+    
+
+    let numberStringArray: string[] = new Array(101);;
+    
+numberStringArray[0]= Integer.toString( -1);
+    
+
+
+
+
+                        for (
+    let index: number = 1;index < 100; index++)
+        {
+numberStringArray[index]= index.toString();
+    
+}
+
+this.jComboBox1!.setModel(new javax.swing.DefaultComboBoxModel(numberStringArray));
+    
+
+    let araster: Raster = this.imageProcessorInput!.getBufferedImageArray()[0]!.getAlphaRaster()!;;
+    
+
+                        if(araster == 
+                                    null
+                                )
+                        
+                                    {
+                                    console.log("there is no Alpha channel!!!!!!!!!");
+    
+
+                                    }
+                                
+                        else {
+                            console.log("Alpha channel found !");
+    
+
+                        }
+                            
+}
+
+
+    public process(){
+new class extends Thread
+                                {
+                                
+    public run(){
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+
+ try { 
+    let imageUtil: ImageUtil = ImageUtil.getInstance()!;;
+    
+
+    let percent: Integer = Integer.valueOf(outer$ResizeImageJPanel.jComboBox1!.getSelectedItem() as string)!;;
+    
+
+    let percentAsFloat: number = Float.parseFloat(outer$ResizeImageJPanel.floatPercentJTextField!.getText())!;;
+    
+
+    let imageProcessorInput: ImageProcessorInput = outer$ResizeImageJPanel.getImageProcessorInput()!;;
+    
+
+    let files: File[] = imageProcessorInput!.getFiles()!;;
+    
+
+    let generatedBufferedImageArray: BufferedImage[] = 
+                null
+            ;;
+    
+
+                        if(percentAsFloat!.intValue() !=  -1)
+                        
+                                    {
+                                    generatedBufferedImageArray= imageUtil!.createBufferedImage2(imageProcessorInput!.getBufferedImageArray(), percentAsFloat, true);
+    
+
+                                    }
+                                
+                             else 
+                        if(percent.intValue() !=  -1)
+                        
+                                    {
+                                    generatedBufferedImageArray= imageUtil!.createBufferedImageForResize(imageProcessorInput!.getBufferedImageArray(), percent, true);
+    
+
+                                    }
+                                
+                        else {
+                            
+    let width: Integer = Integer.valueOf(outer$ResizeImageJPanel.jTextField1!.getText() as string)!;;
+    
+
+    let height: Integer = Integer.valueOf(outer$ResizeImageJPanel.jTextField2!.getText() as string)!;;
+    
+generatedBufferedImageArray= imageUtil!.createBufferedImage3(imageProcessorInput!.getBufferedImageArray(), width, height, true);
+    
+
+                        }
+                            
+
+    let araster: Raster = generatedBufferedImageArray[0]!.getAlphaRaster()!;;
+    
+
+                        if(araster == 
+                                    null
+                                )
+                        
+                                    {
+                                    console.log("No Alpha Channel In Result");
+    
+
+                                    }
+                                
+                        else {
+                            console.log("Found Alpha Channel In Result");
+    
+
+                        }
+                            
+
+    let imagePersistanceUtil: ImagePersistanceUtil = ImagePersistanceUtil.getInstance()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < generatedBufferedImageArray!.length; index++)
+        {
+imagePersistanceUtil!.saveWithBatik(FileWrapperUtil.wrapFile(files[index]!), generatedBufferedImageArray[index]!);
+    
+}
+
+outer$ResizeImageJPanel.getParent()!.repaint();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN, e);
+    
+
+ }
+   }
+ 
+}
+
+                                }().start();
+    
+}
+
+
+    public update(){
+new class extends Thread
+                                {
+                                
+    public run(){
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+
+ try { 
+    let imageProcessorInput: ImageProcessorInput = outer$ResizeImageJPanel.getImageProcessorInput()!;;
+    
+
+    let size: number = imageProcessorInput!.getBufferedImageArray()!.length;;
+    
+
+    let bufferedImageArray: BufferedImage[] = imageProcessorInput!.getBufferedImageArray()!;;
+    
+
+    let bufferedImage: BufferedImage;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+bufferedImage= bufferedImageArray[0]!;
+    
+outer$ResizeImageJPanel.jTextField1!.setText(bufferedImage!.getWidth().toString());
+    
+outer$ResizeImageJPanel.jTextField2!.setText(bufferedImage!.getHeight().toString());
+    
+}
+
+outer$ResizeImageJPanel.getParent()!.repaint();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN, e);
+    
+
+ }
+   }
+ 
+}
+
+                                }().start();
+    
+}
+
+
+    public updateFor16Above(){
+new class extends Thread
+                                {
+                                
+    public run(){
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+
+ try { 
+    let imageProcessorInput: ImageProcessorInput = outer$ResizeImageJPanel.getImageProcessorInput()!;;
+    
+
+    let size: number = imageProcessorInput!.getBufferedImageArray()!.length;;
+    
+
+    let bufferedImageArray: BufferedImage[] = imageProcessorInput!.getBufferedImageArray()!;;
+    
+
+    let bufferedImage: BufferedImage;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+bufferedImage= bufferedImageArray[0]!;
+    
+outer$ResizeImageJPanel.jTextField1!.setText(bufferedImage!.getWidth() /16 *16.toString());
+    
+outer$ResizeImageJPanel.jTextField2!.setText(bufferedImage!.getHeight() /16 *16.toString());
+    
+}
+
+outer$ResizeImageJPanel.getParent()!.repaint();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN, e);
+    
+
+ }
+   }
+ 
+}
+
+                                }().start();
+    
+}
+
+
+    public updateFor16Below(){
+new class extends Thread
+                                {
+                                
+    public run(){
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+
+ try { 
+    let imageProcessorInput: ImageProcessorInput = outer$ResizeImageJPanel.getImageProcessorInput()!;;
+    
+
+    let size: number = imageProcessorInput!.getBufferedImageArray()!.length;;
+    
+
+    let bufferedImageArray: BufferedImage[] = imageProcessorInput!.getBufferedImageArray()!;;
+    
+
+    let bufferedImage: BufferedImage;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+bufferedImage= bufferedImageArray[0]!;
+    
+outer$ResizeImageJPanel.jTextField1!.setText(((bufferedImage!.getWidth() /16) +1) *16.toString());
+    
+outer$ResizeImageJPanel.jTextField2!.setText(((bufferedImage!.getHeight() /16) +1) *16.toString());
+    
+}
+
+outer$ResizeImageJPanel.getParent()!.repaint();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN, e);
+    
+
+ }
+   }
+ 
+}
+
+                                }().start();
+    
+}
+
+
+    public getImageProcessorInput(): ImageProcessorInput{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.imageProcessorInput;
+    
+}
+
+
+    public setImageProcessorInput(imageProcessorInput: ImageProcessorInput){
+this.imageProcessorInput= imageProcessorInput;
+    
+}
+
+
+    initComponents(){
+this.jLabel1= new javax.swing.JLabel();
+    
+this.jComboBox1= new javax.swing.JComboBox();
+    
+this.aboveJButton= new javax.swing.JButton();
+    
+this.jTextField1= new javax.swing.JTextField();
+    
+this.jLabel2= new javax.swing.JLabel();
+    
+this.jLabel3= new javax.swing.JLabel();
+    
+this.jTextField2= new javax.swing.JTextField();
+    
+this.updateJButton= new javax.swing.JButton();
+    
+this.floatPercentJTextField= new javax.swing.JTextField();
+    
+this.adjustFor16AboveJButton= new javax.swing.JButton();
+    
+this.adjustFor16BelowJButton= new javax.swing.JButton();
+    
+this.jLabel1!.setText("Percent:");
+    
+this.jComboBox1!.setModel(new javax.swing.DefaultComboBoxModel([
+"Item 1","Item 2","Item 3","Item 4"
+                                                ]));
+    
+this.aboveJButton!.setText("Process");
+    
+this.aboveJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+aboveJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.jLabel2!.setText("Width:");
+    
+this.jLabel3!.setText("Height:");
+    
+this.updateJButton!.setText("Update");
+    
+this.updateJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+updateJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.floatPercentJTextField!.setText("-1.000000");
+    
+this.floatPercentJTextField!.setMinimumSize(new java.awt.Dimension(120, 22));
+    
+this.adjustFor16AboveJButton!.setText("Adjust for 16 Above");
+    
+this.adjustFor16AboveJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+adjustFor16AboveJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+this.adjustFor16BelowJButton!.setText("Adjust for 16 Below");
+    
+this.adjustFor16BelowJButton!.addActionListener(new class extends java.awt.event.ActionListener
+                                {
+                                
+    public actionPerformed(evt: java.awt.event.ActionEvent){
+adjustFor16BelowJButtonActionPerformed(evt);
+    
+}
+
+                                }());
+    
+
+    let layout: javax.swing.GroupLayout = new javax.swing.GroupLayout(this);;
+    
+this.setLayout(layout);
+    
+layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addContainerGap()!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addComponent(this.jLabel1)!.addComponent(this.jLabel2)!.addComponent(this.jLabel3))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)!.addComponent(this.jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)!.addComponent(this.jTextField1)!.addComponent(this.jTextField2))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addComponent(this.floatPercentJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addComponent(this.adjustFor16AboveJButton)!.addComponent(this.adjustFor16BelowJButton))!.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))!.addGroup(layout.createSequentialGroup()!.addComponent(this.updateJButton)!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addComponent(this.aboveJButton)!.addGap(0, 250, Short.MAX_VALUE)));
+    
+layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)!.addGroup(layout.createSequentialGroup()!.addContainerGap()!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.jLabel1)!.addComponent(this.jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addComponent(this.floatPercentJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addComponent(this.jLabel2)!.addComponent(this.adjustFor16AboveJButton))!.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.jLabel3)!.addComponent(this.jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)!.addComponent(this.adjustFor16BelowJButton))!.addGap(18, 18, 18)!.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)!.addComponent(this.aboveJButton)!.addComponent(this.updateJButton))!.addContainerGap(175, Short.MAX_VALUE)));
+    
+}
+
+
+    aboveJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.process();
+    
+}
+
+
+    updateJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.update();
+    
+}
+
+
+    adjustFor16AboveJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.updateFor16Above();
+    
+}
+
+
+    adjustFor16BelowJButtonActionPerformed(evt: java.awt.event.ActionEvent){
+this.updateFor16Below();
+    
+}
+
+
+    private aboveJButton: javax.swing.JButton;
+
+    private adjustFor16AboveJButton: javax.swing.JButton;
+
+    private adjustFor16BelowJButton: javax.swing.JButton;
+
+    private floatPercentJTextField: javax.swing.JTextField;
+
+    private jComboBox1: javax.swing.JComboBox<string>;
+
+    private jLabel1: javax.swing.JLabel;
+
+    private jLabel2: javax.swing.JLabel;
+
+    private jLabel3: javax.swing.JLabel;
+
+    private jTextField1: javax.swing.JTextField;
+
+    private jTextField2: javax.swing.JTextField;
+
+    private updateJButton: javax.swing.JButton;
+
+}
+

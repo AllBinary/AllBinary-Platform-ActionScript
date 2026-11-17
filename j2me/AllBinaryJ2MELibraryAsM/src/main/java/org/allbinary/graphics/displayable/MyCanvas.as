@@ -1,0 +1,373 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Canvas } from '../../../../javax/microedition/lcdui/Canvas.js';
+//not GWT import const Canvas
+
+import { Command } from '../../../../javax/microedition/lcdui/Command.js';
+//not GWT import const Command
+
+import { CommandListener } from '../../../../javax/microedition/lcdui/CommandListener.js';
+//not GWT import const CommandListener
+
+import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { NullCommandListener } from '../../../../javax/microedition/lcdui/NullCommandListener.js';
+//not GWT import const NullCommandListener
+
+import { MyCommandInterface } from '../../../../org/allbinary/graphics/displayable/command/MyCommandInterface.js';
+//not GWT import const MyCommandInterface
+
+import { MyCommandsFactory } from '../../../../org/allbinary/graphics/displayable/command/MyCommandsFactory.js';
+//not GWT import const MyCommandsFactory
+
+import { TouchJ2ME } from '../../../../org/allbinary/input/TouchJ2ME.js';
+//not GWT import const TouchJ2ME
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { Sound } from '../../../../org/allbinary/media/audio/Sound.js';
+//not GWT import const Sound
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { ABStack } 
+const ABStack = globalThis.org.allbinary.util.ABStack;
+type ABStack<T = any, U = any> = typeof ABStack extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABStack;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { DisplayableInterface } from './DisplayableInterface.js';
+//sameFolderImports - not GWT import - same folder const DisplayableInterface
+import { CanvasStrings } from './CanvasStrings.js';
+//sameFolderImports - not GWT import - same folder const CanvasStrings
+import { DisplayInfoSingleton } from './DisplayInfoSingleton.js';
+//sameFolderImports - not GWT import - same folder const DisplayInfoSingleton
+
+export class MyCanvas extends Canvas implements DisplayableInterface, MyCommandInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    readonly canvasStrings: CanvasStrings = CanvasStrings.getInstance()!;
+
+    readonly stringUtil: StringUtil = StringUtil.getInstance()!;
+
+    readonly displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
+
+    private readonly name: string;
+
+    private readonly childNameList: BasicArrayList;
+
+    private readonly commandStack: ABStack<any>;
+
+    private commandListener: CommandListener = NullCommandListener.NULL_COMMAND_LISTENER;
+
+    private paused: boolean= false;
+
+public constructor (name: string, childNameList: BasicArrayList){
+
+            super();
+        this.logUtil!.putF(this.commonStrings!.CONSTRUCTOR, this, this.commonStrings!.CONSTRUCTOR);
+    
+this.displayInfo!.update(this, this.canvasStrings!.CONSTRUCTOR);
+    
+this.name= name;
+    
+this.childNameList= childNameList;
+    
+this.commandStack= StdUtil.getInstance()!.createStack();
+    
+}
+
+
+    public getWidth(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getWidth();;
+    
+}
+
+
+    public getHeight(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.getHeight();;
+    
+}
+
+
+    public setFullScreenMode(mode: boolean){
+super.setFullScreenMode(mode);
+    
+this.displayInfo!.update(this, this.canvasStrings!.SET_FULL_SCREEN_MODE);
+    
+}
+
+
+    sizeChanged(w: number, h: number){
+this.displayInfo!.update(this, this.canvasStrings!.SIZE_CHANGED);
+    
+}
+
+
+    public getCommandStack(): ABStack<any>{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.commandStack;
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public isCommand(command: Command): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.commandStack!.contains(command);;
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public addCommand(command: Command){
+
+                        if(!this.commandStack!.contains(command))
+                        
+                                    {
+                                    this.commandStack!.push(command);
+    
+super.addCommand(command);
+    
+
+                                    }
+                                
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public removeCommand(command: Command){
+this.commandStack!.removeElement(command);
+    
+super.removeCommand(command);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public removeAllCommands(){
+
+    let size: number = this.commandStack!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+super.removeCommand(this.commandStack!.pop() as Command);
+    
+}
+
+}
+
+
+    public setCommandListener(l: CommandListener){
+super.setCommandListener(l);
+    
+this.commandListener= l;
+    
+}
+
+
+    public getCustomCommandListener(): CommandListener{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.commandListener;
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public isPaused(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.paused;
+    
+}
+
+
+    public removePauseCommand(){
+this.removeCommand(MyCommandsFactory.getInstance()!.PAUSE_COMMAND);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public pause(){
+this.logUtil!.putF(this.commonStrings!.START, this, this.canvasStrings!.PAUSE);
+    
+this.removePauseCommand();
+    
+this.addCommand(MyCommandsFactory.getInstance()!.RESUME_COMMAND);
+    
+this.setPaused(true);
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public unPause(){
+this.logUtil!.putF(this.commonStrings!.START, this, this.canvasStrings!.UN_PAUSE);
+    
+this.removeCommand(MyCommandsFactory.getInstance()!.RESUME_COMMAND);
+    
+this.addCommand(MyCommandsFactory.getInstance()!.PAUSE_COMMAND);
+    
+this.setPaused(false);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    process(){
+this.displayInfo!.process();
+    
+}
+
+
+    paint(graphics: Graphics){
+}
+
+
+    public draw(graphics: Graphics){
+}
+
+
+    public hasChild(displayable: MyCanvas): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.childNameList!.contains(displayable.name);;
+    
+}
+
+
+    public destroy(){
+this.logUtil!.putF("Destroyed MyCanvas", this, "destroy");
+    
+}
+
+
+    setPaused(isPaused: boolean){
+this.paused= isPaused;
+    
+}
+
+
+    public keyPressedByDevice(keyCode: number, deviceId: number){
+}
+
+
+    public keyRepeatedByDevice(keyCode: number, deviceId: number){
+}
+
+
+    public keyReleasedByDevice(keyCode: number, deviceId: number){
+}
+
+
+    private readonly touchME: TouchJ2ME = new TouchJ2ME();
+
+    pointerDragged(x: number, y: number){
+this.touchME!.pointerDragged(x, y);
+    
+}
+
+
+    pointerPressed(x: number, y: number){
+this.touchME!.pointerPressed(x, y);
+    
+}
+
+
+    pointerReleased(x: number, y: number){
+this.touchME!.pointerReleased(x, y);
+    
+}
+
+
+    public nextSong(nextSongSound: Sound, leftVolume: number, rightVolume: number){
+}
+
+
+}
+

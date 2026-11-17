@@ -1,0 +1,77 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../../java/lang/Exception.js';
+        
+import { ValidationInterface } from '../../../../../../../../org/allbinary/logic/control/validate/ValidationInterface.js';
+//not GWT import const ValidationInterface
+
+import { FontFamilyValidation } from '../../../../../../../../org/allbinary/logic/visual/dhtml/style/css/property/font/FontFamilyValidation.js';
+//not GWT import const FontFamilyValidation
+
+import { Node } from '../../../../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class CssPropertyValidationFactory
+            extends Object
+         {
+        
+
+                //@Throws(Exception.constructor)
+            
+    public static getInstance(node: Node): ValidationInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new FontFamilyValidation(node) as ValidationInterface;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

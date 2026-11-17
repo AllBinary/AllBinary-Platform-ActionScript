@@ -1,0 +1,439 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2003 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { GroupCommonFactory } from '../../../../../org/allbinary/game/identification/GroupCommonFactory.js';
+//not GWT import const GroupCommonFactory
+
+import { RTSLayer } from '../../../../../org/allbinary/game/layer/RTSLayer.js';
+//not GWT import const RTSLayer
+
+import { RTSPlayerLayerInterface } from '../../../../../org/allbinary/game/layer/RTSPlayerLayerInterface.js';
+//not GWT import const RTSPlayerLayerInterface
+
+import { LayerInterfaceFactoryImageItem } from '../../../../../org/allbinary/game/layer/item/LayerInterfaceFactoryImageItem.js';
+//not GWT import const LayerInterfaceFactoryImageItem
+
+import { ABCustomItem } from '../../../../../org/allbinary/graphics/form/item/ABCustomItem.js';
+//not GWT import const ABCustomItem
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { DirectionFactory } from '../../../../../org/allbinary/direction/DirectionFactory.js';
+//not GWT import const DirectionFactory
+
+import { Group } from '../../../../../org/allbinary/game/identification/Group.js';
+//not GWT import const Group
+
+import { AllBinaryGameLayerManager } from '../../../../../org/allbinary/game/layer/AllBinaryGameLayerManager.js';
+//not GWT import const AllBinaryGameLayerManager
+
+import { CollidableDestroyableDamageableLayer } from '../../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.js';
+//not GWT import const CollidableDestroyableDamageableLayer
+
+import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { ScrollSelectionForm } from '../../../../../org/allbinary/graphics/form/ScrollSelectionForm.js';
+//not GWT import const ScrollSelectionForm
+
+import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
+//not GWT import const AllBinaryLayerManager
+
+import { LayerInterfaceFactoryInterface } from '../../../../../org/allbinary/layer/LayerInterfaceFactoryInterface.js';
+//not GWT import const LayerInterfaceFactoryInterface
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { GeographicMapCellPosition } from '../../../../../org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.js';
+//not GWT import const GeographicMapCellPosition
+
+import { SimpleGeographicMapCellPositionFactory } from '../../../../../org/allbinary/media/graphics/geography/map/SimpleGeographicMapCellPositionFactory.js';
+//not GWT import const SimpleGeographicMapCellPositionFactory
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class RTSFormInput
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly groupCommonFactory: GroupCommonFactory = GroupCommonFactory.getInstance()!;
+
+    private readonly hashtable: ABHashtable<any, any> = StdUtil.getInstance()!.createHashtable()!;
+
+    readonly newUnconstructedRTSLayerInterfaceArray: CollidableDestroyableDamageableLayer[] = new Array(7);
+
+    readonly groupInterfaceArray: Group[];
+
+    private selectedGeographicCellPosition: GeographicMapCellPosition = SimpleGeographicMapCellPositionFactory.NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+
+    private stickyItemSelected: boolean= false;
+
+    private selectedStickyItemIndex: number= 0;
+
+    private selectedStickyItem: ABCustomItem = ABCustomItem.getNullInstance()!;
+
+public constructor (groupInterfaceArray: Group[]){
+
+            super();
+        
+    let size: number = this.newUnconstructedRTSLayerInterfaceArray!.length
+                ;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+this.newUnconstructedRTSLayerInterfaceArray[index]= CollidableDestroyableDamageableLayer.getNullInstance();
+    
+}
+
+this.groupInterfaceArray= groupInterfaceArray;
+    
+this.hashtable.put(DirectionFactory.getInstance()!.NAME, DirectionFactory.getInstance()!.DOWN);
+    
+
+                        if(groupInterfaceArray != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.hashtable.put(this.groupCommonFactory!.ID, groupInterfaceArray);
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setAllBinaryGameLayerManager(allBinaryGameLayerManager: AllBinaryGameLayerManager){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processAtPoint(associatedRtsLayer: CollidableDestroyableDamageableLayer, rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, point: GPoint){
+
+    let index: number = this.getIndexAt(rtsPlayerLayerInterface, point)!;;
+    
+
+                        if(index < 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+
+    let scrollSelectionForm: ScrollSelectionForm = rtsPlayerLayerInterface!.getCurrentScrollSelectionForm()!;;
+    
+
+    let item: ABCustomItem = scrollSelectionForm!.get(index)!;;
+    
+
+                        if(item == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+this.processGameSpecific(associatedRtsLayer, rtsPlayerLayerInterface, layerManager, item, index);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public process(layerManager: AllBinaryLayerManager){
+this.setAllBinaryGameLayerManager(layerManager as AllBinaryGameLayerManager);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processGameSpecific(associatedRtsLayer: CollidableDestroyableDamageableLayer, rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, item: ABCustomItem, index: number){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processSticky(associatedRtsLayer: CollidableDestroyableDamageableLayer, rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, point: GPoint): boolean{
+
+    let index: number = this.getIndexAt(rtsPlayerLayerInterface, point)!;;
+    
+
+                        if(index < 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let scrollSelectionForm: ScrollSelectionForm = rtsPlayerLayerInterface!.getCurrentScrollSelectionForm()!;;
+    
+
+    let item: ABCustomItem = scrollSelectionForm!.get(index)!;;
+    
+
+                        if(item == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+this.processStickyGameSpecific(associatedRtsLayer, rtsPlayerLayerInterface, layerManager, item, index);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processStickyGameSpecific(associatedRtsLayer: CollidableDestroyableDamageableLayer, rtsPlayerLayerInterface: RTSPlayerLayerInterface, layerManager: AllBinaryLayerManager, item: ABCustomItem, index: number){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getItemAt(rtsPlayerLayerInterface: RTSPlayerLayerInterface, point: GPoint): ABCustomItem{
+this.logUtil!.putF(new StringMaker().append("Point: ")!.append(StringUtil.getInstance()!.toString(point))!.toString(), this, "getItemAt");
+    
+
+    let scrollSelectionForm: ScrollSelectionForm = rtsPlayerLayerInterface!.getCurrentScrollSelectionForm()!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return scrollSelectionForm!.getSelectedItem(point);;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getIndexAt(rtsPlayerLayerInterface: RTSPlayerLayerInterface, point: GPoint): number{
+this.logUtil!.putF(new StringMaker().append("Point: ")!.append(StringUtil.getInstance()!.toString(point))!.toString(), this, "getItemAt");
+    
+
+    let scrollSelectionForm: ScrollSelectionForm = rtsPlayerLayerInterface!.getCurrentScrollSelectionForm()!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return scrollSelectionForm!.getSelectedIndexForPoint(point);;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getInstance(layerManager: AllBinaryLayerManager, aItem: ABCustomItem, geographicMapCellPosition: GeographicMapCellPosition): CollidableDestroyableDamageableLayer{
+
+    let item: LayerInterfaceFactoryImageItem = aItem as LayerInterfaceFactoryImageItem;;
+    
+
+    let layerInterfaceFactoryInterface: LayerInterfaceFactoryInterface = item.getLayerInterfaceFactoryInterface()!;;
+    
+
+    let cellPoint: GPoint = geographicMapCellPosition!.getPoint()!;;
+    
+
+                        if(layerInterfaceFactoryInterface != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.hashtable.put(AllBinaryGameLayerManager.ID, layerManager);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return layerInterfaceFactoryInterface!.getNextInstance(this.getHashtable(), cellPoint!.getX(), cellPoint!.getY(), cellPoint!.getZ()) as RTSLayer;
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return CollidableDestroyableDamageableLayer.getNullInstance();;
+    
+}
+
+
+    public getSelectedGeographicCellPosition(): GeographicMapCellPosition{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.selectedGeographicCellPosition;
+    
+}
+
+
+    public setSelectedGeographicCellPosition(selectedGeographicCellPosition: GeographicMapCellPosition){
+this.logUtil!.putF(new StringMaker().append("Selected GeographicMapCellPosition: ")!.append(selectedGeographicCellPosition!.toString())!.toString(), this, "setSelectedGeographicCellPosition");
+    
+this.selectedGeographicCellPosition= selectedGeographicCellPosition;
+    
+}
+
+
+    public isStickyItemSelected(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.stickyItemSelected;
+    
+}
+
+
+    public setStickyItemSelected(stickyItemSelected: boolean){
+this.stickyItemSelected= stickyItemSelected;
+    
+}
+
+
+    public getSelectedStickyItem(): ABCustomItem{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.selectedStickyItem;
+    
+}
+
+
+    public setSelectedStickyItem(selectedStickyItem: ABCustomItem){
+this.selectedStickyItem= selectedStickyItem;
+    
+}
+
+
+    public getSelectedStickyItemIndex(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.selectedStickyItemIndex;
+    
+}
+
+
+    public setSelectedStickyItemIndex(selectedStickyItemIndex: number){
+this.selectedStickyItemIndex= selectedStickyItemIndex;
+    
+}
+
+
+    public getHashtable(): ABHashtable<any, any>{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.hashtable;
+    
+}
+
+
+}
+

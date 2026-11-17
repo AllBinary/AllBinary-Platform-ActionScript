@@ -1,0 +1,283 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { EntryData } from '../../../../../../../org/allbinary/business/entry/EntryData.js';
+//not GWT import const EntryData
+
+import { ShippingAddressData } from '../../../../../../../org/allbinary/business/user/address/ShippingAddressData.js';
+//not GWT import const ShippingAddressData
+
+import { StreetAddress } from '../../../../../../../org/allbinary/business/user/address/StreetAddress.js';
+//not GWT import const StreetAddress
+
+import { StreetAddressData } from '../../../../../../../org/allbinary/business/user/address/StreetAddressData.js';
+//not GWT import const StreetAddressData
+
+import { OrderHistoryData } from '../../../../../../../org/allbinary/business/user/commerce/inventory/order/OrderHistoryData.js';
+//not GWT import const OrderHistoryData
+
+import { MoneyException } from '../../../../../../../org/allbinary/business/user/commerce/money/MoneyException.js';
+//not GWT import const MoneyException
+
+import { ShippingMethodData } from '../../../../../../../org/allbinary/business/user/commerce/shipping/ShippingMethodData.js';
+//not GWT import const ShippingMethodData
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { BasicItem } from './BasicItem.js';
+//sameFolderImports - not GWT import - same folder const BasicItem
+import { OrderItemInterface } from './OrderItemInterface.js';
+//sameFolderImports - not GWT import - same folder const OrderItemInterface
+
+export class Item extends BasicItem implements OrderItemInterface {
+        
+
+    private group: string;
+
+    private tax: string;
+
+    private shippingType: string;
+
+    private shippingCost: string;
+
+    private shippedDate: string;
+
+    private shippingAddress: StreetAddress;
+
+    private special: string;
+
+    public constructor(...args: any[]) {
+        if(args.length === 1) {
+            const itemHashMap = args[0];
+            super(itemHashMap);
+            this.constructor$0(itemHashMap);
+            
+        }
+        else if(args.length === 0) {
+            super();
+            this.constructor$1();
+            
+        }
+        
+    }
+    
+    private constructor$0(itemHashMap: HashMap<any, any>): void {
+        
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this.setData(itemHashMap);
+    
+
+    }
+    
+    private constructor$1(): void {
+        
+    let EMPTY: string = StringUtil.getInstance()!.EMPTY_STRING;;
+    
+this.group= EMPTY;
+    
+this.tax= EMPTY;
+    
+this.shippingType= EMPTY;
+    
+this.shippingCost= EMPTY;
+    
+this.shippingAddress= new StreetAddress();
+    
+
+    }
+    
+    setData(itemHashMap: HashMap<any, any>){
+this.group= itemHashMap!.get(ShippingMethodData.GROUP) as string;
+    
+this.tax= itemHashMap!.get(OrderHistoryData.TAX) as string;
+    
+this.shippingType= itemHashMap!.get(ShippingMethodData.NAME) as string;
+    
+this.shippingCost= itemHashMap!.get(ShippingMethodData.COST) as string;
+    
+this.shippedDate= itemHashMap!.get(OrderHistoryData.SHIPPEDDATE) as string;
+    
+itemHashMap!.put(StreetAddressData.NAME, itemHashMap!.get(ShippingAddressData.NAME));
+    
+itemHashMap!.put(StreetAddressData.STREET, itemHashMap!.get(ShippingAddressData.STREET));
+    
+itemHashMap!.put(StreetAddressData.CITY, itemHashMap!.get(ShippingAddressData.CITY));
+    
+itemHashMap!.put(StreetAddressData.STATE, itemHashMap!.get(ShippingAddressData.STATE));
+    
+itemHashMap!.put(StreetAddressData.CODE, itemHashMap!.get(ShippingAddressData.CODE));
+    
+itemHashMap!.put(StreetAddressData.COUNTRY, itemHashMap!.get(ShippingAddressData.COUNTRY));
+    
+this.shippingAddress= new StreetAddress(itemHashMap);
+    
+}
+
+
+    public setGroup(value: string){
+this.group= value;
+    
+}
+
+
+    public setTax(value: string){
+this.tax= value;
+    
+}
+
+
+    public setShippingType(value: string){
+this.shippingType= value;
+    
+}
+
+
+    public setShippingCost(value: string){
+this.shippingCost= value;
+    
+}
+
+
+    public setShippingAddress(value: StreetAddress){
+this.shippingAddress= value;
+    
+}
+
+
+    public setSpecial(value: string){
+this.special= value;
+    
+}
+
+
+    public getGroup(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.group;
+    
+}
+
+
+    public getTax(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.tax;
+    
+}
+
+
+    public getShippingType(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.shippingType;
+    
+}
+
+
+    public getShippingCost(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.shippingCost;
+    
+}
+
+
+    public getShippingAddress(): StreetAddress{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.shippingAddress;
+    
+}
+
+
+    public getSpecial(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.special;
+    
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+    let hashMap: HashMap<any, any> = super.toHashMap()!;;
+    
+hashMap!.put(ShippingMethodData.GROUP, this.group);
+    
+hashMap!.put(OrderHistoryData.TAX, this.tax);
+    
+hashMap!.put(ShippingMethodData.NAME, this.shippingType);
+    
+hashMap!.put(ShippingMethodData.COST, this.shippingCost);
+    
+hashMap!.put(OrderHistoryData.SHIPPEDDATE, this.shippedDate);
+    
+hashMap!.put(EntryData.getInstance()!.SPECIAL, this.special);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+}
+

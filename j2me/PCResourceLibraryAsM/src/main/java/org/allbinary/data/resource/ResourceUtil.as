@@ -1,0 +1,196 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { ClassLoader } from '../../../../java/lang/ClassLoader.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../java/lang/Integer.js';
+        
+import { ByteArrayInputStream } from '../../../../java/io/ByteArrayInputStream.js';
+//not GWT import const ByteArrayInputStream
+
+import { ByteArrayOutputStream } from '../../../../java/io/ByteArrayOutputStream.js';
+//not GWT import const ByteArrayOutputStream
+
+import { FileInputStream } from '../../../../java/io/FileInputStream.js';
+//not GWT import const FileInputStream
+
+import { InputStream } from '../../../../java/io/InputStream.js';
+//not GWT import const InputStream
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { StreamUtil } from '../../../../org/allbinary/logic/io/StreamUtil.js';
+//not GWT import const StreamUtil
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //J2SE - PC
+export class ResourceUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: ResourceUtil = new ResourceUtil();
+
+    public static getInstance(): ResourceUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ResourceUtil.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private path: string = StringUtil.getInstance()!.EMPTY_STRING;
+
+    private ext: string = StringUtil.getInstance()!.EMPTY_STRING;
+
+private constructor (){
+
+            super();
+        }
+
+
+    public setLoadingPaths(path: string, ext: string){
+this.path= path;
+    
+this.ext= ext;
+    
+}
+
+
+    public setClassLoader(classLoader: ClassLoader){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getResourceAsStream(resource: string): InputStream{
+
+    let inputStream: InputStream = this.getResourceAsStreamAtStart(resource, 2)!;;
+    
+
+                        if(inputStream == 
+                                    null
+                                )
+                        
+                                    {
+                                    inputStream= this.getResourceAsStreamAtStart(resource, 1);
+    
+
+                        if(inputStream == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                            throw new Exception(new StringMaker().append("Unable to obtain: ")!.append(resource)!.toString());
+                    
+
+                                    }
+                                
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return inputStream;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    getResourceAsStreamAtStart(resource: string, startIndex: number): InputStream{
+
+    let inputStream: InputStream = new FileInputStream(new StringMaker().append(this.path)!.append(resource)!.append(this.ext)!.toString());;
+    
+
+                        if(inputStream != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+    let byteArray: number[] = new Array(inputStream!.available()).fill(0);;
+    
+StreamUtil.getInstance()!.getByteArray(inputStream, new ByteArrayOutputStream(), byteArray);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return new ByteArrayInputStream(byteArray);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return inputStream;
+    
+}
+
+
+    public addResource(resource: string, value: Integer){
+}
+
+
+}
+

@@ -1,0 +1,184 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../../java/lang/Object.js';
+        
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class PaymentGatewayPageData
+            extends Object
+         {
+        
+
+    private static readonly EXTENSION: string = ".jsp";
+
+    private static readonly NAME: string = StringUtil.getInstance()!.EMPTY_STRING;
+
+    public static readonly FORWARDMAKEPAYMENT: string = "MakePayment.jsp";
+
+    public static readonly PAYMENTOPTIONS: string = "PaymentOptions" +PaymentGatewayPageData.EXTENSION;
+
+    public static readonly STARTCHECKOUT: string = "StartCheckout" +PaymentGatewayPageData.EXTENSION;
+
+    public readonly MAKEPAYMENT: string;
+
+    public readonly CHECKOUT: string;
+
+    public readonly SHIPPING: string;
+
+    public readonly SHIPPINGADDRESS: string;
+
+    public readonly SHIPPINGADDRESSACTION: string;
+
+    public readonly BILLINGADDRESS: string;
+
+    public readonly PAYMENT: string;
+
+    public readonly AUTHORIZE: string;
+
+    public readonly FINISH: string;
+
+public constructor (location: string, paymentMethod: string){
+
+            super();
+        
+    let paymentMethodString: string = PaymentGatewayPageData.NAME +paymentMethod;;
+    
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(location);
+    
+stringBuffer!.append("MakePayment");
+    
+stringBuffer!.append(PaymentGatewayPageData.EXTENSION);
+    
+this.MAKEPAYMENT= stringBuffer!.toString();
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(paymentMethodString);
+    
+stringBuffer!.append("Checkout");
+    
+stringBuffer!.append(PaymentGatewayPageData.EXTENSION);
+    
+this.CHECKOUT= stringBuffer!.toString();
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(paymentMethodString);
+    
+stringBuffer!.append("Shipping");
+    
+stringBuffer!.append(PaymentGatewayPageData.EXTENSION);
+    
+this.SHIPPING= stringBuffer!.toString();
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(paymentMethodString);
+    
+stringBuffer!.append("ShippingAddress");
+    
+stringBuffer!.append(PaymentGatewayPageData.EXTENSION);
+    
+this.SHIPPINGADDRESS= stringBuffer!.toString();
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(paymentMethodString);
+    
+stringBuffer!.append("ShippingAddressAction");
+    
+stringBuffer!.append(PaymentGatewayPageData.EXTENSION);
+    
+this.SHIPPINGADDRESSACTION= stringBuffer!.toString();
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(paymentMethodString);
+    
+stringBuffer!.append("BillingAddress");
+    
+stringBuffer!.append(PaymentGatewayPageData.EXTENSION);
+    
+this.BILLINGADDRESS= stringBuffer!.toString();
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(paymentMethodString);
+    
+stringBuffer!.append("Payment");
+    
+stringBuffer!.append(PaymentGatewayPageData.EXTENSION);
+    
+this.PAYMENT= stringBuffer!.toString();
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(paymentMethodString);
+    
+stringBuffer!.append("Authorize");
+    
+stringBuffer!.append(PaymentGatewayPageData.EXTENSION);
+    
+this.AUTHORIZE= stringBuffer!.toString();
+    
+stringBuffer!.delete(0, stringBuffer!.length());
+    
+stringBuffer!.append(paymentMethodString);
+    
+stringBuffer!.append("PaymentFinish");
+    
+stringBuffer!.append(PaymentGatewayPageData.EXTENSION);
+    
+this.FINISH= stringBuffer!.toString();
+    
+}
+
+
+}
+

@@ -1,0 +1,90 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+            //import { Double } from '../../../../../../java/lang/Double.js';
+            const Double = (globalThis.java?.lang?.Double ?? class {}) as typeof globalThis.java.lang.Double;
+        
+import { VectorRotationGenerator } from '../../../../../../org/allbinary/animation/VectorRotationGenerator.js';
+//not GWT import const VectorRotationGenerator
+
+import { GPoint } from '../../../../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+import { AngleFactory } from '../../../../../../org/allbinary/math/AngleFactory.js';
+//not GWT import const AngleFactory
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class PointsUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: PointsUtil = new PointsUtil();
+
+    public static getInstance(): PointsUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return PointsUtil.instance;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public doTransforms(pointVector: BasicArrayList, angle: number, fulcrumPoint: GPoint): BasicArrayList{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return VectorRotationGenerator.getInstance()!.getListAtAngle(fulcrumPoint!.getX(), fulcrumPoint!.getY(), pointVector, AngleFactory.getInstance()!.getAt(angle.intValue()));;
+    
+}
+
+
+}
+

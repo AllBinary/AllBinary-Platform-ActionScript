@@ -1,0 +1,119 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Integer } from '../../../../java/lang/Integer.js';
+        
+import { SmallIntegerSingletonFactory } from '../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
+//not GWT import const SmallIntegerSingletonFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class Aggression
+            extends Object
+         {
+        
+
+    private ram: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(0)!;
+
+    private projectile: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(0)!;
+
+    private drops: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(0)!;
+
+public constructor (ram: Integer, projectile: Integer, drops: Integer){
+
+            super();
+        this.setRam(ram);
+    
+this.setProjectile(projectile);
+    
+this.setDrops(drops);
+    
+}
+
+
+    public getRam(): Integer{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.ram;
+    
+}
+
+
+    public setRam(ram: Integer){
+this.ram= ram;
+    
+}
+
+
+    public getProjectile(): Integer{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.projectile;
+    
+}
+
+
+    public setProjectile(projectile: Integer){
+this.projectile= projectile;
+    
+}
+
+
+    public getDrops(): Integer{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.drops;
+    
+}
+
+
+    public setDrops(drops: Integer){
+this.drops= drops;
+    
+}
+
+
+}
+

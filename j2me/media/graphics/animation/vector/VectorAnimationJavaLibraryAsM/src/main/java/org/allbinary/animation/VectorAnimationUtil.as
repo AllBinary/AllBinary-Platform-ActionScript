@@ -1,0 +1,203 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+import { GPoint } from '../../../org/allbinary/graphics/GPoint.js';
+//not GWT import const GPoint
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class VectorAnimationUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: VectorAnimationUtil = new VectorAnimationUtil();
+
+    public static getInstance(): VectorAnimationUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return VectorAnimationUtil.instance;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+    public toAnimationArrayFromListOfPointListWithPointsPerFrame(vector: BasicArrayList, pointsPerFrame: number): number[][][]{
+
+    let size: number = vector.size()!;;
+    
+
+    let points: number[][][] = Array.from({ length: size }, () => Array.from({ length: pointsPerFrame }, () => new Array(0).fill(2)));;
+    
+
+    let nextBasicArrayList: BasicArrayList;;
+    
+
+    let framePoints: number[][];;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+nextBasicArrayList= vector.objectArray[index]! as BasicArrayList;
+    
+framePoints= this.toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
+    
+
+
+
+
+                        for (
+    let pointIndex: number = 0;pointIndex < framePoints!.length; pointIndex++)
+        {
+points[index]![pointIndex]![0]= framePoints[pointIndex]![0]!;
+    
+points[index]![pointIndex]![1]= framePoints[pointIndex]![1]!;
+    
+}
+
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return points;
+    
+}
+
+
+    public toAnimationArrayFromListOfPointList(vector: BasicArrayList): number[][][]{
+
+    let size: number = vector.size()!;;
+    
+
+    let points: number[][][] = Array.from({ length: size }, () => Array.from({ length: 0 }, () => new Array(0).fill(0)));;
+    
+
+    let nextBasicArrayList: BasicArrayList;;
+    
+
+    let framePoints: number[][];;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+nextBasicArrayList= vector.objectArray[index]! as BasicArrayList;
+    
+framePoints= this.toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
+    
+points[index]= new Array(framePoints!.length).fill(null).map(() => new Array(2).fill(0));
+    
+
+
+
+
+                        for (
+    let pointIndex: number = 0;pointIndex < framePoints!.length; pointIndex++)
+        {
+points[index]![pointIndex]![0]= framePoints[pointIndex]![0]!;
+    
+points[index]![pointIndex]![1]= framePoints[pointIndex]![1]!;
+    
+}
+
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return points;
+    
+}
+
+
+    public toFrameArrayFromPointBasicArrayList(list: BasicArrayList): number[][]{
+
+    let points: number[][] = new Array(list.size()).fill(null).map(() => new Array(2).fill(0));;
+    
+
+    let size: number = list.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let nextPoint: GPoint = list.objectArray[index]! as GPoint;;
+    
+points[index]![0]= nextPoint!.getX();
+    
+points[index]![1]= nextPoint!.getY();
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return points;
+    
+}
+
+
+}
+

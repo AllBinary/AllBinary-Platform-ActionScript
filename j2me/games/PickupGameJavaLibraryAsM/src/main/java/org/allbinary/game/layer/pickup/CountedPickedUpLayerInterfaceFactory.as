@@ -1,0 +1,130 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { Animation } from '../../../../../org/allbinary/animation/Animation.js';
+//not GWT import const Animation
+
+import { NullAnimationFactory } from '../../../../../org/allbinary/animation/NullAnimationFactory.js';
+//not GWT import const NullAnimationFactory
+
+import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { PickedUpLayerInterfaceFactory } from './PickedUpLayerInterfaceFactory.js';
+//sameFolderImports - not GWT import - same folder const PickedUpLayerInterfaceFactory
+import { CountedPickedUpLayerInterfaceFactoryInterface } from './CountedPickedUpLayerInterfaceFactoryInterface.js';
+//sameFolderImports - not GWT import - same folder const CountedPickedUpLayerInterfaceFactoryInterface
+import { PickedUpLayerTypeFactory } from './PickedUpLayerTypeFactory.js';
+//sameFolderImports - not GWT import - same folder const PickedUpLayerTypeFactory
+import { IconLayer } from './IconLayer.js';
+//sameFolderImports - not GWT import - same folder const IconLayer
+import { CountedPickedUpLayerInterfaceFactoryPool } from './CountedPickedUpLayerInterfaceFactoryPool.js';
+//sameFolderImports - not GWT import - same folder const CountedPickedUpLayerInterfaceFactoryPool
+import { PickedUpLayerType } from './PickedUpLayerType.js';
+//sameFolderImports - not GWT import - same folder const PickedUpLayerType
+
+export class CountedPickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory implements CountedPickedUpLayerInterfaceFactoryInterface {
+        
+
+    public static readonly NULL_COUNTED_PICKUP_LAYER_FACTORY: CountedPickedUpLayerInterfaceFactory = new CountedPickedUpLayerInterfaceFactory(PickedUpLayerTypeFactory.getInstance()!.NONE, IconLayer.NULL_ICON_LAYER, NullAnimationFactory.getFactoryInstance()!.getInstance(0));
+
+    private readonly id: number;
+
+public constructor (pickeUpLayerType: PickedUpLayerType, iconLayer: IconLayer, animationInterface: Animation){
+            super(pickeUpLayerType, iconLayer, animationInterface);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+    let list: BasicArrayList = CountedPickedUpLayerInterfaceFactoryPool.getInstance()!.getList()!;;
+    
+this.id= list.size();
+    
+list.add(this);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getNextInstance(hashtable: ABHashtable<any, any>, x: number, y: number, z: number): AllBinaryLayer{
+
+
+
+                            throw new Exception(CommonStrings.getInstance()!.NOT_IMPLEMENTED);
+                    
+}
+
+
+    public getTotal(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return  -1;
+    
+}
+
+
+    public getId(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.id;
+    
+}
+
+
+}
+

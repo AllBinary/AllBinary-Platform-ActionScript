@@ -1,0 +1,175 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { AndroidOperatingSystemFactory } from '../../../../../org/allbinary/logic/system/os/android/AndroidOperatingSystemFactory.js';
+//not GWT import const AndroidOperatingSystemFactory
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { NoOperatingSystem } from './NoOperatingSystem.js';
+//sameFolderImports - not GWT import - same folder const NoOperatingSystem
+import { GenericOperatingSystem } from './GenericOperatingSystem.js';
+//sameFolderImports - not GWT import - same folder const GenericOperatingSystem
+//not plain js - same folder import { SystemProperties } 
+const SystemProperties = globalThis.org.allbinary.logic.system.os.SystemProperties;
+import { OperatingSystems } from './OperatingSystems.js';
+//sameFolderImports - not GWT import - same folder const OperatingSystems
+
+export class OperatingSystemFactory
+            extends Object
+         {
+        
+
+    private static readonly instance: OperatingSystemFactory = new OperatingSystemFactory();
+
+    public static getInstance(): OperatingSystemFactory{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return OperatingSystemFactory.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private genericOperatingSystem: GenericOperatingSystem = NoOperatingSystem.NO_OPERATING_SYSTEM;
+
+    private hasDetected: boolean = false;
+
+private constructor (){
+
+            super();
+        }
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public getOperatingSystemInstance(): GenericOperatingSystem{
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+
+ try { 
+    let systemProperties: SystemProperties = SystemProperties.getInstance()!;;
+    
+
+    let osName: string = systemProperties!.getName()!;;
+    
+
+                        if(!this.hasDetected)
+                        
+                                    {
+                                    this.hasDetected= true;
+    
+
+                        if(osName!.indexOf(OperatingSystems.getInstance()!.ANDROID) >= 0)
+                        
+                                    {
+                                    this.logUtil!.putF("Found a Android OS", this, commonStrings!.GET_INSTANCE);
+    
+this.genericOperatingSystem= AndroidOperatingSystemFactory.getInstance()!.getOperatingSystemInstance();
+    
+this.logUtil!.putF(new StringMaker().append("Operating System Info: ")!.append(this.genericOperatingSystem!.toString())!.toString(), this, commonStrings!.GET_INSTANCE);
+    
+
+                                    }
+                                
+                             else 
+                        if(osName!.indexOf(OperatingSystems.getInstance()!.HARMONY) >= 0)
+                        
+                                    {
+                                    this.logUtil!.putF("Found a Harmony OS", this, commonStrings!.GET_INSTANCE);
+    
+this.genericOperatingSystem= AndroidOperatingSystemFactory.getInstance()!.getOperatingSystemInstance();
+    
+this.logUtil!.putF(new StringMaker().append("Operating System Info: ")!.append(this.genericOperatingSystem!.toString())!.toString(), this, commonStrings!.GET_INSTANCE);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception(new StringMaker().append("OS Not Supported: ")!.append(osName)!.toString());
+                    
+
+                        }
+                            
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.genericOperatingSystem= NoOperatingSystem.NO_OPERATING_SYSTEM;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.GET_INSTANCE, e);
+    
+
+ }
+   }
+ 
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.genericOperatingSystem;
+    
+}
+
+
+}
+

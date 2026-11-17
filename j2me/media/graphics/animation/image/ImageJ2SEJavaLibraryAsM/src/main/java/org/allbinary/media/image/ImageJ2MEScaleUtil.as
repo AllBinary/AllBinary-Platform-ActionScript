@@ -1,0 +1,166 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2023 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { Image } from '../../../../javax/microedition/lcdui/Image.js';
+//not GWT import const Image
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class ImageJ2MEScaleUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: ImageJ2MEScaleUtil = new ImageJ2MEScaleUtil();
+
+    public static getInstance(): ImageJ2MEScaleUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ImageJ2MEScaleUtil.instance;
+    
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            
+    public scaleArray(images: Image[], width: number, height: number): Image[]{
+
+    let scaledImages: Image[] = new Array(images.length);;
+    
+
+
+
+
+                        for (
+    let index: number = images.length
+                ;--index >= 0; )
+        {
+scaledImages[index]= this.scale(images[index]!, width, height);
+    
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return scaledImages;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public scale(image: Image, width: number, height: number): Image{
+
+    let sourceWidth: number = image.getWidth()!;;
+    
+
+    let sourceHeight: number = image.getHeight()!;;
+    
+
+    let originalData: number[] = new Array(image.getWidth() *image.getHeight()).fill(0);;
+    
+image.getRGB(originalData, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
+    
+
+    let scaledData: number[] = new Array(width *height).fill(0);;
+    
+
+    let heightRatioFactor: number = globalThis.Math.trunc((8 *sourceHeight) /height);;
+    
+
+    let widthRatioFactor: number = globalThis.Math.trunc((8 *sourceWidth) /width);;
+    
+
+    let scaledIndex: number = scaledData!.length -1;;
+    
+
+    let dx: number= 0;;
+    
+
+    let dy: number= 0;;
+    
+
+
+
+
+                        for (
+    let index: number = height;--index >= 0; )
+        {
+dy= (index *heightRatioFactor)>>3;
+    
+
+
+
+
+                        for (
+    let index2: number = width;--index2 >= 0; )
+        {
+dx= (index2 *widthRatioFactor)>>3;
+    
+scaledData[scaledIndex--]= originalData[(sourceWidth *dy) +dx]!;
+    
+}
+
+}
+
+
+    let scaledImage: Image = Image.createRGBImage(scaledData, width, height, true)!;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return scaledImage;
+    
+}
+
+
+}
+

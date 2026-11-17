@@ -1,0 +1,186 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../../../../java/lang/Exception.js';
+        
+import { GraphPath } from '../../../../../../../../org/jgrapht/GraphPath.js';
+//not GWT import const GraphPath
+
+import { SimpleWeightedGraph } from '../../../../../../../../org/jgrapht/graph/SimpleWeightedGraph.js';
+//not GWT import const SimpleWeightedGraph
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { BasicGeographicMap } from '../../../../../../../../org/allbinary/media/graphics/geography/map/BasicGeographicMap.js';
+//not GWT import const BasicGeographicMap
+
+import { PathFinderGraphVisitorBase } from '../../../../../../../../org/allbinary/media/graphics/geography/pathfinding/PathFinderGraphVisitorBase.js';
+//not GWT import const PathFinderGraphVisitorBase
+
+import { PathFindingNode } from '../../../../../../../../org/allbinary/media/graphics/geography/pathfinding/PathFindingNode.js';
+//not GWT import const PathFindingNode
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class BasePathFinderGraphVisitor extends PathFinderGraphVisitorBase {
+        
+
+    geographicMapInterface: BasicGeographicMap;
+
+    readonly edgeMinimum: number;
+
+    readonly minPathWeight: number;
+
+    readonly maxPathWeight: number;
+
+public constructor (geographicMapInterface: BasicGeographicMap, edgeMinimum: number, minPathWeight: number, maxPathWeight: number){
+
+            super();
+        this.geographicMapInterface= geographicMapInterface;
+    
+this.edgeMinimum= edgeMinimum;
+    
+this.minPathWeight= minPathWeight;
+    
+this.maxPathWeight= maxPathWeight;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public visit(graph: SimpleWeightedGraph, startPathFindingNodeList: BasicArrayList, endPathFindingNodeList: BasicArrayList){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public fixPath(startPathFindingNodeList: BasicArrayList, endPathFindingNodeList: BasicArrayList, pathList: BasicArrayList){
+
+
+
+
+                        for (
+    let index: number = startPathFindingNodeList!.size() -1;index >= 0; index--)
+        {
+
+    let startPathFindingNode: PathFindingNode = startPathFindingNodeList!.get(index) as PathFindingNode;;
+    
+pathList!.remove(startPathFindingNode!.geographicMapCellPosition);
+    
+pathList!.addAt(0, startPathFindingNode!.geographicMapCellPosition);
+    
+}
+
+}
+
+
+    public isValid(graphPath: GraphPath): boolean{
+
+                        if(graphPath!.getEdgeList()!.size() > this.edgeMinimum && graphPath!.getWeight() < this.maxPathWeight && graphPath!.getWeight() > this.minPathWeight)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+    public getInvalidReason(graphPath: GraphPath): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+
+                        if(graphPath!.getEdgeList()!.size() < this.edgeMinimum)
+                        
+                                    {
+                                    stringBuffer!.append("Ignoring Small: " +graphPath!.getEdgeList()!.size());
+    
+
+                                    }
+                                
+
+                        if(graphPath!.getWeight() <= this.minPathWeight)
+                        
+                                    {
+                                    stringBuffer!.append(" Low Weighted Path: " +graphPath!.getWeight());
+    
+
+                                    }
+                                
+
+                        if(graphPath!.getWeight() >= this.maxPathWeight)
+                        
+                                    {
+                                    stringBuffer!.append(" To High Weighted Path: " +graphPath!.getWeight());
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+}
+

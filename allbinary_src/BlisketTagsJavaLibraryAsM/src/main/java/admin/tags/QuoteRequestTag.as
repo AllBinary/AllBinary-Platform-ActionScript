@@ -1,0 +1,240 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            //import { Class } from '../../java/lang/Class.js';
+            const Class = (globalThis.java?.lang?.Class ?? class {}) as typeof globalThis.java.lang.Class;
+            type Class<T = any, U = any> = typeof Class extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Class;
+        
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { Method } from '../../java/lang/reflect/Method.js';
+//not GWT import const Method
+
+import { JspTagException } from '../../javax/servlet/jsp/JspTagException.js';
+//not GWT import const JspTagException
+
+import { QuoteHelperFactory } from '../../admin/taghelpers/QuoteHelperFactory.js';
+//not GWT import const QuoteHelperFactory
+
+import { QuoteRequestHelperFactory } from '../../admin/taghelpers/QuoteRequestHelperFactory.js';
+//not GWT import const QuoteRequestHelperFactory
+
+import { StoreFrontData } from '../../org/allbinary/business/context/modules/storefront/StoreFrontData.js';
+//not GWT import const StoreFrontData
+
+import { AbResponseHandler } from '../../org/allbinary/logic/communication/http/request/AbResponseHandler.js';
+//not GWT import const AbResponseHandler
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { LicensingException } from '../../org/allbinary/logic/system/security/licensing/LicensingException.js';
+//not GWT import const LicensingException
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TableTag } from './TableTag.js';
+//sameFolderImports - not GWT import - same folder const TableTag
+
+export class QuoteRequestTag extends TableTag {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private storeName: string;
+
+public constructor (){
+
+            super();
+        this.setTagHelperFactory(new QuoteHelperFactory());
+    
+this.setTagRequestHelperFactory(new QuoteRequestHelperFactory());
+    
+}
+
+
+    public setStoreName(storeName: string){
+this.storeName= storeName;
+    
+}
+
+
+                //@Throws(LicensingException.constructor)
+            
+    email(): string{
+
+ try { 
+    let anyType: any = new QuoteHelperFactory().getInstance(this.getPropertiesHashMap(), pageContext)!;;
+    
+
+    let helperClass: Function = anyType!.constructor!;;
+    
+
+    let method: Method = helperClass!.getMethod("email", 
+                            null)!;;
+    
+
+    let result: string = method.invoke(anyType, 
+                            null) as string;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return result;
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+  else {
+  const e = caught;
+  
+
+    let error: string = "Failed to send QuoteRequest emails";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "sendEmail()", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(JspTagException.constructor)
+            
+    public doStartTag(): number{
+
+ try { 
+                        if(this.getCommand() != 
+                                    null
+                                )
+                        
+                                    {
+                                    this.getPropertiesHashMap()!.put(StoreFrontData.getInstance()!.NAME, this.storeName);
+    
+
+                        if(this.getCommand()!.compareTo("EMAIL") == 0)
+                        
+                                    {
+                                    this.email();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.EVAL_BODY_INCLUDE;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.doStartTag();;
+    
+
+                        }
+                            
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagLicensingRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+  else {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

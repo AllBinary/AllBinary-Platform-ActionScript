@@ -1,0 +1,407 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            //import { Class } from '../../../../../java/lang/Class.js';
+            const Class = (globalThis.java?.lang?.Class ?? class {}) as typeof globalThis.java.lang.Class;
+            type Class<T = any, U = any> = typeof Class extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Class;
+        
+            import { ClassLoader } from '../../../../../java/lang/ClassLoader.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { Thread } from '../../../../../java/lang/Thread.js';
+        
+import { Connection } from '../../../../../java/sql/Connection.js';
+//not GWT import const Connection
+
+import { ResultSet } from '../../../../../java/sql/ResultSet.js';
+//not GWT import const ResultSet
+
+import { SQLException } from '../../../../../java/sql/SQLException.js';
+//not GWT import const SQLException
+
+import { Statement } from '../../../../../java/sql/Statement.js';
+//not GWT import const Statement
+
+import { DatabaseConnectionInfoInterface } from '../../../../../org/allbinary/business/init/db/DatabaseConnectionInfoInterface.js';
+//not GWT import const DatabaseConnectionInfoInterface
+
+import { DbConnectionInfo } from '../../../../../org/allbinary/business/init/db/DbConnectionInfo.js';
+//not GWT import const DbConnectionInfo
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { SqlConnectionPool } from '../../../../../org/allbinary/logic/communication/sql/connection/pool/SqlConnectionPool.js';
+//not GWT import const SqlConnectionPool
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { CommonSeps } 
+const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
+type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { SqlTypeStrings } from './SqlTypeStrings.js';
+//sameFolderImports - not GWT import - same folder const SqlTypeStrings
+import { SqlStrings } from './SqlStrings.js';
+//sameFolderImports - not GWT import - same folder const SqlStrings
+
+export class AbSqlBasic
+            extends Object
+         {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly sqlConnectionPool: SqlConnectionPool = SqlConnectionPool.getInstance()!;
+
+    private databaseConnectionInfoInterface: DbConnectionInfo;
+
+    private connectAttemptCounter: number;
+
+    conn: Connection;
+
+    readonly stringUtil: StringUtil = StringUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    readonly commonSeps: CommonSeps = CommonSeps.getInstance()!;
+
+    readonly stdUtil: StdUtil = StdUtil.getInstance()!;
+
+    readonly sqlTypeStrings: SqlTypeStrings = SqlTypeStrings.getInstance()!;
+
+    readonly sqlStrings: SqlStrings = SqlStrings.getInstance()!;
+
+    readonly INSERT: string = "insert";
+
+    readonly UPDATE: string = "update";
+
+    readonly FAILED_SQL_STATEMENT: string = "Failed\nSQL Statement: ";
+
+    readonly SUCCESS_SQL_STATEMENT: string = "Success\nSQL Statement: ";
+
+    private readonly METHOD_EXECUTED_SQL_STATEMENT: string = "executedSQLStatement";
+
+    private readonly METHOD_CREATE: string = "create";
+
+    private readonly DATABASE_CREATED_LABEL: string = "Database Created: ";
+
+    private readonly DATABASE_CREATION_FAILED_LABEL: string = "Database Creation Failed: ";
+
+    private readonly SQL_CONNECTION_FAILED: string = "SQL Connection Failed";
+
+    private readonly SQL_CONNECTION_RETRYING: string = "SQL Connection Retrying";
+
+    private readonly SQL_CONNECTION_RETRY: string = "SQL Connection Retry";
+
+    private readonly METHOD_CREATE_CONNECTION: string = "createConnection()";
+
+    private readonly METHOD_INITIALIZE: string = "initialize";
+
+    private readonly LOAD_JDBC_DRIVER_FAILED_LABEL: string = "Load JDBC Driver Failed: ";
+
+public constructor (databaseConnectionInfoInterface: DbConnectionInfo){
+
+            super();
+        this.databaseConnectionInfoInterface= databaseConnectionInfoInterface;
+    
+this.connectAttemptCounter= 0;
+    
+this.conn= 
+                                        null
+                                    ;
+    
+}
+
+
+                //@Throws(SQLException.constructor)
+            
+    public executeSQLStatement(statement: string): ResultSet{
+
+ try { this.initialize();
+    
+
+    let stmt: Statement = this.conn.createStatement()!;;
+    
+stmt.execute(statement);
+    
+
+    let rset: ResultSet = stmt.getResultSet()!;;
+    
+stmt.close();
+    
+
+    let tempConnection: Connection = this.conn;;
+    
+this.conn= 
+                                        null
+                                    ;
+    
+this.sqlConnectionPool!.add(this.getDatabaseConnectionInfoInterface()!.getUrl(), tempConnection);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return rset;
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof SQLException) {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.FAILED_SQL_STATEMENT +statement, this, this.METHOD_EXECUTED_SQL_STATEMENT, e);
+    
+
+                                    }
+                                
+this.conn.close();
+    
+this.conn= 
+                                        null
+                                    ;
+    
+
+
+
+                            throw e;
+                    
+
+ }
+  else { throw caught; } }
+ 
+}
+
+
+    public create(databaseName: string): string{
+
+ try { this.executeSQLStatement(this.sqlStrings!.CREATE_DATABASE +databaseName);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.DATABASE_CREATED_LABEL +databaseName, this, this.METHOD_CREATE);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return databaseName +this.sqlStrings!.CREATE_RETURN;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.DATABASE_CREATION_FAILED_LABEL +databaseName, this, this.METHOD_CREATE, e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.DATABASE_CREATION_FAILED_LABEL +databaseName;
+    
+
+ }
+   }
+ 
+}
+
+
+    createConnection(){
+
+ try { this.conn= this.sqlConnectionPool!.get(this.getDatabaseConnectionInfoInterface()!.getUrl());
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof SQLException) {
+  const se = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.SQL_CONNECTION_RETRYING, this, this.METHOD_CREATE_CONNECTION, se);
+    
+
+                                    }
+                                
+
+ try { Thread.currentThread()!.sleep(2000);
+    
+
+                        if(this.connectAttemptCounter < 10)
+                        
+                                    {
+                                    this.connectAttemptCounter++;
+    
+this.initialize();
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.SQL_CONNECTION_RETRY +se.message, this, this.METHOD_CREATE_CONNECTION, e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+
+ }
+  else { throw caught; } }
+ 
+}
+
+
+    initialize(){
+
+ try { 
+
+                            {
+                            
+ try { 
+    let loader: ClassLoader = Thread.currentThread()!.getContextClassLoader()!;;
+    
+
+    let jdbcDriverClass: Function = loader.loadClass(this.getDatabaseConnectionInfoInterface()!.getJdbcDriver())!;;
+    
+jdbcDriverClass!.newInstance();
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.LOAD_JDBC_DRIVER_FAILED_LABEL +this.getDatabaseConnectionInfoInterface()!.getJdbcDriver(), this, this.METHOD_INITIALIZE, e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+
+                            }
+                    
+this.createConnection();
+    
+ }
+ catch (caught: any) {
+ {
+  const se = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLLOGGINGERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.SQL_CONNECTION_FAILED, this, this.METHOD_INITIALIZE, se);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+}
+
+
+    public getDatabaseConnectionInfoInterface(): DatabaseConnectionInfoInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.databaseConnectionInfoInterface;
+    
+}
+
+
+    public setDatabaseConnectionInfoInterface(databaseConnectionInfoInterface: DbConnectionInfo){
+this.databaseConnectionInfoInterface= databaseConnectionInfoInterface;
+    
+}
+
+
+}
+

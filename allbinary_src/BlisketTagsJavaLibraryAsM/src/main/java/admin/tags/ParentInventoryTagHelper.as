@@ -1,0 +1,116 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../java/lang/Object.js';
+        
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { Tag } from '../../javax/servlet/jsp/tagext/Tag.js';
+//not GWT import const Tag
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { HelperTag } from './HelperTag.js';
+//sameFolderImports - not GWT import - same folder const HelperTag
+
+export class ParentInventoryTagHelper
+            extends Object
+         {
+        
+
+    private static readonly instance: ParentInventoryTagHelper = new ParentInventoryTagHelper();
+
+    public static getInstance(): ParentInventoryTagHelper{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ParentInventoryTagHelper.instance;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public isValid(tagClass: any, parentTag: Tag){
+
+                        if(parentTag == 
+                                    null
+                                )
+                        
+                                    {
+                                    
+
+
+                            throw new Exception("Must have parent tag.");
+                    
+
+                                    }
+                                
+                             else 
+                        if(!(parentTag instanceof HelperTag))
+                        
+                                    {
+                                    
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append("Must have at least a ");
+    
+stringBuffer!.append("tags.HelperTag");
+    
+stringBuffer!.append(" as parent");
+    
+stringBuffer!.append("and not: ");
+    
+stringBuffer!.append(parentTag!.constructor.name.toString()!);
+    
+
+
+
+                            throw new Exception(stringBuffer!.toString());
+                    
+
+                                    }
+                                
+}
+
+
+}
+

@@ -1,0 +1,352 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            //import { Class } from '../../../java/lang/Class.js';
+            const Class = (globalThis.java?.lang?.Class ?? class {}) as typeof globalThis.java.lang.Class;
+            type Class<T = any, U = any> = typeof Class extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Class;
+        
+            import { Exception } from '../../../java/lang/Exception.js';
+        
+import { Method } from '../../../java/lang/reflect/Method.js';
+//not GWT import const Method
+
+import { JspTagException } from '../../../javax/servlet/jsp/JspTagException.js';
+//not GWT import const JspTagException
+
+import { AbResponseHandler } from '../../../org/allbinary/logic/communication/http/request/AbResponseHandler.js';
+//not GWT import const AbResponseHandler
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { LicensingException } from '../../../org/allbinary/logic/system/security/licensing/LicensingException.js';
+//not GWT import const LicensingException
+
+import { InventoryHelperFactory } from '../../../taghelpers/InventoryHelperFactory.js';
+//not GWT import const InventoryHelperFactory
+
+import { StoreValidationTransformTag } from '../../../tags/StoreValidationTransformTag.js';
+//not GWT import const StoreValidationTransformTag
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class InventoryTag extends StoreValidationTransformTag {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+public constructor (){
+            super();
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+                //@Throws(LicensingException.constructor)
+            
+    search(){
+
+ try { 
+    let anyType: any = new InventoryHelperFactory().getInstance(this.getPropertiesHashMap(), this.pageContext)!;;
+    
+
+    let addressHelperClass: Function = anyType!.constructor!;;
+    
+
+    let method: Method = addressHelperClass!.getMethod("search", 
+                            null)!;;
+    
+
+    let result: string = method.invoke(anyType, 
+                            null) as string;;
+    
+pageContext!.getOut()!.print(result);
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+  else {
+  const e = caught;
+  
+
+    let error: string = "Failed to search Inventory by keyword";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "search()", e);
+    
+
+                                    }
+                                
+
+ try { pageContext!.getOut()!.print(error +"<br>");
+    
+pageContext!.getOut()!.print("Exception: " +e +"<br>");
+    
+ }
+ catch (caught: any) {
+ {
+  const e2 = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.LICENSINGERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Exception in Exception Handling", this, "search()", e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(LicensingException.constructor)
+            
+    viewSummary(){
+
+ try { 
+    let anyType: any = new InventoryHelperFactory().getInstance(this.getPropertiesHashMap(), this.pageContext)!;;
+    
+
+    let helperClass: Function = anyType!.constructor!;;
+    
+
+    let method: Method = helperClass!.getMethod("viewSummary", 
+                            null)!;;
+    
+
+    let result: string = method.invoke(anyType, 
+                            null) as string;;
+    
+pageContext!.getOut()!.print(result);
+    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+
+
+
+                            throw e;
+                    
+
+ }
+  else {
+  const e = caught;
+  
+
+    let error: string = "Failed to View Summary";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "viewSummary()", e);
+    
+
+                                    }
+                                
+
+ try { pageContext!.getOut()!.print(error +"<br>");
+    
+pageContext!.getOut()!.print("Exception: " +e +"<br>");
+    
+ }
+ catch (caught: any) {
+ {
+  const e2 = caught;
+  
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.LICENSINGERROR))
+                        
+                                    {
+                                    this.logUtil!.put("Exception in Exception Handling", this, "viewSummary())", e);
+    
+
+                                    }
+                                
+
+ }
+   }
+ 
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(JspTagException.constructor)
+            
+    public doStartTag(): number{
+
+ try { 
+                        if(this.getCommand() != 
+                                    null
+                                )
+                        
+                                    {
+                                    
+                        if(this.getCommand()!.compareTo(org.allbinary.globals.GLOBALS2.SEARCH) == 0)
+                        
+                                    {
+                                    this.setName("Basic Search Inventory View");
+    
+this.setObjectFile("views.generic.inventory.AutoSearchValidationInventoryView");
+    
+this.search();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return EVAL_BODY_INCLUDE;
+    
+
+                                    }
+                                
+                             else 
+                        if(this.getCommand()!.compareTo(org.allbinary.globals.GLOBALS2.VIEWSUMMARY) == 0)
+                        
+                                    {
+                                    this.setName("Basic Inventory View");
+    
+this.setObjectFile("views.generic.inventory.AutoValidationInventoryView");
+    
+this.viewSummary();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return EVAL_BODY_INCLUDE;
+    
+
+                                    }
+                                
+                             else 
+                        if(this.getCommand()!.compareTo(org.allbinary.globals.GLOBALS2.VIEW) == 0)
+                        
+                                    {
+                                    this.setName("Basic Inventory View");
+    
+this.setObjectFile("views.generic.inventory.AutoValidationInventoryView");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return super.doStartTag();;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                            throw new Exception("No Such View Command: " +this.getCommand());
+                    
+
+                        }
+                            
+
+                                    }
+                                
+
+
+
+                            throw new Exception("Command Null");
+                    
+ }
+ catch (caught: any) {
+ if (caught instanceof LicensingException) {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagLicensingRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+  else {
+  const e = caught;
+  
+AbResponseHandler.sendJspTagRedirect(this.pageContext, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return SKIP_BODY;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

@@ -1,0 +1,1028 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../../java/lang/Exception.js';
+        
+            import { Integer } from '../../../../../../../java/lang/Integer.js';
+        
+            import { Long } from '../../../../../../../java/lang/Long.js';
+        
+import { Calendar } from '../../../../../../../java/util/Calendar.js';
+//not GWT import const Calendar
+
+import { HashMap } from '../../../../../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { EntryData } from '../../../../../../../org/allbinary/business/entry/EntryData.js';
+//not GWT import const EntryData
+
+import { Money } from '../../../../../../../org/allbinary/business/user/commerce/money/Money.js';
+//not GWT import const Money
+
+import { MoneyException } from '../../../../../../../org/allbinary/business/user/commerce/money/MoneyException.js';
+//not GWT import const MoneyException
+
+import { ProductIdGenerator } from '../../../../../../../org/allbinary/data/generator/ProductIdGenerator.js';
+//not GWT import const ProductIdGenerator
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { StringValidationUtil } from '../../../../../../../org/allbinary/logic/string/StringValidationUtil.js';
+//not GWT import const StringValidationUtil
+
+//not plain js import { CommonPhoneStrings } 
+const CommonPhoneStrings = globalThis.org.allbinary.string.CommonPhoneStrings;
+type CommonPhoneStrings<T = any, U = any> = typeof CommonPhoneStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonPhoneStrings;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ItemInterface } from './ItemInterface.js';
+//sameFolderImports - not GWT import - same folder const ItemInterface
+import { BasicItemData } from './BasicItemData.js';
+//sameFolderImports - not GWT import - same folder const BasicItemData
+
+export class BasicItem
+            extends Object
+         implements ItemInterface {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    readonly basicItemData: BasicItemData = BasicItemData.getInstance()!;
+
+    itemId: string;
+
+    number: string;
+
+    inBaskets: string;
+
+    weight: string;
+
+    enabled: string;
+
+    newOrUsed: string;
+
+    summary: string;
+
+    distributor: string;
+
+    idUsedByDistributor: string;
+
+    producedBy: string;
+
+    productionDate: string;
+
+    startProductionDate: string;
+
+    description: string;
+
+    keywords: string;
+
+    category: string;
+
+    type: string;
+
+    smallImage: string;
+
+    mediumImage: string;
+
+    largeImage: string;
+
+    price: Money;
+
+    comment: string;
+
+    customs: string;
+
+    private downloads: string;
+
+    groups: string;
+
+    options: string;
+
+    permissions: string;
+
+    specials: string;
+
+    private downloadable: boolean= false;
+
+    timeEntered: string;
+
+    lastModified: string;
+
+    public constructor(...args: any[]) {
+        super();if(args.length === 1) {
+            
+            this.constructor$0(args[0]);
+            
+        }
+        else if(args.length === 0) {
+            
+            this.constructor$1();
+            
+        }
+        
+    }
+    
+    private constructor$0(itemHashMap: HashMap<any, any>): void {
+        
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.PRODUCTSEARCHLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.START, this, "Constructor(HashMap)");
+    
+
+                                    }
+                                
+this.itemId= itemHashMap!.get(this.basicItemData!.ID) as string;
+    
+this.number= itemHashMap!.get(this.basicItemData!.NUMBER) as string;
+    
+this.inBaskets= itemHashMap!.get(this.basicItemData!.INBASKETS) as string;
+    
+this.weight= itemHashMap!.get(this.basicItemData!.WEIGHT) as string;
+    
+this.enabled= itemHashMap!.get(EntryData.getInstance()!.ENABLE) as string;
+    
+this.newOrUsed= itemHashMap!.get(this.basicItemData!.NEWORUSED) as string;
+    
+this.summary= itemHashMap!.get(this.basicItemData!.SUMMARY) as string;
+    
+this.distributor= itemHashMap!.get(this.basicItemData!.DISTRIBUTOR) as string;
+    
+this.idUsedByDistributor= itemHashMap!.get(this.basicItemData!.IDUSEDBYDISTRIBUTOR) as string;
+    
+this.producedBy= itemHashMap!.get(this.basicItemData!.PRODUCEDBY) as string;
+    
+this.productionDate= itemHashMap!.get(this.basicItemData!.PRODUCTIONDATE) as string;
+    
+this.startProductionDate= itemHashMap!.get(this.basicItemData!.STARTPRODUCTIONDATE) as string;
+    
+this.description= itemHashMap!.get(this.basicItemData!.DESCRIPTION) as string;
+    
+this.keywords= itemHashMap!.get(this.basicItemData!.KEYWORDS) as string;
+    
+this.category= itemHashMap!.get(this.basicItemData!.CATEGORY) as string;
+    
+this.type= itemHashMap!.get(this.basicItemData!.TYPE) as string;
+    
+this.smallImage= itemHashMap!.get(this.basicItemData!.SMALLIMAGE) as string;
+    
+this.mediumImage= itemHashMap!.get(this.basicItemData!.MEDIUMIMAGE) as string;
+    
+this.largeImage= itemHashMap!.get(this.basicItemData!.LARGEIMAGE) as string;
+    
+this.timeEntered= itemHashMap!.get(EntryData.getInstance()!.TIMECREATED) as string;
+    
+this.lastModified= itemHashMap!.get(EntryData.getInstance()!.LASTMODIFIED) as string;
+    
+this.price= new Money(itemHashMap!.get(this.basicItemData!.PRICE) as string);
+    
+this.comment= itemHashMap!.get(this.basicItemData!.COMMENT) as string;
+    
+this.customs= itemHashMap!.get(this.basicItemData!.CUSTOMS) as string;
+    
+this.setDownloads(itemHashMap!.get(this.basicItemData!.DOWNLOADS) as string);
+    
+this.groups= itemHashMap!.get(this.basicItemData!.GROUPS) as string;
+    
+this.options= itemHashMap!.get(this.basicItemData!.OPTIONS) as string;
+    
+this.permissions= itemHashMap!.get(this.basicItemData!.PERMISSIONS) as string;
+    
+this.specials= itemHashMap!.get(this.basicItemData!.SPECIALS) as string;
+    
+
+    }
+    
+    private constructor$1(): void {
+        
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.PRODUCTSEARCHLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    
+
+                                    }
+                                
+
+    let EMPTY: string = StringUtil.getInstance()!.EMPTY_STRING;;
+    
+this.itemId= new ProductIdGenerator().getNext();
+    
+this.number= CommonPhoneStrings.getInstance()!.ZERO;
+    
+this.inBaskets= EMPTY;
+    
+this.weight= EMPTY;
+    
+this.enabled= EMPTY;
+    
+this.newOrUsed= EMPTY;
+    
+this.summary= EMPTY;
+    
+this.distributor= EMPTY;
+    
+this.idUsedByDistributor= EMPTY;
+    
+this.producedBy= EMPTY;
+    
+this.productionDate= EMPTY;
+    
+this.startProductionDate= EMPTY;
+    
+this.description= EMPTY;
+    
+this.keywords= EMPTY;
+    
+this.category= EMPTY;
+    
+this.type= EMPTY;
+    
+this.smallImage= EMPTY;
+    
+this.mediumImage= EMPTY;
+    
+this.largeImage= EMPTY;
+    
+this.timeEntered= EMPTY;
+    
+this.lastModified= EMPTY;
+    
+this.price= new Money();
+    
+this.comment= EMPTY;
+    
+this.customs= EMPTY;
+    
+this.setDownloads(EMPTY);
+    
+this.groups= EMPTY;
+    
+this.options= EMPTY;
+    
+this.permissions= EMPTY;
+    
+this.specials= EMPTY;
+    
+
+    }
+    
+    public setId(itemId: string){
+this.itemId= itemId;
+    
+}
+
+
+    public setNumber(number: string){
+this.number= number;
+    
+}
+
+
+    public setInBaskets(value: string){
+this.inBaskets= value;
+    
+}
+
+
+    public setWeight(value: string){
+this.weight= value;
+    
+}
+
+
+    public setNewOrUsed(value: string){
+this.newOrUsed= value;
+    
+}
+
+
+    public setSummary(value: string){
+this.summary= value;
+    
+}
+
+
+    public setDistributor(value: string){
+this.distributor= value;
+    
+}
+
+
+    public setIdUsedByDistributor(value: string){
+this.idUsedByDistributor= value;
+    
+}
+
+
+    public setProducedBy(value: string){
+this.producedBy= value;
+    
+}
+
+
+    public setProductionDate(value: string){
+this.productionDate= value;
+    
+}
+
+
+    public setStartProductionDate(value: string){
+this.startProductionDate= value;
+    
+}
+
+
+    public setDescription(value: string){
+this.description= value;
+    
+}
+
+
+    public setKeywords(value: string){
+this.keywords= value;
+    
+}
+
+
+    public setCategory(value: string){
+this.category= value;
+    
+}
+
+
+    public setType(value: string){
+this.type= value;
+    
+}
+
+
+    public setSmallImage(value: string){
+this.smallImage= value;
+    
+}
+
+
+    public setMediumImage(value: string){
+this.mediumImage= value;
+    
+}
+
+
+    public setLargeImage(value: string){
+this.largeImage= value;
+    
+}
+
+
+    public setTimeEntered(value: string){
+this.timeEntered= value;
+    
+}
+
+
+    public setLastModified(value: string){
+this.lastModified= value;
+    
+}
+
+
+    public setPrice(value: Money){
+this.price= value;
+    
+}
+
+
+    public setComment(value: string){
+this.comment= value;
+    
+}
+
+
+    public setCustoms(value: string){
+this.customs= value;
+    
+}
+
+
+    public setDownloads(value: string){
+this.downloads= value;
+    
+
+                        if(!StringValidationUtil.getInstance()!.isEmpty(this.downloads))
+                        
+                                    {
+                                    
+    let downloadInteger: Integer = Integer.valueOf(this.downloads)!;;
+    
+
+                        if(downloadInteger!.intValue() != 0)
+                        
+                                    {
+                                    this.setDownloadable(true);
+    
+
+                                    }
+                                
+
+                                    }
+                                
+}
+
+
+    public setGroups(value: string){
+this.groups= value;
+    
+}
+
+
+    public setOptions(value: string){
+this.options= value;
+    
+}
+
+
+    public setPermissions(value: string){
+this.permissions= value;
+    
+}
+
+
+    public setSpecials(value: string){
+this.specials= value;
+    
+}
+
+
+    public setEnabled(value: string){
+this.enabled= value;
+    
+}
+
+
+    public getId(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.itemId;
+    
+}
+
+
+    public getNumber(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.number;
+    
+}
+
+
+    public getInBaskets(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.inBaskets;
+    
+}
+
+
+    public getWeight(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.weight;
+    
+}
+
+
+    public getNewOrUsed(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.newOrUsed;
+    
+}
+
+
+    public getSummary(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.summary;
+    
+}
+
+
+    public getDistributor(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.distributor;
+    
+}
+
+
+    public getIdUsedByDistributor(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.idUsedByDistributor;
+    
+}
+
+
+    public getProducedBy(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.producedBy;
+    
+}
+
+
+    public getProductionDate(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.productionDate;
+    
+}
+
+
+    public getStartProductionDate(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.startProductionDate;
+    
+}
+
+
+    public getDescription(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.description;
+    
+}
+
+
+    public getKeywords(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.keywords;
+    
+}
+
+
+    public getCategory(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.category;
+    
+}
+
+
+    public getType(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.type;
+    
+}
+
+
+    public getSmallImage(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.smallImage;
+    
+}
+
+
+    public getMediumImage(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.mediumImage;
+    
+}
+
+
+    public getLargeImage(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.largeImage;
+    
+}
+
+
+    public getTimeEntered(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.timeEntered;
+    
+}
+
+
+    public getLastModified(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.lastModified;
+    
+}
+
+
+    public getPrice(): Money{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.price;
+    
+}
+
+
+    public getComment(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.comment;
+    
+}
+
+
+    public getCustoms(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.customs;
+    
+}
+
+
+    public getDownloads(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.downloads;
+    
+}
+
+
+    public getGroups(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.groups;
+    
+}
+
+
+    public getOptions(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.options;
+    
+}
+
+
+    public getPermissions(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.permissions;
+    
+}
+
+
+    public getSpecials(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.specials;
+    
+}
+
+
+    public setDownloadable(downloadable: boolean){
+this.downloadable= downloadable;
+    
+}
+
+
+    public isDownloadable(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.downloadable;
+    
+}
+
+
+    public getEnabled(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.enabled;
+    
+}
+
+
+    public getTotal(): Money{
+
+    let itemTotal: Money = new Money(this.price);;
+    
+itemTotal!.multiply(new Integer(this.number).intValue());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return itemTotal;
+    
+}
+
+
+    public toHashMap(): HashMap<any, any>{
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.PRODUCTSEARCHLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.START, this, "toHashMap");
+    
+
+                                    }
+                                
+
+    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
+    
+hashMap!.put(this.basicItemData!.ID, this.itemId);
+    
+hashMap!.put(this.basicItemData!.NUMBER, this.number);
+    
+hashMap!.put(this.basicItemData!.INBASKETS, this.inBaskets);
+    
+hashMap!.put(this.basicItemData!.WEIGHT, this.weight);
+    
+hashMap!.put(EntryData.getInstance()!.ENABLE, this.enabled);
+    
+hashMap!.put(this.basicItemData!.NEWORUSED, this.newOrUsed);
+    
+hashMap!.put(this.basicItemData!.SUMMARY, this.summary);
+    
+hashMap!.put(this.basicItemData!.DISTRIBUTOR, this.distributor);
+    
+hashMap!.put(this.basicItemData!.IDUSEDBYDISTRIBUTOR, this.idUsedByDistributor);
+    
+hashMap!.put(this.basicItemData!.PRODUCEDBY, this.producedBy);
+    
+hashMap!.put(this.basicItemData!.PRODUCTIONDATE, this.productionDate);
+    
+hashMap!.put(this.basicItemData!.STARTPRODUCTIONDATE, this.startProductionDate);
+    
+hashMap!.put(this.basicItemData!.DESCRIPTION, this.description);
+    
+hashMap!.put(this.basicItemData!.KEYWORDS, this.keywords);
+    
+hashMap!.put(this.basicItemData!.CATEGORY, this.category);
+    
+hashMap!.put(this.basicItemData!.TYPE, this.type);
+    
+hashMap!.put(this.basicItemData!.SMALLIMAGE, this.smallImage);
+    
+hashMap!.put(this.basicItemData!.MEDIUMIMAGE, this.mediumImage);
+    
+hashMap!.put(this.basicItemData!.LARGEIMAGE, this.largeImage);
+    
+
+    let calendar: Calendar = Calendar.getInstance()!;;
+    
+
+    let time: string = new Long(calendar.getTimeInMillis()).toString()!;;
+    
+hashMap!.put(EntryData.getInstance()!.LASTMODIFIED, time);
+    
+hashMap!.put(this.basicItemData!.PRICE, this.price.toString());
+    
+hashMap!.put(this.basicItemData!.COMMENT, this.comment);
+    
+hashMap!.put(this.basicItemData!.CUSTOMS, this.customs);
+    
+hashMap!.put(this.basicItemData!.DOWNLOADS, this.getDownloads());
+    
+hashMap!.put(this.basicItemData!.GROUPS, this.groups);
+    
+hashMap!.put(this.basicItemData!.OPTIONS, this.options);
+    
+hashMap!.put(this.basicItemData!.PERMISSIONS, this.permissions);
+    
+hashMap!.put(this.basicItemData!.SPECIALS, this.specials);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return hashMap;
+    
+}
+
+
+    public toVector(): BasicArrayList{
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.PRODUCTSEARCHLOGGING))
+                        
+                                    {
+                                    this.logUtil!.putF(this.commonStrings!.START, this, "toVector");
+    
+
+                                    }
+                                
+
+    let values: BasicArrayList = new BasicArrayListD();;
+    
+values.add(this.itemId);
+    
+values.add(this.number);
+    
+values.add(this.inBaskets);
+    
+values.add(this.weight);
+    
+values.add(this.enabled);
+    
+values.add(this.newOrUsed);
+    
+values.add(this.summary);
+    
+values.add(this.distributor);
+    
+values.add(this.idUsedByDistributor);
+    
+values.add(this.producedBy);
+    
+values.add(this.productionDate);
+    
+values.add(this.startProductionDate);
+    
+values.add(this.description);
+    
+values.add(this.keywords);
+    
+values.add(this.category);
+    
+values.add(this.type);
+    
+values.add(this.getSmallImage());
+    
+values.add(this.getMediumImage());
+    
+values.add(this.getLargeImage());
+    
+
+    let calendar: Calendar = Calendar.getInstance()!;;
+    
+
+    let time: string = new Long(calendar.getTimeInMillis()).toString()!;;
+    
+values.add(time);
+    
+values.add(time);
+    
+values.add(this.price.toString());
+    
+values.add(this.comment);
+    
+values.add(this.customs);
+    
+values.add(this.getDownloads());
+    
+values.add(this.groups);
+    
+values.add(this.options);
+    
+values.add(this.permissions);
+    
+values.add(this.specials);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return values;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getKey(): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.getId();
+    
+}
+
+
+}
+

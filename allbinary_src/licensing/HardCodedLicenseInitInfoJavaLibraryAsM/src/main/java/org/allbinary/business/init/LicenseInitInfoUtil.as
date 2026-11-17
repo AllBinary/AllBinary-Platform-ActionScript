@@ -1,0 +1,123 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { LicenseInitInfo } from './LicenseInitInfo.js';
+//sameFolderImports - not GWT import - same folder const LicenseInitInfo
+
+export class LicenseInitInfoUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: LicenseInitInfoUtil = new LicenseInitInfoUtil();
+
+    public static getInstance(): LicenseInitInfoUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return LicenseInitInfoUtil.instance;
+    
+}
+
+
+    public readonly INITFILENAME: string = "licenseinitdata.dat";
+
+    public readonly ABOUT: string = "about";
+
+    public readonly PRIVACY_POLICY: string = "privacy_policy";
+
+    private readonly OFFICIAL_ALLBINARY_SERVICES_SERVER: string = "https://services.allbinary.com/LicServ/serverssl.php";
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public setFilePath(filePath: string){
+}
+
+
+private constructor (){
+
+            super();
+        }
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public write(initData: LicenseInitInfo){
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public read(): LicenseInitInfo{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.readAgain(0);;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public readAgain(initializeCounter: number): LicenseInitInfo{
+
+    let licenseInitInfo: LicenseInitInfo = new LicenseInitInfo();;
+    
+licenseInitInfo!.clearServers();
+    
+licenseInitInfo!.addServer(this.OFFICIAL_ALLBINARY_SERVICES_SERVER);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return licenseInitInfo;
+    
+}
+
+
+}
+

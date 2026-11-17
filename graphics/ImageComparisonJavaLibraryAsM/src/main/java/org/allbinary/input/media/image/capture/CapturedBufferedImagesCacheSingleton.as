@@ -1,0 +1,133 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../../java/lang/Exception.js';
+        
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AutomaticCacheInterface } from '../../../../../../org/allbinary/logic/util/cache/AutomaticCacheInterface.js';
+//not GWT import const AutomaticCacheInterface
+
+import { CacheInterface } from '../../../../../../org/allbinary/logic/util/cache/CacheInterface.js';
+//not GWT import const CacheInterface
+
+import { CacheInterfaceFactory } from '../../../../../../org/allbinary/logic/util/cache/CacheInterfaceFactory.js';
+//not GWT import const CacheInterfaceFactory
+
+import { CachePolicyFactory } from '../../../../../../org/allbinary/logic/util/cache/CachePolicyFactory.js';
+//not GWT import const CachePolicyFactory
+
+import { CacheTypeFactory } from '../../../../../../org/allbinary/logic/util/cache/CacheTypeFactory.js';
+//not GWT import const CacheTypeFactory
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class CapturedBufferedImagesCacheSingleton
+            extends Object
+         {
+        
+
+    private static cacheInterface: AutomaticCacheInterface = 
+                null
+            ;
+
+    public static getInstance(): CacheInterface{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return CapturedBufferedImagesCacheSingleton.cacheInterface;
+    
+}
+
+
+                private static initResult: number = CapturedBufferedImagesCacheSingleton.init();
+                private static init(): number { 
+                    
+
+    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+
+    let STATIC_BLOCK: string = "Static Block";;
+    
+
+    let instance: string = "CapturedBufferedImagesCacheSingleton";;
+    
+
+ try { logUtil!.putF(commonStrings!.START, instance, STATIC_BLOCK);
+    
+CapturedBufferedImagesCacheSingleton.cacheInterface= CacheInterfaceFactory.getInstance((), ()) as AutomaticCacheInterface;
+    
+logUtil!.putF(commonStrings!.END, instance, STATIC_BLOCK);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+logUtil!.put(commonStrings!.EXCEPTION, instance, STATIC_BLOCK, e);
+    
+
+ }
+   }
+ 
+
+
+                    return 0;
+                }
+            
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+private constructor (){
+
+            super();
+        }
+
+
+}
+

@@ -1,0 +1,99 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Throwable } from '../../../../../java/lang/Throwable.js';
+        
+import { Method } from '../../../../../java/lang/reflect/Method.js';
+//not GWT import const Method
+
+import { Proxy } from '../../../../../java/lang/reflect/Proxy.js';
+//not GWT import const Proxy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { InvocationHandler } from './InvocationHandler.js';
+//sameFolderImports - not GWT import - same folder const InvocationHandler
+
+export class InterfaceCastProxy
+            extends Object
+         implements java.lang.reflect.InvocationHandler {
+        
+
+    public static newInstance(anyType: any): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return Proxy.newProxyInstance(anyType!.constructor.namegetClassLoader(), anyType!.constructor.name.getInterfaces(), new InterfaceCastProxy(anyType));;
+    
+}
+
+
+    private anyType: any;
+
+private constructor (anyType: any){
+
+            super();
+        this.anyType= anyType;
+    
+}
+
+
+                //@Throws(Throwable.constructor)
+            
+    public invoke(proxyObject: any, proxyMethod: Method, proxyArgs: any[]): any{
+
+    let methodName: string = proxyMethod!.getName()!;;
+    
+
+    let realMethod: Method = this.anyType!.constructor.name.getMethod(methodName, proxyMethod!.getParameterTypes())!;;
+    
+
+                        if(!realMethod!.isAccessible())
+                        realMethod!.setAccessible(true)
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return proxyMethod!.invoke(this.anyType, proxyArgs);;
+    
+}
+
+
+}
+

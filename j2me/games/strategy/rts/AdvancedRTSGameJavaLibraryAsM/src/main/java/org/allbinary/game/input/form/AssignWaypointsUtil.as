@@ -1,0 +1,156 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2006 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { AdvancedRTSGameLayer } from '../../../../../org/allbinary/game/layer/AdvancedRTSGameLayer.js';
+//not GWT import const AdvancedRTSGameLayer
+
+import { NullPathFindingLayer } from '../../../../../org/allbinary/game/layer/NullPathFindingLayer.js';
+//not GWT import const NullPathFindingLayer
+
+import { PathFindingLayerInterface } from '../../../../../org/allbinary/game/layer/PathFindingLayerInterface.js';
+//not GWT import const PathFindingLayerInterface
+
+import { RTSLayer } from '../../../../../org/allbinary/game/layer/RTSLayer.js';
+//not GWT import const RTSLayer
+
+import { RTSLayerEvent } from '../../../../../org/allbinary/game/layer/RTSLayerEvent.js';
+//not GWT import const RTSLayerEvent
+
+import { UnitLayer } from '../../../../../org/allbinary/game/layer/unit/UnitLayer.js';
+//not GWT import const UnitLayer
+
+import { UnitWaypointBehavior } from '../../../../../org/allbinary/game/layer/unit/UnitWaypointBehavior.js';
+//not GWT import const UnitWaypointBehavior
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { PrimaryWaypointHelper } from './PrimaryWaypointHelper.js';
+//sameFolderImports - not GWT import - same folder const PrimaryWaypointHelper
+
+export class AssignWaypointsUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: AssignWaypointsUtil = new AssignWaypointsUtil();
+
+    public static getInstance(): AssignWaypointsUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return AssignWaypointsUtil.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private readonly WAYPOINT_EVENT: RTSLayerEvent = new RTSLayerEvent(NullPathFindingLayer.NULL_PATH_FINDING_LAYER);
+
+    public set(unitLayer: UnitLayer, ownerAdvancedRTSGameLayer: AdvancedRTSGameLayer){
+
+ try { 
+    let list: BasicArrayList = ownerAdvancedRTSGameLayer!.getWaypointBehavior()!.getOwnedWaypointList()!;;
+    
+
+    let unitWaypointBehavior: UnitWaypointBehavior = unitLayer!.getWaypointBehavior() as UnitWaypointBehavior;;
+    
+
+
+
+
+                        for (
+    let index: number = list.size() -1;index >= 0; index--)
+        {
+
+    let waypointLayer: RTSLayer = list.get(index) as RTSLayer;;
+    
+this.WAYPOINT_EVENT.setRtsLayer(waypointLayer);
+    
+unitWaypointBehavior!.onWaypointEvent(this.WAYPOINT_EVENT);
+    
+}
+
+
+    let waypointLayer: PathFindingLayerInterface = PrimaryWaypointHelper.getInstance()!.getWaypointLayer()!;;
+    
+
+                        if(waypointLayer != NullPathFindingLayer.NULL_PATH_FINDING_LAYER)
+                        
+                                    {
+                                    this.WAYPOINT_EVENT.setRtsLayer(waypointLayer);
+    
+unitWaypointBehavior!.onWaypointEvent(this.WAYPOINT_EVENT);
+    
+
+                                    }
+                                
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, "set", e);
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

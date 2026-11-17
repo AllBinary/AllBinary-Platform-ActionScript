@@ -1,0 +1,235 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2025 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../java/lang/Object.js';
+        
+            import { InterruptedException } from '../../java/lang/InterruptedException.js';
+        
+            import { System } from '../../java/lang/System.js';
+        
+import { Displayable } from '../../javax/microedition/lcdui/Displayable.js';
+//not GWT import const Displayable
+
+import { Form } from '../../javax/microedition/lcdui/Form.js';
+//not GWT import const Form
+
+import { InvalidRecordIDException } from '../../javax/microedition/rms/InvalidRecordIDException.js';
+//not GWT import const InvalidRecordIDException
+
+import { RecordStore } from '../../javax/microedition/rms/RecordStore.js';
+//not GWT import const RecordStore
+
+import { RecordStoreException } from '../../javax/microedition/rms/RecordStoreException.js';
+//not GWT import const RecordStoreException
+
+import { RecordStoreNotOpenException } from '../../javax/microedition/rms/RecordStoreNotOpenException.js';
+//not GWT import const RecordStoreNotOpenException
+
+//not plain js import { NullUtil } 
+const NullUtil = globalThis.org.allbinary.logic.NullUtil;
+type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //J2ME
+export class TsUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: TsUtil = new TsUtil();
+
+    public static getInstance(): TsUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return TsUtil.instance;
+    
+}
+
+
+    public hashCode(anyType: any): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return anyType!.hashCode();;
+    
+}
+
+
+                //@Throws(InterruptedException.constructor)
+            
+    public waitFor(any: any, timeoutMillis: number){
+
+    let anyType: any = any;;
+    
+anyType!.wait(timeoutMillis);
+    
+}
+
+
+                //@Throws(RecordStoreNotOpenException.constructor, InvalidRecordIDException.constructor, RecordStoreException.constructor)
+            
+    public getRecord(anyType: any, recordId: number): number[]{
+
+    let recordStore: RecordStore = anyType as RecordStore;;
+    
+
+    let data: number[];;
+    
+
+        
+        //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+        //synchronized(this) 
+
+        //mutex.withLock
+        
+data= new Array(recordStore!.getRecordSize(recordId)).fill(0);
+    
+recordStore!.getRecord(recordId, data, 0);
+    
+
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return (data.length < 1 ? NullUtil.getInstance()!.NULL_BYTE_ARRAY : data);
+    
+}
+
+
+    public compareTo(a: string, b: string): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return a.compareTo(b);;
+    
+}
+
+
+    public equalIgnoreCase(a: string, b: string): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return a.equalsIgnoreCase(b);;
+    
+}
+
+
+    public equalsNotstring(anyType: any, object2: any): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return (anyType === object2);;
+    
+}
+
+
+    public toNumberFromChar(value: string): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return globalThis.Math.trunc(value.charCodeAt(0));
+    
+}
+
+
+    public toNumber(value: number): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return value;
+    
+}
+
+
+    public getByteArray(string: string): number[]{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return Array.from(new TextEncoder().encode(string), byte => (byte << 24) >> 24);;
+    
+}
+
+
+    public isItemListener(owner: Displayable): boolean{
+
+                        if(owner instanceof Form)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+    public printAvailableMethods(anyType: any){
+}
+
+
+    public gc(){
+System.gc();
+    
+}
+
+
+}
+

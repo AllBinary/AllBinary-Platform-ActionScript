@@ -1,0 +1,133 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+import { HashMap } from '../../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListD } 
+const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
+type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
+
+import { BasicItemData } from '../../../org/allbinary/business/user/commerce/inventory/item/BasicItemData.js';
+//not GWT import const BasicItemData
+
+import { InventoryEntity } from '../../../org/allbinary/data/tables/user/commerce/inventory/item/InventoryEntity.js';
+//not GWT import const InventoryEntity
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { StringValidationUtil } from '../../../org/allbinary/logic/string/StringValidationUtil.js';
+//not GWT import const StringValidationUtil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class InventoryColumnUtil
+            extends Object
+         {
+        
+
+    private static readonly instance: InventoryColumnUtil = new InventoryColumnUtil();
+
+    public static getInstance(): InventoryColumnUtil{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return InventoryColumnUtil.instance;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly basicItemData: BasicItemData = BasicItemData.getInstance()!;
+
+    public getColumnWhereLike(inventoryEntity: InventoryEntity, category: string, column: string): BasicArrayList{
+this.logUtil!.putF("Start Category: " +category, this, "getKeywords");
+    
+
+    let keywords: BasicArrayList = new BasicArrayListD();;
+    
+
+    let vectorOfHashMaps: BasicArrayList = inventoryEntity!.getAllRows()!;;
+    
+
+    let size: number = vectorOfHashMaps!.size()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < size; index++)
+        {
+
+    let hashMap: HashMap<any, any> = vectorOfHashMaps!.get(index) as HashMap<any, any>;;
+    
+
+    let categoryName: string = hashMap!.get(this.basicItemData!.CATEGORY) as string;;
+    
+
+                        if(!StringValidationUtil.getInstance()!.isEmpty(categoryName) && categoryName!.startsWith(category))
+                        
+                                    {
+                                    keywords.add(hashMap!.get(column));
+    
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return keywords;
+    
+}
+
+
+}
+

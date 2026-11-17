@@ -1,0 +1,32 @@
+
+        /* Generated Code Do Not Modify */
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GL10 } from './GL10.js';
+//sameFolderImports - not GWT import - same folder const GL10
+
+export interface GL11 extends GL10 {
+        
+
+}
+

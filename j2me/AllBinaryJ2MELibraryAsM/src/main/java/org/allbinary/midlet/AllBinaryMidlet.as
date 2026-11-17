@@ -1,0 +1,307 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../java/lang/Exception.js';
+        
+import { Command } from '../../../javax/microedition/lcdui/Command.js';
+//not GWT import const Command
+
+import { CommandListener } from '../../../javax/microedition/lcdui/CommandListener.js';
+//not GWT import const CommandListener
+
+import { Display } from '../../../javax/microedition/lcdui/Display.js';
+//not GWT import const Display
+
+import { Displayable } from '../../../javax/microedition/lcdui/Displayable.js';
+//not GWT import const Displayable
+
+import { NullCanvas } from '../../../javax/microedition/lcdui/NullCanvas.js';
+//not GWT import const NullCanvas
+
+import { MIDlet } from '../../../javax/microedition/midlet/MIDlet.js';
+//not GWT import const MIDlet
+
+import { MIDletStateChangeException } from '../../../javax/microedition/midlet/MIDletStateChangeException.js';
+//not GWT import const MIDletStateChangeException
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { ForcedLogUtil } 
+const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
+type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { EventStrings } from '../../../org/allbinary/logic/util/event/EventStrings.js';
+//not GWT import const EventStrings
+
+//not plain js import { CommonLabels } 
+const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
+type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { Memory } from '../../../org/allbinary/system/Memory.js';
+//not GWT import const Memory
+
+//not plain js import { NullUtil } 
+const NullUtil = globalThis.org.allbinary.logic.NullUtil;
+type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class AllBinaryMidlet extends MIDlet implements CommandListener {
+        
+
+    private static NULL_ALLBINARY_MIDLET: any = NullUtil.getInstance()!.NULL_OBJECT;
+
+    public static getNullInstance(): AllBinaryMidlet{
+
+                        if(AllBinaryMidlet.NULL_ALLBINARY_MIDLET == NullUtil.getInstance()!.NULL_OBJECT)
+                        
+                                    {
+                                    AllBinaryMidlet.NULL_ALLBINARY_MIDLET= new AllBinaryMidlet();
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return AllBinaryMidlet.NULL_ALLBINARY_MIDLET as AllBinaryMidlet;
+    
+}
+
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly SET_DISPLAY: string = "setDisplay";
+
+    private readonly SETTING_: string = "Setting: ";
+
+    private readonly _DISPLAY_: string = " Display: ";
+
+    private readonly SETTING_NO_TITLE: string = "Setting: No Title, Display: ";
+
+    private hashtable: ABHashtable<any, any> = StdUtil.getInstance()!.createHashtable()!;
+
+    private midletDestroyed: boolean= false;
+
+public constructor (){
+
+            super();
+        this.logUtil!.putF(this.commonStrings!.CONSTRUCTOR, this, "AllBinaryMidlet::AllBinaryMidlet");
+    
+}
+
+
+    setDisplay(newDisplay: Displayable){
+
+    let title: string = StringUtil.getInstance()!.EMPTY_STRING;;
+    
+
+                        if(newDisplay != NullCanvas.NULL_CANVAS)
+                        
+                                    {
+                                    title= newDisplay!.getTitle();
+    
+this.logUtil!.putF(new StringMaker().append(this.SETTING_)!.append(title)!.append(this._DISPLAY_)!.append(StringUtil.getInstance()!.toString(newDisplay))!.toString(), this, this.SET_DISPLAY);
+    
+
+                                    }
+                                
+
+    let display: Display = this.getDisplay()!;;
+    
+display.setCurrent(newDisplay);
+    
+}
+
+
+    public getDisplay(): Display{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return Display.getDisplay(this);;
+    
+}
+
+
+    getCurrentDisplayable(): Displayable{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return Display.getDisplay(this)!.getCurrent();;
+    
+}
+
+
+    public setDestroyed(destroyed: boolean){
+this.midletDestroyed= destroyed;
+    
+}
+
+
+    public isDestroyed(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.midletDestroyed;
+    
+}
+
+
+                //@Throws(MIDletStateChangeException.constructor)
+            
+    startApp(){
+ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
+    
+}
+
+
+    pauseApp(){
+ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
+    
+}
+
+
+    destroyAppInRunnable(unconditional: boolean, isProgress: boolean){
+}
+
+
+    destroyApp(unconditional: boolean){
+
+    let METHOD_NAME: string = "AllBinaryMidlet::destroyApp";;
+    
+
+ try { this.logUtil!.putF(this.commonStrings!.START, this, METHOD_NAME);
+    
+PreLogUtil.put(Memory.getInfo(), this, METHOD_NAME);
+    
+this.setDestroyed(true);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, METHOD_NAME, e);
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setStartStateHashtable(hashtable: ABHashtable<any, any>){
+this.logUtil!.putF(new StringMaker().append(CommonLabels.getInstance()!.START_LABEL)!.append(StringUtil.getInstance()!.toString(hashtable))!.toString(), this, "setStartStateHashtable");
+    
+this.hashtable= hashtable;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getStartStateHashtable(): ABHashtable<any, any>{
+this.logUtil!.putF(new StringMaker().append(CommonLabels.getInstance()!.START_LABEL)!.append(StringUtil.getInstance()!.toString(this.hashtable))!.toString(), this, "getStartStateHashtable");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.hashtable;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getCurrentStateHashtable(): ABHashtable<any, any>{
+this.logUtil!.putF(this.commonStrings!.START, this, "getStateHashtable");
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return StdUtil.getInstance()!.NULL_TABLE;
+    
+}
+
+
+    public commandAction(command: Command, displayable: Displayable){
+}
+
+
+}//JSNI Expose so JSNI can access this class *** 
+ globalThis.org = globalThis.org || {}; 
+ globalThis.org.allbinary = globalThis.org.allbinary || {}; 
+ globalThis.org.allbinary.midlet = globalThis.org.allbinary.midlet || {}; 
+ globalThis.org.allbinary.midlet.AllBinaryMidlet = AllBinaryMidlet; 
+ console.log('Exported AllBinaryMidlet as globalThis'); 
+

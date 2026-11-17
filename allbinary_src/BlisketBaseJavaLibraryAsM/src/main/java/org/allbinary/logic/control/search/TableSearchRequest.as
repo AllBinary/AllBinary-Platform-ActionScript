@@ -1,0 +1,192 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { ModDomHelper } from '../../../../../org/allbinary/data/tree/dom/ModDomHelper.js';
+//not GWT import const ModDomHelper
+
+import { FREEBLISKET_PATH_GLOBALS } from '../../../../../org/allbinary/globals/FREEBLISKET_PATH_GLOBALS.js';
+//not GWT import const FREEBLISKET_PATH_GLOBALS
+
+import { URLGLOBALS } from '../../../../../org/allbinary/globals/URLGLOBALS.js';
+//not GWT import const URLGLOBALS
+
+import { Document } from '../../../../../org/w3c/dom/Document.js';
+//not GWT import const Document
+
+import { Node } from '../../../../../org/w3c/dom/Node.js';
+//not GWT import const Node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { SearchParams } from './SearchParams.js';
+//sameFolderImports - not GWT import - same folder const SearchParams
+import { SearchData } from './SearchData.js';
+//sameFolderImports - not GWT import - same folder const SearchData
+
+export class TableSearchRequest
+            extends Object
+         {
+        
+
+    private xslFile: string;
+
+    private pageName: string;
+
+    private contentType: string;
+
+    private keywords: string;
+
+    private searchParams: SearchParams;
+
+public constructor (keywords: string, searchParams: SearchParams, xslFile: string, contentType: string){
+
+            super();
+        this.keywords= keywords;
+    
+this.searchParams= searchParams;
+    
+this.xslFile= xslFile;
+    
+this.pageName= this.pageName;
+    
+this.contentType= contentType;
+    
+}
+
+
+    public setKeywords(value: string){
+this.keywords= value;
+    
+}
+
+
+    public setParams(searchParams: SearchParams){
+this.searchParams= searchParams;
+    
+}
+
+
+    public setXslFile(value: string){
+this.xslFile= value;
+    
+}
+
+
+    public setFileBaseName(value: string){
+this.pageName= value;
+    
+}
+
+
+    public setContentType(value: string){
+this.contentType= value;
+    
+}
+
+
+    public getKeywords(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.keywords;
+    
+}
+
+
+    public getParams(): SearchParams{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.searchParams;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getXslFile(): string{
+
+    let path: string = URLGLOBALS.getMainPath() +FREEBLISKET_PATH_GLOBALS.getInstance()!.XSLPATH +this.xslFile;;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return path;
+    
+}
+
+
+    public getFileBaseName(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.pageName;
+    
+}
+
+
+    public getContentType(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.contentType;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getFileBaseNameNode(document: Document): Node{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ModDomHelper.createNameValueNodes(document, SearchData.FILENAME, this.getFileBaseName());;
+    
+}
+
+
+}
+

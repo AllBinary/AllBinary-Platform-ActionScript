@@ -1,0 +1,185 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { IndexedAnimation } from '../../../../../org/allbinary/animation/IndexedAnimation.js';
+//not GWT import const IndexedAnimation
+
+import { CanvasStrings } from '../../../../../org/allbinary/graphics/displayable/CanvasStrings.js';
+//not GWT import const CanvasStrings
+
+import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
+//not GWT import const AllBinaryLayer
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+//not plain js import { CircularIndexUtil } 
+const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
+type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
+
+import { ViewPosition } from '../../../../../org/allbinary/view/ViewPosition.js';
+//not GWT import const ViewPosition
+
+import { ViewPositionBase } from '../../../../../org/allbinary/view/ViewPositionBase.js';
+//not GWT import const ViewPositionBase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { DamageFloaters } from './DamageFloaters.js';
+//sameFolderImports - not GWT import - same folder const DamageFloaters
+
+export class AnimationDamageFloaters extends DamageFloaters {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private layerInterface: AllBinaryLayer;
+
+    private animationInterfaceArray: IndexedAnimation[];
+
+    private readonly circularIndexUtil: CircularIndexUtil;
+
+    private dx: number;
+
+    private dy: number;
+
+public constructor (layerInterface: AllBinaryLayer, animationInterfaceArray: IndexedAnimation[], dx: number, dy: number){
+
+            super();
+        this.animationInterfaceArray= animationInterfaceArray;
+    
+
+
+
+
+                        for (
+    let index: number = this.animationInterfaceArray!.length -1;index >= 0; index--)
+        {
+this.animationInterfaceArray[index]!.setFrame(this.animationInterfaceArray[index]!.getSize() -1);
+    
+}
+
+this.layerInterface= layerInterface;
+    
+this.circularIndexUtil= CircularIndexUtil.createInstance(this.animationInterfaceArray!.length);
+    
+this.dx= dx;
+    
+this.dy= dy;
+    
+}
+
+
+    public add(damage: number){
+
+    let i: number = this.circularIndexUtil!.getIndex()!;;
+    
+this.animationInterfaceArray[i]!.setFrame(0);
+    
+this.circularIndexUtil!.next();
+    
+}
+
+
+    public paint(graphics: Graphics){
+
+ try { 
+    let viewPosition: ViewPositionBase = this.layerInterface!.getViewPosition()!;;
+    
+
+    let x: number = viewPosition!.getX()!;;
+    
+
+    let y: number = viewPosition!.getY()!;;
+    
+
+
+
+
+                        for (
+    let index: number = 0;index < this.animationInterfaceArray!.length; index++)
+        {
+
+    let animationInterface: IndexedAnimation = this.animationInterfaceArray[index]!;;
+    
+
+                        if(animationInterface!.getFrame() < animationInterface!.getAnimationSize() -1)
+                        
+                                    {
+                                    
+    let delta: number = animationInterface!.getFrame() *20;;
+    
+animationInterface!.paintXY(graphics, x +this.dx, y -delta +this.dy);
+    
+animationInterface!.nextFrame();
+    
+
+                                    }
+                                
+}
+
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+
+    let canvasStrings: CanvasStrings = CanvasStrings.getInstance()!;;
+    
+this.logUtil!.put(commonStrings!.EXCEPTION, this, canvasStrings!.PAINT, e);
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

@@ -1,0 +1,131 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { NoCompleteMotionGestureInputEventListener } from '../../../../org/allbinary/game/input/motion/action/NoCompleteMotionGestureInputEventListener.js';
+//not GWT import const NoCompleteMotionGestureInputEventListener
+
+import { AllBinarySensor } from '../../../../org/allbinary/input/AllBinarySensor.js';
+//not GWT import const AllBinarySensor
+
+import { NoAllBinarySensor } from '../../../../org/allbinary/input/NoAllBinarySensor.js';
+//not GWT import const NoAllBinarySensor
+
+import { AccelerometerSensorFactory } from '../../../../org/allbinary/input/accelerometer/AccelerometerSensorFactory.js';
+//not GWT import const AccelerometerSensorFactory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GyroSensorFactory } from './GyroSensorFactory.js';
+//sameFolderImports - not GWT import - same folder const GyroSensorFactory
+
+export class SensorGameUpdateProcessor
+            extends Object
+         {
+        
+
+    private inputSensor: AllBinarySensor;
+
+    setInputSensor(inputSensor: AllBinarySensor){
+this.inputSensor= inputSensor;
+    
+}
+
+
+    public getInputSensor(): AllBinarySensor{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.inputSensor;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public process(anyType: any){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public sendNotifications(anyType: any){
+}
+
+
+    public isAnySensor(): boolean{
+
+                        if(this.inputSensor == NoAllBinarySensor.getInstance())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+                        }
+                            
+}
+
+
+    setNoSensors(){
+GyroSensorFactory.getInstance()!.setCompleteMotionGestureInputEventListener(NoCompleteMotionGestureInputEventListener.getInstance());
+    
+AccelerometerSensorFactory.getInstance()!.setCompleteMotionGestureInputEventListener(NoCompleteMotionGestureInputEventListener.getInstance());
+    
+this.setInputSensor(NoAllBinarySensor.getInstance());
+    
+}
+
+
+}
+

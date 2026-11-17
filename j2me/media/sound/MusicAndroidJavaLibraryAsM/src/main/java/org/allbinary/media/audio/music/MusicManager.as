@@ -1,0 +1,360 @@
+
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            //import { Class } from '../../../../../java/lang/Class.js';
+            const Class = (globalThis.java?.lang?.Class ?? class {}) as typeof globalThis.java.lang.Class;
+            type Class<T = any, U = any> = typeof Class extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Class;
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+import { Activity } from '../../../../../android/app/Activity.js';
+//not GWT import const Activity
+
+import { Context } from '../../../../../android/content/Context.js';
+//not GWT import const Context
+
+import { Intent } from '../../../../../android/content/Intent.js';
+//not GWT import const Intent
+
+import { AndroidServicesUtil } from '../../../../../org/allbinary/android/AndroidServicesUtil.js';
+//not GWT import const AndroidServicesUtil
+
+//not plain js import { ResourceUtil } 
+const ResourceUtil = globalThis.org.allbinary.data.resource.ResourceUtil;
+type ResourceUtil<T = any, U = any> = typeof ResourceUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ResourceUtil;
+
+//not plain js import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+import { NoSound } from '../../../../../org/allbinary/media/audio/NoSound.js';
+//not GWT import const NoSound
+
+import { Sound } from '../../../../../org/allbinary/media/audio/Sound.js';
+//not GWT import const Sound
+
+//not plain js import { CommonStateStrings } 
+const CommonStateStrings = globalThis.org.allbinary.string.CommonStateStrings;
+type CommonStateStrings<T = any, U = any> = typeof CommonStateStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStateStrings;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+import { GameTickTimeDelayHelper } from '../../../../../org/allbinary/time/GameTickTimeDelayHelper.js';
+//not GWT import const GameTickTimeDelayHelper
+
+import { GameTickTimeDelayHelperFactory } from '../../../../../org/allbinary/time/GameTickTimeDelayHelperFactory.js';
+//not GWT import const GameTickTimeDelayHelperFactory
+
+import { TimeDelayHelper } from '../../../../../org/allbinary/time/TimeDelayHelper.js';
+//not GWT import const TimeDelayHelper
+
+//not plain js import { BasicArrayList } 
+const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
+type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+
+//not plain js import { BasicArrayListUtil } 
+const BasicArrayListUtil = globalThis.org.allbinary.util.BasicArrayListUtil;
+type BasicArrayListUtil<T = any, U = any> = typeof BasicArrayListUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { MusicStrings } from './MusicStrings.js';
+//sameFolderImports - not GWT import - same folder const MusicStrings
+
+export class MusicManager
+            extends Object
+         {
+        
+
+    public static pause(activity: Activity, musicServiceClass: Function){
+
+    let commonStateStrings: CommonStateStrings = CommonStateStrings.getInstance()!;;
+    
+
+    let musicPauseIntent: Intent = new Intent(activity as Context, musicServiceClass.prototype.constructor);;
+    
+musicPauseIntent!.putExtra(commonStateStrings!.ON_START_COMMAND, 1);
+    
+activity.startService(musicPauseIntent);
+    
+}
+
+
+    public static resume(activity: Activity, musicServiceClass: Function){
+
+                        if(AndroidServicesUtil.getInstance()!.isServiceRunning(musicServiceClass!.toString()!))
+                        
+                                    {
+                                    
+    let commonStateStrings: CommonStateStrings = CommonStateStrings.getInstance()!;;
+    
+
+    let musicResumeIntent: Intent = new Intent(activity, musicServiceClass.prototype.constructor);;
+    
+musicResumeIntent!.putExtra(commonStateStrings!.ON_START_COMMAND, 2);
+    
+activity.startService(musicResumeIntent);
+    
+
+                                    }
+                                
+}
+
+
+    private readonly PLAY: string = "Play ";
+
+    private readonly FOR: string = " for: ";
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+    private readonly musicStrings: MusicStrings = MusicStrings.getInstance()!;
+
+    private readonly commonStateStrings: CommonStateStrings = CommonStateStrings.getInstance()!;
+
+    private readonly basicArrayListUtil: BasicArrayListUtil = BasicArrayListUtil.getInstance()!;
+
+    private readonly resourceUtil: ResourceUtil = ResourceUtil.getInstance()!;
+
+    private readonly androidServicesUtil: AndroidServicesUtil = AndroidServicesUtil.getInstance()!;
+
+    private readonly gameTickTimeDelayHelper: GameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance()!;
+
+    private readonly timeDelayHelper: TimeDelayHelper = new TimeDelayHelper(0);
+
+    private readonly timeDelayHelper2: TimeDelayHelper = new TimeDelayHelper(1200);
+
+    private readonly songList: BasicArrayList;
+
+    private currentSongSound: Sound = NoSound.getInstance()!;
+
+    private nextSongSound: Sound = NoSound.getInstance()!;
+
+    private leftVolume: number = 100;
+
+    private rightVolume: number = 100;
+
+    private readonly musicServiceClass: Function;
+
+    private readonly currentIntent: Intent;
+
+public constructor (musicServiceClass: Function, songList: BasicArrayList){
+
+            super();
+        PreLogUtil.put(this.commonStateStrings!.CONTEXT +this.resourceUtil!.getContext(), this, this.commonStrings!.CONSTRUCTOR);
+    
+this.musicServiceClass= musicServiceClass;
+    
+this.currentIntent= new Intent(this.resourceUtil!.getContext(), musicServiceClass.prototype.constructor);
+    
+this.songList= songList;
+    
+}
+
+
+    public nextSong(nextSongSound: Sound, leftVolume: number, rightVolume: number){
+
+                        if(nextSongSound == 
+                                    null
+                                )
+                        
+                                    {
+                                    nextSongSound= NoSound.getInstance();
+    
+
+                                    }
+                                
+this.nextSongSound= nextSongSound;
+    
+this.leftVolume= leftVolume;
+    
+this.rightVolume= rightVolume;
+    
+this.reset();
+    
+}
+
+
+    public reset(){
+this.timeDelayHelper!.delay= 0;
+    
+}
+
+
+    public process(){
+
+                        if(this.songList!.size() == 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+
+                        if(this.timeDelayHelper!.isTime(this.gameTickTimeDelayHelper!.startTime))
+                        
+                                    {
+                                    this.startNewSong();
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return ;
+    
+
+                                    }
+                                
+
+                        if(this.timeDelayHelper2!.isTime(this.gameTickTimeDelayHelper!.startTime))
+                        
+                                    {
+                                    
+                        if(this.androidServicesUtil!.isServiceRunning(this.musicServiceClass!.toString()!))
+                        
+                                    {
+                                    
+                                    }
+                                
+                        else {
+                            this.startNewSong();
+    
+
+                        }
+                            
+
+                                    }
+                                
+}
+
+
+    public show(){
+
+
+
+
+                        for (
+    let index: number = this.songList!.size()!;--index >= 0; )
+        {
+
+    let sound: Sound = this.songList!.get(index) as Sound;;
+    
+
+    let duration: number = sound.getDuration();;
+    
+PreLogUtil.put(new StringMaker().append(this.PLAY)!.append(sound.getResource())!.append(this.FOR)!.appendlong(duration)!.toString(), this, this.commonStrings!.PROCESS);
+    
+}
+
+}
+
+
+    public startNewSong(){
+
+ try { this.resourceUtil!.getContext()!.stopService(this.currentIntent);
+    
+
+                        if(this.nextSongSound == NoSound.getInstance())
+                        
+                                    {
+                                    this.currentSongSound= this.basicArrayListUtil!.getRandom(this.songList) as Sound;
+    
+
+                                    }
+                                
+                        else {
+                            this.currentSongSound= this.nextSongSound;
+    
+this.nextSongSound= NoSound.getInstance();
+    
+
+                        }
+                            
+
+    let duration: number = this.currentSongSound!.getDuration();;
+    
+PreLogUtil.put(new StringMaker().append(this.PLAY)!.append(this.currentSongSound!.getResource())!.append(this.FOR)!.appendlong(duration)!.toString(), this, this.commonStrings!.PROCESS);
+    
+this.timeDelayHelper!.delay= globalThis.Math.trunc(duration);
+    
+this.currentIntent!.putExtra(this.musicStrings!.SONG_EXTRA, this.resourceUtil!.getResourceId(this.currentSongSound!.getResource())!.intValue());
+    
+this.currentIntent!.putExtra(this.musicStrings!.LEFT_VOLUME, this.leftVolume);
+    
+this.currentIntent!.putExtra(this.musicStrings!.RIGHT_VOLUME, this.rightVolume);
+    
+this.resourceUtil!.getContext()!.startService(this.currentIntent);
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let resource: string = StringUtil.getInstance()!.EMPTY_STRING;;
+    
+
+                        if(this.currentSongSound != 
+                                    null
+                                )
+                        
+                                    {
+                                    resource= this.currentSongSound!.getResource();
+    
+
+                                    }
+                                
+PreLogUtil.putOE(this.commonStrings!.EXCEPTION_LABEL +resource, this, this.commonStrings!.PROCESS, e);
+    
+
+ }
+   }
+ 
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public stop(){
+this.resourceUtil!.getContext()!.stopService(this.currentIntent);
+    
+}
+
+
+}
+

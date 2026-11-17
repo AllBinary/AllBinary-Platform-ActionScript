@@ -1,0 +1,530 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2011 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../../../java/lang/Exception.js';
+        
+import { InitInfoEntity } from '../../../../org/allbinary/business/init/InitInfoEntity.js';
+//not GWT import const InitInfoEntity
+
+import { DatabaseConnectionInfoInterface } from '../../../../org/allbinary/business/init/db/DatabaseConnectionInfoInterface.js';
+//not GWT import const DatabaseConnectionInfoInterface
+
+import { DbConnectionInfo } from '../../../../org/allbinary/business/init/db/DbConnectionInfo.js';
+//not GWT import const DbConnectionInfo
+
+import { HistoryDbInitInfo } from '../../../../org/allbinary/business/init/db/HistoryDbInitInfo.js';
+//not GWT import const HistoryDbInitInfo
+
+import { InventoryDbInitInfo } from '../../../../org/allbinary/business/init/db/InventoryDbInitInfo.js';
+//not GWT import const InventoryDbInitInfo
+
+import { LogDbInitInfo } from '../../../../org/allbinary/business/init/db/LogDbInitInfo.js';
+//not GWT import const LogDbInitInfo
+
+import { StaticPagesDbInitInfo } from '../../../../org/allbinary/business/init/db/StaticPagesDbInitInfo.js';
+//not GWT import const StaticPagesDbInitInfo
+
+import { UserDbInitInfo } from '../../../../org/allbinary/business/init/db/UserDbInitInfo.js';
+//not GWT import const UserDbInitInfo
+
+import { StoreFrontsEntityFactory } from '../../../../org/allbinary/data/tables/context/module/storefronts/StoreFrontsEntityFactory.js';
+//not GWT import const StoreFrontsEntityFactory
+
+import { LogTableEntityFactory } from '../../../../org/allbinary/data/tables/log/LogTableEntityFactory.js';
+//not GWT import const LogTableEntityFactory
+
+import { StaticPagesEntityFactory } from '../../../../org/allbinary/data/tables/staticpages/StaticPagesEntityFactory.js';
+//not GWT import const StaticPagesEntityFactory
+
+import { TransformInfoEntityBuilder } from '../../../../org/allbinary/data/tables/transform/info/TransformInfoEntityBuilder.js';
+//not GWT import const TransformInfoEntityBuilder
+
+import { UserEntityFactory } from '../../../../org/allbinary/data/tables/user/UserEntityFactory.js';
+//not GWT import const UserEntityFactory
+
+import { BillingAddressesEntityFactory } from '../../../../org/allbinary/data/tables/user/address/billing/BillingAddressesEntityFactory.js';
+//not GWT import const BillingAddressesEntityFactory
+
+import { ShippingAddressesEntityFactory } from '../../../../org/allbinary/data/tables/user/address/shipping/ShippingAddressesEntityFactory.js';
+//not GWT import const ShippingAddressesEntityFactory
+
+import { InventoryEntityFactory } from '../../../../org/allbinary/data/tables/user/commerce/inventory/item/InventoryEntityFactory.js';
+//not GWT import const InventoryEntityFactory
+
+import { OrderHistoryEntityFactory } from '../../../../org/allbinary/data/tables/user/commerce/inventory/order/OrderHistoryEntityFactory.js';
+//not GWT import const OrderHistoryEntityFactory
+
+import { OrderItemsEntityFactory } from '../../../../org/allbinary/data/tables/user/commerce/inventory/order/OrderItemsEntityFactory.js';
+//not GWT import const OrderItemsEntityFactory
+
+import { PaymentEntityFactory } from '../../../../org/allbinary/data/tables/user/commerce/money/payment/PaymentEntityFactory.js';
+//not GWT import const PaymentEntityFactory
+
+import { PaymentGatewayEntityFactory } from '../../../../org/allbinary/data/tables/user/commerce/money/payment/gateway/PaymentGatewayEntityFactory.js';
+//not GWT import const PaymentGatewayEntityFactory
+
+import { TransactionEntityFactory } from '../../../../org/allbinary/data/tables/user/commerce/money/payment/transaction/TransactionEntityFactory.js';
+//not GWT import const TransactionEntityFactory
+
+import { TransactionResultEntityFactory } from '../../../../org/allbinary/data/tables/user/commerce/money/payment/transaction/TransactionResultEntityFactory.js';
+//not GWT import const TransactionResultEntityFactory
+
+import { QuoteRequestEntityFactory } from '../../../../org/allbinary/data/tables/user/quoterequest/QuoteRequestEntityFactory.js';
+//not GWT import const QuoteRequestEntityFactory
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { AbDatabaseManagement } from '../../../../org/allbinary/logic/communication/sql/AbDatabaseManagement.js';
+//not GWT import const AbDatabaseManagement
+
+import { AbDataOutputStream } from '../../../../org/allbinary/logic/io/AbDataOutputStream.js';
+//not GWT import const AbDataOutputStream
+
+import { DataOutputStreamFactory } from '../../../../org/allbinary/logic/io/DataOutputStreamFactory.js';
+//not GWT import const DataOutputStreamFactory
+
+import { AbFile } from '../../../../org/allbinary/logic/io/file/AbFile.js';
+//not GWT import const AbFile
+
+import { FileFactory } from '../../../../org/allbinary/logic/io/file/FileFactory.js';
+//not GWT import const FileFactory
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //Warning you must have sql root access
+export class InitDbCrypted extends AbDatabaseManagement {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private userDbInitInfo: UserDbInitInfo;
+
+    private inventoryDbInitInfo: InventoryDbInitInfo;
+
+    private historyDbInitInfo: HistoryDbInitInfo;
+
+    private staticpagesDbInitInfo: StaticPagesDbInitInfo;
+
+    private logDbInitInfo: LogDbInitInfo;
+
+    private readonly SQL_FILE: string = "initWeblisket.sql";
+
+public constructor (databaseConnectionInfoInterface: DatabaseConnectionInfoInterface){
+            super(databaseConnectionInfoInterface as DbConnectionInfo);
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    public addUsers(): Boolean{
+
+ try { this.logUtil!.putF(this.commonStrings!.START, this, this.METHOD_ADD_USERS);
+    
+this.userDbInitInfo= new UserDbInitInfo();
+    
+this.inventoryDbInitInfo= new InventoryDbInitInfo();
+    
+this.historyDbInitInfo= new HistoryDbInitInfo();
+    
+this.staticpagesDbInitInfo= new StaticPagesDbInitInfo();
+    
+this.logDbInitInfo= new LogDbInitInfo();
+    
+
+    let CUSTOMERDB: string = this.userDbInitInfo!.getName()!;;
+    
+
+    let CUSTOMERDBUSER: string = this.userDbInitInfo!.getUserName()!;;
+    
+
+    let CUSTOMERDBPASSWORD: string = this.userDbInitInfo!.getPassword()!;;
+    
+
+                        if(!this.addDbUser(CUSTOMERDB, CUSTOMERDBUSER, CUSTOMERDBPASSWORD))
+                        
+                                    {
+                                    this.logUtil!.putF(this.UNABLE_TO_CREATE_USER +CUSTOMERDBUSER, this, this.METHOD_ADD_USERS);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let INVENTORYDB: string = this.inventoryDbInitInfo!.getName()!;;
+    
+
+    let INVENTORYDBUSER: string = this.inventoryDbInitInfo!.getUserName()!;;
+    
+
+    let INVENTORYDBPASSWORD: string = this.inventoryDbInitInfo!.getPassword()!;;
+    
+
+                        if(!this.addDbUser(INVENTORYDB, INVENTORYDBUSER, INVENTORYDBPASSWORD))
+                        
+                                    {
+                                    this.logUtil!.putF(this.UNABLE_TO_CREATE_USER +INVENTORYDBUSER, this, this.METHOD_ADD_USERS);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let HISTORYDB: string = this.historyDbInitInfo!.getName()!;;
+    
+
+    let HISTORYDBUSER: string = this.historyDbInitInfo!.getUserName()!;;
+    
+
+    let HISTORYDBPASSWORD: string = this.historyDbInitInfo!.getPassword()!;;
+    
+
+                        if(!this.addDbUser(HISTORYDB, HISTORYDBUSER, HISTORYDBPASSWORD))
+                        
+                                    {
+                                    this.logUtil!.putF(this.UNABLE_TO_CREATE_USER +HISTORYDBUSER, this, this.METHOD_ADD_USERS);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let STATICPAGESDB: string = this.staticpagesDbInitInfo!.getName()!;;
+    
+
+    let STATICPAGESDBUSER: string = this.staticpagesDbInitInfo!.getUserName()!;;
+    
+
+    let STATICPAGESDBPASSWORD: string = this.staticpagesDbInitInfo!.getPassword()!;;
+    
+
+                        if(!this.addDbUser(STATICPAGESDB, STATICPAGESDBUSER, STATICPAGESDBPASSWORD))
+                        
+                                    {
+                                    this.logUtil!.putF(this.UNABLE_TO_CREATE_USER +STATICPAGESDBUSER, this, this.METHOD_ADD_USERS);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let LOGDB: string = this.logDbInitInfo!.getName()!;;
+    
+
+    let LOGDBUSER: string = this.logDbInitInfo!.getUserName()!;;
+    
+
+    let LOGDBPASSWORD: string = this.logDbInitInfo!.getPassword()!;;
+    
+
+                        if(!this.addDbUser(LOGDB, LOGDBUSER, LOGDBPASSWORD))
+                        
+                                    {
+                                    this.logUtil!.putF(this.UNABLE_TO_CREATE_USER +LOGDBUSER, this, this.METHOD_ADD_USERS);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+this.logUtil!.putF(this.commonStrings!.END, this, this.METHOD_ADD_USERS);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.METHOD_ADD_USERS, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+ }
+   }
+ 
+}
+
+
+    public addDatabases(): Boolean{
+
+ try { this.logUtil!.putF(this.commonStrings!.START, this, this.METHOD_ADD_DATABASES);
+    
+this.userDbInitInfo= new UserDbInitInfo();
+    
+this.inventoryDbInitInfo= new InventoryDbInitInfo();
+    
+this.historyDbInitInfo= new HistoryDbInitInfo();
+    
+this.staticpagesDbInitInfo= new StaticPagesDbInitInfo();
+    
+this.logDbInitInfo= new LogDbInitInfo();
+    
+
+    let CUSTOMERDB: string = this.userDbInitInfo!.getName()!;;
+    
+
+                        if(!this.addDb(CUSTOMERDB))
+                        
+                                    {
+                                    this.logUtil!.putF(this.UNABLE_TO_CREATE_DATABASE +CUSTOMERDB, this, this.METHOD_ADD_DATABASES);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let INVENTORYDB: string = this.inventoryDbInitInfo!.getName()!;;
+    
+
+                        if(!this.addDb(INVENTORYDB))
+                        
+                                    {
+                                    this.logUtil!.putF(this.UNABLE_TO_CREATE_DATABASE +INVENTORYDB, this, this.METHOD_ADD_DATABASES);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let HISTORYDB: string = this.historyDbInitInfo!.getName()!;;
+    
+
+                        if(!this.addDb(HISTORYDB))
+                        
+                                    {
+                                    this.logUtil!.putF(this.UNABLE_TO_CREATE_DATABASE +HISTORYDB, this, this.METHOD_ADD_DATABASES);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let STATICPAGESDB: string = this.staticpagesDbInitInfo!.getName()!;;
+    
+
+                        if(!this.addDb(STATICPAGESDB))
+                        
+                                    {
+                                    this.logUtil!.putF(this.UNABLE_TO_CREATE_DATABASE +STATICPAGESDB, this, this.METHOD_ADD_DATABASES);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let LOGDB: string = this.logDbInitInfo!.getName()!;;
+    
+
+                        if(!this.addDb(LOGDB))
+                        
+                                    {
+                                    this.logUtil!.putF(this.UNABLE_TO_CREATE_DATABASE +LOGDB, this, this.METHOD_ADD_DATABASES);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+                                    }
+                                
+
+    let file: AbFile = FileFactory.getInstance()!.getInstance(this.SQL_FILE)!;;
+    
+file.createNewFile();
+    
+
+    let idOutData: AbDataOutputStream = DataOutputStreamFactory.getInstance()!.getInstanceForAbFile(file)!;;
+    
+idOutData!.writeBytes(this.sqlCommandLog!.toString());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.METHOD_ADD_DATABASES, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+
+ }
+   }
+ 
+}
+
+
+    public addTables(): Boolean{
+
+ try { 
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+this.logUtil!.putF(this.commonStrings!.START, this, this.METHOD_ADD_TABLES);
+    
+stringBuffer!.append(UserEntityFactory.getInstance()!.createTable());
+    
+stringBuffer!.append(StoreFrontsEntityFactory.getInstance()!.getStoreFrontsEntityInstance()!.createTable());
+    
+stringBuffer!.append(BillingAddressesEntityFactory.getInstance()!.getInstance(this.stringUtil!.EMPTY_STRING)!.createTable());
+    
+stringBuffer!.append(ShippingAddressesEntityFactory.getInstance()!.getInstance(this.stringUtil!.EMPTY_STRING)!.createTable());
+    
+stringBuffer!.append(PaymentEntityFactory.getInstance()!.getPaymentEntityInstance()!.createTable());
+    
+stringBuffer!.append(QuoteRequestEntityFactory.getInstance()!.getQuoteRequestEntityInstance()!.createTable());
+    
+stringBuffer!.append(OrderHistoryEntityFactory.getInstance()!.createTable());
+    
+stringBuffer!.append(OrderItemsEntityFactory.getInstance()!.createTable());
+    
+stringBuffer!.append(TransactionEntityFactory.getInstance()!.getTransactionEntityInstance()!.createTable());
+    
+stringBuffer!.append(TransactionResultEntityFactory.getInstance()!.getTransactionResultEntityInstance()!.createTable());
+    
+stringBuffer!.append(PaymentGatewayEntityFactory.getInstance()!.createTable());
+    
+stringBuffer!.append(InventoryEntityFactory.getInstance()!.getInventoryEntityInstance()!.createTable());
+    
+stringBuffer!.append(new InitInfoEntity().createTable());
+    
+stringBuffer!.append(LogTableEntityFactory.getInstance()!.getLogTableEntityInstance()!.createTable());
+    
+stringBuffer!.append(StaticPagesEntityFactory.getInstance()!.getStaticPagesEntityInstance()!.createTable());
+    
+stringBuffer!.append(TransformInfoEntityBuilder.getInstance()!.createTable());
+    
+this.logUtil!.putF(ADD_TABLES_RESULTS_LABEL +stringBuffer!.toString(), this, this.METHOD_ADD_TABLES);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return true;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.METHOD_ADD_TABLES, e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

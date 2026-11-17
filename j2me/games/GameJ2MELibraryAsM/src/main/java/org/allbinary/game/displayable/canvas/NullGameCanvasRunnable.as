@@ -1,0 +1,251 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2025 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { Thread } from '../../../../../java/lang/Thread.js';
+        
+import { CommandListener } from '../../../../../javax/microedition/lcdui/CommandListener.js';
+//not GWT import const CommandListener
+
+import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { Item } from '../../../../../javax/microedition/lcdui/Item.js';
+//not GWT import const Item
+
+import { GameState } from '../../../../../org/allbinary/game/state/GameState.js';
+//not GWT import const GameState
+
+import { GameStateFactory } from '../../../../../org/allbinary/game/state/GameStateFactory.js';
+//not GWT import const GameStateFactory
+
+//not plain js import { StdUtil } 
+const StdUtil = globalThis.org.allbinary.logic.StdUtil;
+type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
+
+//not plain js import { StringUtil } 
+const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
+type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
+
+//not plain js import { ABHashtable } 
+const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
+type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { GameCanvasRunnableInterface } from './GameCanvasRunnableInterface.js';
+//sameFolderImports - not GWT import - same folder const GameCanvasRunnableInterface
+
+export class NullGameCanvasRunnable
+            extends Object
+         implements GameCanvasRunnableInterface {
+        
+
+    public static readonly NULL_GAME_CANVAS_RUNNABLE: NullGameCanvasRunnable = new NullGameCanvasRunnable();
+
+    readonly gameStateFactory: GameStateFactory = GameStateFactory.getInstance()!;
+
+    public getTitle(): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return StringUtil.getInstance()!.EMPTY_STRING;
+    
+}
+
+
+    public isInitialized(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public isPaused(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public unPause(){
+}
+
+
+    public pause(){
+}
+
+
+    public isHighScoreSubmitted(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setHighScoreSubmitted(highScoreSubmitted: boolean){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public processGameOver(){
+}
+
+
+    public isGameOver(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public initCommands(cmdListener: CommandListener){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getCurrentStateHashtable(): ABHashtable<any, any>{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return StdUtil.getInstance()!.NULL_TABLE;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public getLoadStateHashtable(): ABHashtable<any, any>{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return StdUtil.getInstance()!.NULL_TABLE;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setLoadStateHashtable(hashtable: ABHashtable<any, any>){
+}
+
+
+    public getType(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return  -1;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setGameState(gameState: GameState){
+}
+
+
+    public getGameState(): GameState{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.gameStateFactory!.NO_GAME_STATE;
+    
+}
+
+
+    public itemStateChanged(item: Item){
+}
+
+
+    public paint(graphics: Graphics){
+}
+
+
+    public paintThreed(graphics: Graphics){
+}
+
+
+    public isRunning(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return false;
+    
+}
+
+
+    public setRunning(isRunning: boolean){
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    public setThread(thread: Thread){
+}
+
+
+    public run(){
+}
+
+
+}
+

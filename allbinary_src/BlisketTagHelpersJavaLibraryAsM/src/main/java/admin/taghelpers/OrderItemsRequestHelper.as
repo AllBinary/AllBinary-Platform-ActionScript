@@ -1,0 +1,220 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Exception } from '../../java/lang/Exception.js';
+        
+import { HashMap } from '../../java/util/HashMap.js';
+//not GWT import const HashMap
+
+import { HttpServletRequest } from '../../javax/servlet/http/HttpServletRequest.js';
+//not GWT import const HttpServletRequest
+
+import { PageContext } from '../../javax/servlet/jsp/PageContext.js';
+//not GWT import const PageContext
+
+import { OrderData } from '../../org/allbinary/business/user/commerce/inventory/order/OrderData.js';
+//not GWT import const OrderData
+
+import { OrderHistoryData } from '../../org/allbinary/business/user/commerce/inventory/order/OrderHistoryData.js';
+//not GWT import const OrderHistoryData
+
+import { ShippingMethodData } from '../../org/allbinary/business/user/commerce/shipping/ShippingMethodData.js';
+//not GWT import const ShippingMethodData
+
+import { OrderItemsEntityFactory } from '../../org/allbinary/data/tables/user/commerce/inventory/order/OrderItemsEntityFactory.js';
+//not GWT import const OrderItemsEntityFactory
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { TagHelper } from './TagHelper.js';
+//sameFolderImports - not GWT import - same folder const TagHelper
+
+export class OrderItemsRequestHelper extends TagHelper {
+        
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    private request: HttpServletRequest;
+
+    private id: string;
+
+    private groupId: string;
+
+    private status: string;
+
+public constructor (hashMap: HashMap<any, any>, pageContext: PageContext){
+
+            super();
+        this.request= pageContext!.getRequest() as HttpServletRequest;
+    
+this.getFormData();
+    
+}
+
+
+    getFormData(){
+this.id= this.request.getParameter(OrderData.ID);
+    
+this.groupId= this.request.getParameter(ShippingMethodData.GROUP);
+    
+this.status= this.request.getParameter(OrderHistoryData.STATUS);
+    
+}
+
+setOrderStatus(...args: any[]): any {
+   
+   
+    if (args.length === 1 && typeof args[0] === 'string') return this.setOrderStatus$overload1(args[0]);
+   
+    if (args.length === 0) return this.setOrderStatus$overload2();
+   
+   throw new TypeError('No matching overload: setOrderStatus'); }
+  
+    public setOrderStatus$overload1(newStatus: string): string{
+
+ try { 
+                        if(newStatus == 
+                                    null
+                                )
+                        newStatus= this.status
+
+    let success: string = "Status successfully set to: " +newStatus;;
+    
+OrderItemsEntityFactory.getInstance()!.setStatus(this.id, this.groupId, newStatus);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "setOrderStatus(newStatus)");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to view order table";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "setOrderStatus(newStatus)", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+    public setOrderStatus$overload2(): string{
+
+ try { 
+    let success: string = "Status successfully set to: " +this.status;;
+    
+OrderItemsEntityFactory.getInstance()!.setStatus(this.id, this.groupId, this.status);
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGS))
+                        
+                                    {
+                                    this.logUtil!.putF(success, this, "setOrderStatus(newStatus)");
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return success;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+
+    let error: string = "Failed to view order table";;
+    
+
+                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.SQLTAGSERROR))
+                        
+                                    {
+                                    this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "setOrderStatus(newStatus)", e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return error;
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

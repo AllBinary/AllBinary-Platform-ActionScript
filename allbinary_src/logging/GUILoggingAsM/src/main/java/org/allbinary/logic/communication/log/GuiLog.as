@@ -1,0 +1,255 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Exception } from '../../../../../java/lang/Exception.js';
+        
+            import { System } from '../../../../../java/lang/System.js';
+        
+import { awt } from '../../../../../java/awt.js';
+//not GWT import const awt
+
+import { swing } from '../../../../../javax/swing.js';
+//not GWT import const swing
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        //not plain js - same folder import { LogFormatUtil } 
+const LogFormatUtil = globalThis.org.allbinary.logic.communication.log.LogFormatUtil;
+import { JDialog } from './JDialog.js';
+//sameFolderImports - not GWT import - same folder const JDialog
+import { GridLayout } from './GridLayout.js';
+//sameFolderImports - not GWT import - same folder const GridLayout
+import { JScrollPane } from './JScrollPane.js';
+//sameFolderImports - not GWT import - same folder const JScrollPane
+import { JLabel } from './JLabel.js';
+//sameFolderImports - not GWT import - same folder const JLabel
+import { JTextArea } from './JTextArea.js';
+//sameFolderImports - not GWT import - same folder const JTextArea
+//not plain js - same folder import { PreLogUtil } 
+const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
+
+export class GuiLog
+            extends Object
+         {
+        
+
+    private static readonly instance: GuiLog = new GuiLog();
+
+    public static getInstance(): GuiLog{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return GuiLog.instance;
+    
+}
+
+
+    private readonly logFormatUtil: LogFormatUtil = LogFormatUtil.getInstance()!;
+
+    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+
+private constructor (){
+
+            super();
+        }
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public showDialog(msg: string){
+
+    let error: JDialog = new JDialog();;
+    
+
+    let size: number = msg.length *9;;
+    
+
+    let x: number = size;;
+    
+
+                        if(x > 550)
+                        x= 550
+error.getContentPane()!.setLayout(new GridLayout(1, 1));
+    
+
+                        if(size > 255)
+                        
+                                    {
+                                    
+    let y: number = 550;;
+    
+error.setSize(x, y);
+    
+error.getContentPane()!.add(new javax.swing.JScrollPane(new javax.swing.JTextArea(msg)));
+    
+
+                                    }
+                                
+                             else 
+                        if(size > 0)
+                        
+                                    {
+                                    
+    let y: number = 50;;
+    
+error.setSize(x, y);
+    
+error.getContentPane()!.add(new javax.swing.JScrollPane(new javax.swing.JLabel(msg)));
+    
+
+                                    }
+                                
+error.show();
+    
+}
+
+put(...args: any[]): any {
+   
+   
+    if (args.length === 3 && typeof args[0] === 'string' && typeof args[2] === 'string') return this.put$overload1(args[0], args[1], args[2]);
+   
+    if (args.length === 4 && typeof args[0] === 'string' && typeof args[2] === 'string') return this.put$overload2(args[0], args[1], args[2], args[3]);
+   
+    if (args.length === 3 && typeof args[0] === 'string' && typeof args[1] === 'string' && typeof args[2] === 'string') return this.put$overload3(args[0], args[1], args[2]);
+   
+    if (args.length === 4 && typeof args[0] === 'string' && typeof args[1] === 'string' && typeof args[2] === 'string') return this.put$overload4(args[0], args[1], args[2], args[3]);
+   
+   throw new TypeError('No matching overload: put'); }
+  //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public put$overload1(specialMessage: string, anyType: any, functionName: string): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.put(specialMessage, anyType, functionName, 
+                            null);;
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public put$overload2(specialMessage: string, anyType: any, functionName: string, exception: Exception): string{
+
+ try { 
+    let data: string = this.logFormatUtil!.get(specialMessage, anyType!.constructor.name.toString()!, functionName, exception)!;;
+    
+this.showDialog(data);
+    
+console.log(data);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return data;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+PreLogUtil.putOE(this.commonStrings!.EXCEPTION, this, "put", e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Logging Error";
+    
+
+ }
+   }
+ 
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public put$overload3(specialMessage: string, className: string, functionName: string): string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.put(specialMessage, className, functionName, 
+                            null);;
+    
+}
+
+//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+
+    public put$overload4(specialMessage: string, className: string, functionName: string, exception: Exception): string{
+
+ try { 
+    let data: string = this.logFormatUtil!.get(specialMessage, className, functionName, exception)!;;
+    
+this.showDialog(data);
+    
+console.log(data);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return data;
+    
+ }
+ catch (caught: any) {
+ {
+  const e = caught;
+  
+PreLogUtil.putOE(this.commonStrings!.EXCEPTION, this, "put", e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return "Logging Error";
+    
+
+ }
+   }
+ 
+}
+
+
+}
+

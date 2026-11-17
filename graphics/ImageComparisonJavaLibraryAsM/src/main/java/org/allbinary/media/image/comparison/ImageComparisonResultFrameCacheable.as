@@ -1,0 +1,134 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../../../java/lang/Object.js';
+        
+            import { Long } from '../../../../../java/lang/Long.js';
+        
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+import { CacheableInterface } from '../../../../../org/allbinary/logic/util/cache/CacheableInterface.js';
+//not GWT import const CacheableInterface
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        import { ImageComparisonResult } from './ImageComparisonResult.js';
+//sameFolderImports - not GWT import - same folder const ImageComparisonResult
+
+export class ImageComparisonResultFrameCacheable
+            extends Object
+         implements CacheableInterface {
+        
+
+    private frame: Long;
+
+    private imageComparisonResult: ImageComparisonResult;
+
+public constructor (imageComparisonResult: ImageComparisonResult, frame: Long){
+
+            super();
+        this.setImageComparisonResult(imageComparisonResult);
+    
+this.frame= frame;
+    
+}
+
+
+    public getKey(): any{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.frame;
+    
+}
+
+
+    public getFrame(): Long{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.frame;
+    
+}
+
+
+    public setFrame(frame: Long){
+this.frame= frame;
+    
+}
+
+
+    public getImageComparisonResult(): ImageComparisonResult{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.imageComparisonResult;
+    
+}
+
+
+    public setImageComparisonResult(imageComparisonResult: ImageComparisonResult){
+this.imageComparisonResult= imageComparisonResult;
+    
+}
+
+
+    public toString(): string{
+
+    let stringBuffer: StringMaker = new StringMaker();;
+    
+stringBuffer!.append(this.constructor.name.toString()!);
+    
+stringBuffer!.append(" Frame: ");
+    
+stringBuffer!.appendlong(this.getFrame());
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return stringBuffer!.toString();;
+    
+}
+
+
+}
+

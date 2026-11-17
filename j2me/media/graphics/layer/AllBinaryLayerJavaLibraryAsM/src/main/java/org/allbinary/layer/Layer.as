@@ -1,0 +1,255 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2011 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+
+        
+
+
+            import { Object } from '../../../java/lang/Object.js';
+        
+            import { IllegalArgumentException } from '../../../java/lang/IllegalArgumentException.js';
+        
+            import { Integer } from '../../../java/lang/Integer.js';
+        
+import { Graphics } from '../../../javax/microedition/lcdui/Graphics.js';
+//not GWT import const Graphics
+
+import { CanvasStrings } from '../../../org/allbinary/graphics/displayable/CanvasStrings.js';
+//not GWT import const CanvasStrings
+
+//not plain js import { LogUtil } 
+const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
+type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
+
+import { SmallIntegerSingletonFactory } from '../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
+//not GWT import const SmallIntegerSingletonFactory
+
+//not plain js import { StringMaker } 
+const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
+type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
+
+//not plain js import { CommonStrings } 
+const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
+type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+export class Layer
+            extends Object
+         {
+        
+
+    public static readonly ID: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(0)!;
+
+    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+
+    x: number= 0;
+
+    y: number= 0;
+
+    z: number = 3;
+
+    private width: number= 0;
+
+    private height: number= 0;
+
+    private visible: boolean = true;
+
+public constructor (width: number, height: number){
+
+            super();
+        this.setLayerWidth(width);
+    
+this.setLayerHeight(height);
+    
+}
+
+
+    public setPosition(x: number, y: number, z: number){
+this.x= x;
+    
+this.y= y;
+    
+this.z= z;
+    
+}
+
+
+    public moveDXY(dx: number, dy: number){
+this.x += dx;
+    
+this.y += dy;
+    
+}
+
+
+    public moveDXYZ(dx: number, dy: number, dz: number){
+this.x += dx;
+    
+this.y += dy;
+    
+this.z += dz;
+    
+}
+
+
+    public getXP(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.x;
+    
+}
+
+
+    public getYP(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.y;
+    
+}
+
+
+    public getZP(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.z;
+    
+}
+
+
+    public getWidth(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.width;
+    
+}
+
+
+    public getHeight(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.height;
+    
+}
+
+
+    public getDepth(): number{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return 0;
+    
+}
+
+
+    public setVisible(visible: boolean){
+this.visible= visible;
+    
+}
+
+
+    public isVisible(): boolean{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        return this.visible;
+    
+}
+
+
+    public paint(graphics: Graphics){
+
+    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    
+
+    let canvasStrings: CanvasStrings = CanvasStrings.getInstance()!;;
+    
+this.logUtil!.putF(commonStrings!.NOT_IMPLEMENTED, this, canvasStrings!.PAINT);
+    
+}
+
+
+    setLayerWidth(width: number){
+
+                        if(width < 0)
+                        
+                                    {
+                                    
+
+
+                            throw new IllegalArgumentException();
+                    
+
+                                    }
+                                
+this.width= width;
+    
+}
+
+
+    setLayerHeight(height: number){
+
+                        if(height < 0)
+                        
+                                    {
+                                    
+
+
+                            throw new IllegalArgumentException();
+                    
+
+                                    }
+                                
+this.height= height;
+    
+}
+
+
+    public toStringAppend(stringBuffer: StringMaker){
+}
+
+
+}
+
