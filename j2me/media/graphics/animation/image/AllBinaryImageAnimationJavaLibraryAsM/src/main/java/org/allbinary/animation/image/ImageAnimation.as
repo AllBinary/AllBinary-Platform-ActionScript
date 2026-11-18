@@ -1,172 +1,97 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.DisposalUtil;
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.IndexedAnimation;
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ImageAnimation extends IndexedAnimation {
+        private var image:Image = null;
+        private var anchor:int = 0;
 
-        
-
-
-            import { Throwable } from '../../../../java/lang/Throwable.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { DisposalUtil } from '../../../../org/allbinary/DisposalUtil.js';
-//not GWT import const DisposalUtil
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { IndexedAnimation } from '../../../../org/allbinary/animation/IndexedAnimation.js';
-//not GWT import const IndexedAnimation
-
-import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ImageAnimation extends IndexedAnimation {
-        
-
-    private readonly image: Image;
-
-public constructor (image: Image, animationBehavior: AnimationBehavior){
-            super(animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.image= image;
+        // Java field initializers run after the base constructor
+        private function initFieldsImageAnimation():void {
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getAnimationSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getSize();;
+    this.anchor = Anchor.TOP_LEFT;
+        }
     
-}
 
-
-    public nextFrame(){
-}
-
-
-    public previousFrame(){
-}
-
-
-    public setFrame(index: number){
-}
-
-
-    public getFrame(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public function ImageAnimation(image:Image, animationBehavior:AnimationBehavior) {
+        super(animationBehavior);
+        this.initFieldsImageAnimation();
+        this.image = image;
+    }
     
-}
 
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 1;
+    override public function getAnimationSize():int {
+        return this.getSize();
+    }
     
-}
 
-
-    public setSequence(sequence: number[]){
-}
-
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PrimitiveIntUtil.getArrayInstance();;
+    override public function nextFrame():void {
+    }
     
-}
 
-
-    private anchor: number = Anchor.TOP_LEFT;
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-graphics.drawImage(this.image, x, y, this.anchor);
+    override public function previousFrame():void {
+    }
     
-}
 
-
-    getImage(): Image{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.image;
+    override public function setFrame(index:int):void {
+    }
     
-}
 
-
-    public close(){
-DisposalUtil.getInstance()!.disposeImage(this.image);
+    override public function getFrame():int {
+        return 0;
+    }
     
-}
 
-
-                //@Throws(Throwable.constructor)
-            
-    finalize(){
-DisposalUtil.getInstance()!.disposeImage(this.image);
+    override public function getSize():int {
+        return 1;
+    }
     
-}
 
+    override public function setSequence(sequence:Vector.<int>):void {
+    }
+    
 
+    override public function getSequence():Vector.<int> {
+        return PrimitiveIntUtil.getArrayInstance();
+    }
+    
+
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        graphics.drawImage(this.image, x, y, this.anchor);
+    }
+    
+
+    public function getImage():Image {
+        return this.image;
+    }
+    
+
+    public function close():void {
+        DisposalUtil.getInstance().disposeImage(this.image);
+    }
+    
+
+    public function finalize():void {
+        DisposalUtil.getInstance().disposeImage(this.image);
+    }
+    }
 }
 

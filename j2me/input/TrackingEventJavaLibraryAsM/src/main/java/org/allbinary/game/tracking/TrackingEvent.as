@@ -1,123 +1,68 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.tracking {
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TrackingEvent extends AllBinaryEventObject {
+        private var layerInterface:AllBinaryLayer = null;
 
-        
-
-
-import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TrackingEventHandler } from './TrackingEventHandler.js';
-//sameFolderImports - not GWT import - same folder const TrackingEventHandler
-
-export class TrackingEvent extends AllBinaryEventObject {
-        
-
-    private layerInterface: AllBinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
-
-public constructor (allBinaryLayerInterface: any){
-            super(allBinaryLayerInterface);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-
-                        if(allBinaryLayerInterface != TrackingEventHandler.getInstance())
-                        
-                                    {
-                                    this.setLayerInterface(allBinaryLayerInterface as AllBinaryLayer);
+        // Java field initializers run after the base constructor
+        private function initFieldsTrackingEvent():void {
+    this.layerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
+        }
     
 
-                                    }
-                                
-}
-
-
-    public init(anyType: any){
-this.setSource(anyType);
-    
-}
-
-
-    public getLayerInterface(): AllBinaryLayer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.layerInterface;
-    
-}
-
-
-    setLayerInterface(layerInterface: AllBinaryLayer){
-this.layerInterface= layerInterface;
-    
-}
-
-
-    public setLayerInterfaceForCircularStaticPool(layerInterface: AllBinaryLayer){
-this.layerInterface= layerInterface;
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append("TrackingEvent: \n");
-    
-stringBuffer!.append("LayerInterface: ");
-    
-stringBuffer!.append(this.layerInterface!.toString());
+    public function TrackingEvent(allBinaryLayerInterface:Object) {
+        super(allBinaryLayerInterface);
+        this.initFieldsTrackingEvent();
+        if (allBinaryLayerInterface != TrackingEventHandler.getInstance()) {
+            this.setLayerInterface((allBinaryLayerInterface as AllBinaryLayer));
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    public function init(anyType:Object):void {
+        this.setSource(anyType);
+    }
     
-}
 
+    public function getLayerInterface():AllBinaryLayer {
+        return this.layerInterface;
+    }
+    
 
+    private function setLayerInterface(layerInterface:AllBinaryLayer):void {
+        this.layerInterface = layerInterface;
+    }
+    
+
+    public function setLayerInterfaceForCircularStaticPool(layerInterface:AllBinaryLayer):void {
+        this.layerInterface = layerInterface;
+    }
+    
+
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append("TrackingEvent: \n");
+        stringBuffer.append("LayerInterface: ");
+        stringBuffer.append(this.layerInterface.toString());
+        return stringBuffer.toString();
+    }
+    }
 }
 

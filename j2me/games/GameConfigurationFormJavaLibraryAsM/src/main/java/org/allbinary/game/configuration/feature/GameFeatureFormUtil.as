@@ -1,253 +1,108 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.feature {
+    import org.allbinary.MIDPUtil;
+    import org.allbinary.game.configuration.GameConfigurationGauge;
+    import org.allbinary.game.configuration.GameConfigurationUtil;
+    import org.allbinary.graphics.displayable.screen.CommandForm;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.util.ABHashtable;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.HashtableUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameFeatureFormUtil {
+    private static var instance_value:GameFeatureFormUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GameFeatureFormUtil {
+        if (!GameFeatureFormUtil.instance_set) {
+            GameFeatureFormUtil.instance_set = true;
+            GameFeatureFormUtil.instance_value = new GameFeatureFormUtil();
+        }
+        return GameFeatureFormUtil.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var meUtil:MIDPUtil = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGameFeatureFormUtil():void {
+    this.logUtil = LogUtil.getInstance();
+    this.meUtil = MIDPUtil.getInstance();
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { ChoiceGroup } from '../../../../../javax/microedition/lcdui/ChoiceGroup.js';
-//not GWT import const ChoiceGroup
-
-import { Item } from '../../../../../javax/microedition/lcdui/Item.js';
-//not GWT import const Item
-
-import { NullImage } from '../../../../../javax/microedition/lcdui/NullImage.js';
-//not GWT import const NullImage
-
-import { MIDPUtil } from '../../../../../org/allbinary/MIDPUtil.js';
-//not GWT import const MIDPUtil
-
-import { GameConfigurationGauge } from '../../../../../org/allbinary/game/configuration/GameConfigurationGauge.js';
-//not GWT import const GameConfigurationGauge
-
-import { GameConfigurationUtil } from '../../../../../org/allbinary/game/configuration/GameConfigurationUtil.js';
-//not GWT import const GameConfigurationUtil
-
-import { CommandForm } from '../../../../../org/allbinary/graphics/displayable/screen/CommandForm.js';
-//not GWT import const CommandForm
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { HashtableUtil } 
-const HashtableUtil = globalThis.org.allbinary.util.HashtableUtil;
-type HashtableUtil<T = any, U = any> = typeof HashtableUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof HashtableUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Features } from './Features.js';
-//sameFolderImports - not GWT import - same folder const Features
-import { Feature } from './Feature.js';
-//sameFolderImports - not GWT import - same folder const Feature
-import { GameFeatureUtil } from './GameFeatureUtil.js';
-//sameFolderImports - not GWT import - same folder const GameFeatureUtil
-
-export class GameFeatureFormUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: GameFeatureFormUtil = new GameFeatureFormUtil();
-
-    public static getInstance(): GameFeatureFormUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameFeatureFormUtil.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly meUtil: MIDPUtil = MIDPUtil.getInstance()!;
-
-    public getChoiceGroup(hashtable: ABHashtable<any, any>, name: string, option: number): ChoiceGroup{
-
-    let stringMaker: StringMaker = new StringMaker();;
+        public function GameFeatureFormUtil() {
+            super();
+            this.initFieldsGameFeatureFormUtil();
+        }
     
 
-    let choiceGroup: ChoiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance()!.getArrayInstance(), NullImage.NULL_IMAGE_ARRAY);;
+    public static function getInstance():GameFeatureFormUtil {
+        return GameFeatureFormUtil.instance;
+    }
     
 
-    let list: BasicArrayList = hashtable.get(name) as BasicArrayList;;
+    public function getChoiceGroup(hashtable:ABHashtable, name:String, option:int):ChoiceGroup {
+        var stringMaker:StringMaker = new StringMaker();
+        var choiceGroup:ChoiceGroup = new ChoiceGroup(name, option, StringUtil.getInstance().getArrayInstance(), NullImage.NULL_IMAGE_ARRAY);
+        var list:BasicArrayList = (hashtable.get_((name as Object)) as BasicArrayList);
+        var features:Features = Features.getInstance();
+        var ADD_CHOICE:String = ": Adding Choice: ";
+        var GET_CHOICE_GROUP:String = "getChoiceGroup";
+        var size:int = list.size();
+        for (var index:int = 0; index < size; index++) {
+            var gameFeature:Feature = (list.objectArray[index] as Feature);
+            stringMaker.delete_(0, stringMaker.length());
+            this.logUtil.putF(stringMaker.append(name).append(ADD_CHOICE).append(gameFeature.toString()).toString(), this, GET_CHOICE_GROUP);
+            choiceGroup.append(gameFeature.toString(), NullImage.NULL_IMAGE);
+            if (features.isFeature(gameFeature)) {
+                choiceGroup.setSelectedIndex(index, true);
+            }
+        }
+        return choiceGroup;
+    }
     
 
-    let features: Features = Features.getInstance()!;;
+    public function addChoiceGroup(form:CommandForm, hashtable:ABHashtable, option:int):void {
+        var stringMaker:StringMaker = new StringMaker();
+        var ADDING_CHOICE_GROUP:String = "Adding Choice Group: ";
+        var ADD_CHOICE_GROUP:String = "addChoiceGroup";
+        var size:int = hashtable.size();
+        var objectArray:Vector.<Object> = HashtableUtil.getInstance().getKeysAsArray(hashtable);
+        var name:String = null;
+        for (var index:int = 0; index < size; index++) {
+            name = (objectArray[index] as String);
+            stringMaker.delete_(0, stringMaker.length());
+            this.logUtil.putF(stringMaker.append(ADDING_CHOICE_GROUP).append(name).toString(), this, ADD_CHOICE_GROUP);
+            this.meUtil.appendItem(form, this.getChoiceGroup(hashtable, name, option));
+        }
+    }
     
 
-    let ADD_CHOICE: string = ": Adding Choice: ";;
-    
-
-    let GET_CHOICE_GROUP: string = "getChoiceGroup";;
-    
-
-    let size: number = list.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let gameFeature: Feature = list.objectArray[index]! as Feature;;
-    
-stringMaker!.delete(0, stringMaker!.length());
-    
-this.logUtil!.putF(stringMaker!.append(name)!.append(ADD_CHOICE)!.append(gameFeature!.toString())!.toString(), this, GET_CHOICE_GROUP);
-    
-choiceGroup!.append(gameFeature!.toString(), NullImage.NULL_IMAGE);
-    
-
-                        if(features.isFeature(gameFeature))
-                        
-                                    {
-                                    choiceGroup!.setSelectedIndex(index, true);
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return choiceGroup;
-    
-}
-
-
-    public addChoiceGroup(form: CommandForm, hashtable: ABHashtable<any, any>, option: number){
-
-    let stringMaker: StringMaker = new StringMaker();;
-    
-
-    let ADDING_CHOICE_GROUP: string = "Adding Choice Group: ";;
-    
-
-    let ADD_CHOICE_GROUP: string = "addChoiceGroup";;
-    
-
-    let size: number = hashtable.size()!;;
-    
-
-    let objectArray: any[] = HashtableUtil.getInstance()!.getKeysAsArray(hashtable)!;;
-    
-
-    let name: string;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-name= objectArray[index]! as string;
-    
-stringMaker!.delete(0, stringMaker!.length());
-    
-this.logUtil!.putF(stringMaker!.append(ADDING_CHOICE_GROUP)!.append(name)!.toString(), this, ADD_CHOICE_GROUP);
-    
-this.meUtil!.appendItem(form, this.getChoiceGroup(hashtable, name, option));
-    
-}
-
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public setDefault(form: CommandForm){
-
-    let size: number = form.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let item: Item = form.get(index)!;;
-    
-
-                        if(item instanceof GameConfigurationGauge)
-                        
-                                    {
-                                    GameConfigurationUtil.getInstance()!.setDefault(item as GameConfigurationGauge);
-    
-
-                                    }
-                                
-                             else 
-                        if(item instanceof ChoiceGroup)
-                        
-                                    {
-                                    GameFeatureUtil.getInstance()!.setDefault(item as ChoiceGroup);
-    
-
-                                    }
-                                
-}
-
-}
-
-
+    public function setDefault(form:CommandForm):void {
+        var size:int = form.size();
+        for (var index:int = 0; index < size; index++) {
+            var item:Item = form.get_(index);
+            if ((item is GameConfigurationGauge)) {
+                GameConfigurationUtil.getInstance().setDefault((item as GameConfigurationGauge));
+            } else if ((item is ChoiceGroup)) {
+                GameFeatureUtil.getInstance().setDefault((item as ChoiceGroup));
+            }
+        }
+    }
+    }
 }
 

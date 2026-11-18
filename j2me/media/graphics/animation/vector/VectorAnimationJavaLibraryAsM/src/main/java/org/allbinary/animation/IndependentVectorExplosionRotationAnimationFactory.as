@@ -1,136 +1,64 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.vector.VectorInfo;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class IndependentVectorExplosionRotationAnimationFactory implements ProceduralAnimationInterfaceFactoryInterface {
+        private var framePoints:Vector.<Vector.<Vector.<int>>> = null;
+        private var vectorInfo:VectorInfo = null;
+        private var basicColor:BasicColor = null;
+        private var vectorAnimationFactoryInterface:VectorAnimationFactoryInterface = null;
+        private var vectorExplosionGenerator:VectorExplosionGenerator = null;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { BasicColor } from '../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-import { VectorInfo } from '../../../org/allbinary/vector/VectorInfo.js';
-//not GWT import const VectorInfo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ProceduralAnimationInterfaceFactoryInterface } from './ProceduralAnimationInterfaceFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const ProceduralAnimationInterfaceFactoryInterface
-import { VectorAnimationFactoryInterface } from './VectorAnimationFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const VectorAnimationFactoryInterface
-import { VectorRotationGenerator } from './VectorRotationGenerator.js';
-//sameFolderImports - not GWT import - same folder const VectorRotationGenerator
-import { VectorExplosionGenerator } from './VectorExplosionGenerator.js';
-//sameFolderImports - not GWT import - same folder const VectorExplosionGenerator
-import { IndexedAnimation } from './IndexedAnimation.js';
-//sameFolderImports - not GWT import - same folder const IndexedAnimation
-import { Animation } from './Animation.js';
-//sameFolderImports - not GWT import - same folder const Animation
-
-export class IndependentVectorExplosionRotationAnimationFactory
-            extends Object
-         implements ProceduralAnimationInterfaceFactoryInterface {
-        
-
-    private framePoints: number[][][] = NullUtil.getInstance()!.NULL_INT_ARRAY_ARRAY_ARRAY;
-
-    private vectorInfo: VectorInfo;
-
-    private basicColor: BasicColor;
-
-    private vectorAnimationFactoryInterface: VectorAnimationFactoryInterface;
-
-public constructor (vectorInfo: VectorInfo, basicColor: BasicColor, vectorAnimationFactoryInterface: VectorAnimationFactoryInterface){
-
-            super();
-        this.vectorInfo= vectorInfo;
+        // Java field initializers run after the base constructor
+        private function initFieldsIndependentVectorExplosionRotationAnimationFactory():void {
+    this.framePoints = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
     
-this.basicColor= basicColor;
     
-this.vectorAnimationFactoryInterface= vectorAnimationFactoryInterface;
     
-this.init();
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    init(){
-this.framePoints= VectorRotationGenerator.getInstance()!.getInstance(this.vectorInfo);
-    
-}
-
-
-    private readonly vectorExplosionGenerator: VectorExplosionGenerator = VectorExplosionGenerator.getInstance()!;
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceAnimation(animationInterface: Animation): Animation{
-
-    let frame: number = 0;;
+    this.vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
+        }
     
 
-                        if(animationInterface != 
-                                    null
-                                )
-                        
-                                    {
-                                    
-    let rotationAnimationInterface: IndexedAnimation = animationInterface as IndexedAnimation;;
-    
-frame= rotationAnimationInterface!.getFrame();
-    
-
-                                    }
-                                
-
-    let points: number[][][] = this.vectorExplosionGenerator!.getInstance(this.framePoints[frame]!, 6, this.vectorExplosionGenerator!.ROTATION)!;;
+    public function IndependentVectorExplosionRotationAnimationFactory(vectorInfo:VectorInfo, basicColor:BasicColor, vectorAnimationFactoryInterface:VectorAnimationFactoryInterface) {
+        super();
+        this.initFieldsIndependentVectorExplosionRotationAnimationFactory();
+        this.vectorInfo = vectorInfo;
+        this.basicColor = basicColor;
+        this.vectorAnimationFactoryInterface = vectorAnimationFactoryInterface;
+        this.init();
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.vectorAnimationFactoryInterface!.getInstance(points, this.basicColor);;
+    public function init():void {
+        this.framePoints = VectorRotationGenerator.getInstance().getInstance1(this.vectorInfo);
+    }
     
-}
 
-
+    public function getInstanceAnimation(animationInterface:Animation):Animation {
+        var frame:int = 0;
+        if (animationInterface != null) {
+            var rotationAnimationInterface:IndexedAnimation = (animationInterface as IndexedAnimation);
+            frame = rotationAnimationInterface.getFrame();
+        }
+        var points:Vector.<Vector.<Vector.<int>>> = this.vectorExplosionGenerator.getInstance3(this.framePoints[frame], 6, this.vectorExplosionGenerator.ROTATION);
+        return this.vectorAnimationFactoryInterface.getInstance2(points, this.basicColor);
+    }
+    }
 }
 

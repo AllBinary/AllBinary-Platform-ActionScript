@@ -1,125 +1,67 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io.file {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.io.AbFileInputStream;
+    import org.allbinary.logic.io.StreamUtil;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { AbFileInputStream } from '../../../../../org/allbinary/logic/io/AbFileInputStream.js';
-//not GWT import const AbFileInputStream
-
-import { StreamUtil } from '../../../../../org/allbinary/logic/io/StreamUtil.js';
-//not GWT import const StreamUtil
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { SimpleFileUtil } from './SimpleFileUtil.js';
-//sameFolderImports - not GWT import - same folder const SimpleFileUtil
-import { AbFile } from './AbFile.js';
-//sameFolderImports - not GWT import - same folder const AbFile
-
-export class FileUtil2
-            extends Object
-         {
-        
-
-    private static readonly instance: FileUtil2 = new FileUtil2();
-
-    public static getInstance(): FileUtil2{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return FileUtil2.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly streamUtil: StreamUtil = StreamUtil.getInstance()!;
-
-private constructor (){
-
-            super();
+    public class FileUtil2 {
+    private static var instance_value:FileUtil2;
+    private static var instance_set:Boolean = false;
+    private static function get instance():FileUtil2 {
+        if (!FileUtil2.instance_set) {
+            FileUtil2.instance_set = true;
+            FileUtil2.instance_value = new FileUtil2();
         }
+        return FileUtil2.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var commonStrings:CommonStrings = null;
+        private var streamUtil:StreamUtil = null;
 
-
-    public loadFileAsList(file: AbFile, max: number, byteArray1: number[]): BasicArrayList{
-
-    let inputStream: AbFileInputStream = 
-                null
-            ;;
+        // Java field initializers run after the base constructor
+        private function initFieldsFileUtil2():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.streamUtil = StreamUtil.getInstance();
+        }
     
 
- try { inputStream= AbFileInputStream.createFromAbFile(file);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.ADD, e);
+    public static function getInstance():FileUtil2 {
+        return FileUtil2.instance;
+    }
     
 
- }
-   }
- 
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return SimpleFileUtil.getInstance()!.loadFileAsList(inputStream, max, byteArray1);;
+    public function FileUtil2() {
+        super();
+        this.initFieldsFileUtil2();
+    }
     
-}
 
-
+    public function loadFileAsList(file:AbFile, max:int, byteArray1:Vector.<int>):BasicArrayList {
+        var inputStream:AbFileInputStream = null;
+        try {
+            inputStream = AbFileInputStream.createFromAbFile(file);
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.ADD, e);
+        }
+        return SimpleFileUtil.getInstance().loadFileAsList(inputStream, max, byteArray1);
+    }
+    }
 }
 

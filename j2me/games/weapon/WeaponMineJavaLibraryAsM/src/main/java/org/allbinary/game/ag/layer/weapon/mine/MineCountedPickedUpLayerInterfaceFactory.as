@@ -1,152 +1,81 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.layer.weapon.mine {
+    import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
+    import org.allbinary.game.combat.weapon.WeaponProperties;
+    import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
+    import org.allbinary.game.layer.pickup.IconLayerFactory;
+    import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
+    import org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
+    import org.allbinary.game.layer.weapon.WeaponLayerCircularPool;
+    import org.allbinary.game.score.ScoreableInterface;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+    import org.allbinary.util.ABHashtable;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class MineCountedPickedUpLayerInterfaceFactory extends CountedPickedUpLayerInterfaceFactory {
+    private static var pickedUpLayerInterfaceFactoryInterface_value:PickedUpLayerInterfaceFactoryInterface;
+    private static var pickedUpLayerInterfaceFactoryInterface_set:Boolean = false;
+    private static function get pickedUpLayerInterfaceFactoryInterface():PickedUpLayerInterfaceFactoryInterface {
+        if (!MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface_set) {
+            MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface_set = true;
+            MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface_value = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
+        }
+        return MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface_value;
+    }
+        private var weaponLayerCircularStaticPool:WeaponLayerCircularPool = null;
+        private var weaponProperties:WeaponProperties = null;
+        private var smallIntegerSingletonFactory:SmallIntegerSingletonFactory = null;
 
-        
-
-
-            import { Exception } from '../../../../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../../../../java/lang/Integer.js';
-        
-import { FeaturedAnimationInterfaceFactoryInterfaceFactory } from '../../../../../../../org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.js';
-//not GWT import const FeaturedAnimationInterfaceFactoryInterfaceFactory
-
-import { WeaponProperties } from '../../../../../../../org/allbinary/game/combat/weapon/WeaponProperties.js';
-//not GWT import const WeaponProperties
-
-import { CountedPickedUpLayerInterfaceFactory } from '../../../../../../../org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.js';
-//not GWT import const CountedPickedUpLayerInterfaceFactory
-
-import { IconLayerFactory } from '../../../../../../../org/allbinary/game/layer/pickup/IconLayerFactory.js';
-//not GWT import const IconLayerFactory
-
-import { PickedUpLayerInterfaceFactoryInterface } from '../../../../../../../org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.js';
-//not GWT import const PickedUpLayerInterfaceFactoryInterface
-
-import { PickedUpLayerTypeFactory } from '../../../../../../../org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.js';
-//not GWT import const PickedUpLayerTypeFactory
-
-import { WeaponLayerCircularPool } from '../../../../../../../org/allbinary/game/layer/weapon/WeaponLayerCircularPool.js';
-//not GWT import const WeaponLayerCircularPool
-
-import { ScoreableInterface } from '../../../../../../../org/allbinary/game/score/ScoreableInterface.js';
-//not GWT import const ScoreableInterface
-
-import { AllBinaryLayer } from '../../../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { SmallIntegerSingletonFactory } from '../../../../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
-//not GWT import const SmallIntegerSingletonFactory
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { MineLayerCircularStaticPool } from './MineLayerCircularStaticPool.js';
-//sameFolderImports - not GWT import - same folder const MineLayerCircularStaticPool
-import { MineWeaponResources } from './MineWeaponResources.js';
-//sameFolderImports - not GWT import - same folder const MineWeaponResources
-
-export class MineCountedPickedUpLayerInterfaceFactory extends CountedPickedUpLayerInterfaceFactory {
-        
-
-    private static pickedUpLayerInterfaceFactoryInterface: PickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-
-                //@Throws(Exception.constructor)
-            
-    public static init(){
-MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface= new MineCountedPickedUpLayerInterfaceFactory();
-    
-}
-
-
-    public static getInstance(): PickedUpLayerInterfaceFactoryInterface{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
-    
-}
-
-
-    private readonly weaponLayerCircularStaticPool: WeaponLayerCircularPool = MineLayerCircularStaticPool.getInstance()!;
-
-private constructor (){
-            super(PickedUpLayerTypeFactory.getInstance()!.MINE, IconLayerFactory.getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()!.get(MineWeaponResources.getInstance()!.DROP_ICON_RESOURCE)!.getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()!.get(MineWeaponResources.getInstance()!.DROP_RESOURCE)!.getInstance(0));
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public getTotal(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 3;
-    
-}
-
-
-    private readonly weaponProperties: WeaponProperties = new WeaponProperties( -1,  -1, 0, 8000, 10);
-
-    private readonly smallIntegerSingletonFactory: SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance()!;
-
-                //@Throws(Exception.constructor)
-            
-    public getNextInstance(hashtable: ABHashtable<any, any>, x: number, y: number, z: number): AllBinaryLayer{
-
-    let sourceLayerInterface: AllBinaryLayer = hashtable.get(this.smallIntegerSingletonFactory!.getAt(0)) as AllBinaryLayer;;
+        // Java field initializers run after the base constructor
+        private function initFieldsMineCountedPickedUpLayerInterfaceFactory():void {
+    this.weaponLayerCircularStaticPool = MineLayerCircularStaticPool.getInstance();
+    this.weaponProperties = new WeaponProperties(-1, -1, 0, 8000, ((int(10) << 16) >> 16));
+    this.smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
+        }
     
 
-    let angle: Integer = hashtable.get(this.smallIntegerSingletonFactory!.getAt(1)) as Integer;;
+    public static function init():void {
+        MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface = new MineCountedPickedUpLayerInterfaceFactory();
+    }
     
 
-    let scoreableInterface: ScoreableInterface = sourceLayerInterface as unknown as ScoreableInterface;;
+    public function MineCountedPickedUpLayerInterfaceFactory() {
+        super(PickedUpLayerTypeFactory.getInstance().MINE, IconLayerFactory.getInstance3(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get_(MineWeaponResources.getInstance().DROP_ICON_RESOURCE).getInstance1(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get_(MineWeaponResources.getInstance().DROP_RESOURCE).getInstance1(0));
+        this.initFieldsMineCountedPickedUpLayerInterfaceFactory();
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.weaponLayerCircularStaticPool!.getInstanceWeaponLayer(sourceLayerInterface, x, y, z, globalThis.Math.trunc(angle.intValue()), 0, this.weaponProperties, scoreableInterface);;
+    public static function getInstance():PickedUpLayerInterfaceFactoryInterface {
+        return MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface;
+    }
     
-}
 
+    override public function getTotal():int {
+        return 3;
+    }
+    
 
+    override public function getNextInstance(hashtable:ABHashtable, x:int, y:int, z:int):AllBinaryLayer {
+        var sourceLayerInterface:AllBinaryLayer = (hashtable.get_((this.smallIntegerSingletonFactory.getAt(0) as Object)) as AllBinaryLayer);
+        var angle:* = (hashtable.get_((this.smallIntegerSingletonFactory.getAt(1) as Object)) as *);
+        var scoreableInterface:ScoreableInterface = (sourceLayerInterface as ScoreableInterface);
+        return this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(sourceLayerInterface, x, y, z, angle.intValue(), 0, this.weaponProperties, scoreableInterface);
+    }
+    }
 }
 

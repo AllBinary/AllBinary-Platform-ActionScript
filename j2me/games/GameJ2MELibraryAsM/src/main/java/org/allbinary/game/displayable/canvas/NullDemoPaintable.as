@@ -1,56 +1,34 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class NullDemoPaintable implements DemoPaintableInterface {
+    private static var NULL_DEMO_PAINTABLE_value:NullDemoPaintable;
+    private static var NULL_DEMO_PAINTABLE_set:Boolean = false;
+    public static function get NULL_DEMO_PAINTABLE():NullDemoPaintable {
+        if (!NullDemoPaintable.NULL_DEMO_PAINTABLE_set) {
+            NullDemoPaintable.NULL_DEMO_PAINTABLE_set = true;
+            NullDemoPaintable.NULL_DEMO_PAINTABLE_value = new NullDemoPaintable();
+        }
+        return NullDemoPaintable.NULL_DEMO_PAINTABLE_value;
+    }
+    
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DemoPaintableInterface } from './DemoPaintableInterface.js';
-//sameFolderImports - not GWT import - same folder const DemoPaintableInterface
-
-export class NullDemoPaintable
-            extends Object
-         implements DemoPaintableInterface {
-        
-
-    public static readonly NULL_DEMO_PAINTABLE: NullDemoPaintable = new NullDemoPaintable();
-
-    public showGamePaintable(){
-}
-
-
+    public function showGamePaintable():void {
+    }
+    }
 }
 

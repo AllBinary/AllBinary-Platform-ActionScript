@@ -1,141 +1,71 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
+    import org.allbinary.game.input.GameKey;
+    import org.allbinary.game.input.GameKeyEventSourceInterface;
+    import org.allbinary.game.input.Input;
+    import org.allbinary.game.input.InputFactory;
+    import org.allbinary.game.input.event.GameKeyEvent;
+    import org.allbinary.game.input.event.GameKeyEventFactory;
+    import org.allbinary.game.input.mapping.InputToGameKeyMapping;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public final class TouchButtonInput extends Input implements GameKeyEventSourceInterface {
+        public var logUtil:LogUtil = null;
+        private var gameKeyEventFactory:GameKeyEventFactory = null;
+        private var TOUCH_BUTTON_SOURCE_ID:int = 0;
+        private var gameKeyEvent:GameKeyEvent = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { GameKey } from '../../../../../org/allbinary/game/input/GameKey.js';
-//not GWT import const GameKey
-
-import { GameKeyEventSourceInterface } from '../../../../../org/allbinary/game/input/GameKeyEventSourceInterface.js';
-//not GWT import const GameKeyEventSourceInterface
-
-import { Input } from '../../../../../org/allbinary/game/input/Input.js';
-//not GWT import const Input
-
-import { InputFactory } from '../../../../../org/allbinary/game/input/InputFactory.js';
-//not GWT import const InputFactory
-
-import { GameKeyEvent } from '../../../../../org/allbinary/game/input/event/GameKeyEvent.js';
-//not GWT import const GameKeyEvent
-
-import { GameKeyEventFactory } from '../../../../../org/allbinary/game/input/event/GameKeyEventFactory.js';
-//not GWT import const GameKeyEventFactory
-
-import { InputToGameKeyMapping } from '../../../../../org/allbinary/game/input/mapping/InputToGameKeyMapping.js';
-//not GWT import const InputToGameKeyMapping
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class TouchButtonInput extends Input implements GameKeyEventSourceInterface {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly gameKeyEventFactory: GameKeyEventFactory = GameKeyEventFactory.getInstance()!;
-
-    private readonly TOUCH_BUTTON_SOURCE_ID: number = this.gameKeyEventFactory!.TOUCH_BUTTON_SOURCE_ID;
-
-    private gameKeyEvent: GameKeyEvent = GameKeyEvent.NONE;
-
-public constructor (id: number, name: string){
-            super(id, name);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-
-    let inputFactory: InputFactory = InputFactory.getInstance()!;;
-    
-inputFactory!.add(this.getId(), this);
-    
-}
-
-
-    public update(inputToGameKeyMapping: InputToGameKeyMapping){
-
- try { 
-    let gameKey: GameKey = inputToGameKeyMapping!.getInstance(this.getId())!;;
-    
-this.gameKeyEvent= this.gameKeyEventFactory!.getInstanceForInput(this, gameKey);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.UPDATE, e);
+        // Java field initializers run after the base constructor
+        private function initFieldsTouchButtonInput():void {
+    this.logUtil = LogUtil.getInstance();
+    this.gameKeyEventFactory = GameKeyEventFactory.getInstance();
+    this.TOUCH_BUTTON_SOURCE_ID = this.gameKeyEventFactory.TOUCH_BUTTON_SOURCE_ID;
+    this.gameKeyEvent = GameKeyEvent.NONE;
+        }
     
 
- }
-   }
- 
-}
-
-
-    public getSourceId(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.TOUCH_BUTTON_SOURCE_ID;
+    public function TouchButtonInput(id:int, name:String) {
+        super(id, name);
+        this.initFieldsTouchButtonInput();
+        var inputFactory:InputFactory = InputFactory.getInstance();
+        inputFactory.add(this.getId(), this);
+    }
     
-}
 
-
-    public getGameKeyEvent(): GameKeyEvent{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gameKeyEvent;
+    public function update(inputToGameKeyMapping:InputToGameKeyMapping):void {
+        try {
+            var gameKey:GameKey = inputToGameKeyMapping.getInstance1(this.getId());
+            this.gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this, gameKey);
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
+        }
+    }
     
-}
 
+    public function getSourceId():int {
+        return this.TOUCH_BUTTON_SOURCE_ID;
+    }
+    
 
+    public function getGameKeyEvent():GameKeyEvent {
+        return this.gameKeyEvent;
+    }
+    }
 }
 

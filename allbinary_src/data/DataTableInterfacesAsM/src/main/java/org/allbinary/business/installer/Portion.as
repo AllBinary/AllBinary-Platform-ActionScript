@@ -1,87 +1,49 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.installer {
+    import java.util.JHashMap;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class Portion {
+        private var current:* = null;
+        private var total:* = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Integer } from '../../../../java/lang/Integer.js';
-        
-import { HashMap } from '../../../../java/util/HashMap.js';
-//not GWT import const HashMap
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class Portion
-            extends Object
-         {
-        
-
-    private readonly current: Integer;
-
-    private readonly total: Integer;
-
-public constructor (hashMap: HashMap<any, any>){
-
-            super();
-        this.current= hashMap!.get("current") as Integer;
+        // Java field initializers run after the base constructor
+        private function initFieldsPortion():void {
     
-this.total= hashMap!.get("total") as Integer;
     
-}
-
-
-    public getCurrent(): Integer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.current;
+        }
     
-}
 
-
-    public getTotal(): Integer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.total;
+    public function Portion(hashMap:JHashMap) {
+        super();
+        this.initFieldsPortion();
+        this.current = (hashMap.get_("current") as *);
+        this.total = (hashMap.get_("total") as *);
+    }
     
-}
 
+    public function getCurrent():* {
+        return this.current;
+    }
+    
 
+    public function getTotal():* {
+        return this.total;
+    }
+    }
 }
 

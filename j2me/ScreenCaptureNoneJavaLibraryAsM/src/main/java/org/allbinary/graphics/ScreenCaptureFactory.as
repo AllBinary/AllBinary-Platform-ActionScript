@@ -1,64 +1,35 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ScreenCaptureNoneFactory } from './ScreenCaptureNoneFactory.js';
-//sameFolderImports - not GWT import - same folder const ScreenCaptureNoneFactory
-import { ScreenCapture } from './ScreenCapture.js';
-//sameFolderImports - not GWT import - same folder const ScreenCapture
-
-export class ScreenCaptureFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: ScreenCapture = ScreenCaptureNoneFactory.getInstance()!;
-
-    public static getInstance(): ScreenCapture{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ScreenCaptureFactory.instance;
+    public class ScreenCaptureFactory {
+    private static var instance_value:ScreenCapture;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ScreenCapture {
+        if (!ScreenCaptureFactory.instance_set) {
+            ScreenCaptureFactory.instance_set = true;
+            ScreenCaptureFactory.instance_value = ScreenCaptureNoneFactory.getInstance();
+        }
+        return ScreenCaptureFactory.instance_value;
+    }
     
-}
 
-
+    public static function getInstance():ScreenCapture {
+        return ScreenCaptureFactory.instance;
+    }
+    }
 }
 

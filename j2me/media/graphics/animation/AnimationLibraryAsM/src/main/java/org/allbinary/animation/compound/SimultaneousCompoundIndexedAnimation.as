@@ -1,228 +1,110 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.compound {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.IndexedAnimation;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class SimultaneousCompoundIndexedAnimation extends IndexedAnimation {
+        private var animationInterfaceArray:Vector.<Animation> = null;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { IndexedAnimation } from '../../../../org/allbinary/animation/IndexedAnimation.js';
-//not GWT import const IndexedAnimation
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class SimultaneousCompoundIndexedAnimation extends IndexedAnimation {
-        
-
-    private animationInterfaceArray: Animation[];
-
-public constructor (animationInterfaceArray: Animation[], animationBehavior: AnimationBehavior){
-            super(animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.animationInterfaceArray= animationInterfaceArray;
+        // Java field initializers run after the base constructor
+        private function initFieldsSimultaneousCompoundIndexedAnimation():void {
     
-}
-
-
-    public setFrame(frameIndex: number){
-
-    let indexedAnimation: IndexedAnimation;;
+        }
     
 
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-indexedAnimation= this.animationInterfaceArray[index]! as IndexedAnimation;
-    
-indexedAnimation!.setFrame(frameIndex);
-    
-}
-
-}
-
-
-    public getFrame(): number{
-
-    let indexedAnimation: IndexedAnimation = this.animationInterfaceArray[0]! as IndexedAnimation;;
+    public function SimultaneousCompoundIndexedAnimation(animationInterfaceArray:Vector.<Animation>, animationBehavior:AnimationBehavior) {
+        super(animationBehavior);
+        this.initFieldsSimultaneousCompoundIndexedAnimation();
+        this.animationInterfaceArray = animationInterfaceArray;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return indexedAnimation!.getFrame();;
-    
-}
-
-
-    public getSize(): number{
-
-    let indexedAnimation: IndexedAnimation = this.animationInterfaceArray[0]! as IndexedAnimation;;
+    override public function setFrame(frameIndex:int):void {
+        var indexedAnimation:IndexedAnimation = null;
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            indexedAnimation = (this.animationInterfaceArray[index] as IndexedAnimation);
+            indexedAnimation.setFrame(frameIndex);
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return indexedAnimation!.getSize();;
-    
-}
-
-
-    public previousFrame(){
-
-    let indexedAnimation: IndexedAnimation;;
+    override public function getFrame():int {
+        var indexedAnimation:IndexedAnimation = (this.animationInterfaceArray[0] as IndexedAnimation);
+        return indexedAnimation.getFrame();
+    }
     
 
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-indexedAnimation= this.animationInterfaceArray[index]! as IndexedAnimation;
-    
-indexedAnimation!.previousFrame();
-    
-}
-
-}
-
-
-    public setSequence(sequence: number[]){
-}
-
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PrimitiveIntUtil.getArrayInstance();;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public nextFrame(){
-
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-this.animationInterfaceArray[index]!.nextFrame();
-    
-}
-
-}
-
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-
-    let size: number = this.animationInterfaceArray!.length
-                ;;
+    override public function getSize():int {
+        var indexedAnimation:IndexedAnimation = (this.animationInterfaceArray[0] as IndexedAnimation);
+        return indexedAnimation.getSize();
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-this.animationInterfaceArray[index]!.paintXY(graphics, x, y);
-    
-}
-
-}
-
-
-    public paintThreedXYZ(graphics: Graphics, x: number, y: number, z: number){
-
-    let size: number = this.animationInterfaceArray!.length
-                ;;
+    override public function previousFrame():void {
+        var indexedAnimation:IndexedAnimation = null;
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            indexedAnimation = (this.animationInterfaceArray[index] as IndexedAnimation);
+            indexedAnimation.previousFrame();
+        }
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-this.animationInterfaceArray[index]!.paintThreedXYZ(graphics, x, y, z);
+    override public function setSequence(sequence:Vector.<int>):void {
+    }
     
-}
 
-}
-
-
-    public getAnimationInterfaceArray(): Animation[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.animationInterfaceArray;
+    override public function getSequence():Vector.<int> {
+        return PrimitiveIntUtil.getArrayInstance();
+    }
     
-}
 
-
-    public setAnimationInterfaceArray(animationInterfaceArray: Animation[]){
-this.animationInterfaceArray= animationInterfaceArray;
+    override public function nextFrame():void {
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].nextFrame();
+        }
+    }
     
-}
 
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        var size:int = this.animationInterfaceArray.length;
+        for (var index:int = 0; index < size; index++) {
+            this.animationInterfaceArray[index].paintXY(graphics, x, y);
+        }
+    }
+    
 
+    override public function paintThreedXYZ(graphics:Graphics, x:int, y:int, z:int):void {
+        var size:int = this.animationInterfaceArray.length;
+        for (var index:int = 0; index < size; index++) {
+            this.animationInterfaceArray[index].paintThreedXYZ(graphics, x, y, z);
+        }
+    }
+    
+
+    public function getAnimationInterfaceArray():Vector.<Animation> {
+        return this.animationInterfaceArray;
+    }
+    
+
+    public function setAnimationInterfaceArray(animationInterfaceArray:Vector.<Animation>):void {
+        this.animationInterfaceArray = animationInterfaceArray;
+    }
+    }
 }
 

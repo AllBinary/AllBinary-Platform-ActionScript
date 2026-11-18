@@ -1,131 +1,64 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai {
+    import org.allbinary.animation.IndexedAnimation;
+    import org.allbinary.animation.RotationAnimationInterface;
+    import org.allbinary.animation.RotationAnimationInterfaceCompositeInterface;
+    import org.allbinary.game.ag.ai.tactical.LurchAI;
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.math.AngleIncrementInfo;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LurchRotationAI extends LurchAI {
+        private var rotationAnimationInterface:IndexedAnimation = null;
 
-        
-
-
-import { IndexedAnimation } from '../../../../../org/allbinary/animation/IndexedAnimation.js';
-//not GWT import const IndexedAnimation
-
-import { RotationAnimationInterface } from '../../../../../org/allbinary/animation/RotationAnimationInterface.js';
-//not GWT import const RotationAnimationInterface
-
-import { RotationAnimationInterfaceCompositeInterface } from '../../../../../org/allbinary/animation/RotationAnimationInterfaceCompositeInterface.js';
-//not GWT import const RotationAnimationInterfaceCompositeInterface
-
-import { LurchAI } from '../../../../../org/allbinary/game/ag/ai/tactical/LurchAI.js';
-//not GWT import const LurchAI
-
-import { GameInput } from '../../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AngleIncrementInfo } from '../../../../../org/allbinary/math/AngleIncrementInfo.js';
-//not GWT import const AngleIncrementInfo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class LurchRotationAI extends LurchAI {
-        
-
-    private rotationAnimationInterface: IndexedAnimation;
-
-public constructor (ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
-            super(ownerLayerInterface, gameInput);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-
-    let rotationAnimationInterfaceCompositeInterface: RotationAnimationInterfaceCompositeInterface = this.getOwnerLayerInterface() as RotationAnimationInterfaceCompositeInterface;;
+        // Java field initializers run after the base constructor
+        private function initFieldsLurchRotationAI():void {
     
-this.rotationAnimationInterface= rotationAnimationInterfaceCompositeInterface!.getRotationAnimationInterface();
-    
-this.update();
-    
-}
-
-
-    reverse(){
-super.reverse();
-    
-this.update();
-    
-}
-
-
-    update(){
-
-                        if(this.currentRelativeAngle == 0)
-                        
-                                    {
-                                    
-    let rotationAnimationInterface: RotationAnimationInterface = this.rotationAnimationInterface as RotationAnimationInterface;;
+        }
     
 
-    let angleIncrementInfo: AngleIncrementInfo = rotationAnimationInterface!.getAngleInfoP()!.getAngleIncrementInfo()!;;
+    public function LurchRotationAI(ownerLayerInterface:AllBinaryLayer, gameInput:GameInput) {
+        super(ownerLayerInterface, gameInput);
+        this.initFieldsLurchRotationAI();
+        var rotationAnimationInterfaceCompositeInterface:RotationAnimationInterfaceCompositeInterface = (this.getOwnerLayerInterface() as RotationAnimationInterfaceCompositeInterface);
+        this.rotationAnimationInterface = rotationAnimationInterfaceCompositeInterface.getRotationAnimationInterface();
+        this.update();
+    }
     
 
-    let rotationAnimationInterfaceCompositeInterface: RotationAnimationInterfaceCompositeInterface = this.getOwnerLayerInterface() as RotationAnimationInterfaceCompositeInterface;;
-    
-rotationAnimationInterfaceCompositeInterface!.setFrame(angleIncrementInfo!.RIGHT_FRAME.intValue());
-    
-
-                                    }
-                                
-                             else 
-                        if(this.currentRelativeAngle == 180)
-                        
-                                    {
-                                    
-    let rotationAnimationInterface: RotationAnimationInterface = this.rotationAnimationInterface as RotationAnimationInterface;;
+    override public function reverse():void {
+        super.reverse();
+        this.update();
+    }
     
 
-    let angleIncrementInfo: AngleIncrementInfo = rotationAnimationInterface!.getAngleInfoP()!.getAngleIncrementInfo()!;;
-    
-
-    let rotationAnimationInterfaceCompositeInterface: RotationAnimationInterfaceCompositeInterface = this.getOwnerLayerInterface() as RotationAnimationInterfaceCompositeInterface;;
-    
-rotationAnimationInterfaceCompositeInterface!.setFrame(angleIncrementInfo!.LEFT_FRAME.intValue());
-    
-
-                                    }
-                                
-}
-
-
+    private function update():void {
+        if (this.currentRelativeAngle == 0) {
+            rotationAnimationInterface = (this.rotationAnimationInterface as RotationAnimationInterface);
+            angleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
+            rotationAnimationInterfaceCompositeInterface = (this.getOwnerLayerInterface() as RotationAnimationInterfaceCompositeInterface);
+            rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
+        } else if (this.currentRelativeAngle == 180) {
+            var rotationAnimationInterface:RotationAnimationInterface = (this.rotationAnimationInterface as RotationAnimationInterface);
+            var angleIncrementInfo:AngleIncrementInfo = rotationAnimationInterface.getAngleInfoP().getAngleIncrementInfo();
+            var rotationAnimationInterfaceCompositeInterface:RotationAnimationInterfaceCompositeInterface = (this.getOwnerLayerInterface() as RotationAnimationInterfaceCompositeInterface);
+            rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.LEFT_FRAME.intValue());
+        }
+    }
+    }
 }
 

@@ -1,134 +1,88 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input.event {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.util.event.EventListenerInterface;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameKeyEventHandler {
+    private static var instance_value:GameKeyEventHandler;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GameKeyEventHandler {
+        if (!GameKeyEventHandler.instance_set) {
+            GameKeyEventHandler.instance_set = true;
+            GameKeyEventHandler.instance_value = new GameKeyEventHandler();
+        }
+        return GameKeyEventHandler.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var commonStrings:CommonStrings = null;
+        private var pressGameKeyEventHandler:PressGameKeyEventHandler = null;
+        private var upGameKeyEventHandler:UpGameKeyEventHandler = null;
+        private var downGameKeyEventHandler:DownGameKeyEventHandler = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGameKeyEventHandler():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.pressGameKeyEventHandler = PressGameKeyEventHandler.getInstance();
+    this.upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
+    this.downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { EventListenerInterface } from '../../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
-//not GWT import const EventListenerInterface
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PressGameKeyEventHandler } from './PressGameKeyEventHandler.js';
-//sameFolderImports - not GWT import - same folder const PressGameKeyEventHandler
-import { UpGameKeyEventHandler } from './UpGameKeyEventHandler.js';
-//sameFolderImports - not GWT import - same folder const UpGameKeyEventHandler
-import { DownGameKeyEventHandler } from './DownGameKeyEventHandler.js';
-//sameFolderImports - not GWT import - same folder const DownGameKeyEventHandler
-
-export class GameKeyEventHandler
-            extends Object
-         {
-        
-
-    private static readonly instance: GameKeyEventHandler = new GameKeyEventHandler();
-
-    public static getInstance(): GameKeyEventHandler{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameKeyEventHandler.instance;
+        public function GameKeyEventHandler() {
+            super();
+            this.initFieldsGameKeyEventHandler();
+        }
     
-}
 
+    public static function getInstance():GameKeyEventHandler {
+        return GameKeyEventHandler.instance;
+    }
+    
 
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
+    public function removeAllListeners():void {
+        this.pressGameKeyEventHandler.removeAllListeners();
+        this.upGameKeyEventHandler.removeAllListeners();
+        this.downGameKeyEventHandler.removeAllListeners();
+    }
+    
 
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
+    public function addListenerForPlayer(eventListenerInterface:EventListenerInterface, playerInputId:int):void {
+        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.ADD_LISTENER);
+        this.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
+        this.upGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface);
+        this.downGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface);
+    }
+    
 
-    private readonly pressGameKeyEventHandler: PressGameKeyEventHandler = PressGameKeyEventHandler.getInstance()!;
+    public function addListener(eventListenerInterface:EventListenerInterface):void {
+        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.ADD_LISTENER);
+        this.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
+        this.upGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
+        this.downGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
+    }
+    
 
-    private readonly upGameKeyEventHandler: UpGameKeyEventHandler = UpGameKeyEventHandler.getInstance()!;
-
-    private readonly downGameKeyEventHandler: DownGameKeyEventHandler = DownGameKeyEventHandler.getInstance()!;
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public removeAllListeners(){
-this.pressGameKeyEventHandler!.removeAllListeners();
-    
-this.upGameKeyEventHandler!.removeAllListeners();
-    
-this.downGameKeyEventHandler!.removeAllListeners();
-    
-}
-
-
-    public addListenerForPlayer(eventListenerInterface: EventListenerInterface, playerInputId: number){
-this.logUtil!.putF(eventListenerInterface!.toString(), this, this.commonStrings!.ADD_LISTENER);
-    
-this.pressGameKeyEventHandler!.addListenerSingleThreaded(eventListenerInterface);
-    
-this.upGameKeyEventHandler!.getInstanceForPlayer(playerInputId)!.addListenerSingleThreaded(eventListenerInterface);
-    
-this.downGameKeyEventHandler!.getInstanceForPlayer(playerInputId)!.addListenerSingleThreaded(eventListenerInterface);
-    
-}
-
-
-    public addListener(eventListenerInterface: EventListenerInterface){
-this.logUtil!.putF(eventListenerInterface!.toString(), this, this.commonStrings!.ADD_LISTENER);
-    
-this.pressGameKeyEventHandler!.addListenerSingleThreaded(eventListenerInterface);
-    
-this.upGameKeyEventHandler!.addListenerSingleThreaded(eventListenerInterface);
-    
-this.downGameKeyEventHandler!.addListenerSingleThreaded(eventListenerInterface);
-    
-}
-
-
-    public removeListener(eventListenerInterface: EventListenerInterface){
-this.logUtil!.putF(eventListenerInterface!.toString(), this, this.commonStrings!.REMOVE_LISTENER);
-    
-this.pressGameKeyEventHandler!.removeListenerSingleThreaded(eventListenerInterface);
-    
-this.upGameKeyEventHandler!.removeListenerSingleThreaded(eventListenerInterface);
-    
-this.downGameKeyEventHandler!.removeListenerSingleThreaded(eventListenerInterface);
-    
-}
-
-
+    public function removeListener(eventListenerInterface:EventListenerInterface):void {
+        this.logUtil.putF(eventListenerInterface.toString(), this, this.commonStrings.REMOVE_LISTENER);
+        this.pressGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
+        this.upGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
+        this.downGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
+    }
+    }
 }
 

@@ -1,82 +1,55 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.terrain {
+    import org.allbinary.math.Angle;
+    import org.allbinary.math.AngleFactory;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicTerrainInfo {
+    private static var NULL_BASIC_TERRAIN_INFO_value:BasicTerrainInfo;
+    private static var NULL_BASIC_TERRAIN_INFO_set:Boolean = false;
+    public static function get NULL_BASIC_TERRAIN_INFO():BasicTerrainInfo {
+        if (!BasicTerrainInfo.NULL_BASIC_TERRAIN_INFO_set) {
+            BasicTerrainInfo.NULL_BASIC_TERRAIN_INFO_set = true;
+            BasicTerrainInfo.NULL_BASIC_TERRAIN_INFO_value = new BasicTerrainInfo(AngleFactory.getInstance().NOT_ANGLE);
+        }
+        return BasicTerrainInfo.NULL_BASIC_TERRAIN_INFO_value;
+    }
+        private var angle:Angle = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Angle } from '../../../../org/allbinary/math/Angle.js';
-//not GWT import const Angle
-
-import { AngleFactory } from '../../../../org/allbinary/math/AngleFactory.js';
-//not GWT import const AngleFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class BasicTerrainInfo
-            extends Object
-         {
-        
-
-    public static readonly NULL_BASIC_TERRAIN_INFO: BasicTerrainInfo = new BasicTerrainInfo(AngleFactory.getInstance()!.NOT_ANGLE);
-
-    private angle: Angle;
-
-public constructor (angle: Angle){
-
-            super();
-        this.angle= angle;
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicTerrainInfo():void {
     
-}
-
-
-    public getAngle(): Angle{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.angle;
+        }
     
-}
 
-
-    public setAngle(angle: Angle){
-this.angle= angle;
+    public function BasicTerrainInfo(angle:Angle) {
+        super();
+        this.initFieldsBasicTerrainInfo();
+        this.angle = angle;
+    }
     
-}
 
+    public function getAngle():Angle {
+        return this.angle;
+    }
+    
 
+    public function setAngle(angle:Angle):void {
+        this.angle = angle;
+    }
+    }
 }
 

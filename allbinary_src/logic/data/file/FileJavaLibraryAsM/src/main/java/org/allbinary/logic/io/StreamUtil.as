@@ -1,204 +1,94 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io {
+    import java.io.JByteArrayOutputStream;
+    import java.io.JCloseable;
+    import java.io.JInputStream;
+    import java.io.JOutputStream;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { ByteArrayOutputStream } from '../../../../java/io/ByteArrayOutputStream.js';
-//not GWT import const ByteArrayOutputStream
-
-import { Closeable } from '../../../../java/io/Closeable.js';
-//not GWT import const Closeable
-
-import { InputStream } from '../../../../java/io/InputStream.js';
-//not GWT import const InputStream
-
-import { OutputStream } from '../../../../java/io/OutputStream.js';
-//not GWT import const OutputStream
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class StreamUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: StreamUtil = new StreamUtil();
-
-    public static getInstance(): StreamUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StreamUtil.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-private constructor (){
-
-            super();
+    public class StreamUtil {
+    private static var instance_value:StreamUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():StreamUtil {
+        if (!StreamUtil.instance_set) {
+            StreamUtil.instance_set = true;
+            StreamUtil.instance_value = new StreamUtil();
         }
+        return StreamUtil.instance_value;
+    }
+        public var logUtil:LogUtil = null;
 
-
-                //@Throws(Exception.constructor)
-            
-    public get(inputStream: InputStream, outputStream: OutputStream, buffer: number[]): OutputStream{
-
-    let len: number = 0;;
+        // Java field initializers run after the base constructor
+        private function initFieldsStreamUtil():void {
+    this.logUtil = LogUtil.getInstance();
+        }
     
 
-        while(true)
-        {
-len= inputStream!.read(buffer, 0, buffer.length);
+    public static function getInstance():StreamUtil {
+        return StreamUtil.instance;
+    }
     
 
-                        if(len !=  -1)
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            break;
-
-                    
-
-                        }
-                            
-outputStream!.write(buffer, 0, len);
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return outputStream;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getByteArray(inputStream: InputStream, outputStream2: ByteArrayOutputStream, byteArray: number[]): number[]{
-
-    let outputStream: ByteArrayOutputStream = outputStream2;;
+    public function StreamUtil() {
+        super();
+        this.initFieldsStreamUtil();
+    }
     
 
- try { this.get(inputStream, outputStream, byteArray);
+    public function get_(inputStream:InputStream, outputStream:OutputStream, buffer:Vector.<int>):OutputStream {
+        var len:int = 0;
+        while (true) {
+            len = inputStream.read(buffer, 0, buffer.length);
+            if (len != -1) {
+            } else {
+                break;
+            }
+            outputStream.write(buffer, 0, len);
+        }
+        return outputStream;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return outputStream!.toByteArray();;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-
-
-                            throw e;
-                    
-
- }
-   }
- finally { this.close(outputStream);
-    
- }
-}
-
-
-    public close(closeable: Closeable): boolean{
-
- try { 
-                        if(closeable != 
-                                    null
-                                )
-                        
-                                    {
-                                    closeable.close();
+    public function getByteArray(inputStream:InputStream, outputStream2:JByteArrayOutputStream, byteArray:Vector.<int>):Vector.<int> {
+        var outputStream:JByteArrayOutputStream = outputStream2;
+        try {
+            this.get_(inputStream, outputStream, byteArray);
+            return outputStream.toByteArray();
+        } catch (e:*) {
+            throw e;
+        } finally {
+            this.close(outputStream);
+        }
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.CLOSE, e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-
- }
-   }
- 
-}
-
-
+    public function close(closeable:Closeable):Boolean {
+        try {
+            if (closeable != null) {
+                closeable.close();
+            }
+            return true;
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CLOSE, e);
+            return false;
+        }
+    }
+    }
 }
 

@@ -1,243 +1,131 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.caption {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.AnimationEventHandler;
+    import org.allbinary.animation.IndexedAnimation;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.time.GameTickTimeDelayHelperFactory;
+    import org.allbinary.time.TimeDelayHelper;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CaptionIndexedAnimation extends IndexedAnimation {
+        private var animationInterface:Animation = null;
+        private var movieIndexedAnimationInterface:IndexedAnimation = null;
+        private var captionDx:int = 0;
+        private var captionDy:int = 0;
+        private var dx:int = 0;
+        private var dy:int = 0;
+        private var time:int = 0;
+        private var END_EVENT:AllBinaryEventObject = null;
+        private var timeDelayHelper:TimeDelayHelper = null;
+        private var player:Player = null;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Player, PlayerI } from '../../../../javax/microedition/media/Player.js';
-//not GWT import const Player
-
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { AnimationEventHandler } from '../../../../org/allbinary/animation/AnimationEventHandler.js';
-//not GWT import const AnimationEventHandler
-
-import { IndexedAnimation } from '../../../../org/allbinary/animation/IndexedAnimation.js';
-//not GWT import const IndexedAnimation
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { GameTickTimeDelayHelperFactory } from '../../../../org/allbinary/time/GameTickTimeDelayHelperFactory.js';
-//not GWT import const GameTickTimeDelayHelperFactory
-
-import { TimeDelayHelper } from '../../../../org/allbinary/time/TimeDelayHelper.js';
-//not GWT import const TimeDelayHelper
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class CaptionIndexedAnimation extends IndexedAnimation {
-        
-
-    private animationInterface: Animation;
-
-    private movieIndexedAnimationInterface: IndexedAnimation;
-
-    private captionDx: number;
-
-    private captionDy: number;
-
-    private dx: number;
-
-    private dy: number;
-
-    private time: number;
-
-    private END_EVENT: AllBinaryEventObject;
-
-    private timeDelayHelper: TimeDelayHelper;
-
-    private player: Player;
-
-public constructor (animationInterface: Animation, movieIndexedAnimationInterface: IndexedAnimation, player: Player, captionDx: number, captionDy: number, dx: number, dy: number, time: number, animationBehavior: AnimationBehavior){
-            super(animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.animationInterface= animationInterface;
+        // Java field initializers run after the base constructor
+        private function initFieldsCaptionIndexedAnimation():void {
     
-this.movieIndexedAnimationInterface= movieIndexedAnimationInterface;
     
-this.captionDx= captionDx;
     
-this.captionDy= captionDy;
     
-this.dx= dx;
     
-this.dy= dy;
     
-this.time= time;
     
-this.END_EVENT= new AllBinaryEventObject(this);
+    
+    
+    
+        }
     
 
-    let timePerFrame: number = this.time /this.getSize();;
-    
-this.timeDelayHelper= new TimeDelayHelper(timePerFrame);
-    
-this.player= player;
-    
-this.player.start();
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public nextFrame(){
-
-                        if(this.timeDelayHelper!.isTime(GameTickTimeDelayHelperFactory.getInstance()!.startTime))
-                        
-                                    {
-                                    this.movieIndexedAnimationInterface!.nextFrame();
+    public function CaptionIndexedAnimation(animationInterface:Animation, movieIndexedAnimationInterface:IndexedAnimation, player:Player, captionDx:int, captionDy:int, dx:int, dy:int, time:int, animationBehavior:AnimationBehavior) {
+        super(animationBehavior);
+        this.initFieldsCaptionIndexedAnimation();
+        this.animationInterface = animationInterface;
+        this.movieIndexedAnimationInterface = movieIndexedAnimationInterface;
+        this.captionDx = captionDx;
+        this.captionDy = captionDy;
+        this.dx = dx;
+        this.dy = dy;
+        this.time = time;
+        this.END_EVENT = new AllBinaryEventObject(this);
+        var timePerFrame:int = int(this.time / this.getSize());
+        this.timeDelayHelper = new TimeDelayHelper(timePerFrame);
+        this.player = player;
+        this.player.start();
+    }
     
 
-                                    }
-                                
-
-                        if(this.isLastFrame())
-                        
-                                    {
-                                    AnimationEventHandler.getInstance()!.fireEvent(this.END_EVENT);
+    override public function nextFrame():void {
+        if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
+            this.movieIndexedAnimationInterface.nextFrame();
+        }
+        if (this.isLastFrame()) {
+            AnimationEventHandler.getInstance().fireEvent(this.END_EVENT);
+        }
+    }
     
 
-                                    }
-                                
-}
-
-
-    public isLastFrame(): boolean{
-
-                        if(this.movieIndexedAnimationInterface!.getFrame() == this.getSize() -1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    override public function isLastFrame():Boolean {
+        if (this.movieIndexedAnimationInterface.getFrame() == int(this.getSize() - 1)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    override public function previousFrame():void {
+        this.movieIndexedAnimationInterface.previousFrame();
+    }
     
 
-                        }
-                            
-}
-
-
-    public previousFrame(){
-this.movieIndexedAnimationInterface!.previousFrame();
+    override public function setFrame(index:int):void {
+        this.movieIndexedAnimationInterface.setFrame(index);
+    }
     
-}
 
-
-    public setFrame(index: number){
-this.movieIndexedAnimationInterface!.setFrame(index);
+    override public function getFrame():int {
+        return this.movieIndexedAnimationInterface.getFrame();
+    }
     
-}
 
-
-    public getFrame(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.movieIndexedAnimationInterface!.getFrame();;
+    override public function getSize():int {
+        return this.movieIndexedAnimationInterface.getSize();
+    }
     
-}
 
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.movieIndexedAnimationInterface!.getSize();;
+    override public function setSequence(sequence:Vector.<int>):void {
+    }
     
-}
 
-
-    public setSequence(sequence: number[]){
-}
-
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PrimitiveIntUtil.getArrayInstance();;
+    override public function getSequence():Vector.<int> {
+        return PrimitiveIntUtil.getArrayInstance();
+    }
     
-}
 
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-this.animationInterface!.paintXY(graphics, x +this.captionDx, y +this.captionDy);
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        this.animationInterface.paintXY(graphics, int(x + this.captionDx), int(y + this.captionDy));
+        this.movieIndexedAnimationInterface.paintXY(graphics, int(int(x + this.captionDx) + this.dx), int(int(y + this.captionDy) + this.dy));
+    }
     
-this.movieIndexedAnimationInterface!.paintXY(graphics, x +this.captionDx +this.dx, y +this.captionDy +this.dy);
-    
-}
 
-
-    public paintThreedXYZ(graphics: Graphics, x: number, y: number, z: number){
-this.animationInterface!.paintThreedXYZ(graphics, x +this.captionDx, y +this.captionDy, z);
-    
-this.movieIndexedAnimationInterface!.paintThreedXYZ(graphics, x +this.captionDx +this.dx, y +this.captionDy +this.dy, z);
-    
-}
-
-
+    override public function paintThreedXYZ(graphics:Graphics, x:int, y:int, z:int):void {
+        this.animationInterface.paintThreedXYZ(graphics, int(x + this.captionDx), int(y + this.captionDy), z);
+        this.movieIndexedAnimationInterface.paintThreedXYZ(graphics, int(int(x + this.captionDx) + this.dx), int(int(y + this.captionDy) + this.dy), z);
+    }
+    }
 }
 

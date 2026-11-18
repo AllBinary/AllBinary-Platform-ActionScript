@@ -1,222 +1,136 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.color.BasicColorSetUtil;
+    import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class Animation implements AnimationInterface, OpenGLSurfaceChangedInterface {
+        public var basicSetColorUtil:BasicColorSetUtil = null;
+        public var basicColor:BasicColor = null;
+        public var colorP:int = 0;
+        public var changeBasicColorP:BasicColor = null;
+        public var changeColorP:int = 0;
+        public var alphaP:int = 0;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { GL } from '../../../javax/microedition/khronos/opengles/GL.js';
-//not GWT import const GL
-
-import { Graphics } from '../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { BasicColor } from '../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { BasicColorSetUtil } from '../../../org/allbinary/graphics/color/BasicColorSetUtil.js';
-//not GWT import const BasicColorSetUtil
-
-import { OpenGLSurfaceChangedInterface } from '../../../org/allbinary/image/opengles/OpenGLSurfaceChangedInterface.js';
-//not GWT import const OpenGLSurfaceChangedInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AnimationInterface } from './AnimationInterface.js';
-//sameFolderImports - not GWT import - same folder const AnimationInterface
-
-export class Animation
-            extends Object
-         implements AnimationInterface, OpenGLSurfaceChangedInterface {
-        
-
-    readonly basicSetColorUtil: BasicColorSetUtil = BasicColorSetUtil.getInstance()!;
-
-    basicColor: BasicColor = BasicColorFactory.getInstance()!.WHITE;
-
-    colorP: number= 0;
-
-    changeBasicColorP: BasicColor = BasicColorFactory.getInstance()!.NULL_COLOR;
-
-    changeColorP: number= 0;
-
-    public alphaP: number= 0;
-
-public constructor (){
-
-            super();
+        // Java field initializers run after the base constructor
+        private function initFieldsAnimation():void {
+    this.basicSetColorUtil = BasicColorSetUtil.getInstance();
+    this.basicColor = BasicColorFactory.getInstance().WHITE;
+    this.colorP = 0;
+    this.changeBasicColorP = BasicColorFactory.getInstance().NULL_COLOR;
+    this.changeColorP = 0;
+    this.alphaP = 0;
         }
-
-
-    public setAlpha(alpha: number){
-this.alphaP= alpha;
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public nextFrame(){
-}
-
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-this.basicSetColorUtil!.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
+    public function Animation() {
+        super();
+        this.initFieldsAnimation();
+    }
     
-}
 
-
-    public paintThreedXYZ(graphics: Graphics, x: number, y: number, z: number){
-}
-
-
-    public isThreed(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function setAlpha(alpha:int):void {
+        this.alphaP = alpha;
+    }
     
-}
 
-
-    public getBasicColorP(): BasicColor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicColor;
+    public function nextFrame():void {
+    }
     
-}
 
-
-    public setBasicColorP(basicColor: BasicColor){
-this.basicColor= basicColor;
+    public function paintXY(graphics:Graphics, x:int, y:int):void {
+        this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
+    }
     
-this.colorP= this.basicColor!.intValue();
+
+    public function paintThreedXYZ(graphics:Graphics, x:int, y:int, z:int):void {
+    }
     
-}
 
-
-    public setBackgroundBasicColorP(basicColor: BasicColor){
-}
-
-
-    public getChangeBasicColor(): BasicColor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.changeBasicColorP;
+    public function isThreed():Boolean {
+        return false;
+    }
     
-}
 
-
-    public changeBasicColor(basicColor: BasicColor){
-this.changeBasicColorP= basicColor;
+    public function getBasicColorP():BasicColor {
+        return this.basicColor;
+    }
     
-this.changeColorP= this.changeBasicColorP!.intValue();
+
+    public function setBasicColorP(basicColor:BasicColor):void {
+        this.basicColor = basicColor;
+        this.colorP = this.basicColor.intValue();
+    }
     
-}
 
-
-    public getChangeColor(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.changeColorP;
+    public function setBackgroundBasicColorP(basicColor:BasicColor):void {
+    }
     
-}
 
-
-    public getColor(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.colorP;
+    public function getChangeBasicColor():BasicColor {
+        return this.changeBasicColorP;
+    }
     
-}
 
-
-    public setScale(scaleX: number, scaleY: number){
-}
-
-
-    public setMaxScale(maxScaleX: number, maxScaleY: number){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public set(gl: GL){
-}
-
-
-    public setDx(dx: number){
-}
-
-
-    public getDx(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public function changeBasicColor(basicColor:BasicColor):void {
+        this.changeBasicColorP = basicColor;
+        this.changeColorP = this.changeBasicColorP.intValue();
+    }
     
-}
 
-
-    public setDy(dy: number){
-}
-
-
-    public getDy(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public function getChangeColor():int {
+        return this.changeColorP;
+    }
     
-}
 
+    public function getColor():int {
+        return this.colorP;
+    }
+    
 
+    public function setScale(scaleX:Number, scaleY:Number):void {
+    }
+    
+
+    public function setMaxScale(maxScaleX:Number, maxScaleY:Number):void {
+    }
+    
+
+    public function set_(gl:GL):void {
+    }
+    
+
+    public function setDx(dx:int):void {
+    }
+    
+
+    public function getDx():int {
+        return 0;
+    }
+    
+
+    public function setDy(dy:int):void {
+    }
+    
+
+    public function getDy():int {
+        return 0;
+    }
+    }
 }
 

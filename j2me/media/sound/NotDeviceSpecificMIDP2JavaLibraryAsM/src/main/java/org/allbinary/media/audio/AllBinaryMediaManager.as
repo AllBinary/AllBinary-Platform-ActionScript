@@ -1,225 +1,89 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.audio {
+    import java.io.JInputStream;
+    import org.allbinary.MIDPUtil;
+    import org.allbinary.TsUtil;
+    import org.allbinary.audio.AudioContentTypeDataFactory;
+    import org.allbinary.data.resource.ResourceUtil;
+    import org.allbinary.game.configuration.feature.Features;
+    import org.allbinary.game.configuration.feature.GameFeatureFactory;
+    import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { InputStream } from '../../../../java/io/InputStream.js';
-//not GWT import const InputStream
-
-import { Manager } from '../../../../javax/microedition/media/Manager.js';
-//not GWT import const Manager
-
-import { MediaException } from '../../../../javax/microedition/media/MediaException.js';
-//not GWT import const MediaException
-
-import { Player, PlayerI } from '../../../../javax/microedition/media/Player.js';
-//not GWT import const Player
-
-import { MIDPUtil } from '../../../../org/allbinary/MIDPUtil.js';
-//not GWT import const MIDPUtil
-
-import { TsUtil } from '../../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-import { AudioContentTypeDataFactory } from '../../../../org/allbinary/audio/AudioContentTypeDataFactory.js';
-//not GWT import const AudioContentTypeDataFactory
-
-//not plain js import { ResourceUtil } 
-const ResourceUtil = globalThis.org.allbinary.data.resource.ResourceUtil;
-type ResourceUtil<T = any, U = any> = typeof ResourceUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ResourceUtil;
-
-import { Features } from '../../../../org/allbinary/game/configuration/feature/Features.js';
-//not GWT import const Features
-
-import { GameFeatureFactory } from '../../../../org/allbinary/game/configuration/feature/GameFeatureFactory.js';
-//not GWT import const GameFeatureFactory
-
-import { ProgressCanvasFactory } from '../../../../org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.js';
-//not GWT import const ProgressCanvasFactory
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Sounds } from './Sounds.js';
-//sameFolderImports - not GWT import - same folder const Sounds
-import { SoundsFactoryInterface } from './SoundsFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const SoundsFactoryInterface
-import { NoPlayer } from './NoPlayer.js';
-//sameFolderImports - not GWT import - same folder const NoPlayer
-//NotDeviceSpecificMIDP2JavaLibrary
-export class AllBinaryMediaManager
-            extends Object
-         {
-        
-
-    private static readonly THIS: string = "AllBinaryMediaManagerNoMIPD2";
-
-    public static isMuted(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public static setMuted(aMuted: boolean){
-}
-
-
-    public static update(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public static init(soundsFactoryInterface: SoundsFactoryInterface){
-
-    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    //NotDeviceSpecificMIDP2JavaLibrary
+    public class AllBinaryMediaManager {
+    private static const THIS:String = "AllBinaryMediaManagerNoMIPD2";
     
 
-    let commonString: CommonStrings = CommonStrings.getInstance()!;;
-    
-logUtil!.putF(commonString!.START, AllBinaryMediaManager.THIS, commonString!.INIT);
-    
-ProgressCanvasFactory.getInstance()!.addNormalPortion(50, "Media Manager");
-    
-new Sounds(soundsFactoryInterface).init();
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public static shutdown(soundsFactoryInterface: SoundsFactoryInterface){
-new Sounds(soundsFactoryInterface).stopAll();
-    
-new Sounds(soundsFactoryInterface).closeAll();
-    
-TsUtil.getInstance()!.gc();
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public static createPlayer(resource: string): Player{
-
-                        if(Features.getInstance()!.isFeature(GameFeatureFactory.getInstance()!.SOUND))
-                        
-                                    {
-                                    
-                        if(TsUtil.getInstance()!.compareTo(resource, Manager.TONE_DEVICE_LOCATOR) == 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return Manager.createPlayer(resource);;
+    public function AllBinaryMediaManager() {
+        super();
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-    let inputStream: InputStream = ResourceUtil.getInstance()!.getResourceAsStream(resource)!;;
+    public static function isMuted():Boolean {
+        return false;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MIDPUtil.getInstance()!.createPlayerFromInputStream(inputStream, AudioContentTypeDataFactory.getInstance()!.MIME_AUDIO_WAV.getName());;
+    public static function setMuted(aMuted:Boolean):void {
+    }
     
 
-                        }
-                            
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NoPlayer.NO_PLAYER;
+    public static function update():Boolean {
+        return true;
+    }
     
 
-                        }
-                            
-}
-
-
-                //@Throws(MediaException.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public static playTone(frequency: number, time: number, volume: number){
-
-                        if(Features.getInstance()!.isFeature(GameFeatureFactory.getInstance()!.SOUND))
-                        
-                                    {
-                                    Manager.playTone(frequency, time, volume);
+    public static function init(soundsFactoryInterface:SoundsFactoryInterface):void {
+        var logUtil:LogUtil = LogUtil.getInstance();
+        var commonString:CommonStrings = CommonStrings.getInstance();
+        logUtil.putF(commonString.START, AllBinaryMediaManager.THIS, commonString.INIT);
+        ProgressCanvasFactory.getInstance().addNormalPortion(50, "Media Manager");
+        new Sounds(soundsFactoryInterface).init();
+    }
     
 
-                                    }
-                                
-}
+    public static function shutdown(soundsFactoryInterface:SoundsFactoryInterface):void {
+        new Sounds(soundsFactoryInterface).stopAll();
+        new Sounds(soundsFactoryInterface).closeAll();
+        TsUtil.getInstance().gc();
+    }
+    
 
-
-private constructor (){
-
-            super();
+    public static function createPlayer(resource:String):Player {
+        if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().SOUND)) {
+            if (TsUtil.getInstance().compareTo(resource, Manager.TONE_DEVICE_LOCATOR) == 0) {
+                return Manager.createPlayer(resource);
+            } else {
+                var inputStream:InputStream = ResourceUtil.getInstance().getResourceAsStream(resource);
+                return MIDPUtil.getInstance().createPlayerFromInputStream(inputStream, AudioContentTypeDataFactory.getInstance().MIME_AUDIO_WAV.getName());
+            }
+        } else {
+            return NoPlayer.NO_PLAYER;
         }
+    }
+    
 
-
+    public static function playTone(frequency:int, time:int, volume:int):void {
+        if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().SOUND)) {
+            Manager.playTone(frequency, time, volume);
+        }
+    }
+    }
 }
 

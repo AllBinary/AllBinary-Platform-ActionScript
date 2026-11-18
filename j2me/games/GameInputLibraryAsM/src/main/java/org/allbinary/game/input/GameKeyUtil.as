@@ -1,90 +1,44 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Canvas } from '../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GameKeyUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: GameKeyUtil = new GameKeyUtil();
-
-    public static getInstance(): GameKeyUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameKeyUtil.instance;
-    
-}
-
-
-    public isDirectionKey(key: number): boolean{
-
-                        if(key == Canvas.UP || key == Canvas.DOWN || key == Canvas.LEFT || key == Canvas.RIGHT)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public class GameKeyUtil {
+    private static var instance_value:GameKeyUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GameKeyUtil {
+        if (!GameKeyUtil.instance_set) {
+            GameKeyUtil.instance_set = true;
+            GameKeyUtil.instance_value = new GameKeyUtil();
+        }
+        return GameKeyUtil.instance_value;
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function isDirectionKey(key:int):Boolean {
+        if (key == Canvas.UP || key == Canvas.DOWN || key == Canvas.LEFT || key == Canvas.RIGHT) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 
-                        }
-                            
-}
-
-
+    public static function getInstance():GameKeyUtil {
+        return GameKeyUtil.instance;
+    }
+    }
 }
 

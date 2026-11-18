@@ -1,320 +1,163 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.audio {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.time.GameTickTimeDelayHelper;
+    import org.allbinary.time.GameTickTimeDelayHelperFactory;
+    import org.allbinary.time.TimeDelayHelper;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    //BasicPlayer
+    public class PlayerComposite implements Controllable, Player {
+        public var logUtil:LogUtil = null;
+        private var commonStrings:CommonStrings = null;
+        private var player:Player = null;
+        private var timeElapsedHelper:TimeDelayHelper = null;
+        private var gameTickTimeDelayHelper:GameTickTimeDelayHelper = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
-        
-import { Control } from '../../../../javax/microedition/media/Control.js';
-//not GWT import const Control
-
-import { Controllable } from '../../../../javax/microedition/media/Controllable.js';
-//not GWT import const Controllable
-
-import { Player, PlayerI } from '../../../../javax/microedition/media/Player.js';
-//not GWT import const Player
-
-import { PlayerListenerI } from '../../../../javax/microedition/media/PlayerListener.js';
-const PlayerListener = PlayerListenerI;
-//not GWT import const PlayerListener
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-import { GameTickTimeDelayHelper } from '../../../../org/allbinary/time/GameTickTimeDelayHelper.js';
-//not GWT import const GameTickTimeDelayHelper
-
-import { GameTickTimeDelayHelperFactory } from '../../../../org/allbinary/time/GameTickTimeDelayHelperFactory.js';
-//not GWT import const GameTickTimeDelayHelperFactory
-
-import { TimeDelayHelper } from '../../../../org/allbinary/time/TimeDelayHelper.js';
-//not GWT import const TimeDelayHelper
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Controllable2 } from './Controllable2.js';
-//sameFolderImports - not GWT import - same folder const Controllable2
-//BasicPlayer
-export class PlayerComposite
-            extends Object
-         implements Controllable, Player {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly player: Player;
-
-    private readonly timeElapsedHelper: TimeDelayHelper = new TimeDelayHelper(0);
-
-public constructor (player: Player, repeatTime: number){
-
-            super();
-        this.player= player;
+        // Java field initializers run after the base constructor
+        private function initFieldsPlayerComposite():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
     
-this.timeElapsedHelper!.delay= repeatTime;
-    
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public addPlayerListener(playerListener: PlayerListener){
-this.player.addPlayerListener(playerListener);
-    
-}
-
-
-    public removePlayerListener(playerListener: PlayerListener){
-this.player.removePlayerListener(playerListener);
-    
-}
-
-
-    public close(){
-this.player.close();
-    
-}
-
-
-    public deallocate(){
-this.player.deallocate();
-    
-}
-
-
-    public getContentType(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.player.getContentType();;
-    
-}
-
-
-    public getDuration(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.player.getDuration();;
-    
-}
-
-
-    public getMediaTime(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.player.getMediaTime();;
-    
-}
-
-
-    public prefetch(){
-
- try { this.player.prefetch();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "prefetch", e);
+    this.timeElapsedHelper = new TimeDelayHelper(0);
+    this.gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+        }
     
 
- }
-   }
- 
-}
-
-
-    public realize(){
-
- try { this.player.realize();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "realize", e);
+    public function PlayerComposite(player:Player, repeatTime:int) {
+        super();
+        this.initFieldsPlayerComposite();
+        this.player = player;
+        this.timeElapsedHelper.delay = repeatTime;
+    }
     
 
- }
-   }
- 
-}
-
-
-    public getState(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.player.getState();;
-    
-}
-
-
-    public setLoopCount(count: number){
-this.player.setLoopCount(count);
-    
-}
-
-
-    public setMediaTime(now: number): number{
-
- try { 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.player.setMediaTime(now);;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "setMediaTime", e);
+    public function addPlayerListener(playerListener:PlayerListener):void {
+        this.player.addPlayerListener(playerListener);
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return  -1;
+    public function removePlayerListener(playerListener:PlayerListener):void {
+        this.player.removePlayerListener(playerListener);
+    }
     
 
- }
-   }
- 
-}
-
-
-    private readonly gameTickTimeDelayHelper: GameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance()!;
-
-    public start(){
-
- try { 
-                        if(this.timeElapsedHelper!.isTime(this.gameTickTimeDelayHelper!.startTime))
-                        
-                                    {
-                                    this.player.start();
+    public function close():void {
+        this.player.close();
+    }
     
 
-                                    }
-                                
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.START_METHOD_NAME, e);
+    public function deallocate():void {
+        this.player.deallocate();
+    }
     
 
- }
-   }
- 
-}
-
-
-    public stop(){
-
- try { this.player.stop();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "stop", e);
+    public function getContentType():String {
+        return this.player.getContentType();
+    }
     
 
- }
-   }
- 
-}
-
-
-    public getControl(controlType: string): Control{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.player.getControl(controlType);;
+    public function getDuration():Number {
+        return this.player.getDuration();
+    }
     
-}
 
-
-    public getControls(): Control[]{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public setVolume(leftVolume: number, rightVolume: number){
-
-    let controllable2: Controllable2 = (this.player as unknown as Controllable2);;
+    public function getMediaTime():Number {
+        return this.player.getMediaTime();
+    }
     
-controllable2.setVolume(leftVolume, rightVolume);
+
+    public function prefetch():void {
+        try {
+            this.player.prefetch();
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "prefetch", e);
+        }
+    }
     
-}
 
-
-    public getPlayerP(): Player{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.player;
+    public function realize():void {
+        try {
+            this.player.realize();
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "realize", e);
+        }
+    }
     
-}
 
+    public function getState():int {
+        return this.player.getState();
+    }
+    
 
+    public function setLoopCount(count:int):void {
+        this.player.setLoopCount(count);
+    }
+    
+
+    public function setMediaTime(now:Number):Number {
+        try {
+            return this.player.setMediaTime(now);
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "setMediaTime", e);
+            return Number(-1);
+        }
+    }
+    
+
+    public function start():void {
+        try {
+            if (this.timeElapsedHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
+                this.player.start();
+            }
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.START_METHOD_NAME, e);
+        }
+    }
+    
+
+    public function stop():void {
+        try {
+            this.player.stop();
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "stop", e);
+        }
+    }
+    
+
+    public function getControl(controlType:String):Control {
+        return this.player.getControl(controlType);
+    }
+    
+
+    public function getControls():Vector.<Control> {
+        throw new JException("RuntimeException", "");
+    }
+    
+
+    public function setVolume(leftVolume:int, rightVolume:int):void {
+        var controllable2:Controllable2 = ((this.player as Controllable2));
+        controllable2.setVolume(leftVolume, rightVolume);
+    }
+    
+
+    public function getPlayerP():Player {
+        return this.player;
+    }
+    }
 }
 

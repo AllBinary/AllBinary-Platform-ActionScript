@@ -1,38 +1,11 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form {
 
-        /* Generated Code Do Not Modify */
+    public class CustomDisplayable {
+    
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class CustomDisplayable
-            extends Object
-         {
-        
-
-    public setTitle(title: string){
-}
-
-
+    public function setTitle(title:String):void {
+    }
+    }
 }
 

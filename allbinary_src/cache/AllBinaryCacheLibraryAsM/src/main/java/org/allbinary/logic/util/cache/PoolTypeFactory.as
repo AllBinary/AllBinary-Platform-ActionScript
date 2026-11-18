@@ -1,52 +1,32 @@
+// Generated Code Do Not Modify
+package org.allbinary.logic.util.cache {
 
-        /* Generated Code Do Not Modify */
+    public class PoolTypeFactory {
+    private static var instance_value:PoolTypeFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():PoolTypeFactory {
+        if (!PoolTypeFactory.instance_set) {
+            PoolTypeFactory.instance_set = true;
+            PoolTypeFactory.instance_value = new PoolTypeFactory();
+        }
+        return PoolTypeFactory.instance_value;
+    }
+        public var VECTOR_POOL:PoolType = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsPoolTypeFactory():void {
+    this.VECTOR_POOL = new PoolType(CacheTypeFactory.getInstance().NO_CACHE);
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PoolType } from './PoolType.js';
-//sameFolderImports - not GWT import - same folder const PoolType
-import { CacheTypeFactory } from './CacheTypeFactory.js';
-//sameFolderImports - not GWT import - same folder const CacheTypeFactory
-
-export class PoolTypeFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: PoolTypeFactory = new PoolTypeFactory();
-
-    public static getInstance(): PoolTypeFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PoolTypeFactory.instance;
+        public function PoolTypeFactory() {
+            super();
+            this.initFieldsPoolTypeFactory();
+        }
     
-}
 
-
-    public VECTOR_POOL: PoolType = new PoolType(CacheTypeFactory.getInstance()!.NO_CACHE);
-
+    public static function getInstance():PoolTypeFactory {
+        return PoolTypeFactory.instance;
+    }
+    }
 }
 

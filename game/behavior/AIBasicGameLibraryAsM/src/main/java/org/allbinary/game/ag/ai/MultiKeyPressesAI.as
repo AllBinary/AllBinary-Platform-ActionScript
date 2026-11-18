@@ -1,213 +1,94 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai {
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
+    import org.allbinary.time.GameTickTimeDelayHelper;
+    import org.allbinary.time.GameTickTimeDelayHelperFactory;
+    import org.allbinary.time.TimeDelayHelper;
+    import org.allbinary.util.ABHashtable;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class MultiKeyPressesAI extends KeyPressesAI {
+        private var toggleTimeHelper:TimeDelayHelper = null;
+        private var gameTickTimeDelayHelper:GameTickTimeDelayHelper = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../../java/lang/Integer.js';
-        
-import { GameInput } from '../../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-import { GameTickTimeDelayHelper } from '../../../../../org/allbinary/time/GameTickTimeDelayHelper.js';
-//not GWT import const GameTickTimeDelayHelper
-
-import { GameTickTimeDelayHelperFactory } from '../../../../../org/allbinary/time/GameTickTimeDelayHelperFactory.js';
-//not GWT import const GameTickTimeDelayHelperFactory
-
-import { TimeDelayHelper } from '../../../../../org/allbinary/time/TimeDelayHelper.js';
-//not GWT import const TimeDelayHelper
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { KeyPressesAI } from './KeyPressesAI.js';
-//sameFolderImports - not GWT import - same folder const KeyPressesAI
-
-export class MultiKeyPressesAI extends KeyPressesAI {
-        
-
-    private readonly toggleTimeHelper: TimeDelayHelper = new TimeDelayHelper(600);
-
-    private readonly gameTickTimeDelayHelper: GameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance()!;
-
-public constructor (hashtable: ABHashtable<any, any>, ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
-            super(hashtable, ownerLayerInterface, gameInput);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.update();
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    update(){
-
-    let gameInput: GameInput = this.getGameInput()!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsMultiKeyPressesAI():void {
+    this.toggleTimeHelper = new TimeDelayHelper(600);
+    this.gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+        }
     
 
-    let keys: Integer[] = this.keys;;
+    public function MultiKeyPressesAI(hashtable:ABHashtable, ownerLayerInterface:AllBinaryLayer, gameInput:GameInput) {
+        super(hashtable, ownerLayerInterface, gameInput);
+        this.initFieldsMultiKeyPressesAI();
+        this.update();
+    }
     
 
-    let size: number = keys.length
-                ;;
+    override public function processAI(allBinaryLayerManager:AllBinaryLayerManager):void {
+    }
     
 
-                        if(this.isOn())
-                        
-                                    {
-                                    
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let key: number = keys[index]!.intValue()!;;
+    private function update():void {
+        var gameInput:GameInput = this.getGameInput();
+        var keys:Vector.<*> = this.keys;
+        var size:int = keys.length;
+        if (this.isOn()) {
+            for (index = 0; index < size; index++) {
+                key = keys[index].intValue();
+                if (key != -1) {
+                    gameInput.add(this.gameKeyEventFactory.getInstanceForKey(this, key));
+                }
+            }
+        } else {
+            for (var index:int = 0; index < size; index++) {
+                var key:int = keys[index].intValue();
+                if (key != -1) {
+                    gameInput.addForRemoval(this.gameKeyEventFactory.getInstanceForKey(this, key));
+                }
+            }
+        }
+    }
     
 
-                        if(key !=  -1)
-                        
-                                    {
-                                    gameInput!.add(this.gameKeyEventFactory!.getInstanceForKey(this, key));
+    override public function toggle():void {
+        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
+            super.toggle();
+            this.update();
+        }
+    }
     
 
-                                    }
-                                
-}
-
-
-                                    }
-                                
-                        else {
-                            
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let key: number = keys[index]!.intValue()!;;
+    override public function disable():void {
+        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
+            super.disable();
+            this.update();
+        }
+    }
     
 
-                        if(key !=  -1)
-                        
-                                    {
-                                    gameInput!.addForRemoval(this.gameKeyEventFactory!.getInstanceForKey(this, key));
-    
-
-                                    }
-                                
-}
-
-
-                        }
-                            
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public toggle(){
-
-                        if(this.toggleTimeHelper!.isTime(this.gameTickTimeDelayHelper!.startTime))
-                        
-                                    {
-                                    super.toggle();
-    
-this.update();
-    
-
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public disable(){
-
-                        if(this.toggleTimeHelper!.isTime(this.gameTickTimeDelayHelper!.startTime))
-                        
-                                    {
-                                    super.disable();
-    
-this.update();
-    
-
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public enable(){
-
-                        if(this.toggleTimeHelper!.isTime(this.gameTickTimeDelayHelper!.startTime))
-                        
-                                    {
-                                    super.enable();
-    
-this.update();
-    
-
-                                    }
-                                
-}
-
-
+    override public function enable():void {
+        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
+            super.enable();
+            this.update();
+        }
+    }
+    }
 }
 

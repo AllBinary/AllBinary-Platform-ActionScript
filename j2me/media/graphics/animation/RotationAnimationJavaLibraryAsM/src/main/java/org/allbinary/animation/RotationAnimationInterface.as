@@ -1,58 +1,32 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.direction.DirectionalInterface;
+    import org.allbinary.math.AngleInfo;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface RotationAnimationInterface extends IndexedAnimationInterface, DirectionalInterface {
+    
 
-        
+    function getAngleInfoP():AngleInfo;
+    
 
+    function nextRotation():void;
+    
 
-import { DirectionalInterface } from '../../../org/allbinary/direction/DirectionalInterface.js';
-//not GWT import const DirectionalInterface
-
-import { AngleInfo } from '../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { IndexedAnimationInterface } from './IndexedAnimationInterface.js';
-//sameFolderImports - not GWT import - same folder const IndexedAnimationInterface
-
-export interface RotationAnimationInterface extends IndexedAnimationInterface, DirectionalInterface {
-        
-
-    getAngleInfoP(): AngleInfo;
-
-    nextRotation(): void;
-
-    previousRotation(): void;
-
+    function previousRotation():void;
+    }
 }
 

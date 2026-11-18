@@ -1,205 +1,110 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class IndexedAnimation extends Animation implements IndexedAnimationInterface {
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        public var animationBehaviorP:AnimationBehavior = null;
 
-        
-
-
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { PrimitiveIntUtil } from '../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Animation } from './Animation.js';
-//sameFolderImports - not GWT import - same folder const Animation
-import { IndexedAnimationInterface } from './IndexedAnimationInterface.js';
-//sameFolderImports - not GWT import - same folder const IndexedAnimationInterface
-import { AnimationBehavior } from './AnimationBehavior.js';
-//sameFolderImports - not GWT import - same folder const AnimationBehavior
-
-export class IndexedAnimation extends Animation implements IndexedAnimationInterface {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    readonly animationBehaviorP: AnimationBehavior;
-
-protected constructor (animationBehavior: AnimationBehavior){
-
-            super();
-        this.animationBehaviorP= animationBehavior;
+        // Java field initializers run after the base constructor
+        private function initFieldsIndexedAnimation():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
     
-}
-
-
-    public getAnimationBehavior(): AnimationBehavior{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.animationBehaviorP;
-    
-}
-
-
-    public reset(){
-this.animationBehaviorP!.reset();
-    
-this.setFrame(0);
-    
-}
-
-
-    public setFrame(index: number){
-}
-
-
-    public getFrame(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getAnimationSize(): number{
-
-
-
-                            throw new Exception(this.commonStrings!.NOT_IMPLEMENTED);
-                    
-}
-
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
-    
-}
-
-
-    public previousFrame(){
-}
-
-
-    public isLastFrame(): boolean{
-
-                        if(this.getFrame() == this.getSize() -1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+        }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function IndexedAnimation(animationBehavior:AnimationBehavior) {
+        super();
+        this.initFieldsIndexedAnimation();
+        this.animationBehaviorP = animationBehavior;
+    }
     
 
-                        }
-                            
-}
-
-
-    public setSequence(sequence: number[]){
-}
-
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PrimitiveIntUtil.getArrayInstance();;
+    public function getAnimationBehavior():AnimationBehavior {
+        return this.animationBehaviorP;
+    }
     
-}
 
-
-    public setState(indexedAnimation: IndexedAnimation){
-this.setFrame(indexedAnimation!.getFrame());
+    public function reset():void {
+        this.animationBehaviorP.reset();
+        this.setFrame(0);
+    }
     
-this.setDx(indexedAnimation!.getDx());
+
+    public function setFrame(index:int):void {
+    }
     
-this.setDy(indexedAnimation!.getDy());
+
+    public function getFrame():int {
+        return 0;
+    }
     
-}
 
-
-    public getWidth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public function getAnimationSize():int {
+        throw new JException("Exception", this.commonStrings.NOT_IMPLEMENTED);
+    }
     
-}
 
-
-    public getHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public function getSize():int {
+        return 0;
+    }
     
-}
 
+    public function previousFrame():void {
+    }
+    
 
+    public function isLastFrame():Boolean {
+        if (this.getFrame() == int(this.getSize() - 1)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+
+    public function setSequence(sequence:Vector.<int>):void {
+    }
+    
+
+    public function getSequence():Vector.<int> {
+        return PrimitiveIntUtil.getArrayInstance();
+    }
+    
+
+    public function setState(indexedAnimation:IndexedAnimation):void {
+        this.setFrame(indexedAnimation.getFrame());
+        this.setDx(indexedAnimation.getDx());
+        this.setDy(indexedAnimation.getDy());
+    }
+    
+
+    public function getWidth():int {
+        return 0;
+    }
+    
+
+    public function getHeight():int {
+        return 0;
+    }
+    }
 }
 

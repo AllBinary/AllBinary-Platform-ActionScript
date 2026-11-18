@@ -1,70 +1,34 @@
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.feature {
+    import org.allbinary.game.commands.GameCommandsFactory;
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { Canvas } from '../../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { GameCommandsFactory } from '../../../../../org/allbinary/game/commands/GameCommandsFactory.js';
-//not GWT import const GameCommandsFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class MultiPlayerGameFeatureFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: MultiPlayerGameFeatureFactory = new MultiPlayerGameFeatureFactory();
-
-    public static getInstance(): MultiPlayerGameFeatureFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MultiPlayerGameFeatureFactory.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class MultiPlayerGameFeatureFactory {
+    private static var instance_value:MultiPlayerGameFeatureFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():MultiPlayerGameFeatureFactory {
+        if (!MultiPlayerGameFeatureFactory.instance_set) {
+            MultiPlayerGameFeatureFactory.instance_set = true;
+            MultiPlayerGameFeatureFactory.instance_value = new MultiPlayerGameFeatureFactory();
         }
-
-
-    public addCommands(anyType: any){
-
-    let gameCommandsFactory: GameCommandsFactory = GameCommandsFactory.getInstance()!;;
+        return MultiPlayerGameFeatureFactory.instance_value;
+    }
     
 
-    let canvas: Canvas = anyType as Canvas;;
+    public static function getInstance():MultiPlayerGameFeatureFactory {
+        return MultiPlayerGameFeatureFactory.instance;
+    }
     
-canvas.addCommand(gameCommandsFactory!.QUIT_COMMAND);
+
+    public function MultiPlayerGameFeatureFactory() {
+        super();
+    }
     
-}
 
-
+    public function addCommands(anyType:Object):void {
+        var gameCommandsFactory:GameCommandsFactory = GameCommandsFactory.getInstance();
+        var canvas:Canvas = (anyType as Canvas);
+        canvas.addCommand(gameCommandsFactory.QUIT_COMMAND);
+    }
+    }
 }
 

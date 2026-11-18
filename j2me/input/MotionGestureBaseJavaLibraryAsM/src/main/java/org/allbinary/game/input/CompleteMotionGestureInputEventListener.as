@@ -1,49 +1,16 @@
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
 
-        /* Generated Code Do Not Modify */
+    public class CompleteMotionGestureInputEventListener implements CompleteMotionGestureInputEventListenerInterface {
+    
 
-        
+    public function onEvent(eventObject:AllBinaryEventObject):void {
+    }
+    
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CompleteMotionGestureInputEventListenerInterface } from './CompleteMotionGestureInputEventListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const CompleteMotionGestureInputEventListenerInterface
-import { CompleteMotionGestureInputEvent } from './CompleteMotionGestureInputEvent.js';
-//sameFolderImports - not GWT import - same folder const CompleteMotionGestureInputEvent
-
-export class CompleteMotionGestureInputEventListener
-            extends Object
-         implements CompleteMotionGestureInputEventListenerInterface {
-        
-
-    public onEvent(eventObject: AllBinaryEventObject){
-}
-
-
-    public onCompleteMotionGestureInputEvent(completeMotionGestureInputEvent: CompleteMotionGestureInputEvent){
-}
-
-
+    public function onCompleteMotionGestureInputEvent(completeMotionGestureInputEvent:CompleteMotionGestureInputEvent):void {
+    }
+    }
 }
 

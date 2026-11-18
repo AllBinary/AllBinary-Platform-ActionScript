@@ -1,322 +1,138 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai.scroller {
+    import org.allbinary.direction.Direction;
+    import org.allbinary.direction.DirectionCompositeInterface;
+    import org.allbinary.direction.DirectionFactory;
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.game.tracking.TrackingEvent;
+    import org.allbinary.game.tracking.TrackingEventHandler;
+    import org.allbinary.game.tracking.TrackingEventListenerInterface;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
+    import org.allbinary.layer.LayerInterface;
+    import org.allbinary.logic.communication.log.ForcedLogUtil;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventStrings;
+    import org.allbinary.util.ABHashtable;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PacePatrolAI extends BasePatrolAI implements TrackingEventListenerInterface {
+        private var trackingList:BasicArrayList = null;
+        private var firingDistance:int = 0;
+        public var isFollowLimitedByTerrain:Boolean = false;
 
-        
-
-
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-            import { Math } from '../../../../../../java/lang/Math.js';
-        
-import { Canvas } from '../../../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { Direction } from '../../../../../../org/allbinary/direction/Direction.js';
-//not GWT import const Direction
-
-import { DirectionCompositeInterface } from '../../../../../../org/allbinary/direction/DirectionCompositeInterface.js';
-//not GWT import const DirectionCompositeInterface
-
-import { DirectionFactory } from '../../../../../../org/allbinary/direction/DirectionFactory.js';
-//not GWT import const DirectionFactory
-
-import { GameInput } from '../../../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-import { TrackingEvent } from '../../../../../../org/allbinary/game/tracking/TrackingEvent.js';
-//not GWT import const TrackingEvent
-
-import { TrackingEventHandler } from '../../../../../../org/allbinary/game/tracking/TrackingEventHandler.js';
-//not GWT import const TrackingEventHandler
-
-import { TrackingEventListenerInterface } from '../../../../../../org/allbinary/game/tracking/TrackingEventListenerInterface.js';
-//not GWT import const TrackingEventListenerInterface
-
-import { AllBinaryLayer } from '../../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-import { LayerInterface } from '../../../../../../org/allbinary/layer/LayerInterface.js';
-//not GWT import const LayerInterface
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-import { AllBinaryEventObject } from '../../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventStrings } from '../../../../../../org/allbinary/logic/util/event/EventStrings.js';
-//not GWT import const EventStrings
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasePatrolAI } from './BasePatrolAI.js';
-//sameFolderImports - not GWT import - same folder const BasePatrolAI
-
-export class PacePatrolAI extends BasePatrolAI implements TrackingEventListenerInterface {
-        
-
-    private trackingList: BasicArrayList;
-
-    private firingDistance: number= 0;
-
-    isFollowLimitedByTerrain: boolean = false;
-
-public constructor (hashtable: ABHashtable<any, any>, ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
-            super(hashtable, ownerLayerInterface, gameInput);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-TrackingEventHandler.getInstance()!.addListenerInterface(this);
+        // Java field initializers run after the base constructor
+        private function initFieldsPacePatrolAI():void {
     
-this.trackingList= new BasicArrayListD();
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
-this.update();
+    this.firingDistance = 0;
+    this.isFollowLimitedByTerrain = false;
+        }
     
 
-    let direction: Direction = this.setFiringDirectionForTargetIfInRange()!;;
+    public function PacePatrolAI(hashtable:ABHashtable, ownerLayerInterface:AllBinaryLayer, gameInput:GameInput) {
+        super(hashtable, ownerLayerInterface, gameInput);
+        this.initFieldsPacePatrolAI();
+        TrackingEventHandler.getInstance().addListenerInterface(this);
+        this.trackingList = new BasicArrayListD();
+    }
     
 
-    let directionFactory: DirectionFactory = DirectionFactory.getInstance()!;;
+    override public function processAI(allBinaryLayerManager:AllBinaryLayerManager):void {
+        this.update();
+        var direction:Direction = this.setFiringDirectionForTargetIfInRange();
+        var directionFactory:DirectionFactory = DirectionFactory.getInstance();
+        if (direction == directionFactory.LEFT) {
+            if (this.lastKeyDirection != this.keyDirection || !this.isFollowLimitedByTerrain) {
+                super.processKeyAI(Canvas.LEFT);
+            }
+            this.keyDirection = Canvas.LEFT;
+            this.lastKeyDirection = this.keyDirection;
+            this.xTotalDistance = 0;
+            super.processKeyAI(Canvas.KEY_NUM1);
+        } else if (direction == directionFactory.RIGHT) {
+            if (this.lastKeyDirection != this.keyDirection || !this.isFollowLimitedByTerrain) {
+                super.processKeyAI(Canvas.RIGHT);
+            }
+            this.keyDirection = Canvas.RIGHT;
+            this.lastKeyDirection = this.keyDirection;
+            this.xTotalDistance = 0;
+            super.processKeyAI(Canvas.KEY_NUM1);
+        } else {
+            super.processKeyAI(this.keyDirection);
+        }
+    }
     
 
-                        if(direction == directionFactory!.LEFT)
-                        
-                                    {
-                                    
-                        if(this.lastKeyDirection != keyDirection || !this.isFollowLimitedByTerrain)
-                        
-                                    {
-                                    super.processKeyAI(Canvas.LEFT);
+    private function setFiringDirectionForTargetIfInRange():Direction {
+        var directionFactory:DirectionFactory = DirectionFactory.getInstance();
+        var ownerLayerInterface:AllBinaryLayer = this.getOwnerLayerInterface();
+        var direction:Direction = directionFactory.NOT_BORDERED_WITH;
+        var lastTrackingEvent:TrackingEvent = null;
+        var lastTrackingLayerInterface:LayerInterface = null;
+        var directionCompositeInterface:DirectionCompositeInterface = null;
+        var size:int = this.trackingList.size();
+        for (var index:int = 0; index < size; index++) {
+            lastTrackingEvent = (this.trackingList.get_(0) as TrackingEvent);
+            lastTrackingLayerInterface = lastTrackingEvent.getLayerInterface();
+            var x:int = lastTrackingLayerInterface.getXP();
+            var y:int = lastTrackingLayerInterface.getYP();
+            var yDistance:int = int(int(ownerLayerInterface.getYP() - y) - ownerLayerInterface.getHeight());
+            var xDistance:int = int(int(ownerLayerInterface.getXP() - x) - ownerLayerInterface.getWidth());
+            var absXDistance:int = (xDistance < 0 ? -xDistance : xDistance);
+            var absYDistance:int = (yDistance < 0 ? -yDistance : yDistance);
+            if (absYDistance <= 100) {
+                if (absXDistance < int(this.getFiringDistance() / 2)) {
+                    directionCompositeInterface = (this.getOwnerLayerInterface() as DirectionCompositeInterface);
+                    if (xDistance < 0 && directionCompositeInterface.getDirection() == directionFactory.RIGHT) {
+                        direction = directionFactory.RIGHT;
+                    } else if (xDistance > 0 && directionCompositeInterface.getDirection() == directionFactory.LEFT) {
+                        direction = directionFactory.LEFT;
+                    }
+                }
+            }
+        }
+        return direction;
+    }
     
 
-                                    }
-                                
-keyDirection= Canvas.LEFT;
-    
-this.lastKeyDirection= keyDirection;
-    
-xTotalDistance= 0;
-    
-super.processKeyAI(Canvas.KEY_NUM1);
+    override public function disable():void {
+    }
     
 
-                                    }
-                                
-                             else 
-                        if(direction == directionFactory!.RIGHT)
-                        
-                                    {
-                                    
-                        if(this.lastKeyDirection != keyDirection || !this.isFollowLimitedByTerrain)
-                        
-                                    {
-                                    super.processKeyAI(Canvas.RIGHT);
+    public function onEvent(eventObject:AllBinaryEventObject):void {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    }
     
 
-                                    }
-                                
-keyDirection= Canvas.RIGHT;
-    
-this.lastKeyDirection= keyDirection;
-    
-xTotalDistance= 0;
-    
-super.processKeyAI(Canvas.KEY_NUM1);
+    public function onMovement(trackingEvent:TrackingEvent):void {
+        this.trackingList.clear();
+        this.trackingList.add(trackingEvent);
+    }
     
 
-                                    }
-                                
-                        else {
-                            super.processKeyAI(this.keyDirection);
+    public function getFiringDistance():int {
+        return this.firingDistance;
+    }
     
 
-                        }
-                            
-}
-
-
-    setFiringDirectionForTargetIfInRange(): Direction{
-
-    let directionFactory: DirectionFactory = DirectionFactory.getInstance()!;;
-    
-
-    let ownerLayerInterface: AllBinaryLayer = this.getOwnerLayerInterface()!;;
-    
-
-    let direction: Direction = directionFactory!.NOT_BORDERED_WITH;;
-    
-
-    let lastTrackingEvent: TrackingEvent;;
-    
-
-    let lastTrackingLayerInterface: LayerInterface;;
-    
-
-    let directionCompositeInterface: DirectionCompositeInterface;;
-    
-
-    let size: number = this.trackingList!.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-lastTrackingEvent= this.trackingList!.get(0) as TrackingEvent;
-    
-lastTrackingLayerInterface= lastTrackingEvent!.getLayerInterface();
-    
-
-    let x: number = lastTrackingLayerInterface!.getXP()!;;
-    
-
-    let y: number = lastTrackingLayerInterface!.getYP()!;;
-    
-
-    let yDistance: number = ownerLayerInterface!.getYP() -y -ownerLayerInterface!.getHeight();;
-    
-
-    let xDistance: number = ownerLayerInterface!.getXP() -x -ownerLayerInterface!.getWidth();;
-    
-
-    let absXDistance: number = Math.abs(xDistance)!;;
-    
-
-    let absYDistance: number = Math.abs(yDistance)!;;
-    
-
-                        if(absYDistance <= 100)
-                        
-                                    {
-                                    
-                        if(absXDistance < getFiringDistance() /2)
-                        
-                                    {
-                                    directionCompositeInterface= this.getOwnerLayerInterface() as DirectionCompositeInterface;
-    
-
-                        if(xDistance < 0 && directionCompositeInterface!.getDirection() == directionFactory!.RIGHT)
-                        
-                                    {
-                                    direction= directionFactory!.RIGHT;
-    
-
-                                    }
-                                
-                             else 
-                        if(xDistance > 0 && directionCompositeInterface!.getDirection() == directionFactory!.LEFT)
-                        
-                                    {
-                                    direction= directionFactory!.LEFT;
-    
-
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return direction;
-    
-}
-
-
-    public disable(){
-}
-
-
-    public onEvent(eventObject: AllBinaryEventObject){
-ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
-    
-}
-
-
-    public onMovement(trackingEvent: TrackingEvent){
-this.trackingList!.clear();
-    
-this.trackingList!.add(trackingEvent);
-    
-}
-
-
-    public getFiringDistance(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.firingDistance;
-    
-}
-
-
-    public setFiringDistance(firingDistance: number){
-this.firingDistance= firingDistance;
-    
-}
-
-
+    public function setFiringDistance(firingDistance:int):void {
+        this.firingDistance = firingDistance;
+    }
+    }
 }
 

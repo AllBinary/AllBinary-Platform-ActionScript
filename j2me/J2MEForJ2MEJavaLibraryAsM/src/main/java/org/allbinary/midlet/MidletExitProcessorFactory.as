@@ -1,101 +1,47 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.midlet {
+    import org.allbinary.AppletUtil;
+    import org.allbinary.J2MEUtil;
+    import org.allbinary.canvas.Processor;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-import { MIDlet } from '../../../javax/microedition/midlet/MIDlet.js';
-//not GWT import const MIDlet
-
-import { AppletUtil } from '../../../org/allbinary/AppletUtil.js';
-//not GWT import const AppletUtil
-
-import { J2MEUtil } from '../../../org/allbinary/J2MEUtil.js';
-//not GWT import const J2MEUtil
-
-import { Processor } from '../../../org/allbinary/canvas/Processor.js';
-//not GWT import const Processor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { MidletExitProcessor } from './MidletExitProcessor.js';
-//sameFolderImports - not GWT import - same folder const MidletExitProcessor
-
-export class MidletExitProcessorFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: MidletExitProcessorFactory = new MidletExitProcessorFactory();
-
-    public static getInstance(): MidletExitProcessorFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MidletExitProcessorFactory.instance;
-    
-}
-
-
-    public getExitInstance(midlet: MIDlet): Processor{
-
-                        if(AppletUtil.isAppletLoader(midlet) || J2MEUtil.isJ2ME())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return Processor.getInstance();;
+    public class MidletExitProcessorFactory {
+    private static var instance_value:MidletExitProcessorFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():MidletExitProcessorFactory {
+        if (!MidletExitProcessorFactory.instance_set) {
+            MidletExitProcessorFactory.instance_set = true;
+            MidletExitProcessorFactory.instance_value = new MidletExitProcessorFactory();
+        }
+        return MidletExitProcessorFactory.instance_value;
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new MidletExitProcessor(midlet);
+    public static function getInstance():MidletExitProcessorFactory {
+        return MidletExitProcessorFactory.instance;
+    }
     
 
-                        }
-                            
-}
-
-
+    public function getExitInstance(midlet:MIDlet):Processor {
+        if (AppletUtil.isAppletLoader(midlet) || J2MEUtil.isJ2ME()) {
+            return Processor.getInstance();
+        } else {
+            return new MidletExitProcessor(midlet);
+        }
+    }
+    }
 }
 

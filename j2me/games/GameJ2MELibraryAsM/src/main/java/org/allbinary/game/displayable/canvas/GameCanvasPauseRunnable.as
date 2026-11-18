@@ -1,119 +1,58 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.game.configuration.feature.Features;
+    import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameCanvasPauseRunnable extends GameRunnable {
+        public var logUtil:LogUtil = null;
+        private var allBinaryGameCanvas:AllBinaryGameCanvas = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { AndroidUtil } from '../../../../../org/allbinary/AndroidUtil.js';
-//not GWT import const AndroidUtil
-
-import { Features } from '../../../../../org/allbinary/game/configuration/feature/Features.js';
-//not GWT import const Features
-
-import { OpenGLFeatureFactory } from '../../../../../org/allbinary/graphics/opengles/OpenGLFeatureFactory.js';
-//not GWT import const OpenGLFeatureFactory
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameRunnable } from './GameRunnable.js';
-//sameFolderImports - not GWT import - same folder const GameRunnable
-import { AllBinaryGameCanvas } from './AllBinaryGameCanvas.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryGameCanvas
-
-export class GameCanvasPauseRunnable extends GameRunnable {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly allBinaryGameCanvas: AllBinaryGameCanvas;
-
-public constructor (allBinaryGameCanvas: AllBinaryGameCanvas){
-
-            super();
-        this.allBinaryGameCanvas= allBinaryGameCanvas;
+        // Java field initializers run after the base constructor
+        private function initFieldsGameCanvasPauseRunnable():void {
+    this.logUtil = LogUtil.getInstance();
     
-}
-
-
-    public run(){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processLoopSleep(){
-
- try { 
-    let features: Features = Features.getInstance()!;;
+        }
     
 
-    let isOpenGL: boolean = features.isDefault(OpenGLFeatureFactory.getInstance()!.OPENGL)!;;
+    public function GameCanvasPauseRunnable(allBinaryGameCanvas:AllBinaryGameCanvas) {
+        super();
+        this.initFieldsGameCanvasPauseRunnable();
+        this.allBinaryGameCanvas = allBinaryGameCanvas;
+    }
     
 
-                        if(isOpenGL)
-                        
-                                    {
-                                    this.allBinaryGameCanvas!.processSleep();
+    override public function run():void {
+    }
     
 
-                                    }
-                                
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN, e);
-    
-
- }
-   }
- 
-}
-
-
+    override public function processLoopSleep():void {
+        try {
+            var features:Features = Features.getInstance();
+            var isOpenGL:Boolean = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
+            if (isOpenGL) {
+                this.allBinaryGameCanvas.processSleep();
+            }
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+        }
+    }
+    }
 }
 

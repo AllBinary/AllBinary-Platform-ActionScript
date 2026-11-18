@@ -1,88 +1,48 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.AnimationBehavior;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AdjustedLeftToRightImageAnimation extends LeftToRightImageAnimation {
+        private var dx:int = 0;
+        private var dy:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LeftToRightImageAnimation } from './LeftToRightImageAnimation.js';
-//sameFolderImports - not GWT import - same folder const LeftToRightImageAnimation
-
-export class AdjustedLeftToRightImageAnimation extends LeftToRightImageAnimation {
-        
-
-    private dx: number= 0;
-
-    private dy: number= 0;
-
-public constructor (image: Image, sequenceArray: number[], dx: number, dy: number, animationBehavior: AnimationBehavior){
-            super(image, sequenceArray, animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.init(dx, dy);
+        // Java field initializers run after the base constructor
+        private function initFieldsAdjustedLeftToRightImageAnimation():void {
+    this.dx = 0;
+    this.dy = 0;
+        }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public init(dx: number, dy: number){
-this.dx= dx;
+    public function AdjustedLeftToRightImageAnimation(image:Image, sequenceArray:Vector.<int>, dx:int, dy:int, animationBehavior:AnimationBehavior) {
+        super(image, sequenceArray, animationBehavior);
+        this.initFieldsAdjustedLeftToRightImageAnimation();
+        this.init(dx, dy);
+    }
     
-this.dy= dy;
+
+    public function init(dx:int, dy:int):void {
+        this.dx = dx;
+        this.dy = dy;
+    }
     
-}
 
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-super.paintXY(graphics, x +this.dx, y +this.dy);
-    
-}
-
-
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        super.paintXY(graphics, int(x + this.dx), int(y + this.dy));
+    }
+    }
 }
 

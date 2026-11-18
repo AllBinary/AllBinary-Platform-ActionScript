@@ -1,124 +1,69 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable {
+    import org.allbinary.game.configuration.feature.Features;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import java.lang.JThread;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class RepaintBehavior {
+    private static var instance_value:RepaintBehavior;
+    private static var instance_set:Boolean = false;
+    private static function get instance():RepaintBehavior {
+        if (!RepaintBehavior.instance_set) {
+            RepaintBehavior.instance_set = true;
+            RepaintBehavior.instance_value = new RepaintBehavior();
+        }
+        return RepaintBehavior.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var NAME:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsRepaintBehavior():void {
+    this.logUtil = LogUtil.getInstance();
+    this.NAME = "RepaintBehavior";
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Thread } from '../../../../java/lang/Thread.js';
-        
-import { Canvas } from '../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { Features } from '../../../../org/allbinary/game/configuration/feature/Features.js';
-//not GWT import const Features
-
-import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { OpenGLFeatureFactory } from '../../../../org/allbinary/graphics/opengles/OpenGLFeatureFactory.js';
-//not GWT import const OpenGLFeatureFactory
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { NullRunnable } 
-const NullRunnable = globalThis.org.allbinary.thread.NullRunnable;
-type NullRunnable<T = any, U = any> = typeof NullRunnable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullRunnable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { RepaintRunnable } from './RepaintRunnable.js';
-//sameFolderImports - not GWT import - same folder const RepaintRunnable
-
-export class RepaintBehavior
-            extends Object
-         {
-        
-
-    private static readonly instance: RepaintBehavior = new RepaintBehavior();
-
-    public static getInstance(): RepaintBehavior{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return RepaintBehavior.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    public repaint(canvas: Canvas){
-}
-
-
-    private readonly NAME: string = "RepaintBehavior";
-
-    public onChangeRepaint(canvas: Canvas){
-
-    let features: Features = Features.getInstance()!;;
+        public function RepaintBehavior() {
+            super();
+            this.initFieldsRepaintBehavior();
+        }
     
 
-    let openGLFeatureFactory: OpenGLFeatureFactory = OpenGLFeatureFactory.getInstance()!;;
+    public static function getInstance():RepaintBehavior {
+        return RepaintBehavior.instance;
+    }
     
 
-                        if(features.isFeature(openGLFeatureFactory!.OPENGL))
-                        
-                                    {
-                                    DisplayInfoSingleton.getInstance()!.process();
+    public function repaint(canvas:Canvas):void {
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-    let thread: Thread = new Thread(new RepaintRunnable(canvas), this.NAME);;
-    
-thread.start();
-    
-
-                        }
-                            
-}
-
-
+    public function onChangeRepaint(canvas:Canvas):void {
+        var features:Features = Features.getInstance();
+        var openGLFeatureFactory:OpenGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+        if (features.isFeature(openGLFeatureFactory.OPENGL)) {
+            DisplayInfoSingleton.getInstance().process();
+        } else {
+            var thread:JThread = new JThread(new RepaintRunnable(canvas), this.NAME);
+            thread.start();
+        }
+    }
+    }
 }
 

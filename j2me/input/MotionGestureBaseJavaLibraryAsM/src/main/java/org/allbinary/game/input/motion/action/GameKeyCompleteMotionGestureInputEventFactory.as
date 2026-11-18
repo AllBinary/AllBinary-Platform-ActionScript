@@ -1,112 +1,67 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input.motion.action {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonLabels;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameKeyCompleteMotionGestureInputEventFactory {
+    private static var SINGLETON_value:GameKeyCompleteMotionGestureInputEventFactory;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():GameKeyCompleteMotionGestureInputEventFactory {
+        if (!GameKeyCompleteMotionGestureInputEventFactory.SINGLETON_set) {
+            GameKeyCompleteMotionGestureInputEventFactory.SINGLETON_set = true;
+            GameKeyCompleteMotionGestureInputEventFactory.SINGLETON_value = new GameKeyCompleteMotionGestureInputEventFactory();
+        }
+        return GameKeyCompleteMotionGestureInputEventFactory.SINGLETON_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var eventList:BasicArrayList = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGameKeyCompleteMotionGestureInputEventFactory():void {
+    this.logUtil = LogUtil.getInstance();
+    this.eventList = new BasicArrayListD();
+        }
 
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameKeyCompleteMotionGestureInputEvent } from './GameKeyCompleteMotionGestureInputEvent.js';
-//sameFolderImports - not GWT import - same folder const GameKeyCompleteMotionGestureInputEvent
-
-export class GameKeyCompleteMotionGestureInputEventFactory
-            extends Object
-         {
-        
-
-    private static readonly SINGLETON: GameKeyCompleteMotionGestureInputEventFactory = new GameKeyCompleteMotionGestureInputEventFactory();
-
-    public static getInstance(): GameKeyCompleteMotionGestureInputEventFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameKeyCompleteMotionGestureInputEventFactory.SINGLETON;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly eventList: BasicArrayList = new BasicArrayListD();
-
-    public add(gameKeyCompleteMotionGestureInputEvent: GameKeyCompleteMotionGestureInputEvent){
-this.eventList!.add(gameKeyCompleteMotionGestureInputEvent);
-    
-}
-
-
-    public updateAll(){
-this.logUtil!.putF(new StringMaker().append(CommonLabels.getInstance()!.START_LABEL)!.appendint(this.eventList!.size())!.toString(), this, "updateAll");
+        public function GameKeyCompleteMotionGestureInputEventFactory() {
+            super();
+            this.initFieldsGameKeyCompleteMotionGestureInputEventFactory();
+        }
     
 
-
-
-
-                        for (
-    let index: number = this.eventList!.size() -1;index >= 0; index--)
-        {
-
-    let gameKeyCompleteMotionGestureInputEvent: GameKeyCompleteMotionGestureInputEvent = this.eventList!.objectArray[index]! as GameKeyCompleteMotionGestureInputEvent;;
+    public static function getInstance():GameKeyCompleteMotionGestureInputEventFactory {
+        return GameKeyCompleteMotionGestureInputEventFactory.SINGLETON;
+    }
     
-gameKeyCompleteMotionGestureInputEvent!.update();
+
+    public function add(gameKeyCompleteMotionGestureInputEvent:GameKeyCompleteMotionGestureInputEvent):void {
+        this.eventList.add(gameKeyCompleteMotionGestureInputEvent);
+    }
     
-}
 
-}
-
-
+    public function updateAll():void {
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(this.eventList.size()).toString(), this, "updateAll");
+        for (var index:int = int(this.eventList.size() - 1); index >= 0; index--) {
+            var gameKeyCompleteMotionGestureInputEvent:GameKeyCompleteMotionGestureInputEvent = (this.eventList.objectArray[index] as GameKeyCompleteMotionGestureInputEvent);
+            gameKeyCompleteMotionGestureInputEvent.update();
+        }
+    }
+    }
 }
 

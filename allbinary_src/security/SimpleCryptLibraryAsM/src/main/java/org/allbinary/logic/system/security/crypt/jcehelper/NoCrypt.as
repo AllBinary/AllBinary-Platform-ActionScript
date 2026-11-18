@@ -1,71 +1,32 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.security.crypt.jcehelper {
+    import org.allbinary.init.crypt.jcehelper.CryptInterface;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../../java/lang/Object.js';
-        
-import { CryptInterface } from '../../../../../../../org/allbinary/init/crypt/jcehelper/CryptInterface.js';
-//not GWT import const CryptInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class NoCrypt
-            extends Object
-         implements CryptInterface {
-        
-
-    public encrypt(array: number[]): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return array;
+    public class NoCrypt implements CryptInterface {
     
-}
 
-
-    public decrypt(array: number[]): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return array;
+    public function encrypt(array:Vector.<int>):Vector.<int> {
+        return array;
+    }
     
-}
 
-
+    public function decrypt(array:Vector.<int>):Vector.<int> {
+        return array;
+    }
+    }
 }
 

@@ -1,132 +1,78 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ * 
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ * 
+ * Created By: Travis Berthelot 
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.emulator.device {
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.image.opengles.OpenGLESImage;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *  
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
+    private static var instance_value:TrueTypeFontUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():TrueTypeFontUtil {
+        if (!TrueTypeFontUtil.instance_set) {
+            TrueTypeFontUtil.instance_set = true;
+            TrueTypeFontUtil.instance_value = new TrueTypeFontUtil();
+        }
+        return TrueTypeFontUtil.instance_value;
+    }
+        public var fontImage:OpenGLESImage = null;
 
-        
-
-
-            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
-        
-import { GL10 } from '../../../../javax/microedition/khronos/opengles/GL10.js';
-//not GWT import const GL10
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { OpenGLESImage } from '../../../../org/allbinary/image/opengles/OpenGLESImage.js';
-//not GWT import const OpenGLESImage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TrueTypeFontUtilBase } from './TrueTypeFontUtilBase.js';
-//sameFolderImports - not GWT import - same folder const TrueTypeFontUtilBase
-
-export class TrueTypeFontUtil extends TrueTypeFontUtilBase {
-        
-
-    private static readonly instance: TrueTypeFontUtil = new TrueTypeFontUtil();
-
-    public static getInstance(): TrueTypeFontUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return TrueTypeFontUtil.instance;
+        // Java field initializers run after the base constructor
+        private function initFieldsTrueTypeFontUtil():void {
+    this.fontImage = OpenGLESImage.NULL_OPENGL_IMAGE;
+        }
     
-}
 
+    public static function getInstance():TrueTypeFontUtil {
+        return TrueTypeFontUtil.instance;
+    }
+    
 
-    public fontImage: OpenGLESImage = OpenGLESImage.NULL_OPENGL_IMAGE;
+    public function TrueTypeFontUtil() {
+        super(1);
+        this.initFieldsTrueTypeFontUtil();
+    }
+    
 
-private constructor (){
-            super(1);
-                    
+    override public function getAsTextureSize(textureSize:int):int {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-                            //For kotlin this is before the body of the constructor.
-                    
-}
+    override public function getCellSize(cellSize:int):int {
+        throw new JException("RuntimeException", "");
+    }
+    
 
+    public function getFontBitmap(filename:String, fontSize:int, cellSize:int, basicColor:BasicColor):Image {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-    public getAsTextureSize(textureSize: number): number{
+    public function saveFontAtlasAsFile():void {
+    }
+    
 
+    public function getFontBitmapGL(gl:GL10, filename:String, cellSize:int, basicColor:BasicColor):Image {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public getCellSize(cellSize: number): number{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public getFontBitmap(filename: string, fontSize: number, cellSize: number, basicColor: BasicColor): Image{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public saveFontAtlasAsFile(){
-}
-
-
-    public getFontBitmapGL(gl: GL10, filename: string, cellSize: number, basicColor: BasicColor): Image{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public getFontWidths(filename: string, fontSize: number): number[]{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
+    public function getFontWidths(filename:String, fontSize:int):Vector.<int> {
+        throw new JException("RuntimeException", "");
+    }
+    }
 }
 

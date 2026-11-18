@@ -1,68 +1,48 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.displayable.screen {
+    import org.allbinary.graphics.paint.NullPaintable;
+    import org.allbinary.graphics.paint.Paintable;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class FullScreenPaintableFactory {
+    private static var instance_value:FullScreenPaintableFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():FullScreenPaintableFactory {
+        if (!FullScreenPaintableFactory.instance_set) {
+            FullScreenPaintableFactory.instance_set = true;
+            FullScreenPaintableFactory.instance_value = new FullScreenPaintableFactory();
+        }
+        return FullScreenPaintableFactory.instance_value;
+    }
+        public var paintable:Paintable = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsFullScreenPaintableFactory():void {
+    this.paintable = NullPaintable.getInstance();
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { NullPaintable } from '../../../../../org/allbinary/graphics/paint/NullPaintable.js';
-//not GWT import const NullPaintable
-
-import { Paintable } from '../../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class FullScreenPaintableFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: FullScreenPaintableFactory = new FullScreenPaintableFactory();
-
-    public static getInstance(): FullScreenPaintableFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return FullScreenPaintableFactory.instance;
+        public function FullScreenPaintableFactory() {
+            super();
+            this.initFieldsFullScreenPaintableFactory();
+        }
     
-}
 
-
-    public paintable: Paintable = NullPaintable.getInstance()!;
-
+    public static function getInstance():FullScreenPaintableFactory {
+        return FullScreenPaintableFactory.instance;
+    }
+    }
 }
 

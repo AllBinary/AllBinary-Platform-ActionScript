@@ -1,163 +1,88 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input.motion.action {
+    import org.allbinary.game.input.CompleteMotionGestureInputEvent;
+    import org.allbinary.game.input.GameKey;
+    import org.allbinary.game.input.GameKeyEventSourceInterface;
+    import org.allbinary.game.input.event.GameKeyEvent;
+    import org.allbinary.game.input.event.GameKeyEventFactory;
+    import org.allbinary.game.input.mapping.InputToGameKeyMapping;
+    import org.allbinary.input.motion.gesture.MotionGestureInput;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameKeyCompleteMotionGestureInputEvent extends CompleteMotionGestureInputEvent implements GameKeyEventSourceInterface {
+        private var gameKeyEventFactory:GameKeyEventFactory = null;
+        private var SOURCE_ID:int = 0;
+        private var gameKey:GameKey = null;
+        private var gameKeyEvent:GameKeyEvent = null;
+        private var inputToGameKeyMapping:InputToGameKeyMapping = null;
 
-        
-
-
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { CompleteMotionGestureInputEvent } from '../../../../../../org/allbinary/game/input/CompleteMotionGestureInputEvent.js';
-//not GWT import const CompleteMotionGestureInputEvent
-
-import { GameKey } from '../../../../../../org/allbinary/game/input/GameKey.js';
-//not GWT import const GameKey
-
-import { GameKeyEventSourceInterface } from '../../../../../../org/allbinary/game/input/GameKeyEventSourceInterface.js';
-//not GWT import const GameKeyEventSourceInterface
-
-import { GameKeyEvent } from '../../../../../../org/allbinary/game/input/event/GameKeyEvent.js';
-//not GWT import const GameKeyEvent
-
-import { GameKeyEventFactory } from '../../../../../../org/allbinary/game/input/event/GameKeyEventFactory.js';
-//not GWT import const GameKeyEventFactory
-
-import { InputToGameKeyMapping } from '../../../../../../org/allbinary/game/input/mapping/InputToGameKeyMapping.js';
-//not GWT import const InputToGameKeyMapping
-
-import { MotionGestureInput } from '../../../../../../org/allbinary/input/motion/gesture/MotionGestureInput.js';
-//not GWT import const MotionGestureInput
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameKeyCompleteMotionGestureInputEventFactory } from './GameKeyCompleteMotionGestureInputEventFactory.js';
-//sameFolderImports - not GWT import - same folder const GameKeyCompleteMotionGestureInputEventFactory
-
-export class GameKeyCompleteMotionGestureInputEvent extends CompleteMotionGestureInputEvent implements GameKeyEventSourceInterface {
-        
-
-    private readonly gameKeyEventFactory: GameKeyEventFactory = GameKeyEventFactory.getInstance()!;
-
-    private readonly SOURCE_ID: number = this.gameKeyEventFactory!.MOTION_GESTURE_SOURCE_ID;
-
-    private gameKey: GameKey = GameKey.NULL_GAME_KEY;
-
-    private gameKeyEvent: GameKeyEvent = GameKeyEvent.NONE;
-
-    private inputToGameKeyMapping: InputToGameKeyMapping;
-
-public constructor (name: string, motionGestureInput: MotionGestureInput, inputToGameKeyMapping: InputToGameKeyMapping){
-            super(name, motionGestureInput);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.inputToGameKeyMapping= inputToGameKeyMapping;
+        // Java field initializers run after the base constructor
+        private function initFieldsGameKeyCompleteMotionGestureInputEvent():void {
+    this.gameKeyEventFactory = GameKeyEventFactory.getInstance();
+    this.SOURCE_ID = this.gameKeyEventFactory.MOTION_GESTURE_SOURCE_ID;
+    this.gameKey = GameKey.NULL_GAME_KEY;
+    this.gameKeyEvent = GameKeyEvent.NONE;
     
-GameKeyCompleteMotionGestureInputEventFactory.getInstance()!.add(this);
-    
-this.update();
-    
-}
-
-
-    public getSourceId(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.SOURCE_ID;
-    
-}
-
-
-    public update(){
-
- try { this.setGameKey(this.inputToGameKeyMapping!.getInstance(this.getMotionGestureInput()!.getId()));
-    
-this.setGameKeyEvent(this.gameKeyEventFactory!.getInstanceForInput(this, this.getGameKey()));
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.UPDATE, e);
+        }
     
 
- }
-   }
- 
-}
-
-
-    setGameKeyEvent(gameKeyEvent: GameKeyEvent){
-this.gameKeyEvent= gameKeyEvent;
+    public function GameKeyCompleteMotionGestureInputEvent(name:String, motionGestureInput:MotionGestureInput, inputToGameKeyMapping:InputToGameKeyMapping) {
+        super(name, motionGestureInput);
+        this.initFieldsGameKeyCompleteMotionGestureInputEvent();
+        this.inputToGameKeyMapping = inputToGameKeyMapping;
+        GameKeyCompleteMotionGestureInputEventFactory.getInstance().add(this);
+        this.update();
+    }
     
-}
 
-
-    public getGameKeyEvent(): GameKeyEvent{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gameKeyEvent;
+    public function getSourceId():int {
+        return this.SOURCE_ID;
+    }
     
-}
 
-
-    setGameKey(gameKey: GameKey){
-this.gameKey= gameKey;
+    public function update():void {
+        try {
+            this.setGameKey(this.inputToGameKeyMapping.getInstance1(this.getMotionGestureInput().getId()));
+            this.setGameKeyEvent(this.gameKeyEventFactory.getInstanceForInput(this, this.getGameKey()));
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
+        }
+    }
     
-}
 
-
-    public getGameKey(): GameKey{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gameKey;
+    public function setGameKeyEvent(gameKeyEvent:GameKeyEvent):void {
+        this.gameKeyEvent = gameKeyEvent;
+    }
     
-}
 
+    public function getGameKeyEvent():GameKeyEvent {
+        return this.gameKeyEvent;
+    }
+    
 
+    public function setGameKey(gameKey:GameKey):void {
+        this.gameKey = gameKey;
+    }
+    
+
+    public function getGameKey():GameKey {
+        return this.gameKey;
+    }
+    }
 }
 

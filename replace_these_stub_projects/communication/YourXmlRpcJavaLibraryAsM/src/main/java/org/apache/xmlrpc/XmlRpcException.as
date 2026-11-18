@@ -1,41 +1,12 @@
+// Generated Code Do Not Modify
+package org.apache.xmlrpc {
 
-        /* Generated Code Do Not Modify */
+    public class XmlRpcException extends Exception {
+    
 
-        
-
-
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class XmlRpcException extends Exception {
-        
-
-public constructor (code: number, message: string){
-            super(message);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
+    public function XmlRpcException(code:int, message:String) {
+        super(message);
+    }
+    }
 }
 

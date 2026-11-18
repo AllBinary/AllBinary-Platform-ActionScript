@@ -1,143 +1,93 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.gesture {
+    import org.allbinary.game.input.InputFactory;
+    import org.allbinary.logic.NullUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TouchMotionGestureFactory {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!TouchMotionGestureFactory.instance_set) {
+            TouchMotionGestureFactory.instance_set = true;
+            TouchMotionGestureFactory.instance_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return TouchMotionGestureFactory.instance_value;
+    }
+        public var LEFT:MotionGestureInput = null;
+        public var RIGHT:MotionGestureInput = null;
+        public var UP:MotionGestureInput = null;
+        public var DOWN:MotionGestureInput = null;
+        public var PRESSED:MotionGestureInput = null;
+        public var RELEASED:MotionGestureInput = null;
+        public var DIAGONAL_DOWN_RIGHT:MotionGestureInput = null;
+        public var DIAGONAL_DOWN_LEFT:MotionGestureInput = null;
+        public var DIAGONAL_UP_RIGHT:MotionGestureInput = null;
+        public var DIAGONAL_UP_LEFT:MotionGestureInput = null;
+        public var SCROLL_UP:MotionGestureInput = null;
+        public var SCROLL_DOWN:MotionGestureInput = null;
+        public var NO_MOTION:MotionGestureInput = null;
+        public var LAST_MOTION:MotionGestureInput = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { InputFactory } from '../../../../../org/allbinary/game/input/InputFactory.js';
-//not GWT import const InputFactory
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { MotionGestureInput } from './MotionGestureInput.js';
-//sameFolderImports - not GWT import - same folder const MotionGestureInput
-
-export class TouchMotionGestureFactory
-            extends Object
-         {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): TouchMotionGestureFactory{
-
-                        if(TouchMotionGestureFactory.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    TouchMotionGestureFactory.instance= new TouchMotionGestureFactory();
+        // Java field initializers run after the base constructor
+        private function initFieldsTouchMotionGestureFactory():void {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return TouchMotionGestureFactory.instance as TouchMotionGestureFactory;
+    public static function getInstance():TouchMotionGestureFactory {
+        if (TouchMotionGestureFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            TouchMotionGestureFactory.instance = new TouchMotionGestureFactory();
+        }
+        return (TouchMotionGestureFactory.instance as TouchMotionGestureFactory);
+    }
     
-}
 
-
-    public readonly LEFT: MotionGestureInput;
-
-    public readonly RIGHT: MotionGestureInput;
-
-    public readonly UP: MotionGestureInput;
-
-    public readonly DOWN: MotionGestureInput;
-
-    public readonly PRESSED: MotionGestureInput;
-
-    public readonly RELEASED: MotionGestureInput;
-
-    public readonly DIAGONAL_DOWN_RIGHT: MotionGestureInput;
-
-    public readonly DIAGONAL_DOWN_LEFT: MotionGestureInput;
-
-    public readonly DIAGONAL_UP_RIGHT: MotionGestureInput;
-
-    public readonly DIAGONAL_UP_LEFT: MotionGestureInput;
-
-    public readonly SCROLL_UP: MotionGestureInput;
-
-    public readonly SCROLL_DOWN: MotionGestureInput;
-
-    public readonly NO_MOTION: MotionGestureInput;
-
-    public readonly LAST_MOTION: MotionGestureInput;
-
-public constructor (){
-
-            super();
-        
-    let MAX: number = InputFactory.getInstance()!.MAX;;
-    
-this.LEFT= new MotionGestureInput(MAX -3, "Left Touch");
-    
-this.RIGHT= new MotionGestureInput(MAX -4, "Right Touch");
-    
-this.UP= new MotionGestureInput(MAX -5, "Up Touch");
-    
-this.DOWN= new MotionGestureInput(MAX -6, "Down Touch");
-    
-this.PRESSED= new MotionGestureInput(MAX -7, "Screen Press");
-    
-this.RELEASED= new MotionGestureInput(MAX -8, "Released");
-    
-this.DIAGONAL_DOWN_RIGHT= new MotionGestureInput(MAX -9, "Diagonal Dn R");
-    
-this.DIAGONAL_DOWN_LEFT= new MotionGestureInput(MAX -10, "Diagonal Dn L");
-    
-this.DIAGONAL_UP_RIGHT= new MotionGestureInput(MAX -11, "Diagonal Up R");
-    
-this.DIAGONAL_UP_LEFT= new MotionGestureInput(MAX -12, "Diagonal Up L");
-    
-this.SCROLL_UP= new MotionGestureInput(MAX -13, "Scroll Up");
-    
-this.SCROLL_DOWN= new MotionGestureInput(MAX -14, "Scroll Down");
-    
-this.NO_MOTION= new MotionGestureInput(MAX -2, "No Motion");
-    
-this.LAST_MOTION= new MotionGestureInput(MAX -19, "Last Motion");
-    
-}
-
-
+    public function TouchMotionGestureFactory() {
+        super();
+        this.initFieldsTouchMotionGestureFactory();
+        var MAX:int = InputFactory.getInstance().MAX;
+        this.LEFT = new MotionGestureInput(int(MAX - 3), "Left Touch");
+        this.RIGHT = new MotionGestureInput(int(MAX - 4), "Right Touch");
+        this.UP = new MotionGestureInput(int(MAX - 5), "Up Touch");
+        this.DOWN = new MotionGestureInput(int(MAX - 6), "Down Touch");
+        this.PRESSED = new MotionGestureInput(int(MAX - 7), "Screen Press");
+        this.RELEASED = new MotionGestureInput(int(MAX - 8), "Released");
+        this.DIAGONAL_DOWN_RIGHT = new MotionGestureInput(int(MAX - 9), "Diagonal Dn R");
+        this.DIAGONAL_DOWN_LEFT = new MotionGestureInput(int(MAX - 10), "Diagonal Dn L");
+        this.DIAGONAL_UP_RIGHT = new MotionGestureInput(int(MAX - 11), "Diagonal Up R");
+        this.DIAGONAL_UP_LEFT = new MotionGestureInput(int(MAX - 12), "Diagonal Up L");
+        this.SCROLL_UP = new MotionGestureInput(int(MAX - 13), "Scroll Up");
+        this.SCROLL_DOWN = new MotionGestureInput(int(MAX - 14), "Scroll Down");
+        this.NO_MOTION = new MotionGestureInput(int(MAX - 2), "No Motion");
+        this.LAST_MOTION = new MotionGestureInput(int(MAX - 19), "Last Motion");
+    }
+    }
 }
 

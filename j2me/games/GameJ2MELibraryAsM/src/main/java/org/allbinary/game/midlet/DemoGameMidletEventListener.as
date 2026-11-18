@@ -1,55 +1,31 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.midlet {
+    import org.allbinary.logic.util.event.EventListenerInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface DemoGameMidletEventListener extends EventListenerInterface {
+    
 
-        
+    function onDemoStart():void;
+    
 
+    function onGameStart():void;
+    
 
-import { EventListenerInterface } from '../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
-//not GWT import const EventListenerInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DemoGameMidletEvent } from './DemoGameMidletEvent.js';
-//sameFolderImports - not GWT import - same folder const DemoGameMidletEvent
-
-export interface DemoGameMidletEventListener extends EventListenerInterface {
-        
-
-    onDemoStart(): void;
-
-    onGameStart(): void;
-
-    onDemoGameMidletEvent(demoGameMidletEvent: DemoGameMidletEvent): void;
-
+    function onDemoGameMidletEvent(demoGameMidletEvent:DemoGameMidletEvent):void;
+    }
 }
 

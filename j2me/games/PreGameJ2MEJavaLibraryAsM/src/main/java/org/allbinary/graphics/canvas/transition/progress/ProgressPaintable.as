@@ -1,68 +1,40 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ *
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ *
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ *
+ * Created By: Travis Berthelot
+ * 
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.canvas.transition.progress {
+    import org.allbinary.graphics.paint.Paintable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                * 
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                * 
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                * 
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ProgressPaintable extends Paintable {
+        private var progressCanvas:ProgressCanvas = null;
 
-        
-
-
-import { Graphics } from '../../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Paintable } from '../../../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ProgressCanvas } from './ProgressCanvas.js';
-//sameFolderImports - not GWT import - same folder const ProgressCanvas
-
-export class ProgressPaintable extends Paintable {
-        
-
-    private readonly progressCanvas: ProgressCanvas;
-
-public constructor (progressCanvas: ProgressCanvas){
-
-            super();
-        this.progressCanvas= progressCanvas;
+        // Java field initializers run after the base constructor
+        private function initFieldsProgressPaintable():void {
     
-}
-
-
-    public paint(graphics: Graphics){
-this.progressCanvas!.paint2(graphics);
+        }
     
-}
 
+    public function ProgressPaintable(progressCanvas:ProgressCanvas) {
+        super();
+        this.initFieldsProgressPaintable();
+        this.progressCanvas = progressCanvas;
+    }
+    
 
+    override public function paint(graphics:Graphics):void {
+        this.progressCanvas.paint2(graphics);
+    }
+    }
 }
 

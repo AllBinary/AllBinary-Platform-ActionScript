@@ -1,167 +1,86 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input.event {
+    import org.allbinary.game.input.GameKeyEventSourceInterface;
+    import org.allbinary.game.input.Input;
+    import org.allbinary.game.input.InputFactory;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { GameKeyEventSourceInterface } from '../../../../../org/allbinary/game/input/GameKeyEventSourceInterface.js';
-//not GWT import const GameKeyEventSourceInterface
-
-import { Input } from '../../../../../org/allbinary/game/input/Input.js';
-//not GWT import const Input
-
-import { InputFactory } from '../../../../../org/allbinary/game/input/InputFactory.js';
-//not GWT import const InputFactory
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameKeyEvent } from './GameKeyEvent.js';
-//sameFolderImports - not GWT import - same folder const GameKeyEvent
-
-export class GameKeyEventFactory
-            extends Object
-         {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): GameKeyEventFactory{
-
-                        if(GameKeyEventFactory.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    GameKeyEventFactory.instance= new GameKeyEventFactory();
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameKeyEventFactory.instance as GameKeyEventFactory;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    public readonly TOUCH_BUTTON_SOURCE_ID: number = 2;
-
-    public readonly MOTION_GESTURE_SOURCE_ID: number = 3;
-
-    private readonly MAX_SOURCES: number = 4;
-
-    private ARRAY: GameKeyEvent[][] = new Array(this.MAX_SOURCES).fill(null).map(() => new Array(InputFactory.getInstance()!.MAX).fill(null))
-                                                            ;
-
-private constructor (){
-
-            super();
+    public class GameKeyEventFactory {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!GameKeyEventFactory.instance_set) {
+            GameKeyEventFactory.instance_set = true;
+            GameKeyEventFactory.instance_value = NullUtil.getInstance().NULL_OBJECT;
         }
+        return GameKeyEventFactory.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        public var TOUCH_BUTTON_SOURCE_ID:int = 0;
+        public var MOTION_GESTURE_SOURCE_ID:int = 0;
+        private var MAX_SOURCES:int = 0;
+        private var ARRAY:Vector.<Vector.<GameKeyEvent>> = null;
 
-
-    public init(){
-
-    let nullUtil: NullUtil = NullUtil.getInstance()!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsGameKeyEventFactory():void {
+    this.logUtil = LogUtil.getInstance();
+    this.TOUCH_BUTTON_SOURCE_ID = 2;
+    this.MOTION_GESTURE_SOURCE_ID = 3;
+    this.MAX_SOURCES = 4;
+    this.ARRAY = (function():Vector.<Vector.<GameKeyEvent>> { var array:Vector.<Vector.<GameKeyEvent>> = new Vector.<Vector.<GameKeyEvent>>(this.MAX_SOURCES); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<GameKeyEvent>(InputFactory.getInstance().MAX); } return array; })();
+        }
     
 
-    let size: number = InputFactory.getInstance()!.MAX;;
+    public static function getInstance():GameKeyEventFactory {
+        if (GameKeyEventFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GameKeyEventFactory.instance = new GameKeyEventFactory();
+        }
+        return (GameKeyEventFactory.instance as GameKeyEventFactory);
+    }
     
 
-
-
-
-                        for (
-    let index: number = this.MAX_SOURCES;--index >= 0; )
-        {
-
-
-
-
-                        for (
-    let index2: number = size;--index2 >= 0; )
-        {
-this.ARRAY[index]![index2]= GameKeyEvent.createEvent(nullUtil!.NULL_OBJECT, index, index2);
-    
-}
-
-}
-
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceForKey(anyType: GameKeyEventSourceInterface, key: number): GameKeyEvent{
-
-    let gameKeyEvent: GameKeyEvent = this.ARRAY[anyType!.getSourceId()]![key]!;;
+    public function GameKeyEventFactory() {
+        super();
+        this.initFieldsGameKeyEventFactory();
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return gameKeyEvent;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceForInput(anyType: GameKeyEventSourceInterface, input: Input): GameKeyEvent{
-
-    let gameKeyEvent: GameKeyEvent = this.ARRAY[anyType!.getSourceId()]![input.getId()]!;;
+    public function init():void {
+        var nullUtil:NullUtil = NullUtil.getInstance();
+        var size:int = InputFactory.getInstance().MAX;
+        for (var index:int = this.MAX_SOURCES; --index >= 0; ) {
+            for (var index2:int = size; --index2 >= 0; ) {
+                this.ARRAY[index][index2] = GameKeyEvent.createEvent(nullUtil.NULL_OBJECT, index, index2);
+            }
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return gameKeyEvent;
+    public function getInstanceForKey(anyType:GameKeyEventSourceInterface, key:int):GameKeyEvent {
+        var gameKeyEvent:GameKeyEvent = this.ARRAY[anyType.getSourceId()][key];
+        return gameKeyEvent;
+    }
     
-}
 
-
+    public function getInstanceForInput(anyType:GameKeyEventSourceInterface, input:Input):GameKeyEvent {
+        var gameKeyEvent:GameKeyEvent = this.ARRAY[anyType.getSourceId()][input.getId()];
+        return gameKeyEvent;
+    }
+    }
 }
 

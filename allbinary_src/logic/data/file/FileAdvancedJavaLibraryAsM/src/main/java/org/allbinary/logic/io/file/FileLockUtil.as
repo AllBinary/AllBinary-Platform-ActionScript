@@ -1,325 +1,127 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io.file {
+    import java.nio.channels.JFileChannel;
+    import java.nio.channels.JFileLock;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.io.AbFileOutputStream;
+    import org.allbinary.logic.io.StreamUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { FileChannel } from '../../../../../java/nio/channels/FileChannel.js';
-//not GWT import const FileChannel
-
-import { FileLock } from '../../../../../java/nio/channels/FileLock.js';
-//not GWT import const FileLock
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { AbFileOutputStream } from '../../../../../org/allbinary/logic/io/AbFileOutputStream.js';
-//not GWT import const AbFileOutputStream
-
-import { StreamUtil } from '../../../../../org/allbinary/logic/io/StreamUtil.js';
-//not GWT import const StreamUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AbFile } from './AbFile.js';
-//sameFolderImports - not GWT import - same folder const AbFile
-
-export class FileLockUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: FileLockUtil = new FileLockUtil();
-
-    public static getInstance(): FileLockUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return FileLockUtil.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-private constructor (){
-
-            super();
+    public class FileLockUtil {
+    private static var instance_value:FileLockUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():FileLockUtil {
+        if (!FileLockUtil.instance_set) {
+            FileLockUtil.instance_set = true;
+            FileLockUtil.instance_value = new FileLockUtil();
         }
+        return FileLockUtil.instance_value;
+    }
+        public var logUtil:LogUtil = null;
 
-
-                //@Throws(Exception.constructor)
-            
-    public getAll(vector: BasicArrayList, isReturnOnFailure: boolean): BasicArrayList{
-
-    let fileLockVector: BasicArrayList = new BasicArrayListD();;
+        // Java field initializers run after the base constructor
+        private function initFieldsFileLockUtil():void {
+    this.logUtil = LogUtil.getInstance();
+        }
     
 
-    let size: number = vector.size()!;;
+    public static function getInstance():FileLockUtil {
+        return FileLockUtil.instance;
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let file: AbFile = vector.get(index) as AbFile;;
+    public function FileLockUtil() {
+        super();
+        this.initFieldsFileLockUtil();
+    }
     
 
-    let fileLock: FileLock = this.getLock(file)!;;
+    public function getAll(vector:BasicArrayList, isReturnOnFailure:Boolean):BasicArrayList {
+        var fileLockVector:BasicArrayList = new BasicArrayListD();
+        var size:int = vector.size();
+        for (var index:int = 0; index < size; index++) {
+            var file:AbFile = (vector.get_(index) as AbFile);
+            var fileLock:FileLock = this.getLock(file);
+            if (fileLock != null) {
+                this.logUtil.putF("File Lock Obtained: " + file.getAbsolutePath(), this, "getAll");
+                fileLockVector.add(fileLock);
+            } else if (isReturnOnFailure) {
+                this.logUtil.putF("Total Locks Obtained: " + String(fileLockVector.size()), this, "getAll");
+                return fileLockVector;
+            }
+        }
+        this.logUtil.putF("Total Locks Obtained: " + String(fileLockVector.size()), this, "getAll");
+        return fileLockVector;
+    }
     
 
-                        if(fileLock != 
-                                    null
-                                )
-                        
-                                    {
-                                    this.logUtil!.putF("File Lock Obtained: " +file.getAbsolutePath(), this, "getAll");
-    
-fileLockVector!.add(fileLock);
+    public function getAllPossible(vector:BasicArrayList):BasicArrayList {
+        return this.getAll(vector, false);
+    }
     
 
-                                    }
-                                
-                             else 
-                        if(isReturnOnFailure)
-                        
-                                    {
-                                    this.logUtil!.putF("Total Locks Obtained: " +fileLockVector!.size(), this, "getAll");
+    public function getAllOrNone(vector:BasicArrayList):BasicArrayList {
+        var fileLockVector:BasicArrayList = this.getAll(vector, true);
+        if (vector.size() != fileLockVector.size()) {
+            return new BasicArrayListD();
+        } else {
+            return fileLockVector;
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileLockVector;
+    public function getLock(file:AbFile):FileLock {
+        try {
+            return this.getLock(AbFileOutputStream.createFromAbFileAppend(file, true));
+        } catch (e:*) {
+            this.logUtil.put("Exception returns null", this, "getLock", e);
+            return null;
+        } finally {
+        }
+    }
     
 
-                                    }
-                                
-}
-
-this.logUtil!.putF("Total Locks Obtained: " +fileLockVector!.size(), this, "getAll");
+    public function getLock(fileOutputStream:AbFileOutputStream):FileLock {
+        try {
+            var fileLock:FileLock = this.getLock(fileOutputStream.getChannel());
+            return fileLock;
+        } catch (e:*) {
+            this.logUtil.put("Exception returns null", this, "getLock", e);
+            return null;
+        } finally {
+            this.logUtil.putF("Finally - Closing FileOutputStream", this, "getLock");
+            StreamUtil.getInstance().close(fileOutputStream);
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileLockVector;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getAllPossible(vector: BasicArrayList): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getAll(vector, false);;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getAllOrNone(vector: BasicArrayList): BasicArrayList{
-
-    let fileLockVector: BasicArrayList = this.getAll(vector, true)!;;
-    
-
-                        if(vector.size() != fileLockVector!.size())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new BasicArrayListD();
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileLockVector;
-    
-
-                        }
-                            
-}
-
-getLock(...args: any[]): any {
-   
-   
-    if (args.length === 1 && args[0] instanceof AbFileOutputStream) return this.getLock$overload2(args[0]);
-    
-    if (args.length === 1) return this.getLock$overload1(args[0]);
-   
-    if (args.length === 1 && args[0] == null) return this.getLock$overload2(args[0]);
-   
-    if (args.length === 1) return this.getLock$overload3(args[0]);
-   
-    if (args.length === 1) return this.getLock$overload2(args[0]);
-    
-   throw new TypeError('No matching overload: getLock'); }
-  
-                //@Throws(Exception.constructor)
-            
-    public getLock$overload1(file: AbFile): FileLock{
-
- try { 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getLock(AbFileOutputStream.createFromAbFileAppend(file, true));;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put("Exception returns null", this, "getLock", e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return null;
-    
-
- }
-   }
- finally {  }
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getLock$overload2(fileOutputStream: AbFileOutputStream): FileLock{
-
- try { 
-    let fileLock: FileLock = this.getLock(fileOutputStream!.getChannel())!;;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileLock;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put("Exception returns null", this, "getLock", e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return null;
-    
-
- }
-   }
- finally { this.logUtil!.putF("Finally - Closing FileOutputStream", this, "getLock");
-    
-StreamUtil.getInstance()!.close(fileOutputStream);
-    
- }
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getLock$overload3(fileChannel: FileChannel): FileLock{
-
- try { 
-    let fileLock: FileLock = fileChannel!.tryLock()!;;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileLock;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put("Exception returns null", this, "getLock", e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return null;
-    
-
- }
-   }
- finally { this.logUtil!.putF("Finally - Closing FileChannel", this, "getLock");
-    
-fileChannel!.close();
-    
- }
-}
-
-
+    public function getLock(fileChannel:FileChannel):FileLock {
+        try {
+            var fileLock:FileLock = fileChannel.tryLock();
+            return fileLock;
+        } catch (e:*) {
+            this.logUtil.put("Exception returns null", this, "getLock", e);
+            return null;
+        } finally {
+            this.logUtil.putF("Finally - Closing FileChannel", this, "getLock");
+            fileChannel.close();
+        }
+    }
+    }
 }
 

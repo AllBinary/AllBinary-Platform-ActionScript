@@ -1,131 +1,83 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai {
+    import org.allbinary.bounds.BoundsVisitorInterface;
+    import org.allbinary.game.physics.velocity.VelocityInterface;
+    import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
+    import org.allbinary.layer.LayerInterface;
+    import org.allbinary.logic.communication.log.LogUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ReverseVelocityBoundsVisitor implements BoundsVisitorInterface {
+        public var logUtil:LogUtil = null;
+        public var velocityInterface:VelocityInterface = null;
+        private var layerInterface:LayerInterface = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { BoundsVisitorInterface } from '../../../../../org/allbinary/bounds/BoundsVisitorInterface.js';
-//not GWT import const BoundsVisitorInterface
-
-import { VelocityInterface } from '../../../../../org/allbinary/game/physics/velocity/VelocityInterface.js';
-//not GWT import const VelocityInterface
-
-import { VelocityInterfaceCompositeInterface } from '../../../../../org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.js';
-//not GWT import const VelocityInterfaceCompositeInterface
-
-import { LayerInterface } from '../../../../../org/allbinary/layer/LayerInterface.js';
-//not GWT import const LayerInterface
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ReverseVelocityBoundsVisitor
-            extends Object
-         implements BoundsVisitorInterface {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    velocityInterface: VelocityInterface;
-
-    private layerInterface: LayerInterface;
-
-public constructor (layerInterface: LayerInterface){
-
-            super();
-        this.layerInterface= layerInterface;
+        // Java field initializers run after the base constructor
+        private function initFieldsReverseVelocityBoundsVisitor():void {
+    this.logUtil = LogUtil.getInstance();
+    
+    
+        }
     
 
-    let velocityInterfaceCompositeInterface: VelocityInterfaceCompositeInterface = layerInterface as VelocityInterfaceCompositeInterface;;
+    public function ReverseVelocityBoundsVisitor(layerInterface:LayerInterface) {
+        super();
+        this.initFieldsReverseVelocityBoundsVisitor();
+        this.layerInterface = layerInterface;
+        var velocityInterfaceCompositeInterface:VelocityInterfaceCompositeInterface = (layerInterface as VelocityInterfaceCompositeInterface);
+        this.velocityInterface = (velocityInterfaceCompositeInterface.getVelocityProperties() as VelocityInterface);
+    }
     
-this.velocityInterface= velocityInterfaceCompositeInterface!.getVelocityProperties() as VelocityInterface;
+
+    public function getX():int {
+        return this.layerInterface.getXP();
+    }
     
-}
 
-
-    public getX(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.layerInterface!.getXP();;
+    public function getY():int {
+        return this.layerInterface.getYP();
+    }
     
-}
 
-
-    public getY(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.layerInterface!.getYP();;
+    public function minX():void {
+        if (this.velocityInterface.getVelocityXBasicDecimalP().getUnscaled() < 0) {
+            this.velocityInterface.getVelocityXBasicDecimalP().multiplyint(-1);
+        }
+    }
     
-}
 
+    public function maxX():void {
+        if (this.velocityInterface.getVelocityXBasicDecimalP().getUnscaled() > 0) {
+            this.velocityInterface.getVelocityXBasicDecimalP().multiplyint(-1);
+        }
+    }
+    
 
-    public minX(){
+    public function minY():void {
+        if (this.velocityInterface.getVelocityYBasicDecimalP().getUnscaled() < 0) {
+            this.velocityInterface.getVelocityYBasicDecimalP().multiplyint(-1);
+        }
+    }
+    
 
-                        if(this.velocityInterface!.getVelocityXBasicDecimalP()!.getUnscaled() < 0)
-                        this.velocityInterface!.getVelocityXBasicDecimalP()!.multiplyint( -1)
-}
-
-
-    public maxX(){
-
-                        if(this.velocityInterface!.getVelocityXBasicDecimalP()!.getUnscaled() > 0)
-                        this.velocityInterface!.getVelocityXBasicDecimalP()!.multiplyint( -1)
-}
-
-
-    public minY(){
-
-                        if(this.velocityInterface!.getVelocityYBasicDecimalP()!.getUnscaled() < 0)
-                        this.velocityInterface!.getVelocityYBasicDecimalP()!.multiplyint( -1)
-}
-
-
-    public maxY(){
-
-                        if(this.velocityInterface!.getVelocityYBasicDecimalP()!.getUnscaled() > 0)
-                        this.velocityInterface!.getVelocityYBasicDecimalP()!.multiplyint( -1)
-}
-
-
+    public function maxY():void {
+        if (this.velocityInterface.getVelocityYBasicDecimalP().getUnscaled() > 0) {
+            this.velocityInterface.getVelocityYBasicDecimalP().multiplyint(-1);
+        }
+    }
+    }
 }
 

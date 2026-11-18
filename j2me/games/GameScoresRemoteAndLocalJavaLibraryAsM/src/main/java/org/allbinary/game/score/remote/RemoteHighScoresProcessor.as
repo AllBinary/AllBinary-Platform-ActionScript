@@ -1,150 +1,66 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score.remote {
+    import org.allbinary.game.GameInfo;
+    import org.allbinary.game.GameInfoData;
+    import org.allbinary.game.configuration.GameConfigurationCentral;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
+    import org.allbinary.logic.java.bool.BooleanFactory;
+    import org.allbinary.logic.system.security.crypt.jcehelper.NoCrypt;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.ABHashtable;
+    import org.allbinary.util.HashtableUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class RemoteHighScoresProcessor implements RemoteHighScoresProcessorInterface {
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        private var noCrypt:NoCrypt = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { GameInfo } from '../../../../../org/allbinary/game/GameInfo.js';
-//not GWT import const GameInfo
-
-import { GameInfoData } from '../../../../../org/allbinary/game/GameInfoData.js';
-//not GWT import const GameInfoData
-
-import { GameConfigurationCentral } from '../../../../../org/allbinary/game/configuration/GameConfigurationCentral.js';
-//not GWT import const GameConfigurationCentral
-
-import { DisplayInfoSingleton } from '../../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { XmlRpcAbeClient } from '../../../../../org/allbinary/logic/communication/xmlrpc/XmlRpcAbeClient.js';
-//not GWT import const XmlRpcAbeClient
-
-import { BooleanFactory } from '../../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
-//not GWT import const BooleanFactory
-
-import { NoCrypt } from '../../../../../org/allbinary/logic/system/security/crypt/jcehelper/NoCrypt.js';
-//not GWT import const NoCrypt
-
-import { AbeClientInformationInterface } from '../../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-//not plain js import { HashtableUtil } 
-const HashtableUtil = globalThis.org.allbinary.util.HashtableUtil;
-type HashtableUtil<T = any, U = any> = typeof HashtableUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof HashtableUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { RemoteHighScoresProcessorInterface } from './RemoteHighScoresProcessorInterface.js';
-//sameFolderImports - not GWT import - same folder const RemoteHighScoresProcessorInterface
-import { RemoteHighScoresData } from './RemoteHighScoresData.js';
-//sameFolderImports - not GWT import - same folder const RemoteHighScoresData
-import { XmlRpcRemoteHighScoresClient } from './XmlRpcRemoteHighScoresClient.js';
-//sameFolderImports - not GWT import - same folder const XmlRpcRemoteHighScoresClient
-import { RemoteHighScores } from './RemoteHighScores.js';
-//sameFolderImports - not GWT import - same folder const RemoteHighScores
-
-export class RemoteHighScoresProcessor
-            extends Object
-         implements RemoteHighScoresProcessorInterface {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly noCrypt: NoCrypt = new NoCrypt();
-
-public constructor (){
-
-            super();
+        // Java field initializers run after the base constructor
+        private function initFieldsRemoteHighScoresProcessor():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.noCrypt = new NoCrypt();
         }
-
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public process(remoteHighScores: RemoteHighScores, abeClientInformation: AbeClientInformationInterface, gameInfo: GameInfo){
-this.logUtil!.putF("Begin Remote HighScores Retrieval", this, this.commonStrings!.PROCESS);
     
 
-    let gameInfoData: GameInfoData = GameInfoData.getInstance()!;;
+    public function RemoteHighScoresProcessor() {
+        super();
+        this.initFieldsRemoteHighScoresProcessor();
+    }
     
 
-    let hashtable: ABHashtable<any, any> = abeClientInformation!.toHashtable()!;;
-    
-HashtableUtil.getInstance()!.putAll(gameInfo!.toHashtable(), hashtable);
-    
-hashtable.put(gameInfoData!.SOFTWARE_INFORMATION, remoteHighScores!.getSoftwareInformation()!.toString());
-    
-hashtable.put(remoteHighScores!.ASCENDING, remoteHighScores!.getAscending()!.toString());
-    
-
-    let displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
-    
-hashtable.put(displayInfoSingleton!.ORIENTATION, BooleanFactory.getInstance()!.toStringb(displayInfoSingleton!.isPortrait()));
-    
-hashtable.put(RemoteHighScoresData.getInstance()!.GAME_CONFIGURATION, GameConfigurationCentral.getInstance()!.toString());
-    
-
-                        if(XmlRpcAbeClient.isOnline)
-                        
-                                    {
-                                    
-    let resultHashtable: ABHashtable<any, any> = new XmlRpcRemoteHighScoresClient(abeClientInformation, "highscoresservicessl.php", "HighScoresService.process").get(hashtable, this.noCrypt) as ABHashtable<any, any>;;
-    
-remoteHighScores!.update(resultHashtable);
-    
-
-                                    }
-                                
-}
-
-
+    public function process(remoteHighScores:RemoteHighScores, abeClientInformation:AbeClientInformationInterface, gameInfo:GameInfo):void {
+        this.logUtil.putF("Begin Remote HighScores Retrieval", this, this.commonStrings.PROCESS);
+        var gameInfoData:GameInfoData = GameInfoData.getInstance();
+        var hashtable:ABHashtable = abeClientInformation.toHashtable();
+        HashtableUtil.getInstance().putAll(gameInfo.toHashtable(), hashtable);
+        hashtable.put(gameInfoData.SOFTWARE_INFORMATION, remoteHighScores.getSoftwareInformation().toString());
+        hashtable.put(remoteHighScores.ASCENDING, remoteHighScores.getAscending().toString());
+        var displayInfoSingleton:DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
+        hashtable.put(displayInfoSingleton.ORIENTATION, BooleanFactory.getInstance().toStringb(displayInfoSingleton.isPortrait()));
+        hashtable.put(RemoteHighScoresData.getInstance().GAME_CONFIGURATION, GameConfigurationCentral.getInstance().toString());
+        if (XmlRpcAbeClient.isOnline) {
+            var resultHashtable:ABHashtable = (new XmlRpcRemoteHighScoresClient(abeClientInformation, "highscoresservicessl.php", "HighScoresService.process").get_(hashtable, this.noCrypt) as ABHashtable);
+            remoteHighScores.update(resultHashtable);
+        }
+    }
+    }
 }
 

@@ -1,211 +1,102 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.combat.canvas {
+    import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
+    import org.allbinary.game.combat.destroy.event.DestroyEventCircularStaticPool;
+    import org.allbinary.game.combat.destroy.event.DestroyedEventHandler;
+    import org.allbinary.game.configuration.feature.Features;
+    import org.allbinary.game.configuration.feature.GameFeatureFactory;
+    import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
+    import org.allbinary.game.init.BasicBuildGameInitializerFactory;
+    import org.allbinary.game.layer.AllBinaryGameLayerManager;
+    import org.allbinary.game.layer.drop.DropLayerProcessor;
+    import org.allbinary.game.layer.identification.GroupLayerManagerListener;
+    import org.allbinary.game.score.HighScoresFactoryInterface;
+    import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+    import org.allbinary.layer.BasicLayerProcessor;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { CommandListener } from '../../../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
-
-import { DestroyedLayerProcessor } from '../../../../../org/allbinary/game/combat/destroy/DestroyedLayerProcessor.js';
-//not GWT import const DestroyedLayerProcessor
-
-import { DestroyEventCircularStaticPool } from '../../../../../org/allbinary/game/combat/destroy/event/DestroyEventCircularStaticPool.js';
-//not GWT import const DestroyEventCircularStaticPool
-
-import { DestroyedEventHandler } from '../../../../../org/allbinary/game/combat/destroy/event/DestroyedEventHandler.js';
-//not GWT import const DestroyedEventHandler
-
-import { Features } from '../../../../../org/allbinary/game/configuration/feature/Features.js';
-//not GWT import const Features
-
-import { GameFeatureFactory } from '../../../../../org/allbinary/game/configuration/feature/GameFeatureFactory.js';
-//not GWT import const GameFeatureFactory
-
-import { AllBinaryGameCanvas } from '../../../../../org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.js';
-//not GWT import const AllBinaryGameCanvas
-
-import { BasicBuildGameInitializerFactory } from '../../../../../org/allbinary/game/init/BasicBuildGameInitializerFactory.js';
-//not GWT import const BasicBuildGameInitializerFactory
-
-import { AllBinaryGameLayerManager } from '../../../../../org/allbinary/game/layer/AllBinaryGameLayerManager.js';
-//not GWT import const AllBinaryGameLayerManager
-
-import { DropLayerProcessor } from '../../../../../org/allbinary/game/layer/drop/DropLayerProcessor.js';
-//not GWT import const DropLayerProcessor
-
-import { GroupLayerManagerListener } from '../../../../../org/allbinary/game/layer/identification/GroupLayerManagerListener.js';
-//not GWT import const GroupLayerManagerListener
-
-import { HighScoresFactoryInterface } from '../../../../../org/allbinary/game/score/HighScoresFactoryInterface.js';
-//not GWT import const HighScoresFactoryInterface
-
-import { ProgressCanvasFactory } from '../../../../../org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.js';
-//not GWT import const ProgressCanvasFactory
-
-import { BasicLayerProcessor } from '../../../../../org/allbinary/layer/BasicLayerProcessor.js';
-//not GWT import const BasicLayerProcessor
-
-import { AbeClientInformationInterface } from '../../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class CombatGameCanvas extends AllBinaryGameCanvas {
-        
-
-    static basicLayerProcessor: BasicLayerProcessor[] = [];
-
-public constructor (cmdListener: CommandListener, gameLayerManager: AllBinaryGameLayerManager, highScoresFactoryInterface: HighScoresFactoryInterface, gameInitializationInterfaceFactoryInterface: BasicBuildGameInitializerFactory, buffered: boolean){
-            super(cmdListener, gameLayerManager, highScoresFactoryInterface, gameInitializationInterfaceFactoryInterface, buffered);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    CombatGameCanvas_init(){
-DestroyEventCircularStaticPool.getInstance()!.init(this);
-    
-ProgressCanvasFactory.getInstance()!.addNormalPortion(50, "Destroy Events");
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    initApp(abeClientInformation: AbeClientInformationInterface){
-this.CombatGameCanvas_init();
-    
-super.initApp(abeClientInformation);
-    
-}
-
-
-    initConfigurablePortion(portion: number){
-DestroyedLayerProcessor.init();
-    
-ProgressCanvasFactory.getInstance()!.addNormalPortion(portion, "Basic Processors");
+    public class CombatGameCanvas extends AllBinaryGameCanvas {
+    private static var basicLayerProcessor_value:Vector.<BasicLayerProcessor>;
+    private static var basicLayerProcessor_set:Boolean = false;
+    public static function get basicLayerProcessor():Vector.<BasicLayerProcessor> {
+        if (!CombatGameCanvas.basicLayerProcessor_set) {
+            CombatGameCanvas.basicLayerProcessor_set = true;
+            CombatGameCanvas.basicLayerProcessor_value = new Vector.<BasicLayerProcessor>(0);
+        }
+        return CombatGameCanvas.basicLayerProcessor_value;
+    }
     
 
-    let features: Features = Features.getInstance()!;;
+    public function CombatGameCanvas(cmdListener:CommandListener, gameLayerManager:AllBinaryGameLayerManager, highScoresFactoryInterface:HighScoresFactoryInterface, gameInitializationInterfaceFactoryInterface:BasicBuildGameInitializerFactory, buffered:Boolean) {
+        super(cmdListener, gameLayerManager, highScoresFactoryInterface, gameInitializationInterfaceFactoryInterface, buffered);
+    }
     
 
-    let gameFeatureFactory: GameFeatureFactory = GameFeatureFactory.getInstance()!;;
+    private function CombatGameCanvas_init():void {
+        DestroyEventCircularStaticPool.getInstance().init(this);
+        ProgressCanvasFactory.getInstance().addNormalPortion(50, "Destroy Events");
+    }
     
 
-                        if(features.isFeature(gameFeatureFactory!.DROPPED_ITEMS) && features.isFeature(gameFeatureFactory!.DROPPED_ITEMS_FROM_DEATH))
-                        
-                                    {
-                                    CombatGameCanvas.basicLayerProcessor= new Array(2);
-    
-CombatGameCanvas.basicLayerProcessor[0]= DestroyedLayerProcessor.getInstance();
-    
-CombatGameCanvas.basicLayerProcessor[1]= DropLayerProcessor.getInstance();
+    override public function initApp(abeClientInformation:AbeClientInformationInterface):void {
+        this.CombatGameCanvas_init();
+        super.initApp(abeClientInformation);
+    }
     
 
-                                    }
-                                
-                        else {
-                            CombatGameCanvas.basicLayerProcessor= new Array(1);
-    
-CombatGameCanvas.basicLayerProcessor[0]= DestroyedLayerProcessor.getInstance();
-    
-
-                        }
-                            
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    processPlayingGame(){
-super.processPlayingGame();
+    public function initConfigurablePortion(portion:int):void {
+        DestroyedLayerProcessor.init();
+        ProgressCanvasFactory.getInstance().addNormalPortion(portion, "Basic Processors");
+        var features:Features = Features.getInstance();
+        var gameFeatureFactory:GameFeatureFactory = GameFeatureFactory.getInstance();
+        if (features.isFeature(gameFeatureFactory.DROPPED_ITEMS) && features.isFeature(gameFeatureFactory.DROPPED_ITEMS_FROM_DEATH)) {
+            CombatGameCanvas.basicLayerProcessor = new Vector.<BasicLayerProcessor>(2);
+            CombatGameCanvas.basicLayerProcessor[0] = DestroyedLayerProcessor.getInstance();
+            CombatGameCanvas.basicLayerProcessor[1] = DropLayerProcessor.getInstance();
+        } else {
+            CombatGameCanvas.basicLayerProcessor = new Vector.<BasicLayerProcessor>(1);
+            CombatGameCanvas.basicLayerProcessor[0] = DestroyedLayerProcessor.getInstance();
+        }
+    }
     
 
-
-
-
-                        for (
-    let index: number = CombatGameCanvas.basicLayerProcessor!.length
-                ;--index >= 0; )
-        {
-CombatGameCanvas.basicLayerProcessor[index]!.process(this.gameLayerManager);
-    
-}
-
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    cleanupGame(){
-super.cleanupGame();
+    override public function processPlayingGame():void {
+        super.processPlayingGame();
+        for (var index:int = CombatGameCanvas.basicLayerProcessor.length; --index >= 0; ) {
+            CombatGameCanvas.basicLayerProcessor[index].process(this.gameLayerManager);
+        }
+    }
     
 
-
-
-
-                        for (
-    let index: number = CombatGameCanvas.basicLayerProcessor!.length
-                ;--index >= 0; )
-        {
-CombatGameCanvas.basicLayerProcessor[index]!.getList()!.clear();
+    override public function cleanupGame():void {
+        super.cleanupGame();
+        for (var index:int = CombatGameCanvas.basicLayerProcessor.length; --index >= 0; ) {
+            CombatGameCanvas.basicLayerProcessor[index].getList().clear();
+        }
+        GroupLayerManagerListener.getInstance().clear();
+        GroupLayerManagerListener.getInstance().log();
+        DestroyedEventHandler.getInstance().removeAllListeners();
+        this.cleanupManager();
+    }
     
-}
 
-GroupLayerManagerListener.getInstance()!.clear();
-    
-GroupLayerManagerListener.getInstance()!.log();
-    
-DestroyedEventHandler.getInstance()!.removeAllListeners();
-    
-this.cleanupManager();
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    cleanupManager(){
-this.gameLayerManager!.cleanup();
-    
-}
-
-
+    public function cleanupManager():void {
+        this.gameLayerManager.cleanup();
+    }
+    }
 }
 

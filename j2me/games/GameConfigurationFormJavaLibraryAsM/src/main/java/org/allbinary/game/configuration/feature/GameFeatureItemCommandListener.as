@@ -1,132 +1,58 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.feature {
+    import org.allbinary.game.configuration.GameConfigurationGauge;
+    import org.allbinary.game.configuration.GameConfigurationUtil;
+    import org.allbinary.game.configuration.GameOptionsForm;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.midlet.MidletStrings;
+    import org.allbinary.string.CommonLabels;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameFeatureItemCommandListener implements ItemCommandListener {
+        public var logUtil:LogUtil = null;
+        private var gameOptionsForm:GameOptionsForm = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Command } from '../../../../../javax/microedition/lcdui/Command.js';
-//not GWT import const Command
-
-import { Item } from '../../../../../javax/microedition/lcdui/Item.js';
-//not GWT import const Item
-
-import { ItemCommandListener } from '../../../../../javax/microedition/lcdui/ItemCommandListener.js';
-//not GWT import const ItemCommandListener
-
-import { GameConfigurationGauge } from '../../../../../org/allbinary/game/configuration/GameConfigurationGauge.js';
-//not GWT import const GameConfigurationGauge
-
-import { GameConfigurationUtil } from '../../../../../org/allbinary/game/configuration/GameConfigurationUtil.js';
-//not GWT import const GameConfigurationUtil
-
-import { GameOptionsForm } from '../../../../../org/allbinary/game/configuration/GameOptionsForm.js';
-//not GWT import const GameOptionsForm
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { MidletStrings } from '../../../../../org/allbinary/midlet/MidletStrings.js';
-//not GWT import const MidletStrings
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GameFeatureItemCommandListener
-            extends Object
-         implements ItemCommandListener {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private gameOptionsForm: GameOptionsForm;
-
-public constructor (gameOptionsForm: GameOptionsForm){
-
-            super();
-        this.gameOptionsForm= gameOptionsForm;
+        // Java field initializers run after the base constructor
+        private function initFieldsGameFeatureItemCommandListener():void {
+    this.logUtil = LogUtil.getInstance();
     
-}
-
-
-    public commandAction(command: Command, item: Item){
-
- try { 
-    let itemLabel: string = item.getLabel()!;;
-    
-this.logUtil!.putF(new StringMaker().append(CommonLabels.getInstance()!.ITEM_LABEL)!.append(itemLabel)!.toString(), this, MidletStrings.getInstance()!.COMMAND_ACTION);
+        }
     
 
-                        if(item instanceof GameConfigurationGauge)
-                        
-                                    {
-                                    GameConfigurationUtil.getInstance()!.change(this.gameOptionsForm, item as GameConfigurationGauge);
+    public function GameFeatureItemCommandListener(gameOptionsForm:GameOptionsForm) {
+        super();
+        this.initFieldsGameFeatureItemCommandListener();
+        this.gameOptionsForm = gameOptionsForm;
+    }
     
 
-                                    }
-                                
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.put(commonStrings!.EXCEPTION, this, MidletStrings.getInstance()!.COMMAND_ACTION, e);
-    
-
- }
-   }
- 
-}
-
-
+    public function commandAction(command:Command, item:Item):void {
+        try {
+            var itemLabel:String = item.getLabel();
+            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(itemLabel).toString(), this, MidletStrings.getInstance().COMMAND_ACTION);
+            if ((item is GameConfigurationGauge)) {
+                GameConfigurationUtil.getInstance().change(this.gameOptionsForm, (item as GameConfigurationGauge));
+            }
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, MidletStrings.getInstance().COMMAND_ACTION, e);
+        }
+    }
+    }
 }
 

@@ -1,82 +1,66 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.persistance {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PersistanceStrings {
+    private static var instance_value:PersistanceStrings;
+    private static var instance_set:Boolean = false;
+    private static function get instance():PersistanceStrings {
+        if (!PersistanceStrings.instance_set) {
+            PersistanceStrings.instance_set = true;
+            PersistanceStrings.instance_value = new PersistanceStrings();
+        }
+        return PersistanceStrings.instance_value;
+    }
+        public var SAVING:String = null;
+        public var NUMBER_OF_RECORDS:String = null;
+        public var LOADING_ID:String = null;
+        public var LOAD_ALL:String = null;
+        public var DELETING_WITH_ID:String = null;
+        public var CLOSING_RECORDSTORE:String = null;
+        public var NOT_SAVING:String = null;
+        public var ERROR_LOADING:String = null;
+        public var ERROR_LOADING_ID:String = null;
+        public var ID:String = null;
+        public var GAME_ACTION_INPUT:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsPersistanceStrings():void {
+    this.SAVING = "Saving: ";
+    this.NUMBER_OF_RECORDS = "Number of records: ";
+    this.LOADING_ID = "Loading data with id: ";
+    this.LOAD_ALL = "loadAll";
+    this.DELETING_WITH_ID = "Deleting data with id: ";
+    this.CLOSING_RECORDSTORE = "Closing RecordStore";
+    this.NOT_SAVING = "Not Saving: ";
+    this.ERROR_LOADING = "Error Loading gameActionInput: ";
+    this.ERROR_LOADING_ID = "Error Loading id: ";
+    this.ID = " id: ";
+    this.GAME_ACTION_INPUT = " GameActionInput: ";
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class PersistanceStrings
-            extends Object
-         {
-        
-
-    private static readonly instance: PersistanceStrings = new PersistanceStrings();
-
-    public static getInstance(): PersistanceStrings{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PersistanceStrings.instance;
+        public function PersistanceStrings() {
+            super();
+            this.initFieldsPersistanceStrings();
+        }
     
-}
 
-
-    public readonly SAVING: string = "Saving: ";
-
-    public readonly NUMBER_OF_RECORDS: string = "Number of records: ";
-
-    public readonly LOADING_ID: string = "Loading data with id: ";
-
-    public readonly LOAD_ALL: string = "loadAll";
-
-    public readonly DELETING_WITH_ID: string = "Deleting data with id: ";
-
-    public readonly CLOSING_RECORDSTORE: string = "Closing RecordStore";
-
-    public readonly NOT_SAVING: string = "Not Saving: ";
-
-    public readonly ERROR_LOADING: string = "Error Loading gameActionInput: ";
-
-    public readonly ERROR_LOADING_ID: string = "Error Loading id: ";
-
-    public readonly ID: string = " id: ";
-
-    public readonly GAME_ACTION_INPUT: string = " GameActionInput: ";
-
+    public static function getInstance():PersistanceStrings {
+        return PersistanceStrings.instance;
+    }
+    }
 }
 

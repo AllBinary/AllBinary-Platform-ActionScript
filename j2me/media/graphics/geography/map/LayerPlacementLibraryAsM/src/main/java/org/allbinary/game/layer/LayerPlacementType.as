@@ -1,74 +1,44 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LayerPlacementType {
+        private var type:int = 0;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class LayerPlacementType
-            extends Object
-         {
-        
-
-    private type: number;
-
- constructor (type: number){
-
-            super();
-        this.type= type;
+        // Java field initializers run after the base constructor
+        private function initFieldsLayerPlacementType():void {
     
-}
-
-
-    public getType(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.type;
+        }
     
-}
 
-
-    setType(type: number){
-this.type= type;
+    public function LayerPlacementType(type:int) {
+        super();
+        this.initFieldsLayerPlacementType();
+        this.type = type;
+    }
     
-}
 
+    public function getType():int {
+        return this.type;
+    }
+    
 
+    public function setType(type:int):void {
+        this.type = type;
+    }
+    }
 }
 

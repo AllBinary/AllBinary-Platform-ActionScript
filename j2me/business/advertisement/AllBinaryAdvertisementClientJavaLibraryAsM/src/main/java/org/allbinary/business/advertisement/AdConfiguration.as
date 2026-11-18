@@ -1,108 +1,68 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.advertisement {
+    import org.allbinary.direction.Direction;
+    import org.allbinary.game.state.GameState;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AdConfiguration {
+        public var INNERACTIVE:String = null;
+        public var LEADBOLT:String = null;
+        public var ADMOB:String = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Direction } from '../../../../org/allbinary/direction/Direction.js';
-//not GWT import const Direction
-
-import { GameState } from '../../../../org/allbinary/game/state/GameState.js';
-//not GWT import const GameState
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AdConfiguration
-            extends Object
-         {
-        
-
-    public readonly INNERACTIVE: string;
-
-    public readonly LEADBOLT: string;
-
-    public readonly ADMOB: string;
-
-public constructor (advertIdArray: any[]){
-
-            super();
-        this.INNERACTIVE= advertIdArray[0]! as string;
+        // Java field initializers run after the base constructor
+        private function initFieldsAdConfiguration():void {
     
-this.ADMOB= advertIdArray[1]! as string;
     
-this.LEADBOLT= advertIdArray[2]! as string;
     
-}
-
-
-    public getValidAdSpots(): Direction[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return [];
+        }
     
-}
 
-
-    public process(gameState: GameState){
-}
-
-
-    public processDemo(state: number){
-}
-
-
-    public setShowAds(){
-}
-
-
-    public setToggleAds(showAds: boolean){
-}
-
-
-    public isShowAds(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function AdConfiguration(advertIdArray:Vector.<Object>) {
+        super();
+        this.initFieldsAdConfiguration();
+        this.INNERACTIVE = (advertIdArray[0] as String);
+        this.ADMOB = (advertIdArray[1] as String);
+        this.LEADBOLT = (advertIdArray[2] as String);
+    }
     
-}
 
+    public function getValidAdSpots():Vector.<Direction> {
+        return new Vector.<Direction>(0);
+    }
+    
 
+    public function process(gameState:GameState):void {
+    }
+    
+
+    public function processDemo(state:int):void {
+    }
+    
+
+    public function setShowAds():void {
+    }
+    
+
+    public function setToggleAds(showAds:Boolean):void {
+    }
+    
+
+    public function isShowAds():Boolean {
+        return true;
+    }
+    }
 }
 

@@ -1,99 +1,56 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.displayable.screen {
+    import org.allbinary.graphics.GPoint;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
-//not GWT import const GPoint
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class DisplayPointScalar
-            extends Object
-         {
-        
-
-    private static readonly instance: DisplayPointScalar = new DisplayPointScalar();
-
-    public static getInstance(): DisplayPointScalar{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DisplayPointScalar.instance;
-    
-}
-
-
-public constructor (){
-
-            super();
+    public class DisplayPointScalar {
+    private static var instance_value:DisplayPointScalar;
+    private static var instance_set:Boolean = false;
+    private static function get instance():DisplayPointScalar {
+        if (!DisplayPointScalar.instance_set) {
+            DisplayPointScalar.instance_set = true;
+            DisplayPointScalar.instance_value = new DisplayPointScalar();
         }
-
-
-    public processX(value: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return value;
+        return DisplayPointScalar.instance_value;
+    }
     
-}
 
-
-    public processY(value: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return value;
+    public static function getInstance():DisplayPointScalar {
+        return DisplayPointScalar.instance;
+    }
     
-}
 
-
-    public process(point: GPoint): GPoint{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return point;
+    public function DisplayPointScalar() {
+        super();
+    }
     
-}
 
+    public function processX(value:int):int {
+        return value;
+    }
+    
 
+    public function processY(value:int):int {
+        return value;
+    }
+    
+
+    public function process(point:GPoint):GPoint {
+        return point;
+    }
+    }
 }
 

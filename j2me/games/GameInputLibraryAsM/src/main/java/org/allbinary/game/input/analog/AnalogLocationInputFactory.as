@@ -1,111 +1,57 @@
+// Generated Code Do Not Modify
+package org.allbinary.game.input.analog {
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AnalogLocationInput } from './AnalogLocationInput.js';
-//sameFolderImports - not GWT import - same folder const AnalogLocationInput
-
-export class AnalogLocationInputFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: AnalogLocationInputFactory = new AnalogLocationInputFactory();
-
-    public static getInstance(): AnalogLocationInputFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AnalogLocationInputFactory.instance;
-    
-}
-
-
-    private readonly list: BasicArrayList = new BasicArrayListD();
-
-private constructor (){
-
-            super();
+    public class AnalogLocationInputFactory {
+    private static var instance_value:AnalogLocationInputFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():AnalogLocationInputFactory {
+        if (!AnalogLocationInputFactory.instance_set) {
+            AnalogLocationInputFactory.instance_set = true;
+            AnalogLocationInputFactory.instance_value = new AnalogLocationInputFactory();
         }
+        return AnalogLocationInputFactory.instance_value;
+    }
+        private var list:BasicArrayList = null;
 
-
-    public addPlayer(playerInputId: number){
-
-    let analogLocationInput: AnalogLocationInput = AnalogLocationInput.NULL_ANALOG_LOCATION_INPUT;;
+        // Java field initializers run after the base constructor
+        private function initFieldsAnalogLocationInputFactory():void {
+    this.list = new BasicArrayListD();
+        }
     
 
-                        if(playerInputId < this.list.size())
-                        
-                                    {
-                                    analogLocationInput= this.list.get(playerInputId) as AnalogLocationInput;
+    public static function getInstance():AnalogLocationInputFactory {
+        return AnalogLocationInputFactory.instance;
+    }
     
 
-                                    }
-                                
-
-                        if(analogLocationInput == AnalogLocationInput.NULL_ANALOG_LOCATION_INPUT)
-                        
-                                    {
-                                    analogLocationInput= new AnalogLocationInput(playerInputId);
-    
-this.list.add(analogLocationInput);
+    public function AnalogLocationInputFactory() {
+        super();
+        this.initFieldsAnalogLocationInputFactory();
+    }
     
 
-                                    }
-                                
-}
-
-
-    public getInstanceForPlayer(playerInputId: number): AnalogLocationInput{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list.get(playerInputId) as AnalogLocationInput;
+    public function addPlayer(playerInputId:int):void {
+        var analogLocationInput:AnalogLocationInput = AnalogLocationInput.NULL_ANALOG_LOCATION_INPUT;
+        if (playerInputId < this.list.size()) {
+            analogLocationInput = (this.list.get_(playerInputId) as AnalogLocationInput);
+        }
+        if (analogLocationInput == AnalogLocationInput.NULL_ANALOG_LOCATION_INPUT) {
+            analogLocationInput = new AnalogLocationInput(playerInputId);
+            this.list.add(analogLocationInput);
+        }
+    }
     
-}
 
-
-    public getList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list;
+    public function getInstanceForPlayer(playerInputId:int):AnalogLocationInput {
+        return (this.list.get_(playerInputId) as AnalogLocationInput);
+    }
     
-}
 
-
+    public function getList():BasicArrayList {
+        return this.list;
+    }
+    }
 }
 

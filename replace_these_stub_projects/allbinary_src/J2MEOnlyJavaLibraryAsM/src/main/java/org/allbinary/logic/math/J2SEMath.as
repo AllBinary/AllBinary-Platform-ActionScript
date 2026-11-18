@@ -1,90 +1,50 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.math {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class J2SEMath
-            extends Object
-         {
-        
-
-    private static readonly instance: J2SEMath = new J2SEMath();
-
-    public static getInstance(): J2SEMath{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return J2SEMath.instance;
+    public class J2SEMath {
+    private static var instance_value:J2SEMath;
+    private static var instance_set:Boolean = false;
+    private static function get instance():J2SEMath {
+        if (!J2SEMath.instance_set) {
+            J2SEMath.instance_set = true;
+            J2SEMath.instance_value = new J2SEMath();
+        }
+        return J2SEMath.instance_value;
+    }
     
-}
 
-
-    public round(value: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return globalThis.Math.trunc(value);
+    public static function getInstance():J2SEMath {
+        return J2SEMath.instance;
+    }
     
-}
 
-
-    public abs(value: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ((value < 0) ?  -value : value);
+    public function round(value:Number):int {
+        return JMath.toInt32(value);
+    }
     
-}
 
-
-    public absdouble(value: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ((value < 0) ?  -value : value);
+    public function abs(value:Number):Number {
+        return ((value < 0.0) ? -value : value);
+    }
     
-}
 
-
+    public function absdouble(value:Number):Number {
+        return ((value < 0.0) ? -value : value);
+    }
+    }
 }
 

@@ -1,97 +1,41 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io.file {
+    import org.allbinary.logic.io.path.AbPathData;
+    import org.allbinary.logic.string.StringValidationUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-//not plain js import { AbPathData } 
-const AbPathData = globalThis.org.allbinary.logic.io.path.AbPathData;
-type AbPathData<T = any, U = any> = typeof AbPathData extends abstract new (...args: any[]) => infer Instance ? Instance : typeof AbPathData;
-
-import { StringValidationUtil } from '../../../../../org/allbinary/logic/string/StringValidationUtil.js';
-//not GWT import const StringValidationUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //not plain js - same folder import { FilePathData } 
-const FilePathData = globalThis.org.allbinary.logic.io.file.FilePathData;
-//Used to correct user input for paths
-export class FilePathUtil
-            extends Object
-         {
-        
-
-    public static adjust(path: string): string{
-
-    let abPathData: AbPathData = AbPathData.getInstance()!;;
+    //Used to correct user input for paths
+    public class FilePathUtil {
     
 
-    let stringValidationUtil: StringValidationUtil = StringValidationUtil.getInstance()!;;
+    public function FilePathUtil() {
+        super();
+    }
     
 
-    let filePathData: FilePathData = FilePathData.getInstance()!;;
-    
-
-                        if(stringValidationUtil!.isEmpty(path))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return filePathData!.PATH_START;
-    
-
-                                    }
-                                
-path= path.replace(abPathData!.SEPARATORCHAR, filePathData!.SEPARATORCHAR);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return path;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public static function adjust(path:String):String {
+        var abPathData:AbPathData = AbPathData.getInstance();
+        var stringValidationUtil:StringValidationUtil = StringValidationUtil.getInstance();
+        var filePathData:FilePathData = FilePathData.getInstance();
+        if (stringValidationUtil.isEmpty(path)) {
+            return filePathData.PATH_START;
         }
-
-
+        path = JString.replace(path, abPathData.SEPARATORCHAR, filePathData.SEPARATORCHAR);
+        return path;
+    }
+    }
 }
 

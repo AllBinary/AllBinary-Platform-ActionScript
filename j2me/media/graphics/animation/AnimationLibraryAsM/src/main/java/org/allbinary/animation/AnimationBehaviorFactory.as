@@ -1,72 +1,40 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AnimationBehavior } from './AnimationBehavior.js';
-//sameFolderImports - not GWT import - same folder const AnimationBehavior
-
-export class AnimationBehaviorFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: AnimationBehaviorFactory = new AnimationBehaviorFactory();
-
-    public static getInstance(): AnimationBehaviorFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AnimationBehaviorFactory.instance;
+    public class AnimationBehaviorFactory {
+    private static var instance_value:AnimationBehaviorFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():AnimationBehaviorFactory {
+        if (!AnimationBehaviorFactory.instance_set) {
+            AnimationBehaviorFactory.instance_set = true;
+            AnimationBehaviorFactory.instance_value = new AnimationBehaviorFactory();
+        }
+        return AnimationBehaviorFactory.instance_value;
+    }
     
-}
 
-
-    public getOrCreateInstance(): AnimationBehavior{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AnimationBehavior.getInstance();;
+    public static function getInstance():AnimationBehaviorFactory {
+        return AnimationBehaviorFactory.instance;
+    }
     
-}
 
-
+    public function getOrCreateInstance():AnimationBehavior {
+        return AnimationBehavior.getInstance();
+    }
+    }
 }
 

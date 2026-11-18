@@ -1,340 +1,126 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.game.input.GameInputStrings;
+    import org.allbinary.game.input.event.GameKeyEvent;
+    import org.allbinary.graphics.GPoint;
+    import org.allbinary.graphics.Rectangle;
+    import org.allbinary.graphics.displayable.MyCanvas;
+    import org.allbinary.input.motion.gesture.MotionGestureInput;
+    import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+    import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+    import org.allbinary.math.RectangleCollisionUtil;
+    import org.allbinary.time.TimeDelayHelper;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PopupMenuInputProcessor extends BasicMenuInputProcessor {
+        private var rectangleCollisionUtil:RectangleCollisionUtil = null;
+        private var CLICK_DELAY:int = 0;
+        private var clickTimeHelper:TimeDelayHelper = null;
+        private var rectangle:Rectangle = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Canvas } from '../../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { GameInputStrings } from '../../../../../org/allbinary/game/input/GameInputStrings.js';
-//not GWT import const GameInputStrings
-
-import { GameKeyEvent } from '../../../../../org/allbinary/game/input/event/GameKeyEvent.js';
-//not GWT import const GameKeyEvent
-
-import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
-//not GWT import const GPoint
-
-import { Rectangle } from '../../../../../org/allbinary/graphics/Rectangle.js';
-//not GWT import const Rectangle
-
-import { MyCanvas } from '../../../../../org/allbinary/graphics/displayable/MyCanvas.js';
-//not GWT import const MyCanvas
-
-import { MotionGestureInput } from '../../../../../org/allbinary/input/motion/gesture/MotionGestureInput.js';
-//not GWT import const MotionGestureInput
-
-import { TouchMotionGestureFactory } from '../../../../../org/allbinary/input/motion/gesture/TouchMotionGestureFactory.js';
-//not GWT import const TouchMotionGestureFactory
-
-import { MotionGestureEvent } from '../../../../../org/allbinary/input/motion/gesture/observer/MotionGestureEvent.js';
-//not GWT import const MotionGestureEvent
-
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { RectangleCollisionUtil } from '../../../../../org/allbinary/math/RectangleCollisionUtil.js';
-//not GWT import const RectangleCollisionUtil
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-import { TimeDelayHelper } from '../../../../../org/allbinary/time/TimeDelayHelper.js';
-//not GWT import const TimeDelayHelper
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicMenuInputProcessor } from './BasicMenuInputProcessor.js';
-//sameFolderImports - not GWT import - same folder const BasicMenuInputProcessor
-import { AllBinaryGameCanvas } from './AllBinaryGameCanvas.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryGameCanvas
-
-export class PopupMenuInputProcessor extends BasicMenuInputProcessor {
-        
-
-    private readonly rectangleCollisionUtil: RectangleCollisionUtil = RectangleCollisionUtil.getInstance()!;
-
-    private readonly CLICK_DELAY: number = 120;
-
-    private readonly clickTimeHelper: TimeDelayHelper = new TimeDelayHelper(this.CLICK_DELAY);
-
-    private rectangle: Rectangle;
-
-public constructor (gameKeyEventList: BasicArrayList, playerInputId: number, gameCanvas: MyCanvas, rectangle: Rectangle){
-            super(gameKeyEventList, playerInputId, gameCanvas);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.rectangle= rectangle;
+        // Java field initializers run after the base constructor
+        private function initFieldsPopupMenuInputProcessor():void {
+    this.rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
+    this.CLICK_DELAY = 120;
+    this.clickTimeHelper = new TimeDelayHelper(this.CLICK_DELAY);
     
-}
-
-
-    public init(rectangle: Rectangle){
-this.rectangle= rectangle;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processInput(key: number): number{
-
-                        if(key == Canvas.KEY_STAR)
-                        
-                                    {
-                                    
-    let gameCanvas: AllBinaryGameCanvas = this.getCanvas() as AllBinaryGameCanvas;;
-    
-gameCanvas!.toggleMenu();
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 1;
+    public function PopupMenuInputProcessor(gameKeyEventList:BasicArrayList, playerInputId:int, gameCanvas:MyCanvas, rectangle:Rectangle) {
+        super(gameKeyEventList, playerInputId, gameCanvas);
+        this.initFieldsPopupMenuInputProcessor();
+        this.rectangle = rectangle;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processInputList(): number{
-
- try { 
-    let motionInputsIndex: number = this.processMotionInputs()!;;
+    public function init(rectangle:Rectangle):void {
+        this.rectangle = rectangle;
+    }
     
 
-    let list: BasicArrayList = this.getGameKeyEventList()!;;
+    public function processInput(key:int):int {
+        if (key == Canvas.KEY_STAR) {
+            var gameCanvas:AllBinaryGameCanvas = (this.getCanvas() as AllBinaryGameCanvas);
+            gameCanvas.toggleMenu();
+            return 1;
+        }
+        return 0;
+    }
     
 
-    let size: number = list.size()!;;
+    override public function processInputList():int {
+        try {
+            var motionInputsIndex:int = this.processMotionInputs();
+            var list:BasicArrayList = this.getGameKeyEventList();
+            var size:int = list.size();
+            var key:int = 0;
+            var gameKeyEvent:GameKeyEvent = null;
+            for (var index:int = 0; index < size; index++) {
+                gameKeyEvent = (list.objectArray[index] as GameKeyEvent);
+                if (gameKeyEvent != null) {
+                    key = gameKeyEvent.getKey();
+                    if (this.processInput(key) == 1) {
+                        break;
+                    }
+                }
+            }
+            this.clear();
+            if (size > 0 || motionInputsIndex >= 0) {
+                return 1;
+            } else {
+                return -1;
+            }
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, GameInputStrings.getInstance().PROCESS_INPUT, e);
+            return -1;
+        }
+    }
     
 
-    let key: number = 0;;
+    public function processMotionInputs():int {
+        var lastIndex:int = int(this.motionGestureEventList.size() - 1);
+        if (lastIndex >= 0) {
+            var motionGestureEvent:MotionGestureEvent = (this.motionGestureEventList.objectArray[lastIndex] as MotionGestureEvent);
+            this.processMotionInput(motionGestureEvent);
+        }
+        this.motionGestureEventList.clear();
+        return lastIndex;
+    }
     
 
-    let gameKeyEvent: GameKeyEvent;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-gameKeyEvent= list.objectArray[index]! as GameKeyEvent;
-    
-
-                        if(gameKeyEvent != 
-                                    null
-                                )
-                        
-                                    {
-                                    key= gameKeyEvent!.getKey();
-    
-
-                        if(this.processInput(key) == 1)
-                        
-                                    {
-                                    break;
-
-                    
-
-                                    }
-                                
-
-                                    }
-                                
-}
-
-this.clear();
-    
-
-                        if(size > 0 || motionInputsIndex >= 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 1;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return  -1;
-    
-
-                        }
-                            
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, GameInputStrings.getInstance()!.PROCESS_INPUT, e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return  -1;
-    
-
- }
-   }
- 
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processMotionInputs(): number{
-
-    let lastIndex: number = this.motionGestureEventList!.size() -1;;
-    
-
-                        if(lastIndex >= 0)
-                        
-                                    {
-                                    
-    let motionGestureEvent: MotionGestureEvent = this.motionGestureEventList!.objectArray[lastIndex]! as MotionGestureEvent;;
-    
-this.processMotionInput(motionGestureEvent);
-    
-
-                                    }
-                                
-this.motionGestureEventList!.clear();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return lastIndex;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    processMotionInput(motionGestureEvent: MotionGestureEvent){
-
-                        if(motionGestureEvent == 
-                                    null
-                                )
-                        
-                                    {
-                                    this.logUtil!.putF("Exception: Bug", this, this.gameInputStrings!.PROCESS_MOTION_INPUT);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
-    
-
-                                    }
-                                
-
-    let touchMotionGestureFactory: TouchMotionGestureFactory = TouchMotionGestureFactory.getInstance()!;;
-    
-
-    let motionGestureInput: MotionGestureInput = motionGestureEvent!.getMotionGesture()!;;
-    
-
-                        if(motionGestureInput == touchMotionGestureFactory!.RELEASED)
-                        
-                                    {
-                                    
-    let point: GPoint = motionGestureEvent!.getCurrentPoint()!;;
-    
-
-    let rectPoint: GPoint = this.rectangle.getPoint()!;;
-    
-
-                        if(this.rectangleCollisionUtil!.isInside(rectPoint!.getX(), rectPoint!.getY(), this.rectangle.getMaxX() +20, this.rectangle.getMaxY(), point.getX(), point.getY()))
-                        
-                                    {
-                                    
-                        if(this.clickTimeHelper!.isTimeTNT())
-                        
-                                    {
-                                    
-    let gameCanvas: AllBinaryGameCanvas = this.getCanvas() as AllBinaryGameCanvas;;
-    
-gameCanvas!.toggleMenu();
-    
-
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-}
-
-
+    public function processMotionInput(motionGestureEvent:MotionGestureEvent):void {
+        if (motionGestureEvent == null) {
+            this.logUtil.putF("Exception: Bug", this, this.gameInputStrings.PROCESS_MOTION_INPUT);
+            return;
+        }
+        var touchMotionGestureFactory:TouchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
+        var motionGestureInput:MotionGestureInput = motionGestureEvent.getMotionGesture();
+        if (motionGestureInput == touchMotionGestureFactory.RELEASED) {
+            var point:GPoint = motionGestureEvent.getCurrentPoint();
+            var rectPoint:GPoint = this.rectangle.getPoint();
+            if (this.rectangleCollisionUtil.isInside(rectPoint.getX(), rectPoint.getY(), int(this.rectangle.getMaxX() + 20), this.rectangle.getMaxY(), point.getX(), point.getY())) {
+                if (this.clickTimeHelper.isTimeTNT()) {
+                    var gameCanvas:AllBinaryGameCanvas = (this.getCanvas() as AllBinaryGameCanvas);
+                    gameCanvas.toggleMenu();
+                }
+            }
+        }
+    }
+    }
 }
 

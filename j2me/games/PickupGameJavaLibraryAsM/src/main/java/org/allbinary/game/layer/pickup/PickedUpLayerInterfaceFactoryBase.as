@@ -1,89 +1,47 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer.pickup {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.layer.AllBinaryLayer;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PickedUpLayerInterfaceFactoryBase implements PickedUpLayerInterfaceFactoryInterface {
+    private static var NULL_PICKED_UP_LAYER_FACTORY_BASE_value:PickedUpLayerInterfaceFactoryBase;
+    private static var NULL_PICKED_UP_LAYER_FACTORY_BASE_set:Boolean = false;
+    public static function get NULL_PICKED_UP_LAYER_FACTORY_BASE():PickedUpLayerInterfaceFactoryBase {
+        if (!PickedUpLayerInterfaceFactoryBase.NULL_PICKED_UP_LAYER_FACTORY_BASE_set) {
+            PickedUpLayerInterfaceFactoryBase.NULL_PICKED_UP_LAYER_FACTORY_BASE_set = true;
+            PickedUpLayerInterfaceFactoryBase.NULL_PICKED_UP_LAYER_FACTORY_BASE_value = new PickedUpLayerInterfaceFactoryBase();
+        }
+        return PickedUpLayerInterfaceFactoryBase.NULL_PICKED_UP_LAYER_FACTORY_BASE_value;
+    }
+    
 
-        
+    public function getIconLayer():AllBinaryLayer {
+        throw new JException("RuntimeException", "");
+    }
+    
 
+    public function getAnimationInterface():Animation {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { RuntimeException } from '../../../../../java/lang/RuntimeException.js';
-        
-import { Animation } from '../../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PickedUpLayerInterfaceFactoryInterface } from './PickedUpLayerInterfaceFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const PickedUpLayerInterfaceFactoryInterface
-import { PickedUpLayerType } from './PickedUpLayerType.js';
-//sameFolderImports - not GWT import - same folder const PickedUpLayerType
-
-export class PickedUpLayerInterfaceFactoryBase
-            extends Object
-         implements PickedUpLayerInterfaceFactoryInterface {
-        
-
-    public static readonly NULL_PICKED_UP_LAYER_FACTORY_BASE: PickedUpLayerInterfaceFactoryBase = new PickedUpLayerInterfaceFactoryBase();
-
-    public getIconLayer(): AllBinaryLayer{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public getAnimationInterface(): Animation{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public getPickedUpLayerType(): PickedUpLayerType{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
+    public function getPickedUpLayerType():PickedUpLayerType {
+        throw new JException("RuntimeException", "");
+    }
+    }
 }
 

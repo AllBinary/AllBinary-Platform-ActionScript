@@ -1,71 +1,39 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.image {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageCache } from './ImageCache.js';
-//sameFolderImports - not GWT import - same folder const ImageCache
-
-export class ImageCacheFactory
-            extends Object
-         {
-        
-
-    private static readonly IMAGE_CACHE: ImageCache = new ImageCache();
-
-    public static getInstance(): ImageCache{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ImageCacheFactory.IMAGE_CACHE;
+    public class ImageCacheFactory {
+    private static var IMAGE_CACHE_value:ImageCache;
+    private static var IMAGE_CACHE_set:Boolean = false;
+    private static function get IMAGE_CACHE():ImageCache {
+        if (!ImageCacheFactory.IMAGE_CACHE_set) {
+            ImageCacheFactory.IMAGE_CACHE_set = true;
+            ImageCacheFactory.IMAGE_CACHE_value = new ImageCache();
+        }
+        return ImageCacheFactory.IMAGE_CACHE_value;
+    }
     
+
+    public static function getInstance():ImageCache {
+        return ImageCacheFactory.IMAGE_CACHE;
+    }
+    
+
+    public static function init():void {
+    }
+    }
 }
-
-
-    public static init(){
-}
-
-
-}//JSNI Expose so JSNI can access this class *** 
- globalThis.org.allbinary = globalThis.org.allbinary || {}; 
- globalThis.org.allbinary.image = globalThis.org.allbinary.image || {}; 
- globalThis.org.allbinary.image.ImageCacheFactory = ImageCacheFactory; 
- console.log('Exported ImageCacheFactory as globalThis'); 
- 
 

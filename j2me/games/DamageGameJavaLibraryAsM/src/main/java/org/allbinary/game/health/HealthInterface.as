@@ -1,62 +1,45 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.health {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface HealthInterface {
+    
 
-        
+    function isAlive():Boolean;
+    
 
+    function damage(ahealth:int):void;
+    
 
+    function heal(ahealth:int):void;
+    
 
+    function healMax():void;
+    
 
+    function getMaxHealth():int;
+    
 
+    function setMaxHealth(maxHealth:int):void;
+    
 
+    function getHealth():int;
+    
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { HealthListenerInterface } from './HealthListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const HealthListenerInterface
-
-export interface HealthInterface {
-        
-
-    isAlive(): boolean;
-
-    damage(ahealth: number): void;
-
-    heal(ahealth: number): void;
-
-    healMax(): void;
-
-    getMaxHealth(): number;
-
-    setMaxHealth(maxHealth: number): void;
-
-    getHealth(): number;
-
-    addListener(healthListenerInterface: HealthListenerInterface): void;
-
+    function addListener(healthListenerInterface:HealthListenerInterface):void;
+    }
 }
 

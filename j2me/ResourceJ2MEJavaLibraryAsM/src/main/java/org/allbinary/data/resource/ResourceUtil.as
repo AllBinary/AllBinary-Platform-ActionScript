@@ -1,323 +1,133 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.data.resource {
+    import java.io.JInputStream;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonSeps;
+    import org.allbinary.string.CommonStrings;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../java/lang/Integer.js';
-        
-import { InputStream } from '../../../../java/io/InputStream.js';
-//not GWT import const InputStream
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //J2ME
-export class ResourceUtil
-            extends Object
-         {
-        
-
-    private static instance: ResourceUtil = new ResourceUtil();
-
-    public static getInstance(): ResourceUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ResourceUtil.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-private constructor (){
-
-            super();
+    //J2ME
+    public class ResourceUtil {
+    private static var instance_value:ResourceUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ResourceUtil {
+        if (!ResourceUtil.instance_set) {
+            ResourceUtil.instance_set = true;
+            ResourceUtil.instance_value = new ResourceUtil();
         }
+        return ResourceUtil.instance_value;
+    }
+        public var logUtil:LogUtil = null;
 
-
-    public setLoadingPaths(path: string, ext: string){
-this.logUtil!.putF(CommonStrings.getInstance()!.NOT_IMPLEMENTED, this, "setLoadingPaths");
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getResourceAsStream(resource: string): InputStream{
-
-    let inputStream: InputStream = resource..javaClass.getResourceAsStream(resource)!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsResourceUtil():void {
+    this.logUtil = LogUtil.getInstance();
+        }
     
 
-                        if(inputStream == 
-                                    null
-                                )
-                        
-                                    {
-                                    inputStream= this.getResourceAsStreamAtStart(resource, 2);
+    public static function getInstance():ResourceUtil {
+        return ResourceUtil.instance;
+    }
     
 
-                        if(inputStream == 
-                                    null
-                                )
-                        
-                                    {
-                                    inputStream= this.getResourceAsStreamAtStart(resource, 1);
+    public function ResourceUtil() {
+        super();
+        this.initFieldsResourceUtil();
+    }
     
 
-                        if(inputStream == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-    let stringMaker: StringMaker = new StringMaker();;
+    public function setLoadingPaths(path:String, ext:String):void {
+        this.logUtil.putF(CommonStrings.getInstance().NOT_IMPLEMENTED, this, "setLoadingPaths");
+    }
     
 
-    let index: number = resource.lastIndexOf('/')!;;
-    
-
-    let resourcePath: string = resource.substring(index +1)!;;
-    
-inputStream= resource..javaClass.getResourceAsStream(resourcePath);
-    
-
-                        if(inputStream == 
-                                    null
-                                )
-                        
-                                    {
-                                    resourcePath= resource.substring(index);
-    
-inputStream= resource..javaClass.getResourceAsStream(resourcePath);
-    
-
-                        if(inputStream == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-    let RES: string = "res";;
-    
-resourcePath= stringMaker!.append(RES)!.append(resource.substring(index))!.toString();
-    
-inputStream= resource..javaClass.getResourceAsStream(resourcePath);
-    
-
-                        if(inputStream == 
-                                    null
-                                )
-                        
-                                    {
-                                    stringMaker!.delete(0, stringMaker!.length());
-    
-resourcePath= stringMaker!.append("/")!.append(RES)!.append(resource.substring(index))!.toString();
-    
-inputStream= resource..javaClass.getResourceAsStream(resourcePath);
-    
-
-    let COLON: string = CommonSeps.getInstance()!.COLON;;
-    
-
-                        if(inputStream == 
-                                    null
-                                )
-                        
-                                    {
-                                    stringMaker!.delete(0, stringMaker!.length());
-    
-resourcePath= stringMaker!.append(RES)!.append(COLON)!.append(resource.substring(index))!.toString();
-    
-inputStream= resource..javaClass.getResourceAsStream(resourcePath);
-    
-
-                        if(inputStream == 
-                                    null
-                                )
-                        
-                                    {
-                                    stringMaker!.delete(0, stringMaker!.length());
-    
-resourcePath= stringMaker!.append(RES)!.append(COLON)!.append(resource.substring(index +1))!.toString();
-    
-inputStream= resource..javaClass.getResourceAsStream(resourcePath);
-    
-
-                        if(inputStream == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-    let RESOURCE_STRING: string = "resource";;
-    
-stringMaker!.delete(0, stringMaker!.length());
-    
-resourcePath= stringMaker!.append(RESOURCE_STRING)!.append(COLON)!.append(resource.substring(index))!.toString();
-    
-inputStream= resource..javaClass.getResourceAsStream(resourcePath);
-    
-
-                        if(inputStream == 
-                                    null
-                                )
-                        
-                                    {
-                                    stringMaker!.delete(0, stringMaker!.length());
-    
-resourcePath= stringMaker!.append(RESOURCE_STRING)!.append(COLON)!.append(resource.substring(index +1))!.toString();
-    
-inputStream= resource..javaClass.getResourceAsStream(resourcePath);
-    
-
-                        if(inputStream == 
-                                    null
-                                )
-                        
-                                    {
-                                    stringMaker!.delete(0, stringMaker!.length());
-    
-
-
-
-                            throw new Exception(stringMaker!.append("Unable to obtain: ")!.append(resource)!.toString());
-                    
-
+    public function getResourceAsStream(resource:String):InputStream {
+        var inputStream:InputStream = JSystem.className(resource).getResourceAsStream(resource);
+        if (inputStream == null) {
+            inputStream = this.getResourceAsStreamAtStart(resource, 2);
+            if (inputStream == null) {
+                inputStream = this.getResourceAsStreamAtStart(resource, 1);
+                if (inputStream == null) {
+                    var stringMaker:StringMaker = new StringMaker();
+                    var index:int = JString.lastIndexOf(resource, "/".charCodeAt(0));
+                    var resourcePath:String = resource.substring(int(index + 1));
+                    inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                    if (inputStream == null) {
+                        resourcePath = resource.substring(index);
+                        inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                        if (inputStream == null) {
+                            var RES:String = "res";
+                            resourcePath = stringMaker.append(RES).append(resource.substring(index)).toString();
+                            inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                            if (inputStream == null) {
+                                stringMaker.delete_(0, stringMaker.length());
+                                resourcePath = stringMaker.append("/").append(RES).append(resource.substring(index)).toString();
+                                inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                                var COLON:String = CommonSeps.getInstance().COLON;
+                                if (inputStream == null) {
+                                    stringMaker.delete_(0, stringMaker.length());
+                                    resourcePath = stringMaker.append(RES).append(COLON).append(resource.substring(index)).toString();
+                                    inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                                    if (inputStream == null) {
+                                        stringMaker.delete_(0, stringMaker.length());
+                                        resourcePath = stringMaker.append(RES).append(COLON).append(resource.substring(int(index + 1))).toString();
+                                        inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                                        if (inputStream == null) {
+                                            var RESOURCE_STRING:String = "resource";
+                                            stringMaker.delete_(0, stringMaker.length());
+                                            resourcePath = stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(index)).toString();
+                                            inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                                            if (inputStream == null) {
+                                                stringMaker.delete_(0, stringMaker.length());
+                                                resourcePath = stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(int(index + 1))).toString();
+                                                inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                                                if (inputStream == null) {
+                                                    stringMaker.delete_(0, stringMaker.length());
+                                                    throw new JException("Exception", stringMaker.append("Unable to obtain: ").append(resource).toString());
+                                                }
+                                            }
+                                        }
                                     }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return inputStream;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    getResourceAsStreamAtStart(resource: string, startIndex: number): InputStream{
-
-    let stringMaker: StringMaker = new StringMaker();;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return inputStream;
+    }
     
 
-    let index: number = resource.indexOf(CommonSeps.getInstance()!.COLON)!;;
+    private function getResourceAsStreamAtStart(resource:String, startIndex:int):InputStream {
+        var stringMaker:StringMaker = new StringMaker();
+        var index:int = JString.indexOf(resource, CommonSeps.getInstance().COLON);
+        var resourcePath:String = resource.substring(int(index + startIndex));
+        var inputStream:InputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+        if (inputStream != null) {
+            return inputStream;
+        }
+        return inputStream;
+    }
     
 
-    let resourcePath: string = resource.substring(index +startIndex)!;;
-    
-
-    let inputStream: InputStream = resource..javaClass.getResourceAsStream(resourcePath)!;;
-    
-
-                        if(inputStream != 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return inputStream;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return inputStream;
-    
-}
-
-
-    public addResource(resource: string, value: Integer){
-}
-
-
+    public function addResource(resource:String, value:*):void {
+    }
+    }
 }
 

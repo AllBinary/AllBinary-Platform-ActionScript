@@ -1,91 +1,51 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.ai {
+    import org.allbinary.layer.AllBinaryLayerManager;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { AllBinaryLayerManager } from '../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ArtificialIntelligenceInterface } from './ArtificialIntelligenceInterface.js';
-//sameFolderImports - not GWT import - same folder const ArtificialIntelligenceInterface
-
-export class ArtificialIntelligence
-            extends Object
-         implements ArtificialIntelligenceInterface {
-        
-
-    public static readonly AI_ID: number = 2;
-
-    private static readonly instance: ArtificialIntelligence = new ArtificialIntelligence();
-
-    public static getInstance(): ArtificialIntelligence{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ArtificialIntelligence.instance;
-    
-}
-
-
-public constructor (){
-
-            super();
+    public class ArtificialIntelligence implements ArtificialIntelligenceInterface {
+    public static const AI_ID:int = 2;
+    private static var instance_value:ArtificialIntelligence;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ArtificialIntelligence {
+        if (!ArtificialIntelligence.instance_set) {
+            ArtificialIntelligence.instance_set = true;
+            ArtificialIntelligence.instance_value = new ArtificialIntelligence();
         }
-
-
-                //@Throws(Exception.constructor)
-            
-    public processAI(layerManager: AllBinaryLayerManager){
-}
-
-
-    public getId(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 1;
+        return ArtificialIntelligence.instance_value;
+    }
     
-}
 
+    public static function getInstance():ArtificialIntelligence {
+        return ArtificialIntelligence.instance;
+    }
+    
 
+    public function ArtificialIntelligence() {
+        super();
+    }
+    
+
+    public function processAI(layerManager:AllBinaryLayerManager):void {
+    }
+    
+
+    public function getId():int {
+        return 1;
+    }
+    }
 }
 

@@ -1,58 +1,32 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer.pickup {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.layer.AllBinaryLayer;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface PickedUpLayerInterfaceFactoryInterface {
+    
 
-        
+    function getPickedUpLayerType():PickedUpLayerType;
+    
 
+    function getIconLayer():AllBinaryLayer;
+    
 
-import { Animation } from '../../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PickedUpLayerType } from './PickedUpLayerType.js';
-//sameFolderImports - not GWT import - same folder const PickedUpLayerType
-
-export interface PickedUpLayerInterfaceFactoryInterface {
-        
-
-    getPickedUpLayerType(): PickedUpLayerType;
-
-    getIconLayer(): AllBinaryLayer;
-
-    getAnimationInterface(): Animation;
-
+    function getAnimationInterface():Animation;
+    }
 }
 

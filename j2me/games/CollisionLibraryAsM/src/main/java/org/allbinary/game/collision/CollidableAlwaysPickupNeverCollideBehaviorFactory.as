@@ -1,74 +1,51 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.collision {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CollidableAlwaysPickupNeverCollideBehaviorFactory extends CollidableBaseBehaviorFactory {
+    private static var instanceC_value:CollidableAlwaysPickupNeverCollideBehaviorFactory;
+    private static var instanceC_set:Boolean = false;
+    private static function get instanceC():CollidableAlwaysPickupNeverCollideBehaviorFactory {
+        if (!CollidableAlwaysPickupNeverCollideBehaviorFactory.instanceC_set) {
+            CollidableAlwaysPickupNeverCollideBehaviorFactory.instanceC_set = true;
+            CollidableAlwaysPickupNeverCollideBehaviorFactory.instanceC_value = new CollidableAlwaysPickupNeverCollideBehaviorFactory();
+        }
+        return CollidableAlwaysPickupNeverCollideBehaviorFactory.instanceC_value;
+    }
+        private var instance:CollidableAlwaysPickupNeverCollideBehavior = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsCollidableAlwaysPickupNeverCollideBehaviorFactory():void {
+    this.instance = new CollidableAlwaysPickupNeverCollideBehavior();
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CollidableBaseBehaviorFactory } from './CollidableBaseBehaviorFactory.js';
-//sameFolderImports - not GWT import - same folder const CollidableBaseBehaviorFactory
-import { CollidableAlwaysPickupNeverCollideBehavior } from './CollidableAlwaysPickupNeverCollideBehavior.js';
-//sameFolderImports - not GWT import - same folder const CollidableAlwaysPickupNeverCollideBehavior
-import { CollidableBaseBehavior } from './CollidableBaseBehavior.js';
-//sameFolderImports - not GWT import - same folder const CollidableBaseBehavior
-
-export class CollidableAlwaysPickupNeverCollideBehaviorFactory extends CollidableBaseBehaviorFactory {
-        
-
-    private static readonly instanceC: CollidableAlwaysPickupNeverCollideBehaviorFactory = new CollidableAlwaysPickupNeverCollideBehaviorFactory();
-
-    public static getInstance(): CollidableAlwaysPickupNeverCollideBehaviorFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return CollidableAlwaysPickupNeverCollideBehaviorFactory.instanceC;
+        public function CollidableAlwaysPickupNeverCollideBehaviorFactory() {
+            super();
+            this.initFieldsCollidableAlwaysPickupNeverCollideBehaviorFactory();
+        }
     
-}
 
-
-    private readonly instance: CollidableAlwaysPickupNeverCollideBehavior = new CollidableAlwaysPickupNeverCollideBehavior();
-
-    public createBehavior(): CollidableBaseBehavior{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.instance;
+    public static function getInstance():CollidableAlwaysPickupNeverCollideBehaviorFactory {
+        return CollidableAlwaysPickupNeverCollideBehaviorFactory.instanceC;
+    }
     
-}
 
-
+    override public function createBehavior():CollidableBaseBehavior {
+        return this.instance;
+    }
+    }
 }
 

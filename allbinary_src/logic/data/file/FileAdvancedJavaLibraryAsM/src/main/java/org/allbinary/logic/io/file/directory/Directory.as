@@ -1,633 +1,209 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io.file.directory {
+    import java.io.JFileFilter;
+    import org.allbinary.logic.communication.log.PreLogUtil;
+    import org.allbinary.logic.io.file.AbFile;
+    import org.allbinary.logic.io.file.FileFactory;
+    import org.allbinary.logic.io.file.FileWrapperUtil;
+    import org.allbinary.logic.io.path.AbPath;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { FileFilter } from '../../../../../../java/io/FileFilter.js';
-//not GWT import const FileFilter
-
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-import { AbFile } from '../../../../../../org/allbinary/logic/io/file/AbFile.js';
-//not GWT import const AbFile
-
-import { FileFactory } from '../../../../../../org/allbinary/logic/io/file/FileFactory.js';
-//not GWT import const FileFactory
-
-import { FileWrapperUtil } from '../../../../../../org/allbinary/logic/io/file/FileWrapperUtil.js';
-//not GWT import const FileWrapperUtil
-
-import { AbPath } from '../../../../../../org/allbinary/logic/io/path/AbPath.js';
-//not GWT import const AbPath
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class Directory
-            extends Object
-         {
-        
-
-    private static readonly instance: Directory = new Directory();
-
-    public static getInstance(): Directory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return Directory.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class Directory {
+    private static var instance_value:Directory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Directory {
+        if (!Directory.instance_set) {
+            Directory.instance_set = true;
+            Directory.instance_value = new Directory();
         }
-
-create(...args: any[]): any {
-   
-   
-    if (args.length === 1) return this.create$overload1(args[0]);
-   
-    if (args.length === 1 && typeof args[0] === 'string') return this.create$overload2(args[0]);
-   
-   throw new TypeError('No matching overload: create'); }
-  
-    public create$overload1(directoryAbPath: AbPath): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.create(directoryAbPath!.toFileSystemString());;
-    
-}
-
-remove(...args: any[]): any {
-   
-   
-    if (args.length === 1) return this.remove$overload1(args[0]);
-   
-    if (args.length === 1 && typeof args[0] === 'string') return this.remove$overload2(args[0]);
-   
-   throw new TypeError('No matching overload: remove'); }
-  
-                //@Throws(Exception.constructor)
-            
-    public remove$overload1(existingDirectoryAbPath: AbPath){
-this.remove(existingDirectoryAbPath!.toFileSystemString());
-    
-}
-
-
-    create$overload2(directory: string): boolean{
-
- try { 
-    let directoryFile: AbFile = FileFactory.getInstance()!.getInstance(directory)!;;
+        return Directory.instance_value;
+    }
     
 
-                        if(!directoryFile!.isDirectory())
-                        
-                                    {
-                                    PreLogUtil.put("Creating Directories: " +directory, this, "create");
+    public static function getInstance():Directory {
+        return Directory.instance;
+    }
     
 
-                        if(!directoryFile!.mkdirs())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function Directory() {
+        super();
+    }
     
 
-                                    }
-                                
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-PreLogUtil.putOE("Error Creating Directories: " +directory, this, "create", e);
+    public function create(directoryAbPath:AbPath):Boolean {
+        return this.create(directoryAbPath.toFileSystemString());
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function remove(existingDirectoryAbPath:AbPath):void {
+        this.remove(existingDirectoryAbPath.toFileSystemString());
+    }
     
 
- }
-   }
- 
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    remove$overload2(existingDirectory: string){
-
-    let existingDirectoryFile: AbFile = FileFactory.getInstance()!.getInstance(existingDirectory)!;;
+    private function create(directory:String):Boolean {
+        try {
+            var directoryFile:AbFile = FileFactory.getInstance().getInstance1(directory);
+            if (!directoryFile.isDirectory()) {
+                PreLogUtil.put("Creating Directories: " + directory, this, "create");
+                if (!directoryFile.mkdirs()) {
+                    return false;
+                }
+            }
+            return true;
+        } catch (e:*) {
+            PreLogUtil.putOE("Error Creating Directories: " + directory, this, "create", e);
+            return false;
+        }
+    }
     
 
-                        if(existingDirectoryFile!.isDirectory())
-                        
-                                    {
-                                    
-                        if(existingDirectoryFile!.list()!.length > 0)
-                        
-                                    {
-                                    
-
-
-                            throw new Exception("Did not remove category: " +existingDirectory +" because files exist");
-                    
-
-                                    }
-                                
-                             else 
-                        if(existingDirectoryFile!.delete())
-                        
-                                    {
-                                    PreLogUtil.put("Successfully Removed: " +existingDirectory, "Directory", "remove");
+    private function remove(existingDirectory:String):void {
+        var existingDirectoryFile:AbFile = FileFactory.getInstance().getInstance1(existingDirectory);
+        if (existingDirectoryFile.isDirectory()) {
+            if (existingDirectoryFile.list().length > 0) {
+                throw new JException("Exception", "Did not remove category: " + existingDirectory + " because files exist");
+            } else if (existingDirectoryFile.delete_()) {
+                PreLogUtil.put("Successfully Removed: " + existingDirectory, "Directory", "remove");
+            }
+        } else {
+            throw new JException("Exception", "Category Directory Is Missing:" + existingDirectory);
+        }
+    }
     
 
-                                    }
-                                
-
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw new Exception("Category Directory Is Missing:" +existingDirectory);
-                    
-
-                        }
-                            
-}
-
-search(...args: any[]): any {
-   
-   
-    if (args.length === 2 && typeof args[1] === 'boolean' && args[0] instanceof AbFile) return this.search$overload4(args[0], args[1]);
-    
-    if (args.length === 2) return this.search$overload1(args[0], args[1]);
-   
-    if (args.length === 3 && typeof args[2] === 'boolean') return this.search$overload2(args[0], args[1], args[2]);
-   
-    if (args.length === 1) return this.search$overload3(args[0]);
-   
-    if (args.length === 2 && typeof args[1] === 'boolean' && args[0] == null) return this.search$overload4(args[0], args[1]);
-   
-    if (args.length === 2 && typeof args[0] === 'string') return this.search$overload5(args[0], args[1]);
-   
-    if (args.length === 3 && typeof args[0] === 'string' && typeof args[2] === 'boolean') return this.search$overload6(args[0], args[1], args[2]);
-   
-    if (args.length === 2 && typeof args[0] === 'number') return this.search$overload7(args[0], args[1]);
-   
-    if (args.length === 3 && typeof args[0] === 'number' && typeof args[2] === 'boolean') return this.search$overload8(args[0], args[1], args[2]);
-   
-    if (args.length === 2 && typeof args[1] === 'boolean') return this.search$overload4(args[0], args[1]);
-    
-   throw new TypeError('No matching overload: search'); }
-  
-    public search$overload1(fileFilter: FileFilter, file: AbFile): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.search(fileFilter, file, false);;
-    
-}
-
-
-    public search$overload2(fileFilter: FileFilter, file: AbFile, isRecursiveSearch: boolean): BasicArrayList{
-
-    let fileList: BasicArrayList = new BasicArrayListD();;
+    public function search(fileFilter:FileFilter, file:AbFile):BasicArrayList {
+        return this.search(fileFilter, file, false);
+    }
     
 
-    let recursiveFileList: BasicArrayList;;
+    public function search(fileFilter:FileFilter, file:AbFile, isRecursiveSearch:Boolean):BasicArrayList {
+        var fileList:BasicArrayList = new BasicArrayListD();
+        var recursiveFileList:BasicArrayList = null;
+        if (file.isDirectory()) {
+            var fileArray:Vector.<Object> = file.listFilesFileFilter(fileFilter);
+            if (fileArray == null) {
+                return fileList;
+            }
+            var files:Vector.<AbFile> = FileWrapperUtil.wrapFiles(fileArray);
+            if (files == null) {
+                return fileList;
+            }
+            var size:int = files.length;
+            for (var index:int = 0; index < size; index++) {
+                fileList.add(files[index]);
+                if (isRecursiveSearch) {
+                    recursiveFileList = this.search(fileFilter, files[index], isRecursiveSearch);
+                    fileList.addAllList(recursiveFileList);
+                }
+            }
+        }
+        return fileList;
+    }
     
 
-                        if(file.isDirectory())
-                        
-                                    {
-                                    
-    let fileArray: any[] = file.listFilesFileFilter(fileFilter)!;;
+    public function search(file:AbFile):BasicArrayList {
+        return this.search(file, false);
+    }
     
 
-                        if(fileArray == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileList;
+    public function search(file:AbFile, isRecursiveSearch:Boolean):BasicArrayList {
+        var fileList:BasicArrayList = new BasicArrayListD();
+        var recursiveFileList:BasicArrayList = null;
+        if (file.isDirectory()) {
+            var fileArray:Vector.<Object> = file.listFiles();
+            if (fileArray == null) {
+                return fileList;
+            }
+            var files:Vector.<AbFile> = FileWrapperUtil.wrapFiles(fileArray);
+            if (files == null) {
+                return fileList;
+            }
+            for (var index:int = 0; index < files.length; index++) {
+                fileList.add(files[index]);
+                if (isRecursiveSearch) {
+                    recursiveFileList = this.search(files[index], isRecursiveSearch);
+                    fileList.addAllList(recursiveFileList);
+                }
+            }
+        }
+        return fileList;
+    }
     
 
-                                    }
-                                
-
-    let files: AbFile[] = FileWrapperUtil.wrapFiles(fileArray)!;;
+    public function search(searchValue:String, file:AbFile):BasicArrayList {
+        return this.search(searchValue, file, false);
+    }
     
 
-                        if(files == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileList;
+    public function search(searchValue:String, file:AbFile, isRecursiveSearch:Boolean):BasicArrayList {
+        var fileList:BasicArrayList = new BasicArrayListD();
+        var recursiveFileList:BasicArrayList = null;
+        if (file.isDirectory()) {
+            var fileArray:Vector.<Object> = file.listFiles();
+            if (fileArray == null) {
+                return fileList;
+            }
+            var files:Vector.<AbFile> = FileWrapperUtil.wrapFiles(fileArray);
+            if (files == null) {
+                return fileList;
+            }
+            for (var index:int = 0; index < files.length; index++) {
+                if (files[index].getPath().indexOf(searchValue) >= 0) {
+                    fileList.add(files[index]);
+                }
+                if (isRecursiveSearch) {
+                    recursiveFileList = this.search(searchValue, files[index], isRecursiveSearch);
+                    fileList.addAllList(recursiveFileList);
+                }
+            }
+        }
+        return fileList;
+    }
     
 
-                                    }
-                                
-
-    let size: number = files.length
-                ;;
+    public function search(level:int, file:AbFile):BasicArrayList {
+        return this.search(level, file, false);
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-fileList!.add(files[index]!);
-    
-
-                        if(isRecursiveSearch)
-                        
-                                    {
-                                    recursiveFileList= this.search(fileFilter, files[index]!, isRecursiveSearch);
-    
-fileList!.addAllList(recursiveFileList);
-    
-
-                                    }
-                                
-}
-
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileList;
-    
-}
-
-
-    public search$overload3(file: AbFile): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.search(file, false);;
-    
-}
-
-
-    public search$overload4(file: AbFile, isRecursiveSearch: boolean): BasicArrayList{
-
-    let fileList: BasicArrayList = new BasicArrayListD();;
-    
-
-    let recursiveFileList: BasicArrayList;;
-    
-
-                        if(file.isDirectory())
-                        
-                                    {
-                                    
-    let fileArray: any[] = file.listFiles()!;;
-    
-
-                        if(fileArray == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileList;
-    
-
-                                    }
-                                
-
-    let files: AbFile[] = FileWrapperUtil.wrapFiles(fileArray)!;;
-    
-
-                        if(files == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileList;
-    
-
-                                    }
-                                
-
-
-
-
-                        for (
-    let index: number = 0;index < files.length; index++)
-        {
-fileList!.add(files[index]!);
-    
-
-                        if(isRecursiveSearch)
-                        
-                                    {
-                                    recursiveFileList= this.search(files[index]!, isRecursiveSearch);
-    
-fileList!.addAllList(recursiveFileList);
-    
-
-                                    }
-                                
-}
-
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileList;
-    
-}
-
-
-    public search$overload5(searchValue: string, file: AbFile): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.search(searchValue, file, false);;
-    
-}
-
-
-    public search$overload6(searchValue: string, file: AbFile, isRecursiveSearch: boolean): BasicArrayList{
-
-    let fileList: BasicArrayList = new BasicArrayListD();;
-    
-
-    let recursiveFileList: BasicArrayList;;
-    
-
-                        if(file.isDirectory())
-                        
-                                    {
-                                    
-    let fileArray: any[] = file.listFiles()!;;
-    
-
-                        if(fileArray == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileList;
-    
-
-                                    }
-                                
-
-    let files: AbFile[] = FileWrapperUtil.wrapFiles(fileArray)!;;
-    
-
-                        if(files == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileList;
-    
-
-                                    }
-                                
-
-
-
-
-                        for (
-    let index: number = 0;index < files.length; index++)
-        {
-
-                        if(files[index]!.getPath()!.indexOf(searchValue) >= 0)
-                        
-                                    {
-                                    fileList!.add(files[index]!);
-    
-
-                                    }
-                                
-
-                        if(isRecursiveSearch)
-                        
-                                    {
-                                    recursiveFileList= this.search(searchValue, files[index]!, isRecursiveSearch);
-    
-fileList!.addAllList(recursiveFileList);
-    
-
-                                    }
-                                
-}
-
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileList;
-    
-}
-
-
-    public search$overload7(level: number, file: AbFile): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.search(level, file, false);;
-    
-}
-
-
-    public search$overload8(level: number, file: AbFile, isRecursiveSearch: boolean): BasicArrayList{
-
-    let fileList: BasicArrayList = new BasicArrayListD();;
-    
-
-    let recursiveFileList: BasicArrayList;;
-    
-
-                        if(file.isDirectory())
-                        
-                                    {
-                                    
-    let fileArray: any[] = file.listFiles()!;;
-    
-
-                        if(fileArray == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileList;
-    
-
-                                    }
-                                
-
-    let files: AbFile[] = FileWrapperUtil.wrapFiles(fileArray)!;;
-    
-
-                        if(files == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileList;
-    
-
-                                    }
-                                
-
-
-
-
-                        for (
-    let index: number = 0;index < files.length; index++)
-        {
-fileList!.add(files[index]!);
-    
-
-                        if(level <= 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileList;
-    
-
-                                    }
-                                
-recursiveFileList= this.search(level -1, files[index]!, isRecursiveSearch);
-    
-fileList!.addAllList(recursiveFileList);
-    
-}
-
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return fileList;
-    
-}
-
-
+    public function search(level:int, file:AbFile, isRecursiveSearch:Boolean):BasicArrayList {
+        var fileList:BasicArrayList = new BasicArrayListD();
+        var recursiveFileList:BasicArrayList = null;
+        if (file.isDirectory()) {
+            var fileArray:Vector.<Object> = file.listFiles();
+            if (fileArray == null) {
+                return fileList;
+            }
+            var files:Vector.<AbFile> = FileWrapperUtil.wrapFiles(fileArray);
+            if (files == null) {
+                return fileList;
+            }
+            for (var index:int = 0; index < files.length; index++) {
+                fileList.add(files[index]);
+                if (level <= 0) {
+                    return fileList;
+                }
+                recursiveFileList = this.search(int(level - 1), files[index], isRecursiveSearch);
+                fileList.addAllList(recursiveFileList);
+            }
+        }
+        return fileList;
+    }
+    }
 }
 

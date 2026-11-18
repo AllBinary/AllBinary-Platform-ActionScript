@@ -1,232 +1,109 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score {
+    import org.allbinary.thread.ARunnable;
+    import org.allbinary.game.BasicHighScoresGameInfoFactory;
+    import org.allbinary.game.GameInfo;
+    import org.allbinary.game.GameType;
+    import org.allbinary.game.GameTypeFactory;
+    import org.allbinary.game.score.remote.RemoteHighScores;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.java.bool.BooleanFactory;
+    import org.allbinary.logic.system.SoftwareInformation;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+    import org.allbinary.thread.SecondaryThreadPool;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicHighScoresFactory extends HighScoresBase {
+        public var logUtil:LogUtil = null;
+        private var abeClientInformation:AbeClientInformationInterface = null;
+        private var softwareInformation:SoftwareInformation = null;
+        private var highScoresArray:Vector.<HighScores> = null;
+        private var TOP:String = null;
+        private var SCORES:String = null;
+        private var PERSONAL_HIGH_SCORES:String = null;
+        private var WORLD_TOP_SCORES:String = null;
+        private var FETCH:String = null;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-//not plain js import { ARunnable } 
-const ARunnable = globalThis.org.allbinary.thread.ARunnable;
-type ARunnable<T = any, U = any> = typeof ARunnable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ARunnable;
-
-import { BasicHighScoresGameInfoFactory } from '../../../../org/allbinary/game/BasicHighScoresGameInfoFactory.js';
-//not GWT import const BasicHighScoresGameInfoFactory
-
-import { GameInfo } from '../../../../org/allbinary/game/GameInfo.js';
-//not GWT import const GameInfo
-
-import { GameType } from '../../../../org/allbinary/game/GameType.js';
-//not GWT import const GameType
-
-import { GameTypeFactory } from '../../../../org/allbinary/game/GameTypeFactory.js';
-//not GWT import const GameTypeFactory
-
-import { RemoteHighScores } from '../../../../org/allbinary/game/score/remote/RemoteHighScores.js';
-//not GWT import const RemoteHighScores
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { BooleanFactory } from '../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
-//not GWT import const BooleanFactory
-
-import { SoftwareInformation } from '../../../../org/allbinary/logic/system/SoftwareInformation.js';
-//not GWT import const SoftwareInformation
-
-import { AbeClientInformationInterface } from '../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-import { SecondaryThreadPool } from '../../../../org/allbinary/thread/SecondaryThreadPool.js';
-//not GWT import const SecondaryThreadPool
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { HighScoresBase } from './HighScoresBase.js';
-//sameFolderImports - not GWT import - same folder const HighScoresBase
-import { HighScores } from './HighScores.js';
-//sameFolderImports - not GWT import - same folder const HighScores
-import { HighScoresResultsListener } from './HighScoresResultsListener.js';
-//sameFolderImports - not GWT import - same folder const HighScoresResultsListener
-import { RecordStoreHighScores } from './RecordStoreHighScores.js';
-//sameFolderImports - not GWT import - same folder const RecordStoreHighScores
-import { ScoreComparator } from './ScoreComparator.js';
-//sameFolderImports - not GWT import - same folder const ScoreComparator
-import { LastFetchHighScoresFactory } from './LastFetchHighScoresFactory.js';
-//sameFolderImports - not GWT import - same folder const LastFetchHighScoresFactory
-import { HighScoresHelper2 } from './HighScoresHelper2.js';
-//sameFolderImports - not GWT import - same folder const HighScoresHelper2
-import { HighScoresHelperBaseInterface } from './HighScoresHelperBaseInterface.js';
-//sameFolderImports - not GWT import - same folder const HighScoresHelperBaseInterface
-
-export class BasicHighScoresFactory extends HighScoresBase {
-        
-
-    public static loaded(index2: number): boolean{
-
-                        if(index2 >= 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicHighScoresFactory():void {
+    this.logUtil = LogUtil.getInstance();
+    
+    
+    this.highScoresArray = new Vector.<HighScores>(2);
+    this.TOP = "Top";
+    this.SCORES = "Scores";
+    this.PERSONAL_HIGH_SCORES = "Personal Top Scores";
+    this.WORLD_TOP_SCORES = "World Top Scores";
+    this.FETCH = "fetchHighScores";
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly abeClientInformation: AbeClientInformationInterface;
-
-    private readonly softwareInformation: SoftwareInformation;
-
-public constructor (abeClientInformation: AbeClientInformationInterface, softwareInformation: SoftwareInformation){
-
-            super();
-        this.abeClientInformation= abeClientInformation;
-    
-this.softwareInformation= softwareInformation;
-    
-}
-
-
-    private readonly highScoresArray: HighScores[] = new Array(2);
-
-    private readonly TOP: string = "Top";
-
-    private readonly SCORES: string = "Scores";
-
-    private readonly PERSONAL_HIGH_SCORES: string = "Personal Top Scores";
-
-    private readonly WORLD_TOP_SCORES: string = "World Top Scores";
-
-    private readonly FETCH: string = "fetchHighScores";
-
-    public fetchHighScores(gameInfo: GameInfo, highScoresResultsListener: HighScoresResultsListener){
-this.logUtil!.putF("Getting Remote/Local HighScores", this, this.FETCH);
-    
-this.fetchHighScoresPreload(gameInfo, highScoresResultsListener, true);
-    
-}
-
-
-    public fetchHighScoresPreload(gameInfo: GameInfo, highScoresResultsListener: HighScoresResultsListener, preload: boolean){
-SecondaryThreadPool.getInstance()!.runTask(new class extends ARunnable
-                                {
-                                
-    public run(){
-
-    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    public function BasicHighScoresFactory(abeClientInformation:AbeClientInformationInterface, softwareInformation:SoftwareInformation) {
+        super();
+        this.initFieldsBasicHighScoresFactory();
+        this.abeClientInformation = abeClientInformation;
+        this.softwareInformation = softwareInformation;
+    }
     
 
- try { logUtil!.putF(outer$BasicHighScoresFactory.commonStrings!.START, this, FETCH);
-    
-highScoresArray[0]= RecordStoreHighScores.getInstance(abeClientInformation, gameInfo, TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
-    
-
-    let gameType: GameType = gameInfo!.getGameType()!;;
+    override public function fetchHighScores(gameInfo:GameInfo, highScoresResultsListener:HighScoresResultsListener):void {
+        this.logUtil.putF("Getting Remote/Local HighScores", this, this.FETCH);
+        this.fetchHighScoresPreload(gameInfo, highScoresResultsListener, true);
+    }
     
 
-    let gameTypeFactory: GameTypeFactory = GameTypeFactory.getInstance()!;;
+    override public function fetchHighScoresPreload(gameInfo:GameInfo, highScoresResultsListener:HighScoresResultsListener, preload:Boolean):void {
+        SecondaryThreadPool.getInstance().runTask(new ARunnable() /* Java anonymous class body: implement it as a named subclass
+            
+
+            public function run():void {
+                var logUtil:LogUtil = LogUtil.getInstance();
+                try {
+                    logUtil.putF(this.commonStrings.START, this, this.FETCH);
+                    this.highScoresArray[0] = RecordStoreHighScores.getInstance6(this.abeClientInformation, gameInfo, this.TOP, this.PERSONAL_HIGH_SCORES, this.SCORES, new ScoreComparator(true));
+                    var gameType:GameType = gameInfo.getGameType();
+                    var gameTypeFactory:GameTypeFactory = GameTypeFactory.getInstance();
+                    var gameInfo2:GameInfo = gameInfo;
+                    if (gameType == gameTypeFactory.SINGLE_PLAYER || gameType == gameTypeFactory.BOT) {
+                        gameInfo2 = BasicHighScoresGameInfoFactory.getInstance().SINGLE_PLAYER_SERVER;
+                    } else if (gameType == gameTypeFactory.MULTI_PLAYER) {
+                        gameInfo2 = BasicHighScoresGameInfoFactory.getInstance().MULTI_PLAYER_SERVER;
+                    }
+                    this.highScoresArray[1] = RemoteHighScores.getInstancePreload(this.abeClientInformation, this.softwareInformation, gameInfo2, this.WORLD_TOP_SCORES, this.SCORES, BooleanFactory.getInstance().FALSE, preload);
+                    logUtil.putF(this.commonStrings.END, this, this.FETCH);
+                    LastFetchHighScoresFactory.getInstance().highScoresArray = this.highScoresArray;
+                    highScoresResultsListener.setHighScoresArray(this.highScoresArray);
+                } catch (e:*) {
+                    logUtil.put(this.commonStrings.EXCEPTION, this, this.FETCH, e);
+                }
+            } */);
+    }
     
 
-    let gameInfo2: GameInfo = gameInfo;;
+    override public function createHighScoresHelper():HighScoresHelperBaseInterface {
+        return new HighScoresHelper2();
+    }
     
 
-                        if(gameType == gameTypeFactory!.SINGLE_PLAYER || gameType == gameTypeFactory!.BOT)
-                        
-                                    {
-                                    gameInfo2= BasicHighScoresGameInfoFactory.getInstance()!.SINGLE_PLAYER_SERVER;
-    
-
-                                    }
-                                
-                             else 
-                        if(gameType == gameTypeFactory!.MULTI_PLAYER)
-                        
-                                    {
-                                    gameInfo2= BasicHighScoresGameInfoFactory.getInstance()!.MULTI_PLAYER_SERVER;
-    
-
-                                    }
-                                
-highScoresArray[1]= RemoteHighScores.getInstancePreload(abeClientInformation, softwareInformation, gameInfo2, WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance()!.FALSE, preload);
-    
-logUtil!.putF(outer$BasicHighScoresFactory.commonStrings!.END, this, FETCH);
-    
-LastFetchHighScoresFactory.getInstance()!.highScoresArray= highScoresArray;
-    
-highScoresResultsListener!.setHighScoresArray(highScoresArray);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-logUtil!.put(commonStrings!.EXCEPTION, this, FETCH, e);
-    
-
- }
-   }
- 
-}
-
-                                }());
-    
-}
-
-
-    public createHighScoresHelper(): HighScoresHelperBaseInterface{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new HighScoresHelper2();
-    
-}
-
-
+    public static function loaded(index2:int):Boolean {
+        if (index2 >= 0) {
+            return true;
+        }
+        return false;
+    }
+    }
 }
 

@@ -1,189 +1,108 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.text {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.IndexedAnimation;
+    import org.allbinary.game.input.event.RawKeyEventListener;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.form.item.CustomTextBox;
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CustomTextBoxIndexedAnimation extends IndexedAnimation implements RawKeyEventListener, UpdateMyFontInterface, TextInterface {
+        private var customTextBox:CustomTextBox = null;
+        private var lastText:String = null;
+        public var hasChanged:Boolean = false;
+        private var textChangeListener:TextChangeListener = null;
 
-        
-
-
-import { Font } from '../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { IndexedAnimation } from '../../../../org/allbinary/animation/IndexedAnimation.js';
-//not GWT import const IndexedAnimation
-
-import { RawKeyEventListener } from '../../../../org/allbinary/game/input/event/RawKeyEventListener.js';
-//not GWT import const RawKeyEventListener
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { UpdateMyFontInterface } from '../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { CustomTextBox } from '../../../../org/allbinary/graphics/form/item/CustomTextBox.js';
-//not GWT import const CustomTextBox
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TextInterface } from './TextInterface.js';
-//sameFolderImports - not GWT import - same folder const TextInterface
-import { TextChangeListener } from './TextChangeListener.js';
-//sameFolderImports - not GWT import - same folder const TextChangeListener
-
-export class CustomTextBoxIndexedAnimation extends IndexedAnimation implements RawKeyEventListener, UpdateMyFontInterface, TextInterface {
-        
-
-    private readonly customTextBox: CustomTextBox;
-
-    private lastText: string = StringUtil.getInstance()!.INIT_STRING;
-
-    hasChanged: boolean = true;
-
-    private textChangeListener: TextChangeListener = TextChangeListener.getInstance()!;
-
-public constructor (customTextBox: CustomTextBox){
-            super(AnimationBehavior.getInstance());
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.customTextBox= customTextBox;
+        // Java field initializers run after the base constructor
+        private function initFieldsCustomTextBoxIndexedAnimation():void {
     
-}
-
-
-    public setBasicColorP(basicColor: BasicColor){
-this.customTextBox!.getTextFieldItem()!.setForegroundBasicColorP(basicColor);
-    
-}
-
-
-    public setBackgroundBasicColorP(basicColor: BasicColor){
-this.customTextBox!.getTextFieldItem()!.setBackgroundBasicColorP(basicColor);
-    
-}
-
-
-    public setTextWithOnMeasure(text: string, textChangeListener: TextChangeListener){
-this.setText(text);
-    
-this.textChangeListener= textChangeListener;
-    
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
-    
-this.textChangeListener!.onMeasure();
-    
-this.textChangeListener= TextChangeListener.getInstance();
-    
-}
-
-
-    public setText(text: string){
-
-                        if(this.lastText != text)
-                        
-                                    {
-                                    this.hasChanged= true;
-    
-this.lastText= text;
-    
-this.customTextBox!.getTextFieldItem()!.setString(text);
+    this.lastText = StringUtil.getInstance().INIT_STRING;
+    this.hasChanged = true;
+    this.textChangeListener = TextChangeListener.getInstance();
+        }
     
 
-                                    }
-                                
-}
-
-
-    public getText(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.customTextBox!.getTextFieldItem()!.getString();;
+    public function CustomTextBoxIndexedAnimation(customTextBox:CustomTextBox) {
+        super(AnimationBehavior.getInstance());
+        this.initFieldsCustomTextBoxIndexedAnimation();
+        this.customTextBox = customTextBox;
+    }
     
-}
 
-
-    public onEventRaw(keyCode: number, deviceId: number, repeated: boolean){
-this.customTextBox!.onEventRaw(keyCode, deviceId, repeated);
+    override public function setBasicColorP(basicColor:BasicColor):void {
+        this.customTextBox.getTextFieldItem().setForegroundBasicColorP(basicColor);
+    }
     
-}
 
-
-    public getFontHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.customTextBox!.getTextFieldItem()!.getFontHeight();;
+    override public function setBackgroundBasicColorP(basicColor:BasicColor):void {
+        this.customTextBox.getTextFieldItem().setBackgroundBasicColorP(basicColor);
+    }
     
-}
 
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-this.customTextBox!.paintXY(graphics, x, y);
+    public function setTextWithOnMeasure(text:String, textChangeListener:TextChangeListener):void {
+        this.setText(text);
+        this.textChangeListener = textChangeListener;
+    }
     
-}
 
-
-    public paintThreedXYZ(graphics: Graphics, x: number, y: number, z: number){
-}
-
-
-    public getWidth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getWidth();;
+    public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        this.textChangeListener.onMeasure();
+        this.textChangeListener = TextChangeListener.getInstance();
+    }
     
-}
 
+    public function setText(text:String):void {
+        if (this.lastText != text) {
+            this.hasChanged = true;
+            this.lastText = text;
+            this.customTextBox.getTextFieldItem().setString(text);
+        }
+    }
+    
 
+    public function getText():String {
+        return this.customTextBox.getTextFieldItem().getString();
+    }
+    
+
+    public function onEventRaw(keyCode:int, deviceId:int, repeated:Boolean):void {
+        this.customTextBox.onEventRaw(keyCode, deviceId, repeated);
+    }
+    
+
+    public function getFontHeight():int {
+        return this.customTextBox.getTextFieldItem().getFontHeight();
+    }
+    
+
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        this.customTextBox.paintXY(graphics, x, y);
+    }
+    
+
+    override public function paintThreedXYZ(graphics:Graphics, x:int, y:int, z:int):void {
+    }
+    
+
+    override public function getWidth():int {
+        return super.getWidth();
+    }
+    }
 }
 

@@ -1,62 +1,46 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.security.licensing {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LicenseStrings {
+    private static var instance_value:LicenseStrings;
+    private static var instance_set:Boolean = false;
+    private static function get instance():LicenseStrings {
+        if (!LicenseStrings.instance_set) {
+            LicenseStrings.instance_set = true;
+            LicenseStrings.instance_value = new LicenseStrings();
+        }
+        return LicenseStrings.instance_value;
+    }
+        public var LOCKED:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsLicenseStrings():void {
+    this.LOCKED = "Demo Locked Feature";
+        }
 
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class LicenseStrings
-            extends Object
-         {
-        
-
-    private static readonly instance: LicenseStrings = new LicenseStrings();
-
-    public static getInstance(): LicenseStrings{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LicenseStrings.instance;
+        public function LicenseStrings() {
+            super();
+            this.initFieldsLicenseStrings();
+        }
     
-}
 
-
-    public readonly LOCKED: string = "Demo Locked Feature";
-
+    public static function getInstance():LicenseStrings {
+        return LicenseStrings.instance;
+    }
+    }
 }
 

@@ -1,152 +1,81 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.math.AngleInfo;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    //TWB - Adjustments should be done in the resource creation and not at the animation level
+    public class AdjustedImageArrayRotationAnimation extends ImageArrayRotationAnimation {
+        private var dx:int = 0;
+        private var dy:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { AngleInfo } from '../../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageArrayRotationAnimation } from './ImageArrayRotationAnimation.js';
-//sameFolderImports - not GWT import - same folder const ImageArrayRotationAnimation
-import { ImageArrayRotationAnimationInfo } from './ImageArrayRotationAnimationInfo.js';
-//sameFolderImports - not GWT import - same folder const ImageArrayRotationAnimationInfo
-//TWB - Adjustments should be done in the resource creation and not at the animation level
-export class AdjustedImageArrayRotationAnimation extends ImageArrayRotationAnimation {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public static createAdjustedImageArrayRotationAnimationInfo(anyType: any, animationBehavior: AnimationBehavior): AdjustedImageArrayRotationAnimation{
-
-    let imageRotationAnimationInfo: ImageArrayRotationAnimationInfo = anyType as ImageArrayRotationAnimationInfo;;
+        // Java field initializers run after the base constructor
+        private function initFieldsAdjustedImageArrayRotationAnimation():void {
+    this.dx = 0;
+    this.dy = 0;
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AdjustedImageArrayRotationAnimation(imageRotationAnimationInfo!.getImageArray(), imageRotationAnimationInfo!.getAngleInfoP(), imageRotationAnimationInfo!.getTotalAngle(), imageRotationAnimationInfo!.getDx(), imageRotationAnimationInfo!.getDy(), animationBehavior);
+    public static function createAdjustedImageArrayRotationAnimationInfo(anyType:Object, animationBehavior:AnimationBehavior):AdjustedImageArrayRotationAnimation {
+        var imageRotationAnimationInfo:ImageArrayRotationAnimationInfo = (anyType as ImageArrayRotationAnimationInfo);
+        return new AdjustedImageArrayRotationAnimation(imageRotationAnimationInfo.getImageArray(), imageRotationAnimationInfo.getAngleInfoP(), imageRotationAnimationInfo.getTotalAngle(), imageRotationAnimationInfo.getDx(), imageRotationAnimationInfo.getDy(), animationBehavior);
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public static createAnimation(imageArray: Image[], angleInfo: AngleInfo, totalAngle: number, animationBehavior: AnimationBehavior): AdjustedImageArrayRotationAnimation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AdjustedImageArrayRotationAnimation(imageArray, angleInfo, totalAngle,  -(imageArray[0]!.getWidth()>>2),  -(imageArray[0]!.getHeight()>>2), animationBehavior);
+    public static function createAnimation(imageArray:Vector.<Image>, angleInfo:AngleInfo, totalAngle:int, animationBehavior:AnimationBehavior):AdjustedImageArrayRotationAnimation {
+        return new AdjustedImageArrayRotationAnimation(imageArray, angleInfo, totalAngle, -(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2), animationBehavior);
+    }
     
-}
 
-
-    private dx: number= 0;
-
-    private dy: number= 0;
-
-public constructor (imageArray: Image[], angleInfo: AngleInfo, totalAngle: number, dx: number, dy: number, animationBehavior: AnimationBehavior){
-            super(imageArray, angleInfo, totalAngle, animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.init(dx, dy);
+    public function AdjustedImageArrayRotationAnimation(imageArray:Vector.<Image>, angleInfo:AngleInfo, totalAngle:int, dx:int, dy:int, animationBehavior:AnimationBehavior) {
+        super(imageArray, angleInfo, totalAngle, animationBehavior);
+        this.initFieldsAdjustedImageArrayRotationAnimation();
+        this.init(dx, dy);
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public init(dx: number, dy: number){
-this.setDx(dx);
+    public function init(dx:int, dy:int):void {
+        this.setDx(dx);
+        this.setDy(dy);
+    }
     
-this.setDy(dy);
+
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        super.paintXY(graphics, int(x + this.dx), int(y + this.dy));
+    }
     
-}
 
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-super.paintXY(graphics, x +this.dx, y +this.dy);
+    override public function setDx(dx:int):void {
+        this.dx = dx;
+    }
     
-}
 
-
-    public setDx(dx: number){
-this.dx= dx;
+    override public function getDx():int {
+        return this.dx;
+    }
     
-}
 
-
-    public getDx(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.dx;
+    override public function setDy(dy:int):void {
+        this.dy = dy;
+    }
     
-}
 
-
-    public setDy(dy: number){
-this.dy= dy;
-    
-}
-
-
-    public getDy(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.dy;
-    
-}
-
-
+    override public function getDy():int {
+        return this.dy;
+    }
+    }
 }
 

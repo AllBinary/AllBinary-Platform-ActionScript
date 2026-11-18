@@ -1,71 +1,42 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.ag.weapon.media.audio {
+    import org.allbinary.media.audio.CompositeSound;
+    import org.allbinary.media.audio.Sound;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { CompositeSound } from '../../../../../../org/allbinary/media/audio/CompositeSound.js';
-//not GWT import const CompositeSound
-
-import { Sound } from '../../../../../../org/allbinary/media/audio/Sound.js';
-//not GWT import const Sound
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class DropWeaponSound extends CompositeSound {
-        
-
-    private static soundInterface: Sound = new DropWeaponSound();
-
-    public static getInstance(): Sound{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DropWeaponSound.soundInterface;
+    public class DropWeaponSound extends CompositeSound {
+    private static var soundInterface_value:Sound;
+    private static var soundInterface_set:Boolean = false;
+    private static function get soundInterface():Sound {
+        if (!DropWeaponSound.soundInterface_set) {
+            DropWeaponSound.soundInterface_set = true;
+            DropWeaponSound.soundInterface_value = new DropWeaponSound();
+        }
+        return DropWeaponSound.soundInterface_value;
+    }
     
-}
 
+    public function DropWeaponSound() {
+        super("resource:/wav/mine.wav");
+    }
+    
 
-private constructor (){
-            super("resource:/wav/mine.wav");
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
+    public static function getInstance():Sound {
+        return DropWeaponSound.soundInterface;
+    }
+    }
 }
 

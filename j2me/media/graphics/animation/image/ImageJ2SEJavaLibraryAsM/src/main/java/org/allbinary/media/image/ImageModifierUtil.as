@@ -1,372 +1,163 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.image {
+    import java.awt.image.JBufferedImage;
+    import java.awt.image.JColorModel;
+    import java.awt.image.JWritableRaster;
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.logic.communication.log.PreLogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ImageModifierUtil {
+    private static var instance_value:ImageModifierUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ImageModifierUtil {
+        if (!ImageModifierUtil.instance_set) {
+            ImageModifierUtil.instance_set = true;
+            ImageModifierUtil.instance_value = new ImageModifierUtil();
+        }
+        return ImageModifierUtil.instance_value;
+    }
+        private var imageUtil:ImageUtil = null;
+        private var colorArray:Vector.<int> = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsImageModifierUtil():void {
+    this.imageUtil = ImageUtil.getInstance();
+    this.colorArray = new Vector.<int>(1);
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { BufferedImage } from '../../../../java/awt/image/BufferedImage.js';
-//not GWT import const BufferedImage
-
-import { ColorModel } from '../../../../java/awt/image/ColorModel.js';
-//not GWT import const ColorModel
-
-import { WritableRaster } from '../../../../java/awt/image/WritableRaster.js';
-//not GWT import const WritableRaster
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageUtil } from './ImageUtil.js';
-//sameFolderImports - not GWT import - same folder const ImageUtil
-import { ImageCreationUtil } from './ImageCreationUtil.js';
-//sameFolderImports - not GWT import - same folder const ImageCreationUtil
-
-export class ImageModifierUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: ImageModifierUtil = new ImageModifierUtil();
-
-    public static getInstanceOrCreate(): ImageModifierUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ImageModifierUtil.instance;
-    
-}
-
-
-    private readonly imageUtil: ImageUtil = ImageUtil.getInstance()!;
-
-    public setBasicColorP(basicColor: BasicColor){
-}
-
-
-    private readonly colorArray: number[] = new Array(1).fill(0);
-
-    public setColor(unusedOriginalImage: Image, image: Image, imageIndex: number, basicColor: BasicColor){
-
-    let newBufferedImage: BufferedImage = this.imageUtil!.getBufferedImage(image)!;;
+        public function ImageModifierUtil() {
+            super();
+            this.initFieldsImageModifierUtil();
+        }
     
 
-    let r: number = basicColor!.red;;
+    public static function getInstanceOrCreate():ImageModifierUtil {
+        return ImageModifierUtil.instance;
+    }
     
 
-    let g: number = basicColor!.green;;
+    public function setBasicColorP(basicColor:BasicColor):void {
+    }
     
 
-    let b: number = basicColor!.blue;;
+    public function setColor(unusedOriginalImage:Image, image:Image, imageIndex:int, basicColor:BasicColor):void {
+        var newBufferedImage:BufferedImage = this.imageUtil.getBufferedImage(image);
+        var r:int = basicColor.red;
+        var g:int = basicColor.green;
+        var b:int = basicColor.blue;
+        var width:int = image.getWidth();
+        var height:int = image.getHeight();
+        var colorModel:ColorModel = null;
+        var dataElements:Object = null;
+        var ax:int = 0;
+        var rx:int = 0;
+        var gx:int = 0;
+        var bx:int = 0;
+        for (var index:int = 0; index < width; index++) {
+            for (var index2:int = 0; index2 < height; index2++) {
+                colorModel = newBufferedImage.getColorModel();
+                dataElements = newBufferedImage.getRaster().getDataElements(index, index2, null);
+                ax = colorModel.getAlpha(dataElements);
+                rx = colorModel.getRed(dataElements);
+                gx = colorModel.getGreen(dataElements);
+                bx = colorModel.getBlue(dataElements);
+                if (rx != 0 || gx != 0 || bx != 0) {
+                    newBufferedImage.setRGB(index, index2, (ax << 24) | (r << 16) | (g << 8) | (b));
+                }
+            }
+        }
+    }
     
 
-    let width: number = image.getWidth()!;;
+    public function changeColor(unusedOriginalImage:Image, image:Image, imageIndex:int, basicColor:BasicColor):void {
+        var newBufferedImage:BufferedImage = this.imageUtil.getBufferedImage(image);
+        var MAX:Number = 255.0;
+        var r:Number = (Number(basicColor.red)) / MAX;
+        var g:Number = (Number(basicColor.green)) / MAX;
+        var b:Number = (Number(basicColor.blue)) / MAX;
+        var width:int = image.getWidth();
+        var height:int = image.getHeight();
+        var colorModel:ColorModel = null;
+        var dataElements:Object = null;
+        var ax:int = 0;
+        var rx:int = 0;
+        var gx:int = 0;
+        var bx:int = 0;
+        for (var index:int = 0; index < width; index++) {
+            for (var index2:int = 0; index2 < height; index2++) {
+                colorModel = newBufferedImage.getColorModel();
+                dataElements = newBufferedImage.getRaster().getDataElements(index, index2, null);
+                ax = colorModel.getAlpha(dataElements);
+                rx = colorModel.getRed(dataElements);
+                gx = colorModel.getGreen(dataElements);
+                bx = colorModel.getBlue(dataElements);
+                rx = JMath.toInt32(rx * r);
+                gx = JMath.toInt32(gx * g);
+                bx = JMath.toInt32(bx * b);
+                newBufferedImage.setRGB(index, index2, (ax << 24) | (rx << 16) | (gx << 8) | (bx));
+            }
+        }
+    }
     
 
-    let height: number = image.getHeight()!;;
+    public function setAlpha(unusedOriginalImage:Image, image:Image, imageIndex:int, alphaInt:int):void {
+        var alpha:int = ((int(alphaInt) << 24) >> 24);
+        var newBufferedImage:BufferedImage = this.imageUtil.getBufferedImage(image);
+        var width:int = image.getWidth();
+        var height:int = image.getHeight();
+        var raster:WritableRaster = newBufferedImage.getAlphaRaster();
+        for (var index:int = 0; index < width; index++) {
+            for (var index2:int = 0; index2 < height; index2++) {
+                raster.getPixel(index, index2, this.colorArray);
+                this.colorArray[0] = alpha & this.colorArray[0];
+                raster.setPixel(index, index2, this.colorArray);
+            }
+        }
+    }
     
 
-    let colorModel: ColorModel;;
+    public function getImageArray(originalImageArray:Vector.<Image>):Vector.<Image> {
+        try {
+            var newImageArray:Vector.<Image> = new Vector.<Image>(originalImageArray.length);
+            var size:int = newImageArray.length;
+            var originalImage:Image = null;
+            for (var index:int = 0; index < size; index++) {
+                originalImage = originalImageArray[index];
+                var image:Image = ImageCreationUtil.getInstance().createImageWH(originalImage.getWidth(), originalImage.getHeight());
+                image.getGraphics().drawImage(originalImage, 0, 0, Anchor.TOP_LEFT);
+                newImageArray[index] = image;
+            }
+            return newImageArray;
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            PreLogUtil.putOE(commonStrings.EXCEPTION, this, "getImageArray", e);
+            return originalImageArray;
+        }
+    }
     
 
-    let dataElements: any;;
+    public function handleImage(imageArray:Vector.<Image>, index:int, image:Image):void {
+    }
     
 
-    let ax: number= 0;;
-    
-
-    let rx: number= 0;;
-    
-
-    let gx: number= 0;;
-    
-
-    let bx: number= 0;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < width; index++)
-        {
-
-
-
-
-                        for (
-    let index2: number = 0;index2 < height; index2++)
-        {
-colorModel= newBufferedImage!.getColorModel();
-    
-dataElements= newBufferedImage!.getRaster()!.getDataElements(index, index2, 
-                            null);
-    
-ax= colorModel!.getAlpha(dataElements);
-    
-rx= colorModel!.getRed(dataElements);
-    
-gx= colorModel!.getGreen(dataElements);
-    
-bx= colorModel!.getBlue(dataElements);
-    
-
-                        if(rx != 0 || gx != 0 || bx != 0)
-                        
-                                    {
-                                    newBufferedImage!.setRGB(index, index2, (ax<<24) | (r<<16) | (g<<8) | (b));
-    
-
-                                    }
-                                
-}
-
-}
-
-}
-
-
-    public changeColor(unusedOriginalImage: Image, image: Image, imageIndex: number, basicColor: BasicColor){
-
-    let newBufferedImage: BufferedImage = this.imageUtil!.getBufferedImage(image)!;;
-    
-
-    let MAX: number = 255;;
-    
-
-    let r: number = (basicColor!.red) /MAX;;
-    
-
-    let g: number = (basicColor!.green) /MAX;;
-    
-
-    let b: number = (basicColor!.blue) /MAX;;
-    
-
-    let width: number = image.getWidth()!;;
-    
-
-    let height: number = image.getHeight()!;;
-    
-
-    let colorModel: ColorModel;;
-    
-
-    let dataElements: any;;
-    
-
-    let ax: number= 0;;
-    
-
-    let rx: number= 0;;
-    
-
-    let gx: number= 0;;
-    
-
-    let bx: number= 0;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < width; index++)
-        {
-
-
-
-
-                        for (
-    let index2: number = 0;index2 < height; index2++)
-        {
-colorModel= newBufferedImage!.getColorModel();
-    
-dataElements= newBufferedImage!.getRaster()!.getDataElements(index, index2, 
-                            null);
-    
-ax= colorModel!.getAlpha(dataElements);
-    
-rx= colorModel!.getRed(dataElements);
-    
-gx= colorModel!.getGreen(dataElements);
-    
-bx= colorModel!.getBlue(dataElements);
-    
-rx *= r;
-    
-gx *= g;
-    
-bx *= b;
-    
-newBufferedImage!.setRGB(index, index2, (ax<<24) | (rx<<16) | (gx<<8) | (bx));
-    
-}
-
-}
-
-}
-
-
-    public setAlpha(unusedOriginalImage: Image, image: Image, imageIndex: number, alphaInt: number){
-
-    let alpha: number = ((alphaInt) << 24 >> 24);;
-    
-
-    let newBufferedImage: BufferedImage = this.imageUtil!.getBufferedImage(image)!;;
-    
-
-    let width: number = image.getWidth()!;;
-    
-
-    let height: number = image.getHeight()!;;
-    
-
-    let raster: WritableRaster = newBufferedImage!.getAlphaRaster()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < width; index++)
-        {
-
-
-
-
-                        for (
-    let index2: number = 0;index2 < height; index2++)
-        {
-raster.getPixel(index, index2, this.colorArray);
-    
-this.colorArray[0]= alpha&this.colorArray[0];
-    
-raster.setPixel(index, index2, this.colorArray);
-    
-}
-
-}
-
-}
-
-
-    public getImageArray(originalImageArray: Image[]): Image[]{
-
- try { 
-    let newImageArray: Image[] = new Array(originalImageArray!.length);;
-    
-
-    let size: number = newImageArray!.length
-                ;;
-    
-
-    let originalImage: Image;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-originalImage= originalImageArray[index]!;
-    
-
-    let image: Image = ImageCreationUtil.getInstance()!.createImageWH(originalImage!.getWidth(), originalImage!.getHeight())!;;
-    
-image.getGraphics()!.drawImage(originalImage, 0, 0, Anchor.TOP_LEFT);
-    
-newImageArray[index]= image;
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return newImageArray;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-PreLogUtil.putOE(commonStrings!.EXCEPTION, this, "getImageArray", e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return originalImageArray;
-    
-
- }
-   }
- 
-}
-
-
-    public handleImage(imageArray: Image[], index: number, image: Image){
-}
-
-
-    public reset(){
-}
-
-
+    public function reset():void {
+    }
+    }
 }
 

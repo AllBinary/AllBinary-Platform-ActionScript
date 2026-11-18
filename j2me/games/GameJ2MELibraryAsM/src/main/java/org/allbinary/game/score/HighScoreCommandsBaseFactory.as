@@ -1,137 +1,57 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score {
+    import org.allbinary.logic.communication.log.LogUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class HighScoreCommandsBaseFactory {
+        public var logUtil:LogUtil = null;
+        public var HIGH_SCORE_COMMANDS:Vector.<Command> = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Command } from '../../../../javax/microedition/lcdui/Command.js';
-//not GWT import const Command
-
-import { J2MEUtil } from '../../../../org/allbinary/J2MEUtil.js';
-//not GWT import const J2MEUtil
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class HighScoreCommandsBaseFactory
-            extends Object
-         {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    public readonly HIGH_SCORE_COMMANDS: Command[];
-
-protected constructor (HIGH_SCORE_COMMANDS: Command[]){
-
-            super();
-        this.HIGH_SCORE_COMMANDS= HIGH_SCORE_COMMANDS;
+        // Java field initializers run after the base constructor
+        private function initFieldsHighScoreCommandsBaseFactory():void {
+    this.logUtil = LogUtil.getInstance();
     
-}
-
-
-    public isHighScoreCommand(command: Command): boolean{
-
-
-
-
-                        for (
-    let index: number = this.HIGH_SCORE_COMMANDS.length -1;index >= 0; index--)
-        {
-
-                        if(command == this.HIGH_SCORE_COMMANDS[index])
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+        }
     
 
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getIndex(command: Command): number{
-
-
-
-
-                        for (
-    let index: number = this.HIGH_SCORE_COMMANDS.length -1;index >= 0; index--)
-        {
-
-                        if(command == this.HIGH_SCORE_COMMANDS[index])
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return index;
+    public function HighScoreCommandsBaseFactory(HIGH_SCORE_COMMANDS:Vector.<Command>) {
+        super();
+        this.initFieldsHighScoreCommandsBaseFactory();
+        this.HIGH_SCORE_COMMANDS = HIGH_SCORE_COMMANDS;
+    }
     
 
-                                    }
-                                
-}
+    public function isHighScoreCommand(command:Command):Boolean {
+        for (var index:int = int(this.HIGH_SCORE_COMMANDS.length - 1); index >= 0; index--) {
+            if (command === this.HIGH_SCORE_COMMANDS[index]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
 
-
-
-
-                            throw new Exception("No Such Command");
-                    
-}
-
-
+    public function getIndex(command:Command):int {
+        for (var index:int = int(this.HIGH_SCORE_COMMANDS.length - 1); index >= 0; index--) {
+            if (command === this.HIGH_SCORE_COMMANDS[index]) {
+                return index;
+            }
+        }
+        throw new JException("Exception", "No Such Command");
+    }
+    }
 }
 

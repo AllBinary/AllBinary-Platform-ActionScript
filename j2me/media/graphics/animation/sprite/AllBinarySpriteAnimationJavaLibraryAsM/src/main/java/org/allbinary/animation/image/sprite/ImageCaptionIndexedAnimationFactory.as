@@ -1,210 +1,103 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image.sprite {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationBehaviorFactory;
+    import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+    import org.allbinary.animation.IndexedAnimation;
+    import org.allbinary.animation.caption.CaptionIndexedAnimation;
+    import org.allbinary.animation.image.ImageAnimation;
+    import org.allbinary.graphics.color.BasicColorUtil;
+    import org.allbinary.image.AnimationFactoryImageScaleUtil;
+    import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
+    import org.allbinary.logic.communication.log.ForcedLogUtil;
+    import org.allbinary.media.ScaleProperties;
+    import org.allbinary.media.audio.Sound;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ImageCaptionIndexedAnimationFactory implements AnimationInterfaceFactoryInterface {
+        public var animationFactoryImageScaleUtil:AnimationFactoryImageScaleUtil = null;
+        private var animationFactorySpriteScaleUtil:AnimationFactorySpriteScaleUtil = null;
+        private var captionImage:Image = null;
+        private var spriteMovieImage:Image = null;
+        private var frameWidth:int = 0;
+        private var frameHeight:int = 0;
+        private var captionDx:int = 0;
+        private var captionDy:int = 0;
+        private var dx:int = 0;
+        private var dy:int = 0;
+        private var time:int = 0;
+        private var soundInterface:Sound = null;
+        public var scaleProperties:ScaleProperties = null;
+        private var animationBehaviorFactory:AnimationBehaviorFactory = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Image } from '../../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { Sprite } from '../../../../../javax/microedition/lcdui/game/Sprite.js';
-//not GWT import const Sprite
-
-import { Player, PlayerI } from '../../../../../javax/microedition/media/Player.js';
-//not GWT import const Player
-
-import { Animation } from '../../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationBehaviorFactory } from '../../../../../org/allbinary/animation/AnimationBehaviorFactory.js';
-//not GWT import const AnimationBehaviorFactory
-
-import { AnimationInterfaceFactoryInterface } from '../../../../../org/allbinary/animation/AnimationInterfaceFactoryInterface.js';
-//not GWT import const AnimationInterfaceFactoryInterface
-
-import { IndexedAnimation } from '../../../../../org/allbinary/animation/IndexedAnimation.js';
-//not GWT import const IndexedAnimation
-
-import { CaptionIndexedAnimation } from '../../../../../org/allbinary/animation/caption/CaptionIndexedAnimation.js';
-//not GWT import const CaptionIndexedAnimation
-
-import { ImageAnimation } from '../../../../../org/allbinary/animation/image/ImageAnimation.js';
-//not GWT import const ImageAnimation
-
-import { BasicColorUtil } from '../../../../../org/allbinary/graphics/color/BasicColorUtil.js';
-//not GWT import const BasicColorUtil
-
-import { AnimationFactoryImageScaleUtil } from '../../../../../org/allbinary/image/AnimationFactoryImageScaleUtil.js';
-//not GWT import const AnimationFactoryImageScaleUtil
-
-import { AnimationFactorySpriteScaleUtil } from '../../../../../org/allbinary/image/sprite/AnimationFactorySpriteScaleUtil.js';
-//not GWT import const AnimationFactorySpriteScaleUtil
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-import { ScaleProperties } from '../../../../../org/allbinary/media/ScaleProperties.js';
-//not GWT import const ScaleProperties
-
-import { Sound } from '../../../../../org/allbinary/media/audio/Sound.js';
-//not GWT import const Sound
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { SpriteIndexedAnimation } from './SpriteIndexedAnimation.js';
-//sameFolderImports - not GWT import - same folder const SpriteIndexedAnimation
-
-export class ImageCaptionIndexedAnimationFactory
-            extends Object
-         implements AnimationInterfaceFactoryInterface {
-        
-
-    readonly animationFactoryImageScaleUtil: AnimationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance()!;
-
-    private readonly animationFactorySpriteScaleUtil: AnimationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance()!;
-
-    private captionImage: Image;
-
-    private spriteMovieImage: Image;
-
-    private frameWidth: number;
-
-    private frameHeight: number;
-
-    private captionDx: number;
-
-    private captionDy: number;
-
-    private dx: number;
-
-    private dy: number;
-
-    private time: number;
-
-    private soundInterface: Sound;
-
-    public scaleProperties: ScaleProperties = ScaleProperties.instance;
-
-    private readonly animationBehaviorFactory: AnimationBehaviorFactory;
-
-public constructor (captionImage: Image, spriteMovieImage: Image, soundInterface: Sound, frameWidth: number, frameHeight: number, captionDx: number, captionDy: number, dx: number, dy: number, time: number, animationBehaviorFactory: AnimationBehaviorFactory){
-
-            super();
-        
-                        if(animationBehaviorFactory == AnimationBehaviorFactory.getInstance())
-                        
-                                    {
-                                    ForcedLogUtil.log("Using default AnimationBehaviorFactory with IndexedAnimationFactory", this);
+        // Java field initializers run after the base constructor
+        private function initFieldsImageCaptionIndexedAnimationFactory():void {
+    this.animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
+    this.animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    this.scaleProperties = ScaleProperties.instance;
+    
+        }
     
 
-                                    }
-                                
-this.captionImage= captionImage;
-    
-this.spriteMovieImage= spriteMovieImage;
-    
-this.frameWidth= frameWidth;
-    
-this.frameHeight= frameHeight;
-    
-this.captionDx= captionDx;
-    
-this.captionDy= captionDy;
-    
-this.dx= dx;
-    
-this.dy= dy;
-    
-this.time= time;
-    
-this.soundInterface= soundInterface;
-    
-this.animationBehaviorFactory= animationBehaviorFactory;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstance(instanceId: number): Animation{
-
-    let scaledImage: Image = this.animationFactoryImageScaleUtil!.createImage(this.captionImage, this.captionImage!.getWidth(), this.captionImage!.getHeight(), this.scaleProperties!.scaleWidth, this.scaleProperties!.scaleHeight)!;;
+    public function ImageCaptionIndexedAnimationFactory(captionImage:Image, spriteMovieImage:Image, soundInterface:Sound, frameWidth:int, frameHeight:int, captionDx:int, captionDy:int, dx:int, dy:int, time:int, animationBehaviorFactory:AnimationBehaviorFactory) {
+        super();
+        this.initFieldsImageCaptionIndexedAnimationFactory();
+        if (animationBehaviorFactory == AnimationBehaviorFactory.getInstance()) {
+            ForcedLogUtil.log("Using default AnimationBehaviorFactory with IndexedAnimationFactory", this);
+        }
+        this.captionImage = captionImage;
+        this.spriteMovieImage = spriteMovieImage;
+        this.frameWidth = frameWidth;
+        this.frameHeight = frameHeight;
+        this.captionDx = captionDx;
+        this.captionDy = captionDy;
+        this.dx = dx;
+        this.dy = dy;
+        this.time = time;
+        this.soundInterface = soundInterface;
+        this.animationBehaviorFactory = animationBehaviorFactory;
+    }
     
 
-    let animationInterface: Animation = new ImageAnimation(scaledImage, this.animationBehaviorFactory!.getOrCreateInstance());;
+    public function getInstance1(instanceId:int):Animation {
+        var scaledImage:Image = this.animationFactoryImageScaleUtil.createImage(this.captionImage, this.captionImage.getWidth(), this.captionImage.getHeight(), this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        var animationInterface:Animation = new ImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
+        var sprite:Sprite = this.animationFactorySpriteScaleUtil.createImage(this.spriteMovieImage, this.frameWidth, this.frameHeight, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        var movieIndexedAnimationInterface:IndexedAnimation = new SpriteIndexedAnimation(sprite, this.spriteMovieImage, BasicColorUtil.getInstance().ZERO_ARRAY, this.animationBehaviorFactory.getOrCreateInstance());
+        var player:Player = this.soundInterface.getPlayerP();
+        if (player == null) {
+            throw new JException("Exception", "Sound Was not Initialized");
+        }
+        return new CaptionIndexedAnimation(animationInterface, movieIndexedAnimationInterface, player, this.captionDx, this.captionDy, this.dx, this.dy, this.time, this.animationBehaviorFactory.getOrCreateInstance());
+    }
     
 
-    let sprite: Sprite = this.animationFactorySpriteScaleUtil!.createImage(this.spriteMovieImage, this.frameWidth, this.frameHeight, this.scaleProperties!.scaleWidth, this.scaleProperties!.scaleHeight)!;;
-    
-
-    let movieIndexedAnimationInterface: IndexedAnimation = new SpriteIndexedAnimation(sprite, this.spriteMovieImage, BasicColorUtil.getInstance()!.ZERO_ARRAY, this.animationBehaviorFactory!.getOrCreateInstance());;
-    
-
-    let player: Player = this.soundInterface!.getPlayerP()!;;
-    
-
-                        if(player == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                            throw new Exception("Sound Was not Initialized");
-                    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new CaptionIndexedAnimation(animationInterface, movieIndexedAnimationInterface, player, this.captionDx, this.captionDy, this.dx, this.dy, this.time, this.animationBehaviorFactory!.getOrCreateInstance());
-    
-}
-
-
-    public setInitialScale(scaleProperties: ScaleProperties){
-this.scaleProperties= scaleProperties;
-    
-}
-
-
+    public function setInitialScale(scaleProperties:ScaleProperties):void {
+        this.scaleProperties = scaleProperties;
+    }
+    }
 }
 

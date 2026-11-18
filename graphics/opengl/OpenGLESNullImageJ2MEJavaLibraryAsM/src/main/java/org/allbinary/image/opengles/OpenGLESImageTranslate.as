@@ -1,73 +1,43 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.image.opengles {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { GL10 } from '../../../../javax/microedition/khronos/opengles/GL10.js';
-//not GWT import const GL10
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { OpenGLESImage } from './OpenGLESImage.js';
-//sameFolderImports - not GWT import - same folder const OpenGLESImage
-
-export class OpenGLESImageTranslate
-            extends Object
-         {
-        
-
-    private static readonly instance: OpenGLESImageTranslate = new OpenGLESImageTranslate();
-
-    public static getInstance(): OpenGLESImageTranslate{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return OpenGLESImageTranslate.instance;
+    public class OpenGLESImageTranslate {
+    private static var instance_value:OpenGLESImageTranslate;
+    private static var instance_set:Boolean = false;
+    private static function get instance():OpenGLESImageTranslate {
+        if (!OpenGLESImageTranslate.instance_set) {
+            OpenGLESImageTranslate.instance_set = true;
+            OpenGLESImageTranslate.instance_value = new OpenGLESImageTranslate();
+        }
+        return OpenGLESImageTranslate.instance_value;
+    }
     
-}
 
+    public static function getInstance():OpenGLESImageTranslate {
+        return OpenGLESImageTranslate.instance;
+    }
+    
 
-    public translate(gl: GL10, openGLESImage: OpenGLESImage, x: number, y: number){
-}
+    public function translate(gl:GL10, openGLESImage:OpenGLESImage, x:Number, y:Number):void {
+    }
+    
 
-
-    public translate2(gl: GL10, openGLESImage: OpenGLESImage){
-}
-
-
+    public function translate2(gl:GL10, openGLESImage:OpenGLESImage):void {
+    }
+    }
 }
 

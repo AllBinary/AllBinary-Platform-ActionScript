@@ -1,156 +1,86 @@
+// Generated Code Do Not Modify
+package javax.microedition.khronos.opengles {
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GL } from './GL.js';
-//sameFolderImports - not GWT import - same folder const GL
-import { FloatBuffer } from './FloatBuffer.js';
-//sameFolderImports - not GWT import - same folder const FloatBuffer
-import { IntBuffer } from './IntBuffer.js';
-//sameFolderImports - not GWT import - same folder const IntBuffer
-import { ShortBuffer } from './ShortBuffer.js';
-//sameFolderImports - not GWT import - same folder const ShortBuffer
-import { Buffer } from './Buffer.js';
-//sameFolderImports - not GWT import - same folder const Buffer
-
-            //Interfaces do not have static fields for typescript so create a class with the static fields
-            export class GL11ExtI {
-        
-    public static readonly GL_MATRIX_INDEX_ARRAY_BUFFER_BINDING_OES: number = 35742;
-    public static readonly GL_MATRIX_INDEX_ARRAY_OES: number = 34884;
-    public static readonly GL_MATRIX_INDEX_ARRAY_POINTER_OES: number = 34889;
-    public static readonly GL_MATRIX_INDEX_ARRAY_SIZE_OES: number = 34886;
-    public static readonly GL_MATRIX_INDEX_ARRAY_STRIDE_OES: number = 34888;
-    public static readonly GL_MATRIX_INDEX_ARRAY_TYPE_OES: number = 34887;
-    public static readonly GL_MATRIX_PALETTE_OES: number = 34880;
-    public static readonly GL_MAX_PALETTE_MATRICES_OES: number = 34882;
-    public static readonly GL_MAX_VERTEX_UNITS_OES: number = 34468;
-    public static readonly GL_TEXTURE_CROP_RECT_OES: number = 35741;
-    public static readonly GL_WEIGHT_ARRAY_BUFFER_BINDING_OES: number = 34974;
-    public static readonly GL_WEIGHT_ARRAY_OES: number = 34477;
-    public static readonly GL_WEIGHT_ARRAY_POINTER_OES: number = 34476;
-    public static readonly GL_WEIGHT_ARRAY_SIZE_OES: number = 34475;
-    public static readonly GL_WEIGHT_ARRAY_STRIDE_OES: number = 34474;
-    public static readonly GL_WEIGHT_ARRAY_TYPE_OES: number = 34473;
+    public interface GL11Ext extends GL {
+    public static const GL_MATRIX_INDEX_ARRAY_BUFFER_BINDING_OES:int = 35742;
+    public static const GL_MATRIX_INDEX_ARRAY_OES:int = 34884;
+    public static const GL_MATRIX_INDEX_ARRAY_POINTER_OES:int = 34889;
+    public static const GL_MATRIX_INDEX_ARRAY_SIZE_OES:int = 34886;
+    public static const GL_MATRIX_INDEX_ARRAY_STRIDE_OES:int = 34888;
+    public static const GL_MATRIX_INDEX_ARRAY_TYPE_OES:int = 34887;
+    public static const GL_MATRIX_PALETTE_OES:int = 34880;
+    public static const GL_MAX_PALETTE_MATRICES_OES:int = 34882;
+    public static const GL_MAX_VERTEX_UNITS_OES:int = 34468;
+    public static const GL_TEXTURE_CROP_RECT_OES:int = 35741;
+    public static const GL_WEIGHT_ARRAY_BUFFER_BINDING_OES:int = 34974;
+    public static const GL_WEIGHT_ARRAY_OES:int = 34477;
+    public static const GL_WEIGHT_ARRAY_POINTER_OES:int = 34476;
+    public static const GL_WEIGHT_ARRAY_SIZE_OES:int = 34475;
+    public static const GL_WEIGHT_ARRAY_STRIDE_OES:int = 34474;
+    public static const GL_WEIGHT_ARRAY_TYPE_OES:int = 34473;
     
+
+    function glTexParameterfv(target:int, pname:int, param:Vector.<Number>, offset:int):void;
     
+
+    function glCurrentPaletteMatrixOES(matrixpaletteindex:int):void;
     
+
+    function glDrawTexfOES(x:Number, y:Number, z:Number, width:Number, height:Number):void;
     
+
+    function glDrawTexfvOES(coords:Vector.<Number>, offset:int):void;
     
+
+    function glDrawTexfvOES(coords:FloatBuffer):void;
     
+
+    function glDrawTexiOES(x:int, y:int, z:int, width:int, height:int):void;
     
+
+    function glDrawTexivOES(coords:Vector.<int>, offset:int):void;
     
+
+    function glDrawTexivOES(coords:IntBuffer):void;
     
+
+    function glDrawTexsOES(x:int, y:int, z:int, width:int, height:int):void;
     
+
+    function glDrawTexsvOES(coords:Vector.<int>, offset:int):void;
     
+
+    function glDrawTexsvOES(coords:ShortBuffer):void;
     
+
+    function glDrawTexxOES(x:int, y:int, z:int, width:int, height:int):void;
     
+
+    function glDrawTexxvOES(coords:Vector.<int>, offset:int):void;
     
+
+    function glDrawTexxvOES(coords:IntBuffer):void;
     
+
+    function glEnable(cap:int):void;
     
+
+    function glEnableClientState(array:int):void;
     
+
+    function glLoadPaletteFromModelViewMatrixOES():void;
     
+
+    function glMatrixIndexPointerOES(size:int, type:int, stride:int, pointer:Buffer):void;
     
+
+    function glMatrixIndexPointerOES(size:int, type:int, stride:int, offset:int):void;
     
+
+    function glWeightPointerOES(size:int, type:int, stride:int, pointer:Buffer):void;
     
-            }
-        
-export interface GL11Ext extends javax.microedition.khronos.opengles.GL {
-        
 
-    //Interfaces do not have static fields - public static readonly GL_MATRIX_INDEX_ARRAY_BUFFER_BINDING_OES: number = 35742;
-
-    //Interfaces do not have static fields - public static readonly GL_MATRIX_INDEX_ARRAY_OES: number = 34884;
-
-    //Interfaces do not have static fields - public static readonly GL_MATRIX_INDEX_ARRAY_POINTER_OES: number = 34889;
-
-    //Interfaces do not have static fields - public static readonly GL_MATRIX_INDEX_ARRAY_SIZE_OES: number = 34886;
-
-    //Interfaces do not have static fields - public static readonly GL_MATRIX_INDEX_ARRAY_STRIDE_OES: number = 34888;
-
-    //Interfaces do not have static fields - public static readonly GL_MATRIX_INDEX_ARRAY_TYPE_OES: number = 34887;
-
-    //Interfaces do not have static fields - public static readonly GL_MATRIX_PALETTE_OES: number = 34880;
-
-    //Interfaces do not have static fields - public static readonly GL_MAX_PALETTE_MATRICES_OES: number = 34882;
-
-    //Interfaces do not have static fields - public static readonly GL_MAX_VERTEX_UNITS_OES: number = 34468;
-
-    //Interfaces do not have static fields - public static readonly GL_TEXTURE_CROP_RECT_OES: number = 35741;
-
-    //Interfaces do not have static fields - public static readonly GL_WEIGHT_ARRAY_BUFFER_BINDING_OES: number = 34974;
-
-    //Interfaces do not have static fields - public static readonly GL_WEIGHT_ARRAY_OES: number = 34477;
-
-    //Interfaces do not have static fields - public static readonly GL_WEIGHT_ARRAY_POINTER_OES: number = 34476;
-
-    //Interfaces do not have static fields - public static readonly GL_WEIGHT_ARRAY_SIZE_OES: number = 34475;
-
-    //Interfaces do not have static fields - public static readonly GL_WEIGHT_ARRAY_STRIDE_OES: number = 34474;
-
-    //Interfaces do not have static fields - public static readonly GL_WEIGHT_ARRAY_TYPE_OES: number = 34473;
-
-    glTexParameterfv(target: number, pname: number, param: number[], offset: number): void;
-
-    glCurrentPaletteMatrixOES(matrixpaletteindex: number): void;
-
-    glDrawTexfOES(x: number, y: number, z: number, width: number, height: number): void;
-
-    glDrawTexfvOES(coords: number[], offset: number): void;
-
-    glDrawTexfvOES(coords: java.nio.FloatBuffer): void;
-
-    glDrawTexiOES(x: number, y: number, z: number, width: number, height: number): void;
-
-    glDrawTexivOES(coords: number[], offset: number): void;
-
-    glDrawTexivOES(coords: java.nio.IntBuffer): void;
-
-    glDrawTexsOES(x: number, y: number, z: number, width: number, height: number): void;
-
-    glDrawTexsvOES(coords: number[], offset: number): void;
-
-    glDrawTexsvOES(coords: java.nio.ShortBuffer): void;
-
-    glDrawTexxOES(x: number, y: number, z: number, width: number, height: number): void;
-
-    glDrawTexxvOES(coords: number[], offset: number): void;
-
-    glDrawTexxvOES(coords: java.nio.IntBuffer): void;
-
-    glEnable(cap: number): void;
-
-    glEnableClientState(array: number): void;
-
-    glLoadPaletteFromModelViewMatrixOES(): void;
-
-    glMatrixIndexPointerOES(size: number, type: number, stride: number, pointer: java.nio.Buffer): void;
-
-    glMatrixIndexPointerOES(size: number, type: number, stride: number, offset: number): void;
-
-    glWeightPointerOES(size: number, type: number, stride: number, pointer: java.nio.Buffer): void;
-
-    glWeightPointerOES(size: number, type: number, stride: number, offset: number): void;
-
+    function glWeightPointerOES(size:int, type:int, stride:int, offset:int):void;
+    }
 }
 

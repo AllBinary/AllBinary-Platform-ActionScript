@@ -1,53 +1,25 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2026 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.midlet {
+    import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2026 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface DemoGameMidletJs {
+    
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { GameCanvasRunnableInterface } from '../../../../org/allbinary/game/displayable/canvas/GameCanvasRunnableInterface.js';
-//not GWT import const GameCanvasRunnableInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export interface DemoGameMidletJs {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public createDemoGameCanvasRunnableInterface(): GameCanvasRunnableInterface;
-
+    function createDemoGameCanvasRunnableInterface():GameCanvasRunnableInterface;
+    }
 }
 

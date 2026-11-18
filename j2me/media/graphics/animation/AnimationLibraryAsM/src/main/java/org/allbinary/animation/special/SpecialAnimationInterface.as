@@ -1,51 +1,28 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.special {
+    import org.allbinary.animation.IndexedAnimationInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface SpecialAnimationInterface extends IndexedAnimationInterface {
+    
 
-        
+    function setLastFrame():void;
+    
 
-
-import { IndexedAnimationInterface } from '../../../../org/allbinary/animation/IndexedAnimationInterface.js';
-//not GWT import const IndexedAnimationInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export interface SpecialAnimationInterface extends IndexedAnimationInterface {
-        
-
-    setLastFrame(): void;
-
-    isComplete(): boolean;
-
+    function isComplete():Boolean;
+    }
 }
 

@@ -1,86 +1,49 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.midlet {
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventListenerInterface;
+    import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventListenerInterface } from '../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
-//not GWT import const EventListenerInterface
-
-import { BasicEventHandler } from '../../../../org/allbinary/logic/util/event/handler/BasicEventHandler.js';
-//not GWT import const BasicEventHandler
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameMidletEventListener } from './GameMidletEventListener.js';
-//sameFolderImports - not GWT import - same folder const GameMidletEventListener
-
-export class GameMidletEventHandler extends BasicEventHandler {
-        
-
-    private static readonly gameKeyEventHandler: GameMidletEventHandler = new GameMidletEventHandler();
-
-    public static getInstance(): GameMidletEventHandler{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameMidletEventHandler.gameKeyEventHandler;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class GameMidletEventHandler extends BasicEventHandler {
+    private static var gameKeyEventHandler_value:GameMidletEventHandler;
+    private static var gameKeyEventHandler_set:Boolean = false;
+    private static function get gameKeyEventHandler():GameMidletEventHandler {
+        if (!GameMidletEventHandler.gameKeyEventHandler_set) {
+            GameMidletEventHandler.gameKeyEventHandler_set = true;
+            GameMidletEventHandler.gameKeyEventHandler_value = new GameMidletEventHandler();
         }
-
-
-                //@Throws(Exception.constructor)
-            
-    process(eventObject: AllBinaryEventObject, eventListenerInterface: EventListenerInterface){
-
-    let gameMidletEventListener: GameMidletEventListener = eventListenerInterface as GameMidletEventListener;;
+        return GameMidletEventHandler.gameKeyEventHandler_value;
+    }
     
-gameMidletEventListener!.onGameEnd(eventObject);
+
+    public function GameMidletEventHandler() {
+        super();
+    }
     
-}
 
+    public static function getInstance():GameMidletEventHandler {
+        return GameMidletEventHandler.gameKeyEventHandler;
+    }
+    
 
+    override public function process(eventObject:AllBinaryEventObject, eventListenerInterface:EventListenerInterface):void {
+        var gameMidletEventListener:GameMidletEventListener = (eventListenerInterface as GameMidletEventListener);
+        gameMidletEventListener.onGameEnd(eventObject);
+    }
+    }
 }
 

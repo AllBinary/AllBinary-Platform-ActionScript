@@ -1,104 +1,57 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer.pickup {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.layer.AllBinaryLayer;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactoryBase {
+        private var pickedUpLayerType:PickedUpLayerType = null;
+        private var iconLayer:IconLayer = null;
+        private var animationInterface:Animation = null;
 
-        
-
-
-import { Animation } from '../../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PickedUpLayerInterfaceFactoryBase } from './PickedUpLayerInterfaceFactoryBase.js';
-//sameFolderImports - not GWT import - same folder const PickedUpLayerInterfaceFactoryBase
-import { PickedUpLayerType } from './PickedUpLayerType.js';
-//sameFolderImports - not GWT import - same folder const PickedUpLayerType
-import { IconLayer } from './IconLayer.js';
-//sameFolderImports - not GWT import - same folder const IconLayer
-
-export class PickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactoryBase {
-        
-
-    private readonly pickedUpLayerType: PickedUpLayerType;
-
-    private readonly iconLayer: IconLayer;
-
-    private readonly animationInterface: Animation;
-
-protected constructor (pickeUpLayerType: PickedUpLayerType, iconLayer: IconLayer, animationInterface: Animation){
-
-            super();
-        this.pickedUpLayerType= pickeUpLayerType;
+        // Java field initializers run after the base constructor
+        private function initFieldsPickedUpLayerInterfaceFactory():void {
     
-this.animationInterface= animationInterface;
     
-this.iconLayer= iconLayer;
     
-}
-
-
-    public getIconLayer(): AllBinaryLayer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.iconLayer;
+        }
     
-}
 
-
-    public getAnimationInterface(): Animation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.animationInterface;
+    public function PickedUpLayerInterfaceFactory(pickeUpLayerType:PickedUpLayerType, iconLayer:IconLayer, animationInterface:Animation) {
+        super();
+        this.initFieldsPickedUpLayerInterfaceFactory();
+        this.pickedUpLayerType = pickeUpLayerType;
+        this.animationInterface = animationInterface;
+        this.iconLayer = iconLayer;
+    }
     
-}
 
-
-    public getPickedUpLayerType(): PickedUpLayerType{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.pickedUpLayerType;
+    override public function getIconLayer():AllBinaryLayer {
+        return this.iconLayer;
+    }
     
-}
 
+    override public function getAnimationInterface():Animation {
+        return this.animationInterface;
+    }
+    
 
+    override public function getPickedUpLayerType():PickedUpLayerType {
+        return this.pickedUpLayerType;
+    }
+    }
 }
 

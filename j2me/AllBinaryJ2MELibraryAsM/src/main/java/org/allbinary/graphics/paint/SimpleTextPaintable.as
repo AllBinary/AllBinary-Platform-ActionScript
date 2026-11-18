@@ -1,156 +1,92 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.paint {
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.font.UpdateMyFontProcessor;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class SimpleTextPaintable extends Paintable implements UpdateMyFontInterface {
+        private var displayInfoSingleton:DisplayInfoSingleton = null;
+        private var updateMyFontProcessor:MyFontProcessor = null;
+        private var myFontProcessor:MyFontProcessor = null;
+        private var text:String = null;
+        private var basicColor:BasicColor = null;
+        private var topScoresWidth:int = 0;
+        private var fontHeight:int = 0;
+        private var anchor:int = 0;
 
-        
-
-
-import { Font } from '../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { MyFontProcessor } from '../../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { UpdateMyFontInterface } from '../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { UpdateMyFontProcessor } from '../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
-//not GWT import const UpdateMyFontProcessor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Paintable } from './Paintable.js';
-//sameFolderImports - not GWT import - same folder const Paintable
-
-export class SimpleTextPaintable extends Paintable implements UpdateMyFontInterface {
-        
-
-    private readonly displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
-
-    private readonly updateMyFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
-
-    private myFontProcessor: MyFontProcessor = this.updateMyFontProcessor;
-
-    private text: string;
-
-    private basicColor: BasicColor;
-
-    private topScoresWidth: number = 0;
-
-    private fontHeight: number = 0;
-
-    private anchor: number = Anchor.TOP_LEFT;
-
-public constructor (text: string, basicColor: BasicColor){
-
-            super();
-        this.text= text;
+        // Java field initializers run after the base constructor
+        private function initFieldsSimpleTextPaintable():void {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    this.myFontProcessor = this.updateMyFontProcessor;
     
-this.basicColor= basicColor;
     
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
-    
-this.topScoresWidth= (font.stringWidth(this.text)>>1);
-    
-this.fontHeight= font.getHeight();
-    
-this.myFontProcessor= MyFontProcessor.getInstance();
-    
-}
-
-
-    public paint(graphics: Graphics){
-this.myFontProcessor!.process(graphics);
+    this.topScoresWidth = 0;
+    this.fontHeight = 0;
+    this.anchor = Anchor.TOP_LEFT;
+        }
     
 
-    let width: number = this.displayInfoSingleton!.getLast()[this.displayInfoSingleton!.WIDTH]!;;
+    public function SimpleTextPaintable(text:String, basicColor:BasicColor) {
+        super();
+        this.initFieldsSimpleTextPaintable();
+        this.text = text;
+        this.basicColor = basicColor;
+    }
     
-graphics.setColor(this.getBasicColorP()!.intValue());
+
+    public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        this.topScoresWidth = (font.stringWidth(this.text) >> 1);
+        this.fontHeight = font.getHeight();
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
     
-graphics.drawString(this.text, (width>>1) -this.topScoresWidth, this.fontHeight, this.anchor);
+
+    override public function paint(graphics:Graphics):void {
+        this.myFontProcessor.process(graphics);
+        var width:int = this.displayInfoSingleton.getLast()[this.displayInfoSingleton.WIDTH];
+        graphics.setColor(this.getBasicColorP().intValue());
+        graphics.drawString(this.text, int((width >> 1) - this.topScoresWidth), this.fontHeight, this.anchor);
+    }
     
-}
 
-
-    public setBasicColorP(basicColor: BasicColor){
-this.basicColor= basicColor;
+    override public function setBasicColorP(basicColor:BasicColor):void {
+        this.basicColor = basicColor;
+    }
     
-}
 
-
-    getBasicColorP(): BasicColor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicColor;
+    private function getBasicColorP():BasicColor {
+        return this.basicColor;
+    }
     
-}
 
-
-    public setText(text: string){
-this.text= text;
+    public function setText(text:String):void {
+        this.text = text;
+        this.myFontProcessor = this.updateMyFontProcessor;
+    }
     
-this.myFontProcessor= this.updateMyFontProcessor;
-    
-}
 
-
-    public getText(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.text;
-    
-}
-
-
+    public function getText():String {
+        return this.text;
+    }
+    }
 }
 

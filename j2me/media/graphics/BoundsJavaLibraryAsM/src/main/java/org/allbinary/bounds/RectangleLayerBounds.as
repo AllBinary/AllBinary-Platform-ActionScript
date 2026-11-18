@@ -1,100 +1,43 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.bounds {
+    import org.allbinary.graphics.Rectangle;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { Rectangle } from '../../../org/allbinary/graphics/Rectangle.js';
-//not GWT import const Rectangle
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LayerBounds } from './LayerBounds.js';
-//sameFolderImports - not GWT import - same folder const LayerBounds
-import { BoundsVisitorInterface } from './BoundsVisitorInterface.js';
-//sameFolderImports - not GWT import - same folder const BoundsVisitorInterface
-
-export class RectangleLayerBounds extends LayerBounds {
-        
-
-public constructor (rectangle: Rectangle){
-            super(rectangle);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public visit(boundsVisitorInterface: BoundsVisitorInterface){
-
-                        if(boundsVisitorInterface!.getX() > this.rectangle.getMaxX())
-                        
-                                    {
-                                    boundsVisitorInterface!.maxX();
+    public class RectangleLayerBounds extends LayerBounds {
     
 
-                                    }
-                                
-
-                        if(boundsVisitorInterface!.getY() > this.rectangle.getMaxY())
-                        
-                                    {
-                                    boundsVisitorInterface!.maxY();
+    public function RectangleLayerBounds(rectangle:Rectangle) {
+        super(rectangle);
+    }
     
 
-                                    }
-                                
-
-                        if(boundsVisitorInterface!.getX() < this.rectangle.getPoint()!.getX())
-                        
-                                    {
-                                    boundsVisitorInterface!.minX();
-    
-
-                                    }
-                                
-
-                        if(boundsVisitorInterface!.getY() < this.rectangle.getPoint()!.getY())
-                        
-                                    {
-                                    boundsVisitorInterface!.minY();
-    
-
-                                    }
-                                
-}
-
-
+    override public function visit(boundsVisitorInterface:BoundsVisitorInterface):void {
+        if (boundsVisitorInterface.getX() > this.rectangle.getMaxX()) {
+            boundsVisitorInterface.maxX();
+        }
+        if (boundsVisitorInterface.getY() > this.rectangle.getMaxY()) {
+            boundsVisitorInterface.maxY();
+        }
+        if (boundsVisitorInterface.getX() < this.rectangle.getPoint().getX()) {
+            boundsVisitorInterface.minX();
+        }
+        if (boundsVisitorInterface.getY() < this.rectangle.getPoint().getY()) {
+            boundsVisitorInterface.minY();
+        }
+    }
+    }
 }
 

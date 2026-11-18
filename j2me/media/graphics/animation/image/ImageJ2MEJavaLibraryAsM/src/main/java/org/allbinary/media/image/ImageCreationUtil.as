@@ -1,104 +1,53 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.image {
+    import org.allbinary.image.GameFeatureImageCacheFactory;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { GameFeatureImageCacheFactory } from '../../../../org/allbinary/image/GameFeatureImageCacheFactory.js';
-//not GWT import const GameFeatureImageCacheFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ImageCreationUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: ImageCreationUtil = new ImageCreationUtil();
-
-    public static getInstance(): ImageCreationUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ImageCreationUtil.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class ImageCreationUtil {
+    private static var instance_value:ImageCreationUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ImageCreationUtil {
+        if (!ImageCreationUtil.instance_set) {
+            ImageCreationUtil.instance_set = true;
+            ImageCreationUtil.instance_value = new ImageCreationUtil();
         }
-
-
-                //@Throws(Exception.constructor)
-            
-    public createImageWH(width: number, height: number): Image{
-
-    let image: Image = GameFeatureImageCacheFactory.getInstance()!.get(this.constructor.name.toString()!, width, height)!;;
+        return ImageCreationUtil.instance_value;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return image;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public createImage(width: number, height: number, maxScaleX: number, maxScaleY: number): Image{
-
-    let image: Image = GameFeatureImageCacheFactory.getInstance()!.get(this.constructor.name.toString()!, globalThis.Math.trunc((width *maxScaleX)) +1, globalThis.Math.trunc((height *maxScaleY)) +1)!;;
+    public static function getInstance():ImageCreationUtil {
+        return ImageCreationUtil.instance;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return image;
+    public function ImageCreationUtil() {
+        super();
+    }
     
-}
 
+    public function createImageWH(width:int, height:int):Image {
+        var image:Image = GameFeatureImageCacheFactory.getInstance().get_(JSystem.className(this), width, height);
+        return image;
+    }
+    
 
+    public function createImage(width:int, height:int, maxScaleX:Number, maxScaleY:Number):Image {
+        var image:Image = GameFeatureImageCacheFactory.getInstance().get_(JSystem.className(this), int(JMath.toInt32((Number(width) * maxScaleX)) + 1), int(JMath.toInt32((Number(height) * maxScaleY)) + 1));
+        return image;
+    }
+    }
 }
 

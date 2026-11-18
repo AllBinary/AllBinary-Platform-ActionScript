@@ -1,154 +1,92 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.math.AngleInfo;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ImageArrayRotationAnimationInfo {
+        private var imageArray:Vector.<Image> = null;
+        private var angleIncrement:int = 0;
+        private var totalAngle:int = 0;
+        private var dx:int = 0;
+        private var dy:int = 0;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { AngleInfo } from '../../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ImageArrayRotationAnimationInfo
-            extends Object
-         {
-        
-
-    private imageArray: Image[];
-
-    private angleIncrement: number;
-
-    private totalAngle: number;
-
-    private dx: number;
-
-    private dy: number;
-
-public constructor (imageArray: Image[], angleIncrement: number, totalAngle: number, dx: number, dy: number){
-
-            super();
-        this.imageArray= imageArray;
+        // Java field initializers run after the base constructor
+        private function initFieldsImageArrayRotationAnimationInfo():void {
     
-this.angleIncrement= angleIncrement;
     
-this.totalAngle= totalAngle;
     
-this.dx= dx;
     
-this.dy= dy;
     
-}
-
-
-    public setImageArray(imageArray: Image[]){
-this.imageArray= imageArray;
+        }
     
-}
 
-
-    public getImageArray(): Image[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.imageArray;
+    public function ImageArrayRotationAnimationInfo(imageArray:Vector.<Image>, angleIncrement:int, totalAngle:int, dx:int, dy:int) {
+        super();
+        this.initFieldsImageArrayRotationAnimationInfo();
+        this.imageArray = imageArray;
+        this.angleIncrement = angleIncrement;
+        this.totalAngle = totalAngle;
+        this.dx = dx;
+        this.dy = dy;
+    }
     
-}
 
-
-    public getAngleInfoP(): AngleInfo{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AngleInfo.getInstance(this.angleIncrement);;
+    public function setImageArray(imageArray:Vector.<Image>):void {
+        this.imageArray = imageArray;
+    }
     
-}
 
-
-    public setTotalAngle(totalAngle: number){
-this.totalAngle= totalAngle;
+    public function getImageArray():Vector.<Image> {
+        return this.imageArray;
+    }
     
-}
 
-
-    public getTotalAngle(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.totalAngle;
+    public function getAngleInfoP():AngleInfo {
+        return AngleInfo.getInstance1(((int(this.angleIncrement) << 16) >> 16));
+    }
     
-}
 
-
-    public setDx(dx: number){
-this.dx= dx;
+    public function setTotalAngle(totalAngle:int):void {
+        this.totalAngle = totalAngle;
+    }
     
-}
 
-
-    public getDx(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.dx;
+    public function getTotalAngle():int {
+        return this.totalAngle;
+    }
     
-}
 
-
-    public setDy(dy: number){
-this.dy= dy;
+    public function setDx(dx:int):void {
+        this.dx = dx;
+    }
     
-}
 
-
-    public getDy(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.dy;
+    public function getDx():int {
+        return this.dx;
+    }
     
-}
 
+    public function setDy(dy:int):void {
+        this.dy = dy;
+    }
+    
 
+    public function getDy():int {
+        return this.dy;
+    }
+    }
 }
 

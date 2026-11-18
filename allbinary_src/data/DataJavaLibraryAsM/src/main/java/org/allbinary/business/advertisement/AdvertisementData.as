@@ -1,70 +1,49 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.advertisement {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AdvertisementData
-            extends Object
-         {
-        
-
-    private static readonly instance: AdvertisementData = new AdvertisementData();
-
-    public static getInstance(): AdvertisementData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AdvertisementData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class AdvertisementData {
+    private static var instance_value:AdvertisementData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():AdvertisementData {
+        if (!AdvertisementData.instance_set) {
+            AdvertisementData.instance_set = true;
+            AdvertisementData.instance_value = new AdvertisementData();
         }
+        return AdvertisementData.instance_value;
+    }
+        public var NAME:String = null;
+        public var DESCRIPTION:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsAdvertisementData():void {
+    this.NAME = "ADVERTISEMENT_NAME";
+    this.DESCRIPTION = "ADVERTISEMENT_DESCRIPTION";
+        }
+    
 
-    public readonly NAME: string = "ADVERTISEMENT_NAME";
+    public static function getInstance():AdvertisementData {
+        return AdvertisementData.instance;
+    }
+    
 
-    public readonly DESCRIPTION: string = "ADVERTISEMENT_DESCRIPTION";
-
+    public function AdvertisementData() {
+        super();
+        this.initFieldsAdvertisementData();
+    }
+    }
 }
 

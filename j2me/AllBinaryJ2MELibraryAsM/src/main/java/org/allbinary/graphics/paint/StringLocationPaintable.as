@@ -1,65 +1,39 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.paint {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class StringLocationPaintable extends LocationPaintable {
+        private var value:String = null;
 
-        
-
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LocationPaintable } from './LocationPaintable.js';
-//sameFolderImports - not GWT import - same folder const LocationPaintable
-
-export class StringLocationPaintable extends LocationPaintable {
-        
-
-    private readonly value: string;
-
-public constructor (value: string){
-
-            super();
-        this.value= value;
+        // Java field initializers run after the base constructor
+        private function initFieldsStringLocationPaintable():void {
     
-}
-
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-graphics.drawString(this.value, x, y, 0);
+        }
     
-}
 
+    public function StringLocationPaintable(value:String) {
+        super();
+        this.initFieldsStringLocationPaintable();
+        this.value = value;
+    }
+    
 
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        graphics.drawString(this.value, x, y, 0);
+    }
+    }
 }
 

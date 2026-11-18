@@ -1,83 +1,42 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.layer.weapon.mine {
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerFactoryInterface;
+    import org.allbinary.view.ViewPositionFactoryInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class MineLayerFactory implements AllBinaryLayerFactoryInterface {
+        private var viewPositionFactoryInterface:ViewPositionFactoryInterface = null;
 
-        
-
-
-            import { Object } from '../../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../../java/lang/Exception.js';
-        
-import { AllBinaryLayer } from '../../../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerFactoryInterface } from '../../../../../../../org/allbinary/layer/AllBinaryLayerFactoryInterface.js';
-//not GWT import const AllBinaryLayerFactoryInterface
-
-import { ViewPositionFactoryInterface } from '../../../../../../../org/allbinary/view/ViewPositionFactoryInterface.js';
-//not GWT import const ViewPositionFactoryInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { MineLayer } from './MineLayer.js';
-//sameFolderImports - not GWT import - same folder const MineLayer
-
-export class MineLayerFactory
-            extends Object
-         implements AllBinaryLayerFactoryInterface {
-        
-
-    private viewPositionFactoryInterface: ViewPositionFactoryInterface;
-
-public constructor (viewPositionFactoryInterface: ViewPositionFactoryInterface){
-
-            super();
-        this.viewPositionFactoryInterface= viewPositionFactoryInterface;
+        // Java field initializers run after the base constructor
+        private function initFieldsMineLayerFactory():void {
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstance(): AllBinaryLayer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new MineLayer(this.viewPositionFactoryInterface!.getInstance());
+        }
     
-}
 
+    public function MineLayerFactory(viewPositionFactoryInterface:ViewPositionFactoryInterface) {
+        super();
+        this.initFieldsMineLayerFactory();
+        this.viewPositionFactoryInterface = viewPositionFactoryInterface;
+    }
+    
 
+    public function getInstance():AllBinaryLayer {
+        return new MineLayer(this.viewPositionFactoryInterface.getInstance());
+    }
+    }
 }
 

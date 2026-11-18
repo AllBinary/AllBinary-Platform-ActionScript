@@ -1,93 +1,56 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.resources {
+    import org.allbinary.logic.StdUtil;
+    import org.allbinary.util.ABHashtable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class KeyValueFactory {
+    private static var instance_value:KeyValueFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():KeyValueFactory {
+        if (!KeyValueFactory.instance_set) {
+            KeyValueFactory.instance_set = true;
+            KeyValueFactory.instance_value = new KeyValueFactory();
+        }
+        return KeyValueFactory.instance_value;
+    }
+        public var MAP:ABHashtable = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsKeyValueFactory():void {
+    this.MAP = StdUtil.getInstance().createHashtable();
+        }
 
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class KeyValueFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: KeyValueFactory = new KeyValueFactory();
-
-    public static getInstance(): KeyValueFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return KeyValueFactory.instance;
-    
-}
-
-
-    public readonly MAP: ABHashtable<any, any> = StdUtil.getInstance()!.createHashtable()!;
-
-    public get(key: string): string{
-
-                        if(!this.MAP.containsKey(key))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return key;
+        public function KeyValueFactory() {
+            super();
+            this.initFieldsKeyValueFactory();
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.MAP.get(key) as string;
+    public static function getInstance():KeyValueFactory {
+        return KeyValueFactory.instance;
+    }
     
-}
 
-
+    public function get_(key:String):String {
+        if (!this.MAP.containsKey((key as Object))) {
+            return key;
+        }
+        return (this.MAP.get_((key as Object)) as String);
+    }
+    }
 }
 

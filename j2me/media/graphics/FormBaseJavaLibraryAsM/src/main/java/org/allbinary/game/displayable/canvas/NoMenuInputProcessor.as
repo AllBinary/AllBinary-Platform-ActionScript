@@ -1,94 +1,55 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.game.input.event.GameKeyEvent;
+    import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+    import org.allbinary.util.BasicArrayListUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { NullCanvas } from '../../../../../javax/microedition/lcdui/NullCanvas.js';
-//not GWT import const NullCanvas
-
-import { GameKeyEvent } from '../../../../../org/allbinary/game/input/event/GameKeyEvent.js';
-//not GWT import const GameKeyEvent
-
-import { MotionGestureEvent } from '../../../../../org/allbinary/input/motion/gesture/observer/MotionGestureEvent.js';
-//not GWT import const MotionGestureEvent
-
-//not plain js import { BasicArrayListUtil } 
-const BasicArrayListUtil = globalThis.org.allbinary.util.BasicArrayListUtil;
-type BasicArrayListUtil<T = any, U = any> = typeof BasicArrayListUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicMenuInputProcessor } from './BasicMenuInputProcessor.js';
-//sameFolderImports - not GWT import - same folder const BasicMenuInputProcessor
-
-export class NoMenuInputProcessor extends BasicMenuInputProcessor {
-        
-
-    private static readonly SINGLETON: NoMenuInputProcessor = new NoMenuInputProcessor();
-
-    public static getInstance(): NoMenuInputProcessor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NoMenuInputProcessor.SINGLETON;
+    public class NoMenuInputProcessor extends BasicMenuInputProcessor {
+    private static var SINGLETON_value:NoMenuInputProcessor;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():NoMenuInputProcessor {
+        if (!NoMenuInputProcessor.SINGLETON_set) {
+            NoMenuInputProcessor.SINGLETON_set = true;
+            NoMenuInputProcessor.SINGLETON_value = new NoMenuInputProcessor();
+        }
+        return NoMenuInputProcessor.SINGLETON_value;
+    }
     
-}
 
+    public static function getInstance():NoMenuInputProcessor {
+        return NoMenuInputProcessor.SINGLETON;
+    }
+    
 
-private constructor (){
-            super(BasicArrayListUtil.getInstance()!.getImmutableInstance(),  -1, NullCanvas.NULL_CANVAS);
-                    
+    public function NoMenuInputProcessor() {
+        super(BasicArrayListUtil.getInstance().getImmutableInstance(), -1, NullCanvas.NULL_CANVAS);
+    }
+    
 
-                            //For kotlin this is before the body of the constructor.
-                    
-}
+    override public function onDownGameKeyEvent(gameKeyEvent:GameKeyEvent):void {
+    }
+    
 
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+    override public function onUpGameKeyEvent(gameKeyEvent:GameKeyEvent):void {
+    }
+    
 
-    public onDownGameKeyEvent(gameKeyEvent: GameKeyEvent){
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public onUpGameKeyEvent(gameKeyEvent: GameKeyEvent){
-}
-
-
-    public onMotionGestureEvent(motionGestureEvent: MotionGestureEvent){
-}
-
-
+    override public function onMotionGestureEvent(motionGestureEvent:MotionGestureEvent):void {
+    }
+    }
 }
 

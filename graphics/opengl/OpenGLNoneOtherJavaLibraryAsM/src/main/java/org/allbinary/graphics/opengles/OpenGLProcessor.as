@@ -1,53 +1,26 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics.opengles {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /* Generated Code Do Not Modify */
+    public class OpenGLProcessor {
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsOpenGLProcessor():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+        }
 
+        public function OpenGLProcessor() {
+            super();
+            this.initFieldsOpenGLProcessor();
+        }
+    
 
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { GL10 } from '../../../../javax/microedition/khronos/opengles/GL10.js';
-//not GWT import const GL10
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class OpenGLProcessor
-            extends Object
-         {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    public process(gl: GL10){
-}
-
-
+    public function process(gl:GL10):void {
+    }
+    }
 }
 

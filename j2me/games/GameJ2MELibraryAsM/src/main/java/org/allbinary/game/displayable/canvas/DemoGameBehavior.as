@@ -1,150 +1,98 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.game.GameTypeFactory;
+    import org.allbinary.graphics.paint.NullPaintable;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class DemoGameBehavior {
+    private static var instance_value:DemoGameBehavior;
+    private static var instance_set:Boolean = false;
+    private static function get instance():DemoGameBehavior {
+        if (!DemoGameBehavior.instance_set) {
+            DemoGameBehavior.instance_set = true;
+            DemoGameBehavior.instance_value = new DemoGameBehavior();
+        }
+        return DemoGameBehavior.instance_value;
+    }
+        public var logUtil:LogUtil = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsDemoGameBehavior():void {
+    this.logUtil = LogUtil.getInstance();
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { GameTypeFactory } from '../../../../../org/allbinary/game/GameTypeFactory.js';
-//not GWT import const GameTypeFactory
-
-import { NullPaintable } from '../../../../../org/allbinary/graphics/paint/NullPaintable.js';
-//not GWT import const NullPaintable
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { AbeClientInformationInterface } from '../../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AllBinaryGameCanvas } from './AllBinaryGameCanvas.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryGameCanvas
-
-export class DemoGameBehavior
-            extends Object
-         {
-        
-
-    private static readonly instance: DemoGameBehavior = new DemoGameBehavior();
-
-    public static getInstance(): DemoGameBehavior{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DemoGameBehavior.instance;
+        public function DemoGameBehavior() {
+            super();
+            this.initFieldsDemoGameBehavior();
+        }
     
-}
 
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-                //@Throws(Exception.constructor)
-            
-    public init(){
-}
-
-
-    public pause(allBinaryGameCanvas: AllBinaryGameCanvas){
-}
-
-
-    public unPause(allBinaryGameCanvas: AllBinaryGameCanvas){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public updateTouch(allBinaryGameCanvas: AllBinaryGameCanvas){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public updateScreenButtonPaintable(allBinaryGameCanvas: AllBinaryGameCanvas){
-allBinaryGameCanvas!.setTouchPaintableP(NullPaintable.getInstance());
+    public static function getInstance():DemoGameBehavior {
+        return DemoGameBehavior.instance;
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public setGameState(allBinaryGameCanvas: AllBinaryGameCanvas){
-}
-
-
-    public removeAllGameKeyInputListeners(allBinaryGameCanvas: AllBinaryGameCanvas){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public updateEndGameProcessor(allBinaryGameCanvas: AllBinaryGameCanvas){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public buildGame(allBinaryGameCanvas: AllBinaryGameCanvas){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public run(allBinaryGameCanvas: AllBinaryGameCanvas){
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    public function init():void {
+    }
     
-this.logUtil!.putF(GameTypeFactory.getInstance()!.BOT.toString(), this, commonStrings!.RUN);
+
+    public function pause(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+    }
     
-}
 
+    public function unPause(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+    }
+    
 
-                //@Throws(Exception.constructor)
-            
-    public setHighScore(abeClientInformation: AbeClientInformationInterface, allBinaryGameCanvas: AllBinaryGameCanvas, name: string, score: number, autoSubmit: boolean, isLast: boolean){
-}
+    public function updateTouch(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+    }
+    
 
+    public function updateScreenButtonPaintable(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+        allBinaryGameCanvas.setTouchPaintableP(NullPaintable.getInstance());
+    }
+    
 
+    public function setGameState(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+    }
+    
+
+    public function removeAllGameKeyInputListeners(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+    }
+    
+
+    public function updateEndGameProcessor(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+    }
+    
+
+    public function buildGame(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+    }
+    
+
+    public function run(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+        var commonStrings:CommonStrings = CommonStrings.getInstance();
+        this.logUtil.putF(GameTypeFactory.getInstance().BOT.toString(), this, commonStrings.RUN);
+    }
+    
+
+    public function setHighScore(abeClientInformation:AbeClientInformationInterface, allBinaryGameCanvas:AllBinaryGameCanvas, name:String, score:Number, autoSubmit:Boolean, isLast:Boolean):void {
+    }
+    }
 }
 

@@ -1,130 +1,79 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics {
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class RelativeRelationship {
+    private static var NULL_RELATIVE_RELATIONSHIP_value:RelativeRelationship;
+    private static var NULL_RELATIVE_RELATIONSHIP_set:Boolean = false;
+    public static function get NULL_RELATIVE_RELATIONSHIP():RelativeRelationship {
+        if (!RelativeRelationship.NULL_RELATIVE_RELATIONSHIP_set) {
+            RelativeRelationship.NULL_RELATIVE_RELATIONSHIP_set = true;
+            RelativeRelationship.NULL_RELATIVE_RELATIONSHIP_value = new RelativeRelationship(PointFactory.getInstance().ZERO_ZERO, BasicArrayListUtil.getInstance().getImmutableInstance());
+        }
+        return RelativeRelationship.NULL_RELATIVE_RELATIONSHIP_value;
+    }
+        private var typesAllowedList:BasicArrayList = null;
+        private var x:int = 0;
+        private var y:int = 0;
+        private var z:int = 0;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListUtil } 
-const BasicArrayListUtil = globalThis.org.allbinary.util.BasicArrayListUtil;
-type BasicArrayListUtil<T = any, U = any> = typeof BasicArrayListUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PointFactory } from './PointFactory.js';
-//sameFolderImports - not GWT import - same folder const PointFactory
-import { GPoint } from './GPoint.js';
-//sameFolderImports - not GWT import - same folder const GPoint
-
-export class RelativeRelationship
-            extends Object
-         {
-        
-
-    public static readonly NULL_RELATIVE_RELATIONSHIP: RelativeRelationship = new RelativeRelationship(PointFactory.getInstance()!.ZERO_ZERO, BasicArrayListUtil.getInstance()!.getImmutableInstance());
-
-    private typesAllowedList: BasicArrayList;
-
-    private x: number;
-
-    private y: number;
-
-    private z: number;
-
-public constructor (point: GPoint, typesAllowedList: BasicArrayList){
-
-            super();
-        this.x= point.getX();
+        // Java field initializers run after the base constructor
+        private function initFieldsRelativeRelationship():void {
     
-this.y= point.getY();
     
-this.z= point.getZ();
     
-this.typesAllowedList= typesAllowedList;
     
-}
-
-
-    public getX(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.x;
+        }
     
-}
 
-
-    public getY(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.y;
+    public function RelativeRelationship(point:GPoint, typesAllowedList:BasicArrayList) {
+        super();
+        this.initFieldsRelativeRelationship();
+        this.x = point.getX();
+        this.y = point.getY();
+        this.z = point.getZ();
+        this.typesAllowedList = typesAllowedList;
+    }
     
-}
 
-
-    public getZ(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.z;
+    public function getX():int {
+        return this.x;
+    }
     
-}
 
-
-    public getTypesAllowedList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.typesAllowedList;
+    public function getY():int {
+        return this.y;
+    }
     
-}
 
-
-    public setTypesAllowedList(typesAllowedList: BasicArrayList){
-this.typesAllowedList= typesAllowedList;
+    public function getZ():int {
+        return this.z;
+    }
     
-}
 
+    public function getTypesAllowedList():BasicArrayList {
+        return this.typesAllowedList;
+    }
+    
 
+    public function setTypesAllowedList(typesAllowedList:BasicArrayList):void {
+        this.typesAllowedList = typesAllowedList;
+    }
+    }
 }
 

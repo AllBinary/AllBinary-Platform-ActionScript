@@ -1,100 +1,54 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.canvas.RunnableCanvas;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class RunnableCanvasSingleThreadStartRunnable extends GameRunnable {
+        public var logUtil:LogUtil = null;
+        private var runnableCanvas:RunnableCanvas = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { RunnableCanvas } from '../../../../../org/allbinary/canvas/RunnableCanvas.js';
-//not GWT import const RunnableCanvas
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameRunnable } from './GameRunnable.js';
-//sameFolderImports - not GWT import - same folder const GameRunnable
-
-export class RunnableCanvasSingleThreadStartRunnable extends GameRunnable {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly runnableCanvas: RunnableCanvas;
-
-public constructor (demoCanvas: RunnableCanvas){
-
-            super();
-        this.runnableCanvas= demoCanvas;
+        // Java field initializers run after the base constructor
+        private function initFieldsRunnableCanvasSingleThreadStartRunnable():void {
+    this.logUtil = LogUtil.getInstance();
     
-}
-
-
-    public run(){
-
- try { this.runnableCanvas!.run();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN, e);
+        }
     
 
- }
-   }
- 
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processLoopSleep(){
-this.runnableCanvas!.processLoopSleep();
+    public function RunnableCanvasSingleThreadStartRunnable(demoCanvas:RunnableCanvas) {
+        super();
+        this.initFieldsRunnableCanvasSingleThreadStartRunnable();
+        this.runnableCanvas = demoCanvas;
+    }
     
-}
 
+    override public function run():void {
+        try {
+            this.runnableCanvas.run();
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN, e);
+        }
+    }
+    
 
+    override public function processLoopSleep():void {
+        this.runnableCanvas.processLoopSleep();
+    }
+    }
 }
 

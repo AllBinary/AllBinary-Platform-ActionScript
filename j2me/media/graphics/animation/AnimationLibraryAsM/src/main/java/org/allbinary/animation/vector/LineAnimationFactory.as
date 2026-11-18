@@ -1,90 +1,47 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.vector {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.media.ScaleProperties;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LineAnimationFactory implements AnimationInterfaceFactoryInterface {
+        private var basicColor:BasicColor = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationInterfaceFactoryInterface } from '../../../../org/allbinary/animation/AnimationInterfaceFactoryInterface.js';
-//not GWT import const AnimationInterfaceFactoryInterface
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { ScaleProperties } from '../../../../org/allbinary/media/ScaleProperties.js';
-//not GWT import const ScaleProperties
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LineAnimation } from './LineAnimation.js';
-//sameFolderImports - not GWT import - same folder const LineAnimation
-
-export class LineAnimationFactory
-            extends Object
-         implements AnimationInterfaceFactoryInterface {
-        
-
-    private basicColor: BasicColor;
-
-public constructor (basicColor: BasicColor){
-
-            super();
-        this.basicColor= basicColor;
+        // Java field initializers run after the base constructor
+        private function initFieldsLineAnimationFactory():void {
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstance(instanceId: number): Animation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new LineAnimation(this.basicColor);
+        }
     
-}
 
+    public function LineAnimationFactory(basicColor:BasicColor) {
+        super();
+        this.initFieldsLineAnimationFactory();
+        this.basicColor = basicColor;
+    }
+    
 
-    public setInitialScale(scaleProperties: ScaleProperties){
-}
+    public function getInstance1(instanceId:int):Animation {
+        return new LineAnimation(this.basicColor);
+    }
+    
 
-
+    public function setInitialScale(scaleProperties:ScaleProperties):void {
+    }
+    }
 }
 

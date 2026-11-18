@@ -1,74 +1,41 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.paint {
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ColorFillPaintable extends ColorFillBasePaintable {
+        public var displayInfoSingleton:DisplayInfoSingleton = null;
 
-        
-
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ColorFillBasePaintable } from './ColorFillBasePaintable.js';
-//sameFolderImports - not GWT import - same folder const ColorFillBasePaintable
-
-export class ColorFillPaintable extends ColorFillBasePaintable {
-        
-
-    readonly displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
-
-public constructor (basicColor: BasicColor){
-            super(basicColor);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public paint(graphics: Graphics){
-graphics.setColor(this.colorP);
+        // Java field initializers run after the base constructor
+        private function initFieldsColorFillPaintable():void {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+        }
     
-graphics.fillRect(0, 0, this.displayInfoSingleton!.getLastWidth(), this.displayInfoSingleton!.getLastHeight());
+
+    public function ColorFillPaintable(basicColor:BasicColor) {
+        super(basicColor);
+        this.initFieldsColorFillPaintable();
+    }
     
-}
 
-
+    override public function paint(graphics:Graphics):void {
+        graphics.setColor(this.colorP);
+        graphics.fillRect(0, 0, this.displayInfoSingleton.getLastWidth(), this.displayInfoSingleton.getLastHeight());
+    }
+    }
 }
 

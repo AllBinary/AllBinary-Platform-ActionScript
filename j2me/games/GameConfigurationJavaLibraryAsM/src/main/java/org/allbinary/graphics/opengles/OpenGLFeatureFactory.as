@@ -1,112 +1,89 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.opengles {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { OpenGLFeature } from './OpenGLFeature.js';
-//sameFolderImports - not GWT import - same folder const OpenGLFeature
-
-export class OpenGLFeatureFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: OpenGLFeatureFactory = new OpenGLFeatureFactory();
-
-    public static getInstance(): OpenGLFeatureFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return OpenGLFeatureFactory.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class OpenGLFeatureFactory {
+    private static var instance_value:OpenGLFeatureFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():OpenGLFeatureFactory {
+        if (!OpenGLFeatureFactory.instance_set) {
+            OpenGLFeatureFactory.instance_set = true;
+            OpenGLFeatureFactory.instance_value = new OpenGLFeatureFactory();
         }
+        return OpenGLFeatureFactory.instance_value;
+    }
+        public var OPENGL_OPTIONS:OpenGLFeature = null;
+        public var OPENGL:OpenGLFeature = null;
+        public var OPENGL_SURFACE_VIEW:OpenGLFeature = null;
+        public var OPENGL_2D:OpenGLFeature = null;
+        public var OPENGL_3D:OpenGLFeature = null;
+        public var OPENGL_2D_AND_3D:OpenGLFeature = null;
+        public var OPENGL_AUTO_SELECT:OpenGLFeature = null;
+        public var OPENGL_MINIMUM:OpenGLFeature = null;
+        public var OPENGL_AS_GAME_THREAD:OpenGLFeature = null;
+        public var OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS:OpenGLFeature = null;
+        public var IMAGE_COLOR_DEPTH_4444:OpenGLFeature = null;
+        public var IMAGE_COLOR_DEPTH_8888:OpenGLFeature = null;
+        public var IMAGE_COLOR_DEPTH_565:OpenGLFeature = null;
+        public var OPENGL_COLOR_DEPTH_4444:OpenGLFeature = null;
+        public var OPENGL_COLOR_DEPTH_8888:OpenGLFeature = null;
+        public var OPENGL_COLOR_DEPTH_565:OpenGLFeature = null;
+        public var OPENGL_DRAW_TEXTURE:OpenGLFeature = null;
+        public var OPENGL_VERTEX_BUFFER_OBJECT:OpenGLFeature = null;
+        public var OPENGL_SIMPLE_OBJECT3D_PROCESSOR:OpenGLFeature = null;
+        public var OPENGL_COMPLEX_OBJECT3D_PROCESSOR:OpenGLFeature = null;
+        public var OPENGL_SIMPLE_TEXTURE_PROCESSOR:OpenGLFeature = null;
+        public var OPENGL_COMPLEX_TEXTURE_PROCESSOR:OpenGLFeature = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsOpenGLFeatureFactory():void {
+    this.OPENGL_OPTIONS = new OpenGLFeature("OpenGL Options");
+    this.OPENGL = new OpenGLFeature("OpenGL");
+    this.OPENGL_SURFACE_VIEW = new OpenGLFeature("GLSurfaceView");
+    this.OPENGL_2D = new OpenGLFeature("OpenGL 2D");
+    this.OPENGL_3D = new OpenGLFeature("OpenGL 3D");
+    this.OPENGL_2D_AND_3D = new OpenGLFeature("OpenGL 2D/3D");
+    this.OPENGL_AUTO_SELECT = new OpenGLFeature("Auto Select");
+    this.OPENGL_MINIMUM = new OpenGLFeature("Minimum");
+    this.OPENGL_AS_GAME_THREAD = new OpenGLFeature("As game thread");
+    this.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS = new OpenGLFeature("As different threads");
+    this.IMAGE_COLOR_DEPTH_4444 = new OpenGLFeature("4444");
+    this.IMAGE_COLOR_DEPTH_8888 = new OpenGLFeature("8888");
+    this.IMAGE_COLOR_DEPTH_565 = new OpenGLFeature("565");
+    this.OPENGL_COLOR_DEPTH_4444 = new OpenGLFeature("4444");
+    this.OPENGL_COLOR_DEPTH_8888 = new OpenGLFeature("8888");
+    this.OPENGL_COLOR_DEPTH_565 = new OpenGLFeature("565");
+    this.OPENGL_DRAW_TEXTURE = new OpenGLFeature("GL_OES_draw_texture");
+    this.OPENGL_VERTEX_BUFFER_OBJECT = new OpenGLFeature("vertex_buffer_object");
+    this.OPENGL_SIMPLE_OBJECT3D_PROCESSOR = new OpenGLFeature("Simple Object3d Processor");
+    this.OPENGL_COMPLEX_OBJECT3D_PROCESSOR = new OpenGLFeature("Complex Object3d Processor");
+    this.OPENGL_SIMPLE_TEXTURE_PROCESSOR = new OpenGLFeature("Simple Texture Processor");
+    this.OPENGL_COMPLEX_TEXTURE_PROCESSOR = new OpenGLFeature("Complex Texture Processor");
+        }
+    
 
-    public readonly OPENGL_OPTIONS: OpenGLFeature = new OpenGLFeature("OpenGL Options");
+    public static function getInstance():OpenGLFeatureFactory {
+        return OpenGLFeatureFactory.instance;
+    }
+    
 
-    public readonly OPENGL: OpenGLFeature = new OpenGLFeature("OpenGL");
-
-    public readonly OPENGL_SURFACE_VIEW: OpenGLFeature = new OpenGLFeature("GLSurfaceView");
-
-    public readonly OPENGL_2D: OpenGLFeature = new OpenGLFeature("OpenGL 2D");
-
-    public readonly OPENGL_3D: OpenGLFeature = new OpenGLFeature("OpenGL 3D");
-
-    public readonly OPENGL_2D_AND_3D: OpenGLFeature = new OpenGLFeature("OpenGL 2D/3D");
-
-    public readonly OPENGL_AUTO_SELECT: OpenGLFeature = new OpenGLFeature("Auto Select");
-
-    public readonly OPENGL_MINIMUM: OpenGLFeature = new OpenGLFeature("Minimum");
-
-    public readonly OPENGL_AS_GAME_THREAD: OpenGLFeature = new OpenGLFeature("As game thread");
-
-    public readonly OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS: OpenGLFeature = new OpenGLFeature("As different threads");
-
-    public readonly IMAGE_COLOR_DEPTH_4444: OpenGLFeature = new OpenGLFeature("4444");
-
-    public readonly IMAGE_COLOR_DEPTH_8888: OpenGLFeature = new OpenGLFeature("8888");
-
-    public readonly IMAGE_COLOR_DEPTH_565: OpenGLFeature = new OpenGLFeature("565");
-
-    public readonly OPENGL_COLOR_DEPTH_4444: OpenGLFeature = new OpenGLFeature("4444");
-
-    public readonly OPENGL_COLOR_DEPTH_8888: OpenGLFeature = new OpenGLFeature("8888");
-
-    public readonly OPENGL_COLOR_DEPTH_565: OpenGLFeature = new OpenGLFeature("565");
-
-    public readonly OPENGL_DRAW_TEXTURE: OpenGLFeature = new OpenGLFeature("GL_OES_draw_texture");
-
-    public readonly OPENGL_VERTEX_BUFFER_OBJECT: OpenGLFeature = new OpenGLFeature("vertex_buffer_object");
-
-    public readonly OPENGL_SIMPLE_OBJECT3D_PROCESSOR: OpenGLFeature = new OpenGLFeature("Simple Object3d Processor");
-
-    public readonly OPENGL_COMPLEX_OBJECT3D_PROCESSOR: OpenGLFeature = new OpenGLFeature("Complex Object3d Processor");
-
-    public readonly OPENGL_SIMPLE_TEXTURE_PROCESSOR: OpenGLFeature = new OpenGLFeature("Simple Texture Processor");
-
-    public readonly OPENGL_COMPLEX_TEXTURE_PROCESSOR: OpenGLFeature = new OpenGLFeature("Complex Texture Processor");
-
+    public function OpenGLFeatureFactory() {
+        super();
+        this.initFieldsOpenGLFeatureFactory();
+    }
+    }
 }
 

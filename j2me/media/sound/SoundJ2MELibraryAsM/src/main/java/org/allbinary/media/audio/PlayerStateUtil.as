@@ -1,154 +1,73 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.audio {
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PlayerStateUtil {
+    private static var instance_value:PlayerStateUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():PlayerStateUtil {
+        if (!PlayerStateUtil.instance_set) {
+            PlayerStateUtil.instance_set = true;
+            PlayerStateUtil.instance_value = new PlayerStateUtil();
+        }
+        return PlayerStateUtil.instance_value;
+    }
+        private var commonStrings:CommonStrings = null;
+        public var UNREALIZED:String = null;
+        public var REALIZED:String = null;
+        public var PREFETCHED:String = null;
+        public var STARTED:String = null;
+        public var CLOSED:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsPlayerStateUtil():void {
+    this.commonStrings = CommonStrings.getInstance();
+    this.UNREALIZED = "UNREALIZED";
+    this.REALIZED = "REALIZED";
+    this.PREFETCHED = "PREFETCHED";
+    this.STARTED = "STARTED";
+    this.CLOSED = "CLOSED";
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Player, PlayerI } from '../../../../javax/microedition/media/Player.js';
-//not GWT import const Player
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class PlayerStateUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: PlayerStateUtil = new PlayerStateUtil();
-
-    public static getInstance(): PlayerStateUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PlayerStateUtil.instance;
-    
-}
-
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    public readonly UNREALIZED: string = "UNREALIZED";
-
-    public readonly REALIZED: string = "REALIZED";
-
-    public readonly PREFETCHED: string = "PREFETCHED";
-
-    public readonly STARTED: string = "STARTED";
-
-    public readonly CLOSED: string = "CLOSED";
-
-    public convert(state: number): string{
-
-                        if(state == PlayerI.UNREALIZED)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.UNREALIZED;
+        public function PlayerStateUtil() {
+            super();
+            this.initFieldsPlayerStateUtil();
+        }
     
 
-                                    }
-                                
-                             else 
-                        if(state == PlayerI.REALIZED)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.REALIZED;
+    public static function getInstance():PlayerStateUtil {
+        return PlayerStateUtil.instance;
+    }
     
 
-                                    }
-                                
-                             else 
-                        if(state == PlayerI.PREFETCHED)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.PREFETCHED;
-    
-
-                                    }
-                                
-                             else 
-                        if(state == PlayerI.STARTED)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.STARTED;
-    
-
-                                    }
-                                
-                             else 
-                        if(state == PlayerI.CLOSED)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.CLOSED;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.commonStrings!.UNKNOWN;
-    
-}
-
-
+    public function convert(state:int):String {
+        if (state == Player.UNREALIZED) {
+            return this.UNREALIZED;
+        } else if (state == Player.REALIZED) {
+            return this.REALIZED;
+        } else if (state == Player.PREFETCHED) {
+            return this.PREFETCHED;
+        } else if (state == Player.STARTED) {
+            return this.STARTED;
+        } else if (state == Player.CLOSED) {
+            return this.CLOSED;
+        }
+        return this.commonStrings.UNKNOWN;
+    }
+    }
 }
 

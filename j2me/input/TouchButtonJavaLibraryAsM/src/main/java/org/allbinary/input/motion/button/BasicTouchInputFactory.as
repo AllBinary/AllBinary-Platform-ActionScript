@@ -1,248 +1,143 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
+    import org.allbinary.game.input.InputFactory;
+    import org.allbinary.game.input.mapping.InputToGameKeyMapping;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonLabels;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicTouchInputFactory {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!BasicTouchInputFactory.instance_set) {
+            BasicTouchInputFactory.instance_set = true;
+            BasicTouchInputFactory.instance_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return BasicTouchInputFactory.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        public var SPECIAL_BUTTON_SEVEN_TESTING_ONLY:TouchButtonInput = null;
+        public var SPECIAL_BUTTON_EIGHT_TESTING_ONLY:TouchButtonInput = null;
+        public var SPECIAL_BUTTON_SIX:TouchButtonInput = null;
+        public var SPECIAL_BUTTON_FIVE:TouchButtonInput = null;
+        public var SPECIAL_BUTTON_FOUR:TouchButtonInput = null;
+        public var SPECIAL_BUTTON_THREE:TouchButtonInput = null;
+        public var SPECIAL_BUTTON_TWO:TouchButtonInput = null;
+        public var SPECIAL_BUTTON_ONE:TouchButtonInput = null;
+        public var UP:TouchButtonInput = null;
+        public var LEFT:TouchButtonInput = null;
+        public var RIGHT:TouchButtonInput = null;
+        public var DOWN:TouchButtonInput = null;
+        public var NONE:TouchButtonInput = null;
+        private var initialized:Boolean = false;
+        private var list:BasicArrayList = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { InputFactory } from '../../../../../org/allbinary/game/input/InputFactory.js';
-//not GWT import const InputFactory
-
-import { InputToGameKeyMapping } from '../../../../../org/allbinary/game/input/mapping/InputToGameKeyMapping.js';
-//not GWT import const InputToGameKeyMapping
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TouchButtonInput } from './TouchButtonInput.js';
-//sameFolderImports - not GWT import - same folder const TouchButtonInput
-
-export class BasicTouchInputFactory
-            extends Object
-         {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): BasicTouchInputFactory{
-
-                        if(BasicTouchInputFactory.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    BasicTouchInputFactory.instance= new BasicTouchInputFactory();
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicTouchInputFactory():void {
+    this.logUtil = LogUtil.getInstance();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    this.initialized = false;
+    this.list = new BasicArrayListD();
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return BasicTouchInputFactory.instance as BasicTouchInputFactory;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    public readonly SPECIAL_BUTTON_SEVEN_TESTING_ONLY: TouchButtonInput;
-
-    public readonly SPECIAL_BUTTON_EIGHT_TESTING_ONLY: TouchButtonInput;
-
-    public readonly SPECIAL_BUTTON_SIX: TouchButtonInput;
-
-    public readonly SPECIAL_BUTTON_FIVE: TouchButtonInput;
-
-    public readonly SPECIAL_BUTTON_FOUR: TouchButtonInput;
-
-    public readonly SPECIAL_BUTTON_THREE: TouchButtonInput;
-
-    public readonly SPECIAL_BUTTON_TWO: TouchButtonInput;
-
-    public readonly SPECIAL_BUTTON_ONE: TouchButtonInput;
-
-    public readonly UP: TouchButtonInput;
-
-    public readonly LEFT: TouchButtonInput;
-
-    public readonly RIGHT: TouchButtonInput;
-
-    public readonly DOWN: TouchButtonInput;
-
-    public readonly NONE: TouchButtonInput;
-
-    private initialized: boolean = false;
-
-    private readonly list: BasicArrayList = new BasicArrayListD();
-
-private constructor (){
-
-            super();
-        
-    let MAX: number = InputFactory.getInstance()!.MAX;;
-    
-this.SPECIAL_BUTTON_SEVEN_TESTING_ONLY= new TouchButtonInput(MAX -41, "Button 7 - Testing Only May Cross Over Key Values");
-    
-this.SPECIAL_BUTTON_EIGHT_TESTING_ONLY= new TouchButtonInput(MAX -42, "Button 8 - Testing Only May Cross Over Key Values");
-    
-this.SPECIAL_BUTTON_SIX= new TouchButtonInput(MAX -30, "Button 6");
-    
-this.SPECIAL_BUTTON_FIVE= new TouchButtonInput(MAX -31, "Button 5");
-    
-this.SPECIAL_BUTTON_FOUR= new TouchButtonInput(MAX -32, "Button 4");
-    
-this.SPECIAL_BUTTON_THREE= new TouchButtonInput(MAX -33, "Button 3");
-    
-this.SPECIAL_BUTTON_TWO= new TouchButtonInput(MAX -34, "Button 2");
-    
-this.SPECIAL_BUTTON_ONE= new TouchButtonInput(MAX -35, "Button 1");
-    
-this.UP= new TouchButtonInput(MAX -36, "Up Button");
-    
-this.LEFT= new TouchButtonInput(MAX -37, "Left Button");
-    
-this.RIGHT= new TouchButtonInput(MAX -38, "Right Button");
-    
-this.DOWN= new TouchButtonInput(MAX -39, "Down Button");
-    
-this.NONE= new TouchButtonInput(MAX -40, "No Button");
-    
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public init(inputToGameKeyMapping: InputToGameKeyMapping){
-
-                        if(!this.initialized)
-                        
-                                    {
-                                    this.initialized= true;
-    
-this.list.add(this.UP);
-    
-this.list.add(this.LEFT);
-    
-this.list.add(this.RIGHT);
-    
-this.list.add(this.DOWN);
-    
-this.list.add(this.SPECIAL_BUTTON_TWO);
-    
-this.list.add(this.SPECIAL_BUTTON_FOUR);
-    
-this.list.add(this.SPECIAL_BUTTON_THREE);
-    
-this.list.add(this.SPECIAL_BUTTON_ONE);
-    
-this.list.add(this.SPECIAL_BUTTON_FIVE);
-    
-this.list.add(this.SPECIAL_BUTTON_SIX);
-    
-this.list.add(this.SPECIAL_BUTTON_SIX);
-    
-this.list.add(this.SPECIAL_BUTTON_SEVEN_TESTING_ONLY);
-    
-this.list.add(this.SPECIAL_BUTTON_EIGHT_TESTING_ONLY);
-    
-this.updateAllFromList(this.list, inputToGameKeyMapping);
+    public static function getInstance():BasicTouchInputFactory {
+        if (BasicTouchInputFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            BasicTouchInputFactory.instance = new BasicTouchInputFactory();
+        }
+        return (BasicTouchInputFactory.instance as BasicTouchInputFactory);
+    }
     
 
-                                    }
-                                
-}
-
-
-    public updateAll(inputToGameKeyMapping: InputToGameKeyMapping){
-this.updateAllFromList(this.list, inputToGameKeyMapping);
+    public function BasicTouchInputFactory() {
+        super();
+        this.initFieldsBasicTouchInputFactory();
+        var MAX:int = InputFactory.getInstance().MAX;
+        this.SPECIAL_BUTTON_SEVEN_TESTING_ONLY = new TouchButtonInput(int(MAX - 41), "Button 7 - Testing Only May Cross Over Key Values");
+        this.SPECIAL_BUTTON_EIGHT_TESTING_ONLY = new TouchButtonInput(int(MAX - 42), "Button 8 - Testing Only May Cross Over Key Values");
+        this.SPECIAL_BUTTON_SIX = new TouchButtonInput(int(MAX - 30), "Button 6");
+        this.SPECIAL_BUTTON_FIVE = new TouchButtonInput(int(MAX - 31), "Button 5");
+        this.SPECIAL_BUTTON_FOUR = new TouchButtonInput(int(MAX - 32), "Button 4");
+        this.SPECIAL_BUTTON_THREE = new TouchButtonInput(int(MAX - 33), "Button 3");
+        this.SPECIAL_BUTTON_TWO = new TouchButtonInput(int(MAX - 34), "Button 2");
+        this.SPECIAL_BUTTON_ONE = new TouchButtonInput(int(MAX - 35), "Button 1");
+        this.UP = new TouchButtonInput(int(MAX - 36), "Up Button");
+        this.LEFT = new TouchButtonInput(int(MAX - 37), "Left Button");
+        this.RIGHT = new TouchButtonInput(int(MAX - 38), "Right Button");
+        this.DOWN = new TouchButtonInput(int(MAX - 39), "Down Button");
+        this.NONE = new TouchButtonInput(int(MAX - 40), "No Button");
+    }
     
-}
 
-
-    public updateAllFromList(list: BasicArrayList, inputToGameKeyMapping: InputToGameKeyMapping){
-this.logUtil!.putF(new StringMaker().append(CommonLabels.getInstance()!.START_LABEL)!.appendint(list.size())!.toString(), this, "updateAll");
+    public function init(inputToGameKeyMapping:InputToGameKeyMapping):void {
+        if (!this.initialized) {
+            this.initialized = true;
+            this.list.add(this.UP);
+            this.list.add(this.LEFT);
+            this.list.add(this.RIGHT);
+            this.list.add(this.DOWN);
+            this.list.add(this.SPECIAL_BUTTON_TWO);
+            this.list.add(this.SPECIAL_BUTTON_FOUR);
+            this.list.add(this.SPECIAL_BUTTON_THREE);
+            this.list.add(this.SPECIAL_BUTTON_ONE);
+            this.list.add(this.SPECIAL_BUTTON_FIVE);
+            this.list.add(this.SPECIAL_BUTTON_SIX);
+            this.list.add(this.SPECIAL_BUTTON_SIX);
+            this.list.add(this.SPECIAL_BUTTON_SEVEN_TESTING_ONLY);
+            this.list.add(this.SPECIAL_BUTTON_EIGHT_TESTING_ONLY);
+            this.updateAllFromList(this.list, inputToGameKeyMapping);
+        }
+    }
     
 
-    let touchButtonInput: TouchButtonInput;;
+    public function updateAll(inputToGameKeyMapping:InputToGameKeyMapping):void {
+        this.updateAllFromList(this.list, inputToGameKeyMapping);
+    }
     
 
-
-
-
-                        for (
-    let index: number = list.size() -1;index >= 0; index--)
-        {
-touchButtonInput= list.objectArray[index]! as TouchButtonInput;
+    public function updateAllFromList(list:BasicArrayList, inputToGameKeyMapping:InputToGameKeyMapping):void {
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).appendint(list.size()).toString(), this, "updateAll");
+        var touchButtonInput:TouchButtonInput = null;
+        for (var index:int = int(list.size() - 1); index >= 0; index--) {
+            touchButtonInput = (list.objectArray[index] as TouchButtonInput);
+            touchButtonInput.update(inputToGameKeyMapping);
+        }
+    }
     
-touchButtonInput!.update(inputToGameKeyMapping);
-    
-}
 
-}
-
-
-    public getList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list;
-    
-}
-
-
+    public function getList():BasicArrayList {
+        return this.list;
+    }
+    }
 }
 

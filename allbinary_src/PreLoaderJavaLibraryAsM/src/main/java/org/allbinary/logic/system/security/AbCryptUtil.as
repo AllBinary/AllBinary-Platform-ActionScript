@@ -1,116 +1,66 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ * 
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ * 
+ * Created By: Travis Berthelot 
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.security {
+    import java.io.JByteArrayOutputStream;
+    import java.io.JInputStream;
+    import org.allbinary.logic.io.StreamUtil;
+    import org.allbinary.logic.system.security.crypt.jcehelper.AbCrypt;
+    import org.allbinary.logic.system.security.crypt.jcehelper.KeySpecFactory;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *  
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { ByteArrayOutputStream } from '../../../../../java/io/ByteArrayOutputStream.js';
-//not GWT import const ByteArrayOutputStream
-
-import { InputStream } from '../../../../../java/io/InputStream.js';
-//not GWT import const InputStream
-
-import { StreamUtil } from '../../../../../org/allbinary/logic/io/StreamUtil.js';
-//not GWT import const StreamUtil
-
-import { AbCrypt } from '../../../../../org/allbinary/logic/system/security/crypt/jcehelper/AbCrypt.js';
-//not GWT import const AbCrypt
-
-import { KeySpecFactory } from '../../../../../org/allbinary/logic/system/security/crypt/jcehelper/KeySpecFactory.js';
-//not GWT import const KeySpecFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AbCryptUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: AbCryptUtil = new AbCryptUtil();
-
-    public static getInstance(): AbCryptUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AbCryptUtil.instance;
-    
-}
-
-
-    private readonly streamUtil: StreamUtil = StreamUtil.getInstance()!;
-
-private constructor (){
-
-            super();
+    public class AbCryptUtil {
+    private static var instance_value:AbCryptUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():AbCryptUtil {
+        if (!AbCryptUtil.instance_set) {
+            AbCryptUtil.instance_set = true;
+            AbCryptUtil.instance_value = new AbCryptUtil();
         }
+        return AbCryptUtil.instance_value;
+    }
+        private var streamUtil:StreamUtil = null;
 
-
-                //@Throws(Exception.constructor)
-            
-    public decrypt(inputStream: InputStream, key: string): number[]{
-
-    let outputStream: ByteArrayOutputStream = 
-                null
-            ;;
+        // Java field initializers run after the base constructor
+        private function initFieldsAbCryptUtil():void {
+    this.streamUtil = StreamUtil.getInstance();
+        }
     
 
- try { outputStream= this.streamUtil!.get(inputStream, new ByteArrayOutputStream(), new Array(16384).fill(0)) as ByteArrayOutputStream;
+    public static function getInstance():AbCryptUtil {
+        return AbCryptUtil.instance;
+    }
     
 
-    let abCrypt: AbCrypt = new AbCrypt(KeySpecFactory.getInstance()!.DESEDE);;
-    
-abCrypt!.init(key);
+    public function AbCryptUtil() {
+        super();
+        this.initFieldsAbCryptUtil();
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return abCrypt!.decrypt(outputStream!.toByteArray());;
-    
- }
- finally { this.streamUtil!.close(outputStream);
-    
-this.streamUtil!.close(inputStream);
-    
- }
-}
-
-
+    public function decrypt(inputStream:InputStream, key:String):Vector.<int> {
+        var outputStream:JByteArrayOutputStream = null;
+        try {
+            outputStream = (this.streamUtil.get_(inputStream, new JByteArrayOutputStream(), new Vector.<int>(16384)) as JByteArrayOutputStream);
+            var abCrypt:AbCrypt = new AbCrypt(KeySpecFactory.getInstance().DESEDE);
+            abCrypt.init(key);
+            return abCrypt.decrypt(outputStream.toByteArray());
+        } finally {
+            this.streamUtil.close(outputStream);
+            this.streamUtil.close(inputStream);
+        }
+    }
+    }
 }
 

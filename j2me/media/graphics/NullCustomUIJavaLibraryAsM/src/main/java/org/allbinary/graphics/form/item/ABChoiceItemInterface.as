@@ -1,30 +1,7 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form.item {
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export interface ABChoiceItemInterface {
-        
-
+    public interface ABChoiceItemInterface {
+    }
 }
 

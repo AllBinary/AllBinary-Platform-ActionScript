@@ -1,420 +1,271 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-//not plain js import { PositionStrings } 
-const PositionStrings = globalThis.org.allbinary.math.PositionStrings;
-type PositionStrings<T = any, U = any> = typeof PositionStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PositionStrings;
-
-//not plain js import { CommonPhoneStrings } 
-const CommonPhoneStrings = globalThis.org.allbinary.string.CommonPhoneStrings;
-type CommonPhoneStrings<T = any, U = any> = typeof CommonPhoneStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonPhoneStrings;
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PCGameKey } from './PCGameKey.js';
-//sameFolderImports - not GWT import - same folder const PCGameKey
-import { Input } from './Input.js';
-//sameFolderImports - not GWT import - same folder const Input
-
-export class PCKeyFactory
-            extends Object
-         {
-        
-
-    private static readonly SINGLETON: PCKeyFactory = new PCKeyFactory();
-
-    public static getInstance(): PCKeyFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PCKeyFactory.SINGLETON;
-    
-}
-
-
-    public readonly UNKNOWN: PCGameKey = new PCGameKey(254, "UNKNOWN");
-
-    public readonly ENTER: PCGameKey = new PCGameKey(13, "Enter");
-
-    public readonly _A: PCGameKey = new PCGameKey(65, "A");
-
-    public readonly _B: PCGameKey = new PCGameKey(66, "B");
-
-    public readonly _C: PCGameKey = new PCGameKey(67, "C");
-
-    public readonly _D: PCGameKey = new PCGameKey(68, "D");
-
-    public readonly _E: PCGameKey = new PCGameKey(69, "E");
-
-    public readonly _F: PCGameKey = new PCGameKey(70, "F");
-
-    public readonly _G: PCGameKey = new PCGameKey(71, "G");
-
-    public readonly _H: PCGameKey = new PCGameKey(72, "H");
-
-    public readonly _I: PCGameKey = new PCGameKey(73, "I");
-
-    public readonly _J: PCGameKey = new PCGameKey(74, "J");
-
-    public readonly _K: PCGameKey = new PCGameKey(75, "K");
-
-    public readonly _L: PCGameKey = new PCGameKey(76, "L");
-
-    public readonly _M: PCGameKey = new PCGameKey(77, "M");
-
-    public readonly _N: PCGameKey = new PCGameKey(78, "N");
-
-    public readonly _O: PCGameKey = new PCGameKey(79, "O");
-
-    public readonly _P: PCGameKey = new PCGameKey(80, "P");
-
-    public readonly _Q: PCGameKey = new PCGameKey(81, "Q");
-
-    public readonly _R: PCGameKey = new PCGameKey(82, "R");
-
-    public readonly _S: PCGameKey = new PCGameKey(83, "S");
-
-    public readonly _T: PCGameKey = new PCGameKey(84, "T");
-
-    public readonly _U: PCGameKey = new PCGameKey(85, "U");
-
-    public readonly _V: PCGameKey = new PCGameKey(86, "V");
-
-    public readonly _W: PCGameKey = new PCGameKey(87, "W");
-
-    public readonly _X: PCGameKey = new PCGameKey(88, "X");
-
-    public readonly _Y: PCGameKey = new PCGameKey(89, "Y");
-
-    public readonly _Z: PCGameKey = new PCGameKey(90, "Z");
-
-    public readonly a: PCGameKey = new PCGameKey(97, "a");
-
-    public readonly b: PCGameKey = new PCGameKey(98, "b");
-
-    public readonly c: PCGameKey = new PCGameKey(99, "c");
-
-    public readonly d: PCGameKey = new PCGameKey(100, "d");
-
-    public readonly e: PCGameKey = new PCGameKey(101, "e");
-
-    public readonly f: PCGameKey = new PCGameKey(102, "f");
-
-    public readonly g: PCGameKey = new PCGameKey(103, "g");
-
-    public readonly h: PCGameKey = new PCGameKey(104, "h");
-
-    public readonly i: PCGameKey = new PCGameKey(105, "i");
-
-    public readonly j: PCGameKey = new PCGameKey(106, "j");
-
-    public readonly k: PCGameKey = new PCGameKey(107, "k");
-
-    public readonly l: PCGameKey = new PCGameKey(108, "l");
-
-    public readonly m: PCGameKey = new PCGameKey(109, "m");
-
-    public readonly n: PCGameKey = new PCGameKey(110, "n");
-
-    public readonly o: PCGameKey = new PCGameKey(111, "o");
-
-    public readonly p: PCGameKey = new PCGameKey(112, "p");
-
-    public readonly q: PCGameKey = new PCGameKey(113, "q");
-
-    public readonly r: PCGameKey = new PCGameKey(114, "r");
-
-    public readonly s: PCGameKey = new PCGameKey(115, "s");
-
-    public readonly t: PCGameKey = new PCGameKey(116, "t");
-
-    public readonly u: PCGameKey = new PCGameKey(117, "u");
-
-    public readonly v: PCGameKey = new PCGameKey(118, "v");
-
-    public readonly w: PCGameKey = new PCGameKey(119, "w");
-
-    public readonly x: PCGameKey = new PCGameKey(120, PositionStrings.getInstance()!.X);
-
-    public readonly y: PCGameKey = new PCGameKey(121, PositionStrings.getInstance()!.Y);
-
-    public readonly z: PCGameKey = new PCGameKey(122, "z");
-
-    public readonly ZERO: PCGameKey = new PCGameKey(48, CommonPhoneStrings.getInstance()!.ZERO);
-
-    public readonly ONE: PCGameKey = new PCGameKey(49, CommonPhoneStrings.getInstance()!.ONE);
-
-    public readonly TWO: PCGameKey = new PCGameKey(50, CommonPhoneStrings.getInstance()!.TWO);
-
-    public readonly THREE: PCGameKey = new PCGameKey(51, CommonPhoneStrings.getInstance()!.THREE);
-
-    public readonly FOUR: PCGameKey = new PCGameKey(52, CommonPhoneStrings.getInstance()!.FOUR);
-
-    public readonly FIVE: PCGameKey = new PCGameKey(53, CommonPhoneStrings.getInstance()!.FIVE);
-
-    public readonly SIX: PCGameKey = new PCGameKey(54, CommonPhoneStrings.getInstance()!.SIX);
-
-    public readonly SEVEN: PCGameKey = new PCGameKey(55, CommonPhoneStrings.getInstance()!.SEVEN);
-
-    public readonly EIGHT: PCGameKey = new PCGameKey(56, CommonPhoneStrings.getInstance()!.EIGHT);
-
-    public readonly NINE: PCGameKey = new PCGameKey(57, CommonPhoneStrings.getInstance()!.NINE);
-
-    public readonly DPAD_UP: PCGameKey = new PCGameKey(38, CommonPhoneStrings.getInstance()!.UP);
-
-    public readonly DPAD_DOWN: PCGameKey = new PCGameKey(40, CommonPhoneStrings.getInstance()!.DOWN);
-
-    public readonly DPAD_LEFT: PCGameKey = new PCGameKey(37, CommonPhoneStrings.getInstance()!.LEFT);
-
-    public readonly DPAD_RIGHT: PCGameKey = new PCGameKey(39, CommonPhoneStrings.getInstance()!.RIGHT);
-
-    public readonly DPAD_UP2: PCGameKey = this.DPAD_UP;
-
-    public readonly DPAD_DOWN2: PCGameKey = this.DPAD_DOWN;
-
-    public readonly DPAD_LEFT2: PCGameKey = this.DPAD_LEFT;
-
-    public readonly DPAD_RIGHT2: PCGameKey = this.DPAD_RIGHT;
-
-    public readonly COMMA: PCGameKey = new PCGameKey(44, "COMMA");
-
-    public readonly SPACE: PCGameKey = new PCGameKey(32, "SPACE");
-
-    public readonly DEL: PCGameKey = new PCGameKey(46, "DEL");
-
-    public readonly STAR: PCGameKey = new PCGameKey(42, CommonPhoneStrings.getInstance()!.STAR);
-
-    public readonly QUESTION: PCGameKey = new PCGameKey(47, "?");
-
-    public readonly PERIOD: PCGameKey = new PCGameKey(46, CommonSeps.getInstance()!.PERIOD);
-
-    public readonly ESCAPE: PCGameKey = new PCGameKey(27, "Esc");
-
-    public readonly BACK_SPACE: PCGameKey = new PCGameKey(8, "Backspace");
-
-    public isSubmission(input: Input): boolean{
-
-                        if(input == this.ENTER)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
+    import org.allbinary.math.PositionStrings;
+    import org.allbinary.string.CommonPhoneStrings;
+    import org.allbinary.string.CommonSeps;
+
+    public class PCKeyFactory {
+    private static var SINGLETON_value:PCKeyFactory;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():PCKeyFactory {
+        if (!PCKeyFactory.SINGLETON_set) {
+            PCKeyFactory.SINGLETON_set = true;
+            PCKeyFactory.SINGLETON_value = new PCKeyFactory();
+        }
+        return PCKeyFactory.SINGLETON_value;
+    }
+        public var UNKNOWN:PCGameKey = null;
+        public var ENTER:PCGameKey = null;
+        public var _A:PCGameKey = null;
+        public var _B:PCGameKey = null;
+        public var _C:PCGameKey = null;
+        public var _D:PCGameKey = null;
+        public var _E:PCGameKey = null;
+        public var _F:PCGameKey = null;
+        public var _G:PCGameKey = null;
+        public var _H:PCGameKey = null;
+        public var _I:PCGameKey = null;
+        public var _J:PCGameKey = null;
+        public var _K:PCGameKey = null;
+        public var _L:PCGameKey = null;
+        public var _M:PCGameKey = null;
+        public var _N:PCGameKey = null;
+        public var _O:PCGameKey = null;
+        public var _P:PCGameKey = null;
+        public var _Q:PCGameKey = null;
+        public var _R:PCGameKey = null;
+        public var _S:PCGameKey = null;
+        public var _T:PCGameKey = null;
+        public var _U:PCGameKey = null;
+        public var _V:PCGameKey = null;
+        public var _W:PCGameKey = null;
+        public var _X:PCGameKey = null;
+        public var _Y:PCGameKey = null;
+        public var _Z:PCGameKey = null;
+        public var a:PCGameKey = null;
+        public var b:PCGameKey = null;
+        public var c:PCGameKey = null;
+        public var d:PCGameKey = null;
+        public var e:PCGameKey = null;
+        public var f:PCGameKey = null;
+        public var g:PCGameKey = null;
+        public var h:PCGameKey = null;
+        public var i:PCGameKey = null;
+        public var j:PCGameKey = null;
+        public var k:PCGameKey = null;
+        public var l:PCGameKey = null;
+        public var m:PCGameKey = null;
+        public var n:PCGameKey = null;
+        public var o:PCGameKey = null;
+        public var p:PCGameKey = null;
+        public var q:PCGameKey = null;
+        public var r:PCGameKey = null;
+        public var s:PCGameKey = null;
+        public var t:PCGameKey = null;
+        public var u:PCGameKey = null;
+        public var v:PCGameKey = null;
+        public var w:PCGameKey = null;
+        public var x:PCGameKey = null;
+        public var y:PCGameKey = null;
+        public var z:PCGameKey = null;
+        public var ZERO:PCGameKey = null;
+        public var ONE:PCGameKey = null;
+        public var TWO:PCGameKey = null;
+        public var THREE:PCGameKey = null;
+        public var FOUR:PCGameKey = null;
+        public var FIVE:PCGameKey = null;
+        public var SIX:PCGameKey = null;
+        public var SEVEN:PCGameKey = null;
+        public var EIGHT:PCGameKey = null;
+        public var NINE:PCGameKey = null;
+        public var DPAD_UP:PCGameKey = null;
+        public var DPAD_DOWN:PCGameKey = null;
+        public var DPAD_LEFT:PCGameKey = null;
+        public var DPAD_RIGHT:PCGameKey = null;
+        public var DPAD_UP2:PCGameKey = null;
+        public var DPAD_DOWN2:PCGameKey = null;
+        public var DPAD_LEFT2:PCGameKey = null;
+        public var DPAD_RIGHT2:PCGameKey = null;
+        public var COMMA:PCGameKey = null;
+        public var SPACE:PCGameKey = null;
+        public var DEL:PCGameKey = null;
+        public var STAR:PCGameKey = null;
+        public var QUESTION:PCGameKey = null;
+        public var PERIOD:PCGameKey = null;
+        public var ESCAPE:PCGameKey = null;
+        public var BACK_SPACE:PCGameKey = null;
+
+        // Java field initializers run after the base constructor
+        private function initFieldsPCKeyFactory():void {
+    this.UNKNOWN = new PCGameKey(254, "UNKNOWN");
+    this.ENTER = new PCGameKey(13, "Enter");
+    this._A = new PCGameKey(65, "A");
+    this._B = new PCGameKey(66, "B");
+    this._C = new PCGameKey(67, "C");
+    this._D = new PCGameKey(68, "D");
+    this._E = new PCGameKey(69, "E");
+    this._F = new PCGameKey(70, "F");
+    this._G = new PCGameKey(71, "G");
+    this._H = new PCGameKey(72, "H");
+    this._I = new PCGameKey(73, "I");
+    this._J = new PCGameKey(74, "J");
+    this._K = new PCGameKey(75, "K");
+    this._L = new PCGameKey(76, "L");
+    this._M = new PCGameKey(77, "M");
+    this._N = new PCGameKey(78, "N");
+    this._O = new PCGameKey(79, "O");
+    this._P = new PCGameKey(80, "P");
+    this._Q = new PCGameKey(81, "Q");
+    this._R = new PCGameKey(82, "R");
+    this._S = new PCGameKey(83, "S");
+    this._T = new PCGameKey(84, "T");
+    this._U = new PCGameKey(85, "U");
+    this._V = new PCGameKey(86, "V");
+    this._W = new PCGameKey(87, "W");
+    this._X = new PCGameKey(88, "X");
+    this._Y = new PCGameKey(89, "Y");
+    this._Z = new PCGameKey(90, "Z");
+    this.a = new PCGameKey(97, "a");
+    this.b = new PCGameKey(98, "b");
+    this.c = new PCGameKey(99, "c");
+    this.d = new PCGameKey(100, "d");
+    this.e = new PCGameKey(101, "e");
+    this.f = new PCGameKey(102, "f");
+    this.g = new PCGameKey(103, "g");
+    this.h = new PCGameKey(104, "h");
+    this.i = new PCGameKey(105, "i");
+    this.j = new PCGameKey(106, "j");
+    this.k = new PCGameKey(107, "k");
+    this.l = new PCGameKey(108, "l");
+    this.m = new PCGameKey(109, "m");
+    this.n = new PCGameKey(110, "n");
+    this.o = new PCGameKey(111, "o");
+    this.p = new PCGameKey(112, "p");
+    this.q = new PCGameKey(113, "q");
+    this.r = new PCGameKey(114, "r");
+    this.s = new PCGameKey(115, "s");
+    this.t = new PCGameKey(116, "t");
+    this.u = new PCGameKey(117, "u");
+    this.v = new PCGameKey(118, "v");
+    this.w = new PCGameKey(119, "w");
+    this.x = new PCGameKey(120, PositionStrings.getInstance().X);
+    this.y = new PCGameKey(121, PositionStrings.getInstance().Y);
+    this.z = new PCGameKey(122, "z");
+    this.ZERO = new PCGameKey(48, CommonPhoneStrings.getInstance().ZERO);
+    this.ONE = new PCGameKey(49, CommonPhoneStrings.getInstance().ONE);
+    this.TWO = new PCGameKey(50, CommonPhoneStrings.getInstance().TWO);
+    this.THREE = new PCGameKey(51, CommonPhoneStrings.getInstance().THREE);
+    this.FOUR = new PCGameKey(52, CommonPhoneStrings.getInstance().FOUR);
+    this.FIVE = new PCGameKey(53, CommonPhoneStrings.getInstance().FIVE);
+    this.SIX = new PCGameKey(54, CommonPhoneStrings.getInstance().SIX);
+    this.SEVEN = new PCGameKey(55, CommonPhoneStrings.getInstance().SEVEN);
+    this.EIGHT = new PCGameKey(56, CommonPhoneStrings.getInstance().EIGHT);
+    this.NINE = new PCGameKey(57, CommonPhoneStrings.getInstance().NINE);
+    this.DPAD_UP = new PCGameKey(38, CommonPhoneStrings.getInstance().UP);
+    this.DPAD_DOWN = new PCGameKey(40, CommonPhoneStrings.getInstance().DOWN);
+    this.DPAD_LEFT = new PCGameKey(37, CommonPhoneStrings.getInstance().LEFT);
+    this.DPAD_RIGHT = new PCGameKey(39, CommonPhoneStrings.getInstance().RIGHT);
+    this.DPAD_UP2 = this.DPAD_UP;
+    this.DPAD_DOWN2 = this.DPAD_DOWN;
+    this.DPAD_LEFT2 = this.DPAD_LEFT;
+    this.DPAD_RIGHT2 = this.DPAD_RIGHT;
+    this.COMMA = new PCGameKey(44, "COMMA");
+    this.SPACE = new PCGameKey(32, "SPACE");
+    this.DEL = new PCGameKey(46, "DEL");
+    this.STAR = new PCGameKey(42, CommonPhoneStrings.getInstance().STAR);
+    this.QUESTION = new PCGameKey(47, "?");
+    this.PERIOD = new PCGameKey(46, CommonSeps.getInstance().PERIOD);
+    this.ESCAPE = new PCGameKey(27, "Esc");
+    this.BACK_SPACE = new PCGameKey(8, "Backspace");
+        }
+
+        public function PCKeyFactory() {
+            super();
+            this.initFieldsPCKeyFactory();
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public isDelete(input: Input): boolean{
-
-                        if(input == this.DEL)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public static function getInstance():PCKeyFactory {
+        return PCKeyFactory.SINGLETON;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public isBackSpace(input: Input): boolean{
-
-                        if(input == this.BACK_SPACE)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function isSubmission(input:Input):Boolean {
+        if (input === this.ENTER) {
+            return true;
+        }
+        return false;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public isUp(input: Input): boolean{
-
-                        if(input == this.DPAD_UP || input == this.DPAD_UP2)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function isDelete(input:Input):Boolean {
+        if (input === this.DEL) {
+            return true;
+        }
+        return false;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public isDown(input: Input): boolean{
-
-                        if(input == this.DPAD_DOWN || input == this.DPAD_DOWN2)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function isBackSpace(input:Input):Boolean {
+        if (input === this.BACK_SPACE) {
+            return true;
+        }
+        return false;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public isLeft(input: Input): boolean{
-
-                        if(input == this.DPAD_LEFT || input == this.DPAD_LEFT2)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function isUp(input:Input):Boolean {
+        if (input === this.DPAD_UP || input === this.DPAD_UP2) {
+            return true;
+        }
+        return false;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public isRight(input: Input): boolean{
-
-                        if(input == this.DPAD_RIGHT || input == this.DPAD_RIGHT2)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function isDown(input:Input):Boolean {
+        if (input === this.DPAD_DOWN || input === this.DPAD_DOWN2) {
+            return true;
+        }
+        return false;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public isEnter(input: Input): boolean{
-
-                        if(input == this.ENTER)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function isLeft(input:Input):Boolean {
+        if (input === this.DPAD_LEFT || input === this.DPAD_LEFT2) {
+            return true;
+        }
+        return false;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function isRight(input:Input):Boolean {
+        if (input === this.DPAD_RIGHT || input === this.DPAD_RIGHT2) {
+            return true;
+        }
+        return false;
+    }
     
-}
 
-
+    public function isEnter(input:Input):Boolean {
+        if (input === this.ENTER) {
+            return true;
+        }
+        return false;
+    }
+    }
 }
 

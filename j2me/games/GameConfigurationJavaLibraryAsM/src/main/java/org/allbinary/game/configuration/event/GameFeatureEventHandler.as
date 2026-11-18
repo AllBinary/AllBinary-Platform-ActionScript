@@ -1,88 +1,49 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.event {
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventListenerInterface;
+    import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { AllBinaryEventObject } from '../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventListenerInterface } from '../../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
-//not GWT import const EventListenerInterface
-
-import { BasicEventHandler } from '../../../../../org/allbinary/logic/util/event/handler/BasicEventHandler.js';
-//not GWT import const BasicEventHandler
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameFeatureListenerInterface } from './GameFeatureListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const GameFeatureListenerInterface
-import { GameFeatureEvent } from './GameFeatureEvent.js';
-//sameFolderImports - not GWT import - same folder const GameFeatureEvent
-
-export class GameFeatureEventHandler extends BasicEventHandler {
-        
-
-    private static readonly gameKeyEventHandler: GameFeatureEventHandler = new GameFeatureEventHandler();
-
-    public static getInstance(): GameFeatureEventHandler{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameFeatureEventHandler.gameKeyEventHandler;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class GameFeatureEventHandler extends BasicEventHandler {
+    private static var gameKeyEventHandler_value:GameFeatureEventHandler;
+    private static var gameKeyEventHandler_set:Boolean = false;
+    private static function get gameKeyEventHandler():GameFeatureEventHandler {
+        if (!GameFeatureEventHandler.gameKeyEventHandler_set) {
+            GameFeatureEventHandler.gameKeyEventHandler_set = true;
+            GameFeatureEventHandler.gameKeyEventHandler_value = new GameFeatureEventHandler();
         }
-
-
-                //@Throws(Exception.constructor)
-            
-    process(eventObject: AllBinaryEventObject, eventListenerInterface: EventListenerInterface){
-
-    let gameFeatureListenerInterface: GameFeatureListenerInterface = (eventListenerInterface as GameFeatureListenerInterface);;
+        return GameFeatureEventHandler.gameKeyEventHandler_value;
+    }
     
-gameFeatureListenerInterface!.onGameFeatureChange(eventObject as GameFeatureEvent);
+
+    public function GameFeatureEventHandler() {
+        super();
+    }
     
-}
 
+    public static function getInstance():GameFeatureEventHandler {
+        return GameFeatureEventHandler.gameKeyEventHandler;
+    }
+    
 
+    override public function process(eventObject:AllBinaryEventObject, eventListenerInterface:EventListenerInterface):void {
+        var gameFeatureListenerInterface:GameFeatureListenerInterface = ((eventListenerInterface as GameFeatureListenerInterface));
+        gameFeatureListenerInterface.onGameFeatureChange((eventObject as GameFeatureEvent));
+    }
+    }
 }
 

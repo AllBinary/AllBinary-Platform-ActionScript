@@ -1,254 +1,109 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.string.tokens {
+    import org.allbinary.TsUtil;
+    import org.allbinary.logic.StdUtil;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.util.ABHashtable;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class Tokenizer {
+        private var sep:String = null;
+        private var endSep:String = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { TsUtil } from '../../../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class Tokenizer
-            extends Object
-         {
-        
-
-    private sep: string;
-
-    private endSep: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-public constructor (sep: string){
-
-            super();
-        
-                        if(TsUtil.getInstance()!.compareTo(sep, StringUtil.getInstance()!.EMPTY_STRING) == 0)
-                        
-                                    {
-                                    
-
-
-                            throw new Exception("Sep provided is not valid");
-                    
-
-                                    }
-                                
-this.sep= sep;
+        // Java field initializers run after the base constructor
+        private function initFieldsTokenizer():void {
     
-}
-
-
-    public setSep(sep: string){
-this.sep= sep;
-    
-}
-
-
-    public setEndSep(endSep: string){
-this.endSep= endSep;
-    
-}
-
-
-    public getInsideSep(string: string): BasicArrayList{
-
-    let tokenList: BasicArrayList = new BasicArrayListD();;
+    this.endSep = StringUtil.getInstance().EMPTY_STRING;
+        }
     
 
-    let index: number = 0;;
+    public function Tokenizer(sep:String) {
+        super();
+        this.initFieldsTokenizer();
+        if (TsUtil.getInstance().compareTo(sep, StringUtil.getInstance().EMPTY_STRING) == 0) {
+            throw new JException("Exception", "Sep provided is not valid");
+        }
+        this.sep = sep;
+    }
     
 
-    let size: number = string.length!;;
+    public function setSep(sep:String):void {
+        this.sep = sep;
+    }
     
 
-        while(index < size)
-        {
-index= string.indexOf(this.sep, index);
+    public function setEndSep(endSep:String):void {
+        this.endSep = endSep;
+    }
     
 
-                        if(index !=  -1)
-                        
-                                    {
-                                    
-    let end: number = string.indexOf(this.endSep, index +this.sep.length)!;;
+    public function getInsideSep(string:String):BasicArrayList {
+        var tokenList:BasicArrayList = new BasicArrayListD();
+        var index:int = 0;
+        var size:int = string.length;
+        while (index < size) {
+            index = JString.indexOf(string, this.sep, index);
+            if (index != -1) {
+                var end:int = JString.indexOf(string, this.endSep, int(index + this.sep.length));
+                if (end != -1) {
+                    tokenList.add(string.substring(int(index + this.sep.length), int(end - (int(this.endSep.length - 1)))));
+                    index = int(end + this.endSep.length);
+                } else {
+                }
+            } else {
+                break;
+            }
+        }
+        return tokenList;
+    }
     
 
-                        if(end !=  -1)
-                        
-                                    {
-                                    tokenList!.add(string.substring(index +this.sep.length, end -(this.endSep!.length -1)));
-    
-index= end +this.endSep!.length;
-    
-
-                                    }
-                                
-                        else {
-                            
-                        }
-                            
-
-                                    }
-                                
-                        else {
-                            break;
-
-                    
-
-                        }
-                            
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return tokenList;
-    
-}
-
-
-    public getTokensFromString(string: string, tokenVector: BasicArrayList): BasicArrayList{
-
-    let index: number = 0;;
+    public function getTokensFromString(string:String, tokenVector:BasicArrayList):BasicArrayList {
+        var index:int = 0;
+        var end:int = 0;
+        while (index < string.length) {
+            end = JString.indexOf(string, this.sep, index);
+            if (end != -1) {
+                tokenVector.add(string.substring(index, end));
+                index = int(end + this.sep.length);
+            } else {
+                tokenVector.add(string.substring(index, string.length));
+                break;
+            }
+        }
+        return tokenVector;
+    }
     
 
-    let end: number = 0;;
-    
-
-        while(index < string.length)
-        {
-end= string.indexOf(this.sep, index);
-    
-
-                        if(end !=  -1)
-                        
-                                    {
-                                    tokenVector!.add(string.substring(index, end));
-    
-index= end +this.sep.length;
-    
-
-                                    }
-                                
-                        else {
-                            tokenVector!.add(string.substring(index, string.length));
-    
-break;
-
-                    
-
-                        }
-                            
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return tokenVector;
-    
-}
-
-
-    public getTokens(stringVector: BasicArrayList): ABHashtable<any, any>{
-
-    let tokenHashtable: ABHashtable<any, any> = StdUtil.getInstance()!.createHashtable()!;;
-    
-
-    let string: string = StringUtil.getInstance()!.EMPTY_STRING;;
-    
-
-    let end: number = 0;;
-    
-
-    let size: number = stringVector!.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-string= stringVector!.objectArray[index]! as string;
-    
-end= string.indexOf(this.sep);
-    
-
-                        if(end >= 0)
-                        
-                                    {
-                                    tokenHashtable!.put(string.substring(0, end), string.substring(end +1, string.length));
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return tokenHashtable;
-    
-}
-
-
+    public function getTokens(stringVector:BasicArrayList):ABHashtable {
+        var tokenHashtable:ABHashtable = StdUtil.getInstance().createHashtable();
+        var string:String = StringUtil.getInstance().EMPTY_STRING;
+        var end:int = 0;
+        var size:int = stringVector.size();
+        for (var index:int = 0; index < size; index++) {
+            string = (stringVector.objectArray[index] as String);
+            end = JString.indexOf(string, this.sep);
+            if (end >= 0) {
+                tokenHashtable.put(string.substring(0, end), string.substring(int(end + 1), string.length));
+            }
+        }
+        return tokenHashtable;
+    }
+    }
 }
 

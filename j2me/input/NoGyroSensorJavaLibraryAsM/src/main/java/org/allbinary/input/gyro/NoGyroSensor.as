@@ -1,82 +1,38 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.gyro {
+    import org.allbinary.input.AllBinarySensorListener;
+    import org.allbinary.logic.math.Orientation;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AllBinarySensorListener } from '../../../../org/allbinary/input/AllBinarySensorListener.js';
-//not GWT import const AllBinarySensorListener
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { Orientation } from '../../../../org/allbinary/logic/math/Orientation.js';
-//not GWT import const Orientation
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AllBinaryOrientationSensor } from './AllBinaryOrientationSensor.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryOrientationSensor
-
-export class NoGyroSensor extends AllBinaryOrientationSensor implements AllBinarySensorListener {
-        
-
-public constructor (){
-
-            super();
-        this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    public class NoGyroSensor extends AllBinaryOrientationSensor implements AllBinarySensorListener {
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public getOrientation(): Orientation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return Orientation.NONE;
+    public function NoGyroSensor() {
+        super();
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+    }
     
-}
 
+    override public function getOrientation():Orientation {
+        return Orientation.NONE;
+    }
+    
 
-    public onSensorChange(){
-}
-
-
+    override public function onSensorChange():void {
+    }
+    }
 }
 

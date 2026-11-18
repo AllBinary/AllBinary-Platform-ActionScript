@@ -1,145 +1,74 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package javax.microedition.lcdui {
+    import org.allbinary.logic.NullUtil;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { RuntimeException } from '../../../java/lang/RuntimeException.js';
-        
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { NullImage } from './NullImage.js';
-//sameFolderImports - not GWT import - same folder const NullImage
-import { Image } from './Image.js';
-//sameFolderImports - not GWT import - same folder const Image
-import { Graphics } from './Graphics.js';
-//sameFolderImports - not GWT import - same folder const Graphics
-//PlatformNullImageJavaLibrary
-export class PlatformImage
-            extends Object
-         {
-        
-
-    public getImage(graphicsSurface2: any): any{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullImage.NULL_IMAGE;
+    //PlatformNullImageJavaLibrary
+    public class PlatformImage {
     
-}
 
-
-    public getSurfaceWidth(graphicsSurface2: any, width: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return width;
+    public function getImage(graphicsSurface2:Object):Object {
+        return NullImage.NULL_IMAGE;
+    }
     
-}
 
-
-    public getSurfaceHeight(graphicsSurface2: any, height: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return height;
+    public function getSurfaceWidth(graphicsSurface2:Object, width:int):int {
+        return width;
+    }
     
-}
 
-
-    public getWidth(image: Image, width: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return width;
+    public function getSurfaceHeight(graphicsSurface2:Object, height:int):int {
+        return height;
+    }
     
-}
 
-
-    public getHeight(image: Image, height: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return height;
+    public function getWidth(image:Image, width:int):int {
+        return width;
+    }
     
-}
 
-
-    public getGraphics(graphicsSurface: any, width: number, height: number, image: Image): Graphics{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public drawImage(image: Image, x: number, y: number, anchor: number, g2: Graphics, g: any){
-}
-
-
-    public drawRegion(image: Image, x_src: number, y_src: number, width: number, height: number, transform: number, x_dst: number, y_dst: number, anchor: number, g: Graphics){
-}
-
-
-    public getRGB(argb: number[], offset: number, scanlength: number, x: number, y: number, width: number, height: number, image: Image){
-}
-
-
-    public setRGB(argb: number[], offset: number, scanlength: number, x: number, y: number, width: number, height: number, image: Image){
-}
-
-
-    public getData(image: Image): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullUtil.getInstance()!.NULL_INT_ARRAY;
+    public function getHeight(image:Image, height:int):int {
+        return height;
+    }
     
-}
 
+    public function getGraphics(graphicsSurface:Object, width:int, height:int, image:Image):Graphics {
+        throw new JException("RuntimeException", "");
+    }
+    
 
+    public function drawImage(image:Image, x:int, y:int, anchor:int, g2:Graphics, g:Object):void {
+    }
+    
+
+    public function drawRegion(image:Image, x_src:int, y_src:int, width:int, height:int, transform:int, x_dst:int, y_dst:int, anchor:int, g:Graphics):void {
+    }
+    
+
+    public function getRGB(argb:Vector.<int>, offset:int, scanlength:int, x:int, y:int, width:int, height:int, image:Image):void {
+    }
+    
+
+    public function setRGB(argb:Vector.<int>, offset:int, scanlength:int, x:int, y:int, width:int, height:int, image:Image):void {
+    }
+    
+
+    public function getData(image:Image):Vector.<int> {
+        return NullUtil.getInstance().NULL_INT_ARRAY;
+    }
+    }
 }
 

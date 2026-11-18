@@ -1,103 +1,53 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer {
+    import org.allbinary.graphics.paint.Paintable;
+    import org.allbinary.graphics.paint.PaintableInterface;
+    import org.allbinary.layer.Layer;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PaintableLayerComposite extends Paintable {
+        private var paintableArray:Vector.<Layer> = null;
 
-        
-
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Paintable } from '../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-import { PaintableInterface } from '../../../../org/allbinary/graphics/paint/PaintableInterface.js';
-//not GWT import const PaintableInterface
-
-import { Layer } from '../../../../org/allbinary/layer/Layer.js';
-//not GWT import const Layer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class PaintableLayerComposite extends Paintable {
-        
-
-    private readonly paintableArray: Layer[];
-
-public constructor (paintableArray: Layer[]){
-
-            super();
-        this.paintableArray= paintableArray;
+        // Java field initializers run after the base constructor
+        private function initFieldsPaintableLayerComposite():void {
     
-}
-
-
-    public paint(graphics: Graphics){
-
-
-
-
-                        for (
-    let index: number = this.paintableArray!.length
-                ;--index >= 0; )
-        {
-this.paintableArray[index]!.paint(graphics);
-    
-}
-
-}
-
-
-    public paintThreed(graphics: Graphics){
-
-    let paintableInterface: PaintableInterface;;
+        }
     
 
-
-
-
-                        for (
-    let index: number = this.paintableArray!.length
-                ;--index >= 0; )
-        {
-paintableInterface= this.paintableArray[index]! as PaintableInterface;
+    public function PaintableLayerComposite(paintableArray:Vector.<Layer>) {
+        super();
+        this.initFieldsPaintableLayerComposite();
+        this.paintableArray = paintableArray;
+    }
     
-paintableInterface!.paintThreed(graphics);
+
+    override public function paint(graphics:Graphics):void {
+        for (var index:int = this.paintableArray.length; --index >= 0; ) {
+            this.paintableArray[index].paint(graphics);
+        }
+    }
     
-}
 
-}
-
-
+    override public function paintThreed(graphics:Graphics):void {
+        var paintableInterface:PaintableInterface = null;
+        for (var index:int = this.paintableArray.length; --index >= 0; ) {
+            paintableInterface = (this.paintableArray[index] as PaintableInterface);
+            paintableInterface.paintThreed(graphics);
+        }
+    }
+    }
 }
 

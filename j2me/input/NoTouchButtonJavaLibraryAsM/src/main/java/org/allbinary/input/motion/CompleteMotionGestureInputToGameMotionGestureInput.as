@@ -1,76 +1,53 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion {
+    import org.allbinary.logic.communication.log.PreLogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CompleteMotionGestureInputToGameMotionGestureInput {
+    private static var instance_value:CompleteMotionGestureInputToGameMotionGestureInput;
+    private static var instance_set:Boolean = false;
+    private static function get instance():CompleteMotionGestureInputToGameMotionGestureInput {
+        if (!CompleteMotionGestureInputToGameMotionGestureInput.instance_set) {
+            CompleteMotionGestureInputToGameMotionGestureInput.instance_set = true;
+            CompleteMotionGestureInputToGameMotionGestureInput.instance_value = new CompleteMotionGestureInputToGameMotionGestureInput();
+        }
+        return CompleteMotionGestureInputToGameMotionGestureInput.instance_value;
+    }
+        public var commonStrings:CommonStrings = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsCompleteMotionGestureInputToGameMotionGestureInput():void {
+    this.commonStrings = CommonStrings.getInstance();
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class CompleteMotionGestureInputToGameMotionGestureInput
-            extends Object
-         {
-        
-
-    private static readonly instance: CompleteMotionGestureInputToGameMotionGestureInput = new CompleteMotionGestureInputToGameMotionGestureInput();
-
-    public static getInstance(): CompleteMotionGestureInputToGameMotionGestureInput{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return CompleteMotionGestureInputToGameMotionGestureInput.instance;
+        public function CompleteMotionGestureInputToGameMotionGestureInput() {
+            super();
+            this.initFieldsCompleteMotionGestureInputToGameMotionGestureInput();
+        }
     
-}
 
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    public init(){
-PreLogUtil.put("No Touch Button = No Compound Motion Gestures", this, this.commonStrings!.INIT);
+    public static function getInstance():CompleteMotionGestureInputToGameMotionGestureInput {
+        return CompleteMotionGestureInputToGameMotionGestureInput.instance;
+    }
     
-}
 
-
+    public function init():void {
+        PreLogUtil.put("No Touch Button = No Compound Motion Gestures", this, this.commonStrings.INIT);
+    }
+    }
 }
 

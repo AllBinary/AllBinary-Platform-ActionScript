@@ -1,149 +1,80 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics {
+    import org.allbinary.graph.V;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonSeps;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CellPosition extends V {
+        private var id:int = 0;
+        private var column:int = 0;
+        private var row:int = 0;
 
-        
-
-
-import { V } from '../../../org/allbinary/graph/V.js';
-//not GWT import const V
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class CellPosition extends V {
-        
-
-    public static toStringCellPosition(basicGeographicMapCellPosition: CellPosition): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return CellPosition.toStringColRow(basicGeographicMapCellPosition!.getColumn(), basicGeographicMapCellPosition!.getRow());;
+        // Java field initializers run after the base constructor
+        private function initFieldsCellPosition():void {
     
-}
-
-
-    public static toStringColRow(i_column: number, i_row: number): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
+    
+    
+        }
     
 
-    let commonSeps: CommonSeps = CommonSeps.getInstance()!;;
-    
-stringBuffer!.append(commonSeps!.PARENTHESIS_OPEN);
-    
-stringBuffer!.appendint(i_column);
-    
-stringBuffer!.append(commonSeps!.COMMA);
-    
-stringBuffer!.appendint(i_row);
-    
-stringBuffer!.append(commonSeps!.PARENTHESIS_CLOSE);
+    public function CellPosition(column:int, row:int, columns:int, rows:int) {
+        super();
+        this.initFieldsCellPosition();
+        this.column = column;
+        this.row = row;
+        this.id = int((int(row * columns)) + column);
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    public function getColumn():int {
+        return this.column;
+    }
     
-}
 
-
-    private readonly id: number;
-
-    private readonly column: number;
-
-    private readonly row: number;
-
-public constructor (column: number, row: number, columns: number, rows: number){
-
-            super();
-        this.column= column;
+    public function getRow():int {
+        return this.row;
+    }
     
-this.row= row;
+
+    public function toString():String {
+        return CellPosition.toStringColRow(this.getColumn(), this.getRow());
+    }
     
-this.id= (row *columns) +column;
+
+    public static function toStringCellPosition(basicGeographicMapCellPosition:CellPosition):String {
+        return CellPosition.toStringColRow(basicGeographicMapCellPosition.getColumn(), basicGeographicMapCellPosition.getRow());
+    }
     
-}
 
-
-    public getColumn(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.column;
+    public static function toStringColRow(i_column:int, i_row:int):String {
+        var stringBuffer:StringMaker = new StringMaker();
+        var commonSeps:CommonSeps = CommonSeps.getInstance();
+        stringBuffer.append(commonSeps.PARENTHESIS_OPEN);
+        stringBuffer.appendint(i_column);
+        stringBuffer.append(commonSeps.COMMA);
+        stringBuffer.appendint(i_row);
+        stringBuffer.append(commonSeps.PARENTHESIS_CLOSE);
+        return stringBuffer.toString();
+    }
     
-}
 
-
-    public getRow(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.row;
-    
-}
-
-
-    public toString(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return CellPosition.toStringColRow(this.getColumn(), this.getRow());;
-    
-}
-
-
-    public getId(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.id;
-    
-}
-
-
+    override public function getId():int {
+        return this.id;
+    }
+    }
 }
 

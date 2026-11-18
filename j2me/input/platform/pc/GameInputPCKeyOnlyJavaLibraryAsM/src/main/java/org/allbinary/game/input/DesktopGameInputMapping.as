@@ -1,61 +1,27 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
+    import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { InputToGameKeyMapping } from '../../../../org/allbinary/game/input/mapping/InputToGameKeyMapping.js';
-//not GWT import const InputToGameKeyMapping
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PCGameInputMapping } from './PCGameInputMapping.js';
-//sameFolderImports - not GWT import - same folder const PCGameInputMapping
-import { DesktopDefaultGameInputMapping } from './DesktopDefaultGameInputMapping.js';
-//sameFolderImports - not GWT import - same folder const DesktopDefaultGameInputMapping
-
-export class DesktopGameInputMapping extends PCGameInputMapping {
-        
-
-    getDefault(): InputToGameKeyMapping{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new DesktopDefaultGameInputMapping().getInputMapping();;
+    public class DesktopGameInputMapping extends PCGameInputMapping {
     
-}
 
-
+    override public function getDefault():InputToGameKeyMapping {
+        return new DesktopDefaultGameInputMapping().getInputMapping();
+    }
+    }
 }
 

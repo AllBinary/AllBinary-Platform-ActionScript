@@ -1,53 +1,30 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.device {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-import { GL10 } from '../../../javax/microedition/khronos/opengles/GL10.js';
-//not GWT import const GL10
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class NullGL10
-            extends Object
-         implements GL10 {
-        
-
-    public static readonly NULL_GL10: NullGL10 = new NullGL10();
-
+    public class NullGL10 implements GL10 {
+    private static var NULL_GL10_value:NullGL10;
+    private static var NULL_GL10_set:Boolean = false;
+    public static function get NULL_GL10():NullGL10 {
+        if (!NullGL10.NULL_GL10_set) {
+            NullGL10.NULL_GL10_set = true;
+            NullGL10.NULL_GL10_value = new NullGL10();
+        }
+        return NullGL10.NULL_GL10_value;
+    }
+    }
 }
 

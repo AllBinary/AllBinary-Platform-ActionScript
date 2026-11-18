@@ -1,251 +1,149 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.game.state.GameState;
+    import org.allbinary.game.state.GameStateFactory;
+    import org.allbinary.logic.StdUtil;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.util.ABHashtable;
+    import java.lang.JThread;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class NullGameCanvasRunnable implements GameCanvasRunnableInterface {
+    private static var NULL_GAME_CANVAS_RUNNABLE_value:NullGameCanvasRunnable;
+    private static var NULL_GAME_CANVAS_RUNNABLE_set:Boolean = false;
+    public static function get NULL_GAME_CANVAS_RUNNABLE():NullGameCanvasRunnable {
+        if (!NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE_set) {
+            NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE_set = true;
+            NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE_value = new NullGameCanvasRunnable();
+        }
+        return NullGameCanvasRunnable.NULL_GAME_CANVAS_RUNNABLE_value;
+    }
+        public var gameStateFactory:GameStateFactory = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsNullGameCanvasRunnable():void {
+    this.gameStateFactory = GameStateFactory.getInstance();
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-            import { Thread } from '../../../../../java/lang/Thread.js';
-        
-import { CommandListener } from '../../../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
-
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Item } from '../../../../../javax/microedition/lcdui/Item.js';
-//not GWT import const Item
-
-import { GameState } from '../../../../../org/allbinary/game/state/GameState.js';
-//not GWT import const GameState
-
-import { GameStateFactory } from '../../../../../org/allbinary/game/state/GameStateFactory.js';
-//not GWT import const GameStateFactory
-
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameCanvasRunnableInterface } from './GameCanvasRunnableInterface.js';
-//sameFolderImports - not GWT import - same folder const GameCanvasRunnableInterface
-
-export class NullGameCanvasRunnable
-            extends Object
-         implements GameCanvasRunnableInterface {
-        
-
-    public static readonly NULL_GAME_CANVAS_RUNNABLE: NullGameCanvasRunnable = new NullGameCanvasRunnable();
-
-    readonly gameStateFactory: GameStateFactory = GameStateFactory.getInstance()!;
-
-    public getTitle(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StringUtil.getInstance()!.EMPTY_STRING;
+        public function NullGameCanvasRunnable() {
+            super();
+            this.initFieldsNullGameCanvasRunnable();
+        }
     
-}
 
-
-    public isInitialized(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function getTitle():String {
+        return StringUtil.getInstance().EMPTY_STRING;
+    }
     
-}
 
-
-    public isPaused(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function isInitialized():Boolean {
+        return false;
+    }
     
-}
 
-
-    public unPause(){
-}
-
-
-    public pause(){
-}
-
-
-    public isHighScoreSubmitted(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function isPaused():Boolean {
+        return false;
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public setHighScoreSubmitted(highScoreSubmitted: boolean){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processGameOver(){
-}
-
-
-    public isGameOver(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function unPause():void {
+    }
     
-}
 
-
-    public initCommands(cmdListener: CommandListener){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getCurrentStateHashtable(): ABHashtable<any, any>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StdUtil.getInstance()!.NULL_TABLE;
+    public function pause():void {
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public getLoadStateHashtable(): ABHashtable<any, any>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StdUtil.getInstance()!.NULL_TABLE;
+    public function isHighScoreSubmitted():Boolean {
+        return false;
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public setLoadStateHashtable(hashtable: ABHashtable<any, any>){
-}
-
-
-    public getType(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return  -1;
+    public function setHighScoreSubmitted(highScoreSubmitted:Boolean):void {
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public setGameState(gameState: GameState){
-}
-
-
-    public getGameState(): GameState{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gameStateFactory!.NO_GAME_STATE;
+    public function processGameOver():void {
+    }
     
-}
 
-
-    public itemStateChanged(item: Item){
-}
-
-
-    public paint(graphics: Graphics){
-}
-
-
-    public paintThreed(graphics: Graphics){
-}
-
-
-    public isRunning(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function isGameOver():Boolean {
+        return false;
+    }
     
-}
 
+    public function initCommands(cmdListener:CommandListener):void {
+    }
+    
 
-    public setRunning(isRunning: boolean){
-}
+    public function getCurrentStateHashtable():ABHashtable {
+        return StdUtil.getInstance().NULL_TABLE;
+    }
+    
 
+    public function getLoadStateHashtable():ABHashtable {
+        return StdUtil.getInstance().NULL_TABLE;
+    }
+    
 
-                //@Throws(Exception.constructor)
-            
-    public setThread(thread: Thread){
-}
+    public function setLoadStateHashtable(hashtable:ABHashtable):void {
+    }
+    
 
+    public function getType():int {
+        return -1;
+    }
+    
 
-    public run(){
-}
+    public function setGameState(gameState:GameState):void {
+    }
+    
 
+    public function getGameState():GameState {
+        return this.gameStateFactory.NO_GAME_STATE;
+    }
+    
 
+    public function itemStateChanged(item:Item):void {
+    }
+    
+
+    public function paint(graphics:Graphics):void {
+    }
+    
+
+    public function paintThreed(graphics:Graphics):void {
+    }
+    
+
+    public function isRunning():Boolean {
+        return false;
+    }
+    
+
+    public function setRunning(isRunning:Boolean):void {
+    }
+    
+
+    public function setThread(thread:JThread):void {
+    }
+    
+
+    public function run():void {
+    }
+    }
 }
 

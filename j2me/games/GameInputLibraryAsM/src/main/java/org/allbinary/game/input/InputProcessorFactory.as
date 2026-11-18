@@ -1,74 +1,51 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class InputProcessorFactory {
+    private static var instance_value:InputProcessorFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():InputProcessorFactory {
+        if (!InputProcessorFactory.instance_set) {
+            InputProcessorFactory.instance_set = true;
+            InputProcessorFactory.instance_value = new InputProcessorFactory();
+        }
+        return InputProcessorFactory.instance_value;
+    }
+        private var inputProcessor:InputProcessor = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsInputProcessorFactory():void {
+    this.inputProcessor = new InputProcessor();
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { InputProcessor } from './InputProcessor.js';
-//sameFolderImports - not GWT import - same folder const InputProcessor
-
-export class InputProcessorFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: InputProcessorFactory = new InputProcessorFactory();
-
-    public static getInstance(): InputProcessorFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return InputProcessorFactory.instance;
+        public function InputProcessorFactory() {
+            super();
+            this.initFieldsInputProcessorFactory();
+        }
     
-}
 
-
-    private readonly inputProcessor: InputProcessor = new InputProcessor();
-
-    public getInputProcessor(): InputProcessor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.inputProcessor;
+    public static function getInstance():InputProcessorFactory {
+        return InputProcessorFactory.instance;
+    }
     
-}
 
-
+    public function getInputProcessor():InputProcessor {
+        return this.inputProcessor;
+    }
+    }
 }
 

@@ -1,114 +1,70 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.vector {
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.ColorCompositeInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class RectangleFilledAdjustedAnimation extends RectangleFilledAnimation implements ColorCompositeInterface {
+        private var offsetX:int = 0;
+        private var offsetY:int = 0;
 
-        
-
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { ColorCompositeInterface } from '../../../../org/allbinary/graphics/color/ColorCompositeInterface.js';
-//not GWT import const ColorCompositeInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { RectangleFilledAnimation } from './RectangleFilledAnimation.js';
-//sameFolderImports - not GWT import - same folder const RectangleFilledAnimation
-
-export class RectangleFilledAdjustedAnimation extends RectangleFilledAnimation implements ColorCompositeInterface {
-        
-
-    private offsetX: number;
-
-    private offsetY: number;
-
-public constructor (width: number, height: number, offsetX: number, offsetY: number, basicColor: BasicColor){
-            super(width, height, basicColor);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.offsetX= offsetX;
+        // Java field initializers run after the base constructor
+        private function initFieldsRectangleFilledAdjustedAnimation():void {
     
-this.offsetY= offsetY;
     
-this.setBasicColorP(basicColor);
+        }
     
-}
 
-
-    public nextFrame(){
-}
-
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-this.basicSetColorUtil!.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
+    public function RectangleFilledAdjustedAnimation(width:int, height:int, offsetX:int, offsetY:int, basicColor:BasicColor) {
+        super(width, height, basicColor);
+        this.initFieldsRectangleFilledAdjustedAnimation();
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
+        this.setBasicColorP(basicColor);
+    }
     
-super.paintXY(graphics, x +this.offsetX, y +this.offsetY);
+
+    override public function nextFrame():void {
+    }
     
-}
 
-
-    public setOffsetX(offsetX: number){
-this.offsetX= offsetX;
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
+        super.paintXY(graphics, int(x + this.offsetX), int(y + this.offsetY));
+    }
     
-}
 
-
-    public setOffsetY(offsetY: number){
-this.offsetY= offsetY;
+    public function setOffsetX(offsetX:int):void {
+        this.offsetX = offsetX;
+    }
     
-}
 
-
-    public getBasicColorP(): BasicColor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getBasicColorP();;
+    public function setOffsetY(offsetY:int):void {
+        this.offsetY = offsetY;
+    }
     
-}
 
-
-    public setBasicColorP(basicColor: BasicColor){
-super.setBasicColorP(basicColor);
+    override public function getBasicColorP():BasicColor {
+        return super.getBasicColorP();
+    }
     
-}
 
-
+    override public function setBasicColorP(basicColor:BasicColor):void {
+        super.setBasicColorP(basicColor);
+    }
+    }
 }
 

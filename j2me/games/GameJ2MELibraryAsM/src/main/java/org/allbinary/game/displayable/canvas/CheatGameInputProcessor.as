@@ -1,239 +1,98 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.game.input.GameKeyFactory;
+    import org.allbinary.game.input.PlayerGameInput;
+    import org.allbinary.game.input.event.GameKeyEvent;
+    import org.allbinary.game.input.event.GameKeyEventUtil;
+    import org.allbinary.game.layer.AllBinaryGameLayerManager;
+    import org.allbinary.game.layer.special.SpecialGameInputFactory;
+    import org.allbinary.game.layer.special.SpecialGameInputInterface;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CheatGameInputProcessor extends PlayerGameInput {
+    private static var inputProcessor_value:SpecialGameInputInterface;
+    private static var inputProcessor_set:Boolean = false;
+    public static function get inputProcessor():SpecialGameInputInterface {
+        if (!CheatGameInputProcessor.inputProcessor_set) {
+            CheatGameInputProcessor.inputProcessor_set = true;
+            CheatGameInputProcessor.inputProcessor_value = SpecialGameInputFactory.NO_SPECIAL_GAME_INPUT;
+        }
+        return CheatGameInputProcessor.inputProcessor_value;
+    }
+        private var PROCESS_GAME:String = null;
+        private var gameCanvas:AllBinaryGameCanvas = null;
+        private var gameKeyFactory:GameKeyFactory = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { GameKeyFactory } from '../../../../../org/allbinary/game/input/GameKeyFactory.js';
-//not GWT import const GameKeyFactory
-
-import { PlayerGameInput } from '../../../../../org/allbinary/game/input/PlayerGameInput.js';
-//not GWT import const PlayerGameInput
-
-import { GameKeyEvent } from '../../../../../org/allbinary/game/input/event/GameKeyEvent.js';
-//not GWT import const GameKeyEvent
-
-import { GameKeyEventUtil } from '../../../../../org/allbinary/game/input/event/GameKeyEventUtil.js';
-//not GWT import const GameKeyEventUtil
-
-import { AllBinaryGameLayerManager } from '../../../../../org/allbinary/game/layer/AllBinaryGameLayerManager.js';
-//not GWT import const AllBinaryGameLayerManager
-
-import { SpecialGameInputFactory } from '../../../../../org/allbinary/game/layer/special/SpecialGameInputFactory.js';
-//not GWT import const SpecialGameInputFactory
-
-import { SpecialGameInputInterface } from '../../../../../org/allbinary/game/layer/special/SpecialGameInputInterface.js';
-//not GWT import const SpecialGameInputInterface
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AllBinaryGameCanvas } from './AllBinaryGameCanvas.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryGameCanvas
-
-export class CheatGameInputProcessor extends PlayerGameInput {
-        
-
-    public static inputProcessor: SpecialGameInputInterface = SpecialGameInputFactory.NO_SPECIAL_GAME_INPUT;
-
-    private readonly PROCESS_GAME: string = "processGame";
-
-    private readonly gameCanvas: AllBinaryGameCanvas;
-
-public constructor (gameCanvas: AllBinaryGameCanvas){
-            super(new BasicArrayListD(), new BasicArrayListD(),  -1);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.gameCanvas= gameCanvas;
+        // Java field initializers run after the base constructor
+        private function initFieldsCheatGameInputProcessor():void {
+    this.PROCESS_GAME = "processGame";
     
-}
-
-
-    private readonly gameKeyFactory: GameKeyFactory = GameKeyFactory.getInstance()!;
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public update(){
-
- try { 
-    let gameLayerManager: AllBinaryGameLayerManager = this.gameCanvas!.getLayerManager()!;;
+    this.gameKeyFactory = GameKeyFactory.getInstance();
+        }
     
 
-    let list: BasicArrayList = this.getGameKeyEventList()!;;
+    public function CheatGameInputProcessor(gameCanvas:AllBinaryGameCanvas) {
+        super(new BasicArrayListD(), new BasicArrayListD(), -1);
+        this.initFieldsCheatGameInputProcessor();
+        this.gameCanvas = gameCanvas;
+    }
     
 
-    let size: number = list.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let anyType: any = list.objectArray[index]!;;
-    
-
-    let key: number = GameKeyEventUtil.getKey(anyType)!;;
-    
-
-                        if(key == this.gameKeyFactory!.LEVEL_DOWN.getId())
-                        
-                                    {
-                                    CheatGameInputProcessor.inputProcessor!.strafeLeft();
-    
-break;
-
-                    
-
-                                    }
-                                
-                             else 
-                        if(key == this.gameKeyFactory!.LEVEL_UP.getId())
-                        
-                                    {
-                                    CheatGameInputProcessor.inputProcessor!.strafeRight();
-    
-break;
-
-                    
-
-                                    }
-                                
-
-                        if(key == this.gameKeyFactory!.LEFT.getId())
-                        
-                                    {
-                                    CheatGameInputProcessor.inputProcessor!.left();
-    
-break;
-
-                    
-
-                                    }
-                                
-                             else 
-                        if(key == this.gameKeyFactory!.RIGHT.getId())
-                        
-                                    {
-                                    CheatGameInputProcessor.inputProcessor!.right();
-    
-break;
-
-                    
-
-                                    }
-                                
-                             else 
-                        if(key == this.gameKeyFactory!.UP.getId())
-                        
-                                    {
-                                    CheatGameInputProcessor.inputProcessor!.up();
-    
-break;
-
-                    
-
-                                    }
-                                
-                             else 
-                        if(key == this.gameKeyFactory!.DOWN.getId())
-                        
-                                    {
-                                    CheatGameInputProcessor.inputProcessor!.down();
-    
-break;
-
-                    
-
-                                    }
-                                
-                             else 
-                        if(key == this.gameKeyFactory!.KEY_NUM1.getId())
-                        
-                                    {
-                                    CheatGameInputProcessor.inputProcessor!.special1(gameLayerManager, GameKeyEvent.NONE);
-    
-break;
-
-                    
-
-                                    }
-                                
-                             else 
-                        if(key == this.gameKeyFactory!.KEY_NUM3.getId())
-                        
-                                    {
-                                    CheatGameInputProcessor.inputProcessor!.special2(gameLayerManager, GameKeyEvent.NONE);
-    
-break;
-
-                    
-
-                                    }
-                                
-}
-
-list.clear();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.UPDATE, e);
-    
-
- }
-   }
- 
-}
-
-
+    override public function update():void {
+        try {
+            var gameLayerManager:AllBinaryGameLayerManager = this.gameCanvas.getLayerManager();
+            var list:BasicArrayList = this.getGameKeyEventList();
+            var size:int = list.size();
+            for (var index:int = 0; index < size; index++) {
+                var anyType:Object = list.objectArray[index];
+                var key:int = GameKeyEventUtil.getKey(anyType);
+                if (key == this.gameKeyFactory.LEVEL_DOWN.getId()) {
+                    CheatGameInputProcessor.inputProcessor.strafeLeft();
+                    break;
+                } else if (key == this.gameKeyFactory.LEVEL_UP.getId()) {
+                    CheatGameInputProcessor.inputProcessor.strafeRight();
+                    break;
+                }
+                if (key == this.gameKeyFactory.LEFT.getId()) {
+                    CheatGameInputProcessor.inputProcessor.left();
+                    break;
+                } else if (key == this.gameKeyFactory.RIGHT.getId()) {
+                    CheatGameInputProcessor.inputProcessor.right();
+                    break;
+                } else if (key == this.gameKeyFactory.UP.getId()) {
+                    CheatGameInputProcessor.inputProcessor.up();
+                    break;
+                } else if (key == this.gameKeyFactory.DOWN.getId()) {
+                    CheatGameInputProcessor.inputProcessor.down();
+                    break;
+                } else if (key == this.gameKeyFactory.KEY_NUM1.getId()) {
+                    CheatGameInputProcessor.inputProcessor.special1(gameLayerManager, GameKeyEvent.NONE);
+                    break;
+                } else if (key == this.gameKeyFactory.KEY_NUM3.getId()) {
+                    CheatGameInputProcessor.inputProcessor.special2(gameLayerManager, GameKeyEvent.NONE);
+                    break;
+                }
+            }
+            list.clear();
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.UPDATE, e);
+        }
+    }
+    }
 }
 

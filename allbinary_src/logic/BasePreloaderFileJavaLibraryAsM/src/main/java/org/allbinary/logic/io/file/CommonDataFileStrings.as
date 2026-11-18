@@ -1,438 +1,422 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2026 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io.file {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2026 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CommonDataFileStrings {
+    private static var instance_value:CommonDataFileStrings;
+    private static var instance_set:Boolean = false;
+    private static function get instance():CommonDataFileStrings {
+        if (!CommonDataFileStrings.instance_set) {
+            CommonDataFileStrings.instance_set = true;
+            CommonDataFileStrings.instance_value = new CommonDataFileStrings();
+        }
+        return CommonDataFileStrings.instance_value;
+    }
+        public var XML:String = null;
+        public var _XML:String = null;
+        public var JSON:String = null;
+        public var _JSON:String = null;
+        public var XSL:String = null;
+        public var _XSL:String = null;
+        public var JAVA:String = null;
+        public var _JAVA:String = null;
+        public var KT:String = null;
+        public var _KT:String = null;
+        public var TS:String = null;
+        public var _TS:String = null;
+        public var JS:String = null;
+        public var _JS:String = null;
+        public var CPP:String = null;
+        public var _CPP:String = null;
+        public var H:String = null;
+        public var _H:String = null;
+        public var PY:String = null;
+        public var _PY:String = null;
+        public var GO:String = null;
+        public var _GO:String = null;
+        public var CS:String = null;
+        public var _CS:String = null;
+        public var ADB:String = null;
+        public var _ADB:String = null;
+        public var ADS:String = null;
+        public var _ADS:String = null;
+        public var ADA:String = null;
+        public var _ADA:String = null;
+        public var RUST:String = null;
+        public var _RUST:String = null;
+        public var C:String = null;
+        public var _C:String = null;
+        public var CSHARP:String = null;
+        public var _CSHARP:String = null;
+        public var ERL:String = null;
+        public var _ERL:String = null;
+        public var HS:String = null;
+        public var _HS:String = null;
+        public var HX:String = null;
+        public var _HX:String = null;
+        public var LUA:String = null;
+        public var _LUA:String = null;
+        public var PAS:String = null;
+        public var _PAS:String = null;
+        public var ML:String = null;
+        public var _ML:String = null;
+        public var PL:String = null;
+        public var _PL:String = null;
+        public var RB:String = null;
+        public var _RB:String = null;
+        public var ZIG:String = null;
+        public var _ZIG:String = null;
+        public var PM:String = null;
+        public var _PM:String = null;
+        public var KTS:String = null;
+        public var _KTS:String = null;
+        public var CBL:String = null;
+        public var _CBL:String = null;
+        public var COB:String = null;
+        public var _COB:String = null;
+        public var F90:String = null;
+        public var _F90:String = null;
+        public var F:String = null;
+        public var _F:String = null;
+        public var DART:String = null;
+        public var _DART:String = null;
+        public var EX:String = null;
+        public var _EX:String = null;
+        public var EXS:String = null;
+        public var _EXS:String = null;
+        public var M:String = null;
+        public var _M:String = null;
+        public var SWIFT:String = null;
+        public var _SWIFT:String = null;
+        public var ASM:String = null;
+        public var _ASM:String = null;
+        public var S:String = null;
+        public var _S:String = null;
+        public var NIM:String = null;
+        public var _NIM:String = null;
+        public var VALA:String = null;
+        public var _VALA:String = null;
+        public var LISP:String = null;
+        public var _LISP:String = null;
+        public var RKT:String = null;
+        public var _RKT:String = null;
+        public var SCM:String = null;
+        public var _SCM:String = null;
+        public var AS:String = null;
+        public var _AS:String = null;
+        public var OBX:String = null;
+        public var _OBX:String = null;
+        public var SCALA:String = null;
+        public var _SCALA:String = null;
+        public var GROOVY:String = null;
+        public var _GROOVY:String = null;
+        public var JL:String = null;
+        public var _JL:String = null;
+        public var TCL:String = null;
+        public var _TCL:String = null;
+        public var WREN:String = null;
+        public var _WREN:String = null;
+        public var JANET:String = null;
+        public var _JANET:String = null;
+        public var GR:String = null;
+        public var _GR:String = null;
+        public var ELM:String = null;
+        public var _ELM:String = null;
+        public var KOTLIN:String = null;
+        public var TYPESCRIPT:String = null;
+        public var JAVASCRIPT:String = null;
+        public var C_PLUS_PLUS:String = null;
+        public var PYTHON:String = null;
+        public var C_SHARP:String = null;
+        public var RUST_NAME:String = null;
+        public var RUBY:String = null;
+        public var PERL:String = null;
+        public var OBJECT_PASCAL:String = null;
+        public var OCAML:String = null;
+        public var HASKELL:String = null;
+        public var HAXE:String = null;
+        public var ERLANG:String = null;
+        public var COBOL:String = null;
+        public var FORTRAN:String = null;
+        public var ELIXIR:String = null;
+        public var OBJECTIVE_C:String = null;
+        public var RACKET:String = null;
+        public var SCHEME:String = null;
+        public var ACTIONSCRIPT:String = null;
+        public var OBERON_PLUS:String = null;
+        public var JULIA:String = null;
+        public var GRAIN:String = null;
+        public var CPLUSPLUS:String = null;
+        public var GOLANG:String = null;
+        public var CSHARP_ALIAS:String = null;
+        public var C23:String = null;
+        public var PASCAL:String = null;
+        public var OBJECT_PASCAL_ALIAS:String = null;
+        public var OBJC:String = null;
+        public var OBJECTIVE_C_ALIAS:String = null;
+        public var ASSEMBLY:String = null;
+        public var COMMON_LISP:String = null;
+        public var OBERON:String = null;
+        public var OBERON_PLUS_ALIAS:String = null;
+        public var KT_SHORT_NAME:String = null;
+        public var TS_SHORT_NAME:String = null;
+        public var JS_SHORT_NAME:String = null;
+        public var CPP_SHORT_NAME:String = null;
+        public var PY_SHORT_NAME:String = null;
+        public var GO_SHORT_NAME:String = null;
+        public var CS_SHORT_NAME:String = null;
+        public var ADA_SHORT_NAME:String = null;
+        public var RUST_SHORT_NAME:String = null;
+        public var LUA_SHORT_NAME:String = null;
+        public var C_SHORT_NAME:String = null;
+        public var ZIG_SHORT_NAME:String = null;
+        public var RB_SHORT_NAME:String = null;
+        public var PL_SHORT_NAME:String = null;
+        public var PAS_SHORT_NAME:String = null;
+        public var ML_SHORT_NAME:String = null;
+        public var HS_SHORT_NAME:String = null;
+        public var HX_SHORT_NAME:String = null;
+        public var ERL_SHORT_NAME:String = null;
+        public var CBL_SHORT_NAME:String = null;
+        public var F90_SHORT_NAME:String = null;
+        public var DART_SHORT_NAME:String = null;
+        public var EX_SHORT_NAME:String = null;
+        public var OBJC_SHORT_NAME:String = null;
+        public var SWIFT_SHORT_NAME:String = null;
+        public var ASM_SHORT_NAME:String = null;
+        public var NIM_SHORT_NAME:String = null;
+        public var VALA_SHORT_NAME:String = null;
+        public var LISP_SHORT_NAME:String = null;
+        public var RKT_SHORT_NAME:String = null;
+        public var SCM_SHORT_NAME:String = null;
+        public var AS_SHORT_NAME:String = null;
+        public var OBX_SHORT_NAME:String = null;
+        public var SCALA_SHORT_NAME:String = null;
+        public var GROOVY_SHORT_NAME:String = null;
+        public var JL_SHORT_NAME:String = null;
+        public var TCL_SHORT_NAME:String = null;
+        public var WREN_SHORT_NAME:String = null;
+        public var JANET_SHORT_NAME:String = null;
+        public var GR_SHORT_NAME:String = null;
+        public var ELM_SHORT_NAME:String = null;
+        public var UNCRYPTED_EXTENSION:String = null;
+        public var ENCRYPTED_EXTENSION:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsCommonDataFileStrings():void {
+    this.XML = "xml";
+    this._XML = ".xml";
+    this.JSON = "json";
+    this._JSON = ".json";
+    this.XSL = "xsl";
+    this._XSL = ".xsl";
+    this.JAVA = "java";
+    this._JAVA = ".java";
+    this.KT = "kt";
+    this._KT = ".kt";
+    this.TS = "ts";
+    this._TS = ".ts";
+    this.JS = "js";
+    this._JS = ".js";
+    this.CPP = "cpp";
+    this._CPP = ".cpp";
+    this.H = "h";
+    this._H = ".h";
+    this.PY = "py";
+    this._PY = ".py";
+    this.GO = "go";
+    this._GO = ".go";
+    this.CS = "cs";
+    this._CS = ".cs";
+    this.ADB = "adb";
+    this._ADB = ".adb";
+    this.ADS = "ads";
+    this._ADS = ".ads";
+    this.ADA = "ada";
+    this._ADA = ".ada";
+    this.RUST = "rs";
+    this._RUST = ".rs";
+    this.C = "c";
+    this._C = ".c";
+    this.CSHARP = "cs";
+    this._CSHARP = ".cs";
+    this.ERL = "erl";
+    this._ERL = ".erl";
+    this.HS = "hs";
+    this._HS = ".hs";
+    this.HX = "hx";
+    this._HX = ".hx";
+    this.LUA = "lua";
+    this._LUA = ".lua";
+    this.PAS = "pas";
+    this._PAS = ".pas";
+    this.ML = "ml";
+    this._ML = ".ml";
+    this.PL = "pl";
+    this._PL = ".pl";
+    this.RB = "rb";
+    this._RB = ".rb";
+    this.ZIG = "zig";
+    this._ZIG = ".zig";
+    this.PM = "pm";
+    this._PM = ".pm";
+    this.KTS = "kts";
+    this._KTS = ".kts";
+    this.CBL = "cbl";
+    this._CBL = ".cbl";
+    this.COB = "cob";
+    this._COB = ".cob";
+    this.F90 = "f90";
+    this._F90 = ".f90";
+    this.F = "f";
+    this._F = ".f";
+    this.DART = "dart";
+    this._DART = ".dart";
+    this.EX = "ex";
+    this._EX = ".ex";
+    this.EXS = "exs";
+    this._EXS = ".exs";
+    this.M = "m";
+    this._M = ".m";
+    this.SWIFT = "swift";
+    this._SWIFT = ".swift";
+    this.ASM = "asm";
+    this._ASM = ".asm";
+    this.S = "s";
+    this._S = ".s";
+    this.NIM = "nim";
+    this._NIM = ".nim";
+    this.VALA = "vala";
+    this._VALA = ".vala";
+    this.LISP = "lisp";
+    this._LISP = ".lisp";
+    this.RKT = "rkt";
+    this._RKT = ".rkt";
+    this.SCM = "scm";
+    this._SCM = ".scm";
+    this.AS = "as";
+    this._AS = ".as";
+    this.OBX = "obx";
+    this._OBX = ".obx";
+    this.SCALA = "scala";
+    this._SCALA = ".scala";
+    this.GROOVY = "groovy";
+    this._GROOVY = ".groovy";
+    this.JL = "jl";
+    this._JL = ".jl";
+    this.TCL = "tcl";
+    this._TCL = ".tcl";
+    this.WREN = "wren";
+    this._WREN = ".wren";
+    this.JANET = "janet";
+    this._JANET = ".janet";
+    this.GR = "gr";
+    this._GR = ".gr";
+    this.ELM = "elm";
+    this._ELM = ".elm";
+    this.KOTLIN = "kotlin";
+    this.TYPESCRIPT = "typescript";
+    this.JAVASCRIPT = "javascript";
+    this.C_PLUS_PLUS = "c++";
+    this.PYTHON = "python";
+    this.C_SHARP = "c#";
+    this.RUST_NAME = "rust";
+    this.RUBY = "ruby";
+    this.PERL = "perl";
+    this.OBJECT_PASCAL = "objectpascal";
+    this.OCAML = "ocaml";
+    this.HASKELL = "haskell";
+    this.HAXE = "haxe";
+    this.ERLANG = "erlang";
+    this.COBOL = "cobol";
+    this.FORTRAN = "fortran";
+    this.ELIXIR = "elixir";
+    this.OBJECTIVE_C = "objective-c";
+    this.RACKET = "racket";
+    this.SCHEME = "scheme";
+    this.ACTIONSCRIPT = "actionscript";
+    this.OBERON_PLUS = "oberon+";
+    this.JULIA = "julia";
+    this.GRAIN = "grain";
+    this.CPLUSPLUS = "cplusplus";
+    this.GOLANG = "golang";
+    this.CSHARP_ALIAS = "csharp";
+    this.C23 = "c23";
+    this.PASCAL = "pascal";
+    this.OBJECT_PASCAL_ALIAS = "object pascal";
+    this.OBJC = "objc";
+    this.OBJECTIVE_C_ALIAS = "objectivec";
+    this.ASSEMBLY = "assembly";
+    this.COMMON_LISP = "common lisp";
+    this.OBERON = "oberon";
+    this.OBERON_PLUS_ALIAS = "oberonplus";
+    this.KT_SHORT_NAME = "Kt";
+    this.TS_SHORT_NAME = "Ts";
+    this.JS_SHORT_NAME = "Js";
+    this.CPP_SHORT_NAME = "Cpp";
+    this.PY_SHORT_NAME = "Py";
+    this.GO_SHORT_NAME = "Go";
+    this.CS_SHORT_NAME = "Cs";
+    this.ADA_SHORT_NAME = "Ada";
+    this.RUST_SHORT_NAME = "Rust";
+    this.LUA_SHORT_NAME = "Lua";
+    this.C_SHORT_NAME = "C";
+    this.ZIG_SHORT_NAME = "Zig";
+    this.RB_SHORT_NAME = "Rb";
+    this.PL_SHORT_NAME = "Pl";
+    this.PAS_SHORT_NAME = "Pas";
+    this.ML_SHORT_NAME = "Ml";
+    this.HS_SHORT_NAME = "Hs";
+    this.HX_SHORT_NAME = "Hx";
+    this.ERL_SHORT_NAME = "Erl";
+    this.CBL_SHORT_NAME = "Cbl";
+    this.F90_SHORT_NAME = "F90";
+    this.DART_SHORT_NAME = "Dart";
+    this.EX_SHORT_NAME = "Ex";
+    this.OBJC_SHORT_NAME = "ObjC";
+    this.SWIFT_SHORT_NAME = "Swift";
+    this.ASM_SHORT_NAME = "Asm";
+    this.NIM_SHORT_NAME = "Nim";
+    this.VALA_SHORT_NAME = "Vala";
+    this.LISP_SHORT_NAME = "Lisp";
+    this.RKT_SHORT_NAME = "Rkt";
+    this.SCM_SHORT_NAME = "Scm";
+    this.AS_SHORT_NAME = "As";
+    this.OBX_SHORT_NAME = "Obx";
+    this.SCALA_SHORT_NAME = "Scala";
+    this.GROOVY_SHORT_NAME = "Groovy";
+    this.JL_SHORT_NAME = "Jl";
+    this.TCL_SHORT_NAME = "Tcl";
+    this.WREN_SHORT_NAME = "Wren";
+    this.JANET_SHORT_NAME = "Janet";
+    this.GR_SHORT_NAME = "Gr";
+    this.ELM_SHORT_NAME = "Elm";
+    this.UNCRYPTED_EXTENSION = this.XML;
+    this.ENCRYPTED_EXTENSION = "abd";
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class CommonDataFileStrings
-            extends Object
-         {
-        
-
-    private static readonly instance: CommonDataFileStrings = new CommonDataFileStrings();
-
-    public static getInstance(): CommonDataFileStrings{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return CommonDataFileStrings.instance;
+        public function CommonDataFileStrings() {
+            super();
+            this.initFieldsCommonDataFileStrings();
+        }
     
-}
 
-
-    public readonly XML: string = "xml";
-
-    public readonly _XML: string = ".xml";
-
-    public readonly JSON: string = "json";
-
-    public readonly _JSON: string = ".json";
-
-    public readonly XSL: string = "xsl";
-
-    public readonly _XSL: string = ".xsl";
-
-    public readonly JAVA: string = "java";
-
-    public readonly _JAVA: string = ".java";
-
-    public readonly KT: string = "kt";
-
-    public readonly _KT: string = ".kt";
-
-    public readonly TS: string = "ts";
-
-    public readonly _TS: string = ".ts";
-
-    public readonly JS: string = "js";
-
-    public readonly _JS: string = ".js";
-
-    public readonly CPP: string = "cpp";
-
-    public readonly _CPP: string = ".cpp";
-
-    public readonly H: string = "h";
-
-    public readonly _H: string = ".h";
-
-    public readonly PY: string = "py";
-
-    public readonly _PY: string = ".py";
-
-    public readonly GO: string = "go";
-
-    public readonly _GO: string = ".go";
-
-    public readonly CS: string = "cs";
-
-    public readonly _CS: string = ".cs";
-
-    public readonly ADB: string = "adb";
-
-    public readonly _ADB: string = ".adb";
-
-    public readonly ADS: string = "ads";
-
-    public readonly _ADS: string = ".ads";
-
-    public readonly ADA: string = "ada";
-
-    public readonly _ADA: string = ".ada";
-
-    public readonly RUST: string = "rs";
-
-    public readonly _RUST: string = ".rs";
-
-    public readonly C: string = "c";
-
-    public readonly _C: string = ".c";
-
-    public readonly CSHARP: string = "cs";
-
-    public readonly _CSHARP: string = ".cs";
-
-    public readonly ERL: string = "erl";
-
-    public readonly _ERL: string = ".erl";
-
-    public readonly HS: string = "hs";
-
-    public readonly _HS: string = ".hs";
-
-    public readonly HX: string = "hx";
-
-    public readonly _HX: string = ".hx";
-
-    public readonly LUA: string = "lua";
-
-    public readonly _LUA: string = ".lua";
-
-    public readonly PAS: string = "pas";
-
-    public readonly _PAS: string = ".pas";
-
-    public readonly ML: string = "ml";
-
-    public readonly _ML: string = ".ml";
-
-    public readonly PL: string = "pl";
-
-    public readonly _PL: string = ".pl";
-
-    public readonly RB: string = "rb";
-
-    public readonly _RB: string = ".rb";
-
-    public readonly ZIG: string = "zig";
-
-    public readonly _ZIG: string = ".zig";
-
-    public readonly PM: string = "pm";
-
-    public readonly _PM: string = ".pm";
-
-    public readonly KTS: string = "kts";
-
-    public readonly _KTS: string = ".kts";
-
-    public readonly CBL: string = "cbl";
-
-    public readonly _CBL: string = ".cbl";
-
-    public readonly COB: string = "cob";
-
-    public readonly _COB: string = ".cob";
-
-    public readonly F90: string = "f90";
-
-    public readonly _F90: string = ".f90";
-
-    public readonly F: string = "f";
-
-    public readonly _F: string = ".f";
-
-    public readonly DART: string = "dart";
-
-    public readonly _DART: string = ".dart";
-
-    public readonly EX: string = "ex";
-
-    public readonly _EX: string = ".ex";
-
-    public readonly EXS: string = "exs";
-
-    public readonly _EXS: string = ".exs";
-
-    public readonly M: string = "m";
-
-    public readonly _M: string = ".m";
-
-    public readonly SWIFT: string = "swift";
-
-    public readonly _SWIFT: string = ".swift";
-
-    public readonly ASM: string = "asm";
-
-    public readonly _ASM: string = ".asm";
-
-    public readonly S: string = "s";
-
-    public readonly _S: string = ".s";
-
-    public readonly NIM: string = "nim";
-
-    public readonly _NIM: string = ".nim";
-
-    public readonly VALA: string = "vala";
-
-    public readonly _VALA: string = ".vala";
-
-    public readonly LISP: string = "lisp";
-
-    public readonly _LISP: string = ".lisp";
-
-    public readonly RKT: string = "rkt";
-
-    public readonly _RKT: string = ".rkt";
-
-    public readonly SCM: string = "scm";
-
-    public readonly _SCM: string = ".scm";
-
-    public readonly AS: string = "as";
-
-    public readonly _AS: string = ".as";
-
-    public readonly OBX: string = "obx";
-
-    public readonly _OBX: string = ".obx";
-
-    public readonly SCALA: string = "scala";
-
-    public readonly _SCALA: string = ".scala";
-
-    public readonly GROOVY: string = "groovy";
-
-    public readonly _GROOVY: string = ".groovy";
-
-    public readonly JL: string = "jl";
-
-    public readonly _JL: string = ".jl";
-
-    public readonly TCL: string = "tcl";
-
-    public readonly _TCL: string = ".tcl";
-
-    public readonly WREN: string = "wren";
-
-    public readonly _WREN: string = ".wren";
-
-    public readonly JANET: string = "janet";
-
-    public readonly _JANET: string = ".janet";
-
-    public readonly GR: string = "gr";
-
-    public readonly _GR: string = ".gr";
-
-    public readonly ELM: string = "elm";
-
-    public readonly _ELM: string = ".elm";
-
-    public readonly KOTLIN: string = "kotlin";
-
-    public readonly TYPESCRIPT: string = "typescript";
-
-    public readonly JAVASCRIPT: string = "javascript";
-
-    public readonly C_PLUS_PLUS: string = "c++";
-
-    public readonly PYTHON: string = "python";
-
-    public readonly C_SHARP: string = "c#";
-
-    public readonly RUST_NAME: string = "rust";
-
-    public readonly RUBY: string = "ruby";
-
-    public readonly PERL: string = "perl";
-
-    public readonly OBJECT_PASCAL: string = "objectpascal";
-
-    public readonly OCAML: string = "ocaml";
-
-    public readonly HASKELL: string = "haskell";
-
-    public readonly HAXE: string = "haxe";
-
-    public readonly ERLANG: string = "erlang";
-
-    public readonly COBOL: string = "cobol";
-
-    public readonly FORTRAN: string = "fortran";
-
-    public readonly ELIXIR: string = "elixir";
-
-    public readonly OBJECTIVE_C: string = "objective-c";
-
-    public readonly RACKET: string = "racket";
-
-    public readonly SCHEME: string = "scheme";
-
-    public readonly ACTIONSCRIPT: string = "actionscript";
-
-    public readonly OBERON_PLUS: string = "oberon+";
-
-    public readonly JULIA: string = "julia";
-
-    public readonly GRAIN: string = "grain";
-
-    public readonly CPLUSPLUS: string = "cplusplus";
-
-    public readonly GOLANG: string = "golang";
-
-    public readonly CSHARP_ALIAS: string = "csharp";
-
-    public readonly C23: string = "c23";
-
-    public readonly PASCAL: string = "pascal";
-
-    public readonly OBJECT_PASCAL_ALIAS: string = "object pascal";
-
-    public readonly OBJC: string = "objc";
-
-    public readonly OBJECTIVE_C_ALIAS: string = "objectivec";
-
-    public readonly ASSEMBLY: string = "assembly";
-
-    public readonly COMMON_LISP: string = "common lisp";
-
-    public readonly OBERON: string = "oberon";
-
-    public readonly OBERON_PLUS_ALIAS: string = "oberonplus";
-
-    public readonly KT_SHORT_NAME: string = "Kt";
-
-    public readonly TS_SHORT_NAME: string = "Ts";
-
-    public readonly JS_SHORT_NAME: string = "Js";
-
-    public readonly CPP_SHORT_NAME: string = "Cpp";
-
-    public readonly PY_SHORT_NAME: string = "Py";
-
-    public readonly GO_SHORT_NAME: string = "Go";
-
-    public readonly CS_SHORT_NAME: string = "Cs";
-
-    public readonly ADA_SHORT_NAME: string = "Ada";
-
-    public readonly RUST_SHORT_NAME: string = "Rust";
-
-    public readonly LUA_SHORT_NAME: string = "Lua";
-
-    public readonly C_SHORT_NAME: string = "C";
-
-    public readonly ZIG_SHORT_NAME: string = "Zig";
-
-    public readonly RB_SHORT_NAME: string = "Rb";
-
-    public readonly PL_SHORT_NAME: string = "Pl";
-
-    public readonly PAS_SHORT_NAME: string = "Pas";
-
-    public readonly ML_SHORT_NAME: string = "Ml";
-
-    public readonly HS_SHORT_NAME: string = "Hs";
-
-    public readonly HX_SHORT_NAME: string = "Hx";
-
-    public readonly ERL_SHORT_NAME: string = "Erl";
-
-    public readonly CBL_SHORT_NAME: string = "Cbl";
-
-    public readonly F90_SHORT_NAME: string = "F90";
-
-    public readonly DART_SHORT_NAME: string = "Dart";
-
-    public readonly EX_SHORT_NAME: string = "Ex";
-
-    public readonly OBJC_SHORT_NAME: string = "ObjC";
-
-    public readonly SWIFT_SHORT_NAME: string = "Swift";
-
-    public readonly ASM_SHORT_NAME: string = "Asm";
-
-    public readonly NIM_SHORT_NAME: string = "Nim";
-
-    public readonly VALA_SHORT_NAME: string = "Vala";
-
-    public readonly LISP_SHORT_NAME: string = "Lisp";
-
-    public readonly RKT_SHORT_NAME: string = "Rkt";
-
-    public readonly SCM_SHORT_NAME: string = "Scm";
-
-    public readonly AS_SHORT_NAME: string = "As";
-
-    public readonly OBX_SHORT_NAME: string = "Obx";
-
-    public readonly SCALA_SHORT_NAME: string = "Scala";
-
-    public readonly GROOVY_SHORT_NAME: string = "Groovy";
-
-    public readonly JL_SHORT_NAME: string = "Jl";
-
-    public readonly TCL_SHORT_NAME: string = "Tcl";
-
-    public readonly WREN_SHORT_NAME: string = "Wren";
-
-    public readonly JANET_SHORT_NAME: string = "Janet";
-
-    public readonly GR_SHORT_NAME: string = "Gr";
-
-    public readonly ELM_SHORT_NAME: string = "Elm";
-
-    public readonly UNCRYPTED_EXTENSION: string = this.XML;
-
-    public readonly ENCRYPTED_EXTENSION: string = "abd";
-
+    public static function getInstance():CommonDataFileStrings {
+        return CommonDataFileStrings.instance;
+    }
+    }
 }
 

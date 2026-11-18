@@ -1,72 +1,51 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.advertisement.area {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AdvertisementAreaData
-            extends Object
-         {
-        
-
-    private static readonly instance: AdvertisementAreaData = new AdvertisementAreaData();
-
-    public static getInstance(): AdvertisementAreaData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AdvertisementAreaData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class AdvertisementAreaData {
+    private static var instance_value:AdvertisementAreaData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():AdvertisementAreaData {
+        if (!AdvertisementAreaData.instance_set) {
+            AdvertisementAreaData.instance_set = true;
+            AdvertisementAreaData.instance_value = new AdvertisementAreaData();
         }
+        return AdvertisementAreaData.instance_value;
+    }
+        public var NAME:String = null;
+        public var DESCRIPTION:String = null;
+        public var CONSTRAINTS:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsAdvertisementAreaData():void {
+    this.NAME = "ADVERTISEMENT_NAME";
+    this.DESCRIPTION = "ADVERTISEMENT_DESCRIPTION";
+    this.CONSTRAINTS = "ADVERTISEMENT_CONSTRAINTS";
+        }
+    
 
-    public readonly NAME: string = "ADVERTISEMENT_NAME";
+    public static function getInstance():AdvertisementAreaData {
+        return AdvertisementAreaData.instance;
+    }
+    
 
-    public readonly DESCRIPTION: string = "ADVERTISEMENT_DESCRIPTION";
-
-    public readonly CONSTRAINTS: string = "ADVERTISEMENT_CONSTRAINTS";
-
+    public function AdvertisementAreaData() {
+        super();
+        this.initFieldsAdvertisementAreaData();
+    }
+    }
 }
 

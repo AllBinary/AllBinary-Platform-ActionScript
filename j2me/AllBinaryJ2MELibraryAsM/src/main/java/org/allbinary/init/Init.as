@@ -1,64 +1,37 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.init {
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class Init implements InitInterface {
+        public var commonStrings:CommonStrings = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsInit():void {
+    this.commonStrings = CommonStrings.getInstance();
+        }
 
+        public function Init() {
+            super();
+            this.initFieldsInit();
+        }
+    
 
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { InitInterface } from './InitInterface.js';
-//sameFolderImports - not GWT import - same folder const InitInterface
-
-export class Init
-            extends Object
-         implements InitInterface {
-        
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-                //@Throws(Exception.constructor)
-            
-    public init(){
-}
-
-
+    public function init():void {
+    }
+    }
 }
 

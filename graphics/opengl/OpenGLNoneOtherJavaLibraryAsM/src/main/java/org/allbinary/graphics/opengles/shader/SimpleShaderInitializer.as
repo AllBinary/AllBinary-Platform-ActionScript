@@ -1,58 +1,35 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.opengles.shader {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ShaderInitializer } from './ShaderInitializer.js';
-//sameFolderImports - not GWT import - same folder const ShaderInitializer
-
-export class SimpleShaderInitializer extends ShaderInitializer {
-        
-
-    private static readonly instanceC: SimpleShaderInitializer = new SimpleShaderInitializer();
-
-    public static getInstance(): SimpleShaderInitializer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return SimpleShaderInitializer.instanceC;
+    public class SimpleShaderInitializer extends ShaderInitializer {
+    private static var instanceC_value:SimpleShaderInitializer;
+    private static var instanceC_set:Boolean = false;
+    private static function get instanceC():SimpleShaderInitializer {
+        if (!SimpleShaderInitializer.instanceC_set) {
+            SimpleShaderInitializer.instanceC_set = true;
+            SimpleShaderInitializer.instanceC_value = new SimpleShaderInitializer();
+        }
+        return SimpleShaderInitializer.instanceC_value;
+    }
     
-}
 
-
+    override public static function getInstance():SimpleShaderInitializer {
+        return SimpleShaderInitializer.instanceC;
+    }
+    }
 }
 

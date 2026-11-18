@@ -1,214 +1,106 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.paint {
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.graphics.displayable.CanvasStrings;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.font.UpdateMyFontProcessor;
+    import org.allbinary.graphics.paint.Paintable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    //J2MEForJ2ME
+    public class AboutPaintable extends Paintable implements UpdateMyFontInterface {
+        private var displayInfoSingleton:DisplayInfoSingleton = null;
+        private var ABOUT:String = null;
+        private var info:Vector.<String> = null;
+        private var developers:Vector.<String> = null;
+        private var paintableArray:Vector.<Paintable> = null;
+        private var myFontProcessor:MyFontProcessor = null;
+        private var charHeight:int = 0;
+        private var aboutBeginWidth:int = 0;
+        private var infoBeginWidth:Vector.<int> = null;
+        private var developersBeginWidth:Vector.<int> = null;
+        private var anchor:int = 0;
 
-        
-
-
-import { Font } from '../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { CanvasStrings } from '../../../../org/allbinary/graphics/displayable/CanvasStrings.js';
-//not GWT import const CanvasStrings
-
-import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { MyFontProcessor } from '../../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { UpdateMyFontInterface } from '../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { UpdateMyFontProcessor } from '../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
-//not GWT import const UpdateMyFontProcessor
-
-import { Paintable } from '../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //J2MEForJ2ME
-export class AboutPaintable extends Paintable implements UpdateMyFontInterface {
-        
-
-    public static getInstance(info: string[], developers: string[]): AboutPaintable{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AboutPaintable(info, developers);
+        // Java field initializers run after the base constructor
+        private function initFieldsAboutPaintable():void {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.ABOUT = CanvasStrings.getInstance().ABOUT;
     
-}
-
-
-    private readonly displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
-
-    private readonly ABOUT: string = CanvasStrings.getInstance()!.ABOUT;
-
-    private readonly info: string[];
-
-    private readonly developers: string[];
-
-    private readonly paintableArray: Paintable[] = 
-                                                        [
-                                                            this
-                                                        ];
-
-    private myFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
-
-    private charHeight: number= 0;
-
-    private aboutBeginWidth: number= 0;
-
-    private infoBeginWidth: number[];
-
-    private developersBeginWidth: number[];
-
-    private anchor: number = Anchor.TOP_LEFT;
-
-private constructor (info: string[], developers: string[]){
-
-            super();
-        this.info= info;
     
-this.infoBeginWidth= new Array(this.info.length).fill(0);
+    this.paintableArray = new <Paintable>[this];
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
+    this.charHeight = 0;
+    this.aboutBeginWidth = 0;
     
-this.developers= developers;
     
-this.developersBeginWidth= new Array(this.developers.length).fill(0);
-    
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
-    
-this.charHeight= font.getHeight();
-    
-this.aboutBeginWidth= (font.stringWidth(this.ABOUT)>>1);
+    this.anchor = Anchor.TOP_LEFT;
+        }
     
 
-    let infoSize: number = this.info.length
-                ;;
+    public static function getInstance2(info:Vector.<String>, developers:Vector.<String>):AboutPaintable {
+        return new AboutPaintable(info, developers);
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < infoSize; index++)
-        {
-this.infoBeginWidth[index]= (font.stringWidth(this.info[index]!)>>1);
-    
-}
-
-
-    let size: number = this.developers.length
-                ;;
+    public function AboutPaintable(info:Vector.<String>, developers:Vector.<String>) {
+        super();
+        this.initFieldsAboutPaintable();
+        this.info = info;
+        this.infoBeginWidth = new Vector.<int>(this.info.length);
+        this.developers = developers;
+        this.developersBeginWidth = new Vector.<int>(this.developers.length);
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-this.developersBeginWidth[index]= (font.stringWidth(this.developers[index]!)>>1);
-    
-}
-
-this.myFontProcessor= MyFontProcessor.getInstance();
-    
-}
-
-
-    public getPaintableArrayInstance(): Paintable[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.paintableArray;
-    
-}
-
-
-    public paint(graphics: Graphics){
-this.myFontProcessor!.process(graphics);
+    public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        this.charHeight = font.getHeight();
+        this.aboutBeginWidth = (font.stringWidth(this.ABOUT) >> 1);
+        var infoSize:int = this.info.length;
+        for (var index:int = 0; index < infoSize; index++) {
+            this.infoBeginWidth[index] = (font.stringWidth(this.info[index]) >> 1);
+        }
+        var size:int = this.developers.length;
+        for (index = 0; index < size; index++) {
+            this.developersBeginWidth[index] = (font.stringWidth(this.developers[index]) >> 1);
+        }
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
     
 
-    let halfWidth: number = this.displayInfoSingleton!.getLastHalfWidth()!;;
-    
-graphics.drawString(this.ABOUT, halfWidth -this.aboutBeginWidth, 2 *this.charHeight, this.anchor);
-    
-
-    let infoSize: number = this.info.length
-                ;;
+    public function getPaintableArrayInstance():Vector.<Paintable> {
+        return this.paintableArray;
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < infoSize; index++)
-        {
-graphics.drawString(this.info[index]!, halfWidth -this.infoBeginWidth[index], (4 +index) *this.charHeight, this.anchor);
-    
-}
-
-
-    let size: number = this.developers.length
-                ;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-graphics.drawString(this.developers[index]!, halfWidth -this.developersBeginWidth[index], (5 +infoSize +index) *this.charHeight, this.anchor);
-    
-}
-
-}
-
-
+    override public function paint(graphics:Graphics):void {
+        this.myFontProcessor.process(graphics);
+        var halfWidth:int = this.displayInfoSingleton.getLastHalfWidth();
+        graphics.drawString(this.ABOUT, int(halfWidth - this.aboutBeginWidth), int(2 * this.charHeight), this.anchor);
+        var infoSize:int = this.info.length;
+        for (var index:int = 0; index < infoSize; index++) {
+            graphics.drawString(this.info[index], int(halfWidth - this.infoBeginWidth[index]), int((int(4 + index)) * this.charHeight), this.anchor);
+        }
+        var size:int = this.developers.length;
+        for (index = 0; index < size; index++) {
+            graphics.drawString(this.developers[index], int(halfWidth - this.developersBeginWidth[index]), int((int(int(5 + infoSize) + index)) * this.charHeight), this.anchor);
+        }
+    }
+    }
 }
 

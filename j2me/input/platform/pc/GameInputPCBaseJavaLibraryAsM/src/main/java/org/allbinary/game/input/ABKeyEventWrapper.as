@@ -1,442 +1,423 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2026 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
+    import java.awt.event.JKeyEvent;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2026 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ABKeyEventWrapper {
+    private static var instance_value:ABKeyEventWrapper;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ABKeyEventWrapper {
+        if (!ABKeyEventWrapper.instance_set) {
+            ABKeyEventWrapper.instance_set = true;
+            ABKeyEventWrapper.instance_value = new ABKeyEventWrapper();
+        }
+        return ABKeyEventWrapper.instance_value;
+    }
+        public var VK_ENTER:int = 0;
+        public var VK_BACK_SPACE:int = 0;
+        public var VK_TAB:int = 0;
+        public var VK_CANCEL:int = 0;
+        public var VK_CLEAR:int = 0;
+        public var VK_SHIFT:int = 0;
+        public var VK_CONTROL:int = 0;
+        public var VK_ALT:int = 0;
+        public var VK_PAUSE:int = 0;
+        public var VK_CAPS_LOCK:int = 0;
+        public var VK_ESCAPE:int = 0;
+        public var VK_SPACE:int = 0;
+        public var VK_PAGE_UP:int = 0;
+        public var VK_PAGE_DOWN:int = 0;
+        public var VK_END:int = 0;
+        public var VK_HOME:int = 0;
+        public var VK_LEFT:int = 0;
+        public var VK_UP:int = 0;
+        public var VK_RIGHT:int = 0;
+        public var VK_DOWN:int = 0;
+        public var VK_COMMA:int = 0;
+        public var VK_MINUS:int = 0;
+        public var VK_PERIOD:int = 0;
+        public var VK_SLASH:int = 0;
+        public var VK_0:int = 0;
+        public var VK_1:int = 0;
+        public var VK_2:int = 0;
+        public var VK_3:int = 0;
+        public var VK_4:int = 0;
+        public var VK_5:int = 0;
+        public var VK_6:int = 0;
+        public var VK_7:int = 0;
+        public var VK_8:int = 0;
+        public var VK_9:int = 0;
+        public var VK_SEMICOLON:int = 0;
+        public var VK_EQUALS:int = 0;
+        public var VK_A:int = 0;
+        public var VK_B:int = 0;
+        public var VK_C:int = 0;
+        public var VK_D:int = 0;
+        public var VK_E:int = 0;
+        public var VK_F:int = 0;
+        public var VK_G:int = 0;
+        public var VK_H:int = 0;
+        public var VK_I:int = 0;
+        public var VK_J:int = 0;
+        public var VK_K:int = 0;
+        public var VK_L:int = 0;
+        public var VK_M:int = 0;
+        public var VK_N:int = 0;
+        public var VK_O:int = 0;
+        public var VK_P:int = 0;
+        public var VK_Q:int = 0;
+        public var VK_R:int = 0;
+        public var VK_S:int = 0;
+        public var VK_T:int = 0;
+        public var VK_U:int = 0;
+        public var VK_V:int = 0;
+        public var VK_W:int = 0;
+        public var VK_X:int = 0;
+        public var VK_Y:int = 0;
+        public var VK_Z:int = 0;
+        public var VK_OPEN_BRACKET:int = 0;
+        public var VK_BACK_SLASH:int = 0;
+        public var VK_CLOSE_BRACKET:int = 0;
+        public var VK_NUMPAD0:int = 0;
+        public var VK_NUMPAD1:int = 0;
+        public var VK_NUMPAD2:int = 0;
+        public var VK_NUMPAD3:int = 0;
+        public var VK_NUMPAD4:int = 0;
+        public var VK_NUMPAD5:int = 0;
+        public var VK_NUMPAD6:int = 0;
+        public var VK_NUMPAD7:int = 0;
+        public var VK_NUMPAD8:int = 0;
+        public var VK_NUMPAD9:int = 0;
+        public var VK_MULTIPLY:int = 0;
+        public var VK_ADD:int = 0;
+        public var VK_SEPARATER:int = 0;
+        public var VK_SEPARATOR:int = 0;
+        public var VK_SUBTRACT:int = 0;
+        public var VK_DECIMAL:int = 0;
+        public var VK_DIVIDE:int = 0;
+        public var VK_DELETE:int = 0;
+        public var VK_NUM_LOCK:int = 0;
+        public var VK_SCROLL_LOCK:int = 0;
+        public var VK_F1:int = 0;
+        public var VK_F2:int = 0;
+        public var VK_F3:int = 0;
+        public var VK_F4:int = 0;
+        public var VK_F5:int = 0;
+        public var VK_F6:int = 0;
+        public var VK_F7:int = 0;
+        public var VK_F8:int = 0;
+        public var VK_F9:int = 0;
+        public var VK_F10:int = 0;
+        public var VK_F11:int = 0;
+        public var VK_F12:int = 0;
+        public var VK_F13:int = 0;
+        public var VK_F14:int = 0;
+        public var VK_F15:int = 0;
+        public var VK_F16:int = 0;
+        public var VK_F17:int = 0;
+        public var VK_F18:int = 0;
+        public var VK_F19:int = 0;
+        public var VK_F20:int = 0;
+        public var VK_F21:int = 0;
+        public var VK_F22:int = 0;
+        public var VK_F23:int = 0;
+        public var VK_F24:int = 0;
+        public var VK_PRINTSCREEN:int = 0;
+        public var VK_INSERT:int = 0;
+        public var VK_HELP:int = 0;
+        public var VK_META:int = 0;
+        public var VK_BACK_QUOTE:int = 0;
+        public var VK_QUOTE:int = 0;
+        public var VK_KP_UP:int = 0;
+        public var VK_KP_DOWN:int = 0;
+        public var VK_KP_LEFT:int = 0;
+        public var VK_KP_RIGHT:int = 0;
+        public var VK_DEAD_GRAVE:int = 0;
+        public var VK_DEAD_ACUTE:int = 0;
+        public var VK_DEAD_CIRCUMFLEX:int = 0;
+        public var VK_DEAD_TILDE:int = 0;
+        public var VK_DEAD_MACRON:int = 0;
+        public var VK_DEAD_BREVE:int = 0;
+        public var VK_DEAD_ABOVEDOT:int = 0;
+        public var VK_DEAD_DIAERESIS:int = 0;
+        public var VK_DEAD_ABOVERING:int = 0;
+        public var VK_DEAD_DOUBLEACUTE:int = 0;
+        public var VK_DEAD_CARON:int = 0;
+        public var VK_DEAD_CEDILLA:int = 0;
+        public var VK_DEAD_OGONEK:int = 0;
+        public var VK_DEAD_IOTA:int = 0;
+        public var VK_DEAD_VOICED_SOUND:int = 0;
+        public var VK_DEAD_SEMIVOICED_SOUND:int = 0;
+        public var VK_AMPERSAND:int = 0;
+        public var VK_ASTERISK:int = 0;
+        public var VK_QUOTEDBL:int = 0;
+        public var VK_LESS:int = 0;
+        public var VK_GREATER:int = 0;
+        public var VK_BRACELEFT:int = 0;
+        public var VK_BRACERIGHT:int = 0;
+        public var VK_AT:int = 0;
+        public var VK_COLON:int = 0;
+        public var VK_CIRCUMFLEX:int = 0;
+        public var VK_DOLLAR:int = 0;
+        public var VK_EURO_SIGN:int = 0;
+        public var VK_EXCLAMATION_MARK:int = 0;
+        public var VK_INVERTED_EXCLAMATION_MARK:int = 0;
+        public var VK_LEFT_PARENTHESIS:int = 0;
+        public var VK_NUMBER_SIGN:int = 0;
+        public var VK_PLUS:int = 0;
+        public var VK_RIGHT_PARENTHESIS:int = 0;
+        public var VK_UNDERSCORE:int = 0;
+        public var VK_WINDOWS:int = 0;
+        public var VK_CONTEXT_MENU:int = 0;
+        public var VK_FINAL:int = 0;
+        public var VK_CONVERT:int = 0;
+        public var VK_NONCONVERT:int = 0;
+        public var VK_ACCEPT:int = 0;
+        public var VK_MODECHANGE:int = 0;
+        public var VK_KANA:int = 0;
+        public var VK_KANJI:int = 0;
+        public var VK_ALPHANUMERIC:int = 0;
+        public var VK_KATAKANA:int = 0;
+        public var VK_HIRAGANA:int = 0;
+        public var VK_FULL_WIDTH:int = 0;
+        public var VK_HALF_WIDTH:int = 0;
+        public var VK_ROMAN_CHARACTERS:int = 0;
+        public var VK_ALL_CANDIDATES:int = 0;
+        public var VK_PREVIOUS_CANDIDATE:int = 0;
+        public var VK_CODE_INPUT:int = 0;
+        public var VK_JAPANESE_KATAKANA:int = 0;
+        public var VK_JAPANESE_HIRAGANA:int = 0;
+        public var VK_JAPANESE_ROMAN:int = 0;
+        public var VK_KANA_LOCK:int = 0;
+        public var VK_INPUT_METHOD_ON_OFF:int = 0;
+        public var VK_CUT:int = 0;
+        public var VK_COPY:int = 0;
+        public var VK_PASTE:int = 0;
+        public var VK_UNDO:int = 0;
+        public var VK_AGAIN:int = 0;
+        public var VK_FIND:int = 0;
+        public var VK_PROPS:int = 0;
+        public var VK_STOP:int = 0;
+        public var VK_COMPOSE:int = 0;
+        public var VK_ALT_GRAPH:int = 0;
+        public var VK_BEGIN:int = 0;
+        public var VK_UNDEFINED:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsABKeyEventWrapper():void {
+    this.VK_ENTER = KeyEvent.VK_ENTER;
+    this.VK_BACK_SPACE = KeyEvent.VK_BACK_SPACE;
+    this.VK_TAB = KeyEvent.VK_TAB;
+    this.VK_CANCEL = KeyEvent.VK_CANCEL;
+    this.VK_CLEAR = KeyEvent.VK_CLEAR;
+    this.VK_SHIFT = KeyEvent.VK_SHIFT;
+    this.VK_CONTROL = KeyEvent.VK_CONTROL;
+    this.VK_ALT = KeyEvent.VK_ALT;
+    this.VK_PAUSE = KeyEvent.VK_PAUSE;
+    this.VK_CAPS_LOCK = KeyEvent.VK_CAPS_LOCK;
+    this.VK_ESCAPE = KeyEvent.VK_ESCAPE;
+    this.VK_SPACE = KeyEvent.VK_SPACE;
+    this.VK_PAGE_UP = KeyEvent.VK_PAGE_UP;
+    this.VK_PAGE_DOWN = KeyEvent.VK_PAGE_DOWN;
+    this.VK_END = KeyEvent.VK_END;
+    this.VK_HOME = KeyEvent.VK_HOME;
+    this.VK_LEFT = KeyEvent.VK_LEFT;
+    this.VK_UP = KeyEvent.VK_UP;
+    this.VK_RIGHT = KeyEvent.VK_RIGHT;
+    this.VK_DOWN = KeyEvent.VK_DOWN;
+    this.VK_COMMA = KeyEvent.VK_COMMA;
+    this.VK_MINUS = KeyEvent.VK_MINUS;
+    this.VK_PERIOD = KeyEvent.VK_PERIOD;
+    this.VK_SLASH = KeyEvent.VK_SLASH;
+    this.VK_0 = KeyEvent.VK_0;
+    this.VK_1 = KeyEvent.VK_1;
+    this.VK_2 = KeyEvent.VK_2;
+    this.VK_3 = KeyEvent.VK_3;
+    this.VK_4 = KeyEvent.VK_4;
+    this.VK_5 = KeyEvent.VK_5;
+    this.VK_6 = KeyEvent.VK_6;
+    this.VK_7 = KeyEvent.VK_7;
+    this.VK_8 = KeyEvent.VK_8;
+    this.VK_9 = KeyEvent.VK_9;
+    this.VK_SEMICOLON = KeyEvent.VK_SEMICOLON;
+    this.VK_EQUALS = KeyEvent.VK_EQUALS;
+    this.VK_A = KeyEvent.VK_A;
+    this.VK_B = KeyEvent.VK_B;
+    this.VK_C = KeyEvent.VK_C;
+    this.VK_D = KeyEvent.VK_D;
+    this.VK_E = KeyEvent.VK_E;
+    this.VK_F = KeyEvent.VK_F;
+    this.VK_G = KeyEvent.VK_G;
+    this.VK_H = KeyEvent.VK_H;
+    this.VK_I = KeyEvent.VK_I;
+    this.VK_J = KeyEvent.VK_J;
+    this.VK_K = KeyEvent.VK_K;
+    this.VK_L = KeyEvent.VK_L;
+    this.VK_M = KeyEvent.VK_M;
+    this.VK_N = KeyEvent.VK_N;
+    this.VK_O = KeyEvent.VK_O;
+    this.VK_P = KeyEvent.VK_P;
+    this.VK_Q = KeyEvent.VK_Q;
+    this.VK_R = KeyEvent.VK_R;
+    this.VK_S = KeyEvent.VK_S;
+    this.VK_T = KeyEvent.VK_T;
+    this.VK_U = KeyEvent.VK_U;
+    this.VK_V = KeyEvent.VK_V;
+    this.VK_W = KeyEvent.VK_W;
+    this.VK_X = KeyEvent.VK_X;
+    this.VK_Y = KeyEvent.VK_Y;
+    this.VK_Z = KeyEvent.VK_Z;
+    this.VK_OPEN_BRACKET = KeyEvent.VK_OPEN_BRACKET;
+    this.VK_BACK_SLASH = KeyEvent.VK_BACK_SLASH;
+    this.VK_CLOSE_BRACKET = KeyEvent.VK_CLOSE_BRACKET;
+    this.VK_NUMPAD0 = KeyEvent.VK_NUMPAD0;
+    this.VK_NUMPAD1 = KeyEvent.VK_NUMPAD1;
+    this.VK_NUMPAD2 = KeyEvent.VK_NUMPAD2;
+    this.VK_NUMPAD3 = KeyEvent.VK_NUMPAD3;
+    this.VK_NUMPAD4 = KeyEvent.VK_NUMPAD4;
+    this.VK_NUMPAD5 = KeyEvent.VK_NUMPAD5;
+    this.VK_NUMPAD6 = KeyEvent.VK_NUMPAD6;
+    this.VK_NUMPAD7 = KeyEvent.VK_NUMPAD7;
+    this.VK_NUMPAD8 = KeyEvent.VK_NUMPAD8;
+    this.VK_NUMPAD9 = KeyEvent.VK_NUMPAD9;
+    this.VK_MULTIPLY = KeyEvent.VK_MULTIPLY;
+    this.VK_ADD = KeyEvent.VK_ADD;
+    this.VK_SEPARATER = KeyEvent.VK_SEPARATER;
+    this.VK_SEPARATOR = KeyEvent.VK_SEPARATOR;
+    this.VK_SUBTRACT = KeyEvent.VK_SUBTRACT;
+    this.VK_DECIMAL = KeyEvent.VK_DECIMAL;
+    this.VK_DIVIDE = KeyEvent.VK_DIVIDE;
+    this.VK_DELETE = KeyEvent.VK_DELETE;
+    this.VK_NUM_LOCK = KeyEvent.VK_NUM_LOCK;
+    this.VK_SCROLL_LOCK = KeyEvent.VK_SCROLL_LOCK;
+    this.VK_F1 = KeyEvent.VK_F1;
+    this.VK_F2 = KeyEvent.VK_F2;
+    this.VK_F3 = KeyEvent.VK_F3;
+    this.VK_F4 = KeyEvent.VK_F4;
+    this.VK_F5 = KeyEvent.VK_F5;
+    this.VK_F6 = KeyEvent.VK_F6;
+    this.VK_F7 = KeyEvent.VK_F7;
+    this.VK_F8 = KeyEvent.VK_F8;
+    this.VK_F9 = KeyEvent.VK_F9;
+    this.VK_F10 = KeyEvent.VK_F10;
+    this.VK_F11 = KeyEvent.VK_F11;
+    this.VK_F12 = KeyEvent.VK_F12;
+    this.VK_F13 = KeyEvent.VK_F13;
+    this.VK_F14 = KeyEvent.VK_F14;
+    this.VK_F15 = KeyEvent.VK_F15;
+    this.VK_F16 = KeyEvent.VK_F16;
+    this.VK_F17 = KeyEvent.VK_F17;
+    this.VK_F18 = KeyEvent.VK_F18;
+    this.VK_F19 = KeyEvent.VK_F19;
+    this.VK_F20 = KeyEvent.VK_F20;
+    this.VK_F21 = KeyEvent.VK_F21;
+    this.VK_F22 = KeyEvent.VK_F22;
+    this.VK_F23 = KeyEvent.VK_F23;
+    this.VK_F24 = KeyEvent.VK_F24;
+    this.VK_PRINTSCREEN = KeyEvent.VK_PRINTSCREEN;
+    this.VK_INSERT = KeyEvent.VK_INSERT;
+    this.VK_HELP = KeyEvent.VK_HELP;
+    this.VK_META = KeyEvent.VK_META;
+    this.VK_BACK_QUOTE = KeyEvent.VK_BACK_QUOTE;
+    this.VK_QUOTE = KeyEvent.VK_QUOTE;
+    this.VK_KP_UP = KeyEvent.VK_KP_UP;
+    this.VK_KP_DOWN = KeyEvent.VK_KP_DOWN;
+    this.VK_KP_LEFT = KeyEvent.VK_KP_LEFT;
+    this.VK_KP_RIGHT = KeyEvent.VK_KP_RIGHT;
+    this.VK_DEAD_GRAVE = KeyEvent.VK_DEAD_GRAVE;
+    this.VK_DEAD_ACUTE = KeyEvent.VK_DEAD_ACUTE;
+    this.VK_DEAD_CIRCUMFLEX = KeyEvent.VK_DEAD_CIRCUMFLEX;
+    this.VK_DEAD_TILDE = KeyEvent.VK_DEAD_TILDE;
+    this.VK_DEAD_MACRON = KeyEvent.VK_DEAD_MACRON;
+    this.VK_DEAD_BREVE = KeyEvent.VK_DEAD_BREVE;
+    this.VK_DEAD_ABOVEDOT = KeyEvent.VK_DEAD_ABOVEDOT;
+    this.VK_DEAD_DIAERESIS = KeyEvent.VK_DEAD_DIAERESIS;
+    this.VK_DEAD_ABOVERING = KeyEvent.VK_DEAD_ABOVERING;
+    this.VK_DEAD_DOUBLEACUTE = KeyEvent.VK_DEAD_DOUBLEACUTE;
+    this.VK_DEAD_CARON = KeyEvent.VK_DEAD_CARON;
+    this.VK_DEAD_CEDILLA = KeyEvent.VK_DEAD_CEDILLA;
+    this.VK_DEAD_OGONEK = KeyEvent.VK_DEAD_OGONEK;
+    this.VK_DEAD_IOTA = KeyEvent.VK_DEAD_IOTA;
+    this.VK_DEAD_VOICED_SOUND = KeyEvent.VK_DEAD_VOICED_SOUND;
+    this.VK_DEAD_SEMIVOICED_SOUND = KeyEvent.VK_DEAD_SEMIVOICED_SOUND;
+    this.VK_AMPERSAND = KeyEvent.VK_AMPERSAND;
+    this.VK_ASTERISK = KeyEvent.VK_ASTERISK;
+    this.VK_QUOTEDBL = KeyEvent.VK_QUOTEDBL;
+    this.VK_LESS = KeyEvent.VK_LESS;
+    this.VK_GREATER = KeyEvent.VK_GREATER;
+    this.VK_BRACELEFT = KeyEvent.VK_BRACELEFT;
+    this.VK_BRACERIGHT = KeyEvent.VK_BRACERIGHT;
+    this.VK_AT = KeyEvent.VK_AT;
+    this.VK_COLON = KeyEvent.VK_COLON;
+    this.VK_CIRCUMFLEX = KeyEvent.VK_CIRCUMFLEX;
+    this.VK_DOLLAR = KeyEvent.VK_DOLLAR;
+    this.VK_EURO_SIGN = KeyEvent.VK_EURO_SIGN;
+    this.VK_EXCLAMATION_MARK = KeyEvent.VK_EXCLAMATION_MARK;
+    this.VK_INVERTED_EXCLAMATION_MARK = KeyEvent.VK_INVERTED_EXCLAMATION_MARK;
+    this.VK_LEFT_PARENTHESIS = KeyEvent.VK_LEFT_PARENTHESIS;
+    this.VK_NUMBER_SIGN = KeyEvent.VK_NUMBER_SIGN;
+    this.VK_PLUS = KeyEvent.VK_PLUS;
+    this.VK_RIGHT_PARENTHESIS = KeyEvent.VK_RIGHT_PARENTHESIS;
+    this.VK_UNDERSCORE = KeyEvent.VK_UNDERSCORE;
+    this.VK_WINDOWS = KeyEvent.VK_WINDOWS;
+    this.VK_CONTEXT_MENU = KeyEvent.VK_CONTEXT_MENU;
+    this.VK_FINAL = KeyEvent.VK_FINAL;
+    this.VK_CONVERT = KeyEvent.VK_CONVERT;
+    this.VK_NONCONVERT = KeyEvent.VK_NONCONVERT;
+    this.VK_ACCEPT = KeyEvent.VK_ACCEPT;
+    this.VK_MODECHANGE = KeyEvent.VK_MODECHANGE;
+    this.VK_KANA = KeyEvent.VK_KANA;
+    this.VK_KANJI = KeyEvent.VK_KANJI;
+    this.VK_ALPHANUMERIC = KeyEvent.VK_ALPHANUMERIC;
+    this.VK_KATAKANA = KeyEvent.VK_KATAKANA;
+    this.VK_HIRAGANA = KeyEvent.VK_HIRAGANA;
+    this.VK_FULL_WIDTH = KeyEvent.VK_FULL_WIDTH;
+    this.VK_HALF_WIDTH = KeyEvent.VK_HALF_WIDTH;
+    this.VK_ROMAN_CHARACTERS = KeyEvent.VK_ROMAN_CHARACTERS;
+    this.VK_ALL_CANDIDATES = KeyEvent.VK_ALL_CANDIDATES;
+    this.VK_PREVIOUS_CANDIDATE = KeyEvent.VK_PREVIOUS_CANDIDATE;
+    this.VK_CODE_INPUT = KeyEvent.VK_CODE_INPUT;
+    this.VK_JAPANESE_KATAKANA = KeyEvent.VK_JAPANESE_KATAKANA;
+    this.VK_JAPANESE_HIRAGANA = KeyEvent.VK_JAPANESE_HIRAGANA;
+    this.VK_JAPANESE_ROMAN = KeyEvent.VK_JAPANESE_ROMAN;
+    this.VK_KANA_LOCK = KeyEvent.VK_KANA_LOCK;
+    this.VK_INPUT_METHOD_ON_OFF = KeyEvent.VK_INPUT_METHOD_ON_OFF;
+    this.VK_CUT = KeyEvent.VK_CUT;
+    this.VK_COPY = KeyEvent.VK_COPY;
+    this.VK_PASTE = KeyEvent.VK_PASTE;
+    this.VK_UNDO = KeyEvent.VK_UNDO;
+    this.VK_AGAIN = KeyEvent.VK_AGAIN;
+    this.VK_FIND = KeyEvent.VK_FIND;
+    this.VK_PROPS = KeyEvent.VK_PROPS;
+    this.VK_STOP = KeyEvent.VK_STOP;
+    this.VK_COMPOSE = KeyEvent.VK_COMPOSE;
+    this.VK_ALT_GRAPH = KeyEvent.VK_ALT_GRAPH;
+    this.VK_BEGIN = KeyEvent.VK_BEGIN;
+    this.VK_UNDEFINED = KeyEvent.VK_UNDEFINED;
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { KeyEvent } from '../../../../java/awt/event/KeyEvent.js';
-//not GWT import const KeyEvent
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ABKeyEventWrapper
-            extends Object
-         {
-        
-
-    private static readonly instance: ABKeyEventWrapper = new ABKeyEventWrapper();
-
-    public static getInstance(): ABKeyEventWrapper{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ABKeyEventWrapper.instance;
+        public function ABKeyEventWrapper() {
+            super();
+            this.initFieldsABKeyEventWrapper();
+        }
     
-}
 
-
-    public readonly VK_ENTER: number = KeyEvent.VK_ENTER;
-
-    public readonly VK_BACK_SPACE: number = KeyEvent.VK_BACK_SPACE;
-
-    public readonly VK_TAB: number = KeyEvent.VK_TAB;
-
-    public readonly VK_CANCEL: number = KeyEvent.VK_CANCEL;
-
-    public readonly VK_CLEAR: number = KeyEvent.VK_CLEAR;
-
-    public readonly VK_SHIFT: number = KeyEvent.VK_SHIFT;
-
-    public readonly VK_CONTROL: number = KeyEvent.VK_CONTROL;
-
-    public readonly VK_ALT: number = KeyEvent.VK_ALT;
-
-    public readonly VK_PAUSE: number = KeyEvent.VK_PAUSE;
-
-    public readonly VK_CAPS_LOCK: number = KeyEvent.VK_CAPS_LOCK;
-
-    public readonly VK_ESCAPE: number = KeyEvent.VK_ESCAPE;
-
-    public readonly VK_SPACE: number = KeyEvent.VK_SPACE;
-
-    public readonly VK_PAGE_UP: number = KeyEvent.VK_PAGE_UP;
-
-    public readonly VK_PAGE_DOWN: number = KeyEvent.VK_PAGE_DOWN;
-
-    public readonly VK_END: number = KeyEvent.VK_END;
-
-    public readonly VK_HOME: number = KeyEvent.VK_HOME;
-
-    public readonly VK_LEFT: number = KeyEvent.VK_LEFT;
-
-    public readonly VK_UP: number = KeyEvent.VK_UP;
-
-    public readonly VK_RIGHT: number = KeyEvent.VK_RIGHT;
-
-    public readonly VK_DOWN: number = KeyEvent.VK_DOWN;
-
-    public readonly VK_COMMA: number = KeyEvent.VK_COMMA;
-
-    public readonly VK_MINUS: number = KeyEvent.VK_MINUS;
-
-    public readonly VK_PERIOD: number = KeyEvent.VK_PERIOD;
-
-    public readonly VK_SLASH: number = KeyEvent.VK_SLASH;
-
-    public readonly VK_0: number = KeyEvent.VK_0;
-
-    public readonly VK_1: number = KeyEvent.VK_1;
-
-    public readonly VK_2: number = KeyEvent.VK_2;
-
-    public readonly VK_3: number = KeyEvent.VK_3;
-
-    public readonly VK_4: number = KeyEvent.VK_4;
-
-    public readonly VK_5: number = KeyEvent.VK_5;
-
-    public readonly VK_6: number = KeyEvent.VK_6;
-
-    public readonly VK_7: number = KeyEvent.VK_7;
-
-    public readonly VK_8: number = KeyEvent.VK_8;
-
-    public readonly VK_9: number = KeyEvent.VK_9;
-
-    public readonly VK_SEMICOLON: number = KeyEvent.VK_SEMICOLON;
-
-    public readonly VK_EQUALS: number = KeyEvent.VK_EQUALS;
-
-    public readonly VK_A: number = KeyEvent.VK_A;
-
-    public readonly VK_B: number = KeyEvent.VK_B;
-
-    public readonly VK_C: number = KeyEvent.VK_C;
-
-    public readonly VK_D: number = KeyEvent.VK_D;
-
-    public readonly VK_E: number = KeyEvent.VK_E;
-
-    public readonly VK_F: number = KeyEvent.VK_F;
-
-    public readonly VK_G: number = KeyEvent.VK_G;
-
-    public readonly VK_H: number = KeyEvent.VK_H;
-
-    public readonly VK_I: number = KeyEvent.VK_I;
-
-    public readonly VK_J: number = KeyEvent.VK_J;
-
-    public readonly VK_K: number = KeyEvent.VK_K;
-
-    public readonly VK_L: number = KeyEvent.VK_L;
-
-    public readonly VK_M: number = KeyEvent.VK_M;
-
-    public readonly VK_N: number = KeyEvent.VK_N;
-
-    public readonly VK_O: number = KeyEvent.VK_O;
-
-    public readonly VK_P: number = KeyEvent.VK_P;
-
-    public readonly VK_Q: number = KeyEvent.VK_Q;
-
-    public readonly VK_R: number = KeyEvent.VK_R;
-
-    public readonly VK_S: number = KeyEvent.VK_S;
-
-    public readonly VK_T: number = KeyEvent.VK_T;
-
-    public readonly VK_U: number = KeyEvent.VK_U;
-
-    public readonly VK_V: number = KeyEvent.VK_V;
-
-    public readonly VK_W: number = KeyEvent.VK_W;
-
-    public readonly VK_X: number = KeyEvent.VK_X;
-
-    public readonly VK_Y: number = KeyEvent.VK_Y;
-
-    public readonly VK_Z: number = KeyEvent.VK_Z;
-
-    public readonly VK_OPEN_BRACKET: number = KeyEvent.VK_OPEN_BRACKET;
-
-    public readonly VK_BACK_SLASH: number = KeyEvent.VK_BACK_SLASH;
-
-    public readonly VK_CLOSE_BRACKET: number = KeyEvent.VK_CLOSE_BRACKET;
-
-    public readonly VK_NUMPAD0: number = KeyEvent.VK_NUMPAD0;
-
-    public readonly VK_NUMPAD1: number = KeyEvent.VK_NUMPAD1;
-
-    public readonly VK_NUMPAD2: number = KeyEvent.VK_NUMPAD2;
-
-    public readonly VK_NUMPAD3: number = KeyEvent.VK_NUMPAD3;
-
-    public readonly VK_NUMPAD4: number = KeyEvent.VK_NUMPAD4;
-
-    public readonly VK_NUMPAD5: number = KeyEvent.VK_NUMPAD5;
-
-    public readonly VK_NUMPAD6: number = KeyEvent.VK_NUMPAD6;
-
-    public readonly VK_NUMPAD7: number = KeyEvent.VK_NUMPAD7;
-
-    public readonly VK_NUMPAD8: number = KeyEvent.VK_NUMPAD8;
-
-    public readonly VK_NUMPAD9: number = KeyEvent.VK_NUMPAD9;
-
-    public readonly VK_MULTIPLY: number = KeyEvent.VK_MULTIPLY;
-
-    public readonly VK_ADD: number = KeyEvent.VK_ADD;
-
-    public readonly VK_SEPARATER: number = KeyEvent.VK_SEPARATER;
-
-    public readonly VK_SEPARATOR: number = KeyEvent.VK_SEPARATOR;
-
-    public readonly VK_SUBTRACT: number = KeyEvent.VK_SUBTRACT;
-
-    public readonly VK_DECIMAL: number = KeyEvent.VK_DECIMAL;
-
-    public readonly VK_DIVIDE: number = KeyEvent.VK_DIVIDE;
-
-    public readonly VK_DELETE: number = KeyEvent.VK_DELETE;
-
-    public readonly VK_NUM_LOCK: number = KeyEvent.VK_NUM_LOCK;
-
-    public readonly VK_SCROLL_LOCK: number = KeyEvent.VK_SCROLL_LOCK;
-
-    public readonly VK_F1: number = KeyEvent.VK_F1;
-
-    public readonly VK_F2: number = KeyEvent.VK_F2;
-
-    public readonly VK_F3: number = KeyEvent.VK_F3;
-
-    public readonly VK_F4: number = KeyEvent.VK_F4;
-
-    public readonly VK_F5: number = KeyEvent.VK_F5;
-
-    public readonly VK_F6: number = KeyEvent.VK_F6;
-
-    public readonly VK_F7: number = KeyEvent.VK_F7;
-
-    public readonly VK_F8: number = KeyEvent.VK_F8;
-
-    public readonly VK_F9: number = KeyEvent.VK_F9;
-
-    public readonly VK_F10: number = KeyEvent.VK_F10;
-
-    public readonly VK_F11: number = KeyEvent.VK_F11;
-
-    public readonly VK_F12: number = KeyEvent.VK_F12;
-
-    public readonly VK_F13: number = KeyEvent.VK_F13;
-
-    public readonly VK_F14: number = KeyEvent.VK_F14;
-
-    public readonly VK_F15: number = KeyEvent.VK_F15;
-
-    public readonly VK_F16: number = KeyEvent.VK_F16;
-
-    public readonly VK_F17: number = KeyEvent.VK_F17;
-
-    public readonly VK_F18: number = KeyEvent.VK_F18;
-
-    public readonly VK_F19: number = KeyEvent.VK_F19;
-
-    public readonly VK_F20: number = KeyEvent.VK_F20;
-
-    public readonly VK_F21: number = KeyEvent.VK_F21;
-
-    public readonly VK_F22: number = KeyEvent.VK_F22;
-
-    public readonly VK_F23: number = KeyEvent.VK_F23;
-
-    public readonly VK_F24: number = KeyEvent.VK_F24;
-
-    public readonly VK_PRINTSCREEN: number = KeyEvent.VK_PRINTSCREEN;
-
-    public readonly VK_INSERT: number = KeyEvent.VK_INSERT;
-
-    public readonly VK_HELP: number = KeyEvent.VK_HELP;
-
-    public readonly VK_META: number = KeyEvent.VK_META;
-
-    public readonly VK_BACK_QUOTE: number = KeyEvent.VK_BACK_QUOTE;
-
-    public readonly VK_QUOTE: number = KeyEvent.VK_QUOTE;
-
-    public readonly VK_KP_UP: number = KeyEvent.VK_KP_UP;
-
-    public readonly VK_KP_DOWN: number = KeyEvent.VK_KP_DOWN;
-
-    public readonly VK_KP_LEFT: number = KeyEvent.VK_KP_LEFT;
-
-    public readonly VK_KP_RIGHT: number = KeyEvent.VK_KP_RIGHT;
-
-    public readonly VK_DEAD_GRAVE: number = KeyEvent.VK_DEAD_GRAVE;
-
-    public readonly VK_DEAD_ACUTE: number = KeyEvent.VK_DEAD_ACUTE;
-
-    public readonly VK_DEAD_CIRCUMFLEX: number = KeyEvent.VK_DEAD_CIRCUMFLEX;
-
-    public readonly VK_DEAD_TILDE: number = KeyEvent.VK_DEAD_TILDE;
-
-    public readonly VK_DEAD_MACRON: number = KeyEvent.VK_DEAD_MACRON;
-
-    public readonly VK_DEAD_BREVE: number = KeyEvent.VK_DEAD_BREVE;
-
-    public readonly VK_DEAD_ABOVEDOT: number = KeyEvent.VK_DEAD_ABOVEDOT;
-
-    public readonly VK_DEAD_DIAERESIS: number = KeyEvent.VK_DEAD_DIAERESIS;
-
-    public readonly VK_DEAD_ABOVERING: number = KeyEvent.VK_DEAD_ABOVERING;
-
-    public readonly VK_DEAD_DOUBLEACUTE: number = KeyEvent.VK_DEAD_DOUBLEACUTE;
-
-    public readonly VK_DEAD_CARON: number = KeyEvent.VK_DEAD_CARON;
-
-    public readonly VK_DEAD_CEDILLA: number = KeyEvent.VK_DEAD_CEDILLA;
-
-    public readonly VK_DEAD_OGONEK: number = KeyEvent.VK_DEAD_OGONEK;
-
-    public readonly VK_DEAD_IOTA: number = KeyEvent.VK_DEAD_IOTA;
-
-    public readonly VK_DEAD_VOICED_SOUND: number = KeyEvent.VK_DEAD_VOICED_SOUND;
-
-    public readonly VK_DEAD_SEMIVOICED_SOUND: number = KeyEvent.VK_DEAD_SEMIVOICED_SOUND;
-
-    public readonly VK_AMPERSAND: number = KeyEvent.VK_AMPERSAND;
-
-    public readonly VK_ASTERISK: number = KeyEvent.VK_ASTERISK;
-
-    public readonly VK_QUOTEDBL: number = KeyEvent.VK_QUOTEDBL;
-
-    public readonly VK_LESS: number = KeyEvent.VK_LESS;
-
-    public readonly VK_GREATER: number = KeyEvent.VK_GREATER;
-
-    public readonly VK_BRACELEFT: number = KeyEvent.VK_BRACELEFT;
-
-    public readonly VK_BRACERIGHT: number = KeyEvent.VK_BRACERIGHT;
-
-    public readonly VK_AT: number = KeyEvent.VK_AT;
-
-    public readonly VK_COLON: number = KeyEvent.VK_COLON;
-
-    public readonly VK_CIRCUMFLEX: number = KeyEvent.VK_CIRCUMFLEX;
-
-    public readonly VK_DOLLAR: number = KeyEvent.VK_DOLLAR;
-
-    public readonly VK_EURO_SIGN: number = KeyEvent.VK_EURO_SIGN;
-
-    public readonly VK_EXCLAMATION_MARK: number = KeyEvent.VK_EXCLAMATION_MARK;
-
-    public readonly VK_INVERTED_EXCLAMATION_MARK: number = KeyEvent.VK_INVERTED_EXCLAMATION_MARK;
-
-    public readonly VK_LEFT_PARENTHESIS: number = KeyEvent.VK_LEFT_PARENTHESIS;
-
-    public readonly VK_NUMBER_SIGN: number = KeyEvent.VK_NUMBER_SIGN;
-
-    public readonly VK_PLUS: number = KeyEvent.VK_PLUS;
-
-    public readonly VK_RIGHT_PARENTHESIS: number = KeyEvent.VK_RIGHT_PARENTHESIS;
-
-    public readonly VK_UNDERSCORE: number = KeyEvent.VK_UNDERSCORE;
-
-    public readonly VK_WINDOWS: number = KeyEvent.VK_WINDOWS;
-
-    public readonly VK_CONTEXT_MENU: number = KeyEvent.VK_CONTEXT_MENU;
-
-    public readonly VK_FINAL: number = KeyEvent.VK_FINAL;
-
-    public readonly VK_CONVERT: number = KeyEvent.VK_CONVERT;
-
-    public readonly VK_NONCONVERT: number = KeyEvent.VK_NONCONVERT;
-
-    public readonly VK_ACCEPT: number = KeyEvent.VK_ACCEPT;
-
-    public readonly VK_MODECHANGE: number = KeyEvent.VK_MODECHANGE;
-
-    public readonly VK_KANA: number = KeyEvent.VK_KANA;
-
-    public readonly VK_KANJI: number = KeyEvent.VK_KANJI;
-
-    public readonly VK_ALPHANUMERIC: number = KeyEvent.VK_ALPHANUMERIC;
-
-    public readonly VK_KATAKANA: number = KeyEvent.VK_KATAKANA;
-
-    public readonly VK_HIRAGANA: number = KeyEvent.VK_HIRAGANA;
-
-    public readonly VK_FULL_WIDTH: number = KeyEvent.VK_FULL_WIDTH;
-
-    public readonly VK_HALF_WIDTH: number = KeyEvent.VK_HALF_WIDTH;
-
-    public readonly VK_ROMAN_CHARACTERS: number = KeyEvent.VK_ROMAN_CHARACTERS;
-
-    public readonly VK_ALL_CANDIDATES: number = KeyEvent.VK_ALL_CANDIDATES;
-
-    public readonly VK_PREVIOUS_CANDIDATE: number = KeyEvent.VK_PREVIOUS_CANDIDATE;
-
-    public readonly VK_CODE_INPUT: number = KeyEvent.VK_CODE_INPUT;
-
-    public readonly VK_JAPANESE_KATAKANA: number = KeyEvent.VK_JAPANESE_KATAKANA;
-
-    public readonly VK_JAPANESE_HIRAGANA: number = KeyEvent.VK_JAPANESE_HIRAGANA;
-
-    public readonly VK_JAPANESE_ROMAN: number = KeyEvent.VK_JAPANESE_ROMAN;
-
-    public readonly VK_KANA_LOCK: number = KeyEvent.VK_KANA_LOCK;
-
-    public readonly VK_INPUT_METHOD_ON_OFF: number = KeyEvent.VK_INPUT_METHOD_ON_OFF;
-
-    public readonly VK_CUT: number = KeyEvent.VK_CUT;
-
-    public readonly VK_COPY: number = KeyEvent.VK_COPY;
-
-    public readonly VK_PASTE: number = KeyEvent.VK_PASTE;
-
-    public readonly VK_UNDO: number = KeyEvent.VK_UNDO;
-
-    public readonly VK_AGAIN: number = KeyEvent.VK_AGAIN;
-
-    public readonly VK_FIND: number = KeyEvent.VK_FIND;
-
-    public readonly VK_PROPS: number = KeyEvent.VK_PROPS;
-
-    public readonly VK_STOP: number = KeyEvent.VK_STOP;
-
-    public readonly VK_COMPOSE: number = KeyEvent.VK_COMPOSE;
-
-    public readonly VK_ALT_GRAPH: number = KeyEvent.VK_ALT_GRAPH;
-
-    public readonly VK_BEGIN: number = KeyEvent.VK_BEGIN;
-
-    public readonly VK_UNDEFINED: number = KeyEvent.VK_UNDEFINED;
-
+    public static function getInstance():ABKeyEventWrapper {
+        return ABKeyEventWrapper.instance;
+    }
+    }
 }
 

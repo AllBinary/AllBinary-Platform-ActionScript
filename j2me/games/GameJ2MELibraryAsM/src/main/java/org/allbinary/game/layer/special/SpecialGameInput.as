@@ -1,141 +1,79 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer.special {
+    import org.allbinary.game.input.event.GameKeyEvent;
+    import org.allbinary.layer.AllBinaryLayerManager;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class SpecialGameInput implements SpecialGameInputInterface {
+    
 
-        
+    public function up():void {
+    }
+    
 
+    public function down():void {
+    }
+    
 
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
+    public function right():void {
+    }
+    
 
-import { GameKeyEvent } from '../../../../../org/allbinary/game/input/event/GameKeyEvent.js';
-//not GWT import const GameKeyEvent
+    public function left():void {
+    }
+    
 
-import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
+    public function strafeLeft():void {
+    }
+    
 
+    public function strafeRight():void {
+    }
+    
 
+    public function fire(layerManager:AllBinaryLayerManager, gameKeyEvent:GameKeyEvent):void {
+    }
+    
 
+    public function special1(layerManager:AllBinaryLayerManager, gameKeyEvent:GameKeyEvent):void {
+    }
+    
 
+    public function special2(layerManager:AllBinaryLayerManager, gameKeyEvent:GameKeyEvent):void {
+    }
+    
 
+    public function special3(layerManager:AllBinaryLayerManager, gameKeyEvent:GameKeyEvent):void {
+    }
+    
 
+    public function special4(layerManager:AllBinaryLayerManager, gameKeyEvent:GameKeyEvent):void {
+    }
+    
 
+    public function special5(layerManager:AllBinaryLayerManager, gameKeyEvent:GameKeyEvent):void {
+    }
+    
 
+    public function paint(graphics:Graphics):void {
+    }
+    
 
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { SpecialGameInputInterface } from './SpecialGameInputInterface.js';
-//sameFolderImports - not GWT import - same folder const SpecialGameInputInterface
-
-export class SpecialGameInput
-            extends Object
-         implements SpecialGameInputInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public up(){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public down(){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public right(){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public left(){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public strafeLeft(){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public strafeRight(){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public fire(layerManager: AllBinaryLayerManager, gameKeyEvent: GameKeyEvent){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public special1(layerManager: AllBinaryLayerManager, gameKeyEvent: GameKeyEvent){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public special2(layerManager: AllBinaryLayerManager, gameKeyEvent: GameKeyEvent){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public special3(layerManager: AllBinaryLayerManager, gameKeyEvent: GameKeyEvent){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public special4(layerManager: AllBinaryLayerManager, gameKeyEvent: GameKeyEvent){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public special5(layerManager: AllBinaryLayerManager, gameKeyEvent: GameKeyEvent){
-}
-
-
-    public paint(graphics: Graphics){
-}
-
-
-    public paintThreed(graphics: Graphics){
-}
-
-
+    public function paintThreed(graphics:Graphics):void {
+    }
+    }
 }
 

@@ -1,121 +1,61 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion {
+    import org.allbinary.input.motion.button.TouchButtonRecognizer;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class OnlyTouchButtonRecognizer extends MotionRecognizer {
+        private var touchButtonRecognizer:TouchButtonRecognizer = null;
+        private var touchButtonProcessing:Boolean = false;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { TouchButtonRecognizer } from '../../../../org/allbinary/input/motion/button/TouchButtonRecognizer.js';
-//not GWT import const TouchButtonRecognizer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { MotionRecognizer } from './MotionRecognizer.js';
-//sameFolderImports - not GWT import - same folder const MotionRecognizer
-
-export class OnlyTouchButtonRecognizer extends MotionRecognizer {
-        
-
-    private readonly touchButtonRecognizer: TouchButtonRecognizer;
-
-    private touchButtonProcessing: boolean = false;
-
-public constructor (){
-
-            super();
-        this.touchButtonRecognizer= new TouchButtonRecognizer();
+        // Java field initializers run after the base constructor
+        private function initFieldsOnlyTouchButtonRecognizer():void {
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processStartMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-
-                        if(this.touchButtonRecognizer!.pressTouchButtonInput(x, y, deviceId))
-                        
-                                    {
-                                    this.touchButtonProcessing= true;
+    this.touchButtonProcessing = false;
+        }
     
 
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processEndMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-
-                        if(this.touchButtonProcessing)
-                        
-                                    {
-                                    this.touchButtonProcessing= false;
+    public function OnlyTouchButtonRecognizer() {
+        super();
+        this.initFieldsOnlyTouchButtonRecognizer();
+        this.touchButtonRecognizer = new TouchButtonRecognizer();
+    }
     
 
-                                    }
-                                
-
-                        if(this.touchButtonRecognizer!.releaseTouchButtonInput(x, y, deviceId))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
+    override public function processStartMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+        if (this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId)) {
+            this.touchButtonProcessing = true;
+        }
+    }
     
 
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processDraggedMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-
-                        if(this.touchButtonProcessing)
-                        
-                                    {
-                                    this.touchButtonRecognizer!.pressTouchButtonInput(x, y, deviceId);
+    override public function processEndMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+        if (this.touchButtonProcessing) {
+            this.touchButtonProcessing = false;
+        }
+        if (this.touchButtonRecognizer.releaseTouchButtonInput(x, y, deviceId)) {
+            return;
+        }
+    }
     
 
-                                    }
-                                
-}
-
-
+    override public function processDraggedMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+        if (this.touchButtonProcessing) {
+            this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId);
+        }
+    }
+    }
 }
 

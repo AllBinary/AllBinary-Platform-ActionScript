@@ -1,111 +1,66 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { DisplayChangeEvent } from '../../../../../org/allbinary/graphics/displayable/event/DisplayChangeEvent.js';
-//not GWT import const DisplayChangeEvent
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BaseMenuBehavior } from './BaseMenuBehavior.js';
-//sameFolderImports - not GWT import - same folder const BaseMenuBehavior
-import { AllBinaryGameCanvas } from './AllBinaryGameCanvas.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryGameCanvas
-import { GameCanvasNonBotPaintable } from './GameCanvasNonBotPaintable.js';
-//sameFolderImports - not GWT import - same folder const GameCanvasNonBotPaintable
-
-export class InGameMenuBehavior extends BaseMenuBehavior {
-        
-
-    private static readonly instanceC: InGameMenuBehavior = new InGameMenuBehavior();
-
-    public static getInstance(): InGameMenuBehavior{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return InGameMenuBehavior.instanceC;
+    public class InGameMenuBehavior extends BaseMenuBehavior {
+    private static var instanceC_value:InGameMenuBehavior;
+    private static var instanceC_set:Boolean = false;
+    private static function get instanceC():InGameMenuBehavior {
+        if (!InGameMenuBehavior.instanceC_set) {
+            InGameMenuBehavior.instanceC_set = true;
+            InGameMenuBehavior.instanceC_value = new InGameMenuBehavior();
+        }
+        return InGameMenuBehavior.instanceC_value;
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public onDisplayChangeEvent(allBinaryGameCanvas: AllBinaryGameCanvas, displayChangeEvent: DisplayChangeEvent){
-allBinaryGameCanvas!.updateMenuFromEvent(displayChangeEvent);
+    override public static function getInstance():InGameMenuBehavior {
+        return InGameMenuBehavior.instanceC;
+    }
     
-}
 
-
-    public initSpecialPaint(allBinaryGameCanvas: AllBinaryGameCanvas){
-allBinaryGameCanvas!.setNonBotPaintableP(new GameCanvasNonBotPaintable(allBinaryGameCanvas));
+    override public function onDisplayChangeEvent(allBinaryGameCanvas:AllBinaryGameCanvas, displayChangeEvent:DisplayChangeEvent):void {
+        allBinaryGameCanvas.updateMenuFromEvent(displayChangeEvent);
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public initMenu(allBinaryGameCanvas: AllBinaryGameCanvas){
-allBinaryGameCanvas!.initMenu2();
+    override public function initSpecialPaint(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+        allBinaryGameCanvas.setNonBotPaintableP(new GameCanvasNonBotPaintable(allBinaryGameCanvas));
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public updateMenu(allBinaryGameCanvas: AllBinaryGameCanvas){
-allBinaryGameCanvas!.initMenu2();
+    override public function initMenu(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+        allBinaryGameCanvas.initMenu2();
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public popupMenu(allBinaryGameCanvas: AllBinaryGameCanvas){
-allBinaryGameCanvas!.popupMenu2();
+    override public function updateMenu(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+        allBinaryGameCanvas.initMenu2();
+    }
     
-}
 
-
-    public closeMenu(allBinaryGameCanvas: AllBinaryGameCanvas){
-allBinaryGameCanvas!.closeMenu2();
+    override public function popupMenu(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+        allBinaryGameCanvas.popupMenu2();
+    }
     
-}
 
-
+    override public function closeMenu(allBinaryGameCanvas:AllBinaryGameCanvas):void {
+        allBinaryGameCanvas.closeMenu2();
+    }
+    }
 }
 

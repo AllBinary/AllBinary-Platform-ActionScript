@@ -1,958 +1,483 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Displayable } from '../../../../javax/microedition/lcdui/Displayable.js';
-//not GWT import const Displayable
-
-import { AndroidUtil } from '../../../../org/allbinary/AndroidUtil.js';
-//not GWT import const AndroidUtil
-
-import { Features } from '../../../../org/allbinary/game/configuration/feature/Features.js';
-//not GWT import const Features
-
-import { DisplayChangeEvent } from '../../../../org/allbinary/graphics/displayable/event/DisplayChangeEvent.js';
-//not GWT import const DisplayChangeEvent
-
-import { DisplayChangeEventHandler } from '../../../../org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.js';
-//not GWT import const DisplayChangeEventHandler
-
-import { LastDisplayChangeEventHandler } from '../../../../org/allbinary/graphics/displayable/event/LastDisplayChangeEventHandler.js';
-//not GWT import const LastDisplayChangeEventHandler
-
-import { OpenGLFeatureFactory } from '../../../../org/allbinary/graphics/opengles/OpenGLFeatureFactory.js';
-//not GWT import const OpenGLFeatureFactory
-
-import { SWTJOGLProcessor } from '../../../../org/allbinary/graphics/threed/SWTJOGLProcessor.js';
-//not GWT import const SWTJOGLProcessor
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { GenericOperatingSystem } from '../../../../org/allbinary/logic/system/os/GenericOperatingSystem.js';
-//not GWT import const GenericOperatingSystem
-
-import { OperatingSystemFactory } from '../../../../org/allbinary/logic/system/os/OperatingSystemFactory.js';
-//not GWT import const OperatingSystemFactory
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BaseScalable } from './BaseScalable.js';
-//sameFolderImports - not GWT import - same folder const BaseScalable
-import { ScalableListener } from './ScalableListener.js';
-//sameFolderImports - not GWT import - same folder const ScalableListener
-
-export class DisplayInfoSingleton
-            extends Object
-         {
-        
-
-    private static readonly SINGLETON: DisplayInfoSingleton = new DisplayInfoSingleton();
-
-    public static getInstance(): DisplayInfoSingleton{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DisplayInfoSingleton.SINGLETON;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly commonLabels: CommonLabels = CommonLabels.getInstance()!;
-
-    private readonly commonSeps: CommonSeps = CommonSeps.getInstance()!;
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    public readonly ORIENTATION: string = "ORIENTATION";
-
-    public readonly ADJUSTING_FOR_SCALING_IN_PORTRAIT: string = "Adjusting for Scaling in portrait display ratio: ";
-
-    public readonly ADJUSTING_FOR_SCALING_IN_LANDSCAPE: string = "Adjusting for Scaling in landscape display ratio: ";
-
-    private last: number[] = new Array(4).fill(0);
-
-    private lastHalf: number[] = new Array(4).fill(0);
-
-    private full: number[] = new Array(4).fill(0);
-
-    private top: number= 0;
-
-    private left: number= 0;
-
-    private xOffset: number= 0;
-
-    private yOffset: number= 0;
-
-    private scaleLargestTo: number= 0.0;
-
-    public readonly WIDTH: number = 0;
-
-    public readonly HEIGHT: number = 1;
-
-    public readonly CUSTOM_WIDTH: number = 2;
-
-    public readonly CUSTOM_HEIGHT: number = 3;
-
-    private scalableListener: BaseScalable = new BaseScalable();
-
-    private displayRatio: number= 0.0;
-
-    private ratio: number = 1.0;
-
-private constructor (){
-
-            super();
-        
-    let size: number = this.last.length
-                ;;
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.displayable {
+    import org.allbinary.AndroidUtil;
+    import org.allbinary.game.configuration.feature.Features;
+    import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
+    import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
+    import org.allbinary.graphics.displayable.event.LastDisplayChangeEventHandler;
+    import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
+    import org.allbinary.graphics.threed.SWTJOGLProcessor;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.communication.log.PreLogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.system.os.GenericOperatingSystem;
+    import org.allbinary.logic.system.os.OperatingSystemFactory;
+    import org.allbinary.string.CommonLabels;
+    import org.allbinary.string.CommonSeps;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+
+    public class DisplayInfoSingleton {
+    private static var SINGLETON_value:DisplayInfoSingleton;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():DisplayInfoSingleton {
+        if (!DisplayInfoSingleton.SINGLETON_set) {
+            DisplayInfoSingleton.SINGLETON_set = true;
+            DisplayInfoSingleton.SINGLETON_value = new DisplayInfoSingleton();
+        }
+        return DisplayInfoSingleton.SINGLETON_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var commonLabels:CommonLabels = null;
+        private var commonSeps:CommonSeps = null;
+        private var commonStrings:CommonStrings = null;
+        public var ORIENTATION:String = null;
+        public var ADJUSTING_FOR_SCALING_IN_PORTRAIT:String = null;
+        public var ADJUSTING_FOR_SCALING_IN_LANDSCAPE:String = null;
+        private var last:Vector.<int> = null;
+        private var lastHalf:Vector.<int> = null;
+        private var full:Vector.<int> = null;
+        private var top:int = 0;
+        private var left:int = 0;
+        private var xOffset:int = 0;
+        private var yOffset:int = 0;
+        private var scaleLargestTo:Number = 0.0;
+        public var WIDTH:int = 0;
+        public var HEIGHT:int = 0;
+        public var CUSTOM_WIDTH:int = 0;
+        public var CUSTOM_HEIGHT:int = 0;
+        private var scalableListener:BaseScalable = null;
+        private var displayRatio:Number = 0.0;
+        private var ratio:Number = 0.0;
+        private var SET_LAST_SIZE_METHOD_NAME:String = null;
+        private var FULL_WIDTH:String = null;
+        private var FULL_HEIGHT:String = null;
+        private var LAST_WIDTH:String = null;
+        private var LAST_HEIGHT:String = null;
+        private var PORTRAIT:String = null;
+        private var LANDSCAPE:String = null;
+        public var displayChangeEvent:DisplayChangeEvent = null;
+        private var FIRE_METHOD_NAME:String = null;
+        private var REASON:String = null;
+        private var UPDATE_FROM_ORIENTATION_CHANGE:String = null;
+        private var list:BasicArrayList = null;
+        private var DISPLAY_INFO:String = null;
+        private var FULL:String = null;
+        private var LAST:String = null;
+        private var LAST_HALF:String = null;
+
+        // Java field initializers run after the base constructor
+        private function initFieldsDisplayInfoSingleton():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonLabels = CommonLabels.getInstance();
+    this.commonSeps = CommonSeps.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.ORIENTATION = "ORIENTATION";
+    this.ADJUSTING_FOR_SCALING_IN_PORTRAIT = "Adjusting for Scaling in portrait display ratio: ";
+    this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE = "Adjusting for Scaling in landscape display ratio: ";
+    this.last = new Vector.<int>(4);
+    this.lastHalf = new Vector.<int>(4);
+    this.full = new Vector.<int>(4);
+    this.top = 0;
+    this.left = 0;
+    this.xOffset = 0;
+    this.yOffset = 0;
+    this.scaleLargestTo = 0.0;
+    this.WIDTH = 0;
+    this.HEIGHT = 1;
+    this.CUSTOM_WIDTH = 2;
+    this.CUSTOM_HEIGHT = 3;
+    this.scalableListener = new BaseScalable();
+    this.displayRatio = 0.0;
+    this.ratio = 1.0;
+    this.SET_LAST_SIZE_METHOD_NAME = "setLastSize";
+    this.FULL_WIDTH = " FullWidth: ";
+    this.FULL_HEIGHT = " FullHeight: ";
+    this.LAST_WIDTH = "LastWidth: ";
+    this.LAST_HEIGHT = " LastHeight: ";
+    this.PORTRAIT = "Portrait";
+    this.LANDSCAPE = "Landscape";
+    this.displayChangeEvent = new DisplayChangeEvent(this);
+    this.FIRE_METHOD_NAME = "fire";
+    this.REASON = "reason: ";
+    this.UPDATE_FROM_ORIENTATION_CHANGE = "Updating from Orientation Change ";
+    this.list = new BasicArrayListD();
+    this.DISPLAY_INFO = "Display Info: ";
+    this.FULL = "full";
+    this.LAST = "last";
+    this.LAST_HALF = "lastHalf";
+        }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-this.last[index]= 0;
-    
-this.lastHalf[index]= 0;
-    
-this.full[index]= 0;
-    
-}
-
-
-                        if(AndroidUtil.isAndroid())
-                        
-                                    {
-                                    this.scaleLargestTo= 640;
+    public static function getInstance():DisplayInfoSingleton {
+        return DisplayInfoSingleton.SINGLETON;
+    }
     
 
-                                    }
-                                
-                        else {
-                            this.scaleLargestTo= 1080;
+    public function DisplayInfoSingleton() {
+        super();
+        this.initFieldsDisplayInfoSingleton();
+        var size:int = this.last.length;
+        for (var index:int = 0; index < size; index++) {
+            this.last[index] = 0;
+            this.lastHalf[index] = 0;
+            this.full[index] = 0;
+        }
+        if (AndroidUtil.isAndroid()) {
+            this.scaleLargestTo = 640.0;
+        } else {
+            this.scaleLargestTo = 1080.0;
+        }
+    }
     
 
+    public function getLastHalf():Vector.<int> {
+        return this.lastHalf;
+    }
+    
+
+    public function getLast():Vector.<int> {
+        return this.last;
+    }
+    
+
+    public function getFull():Vector.<int> {
+        return this.full;
+    }
+    
+
+    public function getScaleLargestTo():Number {
+        return this.scaleLargestTo;
+    }
+    
+
+    public function setScaleLargestTo(scaleLargestTo:int):void {
+        this.scaleLargestTo = Number(scaleLargestTo);
+    }
+    
+
+    public function setLastSize(aLastWidth:int, aLastHeight:int, reason:String):void {
+        if (this.full[this.WIDTH] != aLastWidth || this.full[this.HEIGHT] != aLastHeight) {
+            this.setLastSizeForce(aLastWidth, aLastHeight, reason);
+        }
+    }
+    
+
+    private function setLastSizeForce(aLastWidth:int, aLastHeight:int, reason:String):void {
+        var stringMaker:StringMaker = new StringMaker();
+        this.logUtil.putF(stringMaker.append(CommonLabels.getInstance().START_LABEL).append(reason).toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
+        var aFullWidth:int = aLastWidth;
+        var aFullHeight:int = aLastHeight;
+        stringMaker.delete_(0, stringMaker.length());
+        this.logUtil.putF(stringMaker.append(this.FULL_WIDTH).appendint(aFullWidth).append(this.FULL_HEIGHT).appendint(aFullHeight).append(this.toString()).toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
+        var operatingSystemInterface:GenericOperatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
+        if (operatingSystemInterface.isOverScan()) {
+            aLastWidth = int(int(aLastWidth * operatingSystemInterface.getOverScanXPercent()) / 100);
+            aLastHeight = int(int(aLastHeight * operatingSystemInterface.getOverScanYPercent()) / 100);
+        }
+        if (operatingSystemInterface.isScalable()) {
+            if (this.isPortraitWH(aLastWidth, aLastHeight)) {
+                if (Number(aLastHeight) > this.scaleLargestTo) {
+                    this.displayRatio = this.scaleLargestTo / Number(aLastHeight);
+                    this.ratio = Number(aLastHeight) / this.scaleLargestTo;
+                    stringMaker.delete_(0, stringMaker.length());
+                    this.logUtil.putF(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(this.displayRatio).toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
+                    aLastWidth = JMath.toInt32((Number(aLastWidth) * this.displayRatio));
+                    aLastHeight = JMath.toInt32((Number(aLastHeight) * this.displayRatio));
+                    this.scalableListener.scale(this.ratio);
+                } else {
+                    this.ratio = 1.0;
+                    this.scalableListener.scale(this.ratio);
+                }
+            } else {
+                if (Number(aLastWidth) > this.scaleLargestTo) {
+                    this.displayRatio = this.scaleLargestTo / Number(aLastWidth);
+                    this.ratio = Number(aLastWidth) / this.scaleLargestTo;
+                    stringMaker.delete_(0, stringMaker.length());
+                    this.logUtil.putF(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(this.displayRatio).toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
+                    aLastWidth = JMath.toInt32((Number(aLastWidth) * this.displayRatio));
+                    aLastHeight = JMath.toInt32((Number(aLastHeight) * this.displayRatio));
+                    this.scalableListener.scale(this.ratio);
+                } else {
+                    this.ratio = 1.0;
+                    this.scalableListener.scale(this.ratio);
+                }
+            }
+        }
+        stringMaker.delete_(0, stringMaker.length());
+        this.logUtil.putF(stringMaker.append(this.LAST_WIDTH).appendint(aLastWidth).append(this.LAST_HEIGHT).appendint(aLastHeight).toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
+        this.xOffset = int(aFullWidth - aLastWidth);
+        this.yOffset = int(aFullHeight - aLastHeight);
+        this.left = this.scalableListener.getLeft(this.xOffset);
+        this.top = this.scalableListener.getTop(this.yOffset);
+        this.full[this.WIDTH] = aFullWidth;
+        this.full[this.HEIGHT] = aFullHeight;
+        this.last[this.WIDTH] = aLastWidth;
+        this.lastHalf[this.WIDTH] = (this.last[this.WIDTH] >> 1);
+        this.last[this.HEIGHT] = aLastHeight;
+        this.lastHalf[this.HEIGHT] = (this.last[this.HEIGHT] >> 1);
+        SWTJOGLProcessor.getInstance().setCustom(aLastWidth, aLastHeight, this.ratio);
+        this.add(this.SET_LAST_SIZE_METHOD_NAME);
+    }
+    
+
+    public function isPortraitWH(lastWidth:int, lastHeight:int):Boolean {
+        if (lastHeight > lastWidth) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+
+    public function isPortrait():Boolean {
+        return this.isPortraitWH(this.last[this.WIDTH], this.last[this.HEIGHT]);
+    }
+    
+
+    public function add(reason:String):void {
+        var stringMaker:StringMaker = new StringMaker();
+        this.logUtil.putF(stringMaker.append(this.REASON).append(reason).toString(), this, this.FIRE_METHOD_NAME);
+        stringMaker.delete_(0, stringMaker.length());
+        this.logUtil.putF(this.toStringAppend(stringMaker), this, this.FIRE_METHOD_NAME);
+        this.list.add(reason);
+    }
+    
+
+    public function process():void {
+        try {
+            if (this.list.size() > 0) {
+                this.processForced();
+            }
+            this.list.clear();
+        } catch (e:*) {
+            PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, this.FIRE_METHOD_NAME, e);
+        }
+    }
+    
+
+    public function processForced():void {
+        try {
+            var swtJOGLProcessor:SWTJOGLProcessor = SWTJOGLProcessor.getInstance();
+            swtJOGLProcessor.clear();
+            DisplayChangeEventHandler.getInstance().fireEvent(this.displayChangeEvent);
+            LastDisplayChangeEventHandler.getInstance().fireEvent(this.displayChangeEvent);
+            swtJOGLProcessor.onSurfaceChanged();
+        } catch (e:*) {
+            PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, this.FIRE_METHOD_NAME, e);
+        }
+    }
+    
+
+    public function update(displayable:Displayable, reason:String):void {
+        var aLastWidth:int = displayable.getWidth();
+        var aLastHeight:int = displayable.getHeight();
+        var aFullWidth:int = aLastWidth;
+        var aFullHeight:int = aLastHeight;
+        var stringMaker:StringMaker = new StringMaker();
+        this.logUtil.putF(stringMaker.append(CommonLabels.getInstance().START_LABEL).append(reason).append(this.LAST_WIDTH).appendint(aLastWidth).append(this.LAST_HEIGHT).appendint(aLastHeight).append(this.commonSeps.SPACE).append(this.toString()).toString(), this, this.commonStrings.UPDATE);
+        if (aLastWidth > 0 && aLastHeight > 0) {
+            var features:Features = Features.getInstance();
+            var openGLFeatureFactory:OpenGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+            if (!features.isDefault(openGLFeatureFactory.OPENGL) || this.last[this.WIDTH] != aLastWidth || this.last[this.HEIGHT] != aLastHeight) {
+                stringMaker.delete_(0, stringMaker.length());
+                this.logUtil.putF(stringMaker.append(this.UPDATE_FROM_ORIENTATION_CHANGE).toString(), this, this.commonStrings.UPDATE);
+                var operatingSystemInterface:GenericOperatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
+                if (operatingSystemInterface.isOverScan()) {
+                    aLastWidth = int(int(aLastWidth * operatingSystemInterface.getOverScanXPercent()) / 100);
+                    aLastHeight = int(int(aLastHeight * operatingSystemInterface.getOverScanYPercent()) / 100);
+                }
+                if (operatingSystemInterface.isScalable()) {
+                    if (this.isPortraitWH(aLastWidth, aLastHeight)) {
+                        if (Number(aLastHeight) > this.scaleLargestTo) {
+                            this.displayRatio = this.scaleLargestTo / Number(aLastHeight);
+                            this.ratio = Number(aLastHeight) / this.scaleLargestTo;
+                            stringMaker.delete_(0, stringMaker.length());
+                            this.logUtil.putF(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).appendfloat(this.displayRatio).toString(), this, this.commonStrings.UPDATE);
+                            aLastWidth = JMath.toInt32((Number(aLastWidth) * this.displayRatio));
+                            aLastHeight = JMath.toInt32((Number(aLastHeight) * this.displayRatio));
+                            this.scalableListener.scale(this.ratio);
+                        } else {
+                            this.ratio = 1.0;
+                            this.scalableListener.scale(this.ratio);
                         }
-                            
-}
-
-
-    public getLastHalf(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.lastHalf;
-    
-}
-
-
-    public getLast(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.last;
-    
-}
-
-
-    public getFull(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.full;
-    
-}
-
-
-    public getScaleLargestTo(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.scaleLargestTo;
-    
-}
-
-
-    public setScaleLargestTo(scaleLargestTo: number){
-this.scaleLargestTo= scaleLargestTo;
-    
-}
-
-
-    private readonly SET_LAST_SIZE_METHOD_NAME: string = "setLastSize";
-
-    private readonly FULL_WIDTH: string = " FullWidth: ";
-
-    private readonly FULL_HEIGHT: string = " FullHeight: ";
-
-    private readonly LAST_WIDTH: string = "LastWidth: ";
-
-    private readonly LAST_HEIGHT: string = " LastHeight: ";
-
-    private readonly PORTRAIT: string = "Portrait";
-
-    private readonly LANDSCAPE: string = "Landscape";
-
-    public setLastSize(aLastWidth: number, aLastHeight: number, reason: string){
-
-                        if(this.full[this.WIDTH] != aLastWidth || this.full[this.HEIGHT] != aLastHeight)
-                        
-                                    {
-                                    this.setLastSizeForce(aLastWidth, aLastHeight, reason);
-    
-
-                                    }
-                                
-}
-
-
-    setLastSizeForce(aLastWidth: number, aLastHeight: number, reason: string){
-
-    let stringMaker: StringMaker = new StringMaker();;
-    
-this.logUtil!.putF(stringMaker!.append(CommonLabels.getInstance()!.START_LABEL)!.append(reason)!.toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
-    
-
-    let aFullWidth: number = aLastWidth;;
-    
-
-    let aFullHeight: number = aLastHeight;;
-    
-stringMaker!.delete(0, stringMaker!.length());
-    
-this.logUtil!.putF(stringMaker!.append(this.FULL_WIDTH)!.appendint(aFullWidth)!.append(this.FULL_HEIGHT)!.appendint(aFullHeight)!.append(this.toString())!.toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
-    
-
-    let operatingSystemInterface: GenericOperatingSystem = OperatingSystemFactory.getInstance()!.getOperatingSystemInstance()!;;
-    
-
-                        if(operatingSystemInterface!.isOverScan())
-                        
-                                    {
-                                    aLastWidth= aLastWidth *operatingSystemInterface!.getOverScanXPercent() /100;
-    
-aLastHeight= aLastHeight *operatingSystemInterface!.getOverScanYPercent() /100;
-    
-
-                                    }
-                                
-
-                        if(operatingSystemInterface!.isScalable())
-                        
-                                    {
-                                    
-                        if(this.isPortraitWH(aLastWidth, aLastHeight))
-                        
-                                    {
-                                    
-                        if(aLastHeight > this.scaleLargestTo)
-                        
-                                    {
-                                    this.displayRatio= this.scaleLargestTo /aLastHeight;
-    
-this.ratio= aLastHeight /this.scaleLargestTo;
-    
-stringMaker!.delete(0, stringMaker!.length());
-    
-this.logUtil!.putF(stringMaker!.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT)!.appendfloat(this.displayRatio)!.toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
-    
-aLastWidth= globalThis.Math.trunc((aLastWidth *this.displayRatio));
-    
-aLastHeight= globalThis.Math.trunc((aLastHeight *this.displayRatio));
-    
-this.scalableListener!.scale(this.ratio);
-    
-
-                                    }
-                                
-                        else {
-                            this.ratio= 1.0;
-    
-this.scalableListener!.scale(this.ratio);
-    
-
+                    } else {
+                        if (Number(aLastWidth) > this.scaleLargestTo) {
+                            this.displayRatio = this.scaleLargestTo / Number(aLastWidth);
+                            this.ratio = Number(aLastWidth) / this.scaleLargestTo;
+                            stringMaker.delete_(0, stringMaker.length());
+                            this.logUtil.putF(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).appendfloat(this.displayRatio).toString(), this, this.commonStrings.UPDATE);
+                            aLastWidth = JMath.toInt32((Number(aLastWidth) * this.displayRatio));
+                            aLastHeight = JMath.toInt32((Number(aLastHeight) * this.displayRatio));
+                            this.scalableListener.scale(this.ratio);
+                        } else {
+                            this.ratio = 1.0;
+                            this.scalableListener.scale(this.ratio);
                         }
-                            
+                    }
+                }
+                stringMaker.delete_(0, stringMaker.length());
+                this.logUtil.putF(stringMaker.append(this.UPDATE_FROM_ORIENTATION_CHANGE).append(this.LAST_WIDTH).appendint(aLastWidth).append(this.LAST_HEIGHT).appendint(aLastHeight).toString(), this, this.commonStrings.UPDATE);
+                this.xOffset = int(aFullWidth - aLastWidth);
+                this.yOffset = int(aFullHeight - aLastHeight);
+                this.left = this.scalableListener.getLeft(this.xOffset);
+                this.top = this.scalableListener.getTop(this.yOffset);
+                this.full[this.WIDTH] = aFullWidth;
+                this.full[this.HEIGHT] = aFullHeight;
+                this.last[this.WIDTH] = aLastWidth;
+                this.lastHalf[this.WIDTH] = (this.last[this.WIDTH] >> 1);
+                this.last[this.HEIGHT] = aLastHeight;
+                this.lastHalf[this.HEIGHT] = (this.last[this.HEIGHT] >> 1);
+                SWTJOGLProcessor.getInstance().setCustom(aLastWidth, aLastHeight, this.ratio);
+                this.add(this.commonStrings.UPDATE);
+            }
+        }
+    }
+    
+
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        return this.toStringAppend(stringBuffer);
+    }
+    
 
-                                    }
-                                
-                        else {
-                            
-                        if(aLastWidth > this.scaleLargestTo)
-                        
-                                    {
-                                    this.displayRatio= this.scaleLargestTo /aLastWidth;
+    public function toStringAppend(stringBuffer:StringMaker):String {
+        stringBuffer.append(this.DISPLAY_INFO);
+        stringBuffer.append(this.FULL);
+        stringBuffer.append(this.commonLabels.WIDTH_LABEL);
+        stringBuffer.appendint(this.full[this.WIDTH]);
+        stringBuffer.append(this.commonSeps.SPACE);
+        stringBuffer.append(this.FULL);
+        stringBuffer.append(this.commonLabels.HEIGHT_LABEL);
+        stringBuffer.appendint(this.full[this.HEIGHT]);
+        stringBuffer.append(this.commonSeps.SPACE);
+        stringBuffer.append(this.LAST);
+        stringBuffer.append(this.commonLabels.WIDTH_LABEL);
+        stringBuffer.appendint(this.last[this.WIDTH]);
+        stringBuffer.append(this.commonSeps.SPACE);
+        stringBuffer.append(this.LAST);
+        stringBuffer.append(this.commonLabels.HEIGHT_LABEL);
+        stringBuffer.appendint(this.last[this.HEIGHT]);
+        stringBuffer.append(this.commonSeps.SPACE);
+        stringBuffer.append(this.LAST_HALF);
+        stringBuffer.append(this.commonLabels.WIDTH_LABEL);
+        stringBuffer.appendint(this.lastHalf[this.WIDTH]);
+        stringBuffer.append(this.commonSeps.SPACE);
+        stringBuffer.append(this.LAST_HALF);
+        stringBuffer.append(this.commonLabels.HEIGHT_LABEL);
+        stringBuffer.appendint(this.lastHalf[this.HEIGHT]);
+        stringBuffer.append(this.commonSeps.SPACE);
+        stringBuffer.append((this.isPortrait() ? this.PORTRAIT : this.LANDSCAPE));
+        return stringBuffer.toString();
+    }
     
-this.ratio= aLastWidth /this.scaleLargestTo;
-    
-stringMaker!.delete(0, stringMaker!.length());
-    
-this.logUtil!.putF(stringMaker!.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE)!.appendfloat(this.displayRatio)!.toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
-    
-aLastWidth= globalThis.Math.trunc((aLastWidth *this.displayRatio));
-    
-aLastHeight= globalThis.Math.trunc((aLastHeight *this.displayRatio));
-    
-this.scalableListener!.scale(this.ratio);
-    
-
-                                    }
-                                
-                        else {
-                            this.ratio= 1.0;
-    
-this.scalableListener!.scale(this.ratio);
-    
-
-                        }
-                            
-
-                        }
-                            
-
-                                    }
-                                
-stringMaker!.delete(0, stringMaker!.length());
-    
-this.logUtil!.putF(stringMaker!.append(this.LAST_WIDTH)!.appendint(aLastWidth)!.append(this.LAST_HEIGHT)!.appendint(aLastHeight)!.toString(), this, this.SET_LAST_SIZE_METHOD_NAME);
-    
-this.xOffset= aFullWidth -aLastWidth;
-    
-this.yOffset= aFullHeight -aLastHeight;
-    
-this.left= this.scalableListener!.getLeft(this.xOffset);
-    
-this.top= this.scalableListener!.getTop(this.yOffset);
-    
-this.full[this.WIDTH]= aFullWidth;
-    
-this.full[this.HEIGHT]= aFullHeight;
-    
-this.last[this.WIDTH]= aLastWidth;
-    
-this.lastHalf[this.WIDTH]= (this.last[this.WIDTH]>>1);
-    
-this.last[this.HEIGHT]= aLastHeight;
-    
-this.lastHalf[this.HEIGHT]= (this.last[this.HEIGHT]>>1);
-    
-SWTJOGLProcessor.getInstance()!.setCustom(aLastWidth, aLastHeight, this.ratio);
-    
-this.add(this.SET_LAST_SIZE_METHOD_NAME);
-    
-}
-
-
-    public isPortraitWH(lastWidth: number, lastHeight: number): boolean{
-
-                        if(lastHeight > lastWidth)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-
-                        }
-                            
-}
-
-
-    public isPortrait(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.isPortraitWH(this.last[this.WIDTH]!, this.last[this.HEIGHT]!);;
-    
-}
-
-
-    public readonly displayChangeEvent: DisplayChangeEvent = new DisplayChangeEvent(this);
-
-    private readonly FIRE_METHOD_NAME: string = "fire";
-
-    private readonly REASON: string = "reason: ";
-
-    private readonly UPDATE_FROM_ORIENTATION_CHANGE: string = "Updating from Orientation Change ";
-
-    private readonly list: BasicArrayList = new BasicArrayListD();
-
-    public add(reason: string){
-
-    let stringMaker: StringMaker = new StringMaker();;
-    
-this.logUtil!.putF(stringMaker!.append(this.REASON)!.append(reason)!.toString(), this, this.FIRE_METHOD_NAME);
-    
-stringMaker!.delete(0, stringMaker!.length());
-    
-this.logUtil!.putF(this.toStringAppend(stringMaker), this, this.FIRE_METHOD_NAME);
-    
-this.list.add(reason);
-    
-}
-
-
-    public process(){
-
- try { 
-                        if(this.list.size() > 0)
-                        
-                                    {
-                                    this.processForced();
-    
-
-                                    }
-                                
-this.list.clear();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-PreLogUtil.putOE(this.commonStrings!.EXCEPTION, this, this.FIRE_METHOD_NAME, e);
-    
-
- }
-   }
- 
-}
-
-
-    public processForced(){
-
- try { 
-    let swtJOGLProcessor: SWTJOGLProcessor = SWTJOGLProcessor.getInstance()!;;
-    
-swtJOGLProcessor!.clear();
-    
-DisplayChangeEventHandler.getInstance()!.fireEvent(this.displayChangeEvent);
-    
-LastDisplayChangeEventHandler.getInstance()!.fireEvent(this.displayChangeEvent);
-    
-swtJOGLProcessor!.onSurfaceChanged();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-PreLogUtil.putOE(this.commonStrings!.EXCEPTION, this, this.FIRE_METHOD_NAME, e);
-    
-
- }
-   }
- 
-}
-
-
-    public update(displayable: Displayable, reason: string){
-
-    let aLastWidth: number = displayable.getWidth()!;;
-    
-
-    let aLastHeight: number = displayable.getHeight()!;;
-    
-
-    let aFullWidth: number = aLastWidth;;
-    
-
-    let aFullHeight: number = aLastHeight;;
-    
-
-    let stringMaker: StringMaker = new StringMaker();;
-    
-this.logUtil!.putF(stringMaker!.append(CommonLabels.getInstance()!.START_LABEL)!.append(reason)!.append(this.LAST_WIDTH)!.appendint(aLastWidth)!.append(this.LAST_HEIGHT)!.appendint(aLastHeight)!.append(this.commonSeps!.SPACE)!.append(this.toString())!.toString(), this, this.commonStrings!.UPDATE);
-    
-
-                        if(aLastWidth > 0 && aLastHeight > 0)
-                        
-                                    {
-                                    
-    let features: Features = Features.getInstance()!;;
-    
-
-    let openGLFeatureFactory: OpenGLFeatureFactory = OpenGLFeatureFactory.getInstance()!;;
-    
-
-                        if(!features.isDefault(openGLFeatureFactory!.OPENGL) || this.last[this.WIDTH] != aLastWidth || this.last[this.HEIGHT] != aLastHeight)
-                        
-                                    {
-                                    stringMaker!.delete(0, stringMaker!.length());
-    
-this.logUtil!.putF(stringMaker!.append(this.UPDATE_FROM_ORIENTATION_CHANGE)!.toString(), this, this.commonStrings!.UPDATE);
-    
-
-    let operatingSystemInterface: GenericOperatingSystem = OperatingSystemFactory.getInstance()!.getOperatingSystemInstance()!;;
-    
-
-                        if(operatingSystemInterface!.isOverScan())
-                        
-                                    {
-                                    aLastWidth= aLastWidth *operatingSystemInterface!.getOverScanXPercent() /100;
-    
-aLastHeight= aLastHeight *operatingSystemInterface!.getOverScanYPercent() /100;
-    
-
-                                    }
-                                
-
-                        if(operatingSystemInterface!.isScalable())
-                        
-                                    {
-                                    
-                        if(this.isPortraitWH(aLastWidth, aLastHeight))
-                        
-                                    {
-                                    
-                        if(aLastHeight > this.scaleLargestTo)
-                        
-                                    {
-                                    this.displayRatio= this.scaleLargestTo /aLastHeight;
-    
-this.ratio= aLastHeight /this.scaleLargestTo;
-    
-stringMaker!.delete(0, stringMaker!.length());
-    
-this.logUtil!.putF(stringMaker!.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT)!.appendfloat(this.displayRatio)!.toString(), this, this.commonStrings!.UPDATE);
-    
-aLastWidth= globalThis.Math.trunc((aLastWidth *this.displayRatio));
-    
-aLastHeight= globalThis.Math.trunc((aLastHeight *this.displayRatio));
-    
-this.scalableListener!.scale(this.ratio);
-    
-
-                                    }
-                                
-                        else {
-                            this.ratio= 1.0;
-    
-this.scalableListener!.scale(this.ratio);
-    
-
-                        }
-                            
-
-                                    }
-                                
-                        else {
-                            
-                        if(aLastWidth > this.scaleLargestTo)
-                        
-                                    {
-                                    this.displayRatio= this.scaleLargestTo /aLastWidth;
-    
-this.ratio= aLastWidth /this.scaleLargestTo;
-    
-stringMaker!.delete(0, stringMaker!.length());
-    
-this.logUtil!.putF(stringMaker!.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE)!.appendfloat(this.displayRatio)!.toString(), this, this.commonStrings!.UPDATE);
-    
-aLastWidth= globalThis.Math.trunc((aLastWidth *this.displayRatio));
-    
-aLastHeight= globalThis.Math.trunc((aLastHeight *this.displayRatio));
-    
-this.scalableListener!.scale(this.ratio);
-    
-
-                                    }
-                                
-                        else {
-                            this.ratio= 1.0;
-    
-this.scalableListener!.scale(this.ratio);
-    
-
-                        }
-                            
-
-                        }
-                            
-
-                                    }
-                                
-stringMaker!.delete(0, stringMaker!.length());
-    
-this.logUtil!.putF(stringMaker!.append(this.UPDATE_FROM_ORIENTATION_CHANGE)!.append(this.LAST_WIDTH)!.appendint(aLastWidth)!.append(this.LAST_HEIGHT)!.appendint(aLastHeight)!.toString(), this, this.commonStrings!.UPDATE);
-    
-this.xOffset= aFullWidth -aLastWidth;
-    
-this.yOffset= aFullHeight -aLastHeight;
-    
-this.left= this.scalableListener!.getLeft(this.xOffset);
-    
-this.top= this.scalableListener!.getTop(this.yOffset);
-    
-this.full[this.WIDTH]= aFullWidth;
-    
-this.full[this.HEIGHT]= aFullHeight;
-    
-this.last[this.WIDTH]= aLastWidth;
-    
-this.lastHalf[this.WIDTH]= (this.last[this.WIDTH]>>1);
-    
-this.last[this.HEIGHT]= aLastHeight;
-    
-this.lastHalf[this.HEIGHT]= (this.last[this.HEIGHT]>>1);
-    
-SWTJOGLProcessor.getInstance()!.setCustom(aLastWidth, aLastHeight, this.ratio);
-    
-this.add(this.commonStrings!.UPDATE);
-    
-
-                                    }
-                                
-
-                                    }
-                                
-}
-
-
-    private readonly DISPLAY_INFO: string = "Display Info: ";
-
-    private readonly FULL: string = "full";
-
-    private readonly LAST: string = "last";
-
-    private readonly LAST_HALF: string = "lastHalf";
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.toStringAppend(stringBuffer);;
-    
-}
-
-
-    public toStringAppend(stringBuffer: StringMaker): string{
-stringBuffer!.append(this.DISPLAY_INFO);
-    
-stringBuffer!.append(this.FULL);
-    
-stringBuffer!.append(this.commonLabels!.WIDTH_LABEL);
-    
-stringBuffer!.appendint(this.full[this.WIDTH]!);
-    
-stringBuffer!.append(this.commonSeps!.SPACE);
-    
-stringBuffer!.append(this.FULL);
-    
-stringBuffer!.append(this.commonLabels!.HEIGHT_LABEL);
-    
-stringBuffer!.appendint(this.full[this.HEIGHT]!);
-    
-stringBuffer!.append(this.commonSeps!.SPACE);
-    
-stringBuffer!.append(this.LAST);
-    
-stringBuffer!.append(this.commonLabels!.WIDTH_LABEL);
-    
-stringBuffer!.appendint(this.last[this.WIDTH]!);
-    
-stringBuffer!.append(this.commonSeps!.SPACE);
-    
-stringBuffer!.append(this.LAST);
-    
-stringBuffer!.append(this.commonLabels!.HEIGHT_LABEL);
-    
-stringBuffer!.appendint(this.last[this.HEIGHT]!);
-    
-stringBuffer!.append(this.commonSeps!.SPACE);
-    
-stringBuffer!.append(this.LAST_HALF);
-    
-stringBuffer!.append(this.commonLabels!.WIDTH_LABEL);
-    
-stringBuffer!.appendint(this.lastHalf[this.WIDTH]!);
-    
-stringBuffer!.append(this.commonSeps!.SPACE);
-    
-stringBuffer!.append(this.LAST_HALF);
-    
-stringBuffer!.append(this.commonLabels!.HEIGHT_LABEL);
-    
-stringBuffer!.appendint(this.lastHalf[this.HEIGHT]!);
-    
-stringBuffer!.append(this.commonSeps!.SPACE);
-    
-stringBuffer!.append((this.isPortrait() ? this.PORTRAIT : this.LANDSCAPE));
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
-    
-}
-
-
-    public getTop(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.top;
-    
-}
-
-
-    public getLeft(): number{
-
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.left;
+    public function getTop():int {
+        return this.top;
+    }
     
-}
-
-
-    public getLastWidth(): number{
-
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.last[this.WIDTH]!;
+    public function getLeft():int {
+        return this.left;
+    }
     
-}
-
-
-    public getLastHeight(): number{
-
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.last[this.HEIGHT]!;
+    public function getLastWidth():int {
+        return this.last[this.WIDTH];
+    }
     
-}
-
-
-    public getLastHalfWidth(): number{
-
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.lastHalf[this.WIDTH]!;
+    public function getLastHeight():int {
+        return this.last[this.HEIGHT];
+    }
     
-}
-
-
-    public getLastHalfHeight(): number{
-
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.lastHalf[this.HEIGHT]!;
+    public function getLastHalfWidth():int {
+        return this.lastHalf[this.WIDTH];
+    }
     
-}
-
-
-    public getCustomLastWidth(): number{
-
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.last[this.CUSTOM_WIDTH]!;
+    public function getLastHalfHeight():int {
+        return this.lastHalf[this.HEIGHT];
+    }
     
-}
-
-
-    public getCustomLastHeight(): number{
-
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.last[this.CUSTOM_HEIGHT]!;
+    public function getCustomLastWidth():int {
+        return this.last[this.CUSTOM_WIDTH];
+    }
     
-}
-
-
-    public getRawLastWidth(): number{
-
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.last[this.WIDTH]!;
+    public function getCustomLastHeight():int {
+        return this.last[this.CUSTOM_HEIGHT];
+    }
     
-}
-
-
-    public getRawLastHeight(): number{
-
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.last[this.HEIGHT]!;
+    public function getRawLastWidth():int {
+        return this.last[this.WIDTH];
+    }
     
-}
-
 
-    public setCustom(width: number, height: number){
-this.last[this.CUSTOM_WIDTH]= width;
-    
-this.lastHalf[this.CUSTOM_WIDTH]= (this.last[this.CUSTOM_WIDTH]>>1);
-    
-this.last[this.CUSTOM_HEIGHT]= height;
+    public function getRawLastHeight():int {
+        return this.last[this.HEIGHT];
+    }
     
-this.lastHalf[this.CUSTOM_HEIGHT]= (this.last[this.CUSTOM_HEIGHT]>>1);
-    
-}
-
 
-    public setScalableListener(scalableListener: BaseScalable){
-this.scalableListener= scalableListener;
+    public function setCustom(width:int, height:int):void {
+        this.last[this.CUSTOM_WIDTH] = width;
+        this.lastHalf[this.CUSTOM_WIDTH] = (this.last[this.CUSTOM_WIDTH] >> 1);
+        this.last[this.CUSTOM_HEIGHT] = height;
+        this.lastHalf[this.CUSTOM_HEIGHT] = (this.last[this.CUSTOM_HEIGHT] >> 1);
+    }
     
-}
-
-
-    public getScalableListener(): ScalableListener{
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.scalableListener;
+    public function setScalableListener(scalableListener:BaseScalable):void {
+        this.scalableListener = scalableListener;
+    }
     
-}
-
-
-    public getRatio(): number{
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.ratio;
+    public function getScalableListener():ScalableListener {
+        return this.scalableListener;
+    }
     
-}
-
-
-    public getDisplayRatio(): number{
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.displayRatio;
+    public function getRatio():Number {
+        return this.ratio;
+    }
     
-}
 
-
-    public setOffset(left: number, top: number){
-this.left= left;
+    public function getDisplayRatio():Number {
+        return this.displayRatio;
+    }
     
-}
-
 
-    public getxOffset(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.xOffset;
+    public function setOffset(left:int, top:int):void {
+        this.left = left;
+    }
     
-}
-
 
-    public getyOffset(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.yOffset;
+    public function getxOffset():int {
+        return this.xOffset;
+    }
     
-}
-
 
+    public function getyOffset():int {
+        return this.yOffset;
+    }
+    }
 }
 

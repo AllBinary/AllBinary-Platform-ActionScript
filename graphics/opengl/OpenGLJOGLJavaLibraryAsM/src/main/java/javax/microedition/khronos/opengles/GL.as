@@ -1,30 +1,7 @@
+// Generated Code Do Not Modify
+package javax.microedition.khronos.opengles {
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export interface GL {
-        
-
+    public interface GL {
+    }
 }
 

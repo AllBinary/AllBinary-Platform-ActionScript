@@ -1,103 +1,52 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.communication.log {
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LogBuffer {
+        public var logUtil:LogUtil = null;
+        public var logEntryVector:BasicArrayList = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //not plain js - same folder import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-//not plain js - same folder import { Log } 
-const Log = globalThis.org.allbinary.logic.communication.log.Log;
-
-export class LogBuffer
-            extends Object
-         {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    logEntryVector: BasicArrayList;
-
-public constructor (){
-
-            super();
-        this.logEntryVector= new BasicArrayListD();
+        // Java field initializers run after the base constructor
+        private function initFieldsLogBuffer():void {
+    this.logUtil = LogUtil.getInstance();
     
-}
-
-
-    public add(log: Log){
-this.logEntryVector!.add(log);
-    
-}
-
-
-    public logAll(){
-
-    let size: number = this.logEntryVector!.size()!;;
+        }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let log: Log = this.logEntryVector!.get(index) as Log;;
+    public function LogBuffer() {
+        super();
+        this.initFieldsLogBuffer();
+        this.logEntryVector = new BasicArrayListD();
+    }
     
-this.logUtil!.putL(log);
+
+    public function add(log:Log):void {
+        this.logEntryVector.add(log);
+    }
     
-}
 
-}
-
-
+    public function logAll():void {
+        var size:int = this.logEntryVector.size();
+        for (var index:int = 0; index < size; index++) {
+            var log:Log = (this.logEntryVector.get_(index) as Log);
+            this.logUtil.putL(log);
+        }
+    }
+    }
 }
 

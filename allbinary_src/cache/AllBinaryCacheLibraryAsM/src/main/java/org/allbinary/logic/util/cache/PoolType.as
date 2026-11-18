@@ -1,83 +1,45 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2007 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.util.cache {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2007 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PoolType {
+        private var cacheType:CacheType = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CacheType } from './CacheType.js';
-//sameFolderImports - not GWT import - same folder const CacheType
-
-export class PoolType
-            extends Object
-         {
-        
-
-    private readonly cacheType: CacheType;
-
-public constructor (cacheType: CacheType){
-
-            super();
-        this.cacheType= cacheType;
+        // Java field initializers run after the base constructor
+        private function initFieldsPoolType():void {
     
-}
-
-
-    public getCacheType(): CacheType{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.cacheType;
-    
-}
-
-
-    public toString(): string{
-
-    let POOL_TYPE: string = "PoolType: ";;
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return POOL_TYPE +this.getCacheType()!.toString();
+    public function PoolType(cacheType:CacheType) {
+        super();
+        this.initFieldsPoolType();
+        this.cacheType = cacheType;
+    }
     
-}
 
+    public function getCacheType():CacheType {
+        return this.cacheType;
+    }
+    
 
+    public function toString():String {
+        var POOL_TYPE:String = "PoolType: ";
+        return POOL_TYPE + this.getCacheType().toString();
+    }
+    }
 }
 

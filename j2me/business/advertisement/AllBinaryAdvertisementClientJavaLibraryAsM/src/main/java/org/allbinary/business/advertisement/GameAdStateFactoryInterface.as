@@ -1,55 +1,25 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.advertisement {
+    import org.allbinary.logic.system.SoftwareInformation;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface GameAdStateFactoryInterface {
+    
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { SoftwareInformation } from '../../../../org/allbinary/logic/system/SoftwareInformation.js';
-//not GWT import const SoftwareInformation
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameAdStateBase } from './GameAdStateBase.js';
-//sameFolderImports - not GWT import - same folder const GameAdStateBase
-
-export interface GameAdStateFactoryInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    getInstanceForApp(softwareInformation: SoftwareInformation): GameAdStateBase;
-
+    function getInstanceForApp(softwareInformation:SoftwareInformation):GameAdStateBase;
+    }
 }
 

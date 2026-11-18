@@ -1,110 +1,45 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.image.opengles {
+    import java.io.JIOException;
+    import java.io.JInputStream;
+    import org.allbinary.graphics.OpenGLBitmap;
+    import org.allbinary.graphics.color.BasicColor;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class OpenGLImageUtilBase {
+    
 
-        
+    public function paint(alphaBitmap:OpenGLBitmap, originalBitmap:OpenGLBitmap, index:int):OpenGLBitmap {
+        throw new JException("RuntimeException", "");
+    }
+    
 
+    public function paint(colorBitmap:OpenGLBitmap, originalBitmap:OpenGLBitmap, alpha:int, basicColor:BasicColor):OpenGLBitmap {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
-        
-import { IOException } from '../../../../java/io/IOException.js';
-//not GWT import const IOException
+    public function createImage(name:String):OpenGLBitmap {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-import { InputStream } from '../../../../java/io/InputStream.js';
-//not GWT import const InputStream
-
-import { OpenGLBitmap } from '../../../../org/allbinary/graphics/OpenGLBitmap.js';
-//not GWT import const OpenGLBitmap
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class OpenGLImageUtilBase
-            extends Object
-         {
-        
-paint(...args: any[]): any {
-   
-   
-    if (args.length === 3 && typeof args[2] === 'number') return this.paint$overload1(args[0], args[1], args[2]);
-   
-    if (args.length === 4 && typeof args[2] === 'number') return this.paint$overload2(args[0], args[1], args[2], args[3]);
-   
-   throw new TypeError('No matching overload: paint'); }
-  
-    public paint$overload1(alphaBitmap: OpenGLBitmap, originalBitmap: OpenGLBitmap, index: number): OpenGLBitmap{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public paint$overload2(colorBitmap: OpenGLBitmap, originalBitmap: OpenGLBitmap, alpha: number, basicColor: BasicColor): OpenGLBitmap{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-                //@Throws(IOException.constructor)
-            
-    public createImage(name: string): OpenGLBitmap{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-                //@Throws(IOException.constructor)
-            
-    public createImageFromInputStream(inputStream: InputStream): OpenGLBitmap{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
+    public function createImageFromInputStream(inputStream:InputStream):OpenGLBitmap {
+        throw new JException("RuntimeException", "");
+    }
+    }
 }
 

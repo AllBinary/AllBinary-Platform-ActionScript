@@ -1,66 +1,35 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.platform.graphics {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PlatformBitmapBaseFactory {
+    private static var NULL_PLATFORM_BITMAP_BASE_FACTORY_value:PlatformBitmapBaseFactory;
+    private static var NULL_PLATFORM_BITMAP_BASE_FACTORY_set:Boolean = false;
+    public static function get NULL_PLATFORM_BITMAP_BASE_FACTORY():PlatformBitmapBaseFactory {
+        if (!PlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY_set) {
+            PlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY_set = true;
+            PlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY_value = new PlatformBitmapBaseFactory();
+        }
+        return PlatformBitmapBaseFactory.NULL_PLATFORM_BITMAP_BASE_FACTORY_value;
+    }
+    
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PlatformBitmapBase } from './PlatformBitmapBase.js';
-//sameFolderImports - not GWT import - same folder const PlatformBitmapBase
-
-export class PlatformBitmapBaseFactory
-            extends Object
-         {
-        
-
-    public static readonly NULL_PLATFORM_BITMAP_BASE_FACTORY: PlatformBitmapBaseFactory = new PlatformBitmapBaseFactory();
-
-    public createBitmap(image: Image): PlatformBitmapBase{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
+    public function createBitmap(image:Image):PlatformBitmapBase {
+        throw new JException("RuntimeException", "");
+    }
+    }
 }
 

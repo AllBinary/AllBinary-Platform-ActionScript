@@ -1,122 +1,63 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.graphics.displayable.MyCanvas;
+    import org.allbinary.graphics.paint.ProcessPaintable;
+    import org.allbinary.util.CircularIndexUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BufferedGameCanvasPaintHelper extends ProcessPaintable {
+    private static const MAX_IMAGES:int = 4;
+        private var gameCanvas:Canvas = null;
+        private var offScreenImage:Vector.<Image> = null;
+        private var previousImage:Image = null;
+        private var circularIndexUtil:CircularIndexUtil = null;
+        private var drawCircularIndexUtil:CircularIndexUtil = null;
+        private var anchor:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Canvas } from '../../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { NullCanvas } from '../../../../../javax/microedition/lcdui/NullCanvas.js';
-//not GWT import const NullCanvas
-
-import { NullImage } from '../../../../../javax/microedition/lcdui/NullImage.js';
-//not GWT import const NullImage
-
-import { Anchor } from '../../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { MyCanvas } from '../../../../../org/allbinary/graphics/displayable/MyCanvas.js';
-//not GWT import const MyCanvas
-
-import { ProcessPaintable } from '../../../../../org/allbinary/graphics/paint/ProcessPaintable.js';
-//not GWT import const ProcessPaintable
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AllBinaryGameCanvas } from './AllBinaryGameCanvas.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryGameCanvas
-
-export class BufferedGameCanvasPaintHelper extends ProcessPaintable {
-        
-
-    private static readonly MAX_IMAGES: number = 4;
-
-    private gameCanvas: Canvas = NullCanvas.NULL_CANVAS;
-
-    private readonly offScreenImage: Image[] = new Array(BufferedGameCanvasPaintHelper.MAX_IMAGES);
-
-    private previousImage: Image = NullImage.NULL_IMAGE;
-
-    private readonly circularIndexUtil: CircularIndexUtil = CircularIndexUtil.createInstance(BufferedGameCanvasPaintHelper.MAX_IMAGES)!;
-
-    private readonly drawCircularIndexUtil: CircularIndexUtil = CircularIndexUtil.createInstanceAt(BufferedGameCanvasPaintHelper.MAX_IMAGES -1, BufferedGameCanvasPaintHelper.MAX_IMAGES)!;
-
-public constructor (gameCanvas: AllBinaryGameCanvas){
-
-            super();
-        
-
-
-                            throw new Exception("No Longer Used");
-                    
-}
-
-
-    public process(){
-
-    let myCanvas: MyCanvas = (this.gameCanvas as MyCanvas);;
+        // Java field initializers run after the base constructor
+        private function initFieldsBufferedGameCanvasPaintHelper():void {
+    this.gameCanvas = NullCanvas.NULL_CANVAS;
+    this.offScreenImage = new Vector.<Image>(BufferedGameCanvasPaintHelper.MAX_IMAGES);
+    this.previousImage = NullImage.NULL_IMAGE;
+    this.circularIndexUtil = CircularIndexUtil.createInstance(BufferedGameCanvasPaintHelper.MAX_IMAGES);
+    this.drawCircularIndexUtil = CircularIndexUtil.createInstanceAt(BufferedGameCanvasPaintHelper.MAX_IMAGES - 1, BufferedGameCanvasPaintHelper.MAX_IMAGES);
+    this.anchor = Anchor.TOP_LEFT;
+        }
     
-myCanvas!.draw(this.offScreenImage[this.circularIndexUtil!.getIndex()]!.getGraphics());
-    
-this.circularIndexUtil!.next();
-    
-this.drawCircularIndexUtil!.next();
-    
-}
 
-
-    private anchor: number = Anchor.TOP_LEFT;
-
-    public paint(graphics: Graphics){
-this.previousImage= this.offScreenImage[this.drawCircularIndexUtil!.getIndex()]!;
+    public function BufferedGameCanvasPaintHelper(gameCanvas:AllBinaryGameCanvas) {
+        super();
+        this.initFieldsBufferedGameCanvasPaintHelper();
+        throw new JException("Exception", "No Longer Used");
+    }
     
-graphics.drawImage(this.previousImage, 0, 0, this.anchor);
+
+    override public function process():void {
+        var myCanvas:MyCanvas = ((this.gameCanvas as MyCanvas));
+        myCanvas.draw(this.offScreenImage[this.circularIndexUtil.getIndex()].getGraphics());
+        this.circularIndexUtil.next();
+        this.drawCircularIndexUtil.next();
+    }
     
-}
 
-
+    override public function paint(graphics:Graphics):void {
+        this.previousImage = this.offScreenImage[this.drawCircularIndexUtil.getIndex()];
+        graphics.drawImage(this.previousImage, 0, 0, this.anchor);
+    }
+    }
 }
 

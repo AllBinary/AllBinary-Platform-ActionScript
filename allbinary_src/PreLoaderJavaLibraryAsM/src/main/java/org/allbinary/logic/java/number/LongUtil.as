@@ -1,103 +1,42 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.java.number {
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonPhoneStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonPhoneStrings } 
-const CommonPhoneStrings = globalThis.org.allbinary.string.CommonPhoneStrings;
-type CommonPhoneStrings<T = any, U = any> = typeof CommonPhoneStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonPhoneStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LongData } from './LongData.js';
-//sameFolderImports - not GWT import - same folder const LongData
-
-export class LongUtil
-            extends Object
-         {
-        
-
-    public static fillIn(end: string): string{
-
-    let frameStringBuffer: StringMaker = new StringMaker();;
+    public class LongUtil {
     
 
-                        if(frameStringBuffer!.length() < LongData.MAX_LONG_LENGTH)
-                        
-                                    {
-                                    
-    let commonPhoneStrings: CommonPhoneStrings = CommonPhoneStrings.getInstance()!;;
+    public function LongUtil() {
+        super();
+    }
     
 
-    let size: number = LongData.MAX_LONG_LENGTH -frameStringBuffer!.length();;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-frameStringBuffer!.append(commonPhoneStrings!.ZERO);
-    
-}
-
-
-                                    }
-                                
-frameStringBuffer!.append(end);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return frameStringBuffer!.toString();;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public static function fillIn(end:String):String {
+        var frameStringBuffer:StringMaker = new StringMaker();
+        if (frameStringBuffer.length() < LongData.MAX_LONG_LENGTH) {
+            var commonPhoneStrings:CommonPhoneStrings = CommonPhoneStrings.getInstance();
+            var size:int = int(LongData.MAX_LONG_LENGTH - frameStringBuffer.length());
+            for (var index:int = 0; index < size; index++) {
+                frameStringBuffer.append(commonPhoneStrings.ZERO);
+            }
         }
-
-
+        frameStringBuffer.append(end);
+        return frameStringBuffer.toString();
+    }
+    }
 }
 

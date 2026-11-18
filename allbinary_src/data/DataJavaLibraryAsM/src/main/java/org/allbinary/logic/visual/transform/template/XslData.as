@@ -1,70 +1,49 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.visual.transform.template {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class XslData
-            extends Object
-         {
-        
-
-    private static readonly instance: XslData = new XslData();
-
-    public static getInstance(): XslData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return XslData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class XslData {
+    private static var instance_value:XslData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():XslData {
+        if (!XslData.instance_set) {
+            XslData.instance_set = true;
+            XslData.instance_value = new XslData();
         }
+        return XslData.instance_value;
+    }
+        public var NAME:String = null;
+        public var ROOT_IMPORT_URI:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsXslData():void {
+    this.NAME = "XSL_NAME";
+    this.ROOT_IMPORT_URI = "ROOT_IMPORT_URI";
+        }
+    
 
-    public NAME: string = "XSL_NAME";
+    public static function getInstance():XslData {
+        return XslData.instance;
+    }
+    
 
-    public ROOT_IMPORT_URI: string = "ROOT_IMPORT_URI";
-
+    public function XslData() {
+        super();
+        this.initFieldsXslData();
+    }
+    }
 }
 

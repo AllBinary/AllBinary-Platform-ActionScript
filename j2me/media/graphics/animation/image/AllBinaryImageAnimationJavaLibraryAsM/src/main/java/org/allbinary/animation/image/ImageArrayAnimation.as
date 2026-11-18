@@ -1,190 +1,106 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.IndexedAnimation;
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
+    import org.allbinary.util.CircularIndexUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ImageArrayAnimation extends IndexedAnimation {
+        private var imageArray:Vector.<Image> = null;
+        private var totalFrames:int = 0;
+        public var circularIndexUtil:CircularIndexUtil = null;
+        private var anchor:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { NullImage } from '../../../../javax/microedition/lcdui/NullImage.js';
-//not GWT import const NullImage
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { IndexedAnimation } from '../../../../org/allbinary/animation/IndexedAnimation.js';
-//not GWT import const IndexedAnimation
-
-import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ImageArrayAnimation extends IndexedAnimation {
-        
-
-    private imageArray: Image[] = NullImage.NULL_IMAGE_ARRAY;
-
-    private totalFrames: number= 0;
-
-    circularIndexUtil: CircularIndexUtil = CircularIndexUtil.NULL_CIRCULAR_INDEX_UTIL;
-
-public constructor (imageArray: Image[], animationBehavior: AnimationBehavior){
-            super(animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.setImageArray(imageArray);
+        // Java field initializers run after the base constructor
+        private function initFieldsImageArrayAnimation():void {
+    this.imageArray = NullImage.NULL_IMAGE_ARRAY;
+    this.totalFrames = 0;
+    this.circularIndexUtil = CircularIndexUtil.NULL_CIRCULAR_INDEX_UTIL;
+    this.anchor = Anchor.TOP_LEFT;
+        }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public getAnimationSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getSize();;
+    public function ImageArrayAnimation(imageArray:Vector.<Image>, animationBehavior:AnimationBehavior) {
+        super(animationBehavior);
+        this.initFieldsImageArrayAnimation();
+        this.setImageArray(imageArray);
+    }
     
-}
 
-
-    public nextFrame(){
-this.circularIndexUtil!.next();
+    override public function getAnimationSize():int {
+        return this.getSize();
+    }
     
-}
 
-
-    public previousFrame(){
-this.circularIndexUtil!.previous();
+    override public function nextFrame():void {
+        this.circularIndexUtil.next();
+    }
     
-}
 
-
-    public setFrame(index: number){
-this.circularIndexUtil!.setIndex(index);
+    override public function previousFrame():void {
+        this.circularIndexUtil.previous();
+    }
     
-}
 
-
-    public getFrame(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.circularIndexUtil!.getIndex();;
+    override public function setFrame(index:int):void {
+        this.circularIndexUtil.setIndex(index);
+    }
     
-}
 
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.totalFrames;
+    override public function getFrame():int {
+        return this.circularIndexUtil.getIndex();
+    }
     
-}
 
-
-    public setSequence(sequence: number[]){
-}
-
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PrimitiveIntUtil.getArrayInstance();;
+    override public function getSize():int {
+        return this.totalFrames;
+    }
     
-}
 
-
-    public getImage(index: number): Image{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.imageArray[index]!;
+    override public function setSequence(sequence:Vector.<int>):void {
+    }
     
-}
 
-
-    public getImageArray(): Image[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.imageArray;
+    override public function getSequence():Vector.<int> {
+        return PrimitiveIntUtil.getArrayInstance();
+    }
     
-}
 
-
-    setImageArray(imageArray: Image[]){
-this.imageArray= imageArray;
+    public function getImage(index:int):Image {
+        return this.imageArray[index];
+    }
     
-this.totalFrames= imageArray!.length;
+
+    public function getImageArray():Vector.<Image> {
+        return this.imageArray;
+    }
     
-this.circularIndexUtil= CircularIndexUtil.createInstance(this.totalFrames);
+
+    public function setImageArray(imageArray:Vector.<Image>):void {
+        this.imageArray = imageArray;
+        this.totalFrames = imageArray.length;
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.totalFrames);
+    }
     
-}
 
-
-    private anchor: number = Anchor.TOP_LEFT;
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-graphics.drawImage(this.imageArray[this.circularIndexUtil!.getIndex()]!, x, y, this.anchor);
-    
-}
-
-
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        graphics.drawImage(this.imageArray[this.circularIndexUtil.getIndex()], x, y, this.anchor);
+    }
+    }
 }
 

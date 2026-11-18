@@ -1,545 +1,284 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.graphics.hud {
+    import org.allbinary.J2MEUtil;
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.graphics.GPoint;
+    import org.allbinary.graphics.PointFactory;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.color.BasicColorSetUtil;
+    import org.allbinary.graphics.displayable.CanvasStrings;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.font.UpdateMyFontProcessor;
+    import org.allbinary.logic.communication.log.ForcedLogUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventStrings;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicHud implements UpdateMyFontInterface {
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        public var canvasStrings:CanvasStrings = null;
+        public var basicSetColorUtil:BasicColorSetUtil = null;
+        private var displayInfo:DisplayInfoSingleton = null;
+        public var updateMyFontProcessor:MyFontProcessor = null;
+        public var myFontProcessor:MyFontProcessor = null;
+        private var location:int = 0;
+        private var direction:int = 0;
+        private var bufferZone:int = 0;
+        private var bufferZoneY:int = 0;
+        private var hudGraphicsPosition:HudGraphicsPosition = null;
+        private var x:int = 0;
+        private var y:int = 0;
+        private var basicColor:BasicColor = null;
+        private var color:int = 0;
+        public var updateMaxWidth:int = 0;
+        public var updateMaxHeight:int = 0;
+        public var offsetY:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicHud():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.canvasStrings = CanvasStrings.getInstance();
+    this.basicSetColorUtil = BasicColorSetUtil.getInstance();
+    this.displayInfo = DisplayInfoSingleton.getInstance();
+    this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    this.myFontProcessor = this.updateMyFontProcessor;
+    this.location = 0;
+    this.direction = 0;
+    this.bufferZone = 0;
+    this.bufferZoneY = 0;
+    this.hudGraphicsPosition = HudGraphicsPosition.NULL_HUD_GRAPHICS_POSITION;
+    this.x = 0;
+    this.y = 0;
+    this.basicColor = BasicColorFactory.getInstance().BLACK;
+    
+    this.updateMaxWidth = 0;
+    this.updateMaxHeight = 0;
+    this.offsetY = 0;
+        }
+    
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { J2MEUtil } from '../../../../../org/allbinary/J2MEUtil.js';
-//not GWT import const J2MEUtil
-
-import { Anchor } from '../../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
-//not GWT import const GPoint
-
-import { PointFactory } from '../../../../../org/allbinary/graphics/PointFactory.js';
-//not GWT import const PointFactory
-
-import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { BasicColorSetUtil } from '../../../../../org/allbinary/graphics/color/BasicColorSetUtil.js';
-//not GWT import const BasicColorSetUtil
-
-import { CanvasStrings } from '../../../../../org/allbinary/graphics/displayable/CanvasStrings.js';
-//not GWT import const CanvasStrings
-
-import { DisplayInfoSingleton } from '../../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { DisplayChangeEvent } from '../../../../../org/allbinary/graphics/displayable/event/DisplayChangeEvent.js';
-//not GWT import const DisplayChangeEvent
-
-import { MyFontProcessor } from '../../../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { UpdateMyFontInterface } from '../../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { UpdateMyFontProcessor } from '../../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
-//not GWT import const UpdateMyFontProcessor
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { AllBinaryEventObject } from '../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventStrings } from '../../../../../org/allbinary/logic/util/event/EventStrings.js';
-//not GWT import const EventStrings
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { HudGraphicsPosition } from './HudGraphicsPosition.js';
-//sameFolderImports - not GWT import - same folder const HudGraphicsPosition
-import { BasicHudFactory } from './BasicHudFactory.js';
-//sameFolderImports - not GWT import - same folder const BasicHudFactory
-
-export class BasicHud
-            extends Object
-         implements UpdateMyFontInterface {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    readonly canvasStrings: CanvasStrings = CanvasStrings.getInstance()!;
-
-    readonly basicSetColorUtil: BasicColorSetUtil = BasicColorSetUtil.getInstance()!;
-
-    private readonly displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
-
-    readonly updateMyFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
-
-    myFontProcessor: MyFontProcessor = this.updateMyFontProcessor;
-
-    private location: number= 0;
-
-    private direction: number= 0;
-
-    private bufferZone: number= 0;
-
-    private bufferZoneY: number= 0;
-
-    private hudGraphicsPosition: HudGraphicsPosition = HudGraphicsPosition.NULL_HUD_GRAPHICS_POSITION;
-
-    private x: number= 0;
-
-    private y: number= 0;
-
-    private basicColor: BasicColor = BasicColorFactory.getInstance()!.BLACK;
-
-    private color: number;
-
-    updateMaxWidth: number= 0;
-
-    updateMaxHeight: number= 0;
-
-    offsetY: number= 0;
-
-public constructor (location: number, direction: number, bufferZone: number, basicColor: BasicColor){
-
-            super();
+    public function BasicHud(location:int, direction:int, bufferZone:int, basicColor:BasicColor) {
+        super();
+        this.initFieldsBasicHud();
         this.setLocation(location);
+        this.setDirection(direction);
+        this.setBufferZone(bufferZone);
+        this.onDisplayChangeEvent(DisplayInfoSingleton.getInstance().displayChangeEvent);
+        this.setBasicColorP(basicColor);
+        this.color = basicColor.intValue();
+    }
+    
+
+    public function updateMeasurement(graphics:Graphics):void {
+        try {
+            this.hudGraphicsPosition = this.getHudGraphicsPositionWH(this.displayInfo.getLastWidth(), this.displayInfo.getLastHeight(), this.updateMaxWidth, this.updateMaxHeight);
+            this.x = this.hudGraphicsPosition.getPoint().getX();
+            this.setY(this.hudGraphicsPosition.getPoint().getY());
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e);
+        }
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+    
+
+    public function getLocation():int {
+        return this.location;
+    }
+    
+
+    public function getDirection():int {
+        return this.direction;
+    }
+    
+
+    public function getHudGraphicsPositionWH(width:int, height:int, maxWidth:int, maxHeight:int):HudGraphicsPosition {
+        var x:int = 0;
+        var y:int = 0;
+        var anchor:int = 0;
+        var basicHudFactory:BasicHudFactory = BasicHudFactory.getInstance();
+        if (basicHudFactory.BOTTOMLEFT == this.getLocation()) {
+            x = int(this.bufferZone + 2);
+            y = int(int(height - maxHeight) - this.bufferZone);
+            anchor = Graphics.BOTTOM & Graphics.LEFT;
+        } else if (basicHudFactory.BOTTOMRIGHT == this.getLocation()) {
+            x = int(width - maxWidth);
+            y = int(int(height - maxHeight) - this.bufferZone);
+            anchor = Graphics.BOTTOM & Graphics.RIGHT;
+        } else if (basicHudFactory.TOPLEFT == this.getLocation()) {
+            x = int(this.bufferZone + 2);
+            y = this.bufferZoneY;
+            anchor = Anchor.TOP_LEFT;
+        } else if (basicHudFactory.TOPRIGHT == this.getLocation()) {
+            x = int(width - maxWidth);
+            y = this.bufferZoneY;
+            anchor = Graphics.TOP & Graphics.RIGHT;
+        } else if (basicHudFactory.TOPCENTER == this.getLocation()) {
+            x = (int((int(width - maxWidth)) / 2));
+            y = this.bufferZoneY;
+            anchor = Graphics.TOP & Graphics.HCENTER;
+        } else if (basicHudFactory.BOTTOMCENTER == this.getLocation()) {
+            x = (int((int(width - maxWidth)) / 2));
+            y = int(int(height - maxHeight) - this.bufferZone);
+            anchor = Graphics.BOTTOM & Graphics.HCENTER;
+        } else if (basicHudFactory.ABSOLUTE == this.getLocation()) {
+            x = maxHeight;
+            y = maxWidth;
+            anchor = 0;
+        }
+        return new HudGraphicsPosition(this.getPoint(x, y), anchor);
+    }
     
-this.setDirection(direction);
-    
-this.setBufferZone(bufferZone);
-    
-this.onDisplayChangeEvent(DisplayInfoSingleton.getInstance()!.displayChangeEvent);
-    
-this.setBasicColorP(basicColor);
-    
-this.color= basicColor!.intValue();
-    
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-
- try { this.hudGraphicsPosition= this.getHudGraphicsPositionWH(this.displayInfo!.getLastWidth(), this.displayInfo!.getLastHeight(), this.updateMaxWidth, this.updateMaxHeight);
-    
-this.x= this.hudGraphicsPosition!.getPoint()!.getX();
-    
-this.setY(this.hudGraphicsPosition!.getPoint()!.getY());
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.put(commonStrings!.EXCEPTION, this, this.canvasStrings!.ON_DISPLAY_CHANGE_EVENT, e);
-    
-
- }
-   }
- 
-this.myFontProcessor= MyFontProcessor.getInstance();
-    
-}
-
-
-    public getLocation(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.location;
-    
-}
-
-
-    public getDirection(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.direction;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    getHudGraphicsPositionWH(width: number, height: number, maxWidth: number, maxHeight: number): HudGraphicsPosition{
-
-    let x: number = 0;;
-    
-
-    let y: number = 0;;
-    
-
-    let anchor: number = 0;;
-    
-
-    let basicHudFactory: BasicHudFactory = BasicHudFactory.getInstance()!;;
-    
-
-                        if(basicHudFactory!.BOTTOMLEFT == this.getLocation())
-                        
-                                    {
-                                    x= this.bufferZone +2;
-    
-y= height -maxHeight -this.bufferZone;
-    
-anchor= Graphics.BOTTOM&Graphics.LEFT;
-    
-
-                                    }
-                                
-                             else 
-                        if(basicHudFactory!.BOTTOMRIGHT == this.getLocation())
-                        
-                                    {
-                                    x= width -maxWidth;
-    
-y= height -maxHeight -this.bufferZone;
-    
-anchor= Graphics.BOTTOM&Graphics.RIGHT;
-    
-
-                                    }
-                                
-                             else 
-                        if(basicHudFactory!.TOPLEFT == this.getLocation())
-                        
-                                    {
-                                    x= this.bufferZone +2;
-    
-y= this.bufferZoneY;
-    
-anchor= Anchor.TOP_LEFT;
-    
-
-                                    }
-                                
-                             else 
-                        if(basicHudFactory!.TOPRIGHT == this.getLocation())
-                        
-                                    {
-                                    x= width -maxWidth;
-    
-y= this.bufferZoneY;
-    
-anchor= Graphics.TOP&Graphics.RIGHT;
-    
-
-                                    }
-                                
-                             else 
-                        if(basicHudFactory!.TOPCENTER == this.getLocation())
-                        
-                                    {
-                                    x= (globalThis.Math.trunc((width -maxWidth) /2));
-    
-y= this.bufferZoneY;
-    
-anchor= Graphics.TOP&Graphics.HCENTER;
-    
-
-                                    }
-                                
-                             else 
-                        if(basicHudFactory!.BOTTOMCENTER == this.getLocation())
-                        
-                                    {
-                                    x= (globalThis.Math.trunc((width -maxWidth) /2));
-    
-y= height -maxHeight -this.bufferZone;
-    
-anchor= Graphics.BOTTOM&Graphics.HCENTER;
-    
-
-                                    }
-                                
-                             else 
-                        if(basicHudFactory!.ABSOLUTE == this.getLocation())
-                        
-                                    {
-                                    x= maxHeight;
-    
-y= maxWidth;
-    
-anchor= 0;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new HudGraphicsPosition(this.getPoint(x, y), anchor);
-    
-}
-
 
-    public onEvent(eventObject: AllBinaryEventObject){
-ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
+    public function onEvent(eventObject:AllBinaryEventObject):void {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    }
     
-}
 
-
-    public onDisplayChangeEvent(displayChangeEvent: DisplayChangeEvent){
-this.myFontProcessor= this.updateMyFontProcessor;
-    
-}
-
-
-    getPoint(x: number, y: number): GPoint{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PointFactory.getInstance()!.createXY(x, y);;
-    
-}
-
-
-    public getBufferZone(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.bufferZone;
-    
-}
-
-
-    public setBufferZone(bufferZone: number){
-this.bufferZone= bufferZone;
-    
-
-                        if(J2MEUtil.isHTML())
-                        
-                                    {
-                                    this.bufferZoneY= this.bufferZone;
+    public function onDisplayChangeEvent(displayChangeEvent:DisplayChangeEvent):void {
+        this.myFontProcessor = this.updateMyFontProcessor;
+    }
     
 
-                                    }
-                                
-                        else {
-                            this.bufferZoneY= this.bufferZone +5;
+    public function getPoint(x:int, y:int):GPoint {
+        return PointFactory.getInstance().createXY(x, y);
+    }
     
 
-                        }
-                            
-}
-
-
-    public setLocation(location: number){
-this.location= location;
-    
-}
-
-
-    public setDirection(direction: number){
-this.direction= direction;
-    
-}
-
-
-    getHudGraphicsPosition(): HudGraphicsPosition{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.hudGraphicsPosition;
-    
-}
-
-
-    public getColor(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.color;
+    public function getBufferZone():int {
+        return this.bufferZone;
+    }
     
-}
-
 
-    public getX(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.x;
+    public function setBufferZone(bufferZone:int):void {
+        this.bufferZone = bufferZone;
+        if (J2MEUtil.isHTML()) {
+            this.bufferZoneY = this.bufferZone;
+        } else {
+            this.bufferZoneY = int(this.bufferZone + 5);
+        }
+    }
     
-}
-
 
-    public setX(x: number){
-this.x= x;
+    public function setLocation(location:int):void {
+        this.location = location;
+    }
     
-}
 
-
-    public setBasicColorP(basicColor: BasicColor){
-this.basicColor= basicColor;
+    public function setDirection(direction:int):void {
+        this.direction = direction;
+    }
     
-}
-
-
-    public getBasicColorP(): BasicColor{
-
-
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicColor;
+    public function getHudGraphicsPosition():HudGraphicsPosition {
+        return this.hudGraphicsPosition;
+    }
     
-}
 
-
-    setY(y: number){
-this.y= y;
+    public function getColor():int {
+        return this.color;
+    }
     
-}
-
-
-    getY(): number{
-
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.y;
+    public function getX():int {
+        return this.x;
+    }
     
-}
-
 
-    public paintSSO(graphics: Graphics, string: string, string2: string, offset: number){
-this.myFontProcessor!.process(graphics);
-    
-this.basicSetColorUtil!.setBasicColorP(graphics, this.getBasicColorP());
-    
-graphics.drawString(string, this.x, this.getY(), this.hudGraphicsPosition!.getAnchor());
-    
-graphics.drawString(string2, this.x +offset, this.getY(), this.hudGraphicsPosition!.getAnchor());
+    public function setX(x:int):void {
+        this.x = x;
+    }
     
-}
 
-
-    public paintSSOO(graphics: Graphics, string: string, string2: string, offset: number, offset2: number){
-this.myFontProcessor!.process(graphics);
-    
-graphics.setColor(this.getColor());
-    
-graphics.drawString(string, this.x +offset, this.getY(), this.hudGraphicsPosition!.getAnchor());
-    
-graphics.drawString(string2, this.x +offset2, this.getY(), this.hudGraphicsPosition!.getAnchor());
+    public function setBasicColorP(basicColor:BasicColor):void {
+        this.basicColor = basicColor;
+    }
     
-}
 
-
-    public paintDXY(graphics: Graphics, charArray: string[], offset: number, len: number, charArray2: string[], offset2: number, len2: number, xOffset: number, xOffset2: number){
-this.myFontProcessor!.process(graphics);
-    
-this.basicSetColorUtil!.setBasicColorP(graphics, this.getBasicColorP());
+    public function getBasicColorP():BasicColor {
+        return this.basicColor;
+    }
     
 
-    let y: number = this.getY()!;;
+    public function setY(y:int):void {
+        this.y = y;
+    }
     
-graphics.drawChars(charArray, offset, len, this.x +xOffset, y, this.hudGraphicsPosition!.getAnchor());
-    
-graphics.drawChars(charArray2, offset2, len2, this.x +xOffset2, y, this.hudGraphicsPosition!.getAnchor());
-    
-}
-
 
-    public paintDX(graphics: Graphics, charArray: string[], offset: number, len: number, charArray2: string[], offset2: number, len2: number, xOffset: number){
-this.myFontProcessor!.process(graphics);
+    public function getY():int {
+        return this.y;
+    }
     
-this.basicSetColorUtil!.setBasicColorP(graphics, this.getBasicColorP());
-    
 
-    let y: number = this.getY()!;;
-    
-graphics.drawChars(charArray, offset, len, this.x, y, this.hudGraphicsPosition!.getAnchor());
+    public function paintSSO(graphics:Graphics, string:String, string2:String, offset:int):void {
+        this.myFontProcessor.process(graphics);
+        this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
+        graphics.drawString(string, this.x, this.getY(), this.hudGraphicsPosition.getAnchor());
+        graphics.drawString(string2, int(this.x + offset), this.getY(), this.hudGraphicsPosition.getAnchor());
+    }
     
-graphics.drawChars(charArray2, offset2, len2, this.x +xOffset, y, this.hudGraphicsPosition!.getAnchor());
-    
-}
 
-
-    public paintOffsetAndLength(graphics: Graphics, charArray: string[], offset: number, len: number){
-this.myFontProcessor!.process(graphics);
-    
-this.basicSetColorUtil!.setBasicColorP(graphics, this.getBasicColorP());
+    public function paintSSOO(graphics:Graphics, string:String, string2:String, offset:int, offset2:int):void {
+        this.myFontProcessor.process(graphics);
+        graphics.setColor(this.getColor());
+        graphics.drawString(string, int(this.x + offset), this.getY(), this.hudGraphicsPosition.getAnchor());
+        graphics.drawString(string2, int(this.x + offset2), this.getY(), this.hudGraphicsPosition.getAnchor());
+    }
     
 
-    let y: number = this.getY()!;;
+    public function paintDXY(graphics:Graphics, charArray:Vector.<int>, offset:int, len:int, charArray2:Vector.<int>, offset2:int, len2:int, xOffset:int, xOffset2:int):void {
+        this.myFontProcessor.process(graphics);
+        this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
+        var y:int = this.getY();
+        graphics.drawChars(charArray, offset, len, int(this.x + xOffset), y, this.hudGraphicsPosition.getAnchor());
+        graphics.drawChars(charArray2, offset2, len2, int(this.x + xOffset2), y, this.hudGraphicsPosition.getAnchor());
+    }
     
-graphics.drawChars(charArray, offset, len, this.x, y, this.hudGraphicsPosition!.getAnchor());
-    
-}
-
 
-    public paintString(graphics: Graphics, string: string){
-this.myFontProcessor!.process(graphics);
+    public function paintDX(graphics:Graphics, charArray:Vector.<int>, offset:int, len:int, charArray2:Vector.<int>, offset2:int, len2:int, xOffset:int):void {
+        this.myFontProcessor.process(graphics);
+        this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
+        var y:int = this.getY();
+        graphics.drawChars(charArray, offset, len, this.x, y, this.hudGraphicsPosition.getAnchor());
+        graphics.drawChars(charArray2, offset2, len2, int(this.x + xOffset), y, this.hudGraphicsPosition.getAnchor());
+    }
     
-this.basicSetColorUtil!.setBasicColorP(graphics, this.getBasicColorP());
-    
 
-    let y: number = this.getY() +this.offsetY;;
+    public function paintOffsetAndLength(graphics:Graphics, charArray:Vector.<int>, offset:int, len:int):void {
+        this.myFontProcessor.process(graphics);
+        this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
+        var y:int = this.getY();
+        graphics.drawChars(charArray, offset, len, this.x, y, this.hudGraphicsPosition.getAnchor());
+    }
     
-graphics.drawString(string, this.x, y, this.hudGraphicsPosition!.getAnchor());
-    
-}
-
 
+    public function paintString(graphics:Graphics, string:String):void {
+        this.myFontProcessor.process(graphics);
+        this.basicSetColorUtil.setBasicColorP(graphics, this.getBasicColorP());
+        var y:int = int(this.getY() + this.offsetY);
+        graphics.drawString(string, this.x, y, this.hudGraphicsPosition.getAnchor());
+    }
+    }
 }
 

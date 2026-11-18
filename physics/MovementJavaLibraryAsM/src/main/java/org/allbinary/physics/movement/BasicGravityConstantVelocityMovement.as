@@ -1,81 +1,43 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.physics.movement {
+    import org.allbinary.game.layer.AllBinaryGameLayer;
+    import org.allbinary.game.physics.acceleration.GravityUtil;
+    import org.allbinary.game.physics.velocity.VelocityProperties;
+    import org.allbinary.logic.math.BasicDecimal;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicGravityConstantVelocityMovement extends BasicConstantVelocityMovement {
+        private var gravityUtil:GravityUtil = null;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AllBinaryGameLayer } from '../../../../org/allbinary/game/layer/AllBinaryGameLayer.js';
-//not GWT import const AllBinaryGameLayer
-
-import { GravityUtil } from '../../../../org/allbinary/game/physics/acceleration/GravityUtil.js';
-//not GWT import const GravityUtil
-
-import { VelocityProperties } from '../../../../org/allbinary/game/physics/velocity/VelocityProperties.js';
-//not GWT import const VelocityProperties
-
-import { BasicDecimal } from '../../../../org/allbinary/logic/math/BasicDecimal.js';
-//not GWT import const BasicDecimal
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicConstantVelocityMovement } from './BasicConstantVelocityMovement.js';
-//sameFolderImports - not GWT import - same folder const BasicConstantVelocityMovement
-
-export class BasicGravityConstantVelocityMovement extends BasicConstantVelocityMovement {
-        
-
-public constructor (speedBasicDecimal: BasicDecimal){
-            super(speedBasicDecimal, new VelocityProperties(globalThis.Math.trunc(speedBasicDecimal!.getUnscaled()), globalThis.Math.trunc(speedBasicDecimal!.getUnscaled())));
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    private readonly gravityUtil: GravityUtil = GravityUtil.getInstance()!;
-
-                //@Throws(Exception.constructor)
-            
-    public process(layer: AllBinaryGameLayer){
-super.process(layer);
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicGravityConstantVelocityMovement():void {
+    this.gravityUtil = GravityUtil.getInstance();
+        }
     
-this.gravityUtil!.process(this.getVelocityProperties(), this.gravityUtil!.GAME_GRAVITY_VELOCITY);
+
+    public function BasicGravityConstantVelocityMovement(speedBasicDecimal:BasicDecimal) {
+        super(speedBasicDecimal, new VelocityProperties(int(speedBasicDecimal.getUnscaled()), int(speedBasicDecimal.getUnscaled())));
+        this.initFieldsBasicGravityConstantVelocityMovement();
+    }
     
-}
 
-
+    override public function process(layer:AllBinaryGameLayer):void {
+        super.process(layer);
+        this.gravityUtil.process(this.getVelocityProperties(), this.gravityUtil.GAME_GRAVITY_VELOCITY);
+    }
+    }
 }
 

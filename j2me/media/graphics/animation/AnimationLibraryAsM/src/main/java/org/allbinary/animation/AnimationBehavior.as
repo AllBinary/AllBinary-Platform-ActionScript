@@ -1,64 +1,39 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AnimationBehavior
-            extends Object
-         {
-        
-
-    private static readonly instance: AnimationBehavior = new AnimationBehavior();
-
-    public static getInstance(): AnimationBehavior{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AnimationBehavior.instance;
+    public class AnimationBehavior {
+    private static var instance_value:AnimationBehavior;
+    private static var instance_set:Boolean = false;
+    private static function get instance():AnimationBehavior {
+        if (!AnimationBehavior.instance_set) {
+            AnimationBehavior.instance_set = true;
+            AnimationBehavior.instance_value = new AnimationBehavior();
+        }
+        return AnimationBehavior.instance_value;
+    }
     
-}
 
+    public static function getInstance():AnimationBehavior {
+        return AnimationBehavior.instance;
+    }
+    
 
-    public reset(){
-}
-
-
+    public function reset():void {
+    }
+    }
 }
 

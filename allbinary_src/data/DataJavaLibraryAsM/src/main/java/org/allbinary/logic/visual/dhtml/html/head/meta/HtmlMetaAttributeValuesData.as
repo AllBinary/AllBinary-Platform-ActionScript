@@ -1,72 +1,51 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.visual.dhtml.html.head.meta {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class HtmlMetaAttributeValuesData
-            extends Object
-         {
-        
-
-    private static readonly instance: HtmlMetaAttributeValuesData = new HtmlMetaAttributeValuesData();
-
-    public static getInstance(): HtmlMetaAttributeValuesData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return HtmlMetaAttributeValuesData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class HtmlMetaAttributeValuesData {
+    private static var instance_value:HtmlMetaAttributeValuesData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():HtmlMetaAttributeValuesData {
+        if (!HtmlMetaAttributeValuesData.instance_set) {
+            HtmlMetaAttributeValuesData.instance_set = true;
+            HtmlMetaAttributeValuesData.instance_value = new HtmlMetaAttributeValuesData();
         }
+        return HtmlMetaAttributeValuesData.instance_value;
+    }
+        public var ABSTRACT:String = null;
+        public var DESCRIPTION:String = null;
+        public var KEYWORDS:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsHtmlMetaAttributeValuesData():void {
+    this.ABSTRACT = "abstract";
+    this.DESCRIPTION = "description";
+    this.KEYWORDS = "keywords";
+        }
+    
 
-    public ABSTRACT: string = "abstract";
+    public static function getInstance():HtmlMetaAttributeValuesData {
+        return HtmlMetaAttributeValuesData.instance;
+    }
+    
 
-    public DESCRIPTION: string = "description";
-
-    public KEYWORDS: string = "keywords";
-
+    public function HtmlMetaAttributeValuesData() {
+        super();
+        this.initFieldsHtmlMetaAttributeValuesData();
+    }
+    }
 }
 

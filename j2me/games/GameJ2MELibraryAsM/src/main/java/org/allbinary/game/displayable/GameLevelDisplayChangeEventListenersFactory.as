@@ -1,112 +1,68 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable {
+    import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
+    import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
+    import org.allbinary.logic.util.event.handler.BasicEventHandler;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameLevelDisplayChangeEventListenersFactory {
+    private static var instance_value:GameLevelDisplayChangeEventListenersFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GameLevelDisplayChangeEventListenersFactory {
+        if (!GameLevelDisplayChangeEventListenersFactory.instance_set) {
+            GameLevelDisplayChangeEventListenersFactory.instance_set = true;
+            GameLevelDisplayChangeEventListenersFactory.instance_value = new GameLevelDisplayChangeEventListenersFactory();
+        }
+        return GameLevelDisplayChangeEventListenersFactory.instance_value;
+    }
+        private var list:BasicArrayList = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGameLevelDisplayChangeEventListenersFactory():void {
+    this.list = new BasicArrayListD();
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { DisplayChangeEventHandler } from '../../../../org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.js';
-//not GWT import const DisplayChangeEventHandler
-
-import { DisplayChangeEventListener } from '../../../../org/allbinary/graphics/displayable/event/DisplayChangeEventListener.js';
-//not GWT import const DisplayChangeEventListener
-
-import { BasicEventHandler } from '../../../../org/allbinary/logic/util/event/handler/BasicEventHandler.js';
-//not GWT import const BasicEventHandler
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GameLevelDisplayChangeEventListenersFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: GameLevelDisplayChangeEventListenersFactory = new GameLevelDisplayChangeEventListenersFactory();
-
-    public static getInstance(): GameLevelDisplayChangeEventListenersFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameLevelDisplayChangeEventListenersFactory.instance;
-    
-}
-
-
-    private readonly list: BasicArrayList = new BasicArrayListD();
-
-    public add(displayChangeEventListener: DisplayChangeEventListener){
-this.list.add(displayChangeEventListener);
-    
-DisplayChangeEventHandler.getInstance()!.addListenerInterface(displayChangeEventListener);
-    
-}
-
-
-    public clear(){
-
-    let displayChangeEventHandler: BasicEventHandler = DisplayChangeEventHandler.getInstance()!;;
+        public function GameLevelDisplayChangeEventListenersFactory() {
+            super();
+            this.initFieldsGameLevelDisplayChangeEventListenersFactory();
+        }
     
 
-    let displayChangeEventListener: DisplayChangeEventListener;;
+    public static function getInstance():GameLevelDisplayChangeEventListenersFactory {
+        return GameLevelDisplayChangeEventListenersFactory.instance;
+    }
     
 
-
-
-
-                        for (
-    let index: number = this.list.size()!;--index >= 0; )
-        {
-displayChangeEventListener= this.list.objectArray[index]! as DisplayChangeEventListener;
+    public function add(displayChangeEventListener:DisplayChangeEventListener):void {
+        this.list.add(displayChangeEventListener);
+        DisplayChangeEventHandler.getInstance().addListenerInterface(displayChangeEventListener);
+    }
     
-displayChangeEventHandler!.removeListener(displayChangeEventListener);
-    
-}
 
-this.list.clear();
-    
-}
-
-
+    public function clear():void {
+        var displayChangeEventHandler:BasicEventHandler = DisplayChangeEventHandler.getInstance();
+        var displayChangeEventListener:DisplayChangeEventListener = null;
+        for (var index:int = this.list.size(); --index >= 0; ) {
+            displayChangeEventListener = (this.list.objectArray[index] as DisplayChangeEventListener);
+            displayChangeEventHandler.removeListener(displayChangeEventListener);
+        }
+        this.list.clear();
+    }
+    }
 }
 

@@ -1,209 +1,75 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.security.crypt {
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.communication.log.PreLogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.string.tokens.Tokenizer;
+    import org.allbinary.string.CommonSeps;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import java.lang.JByte;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-            const Byte = (globalThis.java?.lang?.Byte ?? class {}) as typeof globalThis.java.lang.Byte;
-        
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { Tokenizer } from '../../../../../../org/allbinary/logic/string/tokens/Tokenizer.js';
-//not GWT import const Tokenizer
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class DatabaseEncoder
-            extends Object
-         {
-        
-
-    public static encode(value: number[]): string{
-
- try { 
-    let array: number[] = value;;
+    public class DatabaseEncoder {
     
 
-    let stringBuffer: StringMaker = new StringMaker();;
+    public function DatabaseEncoder() {
+        super();
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < array.length; index++)
-        {
-stringBuffer!.append(Number(array[index]!).toString());
-    
-
-                        if(index < array.length -1)
-                        
-                                    {
-                                    stringBuffer!.append(CommonSeps.getInstance()!.SPACE);
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-PreLogUtil.putOE(commonStrings!.EXCEPTION, "DatabaseEncoder", "decode", e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StringUtil.getInstance()!.EMPTY_STRING;
-    
-
- }
-   }
- 
-}
-
-
-    public static decode(value: string): number[]{
-
- try { 
-    let tokenizer: Tokenizer = new Tokenizer(CommonSeps.getInstance()!.SPACE);;
-    
-
-    let vector: BasicArrayList = tokenizer.getTokensFromString(value, new BasicArrayListD())!;;
-    
-
-    let size: number = vector.size()!;;
-    
-
-    let decode: number[] = new Array(size).fill(0);;
-    
-
-    let byteOfData: string;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-byteOfData= vector.objectArray[index]! as string;
-    
-decode[index]= number.parseByte(byteOfData);
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return decode;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-PreLogUtil.putSE(commonStrings!.EXCEPTION, "DatabaseEncoder", "decode", e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullUtil.getInstance()!.NULL_BYTE_ARRAY;
-    
-
- }
-   }
- 
-}
-
-
-private constructor (){
-
-            super();
+    public static function encode(value:Vector.<int>):String {
+        try {
+            var array:Vector.<int> = value;
+            var stringBuffer:StringMaker = new StringMaker();
+            for (var index:int = 0; index < array.length; index++) {
+                stringBuffer.append(array[index].toString());
+                if (index < int(array.length - 1)) {
+                    stringBuffer.append(CommonSeps.getInstance().SPACE);
+                }
+            }
+            return stringBuffer.toString();
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            PreLogUtil.putOE(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
+            return StringUtil.getInstance().EMPTY_STRING;
         }
+    }
+    
 
-
+    public static function decode(value:String):Vector.<int> {
+        try {
+            var tokenizer:Tokenizer = new Tokenizer(CommonSeps.getInstance().SPACE);
+            var vector:BasicArrayList = tokenizer.getTokensFromString(value, new BasicArrayListD());
+            var size:int = vector.size();
+            var decode:Vector.<int> = new Vector.<int>(size);
+            var byteOfData:String = null;
+            for (var index:int = 0; index < size; index++) {
+                byteOfData = (vector.objectArray[index] as String);
+                decode[index] = JByte.parseByte(byteOfData);
+            }
+            return decode;
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            PreLogUtil.putSE(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
+            return NullUtil.getInstance().NULL_BYTE_ARRAY;
+        }
+    }
+    }
 }
 

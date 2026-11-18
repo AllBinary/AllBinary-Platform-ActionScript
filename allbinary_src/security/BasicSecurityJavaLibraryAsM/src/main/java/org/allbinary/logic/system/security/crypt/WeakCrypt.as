@@ -1,170 +1,87 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.security.crypt {
+    import org.allbinary.TsUtil;
+    import org.allbinary.logic.communication.log.PreLogUtil;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.system.security.crypt.jcehelper.AbCrypt;
+    import org.allbinary.logic.system.security.crypt.jcehelper.KeySpecFactory;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class WeakCrypt {
+    private static var keys_value:Vector.<String>;
+    private static var keys_set:Boolean = false;
+    private static function get keys():Vector.<String> {
+        if (!WeakCrypt.keys_set) {
+            WeakCrypt.keys_set = true;
+            WeakCrypt.keys_value = new <String>["qwres6qewrupoi1132790jfahleavi89398", "143uk32lngf8675gt1tv9214uvt924ut9u9", "12kvjlvlkv11445v12951v512v9m51295v1", "gampipoiupg4g43y5u238tu2485u20u0932", "a93u5uu02s2d2g3259u4395u409u093u9vu", "nlkxzj90je3mln9l8l89qjf0j3v50j23r9j", "2lk5fn5j23nr8f0233vq35n23jn58vhy843", "9q24334m598t092tkn2iv0982456n425j9g", "5m9uvmt9436243m5v34g09d43i52ki35g99", "n123lr1iubiu2br32lv32rbu23b32ub2rlb", "va0u0iovji2ojpvj2oij22poiu4ov2uv28v", "bkk80gn2v9uc902340ut209pcup0u09utc9", "mn32m32neee23c42fn32nf3mf2n3fn2m3fm", "zcxpozo3423voizupovsijevnv3n33o33n3", "v0345324thv93h03893893vh893v8h3vhzz", "v8na898v8wyef9ty39yv98yaw39yeeyf8ye", "45zd36d34jg09434hfshp8uj9sy8s7cyr78", "b098yy0908vdvh983b2lb327980a76s5e5e", "v90y9v9p8y3r98pagsdgsagyr6y3985yhfh", "vblkzhhzp8yvzi8u4t9856456zy3rv8a388", "da7696023rgf28dssfa98asd879hg32hewe", "afo7d6ffkjb3jr3i34gb24ytuvu3jr3uryf", "4gijvqo8vq984hv984hj5j3511h832hf833"];
+        }
+        return WeakCrypt.keys_value;
+    }
+    private static var KEYMAX_value:int;
+    private static var KEYMAX_set:Boolean = false;
+    public static function get KEYMAX():int {
+        if (!WeakCrypt.KEYMAX_set) {
+            WeakCrypt.KEYMAX_set = true;
+            WeakCrypt.KEYMAX_value = WeakCrypt.keys.length;
+        }
+        return WeakCrypt.KEYMAX_value;
+    }
+        private var tsUtil:TsUtil = null;
+        private var abCrypt:AbCrypt = null;
 
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { TsUtil } from '../../../../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { AbCrypt } from '../../../../../../org/allbinary/logic/system/security/crypt/jcehelper/AbCrypt.js';
-//not GWT import const AbCrypt
-
-import { KeySpecFactory } from '../../../../../../org/allbinary/logic/system/security/crypt/jcehelper/KeySpecFactory.js';
-//not GWT import const KeySpecFactory
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DatabaseEncoder } from './DatabaseEncoder.js';
-//sameFolderImports - not GWT import - same folder const DatabaseEncoder
-
-export class WeakCrypt
-            extends Object
-         {
-        
-
-    private static keys: string[] = 
-                                                        [
-                                                            "qwres6qewrupoi1132790jfahleavi89398","143uk32lngf8675gt1tv9214uvt924ut9u9","12kvjlvlkv11445v12951v512v9m51295v1","gampipoiupg4g43y5u238tu2485u20u0932","a93u5uu02s2d2g3259u4395u409u093u9vu","nlkxzj90je3mln9l8l89qjf0j3v50j23r9j","2lk5fn5j23nr8f0233vq35n23jn58vhy843","9q24334m598t092tkn2iv0982456n425j9g","5m9uvmt9436243m5v34g09d43i52ki35g99","n123lr1iubiu2br32lv32rbu23b32ub2rlb","va0u0iovji2ojpvj2oij22poiu4ov2uv28v","bkk80gn2v9uc902340ut209pcup0u09utc9","mn32m32neee23c42fn32nf3mf2n3fn2m3fm","zcxpozo3423voizupovsijevnv3n33o33n3","v0345324thv93h03893893vh893v8h3vhzz","v8na898v8wyef9ty39yv98yaw39yeeyf8ye","45zd36d34jg09434hfshp8uj9sy8s7cyr78","b098yy0908vdvh983b2lb327980a76s5e5e","v90y9v9p8y3r98pagsdgsagyr6y3985yhfh","vblkzhhzp8yvzi8u4t9856456zy3rv8a388","da7696023rgf28dssfa98asd879hg32hewe","afo7d6ffkjb3jr3i34gb24ytuvu3jr3uryf","4gijvqo8vq984hv984hj5j3511h832hf833"
-                                                        ];
-
-    public static KEYMAX: number = WeakCrypt.keys.length
-                ;
-
-    private readonly tsUtil: TsUtil = TsUtil.getInstance()!;
-
-    private abCrypt: AbCrypt = new AbCrypt(KeySpecFactory.getInstance()!.DES);
-
-public constructor (key: number){
-
-            super();
-        
- try { this.abCrypt!.init(WeakCrypt.keys[key]!);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-PreLogUtil.putOE(commonStrings!.EXCEPTION, this, "SuperCrypt(key)", e);
+        // Java field initializers run after the base constructor
+        private function initFieldsWeakCrypt():void {
+    this.tsUtil = TsUtil.getInstance();
+    this.abCrypt = new AbCrypt(KeySpecFactory.getInstance().DES);
+        }
     
 
- }
-   }
- 
-}
-
-
-    public encrypt(value: string): string{
-
- try { 
-    let crypted: number[] = this.abCrypt!.encrypt(this.tsUtil!.getByteArray(value))!;;
+    public function WeakCrypt(key:int) {
+        super();
+        this.initFieldsWeakCrypt();
+        try {
+            this.abCrypt.init(WeakCrypt.keys[key]);
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            PreLogUtil.putOE(commonStrings.EXCEPTION, this, "SuperCrypt(key)", e);
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DatabaseEncoder.encode(crypted);;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-PreLogUtil.putOE("Encrypt Failed", this, "encrypt", e);
+    public function encrypt(value:String):String {
+        try {
+            var crypted:Vector.<int> = this.abCrypt.encrypt(this.tsUtil.getByteArray(value));
+            return DatabaseEncoder.encode(crypted);
+        } catch (e:*) {
+            PreLogUtil.putOE("Encrypt Failed", this, "encrypt", e);
+            return StringUtil.getInstance().EMPTY_STRING;
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StringUtil.getInstance()!.EMPTY_STRING;
-    
-
- }
-   }
- 
-}
-
-
-    public decrypt(value: string): string{
-
- try { 
-    let decrypted: number[] = this.abCrypt!.decrypt(DatabaseEncoder.decode(value))!;;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return String.fromCharCode(...decrypted);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-PreLogUtil.putOE("decrypt Failed", this, "decrypt", e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StringUtil.getInstance()!.EMPTY_STRING;
-    
-
- }
-   }
- 
-}
-
-
+    public function decrypt(value:String):String {
+        try {
+            var decrypted:Vector.<int> = this.abCrypt.decrypt(DatabaseEncoder.decode(value));
+            return decrypted;
+        } catch (e:*) {
+            PreLogUtil.putOE("decrypt Failed", this, "decrypt", e);
+            return StringUtil.getInstance().EMPTY_STRING;
+        }
+    }
+    }
 }
 

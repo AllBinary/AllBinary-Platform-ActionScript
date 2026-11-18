@@ -1,242 +1,133 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.compound {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.IndexedAnimation;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
+    import org.allbinary.util.CircularIndexUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CompoundIndexedAnimation extends IndexedAnimation implements CompoundAnimationInterface {
+        private var circularIndexUtil:CircularIndexUtil = null;
+        private var animationInterfaceArray:Vector.<Animation> = null;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { GL } from '../../../../javax/microedition/khronos/opengles/GL.js';
-//not GWT import const GL
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { IndexedAnimation } from '../../../../org/allbinary/animation/IndexedAnimation.js';
-//not GWT import const IndexedAnimation
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CompoundAnimationInterface } from './CompoundAnimationInterface.js';
-//sameFolderImports - not GWT import - same folder const CompoundAnimationInterface
-
-export class CompoundIndexedAnimation extends IndexedAnimation implements CompoundAnimationInterface {
-        
-
-    private circularIndexUtil: CircularIndexUtil;
-
-    private animationInterfaceArray: Animation[];
-
-public constructor (animationInterfaceArray: Animation[], animationBehavior: AnimationBehavior){
-            super(animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.animationInterfaceArray= animationInterfaceArray;
+        // Java field initializers run after the base constructor
+        private function initFieldsCompoundIndexedAnimation():void {
     
-this.circularIndexUtil= CircularIndexUtil.createInstance(this.animationInterfaceArray!.length);
     
-}
-
-
-    public setFrame(index: number){
-
-    let indexedAnimation: IndexedAnimation = this.animationInterfaceArray[this.circularIndexUtil!.getIndex()]! as IndexedAnimation;;
-    
-indexedAnimation!.setFrame(index);
-    
-}
-
-
-    public getFrame(): number{
-
-    let indexedAnimation: IndexedAnimation = this.animationInterfaceArray[this.circularIndexUtil!.getIndex()]! as IndexedAnimation;;
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return indexedAnimation!.getFrame();;
-    
-}
-
-
-    public getSize(): number{
-
-    let indexedAnimation: IndexedAnimation = this.animationInterfaceArray[this.circularIndexUtil!.getIndex()]! as IndexedAnimation;;
+    public function CompoundIndexedAnimation(animationInterfaceArray:Vector.<Animation>, animationBehavior:AnimationBehavior) {
+        super(animationBehavior);
+        this.initFieldsCompoundIndexedAnimation();
+        this.animationInterfaceArray = animationInterfaceArray;
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.animationInterfaceArray.length);
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return indexedAnimation!.getSize();;
+    override public function setFrame(index:int):void {
+        var indexedAnimation:IndexedAnimation = (this.animationInterfaceArray[this.circularIndexUtil.getIndex()] as IndexedAnimation);
+        indexedAnimation.setFrame(index);
+    }
     
-}
 
-
-    public previousFrame(){
-
-    let indexedAnimation: IndexedAnimation = this.animationInterfaceArray[this.circularIndexUtil!.getIndex()]! as IndexedAnimation;;
+    override public function getFrame():int {
+        var indexedAnimation:IndexedAnimation = (this.animationInterfaceArray[this.circularIndexUtil.getIndex()] as IndexedAnimation);
+        return indexedAnimation.getFrame();
+    }
     
-indexedAnimation!.previousFrame();
+
+    override public function getSize():int {
+        var indexedAnimation:IndexedAnimation = (this.animationInterfaceArray[this.circularIndexUtil.getIndex()] as IndexedAnimation);
+        return indexedAnimation.getSize();
+    }
     
-}
 
-
-    public setSequence(sequence: number[]){
-}
-
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PrimitiveIntUtil.getArrayInstance();;
+    override public function previousFrame():void {
+        var indexedAnimation:IndexedAnimation = (this.animationInterfaceArray[this.circularIndexUtil.getIndex()] as IndexedAnimation);
+        indexedAnimation.previousFrame();
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public nextFrame(){
-this.animationInterfaceArray[this.circularIndexUtil!.getIndex()]!.nextFrame();
+    override public function setSequence(sequence:Vector.<int>):void {
+    }
     
-}
 
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-this.animationInterfaceArray[this.circularIndexUtil!.getIndex()]!.paintXY(graphics, x, y);
+    override public function getSequence():Vector.<int> {
+        return PrimitiveIntUtil.getArrayInstance();
+    }
     
-}
 
-
-    public paintThreedXYZ(graphics: Graphics, x: number, y: number, z: number){
-this.animationInterfaceArray[this.circularIndexUtil!.getIndex()]!.paintThreedXYZ(graphics, x, y, z);
+    override public function nextFrame():void {
+        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].nextFrame();
+    }
     
-}
 
-
-    public getCurrentAnimation(): IndexedAnimation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.animationInterfaceArray[this.circularIndexUtil!.getIndex()]! as IndexedAnimation;
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintXY(graphics, x, y);
+    }
     
-}
 
-
-    public nextAnimation(){
-
-    let frame: number = this.getFrame()!;;
+    override public function paintThreedXYZ(graphics:Graphics, x:int, y:int, z:int):void {
+        this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintThreedXYZ(graphics, x, y, z);
+    }
     
-this.circularIndexUtil!.next();
+
+    public function getCurrentAnimation():IndexedAnimation {
+        return (this.animationInterfaceArray[this.circularIndexUtil.getIndex()] as IndexedAnimation);
+    }
     
-this.setFrame(frame);
+
+    public function nextAnimation():void {
+        var frame:int = this.getFrame();
+        this.circularIndexUtil.next();
+        this.setFrame(frame);
+    }
     
-}
 
-
-    public previousAnimation(){
-
-    let frame: number = this.getFrame()!;;
+    public function previousAnimation():void {
+        var frame:int = this.getFrame();
+        this.circularIndexUtil.previous();
+        this.setFrame(frame);
+    }
     
-this.circularIndexUtil!.previous();
+
+    public function setAnimation(index:int):void {
+        var frame:int = this.getFrame();
+        this.circularIndexUtil.setIndex(index);
+        this.setFrame(frame);
+    }
     
-this.setFrame(frame);
+
+    public function getAnimationInterfaceArray():Vector.<Animation> {
+        return this.animationInterfaceArray;
+    }
     
-}
 
-
-    public setAnimation(index: number){
-
-    let frame: number = this.getFrame()!;;
+    public function setAnimationInterfaceArray(animationInterfaceArray:Vector.<Animation>):void {
+        this.animationInterfaceArray = animationInterfaceArray;
+    }
     
-this.circularIndexUtil!.setIndex(index);
-    
-this.setFrame(frame);
-    
-}
 
-
-    public getAnimationInterfaceArray(): Animation[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.animationInterfaceArray;
-    
-}
-
-
-    public setAnimationInterfaceArray(animationInterfaceArray: Animation[]){
-this.animationInterfaceArray= animationInterfaceArray;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public set(gl: GL){
-
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-this.animationInterfaceArray[index]!.set(gl);
-    
-}
-
-}
-
-
+    override public function set_(gl:GL):void {
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].set_(gl);
+        }
+    }
+    }
 }
 

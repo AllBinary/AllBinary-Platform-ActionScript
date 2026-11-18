@@ -1,117 +1,57 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.math.AngleInfo;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ImageArrayRotationAnimation extends ImageArrayBaseRotationAnimation {
+        private var expectedTotalFrames:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { AngleInfo } from '../../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageArrayBaseRotationAnimation } from './ImageArrayBaseRotationAnimation.js';
-//sameFolderImports - not GWT import - same folder const ImageArrayBaseRotationAnimation
-import { ImageArrayRotationAnimationInfo } from './ImageArrayRotationAnimationInfo.js';
-//sameFolderImports - not GWT import - same folder const ImageArrayRotationAnimationInfo
-
-export class ImageArrayRotationAnimation extends ImageArrayBaseRotationAnimation {
-        
-
-                //@Throws(Exception.constructor)
-            
-    static createAnimation(anyType: any, animationBehavior: AnimationBehavior): ImageArrayRotationAnimation{
-
-    let imageRotationAnimationInfo: ImageArrayRotationAnimationInfo = anyType as ImageArrayRotationAnimationInfo;;
+        // Java field initializers run after the base constructor
+        private function initFieldsImageArrayRotationAnimation():void {
+    this.expectedTotalFrames = 0;
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new ImageArrayRotationAnimation(imageRotationAnimationInfo!.getImageArray(), imageRotationAnimationInfo!.getAngleInfoP(), imageRotationAnimationInfo!.getTotalAngle(), animationBehavior);
-    
-}
-
-
-    private expectedTotalFrames: number= 0;
-
-public constructor (imageArray: Image[], angleInfo: AngleInfo, totalAngle: number, animationBehavior: AnimationBehavior){
-            super(imageArray, angleInfo, animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.initImageArray(imageArray, angleInfo, totalAngle);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    initImageArray(imageArray: Image[], angleInfo: AngleInfo, totalAngle: number){
-this.expectedTotalFrames= totalAngle /this.angleInfo!.getAngleIncrementInfo()!.getAngleIncrement();
-    
-this.angleInfo!.adjustAngle(0);
+    public static function createAnimation(anyType:Object, animationBehavior:AnimationBehavior):ImageArrayRotationAnimation {
+        var imageRotationAnimationInfo:ImageArrayRotationAnimationInfo = (anyType as ImageArrayRotationAnimationInfo);
+        return new ImageArrayRotationAnimation(imageRotationAnimationInfo.getImageArray(), imageRotationAnimationInfo.getAngleInfoP(), imageRotationAnimationInfo.getTotalAngle(), animationBehavior);
+    }
     
 
-                        if(this.expectedTotalFrames != this.getSize())
-                        
-                                    {
-                                    
-
-
-                            throw new Exception("Wrong Number of Frames");
-                    
-
-                                    }
-                                
-}
-
-
-    public setImageArray(imageArray: Image[]){
-super.setImageArray(imageArray);
+    public function ImageArrayRotationAnimation(imageArray:Vector.<Image>, angleInfo:AngleInfo, totalAngle:int, animationBehavior:AnimationBehavior) {
+        super(imageArray, angleInfo, animationBehavior);
+        this.initFieldsImageArrayRotationAnimation();
+        this.initImageArray(imageArray, angleInfo, totalAngle);
+    }
     
-this.angleInfo!.adjustAngle(0);
+
+    private function initImageArray(imageArray:Vector.<Image>, angleInfo:AngleInfo, totalAngle:int):void {
+        this.expectedTotalFrames = int(totalAngle / this.angleInfo.getAngleIncrementInfo().getAngleIncrement());
+        this.angleInfo.adjustAngle(0);
+        if (this.expectedTotalFrames != this.getSize()) {
+            throw new JException("Exception", "Wrong Number of Frames");
+        }
+    }
     
-}
 
-
+    override public function setImageArray(imageArray:Vector.<Image>):void {
+        super.setImageArray(imageArray);
+        this.angleInfo.adjustAngle(0);
+    }
+    }
 }
 

@@ -1,74 +1,34 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.health {
+    import org.allbinary.layer.AllBinaryLayer;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { HealthBarAnimation } from './HealthBarAnimation.js';
-//sameFolderImports - not GWT import - same folder const HealthBarAnimation
-
-export class HealthBarTwodAnimation extends HealthBarAnimation {
-        
-
-public constructor (layerInterface: AllBinaryLayer, location: number){
-            super(layerInterface, location);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-
-    let ax: number = this.allbinaryLayer!.getViewPosition()!.getX()!;;
+    public class HealthBarTwodAnimation extends HealthBarAnimation {
     
-this.basicSetColorUtil!.setBasicColorP3(graphics, this.basicColor, this.colorP);
-    
-graphics.fillRect(ax, this.getY() -1, this.x2, this.thickness);
-    
-}
 
+    public function HealthBarTwodAnimation(layerInterface:AllBinaryLayer, location:int) {
+        super(layerInterface, location);
+    }
+    
 
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        var ax:int = this.allbinaryLayer.getViewPosition().getX();
+        this.basicSetColorUtil.setBasicColorP3(graphics, this.basicColor, this.colorP);
+        graphics.fillRect(ax, this.getY() - 1, this.x2, this.thickness);
+    }
+    }
 }
 

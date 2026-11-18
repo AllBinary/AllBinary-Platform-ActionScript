@@ -1,61 +1,31 @@
+// Generated Code Do Not Modify
+package org.allbinary.animation.vector {
+    import org.allbinary.graphics.color.BasicColorFactory;
 
-        /* Generated Code Do Not Modify */
+    public class ARectangleFilledAnimation extends RectangleFilledAnimation {
+        public var x:int = 0;
+        public var y:int = 0;
 
-        
-
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { RectangleFilledAnimation } from './RectangleFilledAnimation.js';
-//sameFolderImports - not GWT import - same folder const RectangleFilledAnimation
-
-export class ARectangleFilledAnimation extends RectangleFilledAnimation {
-        
-
-    public x: number= 0;
-
-    public y: number= 0;
-
-public constructor (){
-            super(0, 0, BasicColorFactory.getInstance()!.BLACK);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public nextFrame(){
-}
-
-
-    public paintXY(graphics: Graphics, unusedX: number, unusedY: number){
-super.paintXY(graphics, this.x, this.y);
+        // Java field initializers run after the base constructor
+        private function initFieldsARectangleFilledAnimation():void {
+    this.x = 0;
+    this.y = 0;
+        }
     
-}
 
+    public function ARectangleFilledAnimation() {
+        super(0, 0, BasicColorFactory.getInstance().BLACK);
+        this.initFieldsARectangleFilledAnimation();
+    }
+    
 
+    override public function nextFrame():void {
+    }
+    
+
+    override public function paintXY(graphics:Graphics, unusedX:int, unusedY:int):void {
+        super.paintXY(graphics, this.x, this.y);
+    }
+    }
 }
 

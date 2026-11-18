@@ -1,59 +1,28 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
+    import org.allbinary.layer.LayerManager;
+    import org.allbinary.layer.LayerManagerNoDebug;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameInputLayerManager extends LayerManager {
+    
 
-        
-
-
-import { LayerManager } from '../../../../org/allbinary/layer/LayerManager.js';
-//not GWT import const LayerManager
-
-import { LayerManagerNoDebug } from '../../../../org/allbinary/layer/LayerManagerNoDebug.js';
-//not GWT import const LayerManagerNoDebug
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GameInputLayerManager extends LayerManager {
-        
-
-public constructor (){
-            super(LayerManagerNoDebug.getInstance());
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
+    public function GameInputLayerManager() {
+        super(LayerManagerNoDebug.getInstance());
+    }
+    }
 }
 

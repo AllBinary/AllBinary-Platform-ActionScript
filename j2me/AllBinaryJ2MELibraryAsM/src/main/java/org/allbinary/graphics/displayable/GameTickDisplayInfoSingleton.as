@@ -1,124 +1,82 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.displayable {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameTickDisplayInfoSingleton {
+    private static var instance_value:GameTickDisplayInfoSingleton;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GameTickDisplayInfoSingleton {
+        if (!GameTickDisplayInfoSingleton.instance_set) {
+            GameTickDisplayInfoSingleton.instance_set = true;
+            GameTickDisplayInfoSingleton.instance_value = new GameTickDisplayInfoSingleton();
+        }
+        return GameTickDisplayInfoSingleton.instance_value;
+    }
+        private var displayInfoSingleton:DisplayInfoSingleton = null;
+        private var lastWidth:int = 0;
+        private var lastHeight:int = 0;
+        private var lastHalfWidth:int = 0;
+        private var lastHalfHeight:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGameTickDisplayInfoSingleton():void {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.lastWidth = this.displayInfoSingleton.getLastWidth();
+    this.lastHeight = this.displayInfoSingleton.getLastHeight();
+    this.lastHalfWidth = this.displayInfoSingleton.getLastHalfWidth();
+    this.lastHalfHeight = this.displayInfoSingleton.getLastHalfHeight();
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DisplayInfoSingleton } from './DisplayInfoSingleton.js';
-//sameFolderImports - not GWT import - same folder const DisplayInfoSingleton
-
-export class GameTickDisplayInfoSingleton
-            extends Object
-         {
-        
-
-    private static readonly instance: GameTickDisplayInfoSingleton = new GameTickDisplayInfoSingleton();
-
-    public static getInstance(): GameTickDisplayInfoSingleton{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameTickDisplayInfoSingleton.instance;
+        public function GameTickDisplayInfoSingleton() {
+            super();
+            this.initFieldsGameTickDisplayInfoSingleton();
+        }
     
-}
 
-
-    private readonly displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
-
-    private lastWidth: number = this.displayInfoSingleton!.getLastWidth()!;
-
-    private lastHeight: number = this.displayInfoSingleton!.getLastHeight()!;
-
-    private lastHalfWidth: number = this.displayInfoSingleton!.getLastHalfWidth()!;
-
-    private lastHalfHeight: number = this.displayInfoSingleton!.getLastHalfHeight()!;
-
-    public update(){
-this.lastWidth= this.displayInfoSingleton!.getLastWidth();
+    public static function getInstance():GameTickDisplayInfoSingleton {
+        return GameTickDisplayInfoSingleton.instance;
+    }
     
-this.lastHeight= this.displayInfoSingleton!.getLastHeight();
+
+    public function update():void {
+        this.lastWidth = this.displayInfoSingleton.getLastWidth();
+        this.lastHeight = this.displayInfoSingleton.getLastHeight();
+        this.lastHalfWidth = this.displayInfoSingleton.getLastHalfWidth();
+        this.lastHalfHeight = this.displayInfoSingleton.getLastHalfHeight();
+    }
     
-this.lastHalfWidth= this.displayInfoSingleton!.getLastHalfWidth();
+
+    public function getLastWidth():int {
+        return this.lastWidth;
+    }
     
-this.lastHalfHeight= this.displayInfoSingleton!.getLastHalfHeight();
+
+    public function getLastHeight():int {
+        return this.lastHeight;
+    }
     
-}
 
-
-    public getLastWidth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.lastWidth;
+    public function getLastHalfWidth():int {
+        return this.lastHalfWidth;
+    }
     
-}
 
-
-    public getLastHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.lastHeight;
-    
-}
-
-
-    public getLastHalfWidth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.lastHalfWidth;
-    
-}
-
-
-    public getLastHalfHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.lastHalfHeight;
-    
-}
-
-
+    public function getLastHalfHeight():int {
+        return this.lastHalfHeight;
+    }
+    }
 }
 

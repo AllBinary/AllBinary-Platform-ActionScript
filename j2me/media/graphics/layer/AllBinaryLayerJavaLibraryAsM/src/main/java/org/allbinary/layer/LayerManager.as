@@ -1,318 +1,130 @@
+// Generated Code Do Not Modify
+package org.allbinary.layer {
+    import org.allbinary.TsUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.thread.SynchObject;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import org.allbinary.logic.ABSystemWrapper;
 
-        /* Generated Code Do Not Modify */
+    public class LayerManager {
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        private var systemWrapper:ABSystemWrapper = null;
+        private var tsUtil:TsUtil = null;
+        private var layerManagerLogging:LayerManagerLoggingBase = null;
+        private var list:BasicArrayList = null;
+        private var anyType:SynchObject = null;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { TsUtil } from '../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-import { SynchObject } from '../../../org/allbinary/thread/SynchObject.js';
-//not GWT import const SynchObject
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-//not plain js import { ABSystemWrapper } 
-const ABSystemWrapper = globalThis.org.allbinary.logic.ABSystemWrapper;
-type ABSystemWrapper<T = any, U = any> = typeof ABSystemWrapper extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABSystemWrapper;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LayerManagerLoggingBase } from './LayerManagerLoggingBase.js';
-//sameFolderImports - not GWT import - same folder const LayerManagerLoggingBase
-import { AllBinaryLayer } from './AllBinaryLayer.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryLayer
-import { Layer } from './Layer.js';
-//sameFolderImports - not GWT import - same folder const Layer
-
-export class LayerManager
-            extends Object
-         {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly systemWrapper: ABSystemWrapper = ABSystemWrapper.getInstance()!;
-
-    private readonly tsUtil: TsUtil = TsUtil.getInstance()!;
-
-    private readonly layerManagerLogging: LayerManagerLoggingBase;
-
-    private readonly list: BasicArrayList = new BasicArrayListD();
-
-    private readonly anyType: SynchObject = new SynchObject();
-
-public constructor (layerManagerLogging: LayerManagerLoggingBase){
-
-            super();
-        this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+        // Java field initializers run after the base constructor
+        private function initFieldsLayerManager():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.systemWrapper = ABSystemWrapper.getInstance();
+    this.tsUtil = TsUtil.getInstance();
     
-this.layerManagerLogging= layerManagerLogging;
-    
-}
-
-
-    public contains(layerInterface: AllBinaryLayer): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list.contains(layerInterface);;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public update(layerInterface: AllBinaryLayer){
-
-    let had: boolean = this.list.remove(layerInterface)!;;
+    this.list = new BasicArrayListD();
+    this.anyType = new SynchObject();
+        }
     
 
-                        if(had)
-                        
-                                    {
-                                    
-    let nextLayerInterface: AllBinaryLayer;;
+    public function LayerManager(layerManagerLogging:LayerManagerLoggingBase) {
+        super();
+        this.initFieldsLayerManager();
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+        this.layerManagerLogging = layerManagerLogging;
+    }
     
 
-    let size: number = this.list.size()!;;
+    public function contains(layerInterface:AllBinaryLayer):Boolean {
+        return this.list.contains(layerInterface);
+    }
     
 
+    public function update(layerInterface:AllBinaryLayer):void {
+        var had:Boolean = this.list.remove(layerInterface);
+        if (had) {
+            var nextLayerInterface:AllBinaryLayer = null;
+            var size:int = this.list.size();
+            for (var index:int = 0; index < size; index++) {
+                nextLayerInterface = (this.list.get_(index) as AllBinaryLayer);
+                if (layerInterface.getZP() > nextLayerInterface.getZP()) {
+                    this.list.addAt(index, layerInterface);
+                    return;
+                }
+            }
+            this.list.add(layerInterface);
+        }
+    }
+    
 
+    public function insert(layerInterface:AllBinaryLayer):void {
+        var nextLayerInterface:AllBinaryLayer = null;
+        var size:int = this.list.size();
+        for (var index:int = 0; index < size; index++) {
+            nextLayerInterface = (this.list.get_(index) as AllBinaryLayer);
+            if (layerInterface.getZP() > nextLayerInterface.getZP()) {
+                this.appendAt(layerInterface, index);
+                return;
+            }
+        }
+        this.append(layerInterface);
+    }
+    
 
+    public function append(layerInterface:AllBinaryLayer):void {
+        this.layerManagerLogging.append(layerInterface);
+        this.list.add(layerInterface);
+    }
+    
 
-                        for (
-    let index: number = 0;index < size; index++)
+    public function appendAt(layerInterface:AllBinaryLayer, index:int):void {
+        this.layerManagerLogging.appendAt(layerInterface, index);
+        this.list.addAt(index, layerInterface);
+    }
+    
+
+    public function remove(layerInterface:AllBinaryLayer):void {
         {
-nextLayerInterface= this.list.get(index) as AllBinaryLayer;
+            this.layerManagerLogging.remove(layerInterface);
+            var result:Boolean = this.list.remove(layerInterface);
+            this.layerManagerLogging.removeResult(this, layerInterface, result);
+        }
+    }
     
 
-                        if(layerInterface!.getZP() > nextLayerInterface!.getZP())
-                        
-                                    {
-                                    this.list.addAt(index, layerInterface);
+    public function getLayerAt(index:int):Layer {
+        return (this.list.objectArray[index] as Layer);
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
+    public function getSize():int {
+        return this.list.size();
+    }
     
 
-                                    }
-                                
-}
-
-this.list.add(layerInterface);
-    
-
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public insert(layerInterface: AllBinaryLayer){
-
-    let nextLayerInterface: AllBinaryLayer;;
-    
-
-    let size: number = this.list.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
+    public function cleanup():void {
         {
-nextLayerInterface= this.list.get(index) as AllBinaryLayer;
+            this.list.clear();
+            this.layerManagerLogging.clear();
+            this.tsUtil.gc();
+            this.tsUtil.gc();
+        }
+    }
     
 
-                        if(layerInterface!.getZP() > nextLayerInterface!.getZP())
-                        
-                                    {
-                                    this.appendAt(layerInterface, index);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
-    
-
-                                    }
-                                
-}
-
-this.append(layerInterface);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public append(layerInterface: AllBinaryLayer){
-this.layerManagerLogging!.append(layerInterface);
-    
-this.list.add(layerInterface);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public appendAt(layerInterface: AllBinaryLayer, index: number){
-this.layerManagerLogging!.appendAt(layerInterface, index);
-    
-this.list.addAt(index, layerInterface);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public remove(layerInterface: AllBinaryLayer){
-
-        
-        //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-        //synchronized(this.anyType) 
-
-        //mutex.withLock
-        
-this.layerManagerLogging!.remove(layerInterface);
-    
-
-    let result: boolean = this.list.remove(layerInterface)!;;
-    
-this.layerManagerLogging!.removeResult(this, layerInterface, result);
-    
-
-
-}
-
-
-    public getLayerAt(index: number): Layer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list.objectArray[index]! as Layer;
-    
-}
-
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list.size();;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public cleanup(){
-
-        
-        //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-        //synchronized(this.anyType) 
-
-        //mutex.withLock
-        
-this.list.clear();
-    
-this.layerManagerLogging!.clear();
-    
-this.tsUtil!.gc();
-    
-this.tsUtil!.gc();
-    
-
-
-}
-
-
-    public paint(g: Graphics, x: number, y: number){
-
-        
-        //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-        //synchronized(this.anyType) 
-
-        //mutex.withLock
-        
-
-    let comp: Layer;;
-    
-
-
-
-
-                        for (
-    let index: number = this.list.size()!;--index >= 0; )
+    public function paint(g:Graphics, x:int, y:int):void {
         {
-comp= this.list.objectArray[index]! as Layer;
-    
-
-                        if(comp != 
-                                    null
-                                 && comp.isVisible())
-                        
-                                    {
-                                    comp.paint(g);
-    
-
-                                    }
-                                
-}
-
-
-
-}
-
-
+            var comp:Layer = null;
+            for (var index:int = this.list.size(); --index >= 0; ) {
+                comp = (this.list.objectArray[index] as Layer);
+                if (comp != null && comp.isVisible()) {
+                    comp.paint(g);
+                }
+            }
+        }
+    }
+    }
 }
 

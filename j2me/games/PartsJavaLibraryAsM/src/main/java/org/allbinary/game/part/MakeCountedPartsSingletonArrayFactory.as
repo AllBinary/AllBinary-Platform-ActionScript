@@ -1,181 +1,84 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.part {
+    import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
+    import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactoryPool;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import org.allbinary.util.BasicArrayListUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class MakeCountedPartsSingletonArrayFactory {
+    private static var instance_value:MakeCountedPartsSingletonArrayFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():MakeCountedPartsSingletonArrayFactory {
+        if (!MakeCountedPartsSingletonArrayFactory.instance_set) {
+            MakeCountedPartsSingletonArrayFactory.instance_set = true;
+            MakeCountedPartsSingletonArrayFactory.instance_value = new MakeCountedPartsSingletonArrayFactory();
+        }
+        return MakeCountedPartsSingletonArrayFactory.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var list:BasicArrayList = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsMakeCountedPartsSingletonArrayFactory():void {
+    this.logUtil = LogUtil.getInstance();
+    this.list = BasicArrayListUtil.getInstance().getImmutableInstance();
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { CountedPickedUpLayerInterfaceFactory } from '../../../../org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.js';
-//not GWT import const CountedPickedUpLayerInterfaceFactory
-
-import { CountedPickedUpLayerInterfaceFactoryPool } from '../../../../org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactoryPool.js';
-//not GWT import const CountedPickedUpLayerInterfaceFactoryPool
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-//not plain js import { BasicArrayListUtil } 
-const BasicArrayListUtil = globalThis.org.allbinary.util.BasicArrayListUtil;
-type BasicArrayListUtil<T = any, U = any> = typeof BasicArrayListUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CountedLayerInterfaceFactoryPart } from './CountedLayerInterfaceFactoryPart.js';
-//sameFolderImports - not GWT import - same folder const CountedLayerInterfaceFactoryPart
-import { PartInterface } from './PartInterface.js';
-//sameFolderImports - not GWT import - same folder const PartInterface
-
-export class MakeCountedPartsSingletonArrayFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: MakeCountedPartsSingletonArrayFactory = new MakeCountedPartsSingletonArrayFactory();
-
-    public static getInstance(): MakeCountedPartsSingletonArrayFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MakeCountedPartsSingletonArrayFactory.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private list: BasicArrayList = BasicArrayListUtil.getInstance()!.getImmutableInstance()!;
-
-                //@Throws(Exception.constructor)
-            
-    public getUpdated(partInterfaceArray: PartInterface[]): PartInterface[]{
-this.list= new BasicArrayListD();
+        public function MakeCountedPartsSingletonArrayFactory() {
+            super();
+            this.initFieldsMakeCountedPartsSingletonArrayFactory();
+        }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < partInterfaceArray!.length; index++)
-        {
-this.list.add(partInterfaceArray[index]!);
-    
-}
-
-
-    let countedBasicArrayList: BasicArrayList = CountedPickedUpLayerInterfaceFactoryPool.getInstance()!.getList()!;;
+    public static function getInstance():MakeCountedPartsSingletonArrayFactory {
+        return MakeCountedPartsSingletonArrayFactory.instance;
+    }
     
 
-    let layerInterfaceFactoryInterface: CountedPickedUpLayerInterfaceFactory;;
-    
-
-    let size: number = countedBasicArrayList!.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-layerInterfaceFactoryInterface= countedBasicArrayList!.objectArray[index]! as CountedPickedUpLayerInterfaceFactory;
-    
-this.list.add(new CountedLayerInterfaceFactoryPart(0, layerInterfaceFactoryInterface));
-    
-}
-
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append("Total Parts: ");
-    
-stringBuffer!.appendint(this.list.size());
-    
-stringBuffer!.append(" Counted: ");
-    
-stringBuffer!.appendint(countedBasicArrayList!.size());
-    
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.putF(stringBuffer!.toString(), this, commonStrings!.GET_INSTANCE);
-    
-
-    let newPartInterfaceArray: PartInterface[] = new Array(this.list.size());;
-    
-
-    let newSize: number = newPartInterfaceArray!.length
-                ;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < newSize; index++)
-        {
-newPartInterfaceArray[index]= this.list.get(index) as PartInterface;
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return newPartInterfaceArray;
-    
-}
-
-
+    public function getUpdated(partInterfaceArray:Vector.<PartInterface>):Vector.<PartInterface> {
+        this.list = new BasicArrayListD();
+        for (var index:int = 0; index < partInterfaceArray.length; index++) {
+            this.list.add(partInterfaceArray[index]);
+        }
+        var countedBasicArrayList:BasicArrayList = CountedPickedUpLayerInterfaceFactoryPool.getInstance().getList();
+        var layerInterfaceFactoryInterface:CountedPickedUpLayerInterfaceFactory = null;
+        var size:int = countedBasicArrayList.size();
+        for (index = 0; index < size; index++) {
+            layerInterfaceFactoryInterface = (countedBasicArrayList.objectArray[index] as CountedPickedUpLayerInterfaceFactory);
+            this.list.add(new CountedLayerInterfaceFactoryPart(0, layerInterfaceFactoryInterface));
+        }
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append("Total Parts: ");
+        stringBuffer.appendint(this.list.size());
+        stringBuffer.append(" Counted: ");
+        stringBuffer.appendint(countedBasicArrayList.size());
+        var commonStrings:CommonStrings = CommonStrings.getInstance();
+        this.logUtil.putF(stringBuffer.toString(), this, commonStrings.GET_INSTANCE);
+        var newPartInterfaceArray:Vector.<PartInterface> = new Vector.<PartInterface>(this.list.size());
+        var newSize:int = newPartInterfaceArray.length;
+        for (index = 0; index < newSize; index++) {
+            newPartInterfaceArray[index] = (this.list.get_(index) as PartInterface);
+        }
+        return newPartInterfaceArray;
+    }
+    }
 }
 

@@ -1,80 +1,40 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.audio {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AllBinaryMediaManager } from './AllBinaryMediaManager.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryMediaManager
-import { SoundsFactoryInterface } from './SoundsFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const SoundsFactoryInterface
-
-export class AllBinaryMediaManagerShutdown
-            extends Object
-         {
-        
-
-    private static readonly instance: AllBinaryMediaManagerShutdown = new AllBinaryMediaManagerShutdown();
-
-                //@Throws(Exception.constructor)
-            
-    public static shutdown(soundsFactoryInterface: SoundsFactoryInterface){
-
-    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    public class AllBinaryMediaManagerShutdown {
+    private static var instance_value:AllBinaryMediaManagerShutdown;
+    private static var instance_set:Boolean = false;
+    private static function get instance():AllBinaryMediaManagerShutdown {
+        if (!AllBinaryMediaManagerShutdown.instance_set) {
+            AllBinaryMediaManagerShutdown.instance_set = true;
+            AllBinaryMediaManagerShutdown.instance_value = new AllBinaryMediaManagerShutdown();
+        }
+        return AllBinaryMediaManagerShutdown.instance_value;
+    }
     
 
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-logUtil!.putF(commonStrings!.START, instance, "shutdown");
-    
-AllBinaryMediaManager.shutdown(soundsFactoryInterface);
-    
-}
-
-
+    public static function shutdown(soundsFactoryInterface:SoundsFactoryInterface):void {
+        var logUtil:LogUtil = LogUtil.getInstance();
+        var commonStrings:CommonStrings = CommonStrings.getInstance();
+        logUtil.putF(commonStrings.START, AllBinaryMediaManagerShutdown.instance, "shutdown");
+        AllBinaryMediaManager.shutdown(soundsFactoryInterface);
+    }
+    }
 }
 

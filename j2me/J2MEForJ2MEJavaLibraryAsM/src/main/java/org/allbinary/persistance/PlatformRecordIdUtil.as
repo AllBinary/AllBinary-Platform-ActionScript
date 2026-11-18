@@ -1,83 +1,54 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.persistance {
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+    import org.allbinary.string.CommonSeps;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PlatformRecordIdUtil {
+    private static var instance_value:PlatformRecordIdUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():PlatformRecordIdUtil {
+        if (!PlatformRecordIdUtil.instance_set) {
+            PlatformRecordIdUtil.instance_set = true;
+            PlatformRecordIdUtil.instance_value = new PlatformRecordIdUtil();
+        }
+        return PlatformRecordIdUtil.instance_value;
+    }
+        private var PLATFORM_SHORT_NAME:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsPlatformRecordIdUtil():void {
+    this.PLATFORM_SHORT_NAME = "JME";
+        }
 
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { AbeClientInformationInterface } from '../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class PlatformRecordIdUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: PlatformRecordIdUtil = new PlatformRecordIdUtil();
-
-    public static getInstance(): PlatformRecordIdUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PlatformRecordIdUtil.instance;
+        public function PlatformRecordIdUtil() {
+            super();
+            this.initFieldsPlatformRecordIdUtil();
+        }
     
-}
 
-
-    private readonly PLATFORM_SHORT_NAME: string = "JME";
-
-    public getRecordId(abeClientInformation: AbeClientInformationInterface, baseRecordId: string): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new StringMaker().append(abeClientInformation!.toShortString())!.append(CommonSeps.getInstance()!.UNDERSCORE)!.append(this.PLATFORM_SHORT_NAME)!.append(baseRecordId)!.toString();;
+    public static function getInstance():PlatformRecordIdUtil {
+        return PlatformRecordIdUtil.instance;
+    }
     
-}
 
-
+    public function getRecordId(abeClientInformation:AbeClientInformationInterface, baseRecordId:String):String {
+        return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.PLATFORM_SHORT_NAME).append(baseRecordId).toString();
+    }
+    }
 }
 

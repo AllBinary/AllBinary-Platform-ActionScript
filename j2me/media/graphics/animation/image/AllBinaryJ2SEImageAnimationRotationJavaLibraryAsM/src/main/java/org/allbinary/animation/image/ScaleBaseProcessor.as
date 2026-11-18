@@ -1,67 +1,39 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ScaleBaseProcessor
-            extends Object
-         {
-        
-
-    private static readonly instance: ScaleBaseProcessor = new ScaleBaseProcessor();
-
-    public static getInstance(): ScaleBaseProcessor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ScaleBaseProcessor.instance;
+    public class ScaleBaseProcessor {
+    private static var instance_value:ScaleBaseProcessor;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ScaleBaseProcessor {
+        if (!ScaleBaseProcessor.instance_set) {
+            ScaleBaseProcessor.instance_set = true;
+            ScaleBaseProcessor.instance_value = new ScaleBaseProcessor();
+        }
+        return ScaleBaseProcessor.instance_value;
+    }
     
-}
 
+    public static function getInstance():ScaleBaseProcessor {
+        return ScaleBaseProcessor.instance;
+    }
+    
 
-    public update(originalImage: Image, originalImageArray: Image[], imageToShowArray: Image[], index: number, scaleX: number, scaleY: number, maxScaleX: number, maxScaleY: number){
-}
-
-
+    public function update(originalImage:Image, originalImageArray:Vector.<Image>, imageToShowArray:Vector.<Image>, index:int, scaleX:Number, scaleY:Number, maxScaleX:Number, maxScaleY:Number):void {
+    }
+    }
 }
 

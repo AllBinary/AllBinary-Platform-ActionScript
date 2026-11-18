@@ -1,127 +1,61 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.game.configuration.GameConfigurationCentral;
+    import org.allbinary.math.AngleFactory;
+    import org.allbinary.math.AngleInfo;
+    import org.allbinary.media.ScaleProperties;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class RotationAnimationFactory implements AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface {
+        private var totalAngle:int = 0;
+        private var angleIncrement:int = 0;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { GameConfigurationCentral } from '../../../org/allbinary/game/configuration/GameConfigurationCentral.js';
-//not GWT import const GameConfigurationCentral
-
-import { AngleFactory } from '../../../org/allbinary/math/AngleFactory.js';
-//not GWT import const AngleFactory
-
-import { AngleInfo } from '../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-import { ScaleProperties } from '../../../org/allbinary/media/ScaleProperties.js';
-//not GWT import const ScaleProperties
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AnimationInterfaceFactoryInterface } from './AnimationInterfaceFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const AnimationInterfaceFactoryInterface
-import { ProceduralAnimationInterfaceFactoryInterface } from './ProceduralAnimationInterfaceFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const ProceduralAnimationInterfaceFactoryInterface
-import { NullRotationAnimation } from './NullRotationAnimation.js';
-//sameFolderImports - not GWT import - same folder const NullRotationAnimation
-import { AnimationBehavior } from './AnimationBehavior.js';
-//sameFolderImports - not GWT import - same folder const AnimationBehavior
-import { Animation } from './Animation.js';
-//sameFolderImports - not GWT import - same folder const Animation
-
-export class RotationAnimationFactory
-            extends Object
-         implements AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface {
-        
-
-    public static createFactory(): RotationAnimationFactory{
-
-    let totalAngle: number = AngleFactory.getInstance()!.TOTAL_ANGLE;;
+        // Java field initializers run after the base constructor
+        private function initFieldsRotationAnimationFactory():void {
+    
+    
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new RotationAnimationFactory(totalAngle, (totalAngle /GameConfigurationCentral.getInstance()!.getGameControlFidelity()));
+    public static function createFactory():RotationAnimationFactory {
+        var totalAngle:int = AngleFactory.getInstance().TOTAL_ANGLE;
+        return new RotationAnimationFactory(totalAngle, ((int((int(totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity()))) << 16) >> 16));
+    }
     
-}
 
-
-    private totalAngle: number;
-
-    private angleIncrement: number;
-
-public constructor (totalAngle: number, angleIncrement: number){
-
-            super();
-        this.totalAngle= totalAngle;
+    public function RotationAnimationFactory(totalAngle:int, angleIncrement:int) {
+        super();
+        this.initFieldsRotationAnimationFactory();
+        this.totalAngle = totalAngle;
+        this.angleIncrement = angleIncrement;
+    }
     
-this.angleIncrement= angleIncrement;
+
+    public function getInstance1(instanceId:int):Animation {
+        return NullRotationAnimation.createTotalAngle(AngleInfo.getInstance1(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public getInstance(instanceId: number): Animation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullRotationAnimation.createTotalAngle(AngleInfo.getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());;
+    public function getInstanceAnimation(animationInterface:Animation):Animation {
+        return NullRotationAnimation.createTotalAngle(AngleInfo.getInstance1(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceAnimation(animationInterface: Animation): Animation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullRotationAnimation.createTotalAngle(AngleInfo.getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());;
-    
-}
-
-
-    public setInitialScale(scaleProperties: ScaleProperties){
-}
-
-
+    public function setInitialScale(scaleProperties:ScaleProperties):void {
+    }
+    }
 }
 

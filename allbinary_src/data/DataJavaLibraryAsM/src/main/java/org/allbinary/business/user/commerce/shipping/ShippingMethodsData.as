@@ -1,66 +1,30 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.user.commerce.shipping {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ShippingMethodsData
-            extends Object
-         {
-        
-
-    public static readonly SHIPPINGMETHODSORDERSUMMARIES: string = "SHIPPINGMETHODS_ORDERSUMMARIES";
-
-    public static readonly SHIPPINGMETHODORDERSUMMARY: string = "SHIPPINGMETHOD_ORDERSUMMARY";
-
-    public static readonly SHIPPINGMETHODS: string = "SHIPPINGMETHODS";
-
-    public static readonly NAME: string = "SHIPPINGMETHODS_NAME";
-
-    public static readonly SHIPPINGCOST: string = "SHIPPINGMETHOD_SHIPPINGCOST";
-
-    public static readonly TAXRATE: string = "SHIPPINGMETHOD_TAXRATE";
-
-    public static readonly SUBTOTAL: string = "SHIPPINGMETHOD_SUBTOTAL";
-
-    public static readonly TAX: string = "SHIPPINGMETHOD_TAX";
-
-    public static readonly TOTAL: string = "SHIPPINGMETHOD_TOTAL";
-
+    public class ShippingMethodsData {
+    public static const SHIPPINGMETHODSORDERSUMMARIES:String = "SHIPPINGMETHODS_ORDERSUMMARIES";
+    public static const SHIPPINGMETHODORDERSUMMARY:String = "SHIPPINGMETHOD_ORDERSUMMARY";
+    public static const SHIPPINGMETHODS:String = "SHIPPINGMETHODS";
+    public static const NAME:String = "SHIPPINGMETHODS_NAME";
+    public static const SHIPPINGCOST:String = "SHIPPINGMETHOD_SHIPPINGCOST";
+    public static const TAXRATE:String = "SHIPPINGMETHOD_TAXRATE";
+    public static const SUBTOTAL:String = "SHIPPINGMETHOD_SUBTOTAL";
+    public static const TAX:String = "SHIPPINGMETHOD_TAX";
+    public static const TOTAL:String = "SHIPPINGMETHOD_TOTAL";
+    }
 }
 

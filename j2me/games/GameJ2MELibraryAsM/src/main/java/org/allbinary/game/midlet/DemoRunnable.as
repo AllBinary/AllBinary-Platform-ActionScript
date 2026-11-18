@@ -1,132 +1,64 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.midlet {
+    import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+    import org.allbinary.graphics.displayable.command.MyCommandsFactory;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonLabels;
+    import org.allbinary.string.CommonStrings;
+    import java.lang.JRunnable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class DemoRunnable implements JRunnable {
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        private var demoGameMidlet:DemoGameMidlet = null;
+        private var startDemoGameMidletEvent:DemoGameMidletEvent = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-            import { Runnable } from '../../../../java/lang/Runnable.js';
-        
-import { ProgressCanvasFactory } from '../../../../org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.js';
-//not GWT import const ProgressCanvasFactory
-
-import { MyCommandsFactory } from '../../../../org/allbinary/graphics/displayable/command/MyCommandsFactory.js';
-//not GWT import const MyCommandsFactory
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DemoGameMidlet } from './DemoGameMidlet.js';
-//sameFolderImports - not GWT import - same folder const DemoGameMidlet
-import { DemoGameMidletEvent } from './DemoGameMidletEvent.js';
-//sameFolderImports - not GWT import - same folder const DemoGameMidletEvent
-import { DemoGameMidletStateFactory } from './DemoGameMidletStateFactory.js';
-//sameFolderImports - not GWT import - same folder const DemoGameMidletStateFactory
-import { DemoGameMidletEventHandler } from './DemoGameMidletEventHandler.js';
-//sameFolderImports - not GWT import - same folder const DemoGameMidletEventHandler
-
-export class DemoRunnable
-            extends Object
-         implements Runnable {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly demoGameMidlet: DemoGameMidlet;
-
-    private readonly startDemoGameMidletEvent: DemoGameMidletEvent;
-
-public constructor (demoGameMidlet: DemoGameMidlet){
-
-            super();
-        this.demoGameMidlet= demoGameMidlet;
+        // Java field initializers run after the base constructor
+        private function initFieldsDemoRunnable():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
     
-this.startDemoGameMidletEvent= new DemoGameMidletEvent(this.demoGameMidlet, DemoGameMidletStateFactory.getInstance()!.START_DEMO);
     
-}
-
-
-    public run(){
-
- try { this.logUtil!.putF(new StringMaker().append(CommonLabels.getInstance()!.START_LABEL)!.append("GameCanvasRunnableInterface")!.toString(), this, this.commonStrings!.RUN);
-    
-this.demoGameMidlet!.commandAction(MyCommandsFactory.getInstance()!.SET_DISPLAYABLE, ProgressCanvasFactory.getInstance());
-    
-this.demoGameMidlet!.setGameCanvasRunnableInterface(this.demoGameMidlet!.createDemoGameCanvasRunnableInterface());
-    
-this.demoGameMidlet!.demoSetup();
-    
-DemoGameMidletEventHandler.getInstance()!.fireEvent(this.startDemoGameMidletEvent);
-    
-this.demoGameMidlet!.startGameCanvasRunnableInterface();
-    
-this.demoGameMidlet!.postDemoSetup();
-    
-this.logUtil!.putF(this.commonStrings!.END_RUNNABLE, this, this.commonStrings!.RUN);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.RUN, e);
+        }
     
 
- }
-   }
- 
-}
+    public function DemoRunnable(demoGameMidlet:DemoGameMidlet) {
+        super();
+        this.initFieldsDemoRunnable();
+        this.demoGameMidlet = demoGameMidlet;
+        this.startDemoGameMidletEvent = new DemoGameMidletEvent(this.demoGameMidlet, DemoGameMidletStateFactory.getInstance().START_DEMO);
+    }
+    
 
-
+    public function run():void {
+        try {
+            this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("GameCanvasRunnableInterface").toString(), this, this.commonStrings.RUN);
+            this.demoGameMidlet.commandAction(MyCommandsFactory.getInstance().SET_DISPLAYABLE, ProgressCanvasFactory.getInstance());
+            this.demoGameMidlet.setGameCanvasRunnableInterface(this.demoGameMidlet.createDemoGameCanvasRunnableInterface());
+            this.demoGameMidlet.demoSetup();
+            DemoGameMidletEventHandler.getInstance().fireEvent(this.startDemoGameMidletEvent);
+            this.demoGameMidlet.startGameCanvasRunnableInterface();
+            this.demoGameMidlet.postDemoSetup();
+            this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+        }
+    }
+    }
 }
 

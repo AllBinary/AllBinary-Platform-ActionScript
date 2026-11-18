@@ -1,72 +1,54 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.feature {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class MainFeatureFactory {
+    private static var instance_value:MainFeatureFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():MainFeatureFactory {
+        if (!MainFeatureFactory.instance_set) {
+            MainFeatureFactory.instance_set = true;
+            MainFeatureFactory.instance_value = new MainFeatureFactory();
+        }
+        return MainFeatureFactory.instance_value;
+    }
+        public var FULL_SCREEN:Feature = null;
+        public var TITLE_BAR:Feature = null;
+        public var STATIC:Feature = null;
+        public var LOAD_ONDEMAND:Feature = null;
+        public var LOAD_ALL:Feature = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsMainFeatureFactory():void {
+    this.FULL_SCREEN = new Feature("Full Screen");
+    this.TITLE_BAR = new Feature("Title Bar");
+    this.STATIC = new Feature("Static Dependent Feature");
+    this.LOAD_ONDEMAND = new Feature("Load OnDemand");
+    this.LOAD_ALL = new Feature("Load All");
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Feature } from './Feature.js';
-//sameFolderImports - not GWT import - same folder const Feature
-
-export class MainFeatureFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: MainFeatureFactory = new MainFeatureFactory();
-
-    public static getInstance(): MainFeatureFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MainFeatureFactory.instance;
+        public function MainFeatureFactory() {
+            super();
+            this.initFieldsMainFeatureFactory();
+        }
     
-}
 
-
-    public readonly FULL_SCREEN: Feature = new Feature("Full Screen");
-
-    public readonly TITLE_BAR: Feature = new Feature("Title Bar");
-
-    public readonly STATIC: Feature = new Feature("Static Dependent Feature");
-
-    public readonly LOAD_ONDEMAND: Feature = new Feature("Load OnDemand");
-
-    public readonly LOAD_ALL: Feature = new Feature("Load All");
-
+    public static function getInstance():MainFeatureFactory {
+        return MainFeatureFactory.instance;
+    }
+    }
 }
 

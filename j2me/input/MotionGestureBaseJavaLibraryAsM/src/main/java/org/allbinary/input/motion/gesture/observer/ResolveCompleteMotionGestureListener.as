@@ -1,139 +1,60 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.gesture.observer {
+    import org.allbinary.game.input.CompleteMotionGestureInputEventHandler;
+    import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
+    import org.allbinary.game.input.motion.action.GameKeyFromMotionGestureEventListener;
+    import org.allbinary.input.motion.gesture.MotionGestureToMotionGestureActionAssociation;
+    import org.allbinary.input.motion.gesture.configuration.MotionGestureConfiguration;
+    import org.allbinary.input.motion.gesture.configuration.MotionGestureConfigurationFactory;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ResolveCompleteMotionGestureListener implements CompleteMotionGestureListenerInterface {
+        public var logUtil:LogUtil = null;
 
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { CompleteMotionGestureInputEventHandler } from '../../../../../../org/allbinary/game/input/CompleteMotionGestureInputEventHandler.js';
-//not GWT import const CompleteMotionGestureInputEventHandler
-
-import { GameKeyCompleteMotionGestureInputEvent } from '../../../../../../org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.js';
-//not GWT import const GameKeyCompleteMotionGestureInputEvent
-
-import { GameKeyFromMotionGestureEventListener } from '../../../../../../org/allbinary/game/input/motion/action/GameKeyFromMotionGestureEventListener.js';
-//not GWT import const GameKeyFromMotionGestureEventListener
-
-import { MotionGestureToMotionGestureActionAssociation } from '../../../../../../org/allbinary/input/motion/gesture/MotionGestureToMotionGestureActionAssociation.js';
-//not GWT import const MotionGestureToMotionGestureActionAssociation
-
-import { MotionGestureConfiguration } from '../../../../../../org/allbinary/input/motion/gesture/configuration/MotionGestureConfiguration.js';
-//not GWT import const MotionGestureConfiguration
-
-import { MotionGestureConfigurationFactory } from '../../../../../../org/allbinary/input/motion/gesture/configuration/MotionGestureConfigurationFactory.js';
-//not GWT import const MotionGestureConfigurationFactory
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CompleteMotionGestureListenerInterface } from './CompleteMotionGestureListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const CompleteMotionGestureListenerInterface
-
-export class ResolveCompleteMotionGestureListener
-            extends Object
-         implements CompleteMotionGestureListenerInterface {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-public constructor (){
-
-            super();
-        
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.putF("MotionGesture to CompleteMotionGesture Reciever", this, commonStrings!.CONSTRUCTOR);
-    
-CompleteMotionGestureInputEventHandler.getInstance()!.addListener(new GameKeyFromMotionGestureEventListener());
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public onMotionGestureCompleted(list: BasicArrayList){
-
-    let configuration: MotionGestureConfiguration = MotionGestureConfigurationFactory.getInstance()!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsResolveCompleteMotionGestureListener():void {
+    this.logUtil = LogUtil.getInstance();
+        }
     
 
-    let commandActionsList: BasicArrayList = configuration.getAssociateCommandActionsList()!;;
+    public function ResolveCompleteMotionGestureListener() {
+        super();
+        this.initFieldsResolveCompleteMotionGestureListener();
+        var commonStrings:CommonStrings = CommonStrings.getInstance();
+        this.logUtil.putF("MotionGesture to CompleteMotionGesture Reciever", this, commonStrings.CONSTRUCTOR);
+        CompleteMotionGestureInputEventHandler.getInstance().addListener(new GameKeyFromMotionGestureEventListener());
+    }
     
 
-    let size: number = commandActionsList!.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = size -1;index >= 0; index--)
-        {
-
-    let association: MotionGestureToMotionGestureActionAssociation = commandActionsList!.objectArray[index]! as MotionGestureToMotionGestureActionAssociation;;
-    
-
-                        if(association.isMotionGestureArrayEquals(list) == true)
-                        
-                                    {
-                                    
-    let completeMotionGestureInputEvent: GameKeyCompleteMotionGestureInputEvent = association.getCommandAction() as GameKeyCompleteMotionGestureInputEvent;;
-    
-CompleteMotionGestureInputEventHandler.getInstance()!.fireEvent(completeMotionGestureInputEvent);
-    
-break;
-
-                    
-
-                                    }
-                                
-}
-
-}
-
-
+    public function onMotionGestureCompleted(list:BasicArrayList):void {
+        var configuration:MotionGestureConfiguration = MotionGestureConfigurationFactory.getInstance();
+        var commandActionsList:BasicArrayList = configuration.getAssociateCommandActionsList();
+        var size:int = commandActionsList.size();
+        for (var index:int = int(size - 1); index >= 0; index--) {
+            var association:MotionGestureToMotionGestureActionAssociation = (commandActionsList.objectArray[index] as MotionGestureToMotionGestureActionAssociation);
+            if (association.isMotionGestureArrayEquals(list) == true) {
+                var completeMotionGestureInputEvent:GameKeyCompleteMotionGestureInputEvent = (association.getCommandAction() as GameKeyCompleteMotionGestureInputEvent);
+                CompleteMotionGestureInputEventHandler.getInstance().fireEvent(completeMotionGestureInputEvent);
+                break;
+            }
+        }
+    }
+    }
 }
 

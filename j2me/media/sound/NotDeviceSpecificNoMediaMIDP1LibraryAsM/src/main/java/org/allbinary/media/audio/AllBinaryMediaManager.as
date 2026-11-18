@@ -1,203 +1,94 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.audio {
+    import java.io.JInputStream;
+    import org.allbinary.TsUtil;
+    import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { InputStream } from '../../../../java/io/InputStream.js';
-//not GWT import const InputStream
-
-import { Player, PlayerI } from '../../../../javax/microedition/media/Player.js';
-//not GWT import const Player
-
-import { TsUtil } from '../../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-import { ProgressCanvasFactory } from '../../../../org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.js';
-//not GWT import const ProgressCanvasFactory
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Sounds } from './Sounds.js';
-//sameFolderImports - not GWT import - same folder const Sounds
-import { SoundsFactoryInterface } from './SoundsFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const SoundsFactoryInterface
-import { NoPlayer } from './NoPlayer.js';
-//sameFolderImports - not GWT import - same folder const NoPlayer
-//NotDeviceSpecificNoMediaMIDP1Library
-export class AllBinaryMediaManager
-            extends Object
-         {
-        
-
-    private static readonly THIS: string = "AllBinaryMediaManagerNoMediaMIDP1";
-
-    public static isMuted(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public static setMuted(aMuted: boolean){
-}
-
-
-    public static update(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public static init(soundsFactoryInterface: SoundsFactoryInterface){
-
-    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    //NotDeviceSpecificNoMediaMIDP1Library
+    public class AllBinaryMediaManager {
+    private static const THIS:String = "AllBinaryMediaManagerNoMediaMIDP1";
     
 
-    let commonString: CommonStrings = CommonStrings.getInstance()!;;
-    
-logUtil!.putF(commonString!.START, AllBinaryMediaManager.THIS, commonString!.INIT);
-    
-ProgressCanvasFactory.getInstance()!.addNormalPortion(50, "Media Manager");
-    
-new Sounds(soundsFactoryInterface).init();
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public static shutdown(soundsFactoryInterface: SoundsFactoryInterface){
-new Sounds(soundsFactoryInterface).stopAll();
-    
-new Sounds(soundsFactoryInterface).closeAll();
-    
-TsUtil.getInstance()!.gc();
-    
-}
-
-
-    public static createPlayerFromInputStream(stream: InputStream, type: string): Player{
-
-    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    public function AllBinaryMediaManager() {
+        super();
+    }
     
 
-    let commonString: CommonStrings = CommonStrings.getInstance()!;;
-    
-logUtil!.putF(commonString!.START, AllBinaryMediaManager.THIS, "creatPlayer(InputStream)");
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NoPlayer.NO_PLAYER as Player;
-    
-}
-
-
-    public static createPlayer(locator: string): Player{
-
-    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    public static function isMuted():Boolean {
+        return false;
+    }
     
 
-    let commonString: CommonStrings = CommonStrings.getInstance()!;;
+    public static function setMuted(aMuted:Boolean):void {
+    }
     
-logUtil!.putF(commonString!.START, AllBinaryMediaManager.THIS, "creatPlayer(locator)");
+
+    public static function update():Boolean {
+        return true;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NoPlayer.NO_PLAYER as Player;
+    public static function init(soundsFactoryInterface:SoundsFactoryInterface):void {
+        var logUtil:LogUtil = LogUtil.getInstance();
+        var commonString:CommonStrings = CommonStrings.getInstance();
+        logUtil.putF(commonString.START, AllBinaryMediaManager.THIS, commonString.INIT);
+        ProgressCanvasFactory.getInstance().addNormalPortion(50, "Media Manager");
+        new Sounds(soundsFactoryInterface).init();
+    }
     
-}
 
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public static playTone(frequency: number, time: number, volume: number){
-}
-
-
-    public static getSupportedContentTypes(protocol: string): string[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StringUtil.getInstance()!.getArrayInstance();;
+    public static function shutdown(soundsFactoryInterface:SoundsFactoryInterface):void {
+        new Sounds(soundsFactoryInterface).stopAll();
+        new Sounds(soundsFactoryInterface).closeAll();
+        TsUtil.getInstance().gc();
+    }
     
-}
 
-
-    public static getSupportedProtocols(content_type: string): string[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StringUtil.getInstance()!.getArrayInstance();;
+    public static function createPlayerFromInputStream(stream:InputStream, type:String):Player {
+        var logUtil:LogUtil = LogUtil.getInstance();
+        var commonString:CommonStrings = CommonStrings.getInstance();
+        logUtil.putF(commonString.START, AllBinaryMediaManager.THIS, "creatPlayer(InputStream)");
+        return (NoPlayer.NO_PLAYER as Player);
+    }
     
-}
 
+    public static function createPlayer(locator:String):Player {
+        var logUtil:LogUtil = LogUtil.getInstance();
+        var commonString:CommonStrings = CommonStrings.getInstance();
+        logUtil.putF(commonString.START, AllBinaryMediaManager.THIS, "creatPlayer(locator)");
+        return (NoPlayer.NO_PLAYER as Player);
+    }
+    
 
-private constructor (){
+    public static function playTone(frequency:int, time:int, volume:int):void {
+    }
+    
 
-            super();
-        }
+    public static function getSupportedContentTypes(protocol:String):Vector.<String> {
+        return StringUtil.getInstance().getArrayInstance();
+    }
+    
 
-
+    public static function getSupportedProtocols(content_type:String):Vector.<String> {
+        return StringUtil.getInstance().getArrayInstance();
+    }
+    }
 }
 

@@ -1,74 +1,30 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.ag.game.vector {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class HealthVectorData
-            extends Object
-         {
-        
-
-    public static points: number[][][] = 
-                                                        [
-                                                            [[2,1]
-,[3,2]
-,[3,2]
-,[4,1]
-,[4,1]
-,[5,1]
-,[5,1]
-,[6,2]
-,[6,2]
-,[6,3]
-,[6,3]
-,[3,6]
-,[3,6]
-,[0,3]
-,[0,3]
-,[0,2]
-,[0,2]
-,[1,1]
-,[1,1]
-,[2,1]
-,[1000,1000]
-]
-                                                        ];
-
+    public class HealthVectorData {
+    private static var points_value:Vector.<Vector.<Vector.<int>>>;
+    private static var points_set:Boolean = false;
+    public static function get points():Vector.<Vector.<Vector.<int>>> {
+        if (!HealthVectorData.points_set) {
+            HealthVectorData.points_set = true;
+            HealthVectorData.points_value = new <Vector.<Vector.<int>>>[new <Vector.<int>>[new <int>[2, 1], new <int>[3, 2], new <int>[3, 2], new <int>[4, 1], new <int>[4, 1], new <int>[5, 1], new <int>[5, 1], new <int>[6, 2], new <int>[6, 2], new <int>[6, 3], new <int>[6, 3], new <int>[3, 6], new <int>[3, 6], new <int>[0, 3], new <int>[0, 3], new <int>[0, 2], new <int>[0, 2], new <int>[1, 1], new <int>[1, 1], new <int>[2, 1], new <int>[1000, 1000]]];
+        }
+        return HealthVectorData.points_value;
+    }
+    }
 }
 

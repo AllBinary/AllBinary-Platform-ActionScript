@@ -1,96 +1,52 @@
+// Generated Code Do Not Modify
+package org.allbinary.game.midlet {
+    import org.allbinary.game.state.GameState;
+    import org.allbinary.game.state.GameStateFactory;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.string.CommonLabels;
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { GameState } from '../../../../org/allbinary/game/state/GameState.js';
-//not GWT import const GameState
-
-import { GameStateFactory } from '../../../../org/allbinary/game/state/GameStateFactory.js';
-//not GWT import const GameStateFactory
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GameMidletStateFactory
-            extends Object
-         {
-        
-
-    private static readonly INSTANCE: GameMidletStateFactory = new GameMidletStateFactory();
-
-    public static getInstance(): GameMidletStateFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameMidletStateFactory.INSTANCE;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private currentGameState: GameState = GameStateFactory.getInstance()!.NO_GAME_STATE;
-
-private constructor (){
-
-            super();
+    public class GameMidletStateFactory {
+    private static var INSTANCE_value:GameMidletStateFactory;
+    private static var INSTANCE_set:Boolean = false;
+    private static function get INSTANCE():GameMidletStateFactory {
+        if (!GameMidletStateFactory.INSTANCE_set) {
+            GameMidletStateFactory.INSTANCE_set = true;
+            GameMidletStateFactory.INSTANCE_value = new GameMidletStateFactory();
         }
+        return GameMidletStateFactory.INSTANCE_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var currentGameState:GameState = null;
 
-
-    public getCurrentGameState(): GameState{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.currentGameState;
+        // Java field initializers run after the base constructor
+        private function initFieldsGameMidletStateFactory():void {
+    this.logUtil = LogUtil.getInstance();
+    this.currentGameState = GameStateFactory.getInstance().NO_GAME_STATE;
+        }
     
-}
 
-
-    public setCurrentGameState(currentGameState: GameState){
-this.logUtil!.putF(new StringMaker().append(CommonLabels.getInstance()!.CURRENT)!.append(" GameState: ")!.append(StringUtil.getInstance()!.toString(currentGameState))!.toString(), this, "setCurrentGameState");
+    public function GameMidletStateFactory() {
+        super();
+        this.initFieldsGameMidletStateFactory();
+    }
     
-this.currentGameState= currentGameState;
+
+    public static function getInstance():GameMidletStateFactory {
+        return GameMidletStateFactory.INSTANCE;
+    }
     
-}
 
+    public function getCurrentGameState():GameState {
+        return this.currentGameState;
+    }
+    
 
+    public function setCurrentGameState(currentGameState:GameState):void {
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().CURRENT).append(" GameState: ").append(StringUtil.getInstance().toString1(currentGameState)).toString(), this, "setCurrentGameState");
+        this.currentGameState = currentGameState;
+    }
+    }
 }
 

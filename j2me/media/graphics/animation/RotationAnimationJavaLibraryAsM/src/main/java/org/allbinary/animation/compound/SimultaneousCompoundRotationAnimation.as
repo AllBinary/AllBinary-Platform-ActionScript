@@ -1,348 +1,163 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.compound {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.RotationAnimation;
+    import org.allbinary.direction.Direction;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
+    import org.allbinary.math.Angle;
+    import org.allbinary.math.AngleFactory;
+    import org.allbinary.math.AngleInfo;
+    import org.allbinary.util.CircularIndexUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class SimultaneousCompoundRotationAnimation extends RotationAnimation {
+        private var animationInterfaceArray:Vector.<RotationAnimation> = null;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { GL } from '../../../../javax/microedition/khronos/opengles/GL.js';
-//not GWT import const GL
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { RotationAnimation } from '../../../../org/allbinary/animation/RotationAnimation.js';
-//not GWT import const RotationAnimation
-
-import { Direction } from '../../../../org/allbinary/direction/Direction.js';
-//not GWT import const Direction
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-import { Angle } from '../../../../org/allbinary/math/Angle.js';
-//not GWT import const Angle
-
-import { AngleFactory } from '../../../../org/allbinary/math/AngleFactory.js';
-//not GWT import const AngleFactory
-
-import { AngleInfo } from '../../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class SimultaneousCompoundRotationAnimation extends RotationAnimation {
-        
-
-    private animationInterfaceArray: RotationAnimation[];
-
-public constructor (animationInterfaceArray: RotationAnimation[], animationBehavior: AnimationBehavior){
-            super(AngleInfo.getInstance(AngleFactory.getInstance()!.QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.animationInterfaceArray= animationInterfaceArray;
+        // Java field initializers run after the base constructor
+        private function initFieldsSimultaneousCompoundRotationAnimation():void {
     
-}
-
-
-    public setFrame(frameIndex: number){
-
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-this.animationInterfaceArray[index]!.setFrame(frameIndex);
+        }
     
-}
 
-}
-
-
-    public getFrame(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.animationInterfaceArray[0]!.getFrame();;
+    public function SimultaneousCompoundRotationAnimation(animationInterfaceArray:Vector.<RotationAnimation>, animationBehavior:AnimationBehavior) {
+        super(AngleInfo.getInstance1(AngleFactory.getInstance().QUARTER_TOTAL_ANGLE), CircularIndexUtil.createInstance(4), animationBehavior);
+        this.initFieldsSimultaneousCompoundRotationAnimation();
+        this.animationInterfaceArray = animationInterfaceArray;
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public getAnimationSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.animationInterfaceArray[0]!.getAnimationSize();;
+    override public function setFrame(frameIndex:int):void {
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].setFrame(frameIndex);
+        }
+    }
     
-}
 
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.animationInterfaceArray[0]!.getSize();;
+    override public function getFrame():int {
+        return this.animationInterfaceArray[0].getFrame();
+    }
     
-}
 
-
-    public previousFrame(){
-
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-this.animationInterfaceArray[index]!.previousFrame();
+    override public function getAnimationSize():int {
+        return this.animationInterfaceArray[0].getAnimationSize();
+    }
     
-}
 
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public nextFrame(){
-
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-this.animationInterfaceArray[index]!.nextFrame();
+    override public function getSize():int {
+        return this.animationInterfaceArray[0].getSize();
+    }
     
-}
 
-}
-
-
-    public previousRotation(){
-
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-this.animationInterfaceArray[index]!.previousRotation();
+    override public function previousFrame():void {
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].previousFrame();
+        }
+    }
     
-}
 
-}
-
-
-    public nextRotation(){
-
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-this.animationInterfaceArray[index]!.nextRotation();
+    override public function nextFrame():void {
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].nextFrame();
+        }
+    }
     
-}
 
-}
-
-
-    public setSequence(sequence: number[]){
-}
-
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PrimitiveIntUtil.getArrayInstance();;
+    override public function previousRotation():void {
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].previousRotation();
+        }
+    }
     
-}
 
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-this.animationInterfaceArray[index]!.paintXY(graphics, x, y);
+    override public function nextRotation():void {
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].nextRotation();
+        }
+    }
     
-}
 
-}
-
-
-    public paintThreedXYZ(graphics: Graphics, x: number, y: number, z: number){
-
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-this.animationInterfaceArray[index]!.paintThreedXYZ(graphics, x, y, z);
+    override public function setSequence(sequence:Vector.<int>):void {
+    }
     
-}
 
-}
-
-
-    public setFrameByDirection(direction: Direction){
-
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-this.animationInterfaceArray[index]!.setFrameByDirection(direction);
+    override public function getSequence():Vector.<int> {
+        return PrimitiveIntUtil.getArrayInstance();
+    }
     
-}
 
-}
-
-
-    public setFrameToAngle(angle: Angle){
-
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-this.animationInterfaceArray[index]!.setFrameToAngle(angle);
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].paintXY(graphics, x, y);
+        }
+    }
     
-}
 
-}
-
-
-    public adjustFrameToAngle(newAngle: Angle){
-this.adjustFrame(newAngle!.getValue());
+    override public function paintThreedXYZ(graphics:Graphics, x:int, y:int, z:int):void {
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].paintThreedXYZ(graphics, x, y, z);
+        }
+    }
     
-}
 
-
-    public adjustFrame(angle: number){
-
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-this.animationInterfaceArray[index]!.adjustFrame(angle);
+    override public function setFrameByDirection(direction:Direction):void {
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].setFrameByDirection(direction);
+        }
+    }
     
-}
 
-}
-
-
-    public getAngleInfoP(): AngleInfo{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.animationInterfaceArray[0]!.getAngleInfoP();;
+    override public function setFrameToAngle(angle:Angle):void {
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].setFrameToAngle(angle);
+        }
+    }
     
-}
 
-
-    public getAnimationInterfaceArray(): RotationAnimation[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.animationInterfaceArray;
+    override public function adjustFrameToAngle(newAngle:Angle):void {
+        this.adjustFrame(newAngle.getValue());
+    }
     
-}
 
-
-    public setAnimationInterfaceArray(animationInterfaceArray: RotationAnimation[]){
-this.animationInterfaceArray= animationInterfaceArray;
+    override public function adjustFrame(angle:int):void {
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].adjustFrame(angle);
+        }
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public set(gl: GL){
-
-
-
-
-                        for (
-    let index: number = this.animationInterfaceArray!.length
-                ;--index >= 0; )
-        {
-this.animationInterfaceArray[index]!.set(gl);
+    override public function getAngleInfoP():AngleInfo {
+        return this.animationInterfaceArray[0].getAngleInfoP();
+    }
     
-}
 
-}
+    public function getAnimationInterfaceArray():Vector.<RotationAnimation> {
+        return this.animationInterfaceArray;
+    }
+    
 
+    public function setAnimationInterfaceArray(animationInterfaceArray:Vector.<RotationAnimation>):void {
+        this.animationInterfaceArray = animationInterfaceArray;
+    }
+    
 
+    override public function set_(gl:GL):void {
+        for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
+            this.animationInterfaceArray[index].set_(gl);
+        }
+    }
+    }
 }
 

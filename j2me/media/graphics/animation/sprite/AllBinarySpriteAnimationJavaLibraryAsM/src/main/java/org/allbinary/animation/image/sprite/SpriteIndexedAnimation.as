@@ -1,303 +1,149 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image.sprite {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.IndexedAnimation;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.color.ColorCompositeInterface;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonLabels;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class SpriteIndexedAnimation extends IndexedAnimation implements ColorCompositeInterface {
+        public var sprite:Sprite = null;
+        public var image:Image = null;
+        private var basicColorArray:Vector.<BasicColor> = null;
 
-        
-
-
-            import { Throwable } from '../../../../../java/lang/Throwable.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { Sprite } from '../../../../../javax/microedition/lcdui/game/Sprite.js';
-//not GWT import const Sprite
-
-import { AnimationBehavior } from '../../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { IndexedAnimation } from '../../../../../org/allbinary/animation/IndexedAnimation.js';
-//not GWT import const IndexedAnimation
-
-import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { ColorCompositeInterface } from '../../../../../org/allbinary/graphics/color/ColorCompositeInterface.js';
-//not GWT import const ColorCompositeInterface
-
-import { PrimitiveIntUtil } from '../../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class SpriteIndexedAnimation extends IndexedAnimation implements ColorCompositeInterface {
-        
-
-    readonly sprite: Sprite;
-
-    readonly image: Image;
-
-    private readonly basicColorArray: BasicColor[];
-
-public constructor (sprite: Sprite, image: Image, basicColorArray: BasicColor[], animationBehavior: AnimationBehavior){
-            super(animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.sprite= sprite;
+        // Java field initializers run after the base constructor
+        private function initFieldsSpriteIndexedAnimation():void {
     
-this.image= image;
     
-this.basicColorArray= basicColorArray;
+    
+        }
     
 
-                        if(this.basicColorArray!.length != 0 && this.getSize() != this.basicColorArray!.length)
-                        
-                                    {
-                                    
-
-
-                            throw new Exception(new StringMaker().append(CommonLabels.getInstance()!.TOTAL_LABEL)!.appendint(this.getSize())!.append("!=")!.appendint(this.basicColorArray!.length)!.toString());
-                    
-
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getAnimationSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getSize();;
-    
-}
-
-
-    public setBasicColorP(basicColor: BasicColor){
-
-
-
-
-                        for (
-    let index: number = 0;index < this.basicColorArray!.length; index++)
-        {
-
-                        if(basicColor == this.basicColorArray[index])
-                        
-                                    {
-                                    this.setFrame(index);
-    
-break;
-
-                    
-
-                                    }
-                                
-}
-
-}
-
-
-    public getBasicColorP(): BasicColor{
-
-                        if(this.basicColorArray!.length < this.getFrame())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicColorArray[this.getFrame()]!;
+    public function SpriteIndexedAnimation(sprite:Sprite, image:Image, basicColorArray:Vector.<BasicColor>, animationBehavior:AnimationBehavior) {
+        super(animationBehavior);
+        this.initFieldsSpriteIndexedAnimation();
+        this.sprite = sprite;
+        this.image = image;
+        this.basicColorArray = basicColorArray;
+        if (this.basicColorArray.length != 0 && this.getSize() != this.basicColorArray.length) {
+            throw new JException("Exception", new StringMaker().append(CommonLabels.getInstance().TOTAL_LABEL).appendint(this.getSize()).append("!=").appendint(this.basicColorArray.length).toString());
+        }
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return BasicColorFactory.getInstance()!.WHITE;
+    override public function getAnimationSize():int {
+        return this.getSize();
+    }
     
 
-                        }
-                            
-}
-
-
-    public paintFrame(graphics: Graphics, frame: number, x: number, y: number){
-this.setFrame(frame);
-    
-this.sprite.setPosition(x, y);
-    
-this.sprite.paint(graphics);
-    
-}
-
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-this.sprite.setPosition(x, y);
-    
-this.sprite.paint(graphics);
-    
-}
-
-
-    paint(graphics: Graphics){
-this.sprite.paint(graphics);
-    
-}
-
-
-    public nextFrame(){
-this.sprite.nextFrame();
-    
-}
-
-
-    public previousFrame(){
-this.sprite.prevFrame();
-    
-}
-
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.sprite.getRawFrameCount();;
-    
-}
-
-
-    public setFrame(frame: number){
-this.sprite.setFrame(frame);
-    
-}
-
-
-    public getFrame(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.sprite.getFrame();;
-    
-}
-
-
-    public isLastFrame(): boolean{
-
-                        if(this.sprite.getFrame() == this.getSize() -1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    override public function setBasicColorP(basicColor:BasicColor):void {
+        for (var index:int = 0; index < this.basicColorArray.length; index++) {
+            if (basicColor === this.basicColorArray[index]) {
+                this.setFrame(index);
+                break;
+            }
+        }
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    override public function getBasicColorP():BasicColor {
+        if (this.basicColorArray.length < this.getFrame()) {
+            return this.basicColorArray[this.getFrame()];
+        } else {
+            return BasicColorFactory.getInstance().WHITE;
+        }
+    }
     
 
-                        }
-                            
-}
-
-
-    public getLastFrame(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getSize();;
+    public function paintFrame(graphics:Graphics, frame:int, x:int, y:int):void {
+        this.setFrame(frame);
+        this.sprite.setPosition(x, y);
+        this.sprite.paint(graphics);
+    }
     
-}
 
-
-    public setSequence(sequence: number[]){
-}
-
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PrimitiveIntUtil.getArrayInstance();;
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        this.sprite.setPosition(x, y);
+        this.sprite.paint(graphics);
+    }
     
-}
 
+    public function paint(graphics:Graphics):void {
+        this.sprite.paint(graphics);
+    }
+    
 
-    public close(){
-}
+    override public function nextFrame():void {
+        this.sprite.nextFrame();
+    }
+    
 
+    override public function previousFrame():void {
+        this.sprite.prevFrame();
+    }
+    
 
-                //@Throws(Throwable.constructor)
-            
-    finalize(){
-}
+    override public function getSize():int {
+        return this.sprite.getRawFrameCount();
+    }
+    
 
+    override public function setFrame(frame:int):void {
+        this.sprite.setFrame(frame);
+    }
+    
 
+    override public function getFrame():int {
+        return this.sprite.getFrame();
+    }
+    
+
+    override public function isLastFrame():Boolean {
+        if (this.sprite.getFrame() == int(this.getSize() - 1)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+
+    public function getLastFrame():int {
+        return this.getSize();
+    }
+    
+
+    override public function setSequence(sequence:Vector.<int>):void {
+    }
+    
+
+    override public function getSequence():Vector.<int> {
+        return PrimitiveIntUtil.getArrayInstance();
+    }
+    
+
+    public function close():void {
+    }
+    
+
+    public function finalize():void {
+    }
+    }
 }
 

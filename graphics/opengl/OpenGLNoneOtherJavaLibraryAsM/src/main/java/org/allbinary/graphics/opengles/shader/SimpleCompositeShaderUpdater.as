@@ -1,55 +1,26 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.opengles.shader {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class SimpleCompositeShaderUpdater extends CompositeShaderUpdater {
+    
 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CompositeShaderUpdater } from './CompositeShaderUpdater.js';
-//sameFolderImports - not GWT import - same folder const CompositeShaderUpdater
-
-export class SimpleCompositeShaderUpdater extends CompositeShaderUpdater {
-        
-
-public constructor (uniformBlockArray: string[], uniformArray: string[], attributeArray: string[], attributeHandleArray: number[]){
-            super(uniformBlockArray, uniformArray, attributeArray, attributeHandleArray);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
+    public function SimpleCompositeShaderUpdater(uniformBlockArray:Vector.<String>, uniformArray:Vector.<String>, attributeArray:Vector.<String>, attributeHandleArray:Vector.<int>) {
+        super(uniformBlockArray, uniformArray, attributeArray, attributeHandleArray);
+    }
+    }
 }
 

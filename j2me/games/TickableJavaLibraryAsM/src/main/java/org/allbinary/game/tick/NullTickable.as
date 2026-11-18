@@ -1,85 +1,56 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.tick {
+    import org.allbinary.layer.AllBinaryLayerManager;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class NullTickable implements TickableInterface {
+    private static var SINGLETON_value:NullTickable;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():NullTickable {
+        if (!NullTickable.SINGLETON_set) {
+            NullTickable.SINGLETON_set = true;
+            NullTickable.SINGLETON_value = new NullTickable();
+        }
+        return NullTickable.SINGLETON_value;
+    }
+        private var NAME:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsNullTickable():void {
+    this.NAME = "NulLTickable";
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AllBinaryLayerManager } from '../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TickableInterface } from './TickableInterface.js';
-//sameFolderImports - not GWT import - same folder const TickableInterface
-
-export class NullTickable
-            extends Object
-         implements TickableInterface {
-        
-
-    private static readonly SINGLETON: NullTickable = new NullTickable();
-
-    public static getInstance(): NullTickable{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullTickable.SINGLETON;
+        public function NullTickable() {
+            super();
+            this.initFieldsNullTickable();
+        }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public processTick(allBinaryLayerManager: AllBinaryLayerManager){
-}
-
-
-    private readonly NAME: string = "NulLTickable";
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.NAME;
+    public static function getInstance():NullTickable {
+        return NullTickable.SINGLETON;
+    }
     
-}
 
+    public function processTick(allBinaryLayerManager:AllBinaryLayerManager):void {
+    }
+    
 
+    public function getName():String {
+        return this.NAME;
+    }
+    }
 }
 

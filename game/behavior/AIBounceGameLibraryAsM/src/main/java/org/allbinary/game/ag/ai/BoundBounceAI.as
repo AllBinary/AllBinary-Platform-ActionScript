@@ -1,106 +1,57 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai {
+    import org.allbinary.bounds.BoundsVisitorInterface;
+    import org.allbinary.bounds.LayerBounds;
+    import org.allbinary.game.ai.BasicAI;
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.graphics.Rectangle;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BoundBounceAI extends BasicAI {
+        public var currentRelativeAngle:int = 0;
+        private var layerBounds:LayerBounds = null;
+        private var boundsVisitorInterface:BoundsVisitorInterface = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { BoundsVisitorInterface } from '../../../../../org/allbinary/bounds/BoundsVisitorInterface.js';
-//not GWT import const BoundsVisitorInterface
-
-import { LayerBounds } from '../../../../../org/allbinary/bounds/LayerBounds.js';
-//not GWT import const LayerBounds
-
-import { BasicAI } from '../../../../../org/allbinary/game/ai/BasicAI.js';
-//not GWT import const BasicAI
-
-import { GameInput } from '../../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-import { Rectangle } from '../../../../../org/allbinary/graphics/Rectangle.js';
-//not GWT import const Rectangle
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class BoundBounceAI extends BasicAI {
-        
-
-    currentRelativeAngle: number = 0;
-
-    private layerBounds: LayerBounds;
-
-    private boundsVisitorInterface: BoundsVisitorInterface;
-
-public constructor (ownerLayerInterface: AllBinaryLayer, gameInput: GameInput, layerBounds: LayerBounds, boundsVisitorInterface: BoundsVisitorInterface){
-            super(ownerLayerInterface, gameInput);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.layerBounds= layerBounds;
+        // Java field initializers run after the base constructor
+        private function initFieldsBoundBounceAI():void {
+    this.currentRelativeAngle = 0;
     
-this.boundsVisitorInterface= boundsVisitorInterface;
     
-}
-
-
-    public paint(graphics: Graphics){
-
-    let rectange: Rectangle = this.layerBounds!.getRectangleP()!;;
+        }
     
-graphics.drawRect(rectange.getPoint()!.getX(), rectange.getPoint()!.getY(), rectange.getWidth(), rectange.getHeight());
+
+    public function BoundBounceAI(ownerLayerInterface:AllBinaryLayer, gameInput:GameInput, layerBounds:LayerBounds, boundsVisitorInterface:BoundsVisitorInterface) {
+        super(ownerLayerInterface, gameInput);
+        this.initFieldsBoundBounceAI();
+        this.layerBounds = layerBounds;
+        this.boundsVisitorInterface = boundsVisitorInterface;
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
-this.layerBounds!.visit(this.boundsVisitorInterface);
+    public function paint(graphics:Graphics):void {
+        var rectange:Rectangle = this.layerBounds.getRectangleP();
+        graphics.drawRect(rectange.getPoint().getX(), rectange.getPoint().getY(), rectange.getWidth(), rectange.getHeight());
+    }
     
-}
 
-
+    override public function processAI(allBinaryLayerManager:AllBinaryLayerManager):void {
+        this.layerBounds.visit(this.boundsVisitorInterface);
+    }
+    }
 }
 

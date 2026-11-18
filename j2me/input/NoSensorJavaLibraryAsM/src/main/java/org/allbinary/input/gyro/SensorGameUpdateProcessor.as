@@ -1,119 +1,66 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.gyro {
+    import org.allbinary.input.AllBinarySensor;
+    import org.allbinary.input.NoAllBinarySensor;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class SensorGameUpdateProcessor {
+        private var inputSensor:AllBinarySensor = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsSensorGameUpdateProcessor():void {
+    this.inputSensor = NoAllBinarySensor.getInstance();
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AllBinarySensor } from '../../../../org/allbinary/input/AllBinarySensor.js';
-//not GWT import const AllBinarySensor
-
-import { NoAllBinarySensor } from '../../../../org/allbinary/input/NoAllBinarySensor.js';
-//not GWT import const NoAllBinarySensor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class SensorGameUpdateProcessor
-            extends Object
-         {
-        
-
-    private inputSensor: AllBinarySensor = NoAllBinarySensor.getInstance()!;
-
-    setInputSensor(inputSensor: AllBinarySensor){
-this.inputSensor= inputSensor;
-    
-}
-
-
-    public getInputSensor(): AllBinarySensor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.inputSensor;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public process(anyType: any){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public sendNotifications(anyType: any){
-}
-
-
-    public isAnySensor(): boolean{
-
-                        if(this.inputSensor == NoAllBinarySensor.getInstance())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+        public function SensorGameUpdateProcessor() {
+            super();
+            this.initFieldsSensorGameUpdateProcessor();
+        }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function setInputSensor(inputSensor:AllBinarySensor):void {
+        this.inputSensor = inputSensor;
+    }
     
 
-                        }
-                            
-}
-
-
-    setNoSensors(){
-this.setInputSensor(NoAllBinarySensor.getInstance());
+    public function getInputSensor():AllBinarySensor {
+        return this.inputSensor;
+    }
     
-}
 
+    public function process(anyType:Object):void {
+    }
+    
 
+    public function sendNotifications(anyType:Object):void {
+    }
+    
+
+    public function isAnySensor():Boolean {
+        if (this.inputSensor == NoAllBinarySensor.getInstance()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+
+    public function setNoSensors():void {
+        this.setInputSensor(NoAllBinarySensor.getInstance());
+    }
+    }
 }
 

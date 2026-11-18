@@ -1,82 +1,39 @@
+// Generated Code Do Not Modify
+package org.allbinary.game.terrain {
+    import org.allbinary.logic.communication.log.ForcedLogUtil;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventStrings;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /* Generated Code Do Not Modify */
+    public class TerrainEventListener implements TerrainEventListenerInterface {
+        private var list:BasicArrayList = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsTerrainEventListener():void {
+    this.list = new BasicArrayListD();
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventStrings } from '../../../../org/allbinary/logic/util/event/EventStrings.js';
-//not GWT import const EventStrings
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TerrainEventListenerInterface } from './TerrainEventListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const TerrainEventListenerInterface
-import { TerrainEvent } from './TerrainEvent.js';
-//sameFolderImports - not GWT import - same folder const TerrainEvent
-
-export class TerrainEventListener
-            extends Object
-         implements TerrainEventListenerInterface {
-        
-
-    private readonly list: BasicArrayList = new BasicArrayListD();
-
-    public onEvent(eventObject: AllBinaryEventObject){
-ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
+        public function TerrainEventListener() {
+            super();
+            this.initFieldsTerrainEventListener();
+        }
     
-}
 
-
-    public onTerrainEvent(terrainEvent: TerrainEvent){
-this.list.clear();
+    public function onEvent(eventObject:AllBinaryEventObject):void {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    }
     
-this.list.add(terrainEvent);
+
+    public function onTerrainEvent(terrainEvent:TerrainEvent):void {
+        this.list.clear();
+        this.list.add(terrainEvent);
+    }
     
-}
 
-
-    public getList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list;
-    
-}
-
-
+    public function getList():BasicArrayList {
+        return this.list;
+    }
+    }
 }
 

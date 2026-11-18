@@ -1,96 +1,60 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.platform.graphics {
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PlatformBitmapBase {
+    private static var NULL_PLATFORM_BITMAP_BASE_value:PlatformBitmapBase;
+    private static var NULL_PLATFORM_BITMAP_BASE_set:Boolean = false;
+    public static function get NULL_PLATFORM_BITMAP_BASE():PlatformBitmapBase {
+        if (!PlatformBitmapBase.NULL_PLATFORM_BITMAP_BASE_set) {
+            PlatformBitmapBase.NULL_PLATFORM_BITMAP_BASE_set = true;
+            PlatformBitmapBase.NULL_PLATFORM_BITMAP_BASE_value = new PlatformBitmapBase();
+        }
+        return PlatformBitmapBase.NULL_PLATFORM_BITMAP_BASE_value;
+    }
+        public var alpha:int = 0;
+        public var basicColor:BasicColor = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsPlatformBitmapBase():void {
+    this.alpha = 255;
+    this.basicColor = BasicColorFactory.getInstance().NULL_COLOR;
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { NullImage } from '../../../../javax/microedition/lcdui/NullImage.js';
-//not GWT import const NullImage
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class PlatformBitmapBase
-            extends Object
-         {
-        
-
-    public static readonly NULL_PLATFORM_BITMAP_BASE: PlatformBitmapBase = new PlatformBitmapBase();
-
-    public alpha: number = 255;
-
-    public basicColor: BasicColor = BasicColorFactory.getInstance()!.NULL_COLOR;
-
-    public getWidth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+        public function PlatformBitmapBase() {
+            super();
+            this.initFieldsPlatformBitmapBase();
+        }
     
-}
 
-
-    public getHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public function getWidth():int {
+        return 0;
+    }
     
-}
 
-
-    public getImage(): Image{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullImage.NULL_IMAGE;
+    public function getHeight():int {
+        return 0;
+    }
     
-}
 
-
+    public function getImage():Image {
+        return NullImage.NULL_IMAGE;
+    }
+    }
 }
 

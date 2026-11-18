@@ -1,120 +1,74 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion {
+    import org.allbinary.graphics.CustomGPoint;
+    import org.allbinary.graphics.GPointCircularPool;
+    import org.allbinary.input.motion.gesture.MotionGestureRecognizer;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GestureOnlyMotionRecognizer extends MotionRecognizer {
+    private static var index:int = 0;
+    private static var pointCircularPool_value:GPointCircularPool;
+    private static var pointCircularPool_set:Boolean = false;
+    private static function get pointCircularPool():GPointCircularPool {
+        if (!GestureOnlyMotionRecognizer.pointCircularPool_set) {
+            GestureOnlyMotionRecognizer.pointCircularPool_set = true;
+            GestureOnlyMotionRecognizer.pointCircularPool_value = new GPointCircularPool(40);
+        }
+        return GestureOnlyMotionRecognizer.pointCircularPool_value;
+    }
+        private var motionGestureRecognizer:MotionGestureRecognizer = null;
+        private var id:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { CustomGPoint } from '../../../../org/allbinary/graphics/CustomGPoint.js';
-//not GWT import const CustomGPoint
-
-import { GPointCircularPool } from '../../../../org/allbinary/graphics/GPointCircularPool.js';
-//not GWT import const GPointCircularPool
-
-import { MotionGestureRecognizer } from '../../../../org/allbinary/input/motion/gesture/MotionGestureRecognizer.js';
-//not GWT import const MotionGestureRecognizer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { MotionRecognizer } from './MotionRecognizer.js';
-//sameFolderImports - not GWT import - same folder const MotionRecognizer
-
-export class GestureOnlyMotionRecognizer extends MotionRecognizer {
-        
-
-    private static index: number = 0;
-
-    private static readonly pointCircularPool: GPointCircularPool = new GPointCircularPool(40);
-
-    private readonly motionGestureRecognizer: MotionGestureRecognizer;
-
-    private readonly id: number;
-
-public constructor (){
-
-            super();
-        this.id= GestureOnlyMotionRecognizer.index++;
+        // Java field initializers run after the base constructor
+        private function initFieldsGestureOnlyMotionRecognizer():void {
     
-this.motionGestureRecognizer= new MotionGestureRecognizer(this.id);
     
-}
+        }
+    
 
+    public function GestureOnlyMotionRecognizer() {
+        super();
+        this.initFieldsGestureOnlyMotionRecognizer();
+        this.id = GestureOnlyMotionRecognizer.index++;
+        this.motionGestureRecognizer = new MotionGestureRecognizer(this.id);
+    }
+    
 
-                //@Throws(Exception.constructor)
-            
-    public processStartMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
+    override public function processStartMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+        var point:CustomGPoint = (GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance() as CustomGPoint);
+        point.setX(x);
+        point.setY(y);
+        this.motionGestureRecognizer.processPressedMotionEvent(point, deviceId, modifiers);
+    }
+    
 
-    let point: CustomGPoint = GestureOnlyMotionRecognizer.pointCircularPool!.getNextInstance() as CustomGPoint;;
+    override public function processEndMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+        var point:CustomGPoint = (GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance() as CustomGPoint);
+        point.setX(x);
+        point.setY(y);
+        this.motionGestureRecognizer.processReleasedMotionEvent(point, deviceId, modifiers);
+    }
     
-point.setX(x);
-    
-point.setY(y);
-    
-this.motionGestureRecognizer!.processPressedMotionEvent(point, deviceId, modifiers);
-    
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public processEndMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-
-    let point: CustomGPoint = GestureOnlyMotionRecognizer.pointCircularPool!.getNextInstance() as CustomGPoint;;
-    
-point.setX(x);
-    
-point.setY(y);
-    
-this.motionGestureRecognizer!.processReleasedMotionEvent(point, deviceId, modifiers);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processDraggedMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-
-    let point: CustomGPoint = GestureOnlyMotionRecognizer.pointCircularPool!.getNextInstance() as CustomGPoint;;
-    
-point.setX(x);
-    
-point.setY(y);
-    
-this.motionGestureRecognizer!.processDraggedMotionEvent(point, deviceId, modifiers);
-    
-}
-
-
+    override public function processDraggedMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+        var point:CustomGPoint = (GestureOnlyMotionRecognizer.pointCircularPool.getNextInstance() as CustomGPoint);
+        point.setX(x);
+        point.setY(y);
+        this.motionGestureRecognizer.processDraggedMotionEvent(point, deviceId, modifiers);
+    }
+    }
 }
 

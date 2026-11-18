@@ -1,62 +1,17 @@
+// Generated Code Do Not Modify
+package org.allbinary.game.collision {
+    import org.allbinary.layer.AllBinaryLayer;
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CollisionProcessor } from './CollisionProcessor.js';
-//sameFolderImports - not GWT import - same folder const CollisionProcessor
-
-export class CollisionThreedProcessor extends CollisionProcessor {
-        
-
-    public isCollision(myLayer: AllBinaryLayer, myLayer2: AllBinaryLayer): boolean{
-
-                        if(myLayer2!.getXP() >= myLayer!.getX2() || myLayer2!.getYP() >= myLayer!.getY2() || myLayer2!.getX2() <= myLayer!.getXP() || myLayer2!.getY2() <= myLayer!.getYP() || myLayer2!.getZP() < myLayer!.getZ2() || myLayer2!.getZ2() > myLayer!.getZP())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public class CollisionThreedProcessor extends CollisionProcessor {
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
-
-                        }
-                            
-}
-
-
+    override public function isCollision(myLayer:AllBinaryLayer, myLayer2:AllBinaryLayer):Boolean {
+        if (myLayer2.getXP() >= myLayer.getX2() || myLayer2.getYP() >= myLayer.getY2() || myLayer2.getX2() <= myLayer.getXP() || myLayer2.getY2() <= myLayer.getYP() || myLayer2.getZP() < myLayer.getZ2() || myLayer2.getZ2() > myLayer.getZP()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    }
 }
 

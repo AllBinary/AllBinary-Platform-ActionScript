@@ -1,174 +1,98 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image.sprite {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.RotationAnimation;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
+    import org.allbinary.math.AngleInfo;
+    import org.allbinary.util.CircularIndexUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class HackRotationSpriteIndexedAnimation extends RotationAnimation {
+        public var sprite:Sprite = null;
+        private var image:Image = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { Sprite } from '../../../../../javax/microedition/lcdui/game/Sprite.js';
-//not GWT import const Sprite
-
-import { AnimationBehavior } from '../../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { RotationAnimation } from '../../../../../org/allbinary/animation/RotationAnimation.js';
-//not GWT import const RotationAnimation
-
-import { PrimitiveIntUtil } from '../../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-import { AngleInfo } from '../../../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class HackRotationSpriteIndexedAnimation extends RotationAnimation {
-        
-
-    readonly sprite: Sprite;
-
-    private readonly image: Image;
-
-public constructor (sprite: Sprite, image: Image, angleInfo: AngleInfo, animationBehavior: AnimationBehavior){
-            super(angleInfo, CircularIndexUtil.createInstance(360 /angleInfo!.getAngleIncrementInfo()!.getAngleIncrement()), animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.sprite= sprite;
+        // Java field initializers run after the base constructor
+        private function initFieldsHackRotationSpriteIndexedAnimation():void {
     
-this.image= image;
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getAnimationSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getSize();;
+        }
     
-}
 
-
-    public paintFrame(g: Graphics, frame: number, x: number, y: number){
-this.setFrame(frame);
+    public function HackRotationSpriteIndexedAnimation(sprite:Sprite, image:Image, angleInfo:AngleInfo, animationBehavior:AnimationBehavior) {
+        super(angleInfo, CircularIndexUtil.createInstance(int(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement())), animationBehavior);
+        this.initFieldsHackRotationSpriteIndexedAnimation();
+        this.sprite = sprite;
+        this.image = image;
+    }
     
-this.paintXY(g, x, y);
+
+    override public function getAnimationSize():int {
+        return this.getSize();
+    }
     
-}
 
-
-    public paintXY(g: Graphics, x: number, y: number){
-this.sprite.setPosition(x, y);
+    public function paintFrame(g:Graphics, frame:int, x:int, y:int):void {
+        this.setFrame(frame);
+        this.paintXY(g, x, y);
+    }
     
-this.paint(g);
+
+    override public function paintXY(g:Graphics, x:int, y:int):void {
+        this.sprite.setPosition(x, y);
+        this.paint(g);
+    }
     
-}
 
-
-    paint(g: Graphics){
-this.sprite.paint(g);
+    public function paint(g:Graphics):void {
+        this.sprite.paint(g);
+    }
     
-}
 
-
-    public nextRotation(){
-this.sprite.nextFrame();
+    override public function nextRotation():void {
+        this.sprite.nextFrame();
+    }
     
-}
 
-
-    public previousRotation(){
-this.sprite.prevFrame();
+    override public function previousRotation():void {
+        this.sprite.prevFrame();
+    }
     
-}
 
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.sprite.getRawFrameCount();;
+    override public function getSize():int {
+        return this.sprite.getRawFrameCount();
+    }
     
-}
 
-
-    public setFrame(frame: number){
-this.sprite.setFrame(frame);
+    override public function setFrame(frame:int):void {
+        this.sprite.setFrame(frame);
+    }
     
-}
 
-
-    public getFrame(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.sprite.getFrame();;
+    override public function getFrame():int {
+        return this.sprite.getFrame();
+    }
     
-}
 
-
-    public setSequence(sequence: number[]){
-}
-
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PrimitiveIntUtil.getArrayInstance();;
+    override public function setSequence(sequence:Vector.<int>):void {
+    }
     
-}
 
-
+    override public function getSequence():Vector.<int> {
+        return PrimitiveIntUtil.getArrayInstance();
+    }
+    }
 }
 

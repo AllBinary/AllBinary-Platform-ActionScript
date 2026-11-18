@@ -1,154 +1,86 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
+    import org.allbinary.logic.NullUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameKeyMappingFactory {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!GameKeyMappingFactory.instance_set) {
+            GameKeyMappingFactory.instance_set = true;
+            GameKeyMappingFactory.instance_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return GameKeyMappingFactory.instance_value;
+    }
+        private var intKeyToGameKey:Vector.<GameKey> = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { InputFactory } from './InputFactory.js';
-//sameFolderImports - not GWT import - same folder const InputFactory
-import { GameKey } from './GameKey.js';
-//sameFolderImports - not GWT import - same folder const GameKey
-import { GameKeyFactory } from './GameKeyFactory.js';
-//sameFolderImports - not GWT import - same folder const GameKeyFactory
-
-export class GameKeyMappingFactory
-            extends Object
-         {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): GameKeyMappingFactory{
-
-                        if(GameKeyMappingFactory.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    GameKeyMappingFactory.instance= new GameKeyMappingFactory();
+        // Java field initializers run after the base constructor
+        private function initFieldsGameKeyMappingFactory():void {
+    this.intKeyToGameKey = new Vector.<GameKey>(InputFactory.getInstance().MAX);
+        }
     
 
-                                    }
-                                
+    public static function getInstance():GameKeyMappingFactory {
+        if (GameKeyMappingFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GameKeyMappingFactory.instance = new GameKeyMappingFactory();
+        }
+        return (GameKeyMappingFactory.instance as GameKeyMappingFactory);
+    }
+    
 
+    public function GameKeyMappingFactory() {
+        super();
+        this.initFieldsGameKeyMappingFactory();
+        var gameKeyFactory:GameKeyFactory = GameKeyFactory.getInstance();
+        this.setGameKey(gameKeyFactory.NONE);
+        this.setGameKey(gameKeyFactory.UP);
+        this.setGameKey(gameKeyFactory.DOWN);
+        this.setGameKey(gameKeyFactory.LEFT);
+        this.setGameKey(gameKeyFactory.RIGHT);
+        this.setGameKey(gameKeyFactory.KEY_POUND);
+        this.setGameKey(gameKeyFactory.KEY_STAR);
+        this.setGameKey(gameKeyFactory.KEY_NUM0);
+        this.setGameKey(gameKeyFactory.KEY_NUM1);
+        this.setGameKey(gameKeyFactory.KEY_NUM2);
+        this.setGameKey(gameKeyFactory.KEY_NUM3);
+        this.setGameKey(gameKeyFactory.KEY_NUM4);
+        this.setGameKey(gameKeyFactory.KEY_NUM5);
+        this.setGameKey(gameKeyFactory.KEY_NUM6);
+        this.setGameKey(gameKeyFactory.KEY_NUM7);
+        this.setGameKey(gameKeyFactory.KEY_NUM8);
+        this.setGameKey(gameKeyFactory.KEY_NUM9);
+        this.setGameKey(gameKeyFactory.GAME_A);
+        this.setGameKey(gameKeyFactory.GAME_B);
+        this.setGameKey(gameKeyFactory.GAME_C);
+        this.setGameKey(gameKeyFactory.GAME_D);
+        this.setGameKey(gameKeyFactory.FIRE);
+        this.setGameKey(gameKeyFactory.LEVEL_DOWN);
+        this.setGameKey(gameKeyFactory.LEVEL_UP);
+    }
+    
 
+    public function getGameKey(key:int):GameKey {
+        return this.intKeyToGameKey[key];
+    }
+    
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameKeyMappingFactory.instance as GameKeyMappingFactory;
-    
-}
-
-
-    private intKeyToGameKey: GameKey[] = new Array(InputFactory.getInstance()!.MAX);
-
-private constructor (){
-
-            super();
-        
-    let gameKeyFactory: GameKeyFactory = GameKeyFactory.getInstance()!;;
-    
-this.setGameKey(gameKeyFactory!.NONE);
-    
-this.setGameKey(gameKeyFactory!.UP);
-    
-this.setGameKey(gameKeyFactory!.DOWN);
-    
-this.setGameKey(gameKeyFactory!.LEFT);
-    
-this.setGameKey(gameKeyFactory!.RIGHT);
-    
-this.setGameKey(gameKeyFactory!.KEY_POUND);
-    
-this.setGameKey(gameKeyFactory!.KEY_STAR);
-    
-this.setGameKey(gameKeyFactory!.KEY_NUM0);
-    
-this.setGameKey(gameKeyFactory!.KEY_NUM1);
-    
-this.setGameKey(gameKeyFactory!.KEY_NUM2);
-    
-this.setGameKey(gameKeyFactory!.KEY_NUM3);
-    
-this.setGameKey(gameKeyFactory!.KEY_NUM4);
-    
-this.setGameKey(gameKeyFactory!.KEY_NUM5);
-    
-this.setGameKey(gameKeyFactory!.KEY_NUM6);
-    
-this.setGameKey(gameKeyFactory!.KEY_NUM7);
-    
-this.setGameKey(gameKeyFactory!.KEY_NUM8);
-    
-this.setGameKey(gameKeyFactory!.KEY_NUM9);
-    
-this.setGameKey(gameKeyFactory!.GAME_A);
-    
-this.setGameKey(gameKeyFactory!.GAME_B);
-    
-this.setGameKey(gameKeyFactory!.GAME_C);
-    
-this.setGameKey(gameKeyFactory!.GAME_D);
-    
-this.setGameKey(gameKeyFactory!.FIRE);
-    
-this.setGameKey(gameKeyFactory!.LEVEL_DOWN);
-    
-this.setGameKey(gameKeyFactory!.LEVEL_UP);
-    
-}
-
-
-    public getGameKey(key: number): GameKey{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.intKeyToGameKey[key]!;
-    
-}
-
-
-    setGameKey(gameKey: GameKey){
-this.intKeyToGameKey[gameKey!.getId()]= gameKey;
-    
-}
-
-
+    private function setGameKey(gameKey:GameKey):void {
+        this.intKeyToGameKey[gameKey.getId()] = gameKey;
+    }
+    }
 }
 

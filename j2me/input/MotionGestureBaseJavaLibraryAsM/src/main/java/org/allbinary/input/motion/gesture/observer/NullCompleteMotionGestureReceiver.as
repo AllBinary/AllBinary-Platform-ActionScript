@@ -1,83 +1,42 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.gesture.observer {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class NullCompleteMotionGestureReceiver implements CompleteMotionGestureListenerInterface {
+        public var logUtil:LogUtil = null;
 
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CompleteMotionGestureListenerInterface } from './CompleteMotionGestureListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const CompleteMotionGestureListenerInterface
-
-export class NullCompleteMotionGestureReceiver
-            extends Object
-         implements CompleteMotionGestureListenerInterface {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-public constructor (){
-
-            super();
-        
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsNullCompleteMotionGestureReceiver():void {
+    this.logUtil = LogUtil.getInstance();
+        }
     
-this.logUtil!.putF("Null Gesture Reciever", this, commonStrings!.CONSTRUCTOR);
+
+    public function NullCompleteMotionGestureReceiver() {
+        super();
+        this.initFieldsNullCompleteMotionGestureReceiver();
+        var commonStrings:CommonStrings = CommonStrings.getInstance();
+        this.logUtil.putF("Null Gesture Reciever", this, commonStrings.CONSTRUCTOR);
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public onMotionGestureCompleted(list: BasicArrayList){
-}
-
-
+    public function onMotionGestureCompleted(list:BasicArrayList):void {
+    }
+    }
 }
 

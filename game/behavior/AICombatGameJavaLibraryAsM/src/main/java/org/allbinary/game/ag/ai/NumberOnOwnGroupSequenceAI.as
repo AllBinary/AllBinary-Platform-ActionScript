@@ -1,112 +1,54 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai {
+    import org.allbinary.ai.ArtificialIntelligenceInterface;
+    import org.allbinary.game.ag.ai.sequence.SequenceAI;
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.game.layer.identification.GroupLayerManagerListener;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class NumberOnOwnGroupSequenceAI extends SequenceAI {
+        private var numberOnSameTeam:Vector.<*> = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../../java/lang/Integer.js';
-        
-import { ArtificialIntelligenceInterface } from '../../../../../org/allbinary/ai/ArtificialIntelligenceInterface.js';
-//not GWT import const ArtificialIntelligenceInterface
-
-import { SequenceAI } from '../../../../../org/allbinary/game/ag/ai/sequence/SequenceAI.js';
-//not GWT import const SequenceAI
-
-import { GameInput } from '../../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-import { GroupLayerManagerListener } from '../../../../../org/allbinary/game/layer/identification/GroupLayerManagerListener.js';
-//not GWT import const GroupLayerManagerListener
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class NumberOnOwnGroupSequenceAI extends SequenceAI {
-        
-
-    private numberOnSameTeam: Integer[];
-
-public constructor (numberOnSameTeam: Integer[], artificialIntelligenceInterface: ArtificialIntelligenceInterface[], ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
-            super(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.numberOnSameTeam= numberOnSameTeam;
+        // Java field initializers run after the base constructor
+        private function initFieldsNumberOnOwnGroupSequenceAI():void {
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
-
-    let layerInterface: AllBinaryLayer = this.getOwnerLayerInterface()!;;
+        }
     
 
-    let index: number = this.getIndex()!;;
+    public function NumberOnOwnGroupSequenceAI(numberOnSameTeam:Vector.<*>, artificialIntelligenceInterface:Vector.<ArtificialIntelligenceInterface>, ownerLayerInterface:AllBinaryLayer, gameInput:GameInput) {
+        super(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
+        this.initFieldsNumberOnOwnGroupSequenceAI();
+        this.numberOnSameTeam = numberOnSameTeam;
+    }
     
 
-                        if(this.numberOnSameTeam!.length > index)
-                        
-                                    {
-                                    
-    let size: number = GroupLayerManagerListener.getInstance()!.getGroupSizeFromInterface(layerInterface)!;;
-    
-
-                        if(this.numberOnSameTeam[index]!.intValue() > size)
-                        
-                                    {
-                                    this.next();
-    
-
-                                    }
-                                
-
-                                    }
-                                
-super.processAI(allBinaryLayerManager);
-    
-}
-
-
+    override public function processAI(allBinaryLayerManager:AllBinaryLayerManager):void {
+        var layerInterface:AllBinaryLayer = this.getOwnerLayerInterface();
+        var index:int = this.getIndex();
+        if (this.numberOnSameTeam.length > index) {
+            var size:int = GroupLayerManagerListener.getInstance().getGroupSizeFromInterface(layerInterface);
+            if (this.numberOnSameTeam[index].intValue() > size) {
+                this.next();
+            }
+        }
+        super.processAI(allBinaryLayerManager);
+    }
+    }
 }
 

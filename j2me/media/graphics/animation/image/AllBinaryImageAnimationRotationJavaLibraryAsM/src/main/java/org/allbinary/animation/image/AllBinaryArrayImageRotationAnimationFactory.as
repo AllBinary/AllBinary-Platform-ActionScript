@@ -1,218 +1,97 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationBehaviorFactory;
+    import org.allbinary.game.configuration.GameConfigurationCentral;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
+    import org.allbinary.math.AngleFactory;
+    import org.allbinary.math.AngleInfo;
+    import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AllBinaryArrayImageRotationAnimationFactory extends BaseImageAnimationFactory {
+        private var imageArray:Vector.<Image> = null;
+        private var angleIncrement:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { NullImage } from '../../../../javax/microedition/lcdui/NullImage.js';
-//not GWT import const NullImage
-
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationBehaviorFactory } from '../../../../org/allbinary/animation/AnimationBehaviorFactory.js';
-//not GWT import const AnimationBehaviorFactory
-
-import { GameConfigurationCentral } from '../../../../org/allbinary/game/configuration/GameConfigurationCentral.js';
-//not GWT import const GameConfigurationCentral
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-import { AngleFactory } from '../../../../org/allbinary/math/AngleFactory.js';
-//not GWT import const AngleFactory
-
-import { AngleInfo } from '../../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-import { ImageToRotationImageArrayUtil } from '../../../../org/allbinary/media/image/ImageToRotationImageArrayUtil.js';
-//not GWT import const ImageToRotationImageArrayUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BaseImageAnimationFactory } from './BaseImageAnimationFactory.js';
-//sameFolderImports - not GWT import - same folder const BaseImageAnimationFactory
-import { ImageArrayRotationAnimation } from './ImageArrayRotationAnimation.js';
-//sameFolderImports - not GWT import - same folder const ImageArrayRotationAnimation
-import { AdjustedImageArrayRotationAnimation } from './AdjustedImageArrayRotationAnimation.js';
-//sameFolderImports - not GWT import - same folder const AdjustedImageArrayRotationAnimation
-
-export class AllBinaryArrayImageRotationAnimationFactory extends BaseImageAnimationFactory {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public static createFactory(image: Image, dx: number, dy: number): AllBinaryArrayImageRotationAnimationFactory{
-
-    let arrayImageRotationAnimationFactory: AllBinaryArrayImageRotationAnimationFactory = new AllBinaryArrayImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), AngleFactory.getInstance()!.TOTAL_ANGLE /GameConfigurationCentral.getInstance()!.getGameControlFidelity(), AnimationBehaviorFactory.getInstance());;
+        // Java field initializers run after the base constructor
+        private function initFieldsAllBinaryArrayImageRotationAnimationFactory():void {
+    this.imageArray = NullImage.NULL_IMAGE_ARRAY;
     
-arrayImageRotationAnimationFactory!.initDXY(dx, dy);
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return arrayImageRotationAnimationFactory;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public static createFactoryA(image: Image, dx: number, dy: number, angleIncrement: number): AllBinaryArrayImageRotationAnimationFactory{
-
-    let arrayImageRotationAnimationFactory: AllBinaryArrayImageRotationAnimationFactory = new AllBinaryArrayImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), angleIncrement, AnimationBehaviorFactory.getInstance());;
-    
-arrayImageRotationAnimationFactory!.initDXY(dx, dy);
+    public static function createFactory(image:Image, dx:int, dy:int):AllBinaryArrayImageRotationAnimationFactory {
+        var arrayImageRotationAnimationFactory:AllBinaryArrayImageRotationAnimationFactory = new AllBinaryArrayImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), int(AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity()), AnimationBehaviorFactory.getInstance());
+        arrayImageRotationAnimationFactory.initDXY(dx, dy);
+        return arrayImageRotationAnimationFactory;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return arrayImageRotationAnimationFactory;
-    
-}
-
-
-    private imageArray: Image[] = NullImage.NULL_IMAGE_ARRAY;
-
-    private angleIncrement: number;
-
-public constructor (image: Image, width: number, height: number, angleIncrement: number, animationBehaviorFactory: AnimationBehaviorFactory){
-            super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.angleIncrement= angleIncrement;
-    
-this.init();
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    init(){
-this.setImageArray(ImageToRotationImageArrayUtil.getInstance()!.generate(this.getImage(), this.getAngleIncrement(), globalThis.Math.trunc(AngleFactory.getInstance()!.TOTAL_ANGLE)));
-    
-}
-
-
-    initDXY(dx: number, dy: number){
-this.animationFactoryInitializationVisitor!.dx= dx;
-    
-this.animationFactoryInitializationVisitor!.dy= dy;
-    
-this.animationFactoryInitializationVisitor!.originalDx= dx;
-    
-this.animationFactoryInitializationVisitor!.originalDy= dy;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstance(instanceId: number): Animation{
-
-    let scaledImageArray: Image[] = new Array(this.imageArray!.length);;
+    public static function createFactoryA(image:Image, dx:int, dy:int, angleIncrement:int):AllBinaryArrayImageRotationAnimationFactory {
+        var arrayImageRotationAnimationFactory:AllBinaryArrayImageRotationAnimationFactory = new AllBinaryArrayImageRotationAnimationFactory(image, image.getWidth(), image.getHeight(), angleIncrement, AnimationBehaviorFactory.getInstance());
+        arrayImageRotationAnimationFactory.initDXY(dx, dy);
+        return arrayImageRotationAnimationFactory;
+    }
     
 
-    let size: number = scaledImageArray!.length
-                ;;
+    public function AllBinaryArrayImageRotationAnimationFactory(image:Image, width:int, height:int, angleIncrement:int, animationBehaviorFactory:AnimationBehaviorFactory) {
+        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory);
+        this.initFieldsAllBinaryArrayImageRotationAnimationFactory();
+        this.angleIncrement = angleIncrement;
+        this.init();
+    }
     
 
-    let image: Image = this.getImage()!;;
+    private function init():void {
+        this.setImageArray(ImageToRotationImageArrayUtil.getInstance().generate(this.getImage(), this.getAngleIncrement(), AngleFactory.getInstance().TOTAL_ANGLE));
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-scaledImageArray[index]= this.animationFactoryImageScaleUtil!.createImage(image, image.getWidth(), image.getHeight(), this.scaleProperties!.scaleWidth, this.scaleProperties!.scaleHeight);
-    
-}
-
-
-                        if(this.animationFactoryInitializationVisitor!.dx != 0 || this.animationFactoryInitializationVisitor!.dy != 0)
-                        
-                                    {
-                                    this.animationFactoryImageScaleUtil!.processAdjust(this);
+    private function initDXY(dx:int, dy:int):void {
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
+        this.animationFactoryInitializationVisitor.originalDx = dx;
+        this.animationFactoryInitializationVisitor.originalDy = dy;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AdjustedImageArrayRotationAnimation(scaledImageArray, AngleInfo.getInstance(this.getAngleIncrement()), globalThis.Math.trunc(AngleFactory.getInstance()!.TOTAL_ANGLE), this.animationFactoryInitializationVisitor!.dx, this.animationFactoryInitializationVisitor!.dy, this.animationBehaviorFactory!.getOrCreateInstance());
+    override public function getInstance1(instanceId:int):Animation {
+        var scaledImageArray:Vector.<Image> = new Vector.<Image>(this.imageArray.length);
+        var size:int = scaledImageArray.length;
+        var image:Image = this.getImage();
+        for (var index:int = 0; index < size; index++) {
+            scaledImageArray[index] = this.animationFactoryImageScaleUtil.createImage(image, image.getWidth(), image.getHeight(), this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        }
+        if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
+            this.animationFactoryImageScaleUtil.processAdjust(this);
+            return new AdjustedImageArrayRotationAnimation(scaledImageArray, AngleInfo.getInstance1(((int(this.getAngleIncrement()) << 16) >> 16)), AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
+        } else {
+            return new ImageArrayRotationAnimation(scaledImageArray, AngleInfo.getInstance1(((int(this.getAngleIncrement()) << 16) >> 16)), AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
+        }
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new ImageArrayRotationAnimation(scaledImageArray, AngleInfo.getInstance(this.getAngleIncrement()), globalThis.Math.trunc(AngleFactory.getInstance()!.TOTAL_ANGLE), this.animationBehaviorFactory!.getOrCreateInstance());
+    public function setImageArray(imageArray:Vector.<Image>):void {
+        this.imageArray = imageArray;
+    }
     
 
-                        }
-                            
-}
-
-
-    setImageArray(imageArray: Image[]){
-this.imageArray= imageArray;
-    
-}
-
-
-    getAngleIncrement(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.angleIncrement;
-    
-}
-
-
+    public function getAngleIncrement():int {
+        return this.angleIncrement;
+    }
+    }
 }
 

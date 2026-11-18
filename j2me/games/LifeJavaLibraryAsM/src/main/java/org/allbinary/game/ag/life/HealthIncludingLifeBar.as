@@ -1,128 +1,72 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.life {
+    import org.allbinary.game.health.Health;
+    import org.allbinary.game.health.HealthBarAnimation;
+    import org.allbinary.game.health.HealthBarTwodAnimation;
+    import org.allbinary.game.health.HealthInterface;
+    import org.allbinary.game.health.HealthListenerInterface;
+    import org.allbinary.graphics.paint.Paintable;
+    import org.allbinary.layer.AllBinaryLayer;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class HealthIncludingLifeBar extends Paintable implements HealthListenerInterface {
+        private var animationInterface:HealthBarAnimation = null;
+        private var life:Life = null;
+        private var healthInterface:HealthInterface = null;
+        public var allbinaryLayer:AllBinaryLayer = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Health } from '../../../../../org/allbinary/game/health/Health.js';
-//not GWT import const Health
-
-import { HealthBarAnimation } from '../../../../../org/allbinary/game/health/HealthBarAnimation.js';
-//not GWT import const HealthBarAnimation
-
-import { HealthBarTwodAnimation } from '../../../../../org/allbinary/game/health/HealthBarTwodAnimation.js';
-//not GWT import const HealthBarTwodAnimation
-
-import { HealthInterface } from '../../../../../org/allbinary/game/health/HealthInterface.js';
-//not GWT import const HealthInterface
-
-import { HealthListenerInterface } from '../../../../../org/allbinary/game/health/HealthListenerInterface.js';
-//not GWT import const HealthListenerInterface
-
-import { Paintable } from '../../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Life } from './Life.js';
-//sameFolderImports - not GWT import - same folder const Life
-
-export class HealthIncludingLifeBar extends Paintable implements HealthListenerInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public static createHealthIncludingLifeBar(layerInterface: AllBinaryLayer, life: Life, healthInterface: Health, location: number, direction: number): HealthIncludingLifeBar{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new HealthIncludingLifeBar(layerInterface, life, healthInterface, new HealthBarTwodAnimation(layerInterface, location), direction);
+        // Java field initializers run after the base constructor
+        private function initFieldsHealthIncludingLifeBar():void {
     
-}
-
-
-    private readonly animationInterface: HealthBarAnimation;
-
-    private readonly life: Life;
-
-    private readonly healthInterface: HealthInterface;
-
-    readonly allbinaryLayer: AllBinaryLayer;
-
-public constructor (layerInterface: AllBinaryLayer, life: Life, healthInterface: Health, animationInterface: HealthBarAnimation, direction: number){
-
-            super();
-        this.allbinaryLayer= layerInterface;
     
-this.animationInterface= animationInterface;
     
-this.life= life;
     
-this.healthInterface= healthInterface;
+        }
     
-this.healthInterface!.addListener(this);
+
+    public static function createHealthIncludingLifeBar(layerInterface:AllBinaryLayer, life:Life, healthInterface:Health, location:int, direction:int):HealthIncludingLifeBar {
+        return new HealthIncludingLifeBar(layerInterface, life, healthInterface, new HealthBarTwodAnimation(layerInterface, location), direction);
+    }
     
-this.onHealthChange();
+
+    public function HealthIncludingLifeBar(layerInterface:AllBinaryLayer, life:Life, healthInterface:Health, animationInterface:HealthBarAnimation, direction:int) {
+        super();
+        this.initFieldsHealthIncludingLifeBar();
+        this.allbinaryLayer = layerInterface;
+        this.animationInterface = animationInterface;
+        this.life = life;
+        this.healthInterface = healthInterface;
+        this.healthInterface.addListener(this);
+        this.onHealthChange();
+    }
     
-}
 
-
-    public onHealthChange(){
-this.animationInterface!.onHealthChange(((this.healthInterface!.getHealth() +(this.healthInterface!.getMaxHealth() *this.life.get())) *this.allbinaryLayer!.getWidth()) /(this.healthInterface!.getMaxHealth() +(this.healthInterface!.getMaxHealth() *this.life.getStartLives())));
+    public function onHealthChange():void {
+        this.animationInterface.onHealthChange(int((int((int(this.healthInterface.getHealth() + (int(this.healthInterface.getMaxHealth() * this.life.get_())))) * this.allbinaryLayer.getWidth())) / (int(this.healthInterface.getMaxHealth() + (int(this.healthInterface.getMaxHealth() * this.life.getStartLives()))))));
+    }
     
-}
 
-
-    public paint(graphics: Graphics){
-this.animationInterface!.paintXY(graphics, 0, 0);
+    override public function paint(graphics:Graphics):void {
+        this.animationInterface.paintXY(graphics, 0, 0);
+    }
     
-}
 
-
-    public paintThreed(graphics: Graphics){
-this.animationInterface!.paintThreedXYZ(graphics, 0, 0, 0);
-    
-}
-
-
+    override public function paintThreed(graphics:Graphics):void {
+        this.animationInterface.paintThreedXYZ(graphics, 0, 0, 0);
+    }
+    }
 }
 

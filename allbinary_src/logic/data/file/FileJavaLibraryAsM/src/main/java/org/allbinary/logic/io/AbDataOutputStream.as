@@ -1,59 +1,28 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io {
+    import java.io.JDataOutputStream;
+    import java.io.JOutputStream;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AbDataOutputStream extends DataOutputStream {
+    
 
-        
-
-
-import { DataOutputStream } from '../../../../java/io/DataOutputStream.js';
-//not GWT import const DataOutputStream
-
-import { OutputStream } from '../../../../java/io/OutputStream.js';
-//not GWT import const OutputStream
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AbDataOutputStream extends DataOutputStream {
-        
-
-public constructor (out: OutputStream){
-            super(out);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
+    public function AbDataOutputStream(out:OutputStream) {
+        super(out);
+    }
+    }
 }
 

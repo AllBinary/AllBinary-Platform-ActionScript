@@ -1,78 +1,53 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.graphics.form.item.CommandTextItemArrayFactory;
+    import org.allbinary.graphics.form.item.LimitCommandsVisitor;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameLimitedCommandTextItemArrayFactory {
+    private static var instance_value:GameLimitedCommandTextItemArrayFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GameLimitedCommandTextItemArrayFactory {
+        if (!GameLimitedCommandTextItemArrayFactory.instance_set) {
+            GameLimitedCommandTextItemArrayFactory.instance_set = true;
+            GameLimitedCommandTextItemArrayFactory.instance_value = new GameLimitedCommandTextItemArrayFactory();
+        }
+        return GameLimitedCommandTextItemArrayFactory.instance_value;
+    }
+        private var commandTextItemArrayFactory:CommandTextItemArrayFactory = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGameLimitedCommandTextItemArrayFactory():void {
+    this.commandTextItemArrayFactory = new CommandTextItemArrayFactory(new LimitCommandsVisitor());
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { CommandTextItemArrayFactory } from '../../../../../org/allbinary/graphics/form/item/CommandTextItemArrayFactory.js';
-//not GWT import const CommandTextItemArrayFactory
-
-import { LimitCommandsVisitor } from '../../../../../org/allbinary/graphics/form/item/LimitCommandsVisitor.js';
-//not GWT import const LimitCommandsVisitor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GameLimitedCommandTextItemArrayFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: GameLimitedCommandTextItemArrayFactory = new GameLimitedCommandTextItemArrayFactory();
-
-    public static getInstance(): GameLimitedCommandTextItemArrayFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameLimitedCommandTextItemArrayFactory.instance;
+        public function GameLimitedCommandTextItemArrayFactory() {
+            super();
+            this.initFieldsGameLimitedCommandTextItemArrayFactory();
+        }
     
-}
 
-
-    private readonly commandTextItemArrayFactory: CommandTextItemArrayFactory = new CommandTextItemArrayFactory(new LimitCommandsVisitor());
-
-    public getCommandTextItemArrayFactory(): CommandTextItemArrayFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.commandTextItemArrayFactory;
+    public static function getInstance():GameLimitedCommandTextItemArrayFactory {
+        return GameLimitedCommandTextItemArrayFactory.instance;
+    }
     
-}
 
-
+    public function getCommandTextItemArrayFactory():CommandTextItemArrayFactory {
+        return this.commandTextItemArrayFactory;
+    }
+    }
 }
 

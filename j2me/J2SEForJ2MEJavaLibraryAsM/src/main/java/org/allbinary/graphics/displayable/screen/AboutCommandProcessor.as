@@ -1,75 +1,40 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2022 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.displayable.screen {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2022 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { Canvas } from '../../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { Command } from '../../../../../javax/microedition/lcdui/Command.js';
-//not GWT import const Command
-
-import { CommandListener } from '../../../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AboutCommandProcessor
-            extends Object
-         {
-        
-
-    private static readonly instance: AboutCommandProcessor = new AboutCommandProcessor();
-
-    public static getInstance(): AboutCommandProcessor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AboutCommandProcessor.instance;
+    public class AboutCommandProcessor {
+    private static var instance_value:AboutCommandProcessor;
+    private static var instance_set:Boolean = false;
+    private static function get instance():AboutCommandProcessor {
+        if (!AboutCommandProcessor.instance_set) {
+            AboutCommandProcessor.instance_set = true;
+            AboutCommandProcessor.instance_value = new AboutCommandProcessor();
+        }
+        return AboutCommandProcessor.instance_value;
+    }
     
-}
 
-
-    public process(midletCommandListener: CommandListener, command: Command, canvas: Canvas){
-midletCommandListener!.commandAction(command, canvas);
+    public static function getInstance():AboutCommandProcessor {
+        return AboutCommandProcessor.instance;
+    }
     
-}
 
-
+    public function process(midletCommandListener:CommandListener, command:Command, canvas:Canvas):void {
+        midletCommandListener.commandAction(command, canvas);
+    }
+    }
 }
 

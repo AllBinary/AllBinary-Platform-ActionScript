@@ -1,123 +1,69 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.math.AngleInfo;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AllBinaryAdjustedJ2SEImageRotationAnimation extends AllBinaryJ2SEImageRotationAnimation {
+        private var dx:int = 0;
+        private var dy:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { AngleInfo } from '../../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AllBinaryJ2SEImageRotationAnimation } from './AllBinaryJ2SEImageRotationAnimation.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryJ2SEImageRotationAnimation
-
-export class AllBinaryAdjustedJ2SEImageRotationAnimation extends AllBinaryJ2SEImageRotationAnimation {
-        
-
-    private dx: number= 0;
-
-    private dy: number= 0;
-
-public constructor (originalImage: Image, image: Image, angleInfo: AngleInfo, totalAngle: number, dx: number, dy: number, animationBehavior: AnimationBehavior){
-            super(originalImage, image, angleInfo, totalAngle, animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.init(dx, dy);
+        // Java field initializers run after the base constructor
+        private function initFieldsAllBinaryAdjustedJ2SEImageRotationAnimation():void {
+    this.dx = 0;
+    this.dy = 0;
+        }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public init(dx: number, dy: number){
-this.dx= dx;
+    public function AllBinaryAdjustedJ2SEImageRotationAnimation(originalImage:Image, image:Image, angleInfo:AngleInfo, totalAngle:int, dx:int, dy:int, animationBehavior:AnimationBehavior) {
+        super(originalImage, image, angleInfo, totalAngle, animationBehavior);
+        this.initFieldsAllBinaryAdjustedJ2SEImageRotationAnimation();
+        this.init(dx, dy);
+    }
     
-this.dy= dy;
+
+    public function init(dx:int, dy:int):void {
+        this.dx = dx;
+        this.dy = dy;
+    }
     
-}
 
-
-    public setDx(dx: number){
-this.dx= dx;
+    override public function setDx(dx:int):void {
+        this.dx = dx;
+    }
     
-}
 
-
-    public getDx(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.dx;
+    override public function getDx():int {
+        return this.dx;
+    }
     
-}
 
-
-    public setDy(dy: number){
-this.dy= dy;
+    override public function setDy(dy:int):void {
+        this.dy = dy;
+    }
     
-}
 
-
-    public getDy(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.dy;
+    override public function getDy():int {
+        return this.dy;
+    }
     
-}
 
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-super.paintXY(graphics, x +this.dx, y +this.dy);
-    
-}
-
-
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        super.paintXY(graphics, int(x + this.dx), int(y + this.dy));
+    }
+    }
 }
 

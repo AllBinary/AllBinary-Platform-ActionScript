@@ -1,265 +1,121 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.layer {
+    import org.allbinary.layer.event.LayerManagerEvent;
+    import org.allbinary.layer.event.LayerManagerEventHandler;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AllBinaryLayerManager extends LayerManager {
+        private var layerManagerEventHandler:LayerManagerEventHandler = null;
+        private var createLayerManagerEvent:LayerManagerEvent = null;
+        private var deleteLayerManagerEvent:LayerManagerEvent = null;
+        private var basicLayerProcessorArray:Vector.<LayerProcessor> = null;
 
-        
-
-
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { LayerManagerEvent } from '../../../org/allbinary/layer/event/LayerManagerEvent.js';
-//not GWT import const LayerManagerEvent
-
-import { LayerManagerEventHandler } from '../../../org/allbinary/layer/event/LayerManagerEventHandler.js';
-//not GWT import const LayerManagerEventHandler
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LayerManager } from './LayerManager.js';
-//sameFolderImports - not GWT import - same folder const LayerManager
-import { LayerProcessor } from './LayerProcessor.js';
-//sameFolderImports - not GWT import - same folder const LayerProcessor
-import { LayerManagerNoDebug } from './LayerManagerNoDebug.js';
-//sameFolderImports - not GWT import - same folder const LayerManagerNoDebug
-import { AllBinaryLayer } from './AllBinaryLayer.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryLayer
-
-export class AllBinaryLayerManager extends LayerManager {
-        
-
-    private readonly layerManagerEventHandler: LayerManagerEventHandler = LayerManagerEventHandler.getInstance()!;
-
-    private readonly createLayerManagerEvent: LayerManagerEvent = new LayerManagerEvent(this, this.layerManagerEventHandler!.CREATE);
-
-    private readonly deleteLayerManagerEvent: LayerManagerEvent = new LayerManagerEvent(this, this.layerManagerEventHandler!.DELETE);
-
-    private basicLayerProcessorArray: LayerProcessor[] = [];
-
-protected constructor (){
-            super(LayerManagerNoDebug.getInstance());
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    getLayerProcessorArray(): LayerProcessor[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicLayerProcessorArray;
-    
-}
-
-
-    public setLayerProcessorArray(layerProcessorArray: LayerProcessor[]){
-this.basicLayerProcessorArray= layerProcessorArray;
-    
-}
-
-
-    public log(){
-
-    let size: number = this.basicLayerProcessorArray!.length
-                ;;
+        // Java field initializers run after the base constructor
+        private function initFieldsAllBinaryLayerManager():void {
+    this.layerManagerEventHandler = LayerManagerEventHandler.getInstance();
+    this.createLayerManagerEvent = new LayerManagerEvent(this, this.layerManagerEventHandler.CREATE);
+    this.deleteLayerManagerEvent = new LayerManagerEvent(this, this.layerManagerEventHandler.DELETE);
+    this.basicLayerProcessorArray = new Vector.<LayerProcessor>(0);
+        }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let layerProcessorInterface: LayerProcessor = this.basicLayerProcessorArray[index]!;;
-    
-}
-
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public append(layerInterface: AllBinaryLayer){
-
-                        if(!this.contains(layerInterface))
-                        
-                                    {
-                                    this.appendProcessors(layerInterface);
-    
-super.append(layerInterface);
+    public function AllBinaryLayerManager() {
+        super(LayerManagerNoDebug.getInstance());
+        this.initFieldsAllBinaryLayerManager();
+    }
     
 
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public appendAt(layerInterface: AllBinaryLayer, index: number){
-
-                        if(!this.contains(layerInterface))
-                        
-                                    {
-                                    this.appendProcessors(layerInterface);
-    
-super.appendAt(layerInterface, index);
+    public function getLayerProcessorArray():Vector.<LayerProcessor> {
+        return this.basicLayerProcessorArray;
+    }
     
 
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    appendProcessors(layerInterface: AllBinaryLayer){
-this.createLayerManagerEvent!.setLayerInterface(layerInterface);
-    
-this.layerManagerEventHandler!.fireEvent(this.createLayerManagerEvent);
+    public function setLayerProcessorArray(layerProcessorArray:Vector.<LayerProcessor>):void {
+        this.basicLayerProcessorArray = layerProcessorArray;
+    }
     
 
-    let layerProcessorInterface: LayerProcessor;;
+    public function log():void {
+        var size:int = this.basicLayerProcessorArray.length;
+        for (var index:int = 0; index < size; index++) {
+            var layerProcessorInterface:LayerProcessor = this.basicLayerProcessorArray[index];
+        }
+    }
     
 
-
-
-
-                        for (
-    let index: number = this.basicLayerProcessorArray!.length
-                ;--index >= 0; )
-        {
-layerProcessorInterface= this.basicLayerProcessorArray[index]!;
+    override public function append(layerInterface:AllBinaryLayer):void {
+        if (!this.contains(layerInterface)) {
+            this.appendProcessors(layerInterface);
+            super.append(layerInterface);
+        }
+    }
     
 
-                        if(layerProcessorInterface!.isProcessorLayer(layerInterface))
-                        
-                                    {
-                                    layerProcessorInterface!.getLayerManager()!.append(layerInterface);
+    override public function appendAt(layerInterface:AllBinaryLayer, index:int):void {
+        if (!this.contains(layerInterface)) {
+            this.appendProcessors(layerInterface);
+            super.appendAt(layerInterface, index);
+        }
+    }
     
 
-                                    }
-                                
-}
-
-}
-
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public remove(layerInterface: AllBinaryLayer){
-this.deleteLayerManagerEvent!.setLayerInterface(layerInterface);
-    
-this.layerManagerEventHandler!.fireDeleteEvent(this.deleteLayerManagerEvent);
+    private function appendProcessors(layerInterface:AllBinaryLayer):void {
+        this.createLayerManagerEvent.setLayerInterface(layerInterface);
+        this.layerManagerEventHandler.fireEvent(this.createLayerManagerEvent);
+        var layerProcessorInterface:LayerProcessor = null;
+        for (var index:int = this.basicLayerProcessorArray.length; --index >= 0; ) {
+            layerProcessorInterface = this.basicLayerProcessorArray[index];
+            if (layerProcessorInterface.isProcessorLayer(layerInterface)) {
+                layerProcessorInterface.getLayerManager().append(layerInterface);
+            }
+        }
+    }
     
 
-    let layerProcessorInterface: LayerProcessor;;
+    override public function remove(layerInterface:AllBinaryLayer):void {
+        this.deleteLayerManagerEvent.setLayerInterface(layerInterface);
+        this.layerManagerEventHandler.fireDeleteEvent(this.deleteLayerManagerEvent);
+        var layerProcessorInterface:LayerProcessor = null;
+        for (var index:int = this.basicLayerProcessorArray.length; --index >= 0; ) {
+            layerProcessorInterface = this.basicLayerProcessorArray[index];
+            layerProcessorInterface.getLayerManager().remove(layerInterface);
+        }
+        super.remove(layerInterface);
+    }
     
 
-
-
-
-                        for (
-    let index: number = this.basicLayerProcessorArray!.length
-                ;--index >= 0; )
-        {
-layerProcessorInterface= this.basicLayerProcessorArray[index]!;
-    
-layerProcessorInterface!.getLayerManager()!.remove(layerInterface);
-    
-}
-
-super.remove(layerInterface);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public process(){
-
-    let layerProcessorInterface: LayerProcessor;;
+    public function process():void {
+        var layerProcessorInterface:LayerProcessor = null;
+        var size:int = this.basicLayerProcessorArray.length;
+        for (var index:int = 0; index < size; index++) {
+            layerProcessorInterface = this.basicLayerProcessorArray[index];
+            layerProcessorInterface.process(this);
+        }
+    }
     
 
-    let size: number = this.basicLayerProcessorArray!.length
-                ;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-layerProcessorInterface= this.basicLayerProcessorArray[index]!;
-    
-layerProcessorInterface!.process(this);
-    
-}
-
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public cleanup(){
-
-    let layerProcessorInterface: LayerProcessor;;
-    
-
-    let size: number = this.basicLayerProcessorArray!.length
-                ;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-layerProcessorInterface= this.basicLayerProcessorArray[index]!;
-    
-layerProcessorInterface!.getLayerManager()!.cleanup();
-    
-}
-
-super.cleanup();
-    
-}
-
-
+    override public function cleanup():void {
+        var layerProcessorInterface:LayerProcessor = null;
+        var size:int = this.basicLayerProcessorArray.length;
+        for (var index:int = 0; index < size; index++) {
+            layerProcessorInterface = this.basicLayerProcessorArray[index];
+            layerProcessorInterface.getLayerManager().cleanup();
+        }
+        super.cleanup();
+    }
+    }
 }
 

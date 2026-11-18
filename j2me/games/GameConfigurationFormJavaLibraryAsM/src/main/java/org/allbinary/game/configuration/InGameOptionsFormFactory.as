@@ -1,141 +1,75 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration {
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.displayable.screen.CommandForm;
+    import org.allbinary.init.Init;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class InGameOptionsFormFactory {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!InGameOptionsFormFactory.instance_set) {
+            InGameOptionsFormFactory.instance_set = true;
+            InGameOptionsFormFactory.instance_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return InGameOptionsFormFactory.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var SINGLETON:CommandForm = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsInGameOptionsFormFactory():void {
+    this.logUtil = LogUtil.getInstance();
+    this.SINGLETON = CommandForm.getNullCommandForm();
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { CommandListener } from '../../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { CommandForm } from '../../../../org/allbinary/graphics/displayable/screen/CommandForm.js';
-//not GWT import const CommandForm
-
-import { Init } from '../../../../org/allbinary/init/Init.js';
-//not GWT import const Init
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { InGameOptionsForm } from './InGameOptionsForm.js';
-//sameFolderImports - not GWT import - same folder const InGameOptionsForm
-
-export class InGameOptionsFormFactory
-            extends Object
-         {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): InGameOptionsFormFactory{
-
-                        if(InGameOptionsFormFactory.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    InGameOptionsFormFactory.instance= new InGameOptionsFormFactory();
+        public function InGameOptionsFormFactory() {
+            super();
+            this.initFieldsInGameOptionsFormFactory();
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return InGameOptionsFormFactory.instance as InGameOptionsFormFactory;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private SINGLETON: CommandForm = CommandForm.getNullCommandForm()!;
-
-    public init(commandListener: CommandListener, initInterface: Init, title: string, backgrounBasicColor: BasicColor, foregroundBasicColor: BasicColor){
-
- try { 
-                        if(this.SINGLETON == CommandForm.getNullCommandForm())
-                        
-                                    {
-                                    initInterface!.init();
-    
-this.SINGLETON= new InGameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+    public static function getInstance():InGameOptionsFormFactory {
+        if (InGameOptionsFormFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            InGameOptionsFormFactory.instance = new InGameOptionsFormFactory();
+        }
+        return (InGameOptionsFormFactory.instance as InGameOptionsFormFactory);
+    }
     
 
-                                    }
-                                
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
+    public function init(commandListener:CommandListener, initInterface:Init, title:String, backgrounBasicColor:BasicColor, foregroundBasicColor:BasicColor):void {
+        try {
+            if (this.SINGLETON == CommandForm.getNullCommandForm()) {
+                initInterface.init();
+                this.SINGLETON = new InGameOptionsForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+            }
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+        }
+    }
     
-this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.INIT, e);
-    
 
- }
-   }
- 
-}
-
-
-    public get(): CommandForm{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.SINGLETON;
-    
-}
-
-
+    public function get_():CommandForm {
+        return this.SINGLETON;
+    }
+    }
 }
 

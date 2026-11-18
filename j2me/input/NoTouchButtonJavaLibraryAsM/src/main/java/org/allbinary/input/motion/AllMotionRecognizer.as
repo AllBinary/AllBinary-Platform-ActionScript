@@ -1,102 +1,60 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AllMotionRecognizer {
+    private static var index:int = 0;
+        private var id:int = 0;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AllMotionRecognizer
-            extends Object
-         {
-        
-
-    private static index: number = 0;
-
-    private readonly id: number;
-
-public constructor (){
-
-            super();
-        this.id= AllMotionRecognizer.index++;
+        // Java field initializers run after the base constructor
+        private function initFieldsAllMotionRecognizer():void {
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processStartMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processEndMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processDraggedMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processMovedMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processScrolledMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-}
-
-
-    public getId(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.id;
+        }
     
-}
 
+    public function AllMotionRecognizer() {
+        super();
+        this.initFieldsAllMotionRecognizer();
+        this.id = AllMotionRecognizer.index++;
+    }
+    
 
+    public function processStartMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+    }
+    
+
+    public function processEndMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+    }
+    
+
+    public function processDraggedMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+    }
+    
+
+    public function processMovedMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+    }
+    
+
+    public function processScrolledMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+    }
+    
+
+    public function getId():int {
+        return this.id;
+    }
+    }
 }
 

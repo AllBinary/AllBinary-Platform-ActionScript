@@ -1,76 +1,37 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.user.commerce.inventory.basket {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasketData {
+    public static const BASKET:String = "BASKET";
+    public static const NAME:String = "NAME";
+    public static const BASKETREVIEW:String = "BASKET_REVIEW";
+    public static const TOTALWEIGHT:String = "BASKET_TOTALWEIGTH";
+    public static const ITEMTOTAL:String = "BASKET_ITEMTOTAL";
+    public static const ITEMTOTALINBASKET:String = "BASKET_ITEMTOTALINBASKET";
+    public static const SUBTOTAL:String = "BASKET_SUBTOTAL";
+    public static const ISEMPTY:String = "BASKET_ISEMPTY";
+    public static const INSERT:String = "BASKET_INSERT";
+    public static const DELETE:String = "BASKET_DELETE";
+    public static const ADJUST:String = "BASKET_ADJUST";
+    
 
-        
-
-
-            import { Object } from '../../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class BasketData
-            extends Object
-         {
-        
-
-    public static readonly BASKET: string = "BASKET";
-
-    public static readonly NAME: string = "NAME";
-
-    public static readonly BASKETREVIEW: string = "BASKET_REVIEW";
-
-    public static readonly TOTALWEIGHT: string = "BASKET_TOTALWEIGTH";
-
-    public static readonly ITEMTOTAL: string = "BASKET_ITEMTOTAL";
-
-    public static readonly ITEMTOTALINBASKET: string = "BASKET_ITEMTOTALINBASKET";
-
-    public static readonly SUBTOTAL: string = "BASKET_SUBTOTAL";
-
-    public static readonly ISEMPTY: string = "BASKET_ISEMPTY";
-
-    public static readonly INSERT: string = "BASKET_INSERT";
-
-    public static readonly DELETE: string = "BASKET_DELETE";
-
-    public static readonly ADJUST: string = "BASKET_ADJUST";
-
-private constructor (){
-
-            super();
-        }
-
-
+    public function BasketData() {
+        super();
+    }
+    }
 }
 

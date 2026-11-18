@@ -1,95 +1,62 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.math.vector {
+    import org.allbinary.math.NoDecimalTrigTable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AxisMathVectorUtil {
+    private static var instance_value:AxisMathVectorUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():AxisMathVectorUtil {
+        if (!AxisMathVectorUtil.instance_set) {
+            AxisMathVectorUtil.instance_set = true;
+            AxisMathVectorUtil.instance_value = new AxisMathVectorUtil();
+        }
+        return AxisMathVectorUtil.instance_value;
+    }
+        private var noDecimalTrigTable:NoDecimalTrigTable = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsAxisMathVectorUtil():void {
+    this.noDecimalTrigTable = NoDecimalTrigTable.getInstance();
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { NoDecimalTrigTable } from '../../../../../org/allbinary/math/NoDecimalTrigTable.js';
-//not GWT import const NoDecimalTrigTable
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AxisMathVectorUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: AxisMathVectorUtil = new AxisMathVectorUtil();
-
-    public static getInstance(): AxisMathVectorUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AxisMathVectorUtil.instance;
+        public function AxisMathVectorUtil() {
+            super();
+            this.initFieldsAxisMathVectorUtil();
+        }
     
-}
 
-
-    private readonly noDecimalTrigTable: NoDecimalTrigTable = NoDecimalTrigTable.getInstance()!;
-
-    public calculateX(magnitude: number, angle: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return magnitude *this.noDecimalTrigTable!.cos(angle) /10;
+    public static function getInstance():AxisMathVectorUtil {
+        return AxisMathVectorUtil.instance;
+    }
     
-}
 
-
-    public calculateY(magnitude: number, angle: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return magnitude *this.noDecimalTrigTable!.sin(angle) /10;
+    public function calculateX(magnitude:Number, angle:int):Number {
+        return magnitude * this.noDecimalTrigTable.cos(angle) / 10;
+    }
     
-}
 
-
-    public calculateZ(magnitude: number, otherAngle: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return magnitude *this.noDecimalTrigTable!.sin(otherAngle) /10;
+    public function calculateY(magnitude:Number, angle:int):Number {
+        return magnitude * this.noDecimalTrigTable.sin(angle) / 10;
+    }
     
-}
 
-
+    public function calculateZ(magnitude:Number, otherAngle:int):Number {
+        return magnitude * this.noDecimalTrigTable.sin(otherAngle) / 10;
+    }
+    }
 }
 

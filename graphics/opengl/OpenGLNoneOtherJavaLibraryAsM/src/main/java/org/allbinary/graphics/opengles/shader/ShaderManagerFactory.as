@@ -1,72 +1,40 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.opengles.shader {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ShaderManager } from './ShaderManager.js';
-//sameFolderImports - not GWT import - same folder const ShaderManager
-
-export class ShaderManagerFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: ShaderManagerFactory = new ShaderManagerFactory();
-
-    public static getInstance(): ShaderManagerFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ShaderManagerFactory.instance;
+    public class ShaderManagerFactory {
+    private static var instance_value:ShaderManagerFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ShaderManagerFactory {
+        if (!ShaderManagerFactory.instance_set) {
+            ShaderManagerFactory.instance_set = true;
+            ShaderManagerFactory.instance_value = new ShaderManagerFactory();
+        }
+        return ShaderManagerFactory.instance_value;
+    }
     
-}
 
-
-    public create(): ShaderManager{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ShaderManager.getInstance();;
+    public static function getInstance():ShaderManagerFactory {
+        return ShaderManagerFactory.instance;
+    }
     
-}
 
-
+    public function create():ShaderManager {
+        return ShaderManager.getInstance();
+    }
+    }
 }
 

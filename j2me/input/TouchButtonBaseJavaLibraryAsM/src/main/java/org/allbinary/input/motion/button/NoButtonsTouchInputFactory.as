@@ -1,62 +1,35 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BaseTouchInput } from './BaseTouchInput.js';
-//sameFolderImports - not GWT import - same folder const BaseTouchInput
-
-export class NoButtonsTouchInputFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: BaseTouchInput = new BaseTouchInput();
-
-    public static getInstance(): BaseTouchInput{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NoButtonsTouchInputFactory.instance;
+    public class NoButtonsTouchInputFactory {
+    private static var instance_value:BaseTouchInput;
+    private static var instance_set:Boolean = false;
+    private static function get instance():BaseTouchInput {
+        if (!NoButtonsTouchInputFactory.instance_set) {
+            NoButtonsTouchInputFactory.instance_set = true;
+            NoButtonsTouchInputFactory.instance_value = new BaseTouchInput();
+        }
+        return NoButtonsTouchInputFactory.instance_value;
+    }
     
-}
 
-
+    public static function getInstance():BaseTouchInput {
+        return NoButtonsTouchInputFactory.instance;
+    }
+    }
 }
 

@@ -1,82 +1,42 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.loader {
+    import org.allbinary.logic.system.security.AbKeys;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+    import org.allbinary.logic.system.security.licensing.LicensingException;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class SecuredNativeLibraryHelperWrapper extends NativeLibraryHelperWrapper {
+        private var securedNativeLibraryInterface:SecuredNativeLibraryInterface = null;
 
-        
-
-
-import { AbKeys } from '../../../../../org/allbinary/logic/system/security/AbKeys.js';
-//not GWT import const AbKeys
-
-import { AbeClientInformationInterface } from '../../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-import { LicensingException } from '../../../../../org/allbinary/logic/system/security/licensing/LicensingException.js';
-//not GWT import const LicensingException
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { NativeLibraryHelperWrapper } from './NativeLibraryHelperWrapper.js';
-//sameFolderImports - not GWT import - same folder const NativeLibraryHelperWrapper
-import { SecuredNativeLibraryInterface } from './SecuredNativeLibraryInterface.js';
-//sameFolderImports - not GWT import - same folder const SecuredNativeLibraryInterface
-
-export class SecuredNativeLibraryHelperWrapper extends NativeLibraryHelperWrapper {
-        
-
-    private securedNativeLibraryInterface: SecuredNativeLibraryInterface;
-
-public constructor (securedNativeLibraryInterface: SecuredNativeLibraryInterface){
-            super(securedNativeLibraryInterface!.getLibraryName());
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.securedNativeLibraryInterface= securedNativeLibraryInterface;
+        // Java field initializers run after the base constructor
+        private function initFieldsSecuredNativeLibraryHelperWrapper():void {
     
-}
-
-
-                //@Throws(LicensingException.constructor)
-            
-    public unlock(abeClientInformation: AbeClientInformationInterface): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.securedNativeLibraryInterface!.unlock(AbKeys.getInstance()!.getKey(abeClientInformation, this.securedNativeLibraryInterface!.getName()));;
+        }
     
-}
 
+    public function SecuredNativeLibraryHelperWrapper(securedNativeLibraryInterface:SecuredNativeLibraryInterface) {
+        super(securedNativeLibraryInterface.getLibraryName());
+        this.initFieldsSecuredNativeLibraryHelperWrapper();
+        this.securedNativeLibraryInterface = securedNativeLibraryInterface;
+    }
+    
 
+    public function unlock(abeClientInformation:AbeClientInformationInterface):Boolean {
+        return this.securedNativeLibraryInterface.unlock(AbKeys.getInstance().getKey(abeClientInformation, this.securedNativeLibraryInterface.getName()));
+    }
+    }
 }
 

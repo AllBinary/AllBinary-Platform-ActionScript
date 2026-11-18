@@ -1,153 +1,87 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.init {
+    import org.allbinary.debug.DebugFactory;
+    import org.allbinary.debug.NoDebug;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LicenseInitInfo {
+        private var id:String = null;
+        private var serverVector:BasicArrayList = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { DebugFactory } from '../../../../org/allbinary/debug/DebugFactory.js';
-//not GWT import const DebugFactory
-
-import { NoDebug } from '../../../../org/allbinary/debug/NoDebug.js';
-//not GWT import const NoDebug
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class LicenseInitInfo
-            extends Object
-         {
-        
-
-    private id: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-    private serverVector: BasicArrayList = new BasicArrayListD();
-
-public constructor (){
-
-            super();
+        // Java field initializers run after the base constructor
+        private function initFieldsLicenseInitInfo():void {
+    this.id = StringUtil.getInstance().EMPTY_STRING;
+    this.serverVector = new BasicArrayListD();
         }
-
-
-    public getLicenseId(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.id;
-    
-}
-
-
-    public getServer(index: number): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.serverVector!.objectArray[index]! as string;
-    
-}
-
-
-    public getNumberOfServers(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.serverVector!.size();;
-    
-}
-
-
-    public setLicenseId(value: string){
-this.id= value;
-    
-}
-
-
-    public clearServers(){
-this.serverVector= new BasicArrayListD();
-    
-}
-
-
-    public setServer(value: string, index: number){
-this.serverVector!.addAt(index, value);
-    
-}
-
-
-    public addServer(value: string){
-this.serverVector!.add(value);
-    
-}
-
-
-    public getServerList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.serverVector;
-    
-}
-
-
-    public setServerList(servers: BasicArrayList){
-
-                        if(DebugFactory.getInstance() == NoDebug.getInstance())
-                        
-                                    {
-                                    this.serverVector= servers;
     
 
-                                    }
-                                
-}
+    public function LicenseInitInfo() {
+        super();
+        this.initFieldsLicenseInitInfo();
+    }
+    
 
+    public function getLicenseId():String {
+        return this.id;
+    }
+    
 
+    public function getServer(index:int):String {
+        return (this.serverVector.objectArray[index] as String);
+    }
+    
+
+    public function getNumberOfServers():int {
+        return this.serverVector.size();
+    }
+    
+
+    public function setLicenseId(value:String):void {
+        this.id = value;
+    }
+    
+
+    public function clearServers():void {
+        this.serverVector = new BasicArrayListD();
+    }
+    
+
+    public function setServer(value:String, index:int):void {
+        this.serverVector.addAt(index, value);
+    }
+    
+
+    public function addServer(value:String):void {
+        this.serverVector.add(value);
+    }
+    
+
+    public function getServerList():BasicArrayList {
+        return this.serverVector;
+    }
+    
+
+    public function setServerList(servers:BasicArrayList):void {
+        if (DebugFactory.getInstance() == NoDebug.getInstance()) {
+            this.serverVector = servers;
+        }
+    }
+    }
 }
 

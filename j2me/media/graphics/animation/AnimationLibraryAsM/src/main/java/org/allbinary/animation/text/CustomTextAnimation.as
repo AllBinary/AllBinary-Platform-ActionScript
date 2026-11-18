@@ -1,192 +1,99 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.text {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.graphics.font.FontDebugFactory;
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CustomTextAnimation extends TextAnimation implements TextInterface {
+        public var fontDebugFactory:FontDebugFactory = null;
+        public var fontSize:int = 0;
+        public var font:Font = null;
+        private var lastText:String = null;
+        public var hasChanged:Boolean = false;
+        private var textWidth:int = 0;
 
-        
-
-
-            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
-        
-import { Font } from '../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { FontDebugFactory } from '../../../../org/allbinary/graphics/font/FontDebugFactory.js';
-//not GWT import const FontDebugFactory
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TextAnimation } from './TextAnimation.js';
-//sameFolderImports - not GWT import - same folder const TextAnimation
-import { TextInterface } from './TextInterface.js';
-//sameFolderImports - not GWT import - same folder const TextInterface
-import { TextChangeListener } from './TextChangeListener.js';
-//sameFolderImports - not GWT import - same folder const TextChangeListener
-
-export class CustomTextAnimation extends TextAnimation implements TextInterface {
-        
-
-    readonly fontDebugFactory: FontDebugFactory = FontDebugFactory.getInstance()!;
-
-    readonly fontSize: number;
-
-    font: Font;
-
-    private lastText: string = StringUtil.getInstance()!.INIT_STRING;
-
-    hasChanged: boolean = true;
-
-public constructor (text: string, fontSize: number, animationBehavior: AnimationBehavior){
-            super(text, animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.fontSize= fontSize;
+        // Java field initializers run after the base constructor
+        private function initFieldsCustomTextAnimation():void {
+    this.fontDebugFactory = FontDebugFactory.getInstance();
     
-this.font= Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, fontSize);
     
-}
-
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-this.myFontProcessor!.process(graphics);
+    this.lastText = StringUtil.getInstance().INIT_STRING;
+    this.hasChanged = true;
+    this.textWidth = 0;
+        }
     
 
-    let existingFont: Font = graphics.getFont()!;;
-    
-this.fontDebugFactory!.setFont(this.font, graphics);
-    
-super.paintXYNoUpdate(graphics, x, y);
-    
-this.fontDebugFactory!.setFont(existingFont, graphics);
-    
-}
-
-
-    public setScale(scaleX: number, scaleY: number){
-
-                        if(scaleX != scaleY)
-                        
-                                    {
-                                    
-
-
-                            throw new RuntimeException();
-                    
-
-                                    }
-                                
-this.hasChanged= true;
-    
-this.font= Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, globalThis.Math.trunc((this.fontSize *scaleX)));
-    
-}
-
-
-    public setTextWithOnMeasure(text: string, textChangeListener: TextChangeListener){
-super.setTextWithOnMeasure(text, textChangeListener);
-    
-}
-
-
-    public setText(text: string){
-
-                        if(this.lastText != text)
-                        
-                                    {
-                                    this.hasChanged= true;
-    
-this.lastText= text;
-    
-super.setText(text);
+    public function CustomTextAnimation(text:String, fontSize:int, animationBehavior:AnimationBehavior) {
+        super(text, animationBehavior);
+        this.initFieldsCustomTextAnimation();
+        this.fontSize = fontSize;
+        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, fontSize);
+    }
     
 
-                                    }
-                                
-}
-
-
-    public getText(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.lastText;
-    
-}
-
-
-    private textWidth: number= 0;
-
-    public getWidth(): number{
-
-                        if(this.hasChanged)
-                        
-                                    {
-                                    this.textWidth= this.font.stringWidth(this.textArrayP[0]!);
-    
-this.hasChanged= false;
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        this.myFontProcessor.process(graphics);
+        var existingFont:Font = graphics.getFont();
+        this.fontDebugFactory.setFont(this.font, graphics);
+        super.paintXYNoUpdate(graphics, x, y);
+        this.fontDebugFactory.setFont(existingFont, graphics);
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.textWidth;
+    override public function setScale(scaleX:Number, scaleY:Number):void {
+        if (scaleX != scaleY) {
+            throw new JException("RuntimeException", "");
+        }
+        this.hasChanged = true;
+        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, JMath.toInt32((Number(this.fontSize) * scaleX)));
+    }
     
-}
 
-
-    public getFontHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.font.getHeight();;
+    override public function setTextWithOnMeasure(text:String, textChangeListener:TextChangeListener):void {
+        super.setTextWithOnMeasure(text, textChangeListener);
+    }
     
-}
 
+    override public function setText(text:String):void {
+        if (this.lastText != text) {
+            this.hasChanged = true;
+            this.lastText = text;
+            super.setText(text);
+        }
+    }
+    
 
+    public function getText():String {
+        return this.lastText;
+    }
+    
+
+    override public function getWidth():int {
+        if (this.hasChanged) {
+            this.textWidth = this.font.stringWidth(this.textArrayP[0]);
+            this.hasChanged = false;
+        }
+        return this.textWidth;
+    }
+    
+
+    override public function getFontHeight():int {
+        return this.font.getHeight();
+    }
+    }
 }
 

@@ -1,105 +1,46 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form.item {
+    import org.allbinary.graphics.color.BasicColor;
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CustomCustomItem } from './CustomCustomItem.js';
-//sameFolderImports - not GWT import - same folder const CustomCustomItem
-import { ABCustomItemInterface } from './ABCustomItemInterface.js';
-//sameFolderImports - not GWT import - same folder const ABCustomItemInterface
-import { ABStringComponent } from './ABStringComponent.js';
-//sameFolderImports - not GWT import - same folder const ABStringComponent
-
-export class ABTextItem extends CustomCustomItem implements ABCustomItemInterface {
-        
-
-public constructor (label: string, layout: number, altText: string, backgroundBasicColor: BasicColor, foregroundBasicColor: BasicColor){
-            super(label, backgroundBasicColor, foregroundBasicColor);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public keyPressed(keyCode: number){
-}
-
-
-    public paintUnselected(graphics: Graphics, x: number, y: number){
-}
-
-
-    public getLabelStringComponent(): ABStringComponent{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ABStringComponent.NULL_STRING_COMPONENT;
+    public class ABTextItem extends CustomCustomItem implements ABCustomItemInterface {
     
-}
 
-
-    public getMinimumWidth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getMinimumWidth();;
+    public function ABTextItem(label:String, layout:int, altText:String, backgroundBasicColor:BasicColor, foregroundBasicColor:BasicColor) {
+        super(label, backgroundBasicColor, foregroundBasicColor);
+    }
     
-}
 
-
-    public getMinimumHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getMinimumHeight();;
+    public function keyPressed(keyCode:int):void {
+    }
     
-}
 
-
-    public getLabel(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getLabel();;
+    override public function paintUnselected(graphics:Graphics, x:int, y:int):void {
+    }
     
-}
 
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-super.paintXY(graphics, x, y);
+    public function getLabelStringComponent():ABStringComponent {
+        return ABStringComponent.NULL_STRING_COMPONENT;
+    }
     
-}
 
+    override public function getMinimumWidth():int {
+        return super.getMinimumWidth();
+    }
+    
 
+    override public function getMinimumHeight():int {
+        return super.getMinimumHeight();
+    }
+    
+
+    override public function getLabel():String {
+        return super.getLabel();
+    }
+    
+
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        super.paintXY(graphics, x, y);
+    }
+    }
 }
 

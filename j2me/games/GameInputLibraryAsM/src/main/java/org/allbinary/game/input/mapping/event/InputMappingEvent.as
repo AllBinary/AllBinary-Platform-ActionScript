@@ -1,77 +1,45 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input.mapping.event {
+    import org.allbinary.game.input.mapping.InputToGameKeyMapping;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class InputMappingEvent extends AllBinaryEventObject {
+        private var inputToGameKeyMapping:InputToGameKeyMapping = null;
 
-        
-
-
-import { InputToGameKeyMapping } from '../../../../../../org/allbinary/game/input/mapping/InputToGameKeyMapping.js';
-//not GWT import const InputToGameKeyMapping
-
-import { AllBinaryEventObject } from '../../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class InputMappingEvent extends AllBinaryEventObject {
-        
-
-    private inputToGameKeyMapping: InputToGameKeyMapping = InputToGameKeyMapping.getNullInstance()!;
-
-public constructor (anyType: any){
-            super(anyType);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public setInputToGameKeyMapping(inputToGameKeyMapping: InputToGameKeyMapping){
-this.inputToGameKeyMapping= inputToGameKeyMapping;
+        // Java field initializers run after the base constructor
+        private function initFieldsInputMappingEvent():void {
+    this.inputToGameKeyMapping = InputToGameKeyMapping.getNullInstance();
+        }
     
-}
 
-
-    public getInputToGameKeyMapping(): InputToGameKeyMapping{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.inputToGameKeyMapping;
+    public function InputMappingEvent(anyType:Object) {
+        super(anyType);
+        this.initFieldsInputMappingEvent();
+    }
     
-}
 
+    public function setInputToGameKeyMapping(inputToGameKeyMapping:InputToGameKeyMapping):void {
+        this.inputToGameKeyMapping = inputToGameKeyMapping;
+    }
+    
 
+    public function getInputToGameKeyMapping():InputToGameKeyMapping {
+        return this.inputToGameKeyMapping;
+    }
+    }
 }
 

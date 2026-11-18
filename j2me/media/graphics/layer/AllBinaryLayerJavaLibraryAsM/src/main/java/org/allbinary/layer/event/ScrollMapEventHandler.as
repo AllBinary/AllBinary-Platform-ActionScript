@@ -1,88 +1,49 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.layer.event {
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventListenerInterface;
+    import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventListenerInterface } from '../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
-//not GWT import const EventListenerInterface
-
-import { BasicEventHandler } from '../../../../org/allbinary/logic/util/event/handler/BasicEventHandler.js';
-//not GWT import const BasicEventHandler
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ScrollMapEventListenerInterface } from './ScrollMapEventListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const ScrollMapEventListenerInterface
-import { ScrollMapEvent } from './ScrollMapEvent.js';
-//sameFolderImports - not GWT import - same folder const ScrollMapEvent
-
-export class ScrollMapEventHandler extends BasicEventHandler {
-        
-
-    private static SINGLETON: ScrollMapEventHandler = new ScrollMapEventHandler();
-
-    public static getInstance(): ScrollMapEventHandler{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ScrollMapEventHandler.SINGLETON;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class ScrollMapEventHandler extends BasicEventHandler {
+    private static var SINGLETON_value:ScrollMapEventHandler;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():ScrollMapEventHandler {
+        if (!ScrollMapEventHandler.SINGLETON_set) {
+            ScrollMapEventHandler.SINGLETON_set = true;
+            ScrollMapEventHandler.SINGLETON_value = new ScrollMapEventHandler();
         }
-
-
-                //@Throws(Exception.constructor)
-            
-    process(eventObject: AllBinaryEventObject, eventListenerInterface: EventListenerInterface){
-
-    let scrollMapEventListenerInterface: ScrollMapEventListenerInterface = (eventListenerInterface as ScrollMapEventListenerInterface);;
+        return ScrollMapEventHandler.SINGLETON_value;
+    }
     
-scrollMapEventListenerInterface!.onMoveEvent(eventObject as ScrollMapEvent);
+
+    public function ScrollMapEventHandler() {
+        super();
+    }
     
-}
 
+    public static function getInstance():ScrollMapEventHandler {
+        return ScrollMapEventHandler.SINGLETON;
+    }
+    
 
+    override public function process(eventObject:AllBinaryEventObject, eventListenerInterface:EventListenerInterface):void {
+        var scrollMapEventListenerInterface:ScrollMapEventListenerInterface = ((eventListenerInterface as ScrollMapEventListenerInterface));
+        scrollMapEventListenerInterface.onMoveEvent((eventObject as ScrollMapEvent));
+    }
+    }
 }
 

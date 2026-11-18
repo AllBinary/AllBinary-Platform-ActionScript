@@ -1,172 +1,87 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai.sequence {
+    import org.allbinary.ai.ArtificialIntelligence;
+    import org.allbinary.ai.ArtificialIntelligenceInterface;
+    import org.allbinary.ai.ArtificialIntelligenceTransitionInterface;
+    import org.allbinary.game.ag.ai.ArrayAI;
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class SequenceAI extends ArrayAI {
+    private static const SEQUENCE_AI:String = "Sequence AI";
+        private var index:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { ArtificialIntelligence } from '../../../../../../org/allbinary/ai/ArtificialIntelligence.js';
-//not GWT import const ArtificialIntelligence
-
-import { ArtificialIntelligenceInterface } from '../../../../../../org/allbinary/ai/ArtificialIntelligenceInterface.js';
-//not GWT import const ArtificialIntelligenceInterface
-
-import { ArtificialIntelligenceTransitionInterface } from '../../../../../../org/allbinary/ai/ArtificialIntelligenceTransitionInterface.js';
-//not GWT import const ArtificialIntelligenceTransitionInterface
-
-import { ArrayAI } from '../../../../../../org/allbinary/game/ag/ai/ArrayAI.js';
-//not GWT import const ArrayAI
-
-import { GameInput } from '../../../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-import { AllBinaryLayer } from '../../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class SequenceAI extends ArrayAI {
-        
-
-    private static readonly SEQUENCE_AI: string = "Sequence AI";
-
-    private index: number= 0;
-
-public constructor (artificialIntelligenceInterfaceArray: ArtificialIntelligenceInterface[], ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
-            super(artificialIntelligenceInterfaceArray, ownerLayerInterface, gameInput);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
-this.getArtificialIntelligenceInterface()[this.index]!.processAI(allBinaryLayerManager);
-    
-}
-
-
-    public next(){
-this.index++;
+        // Java field initializers run after the base constructor
+        private function initFieldsSequenceAI():void {
+    this.index = 0;
+        }
     
 
-    let artificialIntelligenceInterface: ArtificialIntelligenceInterface = this.getSelectedArtificialIntelligenceInterface()!;;
+    public function SequenceAI(artificialIntelligenceInterfaceArray:Vector.<ArtificialIntelligenceInterface>, ownerLayerInterface:AllBinaryLayer, gameInput:GameInput) {
+        super(artificialIntelligenceInterfaceArray, ownerLayerInterface, gameInput);
+        this.initFieldsSequenceAI();
+    }
     
 
-                        if(artificialIntelligenceInterface!.getId() == ArtificialIntelligence.AI_ID)
-                        
-                                    {
-                                    
-    let artificialIntelligenceTransitionInterface: ArtificialIntelligenceTransitionInterface = artificialIntelligenceInterface as unknown as ArtificialIntelligenceTransitionInterface;;
-    
-artificialIntelligenceTransitionInterface!.transition();
+    override public function processAI(allBinaryLayerManager:AllBinaryLayerManager):void {
+        this.getArtificialIntelligenceInterface()[this.index].processAI(allBinaryLayerManager);
+    }
     
 
-                                    }
-                                
-}
-
-
-    public getIndex(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.index;
-    
-}
-
-
-    public setIndex(index: number){
-this.index= index;
-    
-}
-
-
-    public getSelectedArtificialIntelligenceInterface(): ArtificialIntelligenceInterface{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getArtificialIntelligenceInterface()[this.index]!;
-    
-}
-
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return SequenceAI.SEQUENCE_AI;
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append(super.toString());
-    
-stringBuffer!.append(" Selected AI: ");
-    
-stringBuffer!.append(StringUtil.getInstance()!.toString(this.getSelectedArtificialIntelligenceInterface()));
+    public function next():void {
+        this.index++;
+        var artificialIntelligenceInterface:ArtificialIntelligenceInterface = this.getSelectedArtificialIntelligenceInterface();
+        if (artificialIntelligenceInterface.getId() == ArtificialIntelligence.AI_ID) {
+            var artificialIntelligenceTransitionInterface:ArtificialIntelligenceTransitionInterface = (artificialIntelligenceInterface as ArtificialIntelligenceTransitionInterface);
+            artificialIntelligenceTransitionInterface.transition();
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    public function getIndex():int {
+        return this.index;
+    }
     
-}
 
+    public function setIndex(index:int):void {
+        this.index = index;
+    }
+    
 
+    public function getSelectedArtificialIntelligenceInterface():ArtificialIntelligenceInterface {
+        return this.getArtificialIntelligenceInterface()[this.index];
+    }
+    
+
+    override public function getName():String {
+        return SequenceAI.SEQUENCE_AI;
+    }
+    
+
+    override public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append(super.toString());
+        stringBuffer.append(" Selected AI: ");
+        stringBuffer.append(StringUtil.getInstance().toString1(this.getSelectedArtificialIntelligenceInterface()));
+        return stringBuffer.toString();
+    }
+    }
 }
 

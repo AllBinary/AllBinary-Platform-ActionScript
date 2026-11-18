@@ -1,117 +1,58 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.graphics.displayable.MyCanvas;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
+    import java.lang.JRunnable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CommandRunnable implements JRunnable {
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        private var commandFormInputProcessor:CommandFormInputProcessor = null;
+        private var command:Command = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-            import { Runnable } from '../../../../../java/lang/Runnable.js';
-        
-import { Command } from '../../../../../javax/microedition/lcdui/Command.js';
-//not GWT import const Command
-
-import { CommandListener } from '../../../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
-
-import { MyCanvas } from '../../../../../org/allbinary/graphics/displayable/MyCanvas.js';
-//not GWT import const MyCanvas
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CommandFormInputProcessor } from './CommandFormInputProcessor.js';
-//sameFolderImports - not GWT import - same folder const CommandFormInputProcessor
-
-export class CommandRunnable
-            extends Object
-         implements Runnable {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly commandFormInputProcessor: CommandFormInputProcessor;
-
-    private readonly command: Command;
-
-public constructor (commandFormInputProcessor: CommandFormInputProcessor, command: Command){
-
-            super();
-        this.commandFormInputProcessor= commandFormInputProcessor;
+        // Java field initializers run after the base constructor
+        private function initFieldsCommandRunnable():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
     
-this.command= command;
     
-}
-
-
-    public run(){
-
- try { this.logUtil!.putF(this.commonStrings!.START_RUNNABLE, this, this.commonStrings!.RUN);
+        }
     
 
-    let canvas: MyCanvas = this.commandFormInputProcessor!.getCanvas()!;;
+    public function CommandRunnable(commandFormInputProcessor:CommandFormInputProcessor, command:Command) {
+        super();
+        this.initFieldsCommandRunnable();
+        this.commandFormInputProcessor = commandFormInputProcessor;
+        this.command = command;
+    }
     
 
-    let commandListener: CommandListener = canvas.getCustomCommandListener()!;;
-    
-commandListener!.commandAction(this.command, canvas);
-    
-this.logUtil!.putF(this.commonStrings!.END_RUNNABLE, this, this.commonStrings!.RUN);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.RUN, e);
-    
-
- }
-   }
- 
-}
-
-
+    public function run():void {
+        try {
+            this.logUtil.putF(this.commonStrings.START_RUNNABLE, this, this.commonStrings.RUN);
+            var canvas:MyCanvas = this.commandFormInputProcessor.getCanvas();
+            var commandListener:CommandListener = canvas.getCustomCommandListener();
+            commandListener.commandAction(this.command, canvas);
+            this.logUtil.putF(this.commonStrings.END_RUNNABLE, this, this.commonStrings.RUN);
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e);
+        }
+    }
+    }
 }
 

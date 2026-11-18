@@ -1,77 +1,60 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.physics.velocity {
+    import org.allbinary.direction.Direction;
+    import org.allbinary.logic.math.BasicDecimal;
+    import org.allbinary.math.Angle;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface BasicVelocityInterface {
+    
 
-        
+    function getVelocityXBasicDecimalP():BasicDecimal;
+    
 
+    function getVelocityYBasicDecimalP():BasicDecimal;
+    
 
-import { Direction } from '../../../../../org/allbinary/direction/Direction.js';
-//not GWT import const Direction
+    function zero():void;
+    
 
-import { BasicDecimal } from '../../../../../org/allbinary/logic/math/BasicDecimal.js';
-//not GWT import const BasicDecimal
+    function setVelocityWithBigDecimalAndDirection(magnitudeBasicDecimal:BasicDecimal, direction:Direction, otherDirection:Direction):void;
+    
 
-import { Angle } from '../../../../../org/allbinary/math/Angle.js';
-//not GWT import const Angle
+    function addVelocityWithBigDecimalAndDirection(magnitudeBasicDecimal:BasicDecimal, direction:Direction, otherDirection:Direction):void;
+    
 
+    function setVelocityWithDirection(magnitude:Number, direction:Direction, otherDirection:Direction):void;
+    
 
+    function addVelocityWithDirection(magnitude:Number, direction:Direction, otherDirection:Direction):void;
+    
 
+    function setVelocityWithBigDecimal(magnitudeBasicDecimal:BasicDecimal, angle:Angle, otherAngle:Angle):void;
+    
 
+    function addVelocityWithBigDecimal(magnitudeBasicDecimal:BasicDecimal, angle:Angle, otherAngle:Angle):void;
+    
 
+    function setVelocity(magnitude:Number, angle:Angle, otherAngle:Angle):void;
+    
 
+    function addVelocity(magnitude:Number, angle:Angle, otherAngle:Angle):void;
+    
 
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export interface BasicVelocityInterface {
-        
-
-    getVelocityXBasicDecimalP(): BasicDecimal;
-
-    getVelocityYBasicDecimalP(): BasicDecimal;
-
-    zero(): void;
-
-    setVelocityWithBigDecimalAndDirection(magnitudeBasicDecimal: BasicDecimal, direction: Direction, otherDirection: Direction): void;
-
-    addVelocityWithBigDecimalAndDirection(magnitudeBasicDecimal: BasicDecimal, direction: Direction, otherDirection: Direction): void;
-
-    setVelocityWithDirection(magnitude: number, direction: Direction, otherDirection: Direction): void;
-
-    addVelocityWithDirection(magnitude: number, direction: Direction, otherDirection: Direction): void;
-
-    setVelocityWithBigDecimal(magnitudeBasicDecimal: BasicDecimal, angle: Angle, otherAngle: Angle): void;
-
-    addVelocityWithBigDecimal(magnitudeBasicDecimal: BasicDecimal, angle: Angle, otherAngle: Angle): void;
-
-    setVelocity(magnitude: number, angle: Angle, otherAngle: Angle): void;
-
-    addVelocity(magnitude: number, angle: Angle, otherAngle: Angle): void;
-
-    addVelocityi(magnitude: number, angle: number, otherAngle: number): void;
-
+    function addVelocityi(magnitude:Number, angle:int, otherAngle:int):void;
+    }
 }
 

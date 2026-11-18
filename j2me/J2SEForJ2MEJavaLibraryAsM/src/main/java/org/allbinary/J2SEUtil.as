@@ -1,108 +1,57 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary {
+    import java.util.JHashMap;
+    import java.util.JMap;
+    import java.util.JSet;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../java/lang/Object.js';
-        
-import { HashMap } from '../../java/util/HashMap.js';
-//not GWT import const HashMap
-
-import { Map } from '../../java/util/Map.js';
-//not GWT import const Map
-
-import { Set } from '../../java/util/Set.js';
-//not GWT import const Set
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //J2SEForJ2ME
-export class J2SEUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: J2SEUtil = new J2SEUtil();
-
-    public static getInstance(): J2SEUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return J2SEUtil.instance;
-    
-}
-
-
-    public getHashMapAsArray(hashMap: HashMap<any, any>): any[]{
-
-    let objectArray: any[] = hashMap!.keys().toArray()!;;
+    //J2SEForJ2ME
+    public class J2SEUtil {
+    private static var instance_value:J2SEUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():J2SEUtil {
+        if (!J2SEUtil.instance_set) {
+            J2SEUtil.instance_set = true;
+            J2SEUtil.instance_value = new J2SEUtil();
+        }
+        return J2SEUtil.instance_value;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return objectArray;
-    
-}
-
-
-    public getMapAsArray(map: Map<any, any>): any[]{
-
-    let objectArray: any[] = map.keySet()!.toArray()!;;
+    public static function getInstance():J2SEUtil {
+        return J2SEUtil.instance;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return objectArray;
-    
-}
-
-
-    public getSetAsArray(set: Set<string>): any[]{
-
-    let objectArray: any[] = set.toArray()!;;
+    public function getHashMapAsArray(hashMap:JHashMap):Vector.<Object> {
+        var objectArray:Vector.<Object> = hashMap.keySet().toArray();
+        return objectArray;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return objectArray;
+    public function getMapAsArray(map:Map):Vector.<Object> {
+        var objectArray:Vector.<Object> = map.keySet().toArray();
+        return objectArray;
+    }
     
-}
 
-
+    public function getSetAsArray(set_:Set):Vector.<Object> {
+        var objectArray:Vector.<Object> = set_.toArray();
+        return objectArray;
+    }
+    }
 }
 

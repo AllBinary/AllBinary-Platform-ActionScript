@@ -1,137 +1,83 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.advertisement {
+    import org.allbinary.game.GameAdState;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { GameAdState } from '../../../../org/allbinary/game/GameAdState.js';
-//not GWT import const GameAdState
-
-import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameAdStateFactory } from './GameAdStateFactory.js';
-//sameFolderImports - not GWT import - same folder const GameAdStateFactory
-
-export class BottomLimiter
-            extends Object
-         {
-        
-
-    private static readonly instance: BottomLimiter = new BottomLimiter();
-
-    public static getInstance(): BottomLimiter{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return BottomLimiter.instance;
-    
-}
-
-
-    private bottom: number= 0;
-
-    private deltaY: number= 0;
-
-    private lower: number= 0;
-
-    private higher: number= 0;
-
-private constructor (){
-
-            super();
+    public class BottomLimiter {
+    private static var instance_value:BottomLimiter;
+    private static var instance_set:Boolean = false;
+    private static function get instance():BottomLimiter {
+        if (!BottomLimiter.instance_set) {
+            BottomLimiter.instance_set = true;
+            BottomLimiter.instance_value = new BottomLimiter();
         }
+        return BottomLimiter.instance_value;
+    }
+        private var bottom:int = 0;
+        private var deltaY:int = 0;
+        private var lower:int = 0;
+        private var higher:int = 0;
 
-
-    public init(lower: number, higher: number){
-this.lower= lower;
-    
-this.higher= higher;
-    
-}
-
-
-    public update(){
-
-    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
-    
-
-    let gameAdState: GameAdState = GameAdStateFactory.getInstance()!.getCurrentInstance()!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsBottomLimiter():void {
+    this.bottom = 0;
+    this.deltaY = 0;
+    this.lower = 0;
+    this.higher = 0;
+        }
     
 
-                        if(gameAdState!.isShowingAt())
-                        
-                                    {
-                                    this.deltaY= this.higher;
+    public static function getInstance():BottomLimiter {
+        return BottomLimiter.instance;
+    }
     
 
-                                    }
-                                
-                        else {
-                            this.deltaY= this.lower;
+    public function BottomLimiter() {
+        super();
+        this.initFieldsBottomLimiter();
+    }
     
 
-                        }
-                            
-this.bottom= displayInfo!.getLastHeight() -this.deltaY;
+    public function init(lower:int, higher:int):void {
+        this.lower = lower;
+        this.higher = higher;
+    }
     
-}
 
-
-    public getDeltaY(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.deltaY;
+    public function update():void {
+        var displayInfo:DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
+        var gameAdState:GameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+        if (gameAdState.isShowingAt()) {
+            this.deltaY = this.higher;
+        } else {
+            this.deltaY = this.lower;
+        }
+        this.bottom = int(displayInfo.getLastHeight() - this.deltaY);
+    }
     
-}
 
-
-    public getBottom(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.bottom;
+    public function getDeltaY():int {
+        return this.deltaY;
+    }
     
-}
 
-
+    public function getBottom():int {
+        return this.bottom;
+    }
+    }
 }
 

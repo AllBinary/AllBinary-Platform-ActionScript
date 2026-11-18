@@ -1,76 +1,41 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
+// Generated Code Do Not Modify
+package org.allbinary.layer {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LayerManagerLoggingBase {
+    
 
-        
+    public function append(layerInterface:AllBinaryLayer):void {
+    }
+    
 
+    public function appendAt(layerInterface:AllBinaryLayer, index:int):void {
+    }
+    
 
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
+    public function remove(layerInterface:AllBinaryLayer):void {
+    }
+    
 
+    public function removeResult(layerManager:LayerManager, layerInterface:AllBinaryLayer, result:Boolean):void {
+    }
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AllBinaryLayer } from './AllBinaryLayer.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryLayer
-import { LayerManager } from './LayerManager.js';
-//sameFolderImports - not GWT import - same folder const LayerManager
-
-export class LayerManagerLoggingBase
-            extends Object
-         {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public append(layerInterface: AllBinaryLayer){
-}
-
-
-    public appendAt(layerInterface: AllBinaryLayer, index: number){
-}
-
-
-    public remove(layerInterface: AllBinaryLayer){
-}
-
-
-    public removeResult(layerManager: LayerManager, layerInterface: AllBinaryLayer, result: boolean){
-}
-
-
-    public clear(){
-}
-
-
+    public function clear():void {
+    }
+    }
 }
 

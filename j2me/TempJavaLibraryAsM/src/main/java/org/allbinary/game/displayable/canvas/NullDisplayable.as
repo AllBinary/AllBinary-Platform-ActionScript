@@ -1,58 +1,31 @@
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { Canvas } from '../../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //Temp should not be in any build
-export class NullDisplayable extends Canvas {
-        
-
-    private static readonly SINGLETON: NullDisplayable = new NullDisplayable();
-
-    public static getInstance(): NullDisplayable{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullDisplayable.SINGLETON;
-    
-}
-
-
-private constructor (){
-
-            super();
+    //Temp should not be in any build
+    public class NullDisplayable extends Canvas {
+    private static var SINGLETON_value:NullDisplayable;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():NullDisplayable {
+        if (!NullDisplayable.SINGLETON_set) {
+            NullDisplayable.SINGLETON_set = true;
+            NullDisplayable.SINGLETON_value = new NullDisplayable();
         }
+        return NullDisplayable.SINGLETON_value;
+    }
+    
 
+    public static function getInstance():NullDisplayable {
+        return NullDisplayable.SINGLETON;
+    }
+    
 
-    public paint(graphics: Graphics){
-}
+    public function NullDisplayable() {
+        super();
+    }
+    
 
-
+    override public function paint(graphics:Graphics):void {
+    }
+    }
 }
 

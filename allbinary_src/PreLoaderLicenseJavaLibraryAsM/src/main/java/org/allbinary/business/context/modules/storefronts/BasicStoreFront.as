@@ -1,639 +1,329 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.context.modules.storefronts {
+    import java.util.JHashMap;
+    import org.allbinary.business.context.modules.storefront.StoreFrontData;
+    import org.allbinary.business.entry.EntryData;
+    import org.allbinary.business.user.UserData;
+    import org.allbinary.logic.string.tokens.Tokenizer;
+    import org.allbinary.string.CommonSeps;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicStoreFront implements BasicStoreFrontInterface {
+        private var name:String = null;
+        private var userName:String = null;
+        private var basketName:String = null;
+        private var homeHostName:String = null;
+        private var homeHostNamePath:String = null;
+        private var hostName:String = null;
+        private var hostNamePath:String = null;
+        private var testHomeHostName:String = null;
+        private var testHomeHostNamePath:String = null;
+        private var testHostName:String = null;
+        private var testHostNamePath:String = null;
+        private var imagePath:String = null;
+        private var staticPath:String = null;
+        private var categoryPath:String = null;
+        private var inventoryControl:String = null;
+        private var subStores:String = null;
+        private var tagLocation:String = null;
+        private var packageLocation:String = null;
+        private var ftp:String = null;
+        private var ftpPath:String = null;
+        private var ftpUserName:String = null;
+        private var ftpPassword:String = null;
+        private var testFtp:String = null;
+        private var testFtpPath:String = null;
+        private var testFtpUserName:String = null;
+        private var testFtpPassword:String = null;
+        private var timeCreated:String = null;
+        private var lastModified:String = null;
 
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { HashMap } from '../../../../../../java/util/HashMap.js';
-//not GWT import const HashMap
-
-import { StoreFrontData } from '../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontData.js';
-//not GWT import const StoreFrontData
-
-import { EntryData } from '../../../../../../org/allbinary/business/entry/EntryData.js';
-//not GWT import const EntryData
-
-import { UserData } from '../../../../../../org/allbinary/business/user/UserData.js';
-//not GWT import const UserData
-
-import { Tokenizer } from '../../../../../../org/allbinary/logic/string/tokens/Tokenizer.js';
-//not GWT import const Tokenizer
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicStoreFrontInterface } from './BasicStoreFrontInterface.js';
-//sameFolderImports - not GWT import - same folder const BasicStoreFrontInterface
-
-export class BasicStoreFront
-            extends Object
-         implements BasicStoreFrontInterface {
-        
-
-    private name: string;
-
-    private userName: string;
-
-    private basketName: string;
-
-    private homeHostName: string;
-
-    private homeHostNamePath: string;
-
-    private hostName: string;
-
-    private hostNamePath: string;
-
-    private testHomeHostName: string;
-
-    private testHomeHostNamePath: string;
-
-    private testHostName: string;
-
-    private testHostNamePath: string;
-
-    private imagePath: string;
-
-    private staticPath: string;
-
-    private categoryPath: string;
-
-    private inventoryControl: string;
-
-    private subStores: string;
-
-    private tagLocation: string;
-
-    private packageLocation: string;
-
-    private ftp: string;
-
-    private ftpPath: string;
-
-    private ftpUserName: string;
-
-    private ftpPassword: string;
-
-    private testFtp: string;
-
-    private testFtpPath: string;
-
-    private testFtpUserName: string;
-
-    private testFtpPassword: string;
-
-    private timeCreated: string;
-
-    private lastModified: string;
-
-    public constructor(...args: any[]) {
-        super();if(args.length === 0) {
-            
-            this.constructor$0();
-            
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicStoreFront():void {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
         }
-        else if(args.length === 1) {
-            
-            this.constructor$1(args[0]);
-            
+    
+
+    public function BasicStoreFront(...args) {
+        super();
+        this.initFieldsBasicStoreFront();
+        this.jconstruct(args);
+    }
+
+    private function jconstruct(args:Array):void {
+        if (args.length == 0) {
+            (function():void {
+            }).apply(this, args);
+            return;
         }
-        
+        if (args.length == 1) {
+            (function(storeHashMap:JHashMap):void {
+        var storeFrontData:StoreFrontData = StoreFrontData.getInstance();
+        this.name = (storeHashMap.get_(storeFrontData.NAME) as String);
+        this.userName = (storeHashMap.get_(UserData.USERNAME) as String);
+        this.basketName = (storeHashMap.get_(storeFrontData.NAME) as String);
+        this.homeHostName = (storeHashMap.get_(storeFrontData.HOMEHOSTNAME) as String);
+        this.homeHostNamePath = (storeHashMap.get_(storeFrontData.HOMEHOSTNAMEPATH) as String);
+        this.hostName = (storeHashMap.get_(storeFrontData.HOSTNAME) as String);
+        this.hostNamePath = (storeHashMap.get_(storeFrontData.HOSTNAMEPATH) as String);
+        this.testHomeHostName = (storeHashMap.get_(storeFrontData.TESTHOMEHOSTNAME) as String);
+        this.testHomeHostNamePath = (storeHashMap.get_(storeFrontData.TESTHOMEHOSTNAMEPATH) as String);
+        this.testHostName = (storeHashMap.get_(storeFrontData.TESTHOSTNAME) as String);
+        this.testHostNamePath = (storeHashMap.get_(storeFrontData.TESTHOSTNAMEPATH) as String);
+        this.imagePath = (storeHashMap.get_(storeFrontData.IMAGEPATH) as String);
+        this.staticPath = (storeHashMap.get_(storeFrontData.STATICPATH) as String);
+        this.categoryPath = (storeHashMap.get_(storeFrontData.CATEGORYPATH) as String);
+        this.inventoryControl = (storeHashMap.get_(storeFrontData.INVENTORYCONTROL) as String);
+        this.subStores = (storeHashMap.get_(storeFrontData.SUBSTORES) as String);
+        this.tagLocation = (storeHashMap.get_(storeFrontData.TAGLOCATION) as String);
+        this.packageLocation = (storeHashMap.get_(storeFrontData.PACKAGELOCATION) as String);
+        this.ftp = (storeHashMap.get_(storeFrontData.FTP) as String);
+        this.ftpPath = (storeHashMap.get_(storeFrontData.FTPPATH) as String);
+        this.ftpUserName = (storeHashMap.get_(storeFrontData.FTPUSERNAME) as String);
+        this.ftpPassword = (storeHashMap.get_(storeFrontData.FTPPASSWORD) as String);
+        this.testFtp = (storeHashMap.get_(storeFrontData.TESTFTP) as String);
+        this.testFtpPath = (storeHashMap.get_(storeFrontData.TESTFTPPATH) as String);
+        this.testFtpUserName = (storeHashMap.get_(storeFrontData.TESTFTPUSERNAME) as String);
+        this.testFtpPassword = (storeHashMap.get_(storeFrontData.TESTFTPPASSWORD) as String);
+        this.timeCreated = (storeHashMap.get_(EntryData.getInstance().TIMECREATED) as String);
+        this.lastModified = (storeHashMap.get_(EntryData.getInstance().LASTMODIFIED) as String);
+            }).apply(this, args);
+            return;
+        }
     }
     
-    private constructor$0(): void {
-        
+    
+
+    public function getTestHtmlPath():String {
+        return org.allbinary.globals.URLGLOBALS.getTestHtmlPath() + this.getCurrentHostNamePath();
     }
     
-    private constructor$1(storeHashMap: HashMap<any, any>): void {
-        
-    let storeFrontData: StoreFrontData = StoreFrontData.getInstance()!;;
-    
-this.name= storeHashMap!.get(storeFrontData!.NAME) as string;
-    
-this.userName= storeHashMap!.get(UserData.USERNAME) as string;
-    
-this.basketName= storeHashMap!.get(storeFrontData!.NAME) as string;
-    
-this.homeHostName= storeHashMap!.get(storeFrontData!.HOMEHOSTNAME) as string;
-    
-this.homeHostNamePath= storeHashMap!.get(storeFrontData!.HOMEHOSTNAMEPATH) as string;
-    
-this.hostName= storeHashMap!.get(storeFrontData!.HOSTNAME) as string;
-    
-this.hostNamePath= storeHashMap!.get(storeFrontData!.HOSTNAMEPATH) as string;
-    
-this.testHomeHostName= storeHashMap!.get(storeFrontData!.TESTHOMEHOSTNAME) as string;
-    
-this.testHomeHostNamePath= storeHashMap!.get(storeFrontData!.TESTHOMEHOSTNAMEPATH) as string;
-    
-this.testHostName= storeHashMap!.get(storeFrontData!.TESTHOSTNAME) as string;
-    
-this.testHostNamePath= storeHashMap!.get(storeFrontData!.TESTHOSTNAMEPATH) as string;
-    
-this.imagePath= storeHashMap!.get(storeFrontData!.IMAGEPATH) as string;
-    
-this.staticPath= storeHashMap!.get(storeFrontData!.STATICPATH) as string;
-    
-this.categoryPath= storeHashMap!.get(storeFrontData!.CATEGORYPATH) as string;
-    
-this.inventoryControl= storeHashMap!.get(storeFrontData!.INVENTORYCONTROL) as string;
-    
-this.subStores= storeHashMap!.get(storeFrontData!.SUBSTORES) as string;
-    
-this.tagLocation= storeHashMap!.get(storeFrontData!.TAGLOCATION) as string;
-    
-this.packageLocation= storeHashMap!.get(storeFrontData!.PACKAGELOCATION) as string;
-    
-this.ftp= storeHashMap!.get(storeFrontData!.FTP) as string;
-    
-this.ftpPath= storeHashMap!.get(storeFrontData!.FTPPATH) as string;
-    
-this.ftpUserName= storeHashMap!.get(storeFrontData!.FTPUSERNAME) as string;
-    
-this.ftpPassword= storeHashMap!.get(storeFrontData!.FTPPASSWORD) as string;
-    
-this.testFtp= storeHashMap!.get(storeFrontData!.TESTFTP) as string;
-    
-this.testFtpPath= storeHashMap!.get(storeFrontData!.TESTFTPPATH) as string;
-    
-this.testFtpUserName= storeHashMap!.get(storeFrontData!.TESTFTPUSERNAME) as string;
-    
-this.testFtpPassword= storeHashMap!.get(storeFrontData!.TESTFTPPASSWORD) as string;
-    
-this.timeCreated= storeHashMap!.get(EntryData.getInstance()!.TIMECREATED) as string;
-    
-this.lastModified= storeHashMap!.get(EntryData.getInstance()!.LASTMODIFIED) as string;
-    
 
+    public function getCurrentHostName():String {
+        var location:String = null;
+        if (org.allbinary.globals.URLGLOBALS.isTestingMode()) {
+            location = this.getTestHostName();
+        } else {
+            location = this.getHostName();
+        }
+        return location;
     }
     
-    public getTestHtmlPath(): string{
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return org.allbinary.globals.URLGLOBALS.getTestHtmlPath() +this.getCurrentHostNamePath();
-    
-}
-
-
-    public getCurrentHostName(): string{
-
-    let location: string = 
-                null
-            ;;
+    public function getCurrentHostNamePath():String {
+        var location:String = null;
+        if (org.allbinary.globals.URLGLOBALS.isTestingMode()) {
+            location = this.getTestHostNamePath();
+        } else {
+            location = this.getHostNamePath();
+        }
+        return location;
+    }
     
 
-                        if(org.allbinary.globals.URLGLOBALS.isTestingMode())
-                        
-                                    {
-                                    location= this.getTestHostName();
+    public function getCurrentHomeHostName():String {
+        var location:String = null;
+        if (org.allbinary.globals.URLGLOBALS.isTestingMode()) {
+            location = this.getTestHomeHostName();
+        } else {
+            location = this.getHomeHostName();
+        }
+        return location;
+    }
     
 
-                                    }
-                                
-                        else {
-                            location= this.getHostName();
+    public function getCurrentHomeHostNamePath():String {
+        var location:String = null;
+        if (org.allbinary.globals.URLGLOBALS.isTestingMode()) {
+            location = this.getTestHomeHostNamePath();
+        } else {
+            location = this.getHomeHostNamePath();
+        }
+        return location;
+    }
     
 
-                        }
-                            
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return location;
-    
-}
-
-
-    public getCurrentHostNamePath(): string{
-
-    let location: string = 
-                null
-            ;;
+    public function getName():String {
+        return this.name;
+    }
     
 
-                        if(org.allbinary.globals.URLGLOBALS.isTestingMode())
-                        
-                                    {
-                                    location= this.getTestHostNamePath();
+    public function getUserName():String {
+        return this.userName;
+    }
     
 
-                                    }
-                                
-                        else {
-                            location= this.getHostNamePath();
+    public function getBasketName():String {
+        return this.basketName;
+    }
     
 
-                        }
-                            
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return location;
-    
-}
-
-
-    public getCurrentHomeHostName(): string{
-
-    let location: string = 
-                null
-            ;;
+    public function getHomeHostName():String {
+        return this.homeHostName;
+    }
     
 
-                        if(org.allbinary.globals.URLGLOBALS.isTestingMode())
-                        
-                                    {
-                                    location= this.getTestHomeHostName();
+    public function getHomeHostNamePath():String {
+        return this.homeHostNamePath;
+    }
     
 
-                                    }
-                                
-                        else {
-                            location= this.getHomeHostName();
+    public function getHostName():String {
+        return this.hostName;
+    }
     
 
-                        }
-                            
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return location;
-    
-}
-
-
-    public getCurrentHomeHostNamePath(): string{
-
-    let location: string = 
-                null
-            ;;
+    public function getHostNamePath():String {
+        return this.hostNamePath;
+    }
     
 
-                        if(org.allbinary.globals.URLGLOBALS.isTestingMode())
-                        
-                                    {
-                                    location= this.getTestHomeHostNamePath();
+    public function getTestHomeHostName():String {
+        return this.testHomeHostName;
+    }
     
 
-                                    }
-                                
-                        else {
-                            location= this.getHomeHostNamePath();
+    public function getTestHomeHostNamePath():String {
+        return this.testHomeHostNamePath;
+    }
     
 
-                        }
-                            
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return location;
-    
-}
-
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.name;
-    
-}
-
-
-    public getUserName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.userName;
-    
-}
-
-
-    public getBasketName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basketName;
-    
-}
-
-
-    public getHomeHostName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.homeHostName;
-    
-}
-
-
-    public getHomeHostNamePath(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.homeHostNamePath;
-    
-}
-
-
-    public getHostName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.hostName;
-    
-}
-
-
-    public getHostNamePath(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.hostNamePath;
-    
-}
-
-
-    public getTestHomeHostName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.testHomeHostName;
-    
-}
-
-
-    public getTestHomeHostNamePath(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.testHomeHostNamePath;
-    
-}
-
-
-    public getTestHostName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.testHostName;
-    
-}
-
-
-    public getTestHostNamePath(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.testHostNamePath;
-    
-}
-
-
-    public getStaticPath(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.staticPath;
-    
-}
-
-
-    public getCategoryPath(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.categoryPath;
-    
-}
-
-
-    public getInventoryControl(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.inventoryControl;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getSubStores(): BasicArrayList{
-
- try { 
-    let tokenizer: Tokenizer = new Tokenizer(CommonSeps.getInstance()!.SEMICOLON);;
+    public function getTestHostName():String {
+        return this.testHostName;
+    }
     
 
-    let subStoreVector: BasicArrayList = tokenizer.getTokensFromString(this.subStores, new BasicArrayListD())!;;
+    public function getTestHostNamePath():String {
+        return this.testHostNamePath;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return subStoreVector;
+    public function getStaticPath():String {
+        return this.staticPath;
+    }
     
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
 
-
-
-                            throw e;
-                    
-
- }
-   }
- 
-}
-
-
-    public getTagLocation(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.tagLocation;
+    public function getCategoryPath():String {
+        return this.categoryPath;
+    }
     
-}
 
-
-    public getPackageLocation(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.packageLocation;
+    public function getInventoryControl():String {
+        return this.inventoryControl;
+    }
     
-}
 
-
-    public getFtp(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.ftp;
+    public function getSubStores():BasicArrayList {
+        try {
+            var tokenizer:Tokenizer = new Tokenizer(CommonSeps.getInstance().SEMICOLON);
+            var subStoreVector:BasicArrayList = tokenizer.getTokensFromString(this.subStores, new BasicArrayListD());
+            return subStoreVector;
+        } catch (e:*) {
+            throw e;
+        }
+    }
     
-}
 
-
-    public getFtpUserName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.ftpUserName;
+    public function getTagLocation():String {
+        return this.tagLocation;
+    }
     
-}
 
-
-    public getFtpPassword(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.ftpPassword;
+    public function getPackageLocation():String {
+        return this.packageLocation;
+    }
     
-}
 
-
-    public getTestFtp(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.testFtp;
+    public function getFtp():String {
+        return this.ftp;
+    }
     
-}
 
-
-    public getTestFtpUserName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.testFtpUserName;
+    public function getFtpUserName():String {
+        return this.ftpUserName;
+    }
     
-}
 
-
-    public getTestFtpPassword(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.testFtpPassword;
+    public function getFtpPassword():String {
+        return this.ftpPassword;
+    }
     
-}
 
-
-    public getFtpPath(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.ftpPath;
+    public function getTestFtp():String {
+        return this.testFtp;
+    }
     
-}
 
-
-    public getTestFtpPath(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.testFtpPath;
+    public function getTestFtpUserName():String {
+        return this.testFtpUserName;
+    }
     
-}
 
-
-    public getTimeCreated(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.timeCreated;
+    public function getTestFtpPassword():String {
+        return this.testFtpPassword;
+    }
     
-}
 
-
-    public getLastModified(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.lastModified;
+    public function getFtpPath():String {
+        return this.ftpPath;
+    }
     
-}
 
+    public function getTestFtpPath():String {
+        return this.testFtpPath;
+    }
+    
 
+    public function getTimeCreated():String {
+        return this.timeCreated;
+    }
+    
+
+    public function getLastModified():String {
+        return this.lastModified;
+    }
+    }
 }
 

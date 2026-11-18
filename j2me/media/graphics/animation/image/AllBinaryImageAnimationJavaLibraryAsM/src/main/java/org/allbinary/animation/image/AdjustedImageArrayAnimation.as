@@ -1,120 +1,68 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.AnimationBehavior;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AdjustedImageArrayAnimation extends ImageArrayAnimation {
+        private var dx:int = 0;
+        private var dy:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageArrayAnimation } from './ImageArrayAnimation.js';
-//sameFolderImports - not GWT import - same folder const ImageArrayAnimation
-
-export class AdjustedImageArrayAnimation extends ImageArrayAnimation {
-        
-
-    private dx: number= 0;
-
-    private dy: number= 0;
-
-public constructor (imageArray: Image[], dx: number, dy: number, animationBehavior: AnimationBehavior){
-            super(imageArray, animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.init(dx, dy);
+        // Java field initializers run after the base constructor
+        private function initFieldsAdjustedImageArrayAnimation():void {
+    this.dx = 0;
+    this.dy = 0;
+        }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public init(dx: number, dy: number){
-this.setDx(dx);
+    public function AdjustedImageArrayAnimation(imageArray:Vector.<Image>, dx:int, dy:int, animationBehavior:AnimationBehavior) {
+        super(imageArray, animationBehavior);
+        this.initFieldsAdjustedImageArrayAnimation();
+        this.init(dx, dy);
+    }
     
-this.setDy(dy);
+
+    public function init(dx:int, dy:int):void {
+        this.setDx(dx);
+        this.setDy(dy);
+    }
     
-}
 
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-super.paintXY(graphics, x +this.dx, y +this.dy);
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        super.paintXY(graphics, int(x + this.dx), int(y + this.dy));
+    }
     
-}
 
-
-    public setDx(dx: number){
-this.dx= dx;
+    override public function setDx(dx:int):void {
+        this.dx = dx;
+    }
     
-}
 
-
-    public getDx(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.dx;
+    override public function getDx():int {
+        return this.dx;
+    }
     
-}
 
-
-    public setDy(dy: number){
-this.dy= dy;
+    override public function setDy(dy:int):void {
+        this.dy = dy;
+    }
     
-}
 
-
-    public getDy(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.dy;
-    
-}
-
-
+    override public function getDy():int {
+        return this.dy;
+    }
+    }
 }
 

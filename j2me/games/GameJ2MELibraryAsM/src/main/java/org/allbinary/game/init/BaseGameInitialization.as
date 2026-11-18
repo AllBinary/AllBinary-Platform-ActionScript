@@ -1,366 +1,181 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.init {
+    import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
+    import org.allbinary.game.configuration.GameConfigurationCentral;
+    import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
+    import org.allbinary.game.configuration.feature.InputFeatureFactory;
+    import org.allbinary.game.configuration.feature.MainFeatureFactory;
+    import org.allbinary.game.input.PlatformInputMappingFactory;
+    import org.allbinary.game.input.event.GameKeyEventFactory;
+    import org.allbinary.game.resource.FeaturedResourceRelativeRelationshipFactory;
+    import org.allbinary.game.resource.ResourceInitialization;
+    import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+    import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
+    import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+    import org.allbinary.image.GameFeatureImageCacheFactory;
+    import org.allbinary.input.motion.CompleteMotionGestureInputToGameMotionGestureInput;
+    import org.allbinary.input.motion.button.BasicTouchInputFactory;
+    import org.allbinary.input.motion.button.CancelTouchButtonInputFactory;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BaseGameInitialization implements GameInitializationInterface {
+    private static var NULL_BASE_GAME_INITIALIZATION_value:BaseGameInitialization;
+    private static var NULL_BASE_GAME_INITIALIZATION_set:Boolean = false;
+    public static function get NULL_BASE_GAME_INITIALIZATION():BaseGameInitialization {
+        if (!BaseGameInitialization.NULL_BASE_GAME_INITIALIZATION_set) {
+            BaseGameInitialization.NULL_BASE_GAME_INITIALIZATION_set = true;
+            BaseGameInitialization.NULL_BASE_GAME_INITIALIZATION_value = new BaseGameInitialization(new Vector.<ResourceInitialization>(0), 0);
+        }
+        return BaseGameInitialization.NULL_BASE_GAME_INITIALIZATION_value;
+    }
+        public var resourceInitializationArray:Vector.<ResourceInitialization> = null;
+        private var portion:int = 0;
+        private var initialized:Boolean = false;
+        public var EARLY_RESOURCES:int = 0;
+        public var GAME_RESOURCES:int = 0;
+        public var EARLY_CHANGABLE_RESOURCES:int = 0;
+        public var GAME_CHANGABLE_RESOURCES:int = 0;
+        private var gameInitialized:Boolean = false;
+        private var allLoaded:Boolean = false;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { CommandListener } from '../../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
-
-import { FeaturedAnimationInterfaceFactoryInterfaceFactory } from '../../../../org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.js';
-//not GWT import const FeaturedAnimationInterfaceFactoryInterfaceFactory
-
-import { GameConfigurationCentral } from '../../../../org/allbinary/game/configuration/GameConfigurationCentral.js';
-//not GWT import const GameConfigurationCentral
-
-import { ChangedGameFeatureListener } from '../../../../org/allbinary/game/configuration/event/ChangedGameFeatureListener.js';
-//not GWT import const ChangedGameFeatureListener
-
-import { InputFeatureFactory } from '../../../../org/allbinary/game/configuration/feature/InputFeatureFactory.js';
-//not GWT import const InputFeatureFactory
-
-import { MainFeatureFactory } from '../../../../org/allbinary/game/configuration/feature/MainFeatureFactory.js';
-//not GWT import const MainFeatureFactory
-
-import { PlatformInputMappingFactory } from '../../../../org/allbinary/game/input/PlatformInputMappingFactory.js';
-//not GWT import const PlatformInputMappingFactory
-
-import { GameKeyEventFactory } from '../../../../org/allbinary/game/input/event/GameKeyEventFactory.js';
-//not GWT import const GameKeyEventFactory
-
-import { FeaturedResourceRelativeRelationshipFactory } from '../../../../org/allbinary/game/resource/FeaturedResourceRelativeRelationshipFactory.js';
-//not GWT import const FeaturedResourceRelativeRelationshipFactory
-
-import { ResourceInitialization } from '../../../../org/allbinary/game/resource/ResourceInitialization.js';
-//not GWT import const ResourceInitialization
-
-import { ResourceLoadingLevelFactory } from '../../../../org/allbinary/game/resource/ResourceLoadingLevelFactory.js';
-//not GWT import const ResourceLoadingLevelFactory
-
-import { ProgressCanvas } from '../../../../org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.js';
-//not GWT import const ProgressCanvas
-
-import { ProgressCanvasFactory } from '../../../../org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.js';
-//not GWT import const ProgressCanvasFactory
-
-import { GameFeatureImageCacheFactory } from '../../../../org/allbinary/image/GameFeatureImageCacheFactory.js';
-//not GWT import const GameFeatureImageCacheFactory
-
-import { CompleteMotionGestureInputToGameMotionGestureInput } from '../../../../org/allbinary/input/motion/CompleteMotionGestureInputToGameMotionGestureInput.js';
-//not GWT import const CompleteMotionGestureInputToGameMotionGestureInput
-
-import { BasicTouchInputFactory } from '../../../../org/allbinary/input/motion/button/BasicTouchInputFactory.js';
-//not GWT import const BasicTouchInputFactory
-
-import { CancelTouchButtonInputFactory } from '../../../../org/allbinary/input/motion/button/CancelTouchButtonInputFactory.js';
-//not GWT import const CancelTouchButtonInputFactory
-
-import { AbeClientInformationInterface } from '../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameInitializationInterface } from './GameInitializationInterface.js';
-//sameFolderImports - not GWT import - same folder const GameInitializationInterface
-
-export class BaseGameInitialization
-            extends Object
-         implements GameInitializationInterface {
-        
-
-    public static readonly NULL_BASE_GAME_INITIALIZATION: BaseGameInitialization = new BaseGameInitialization([], 0);
-
-    readonly resourceInitializationArray: ResourceInitialization[];
-
-    private readonly portion: number;
-
-    private initialized: boolean= false;
-
-    readonly EARLY_RESOURCES: number = 0;
-
-    readonly GAME_RESOURCES: number = 1;
-
-    readonly EARLY_CHANGABLE_RESOURCES: number = 2;
-
-    readonly GAME_CHANGABLE_RESOURCES: number = 3;
-
-public constructor (resourceInitializationArray: ResourceInitialization[], portion: number){
-
-            super();
-        this.resourceInitializationArray= resourceInitializationArray;
+        // Java field initializers run after the base constructor
+        private function initFieldsBaseGameInitialization():void {
     
-this.portion= portion;
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public initKey(portion: number){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    initKeyMapping(abeClientInformation: AbeClientInformationInterface, portion: number){
-
-                        if(ChangedGameFeatureListener.getInstance()!.isChangedFeature(InputFeatureFactory.getInstance()!.INPUT_MAPPING))
-                        
-                                    {
-                                    PlatformInputMappingFactory.getInstance()!.getPersistentInputMappingInstance()!.init(abeClientInformation);
-    
-ProgressCanvasFactory.getInstance()!.addNormalPortion(50, "Game Keys");
-    
-ChangedGameFeatureListener.getInstance()!.remove(InputFeatureFactory.getInstance()!.INPUT_MAPPING);
+    this.initialized = false;
+    this.EARLY_RESOURCES = 0;
+    this.GAME_RESOURCES = 1;
+    this.EARLY_CHANGABLE_RESOURCES = 2;
+    this.GAME_CHANGABLE_RESOURCES = 3;
+    this.gameInitialized = false;
+    this.allLoaded = false;
+        }
     
 
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public init(abeClientInformation: AbeClientInformationInterface, commandListener: CommandListener, level: number){
-
-    let resourceLoadingLevelFactory: ResourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance()!;;
+    public function BaseGameInitialization(resourceInitializationArray:Vector.<ResourceInitialization>, portion:int) {
+        super();
+        this.initFieldsBaseGameInitialization();
+        this.resourceInitializationArray = resourceInitializationArray;
+        this.portion = portion;
+    }
     
 
-                        if(!this.isInitialized() && (level == resourceLoadingLevelFactory!.LOAD_ALL.getLevel() || level == resourceLoadingLevelFactory!.LOAD_EARLY.getLevel()))
-                        
-                                    {
-                                    
-    let localPortion: number = 40;;
+    public function initKey(portion:int):void {
+    }
     
 
-                        if(level == resourceLoadingLevelFactory!.LOAD_EARLY.getLevel())
-                        
-                                    {
-                                    localPortion= 8;
+    public function initKeyMapping(abeClientInformation:AbeClientInformationInterface, portion:int):void {
+        if (ChangedGameFeatureListener.getInstance().isChangedFeature(InputFeatureFactory.getInstance().INPUT_MAPPING)) {
+            PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().init(abeClientInformation);
+            ProgressCanvasFactory.getInstance().addNormalPortion(50, "Game Keys");
+            ChangedGameFeatureListener.getInstance().remove(InputFeatureFactory.getInstance().INPUT_MAPPING);
+        }
+    }
     
 
-                                    }
-                                
-this.setInitialized(true);
-    
-this.initKey(this.getPortion());
-    
-this.initKeyMapping(abeClientInformation, this.getPortion());
-    
-GameKeyEventFactory.getInstance()!.init();
-    
-
-    let progressCanvas: ProgressCanvas = ProgressCanvasFactory.getInstance()!;;
-    
-progressCanvas!.addNormalPortion(localPortion, "Game Key Events");
-    
-BasicTouchInputFactory.getInstance()!.init(PlatformInputMappingFactory.getInstance()!.getPersistentInputMappingInstance()!.getInputMapping());
-    
-CancelTouchButtonInputFactory.getInstance();
-    
-progressCanvas!.addNormalPortion(localPortion, "Touch Input");
-    
-CompleteMotionGestureInputToGameMotionGestureInput.getInstance()!.init();
-    
-progressCanvas!.addNormalPortion(localPortion, "Motion Input");
-    
-GameFeatureImageCacheFactory.init();
-    
-progressCanvas!.addNormalPortion(localPortion, "Image Cache");
-    
-this.resourceInitializationArray[this.EARLY_RESOURCES]!.init();
+    public function init(abeClientInformation:AbeClientInformationInterface, commandListener:CommandListener, level:int):void {
+        var resourceLoadingLevelFactory:ResourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
+        if (!this.isInitialized() && (level == resourceLoadingLevelFactory.LOAD_ALL.getLevel() || level == resourceLoadingLevelFactory.LOAD_EARLY.getLevel())) {
+            var localPortion:int = 40;
+            if (level == resourceLoadingLevelFactory.LOAD_EARLY.getLevel()) {
+                localPortion = 8;
+            }
+            this.setInitialized(true);
+            this.initKey(this.getPortion());
+            this.initKeyMapping(abeClientInformation, this.getPortion());
+            GameKeyEventFactory.getInstance().init();
+            var progressCanvas:ProgressCanvas = ProgressCanvasFactory.getInstance();
+            progressCanvas.addNormalPortion(localPortion, "Game Key Events");
+            BasicTouchInputFactory.getInstance().init(PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
+            CancelTouchButtonInputFactory.getInstance();
+            progressCanvas.addNormalPortion(localPortion, "Touch Input");
+            CompleteMotionGestureInputToGameMotionGestureInput.getInstance().init();
+            progressCanvas.addNormalPortion(localPortion, "Motion Input");
+            GameFeatureImageCacheFactory.init();
+            progressCanvas.addNormalPortion(localPortion, "Image Cache");
+            this.resourceInitializationArray[this.EARLY_RESOURCES].init();
+        }
+    }
     
 
-                                    }
-                                
-}
-
-
-    private gameInitialized: boolean= false;
-
-    private allLoaded: boolean= false;
-
-                //@Throws(Exception.constructor)
-            
-    public resourceInitialization(level: number){
-
-    let resourceLoadingLevelFactory: ResourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance()!;;
+    public function resourceInitialization(level:int):void {
+        var resourceLoadingLevelFactory:ResourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
+        if (this.resourceAnimationChange() && level == resourceLoadingLevelFactory.LOAD_EARLY.getLevel()) {
+            this.clearResources();
+            this.resourceInitializationArray[this.EARLY_CHANGABLE_RESOURCES].init();
+        }
+        if (this.resourceAnimationChange() && level == resourceLoadingLevelFactory.LOAD_ALL.getLevel()) {
+            if (this.allLoaded) {
+                this.clearResources();
+            }
+            if (FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().getList().size() == 0) {
+                this.resourceInitializationArray[this.EARLY_CHANGABLE_RESOURCES].init();
+            }
+            this.resourceInitializationArray[this.GAME_CHANGABLE_RESOURCES].init();
+            this.allLoaded = true;
+        }
+    }
     
 
-                        if(this.resourceAnimationChange() && level == resourceLoadingLevelFactory!.LOAD_EARLY.getLevel())
-                        
-                                    {
-                                    this.clearResources();
-    
-this.resourceInitializationArray[this.EARLY_CHANGABLE_RESOURCES]!.init();
-    
-
-                                    }
-                                
-
-                        if(this.resourceAnimationChange() && level == resourceLoadingLevelFactory!.LOAD_ALL.getLevel())
-                        
-                                    {
-                                    
-                        if(this.allLoaded)
-                        
-                                    {
-                                    this.clearResources();
+    public function resourceAnimationChange():Boolean {
+        var changedGameFeatureListener:ChangedGameFeatureListener = ChangedGameFeatureListener.getInstance();
+        var gameConfigurationCentral:GameConfigurationCentral = GameConfigurationCentral.getInstance();
+        if (changedGameFeatureListener.isChangedGameConfiguration(gameConfigurationCentral.SCALE)) {
+            return true;
+        }
+        if (ChangedGameFeatureListener.getInstance().isChangedFeature(MainFeatureFactory.getInstance().STATIC)) {
+            return true;
+        }
+        return false;
+    }
     
 
-                                    }
-                                
-
-                        if(FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()!.getList()!.size() == 0)
-                        
-                                    {
-                                    this.resourceInitializationArray[this.EARLY_CHANGABLE_RESOURCES]!.init();
+    private function clearResources():void {
+        this.allLoaded = false;
+        GameFeatureImageCacheFactory.releaseAll();
+        var featuredAnimationInterfaceFactoryInterfaceFactory:FeaturedAnimationInterfaceFactoryInterfaceFactory = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance();
+        featuredAnimationInterfaceFactoryInterfaceFactory.clear();
+        FeaturedResourceRelativeRelationshipFactory.getInstance().clear();
+    }
     
 
-                                    }
-                                
-this.resourceInitializationArray[this.GAME_CHANGABLE_RESOURCES]!.init();
-    
-this.allLoaded= true;
+    public function setGameInitialized(gameInitialized:Boolean):void {
+        this.gameInitialized = gameInitialized;
+    }
     
 
-                                    }
-                                
-}
-
-
-    public resourceAnimationChange(): boolean{
-
-    let changedGameFeatureListener: ChangedGameFeatureListener = ChangedGameFeatureListener.getInstance()!;;
+    public function isGameInitialized():Boolean {
+        return this.gameInitialized;
+    }
     
 
-    let gameConfigurationCentral: GameConfigurationCentral = GameConfigurationCentral.getInstance()!;;
+    public function getPortion():int {
+        return this.portion;
+    }
     
 
-                        if(changedGameFeatureListener!.isChangedGameConfiguration(gameConfigurationCentral!.SCALE))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function setInitialized(initialized:Boolean):void {
+        this.initialized = initialized;
+    }
     
 
-                                    }
-                                
-
-                        if(ChangedGameFeatureListener.getInstance()!.isChangedFeature(MainFeatureFactory.getInstance()!.STATIC))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    clearResources(){
-this.allLoaded= false;
-    
-GameFeatureImageCacheFactory.releaseAll();
-    
-
-    let featuredAnimationInterfaceFactoryInterfaceFactory: FeaturedAnimationInterfaceFactoryInterfaceFactory = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()!;;
-    
-featuredAnimationInterfaceFactoryInterfaceFactory!.clear();
-    
-FeaturedResourceRelativeRelationshipFactory.getInstance()!.clear();
-    
-}
-
-
-    setGameInitialized(gameInitialized: boolean){
-this.gameInitialized= gameInitialized;
-    
-}
-
-
-    isGameInitialized(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gameInitialized;
-    
-}
-
-
-    getPortion(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.portion;
-    
-}
-
-
-    public setInitialized(initialized: boolean){
-this.initialized= initialized;
-    
-}
-
-
-    public isInitialized(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.initialized;
-    
-}
-
-
+    public function isInitialized():Boolean {
+        return this.initialized;
+    }
+    }
 }
 

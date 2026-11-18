@@ -1,91 +1,66 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TestInputExample implements TestInputInterface {
+        private var testValue:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsTestInputExample():void {
+    this.testValue = 0;
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TestInputInterface } from './TestInputInterface.js';
-//sameFolderImports - not GWT import - same folder const TestInputInterface
-
-export class TestInputExample
-            extends Object
-         implements TestInputInterface {
-        
-
-    private testValue: number= 0;
-
-    public up(){
-}
-
-
-    public down(){
-}
-
-
-    public left(){
-this.testValue++;
+        public function TestInputExample() {
+            super();
+            this.initFieldsTestInputExample();
+        }
     
-}
 
-
-    public right(){
-this.testValue--;
+    public function up():void {
+    }
     
-}
 
+    public function down():void {
+    }
+    
 
-    public strafeLeft(){
-}
+    public function left():void {
+        this.testValue++;
+    }
+    
 
+    public function right():void {
+        this.testValue--;
+    }
+    
 
-    public strafeRight(){
-}
+    public function strafeLeft():void {
+    }
+    
 
+    public function strafeRight():void {
+    }
+    
 
-    public paint(graphics: Graphics){
-}
+    public function paint(graphics:Graphics):void {
+    }
+    
 
-
-    public paintThreed(graphics: Graphics){
-}
-
-
+    public function paintThreed(graphics:Graphics):void {
+    }
+    }
 }
 

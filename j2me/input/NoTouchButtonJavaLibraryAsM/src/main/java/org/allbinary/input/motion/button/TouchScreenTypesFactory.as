@@ -1,70 +1,52 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TouchScreenTypesFactory {
+    private static var instance_value:TouchScreenTypesFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():TouchScreenTypesFactory {
+        if (!TouchScreenTypesFactory.instance_set) {
+            TouchScreenTypesFactory.instance_set = true;
+            TouchScreenTypesFactory.instance_value = new TouchScreenTypesFactory();
+        }
+        return TouchScreenTypesFactory.instance_value;
+    }
+        public var FINGER:TouchScreenType = null;
+        public var NOTOUCH:TouchScreenType = null;
+        public var STYLUS:TouchScreenType = null;
+        public var UNDEFINED:TouchScreenType = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsTouchScreenTypesFactory():void {
+    this.FINGER = new TouchScreenType("Finger");
+    this.NOTOUCH = new TouchScreenType("No Touch");
+    this.STYLUS = new TouchScreenType("Stylus");
+    this.UNDEFINED = new TouchScreenType("Undefined");
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TouchScreenType } from './TouchScreenType.js';
-//sameFolderImports - not GWT import - same folder const TouchScreenType
-
-export class TouchScreenTypesFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: TouchScreenTypesFactory = new TouchScreenTypesFactory();
-
-    public static getInstance(): TouchScreenTypesFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return TouchScreenTypesFactory.instance;
+        public function TouchScreenTypesFactory() {
+            super();
+            this.initFieldsTouchScreenTypesFactory();
+        }
     
-}
 
-
-    public readonly FINGER: TouchScreenType = new TouchScreenType("Finger");
-
-    public readonly NOTOUCH: TouchScreenType = new TouchScreenType("No Touch");
-
-    public readonly STYLUS: TouchScreenType = new TouchScreenType("Stylus");
-
-    public readonly UNDEFINED: TouchScreenType = new TouchScreenType("Undefined");
-
+    public static function getInstance():TouchScreenTypesFactory {
+        return TouchScreenTypesFactory.instance;
+    }
+    }
 }
 

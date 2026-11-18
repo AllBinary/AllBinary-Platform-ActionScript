@@ -1,104 +1,60 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicLayerPlacement {
+        private var layerType:LayerPlacementType = null;
+        private var width:int = 0;
+        private var height:int = 0;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LayerPlacementType } from './LayerPlacementType.js';
-//sameFolderImports - not GWT import - same folder const LayerPlacementType
-
-export class BasicLayerPlacement
-            extends Object
-         {
-        
-
-    private layerType: LayerPlacementType;
-
-    private width: number;
-
-    private height: number;
-
-public constructor (layerType: LayerPlacementType, width: number, height: number){
-
-            super();
-        this.layerType= layerType;
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicLayerPlacement():void {
     
-this.width= width;
     
-this.height= height;
     
-}
-
-
-    public getWidth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.width;
+        }
     
-}
 
-
-    public getHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.height;
+    public function BasicLayerPlacement(layerType:LayerPlacementType, width:int, height:int) {
+        super();
+        this.initFieldsBasicLayerPlacement();
+        this.layerType = layerType;
+        this.width = width;
+        this.height = height;
+    }
     
-}
 
-
-    public getLayerType(): LayerPlacementType{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.layerType;
+    public function getWidth():int {
+        return this.width;
+    }
     
-}
 
-
-    setLayerType(layerType: LayerPlacementType){
-this.layerType= layerType;
+    public function getHeight():int {
+        return this.height;
+    }
     
-}
 
+    public function getLayerType():LayerPlacementType {
+        return this.layerType;
+    }
+    
 
+    public function setLayerType(layerType:LayerPlacementType):void {
+        this.layerType = layerType;
+    }
+    }
 }
 

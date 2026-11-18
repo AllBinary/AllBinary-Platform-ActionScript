@@ -1,148 +1,84 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.canvas.GameStatisticsFactory;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.font.UpdateMyFontProcessor;
+    import org.allbinary.graphics.paint.InitUpdatePaintable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable implements UpdateMyFontInterface {
+        private var halfHeight:int = 0;
+        private var yArray:Vector.<int> = null;
+        private var myFontProcessor:MyFontProcessor = null;
+        private var baseRefreshHelperCharArray:Vector.<Vector.<int>> = null;
+        private var defaultStringWidth:int = 0;
+        private var RED:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGamePerformanceInitUpdatePaintable():void {
+    this.halfHeight = DisplayInfoSingleton.getInstance().getLastHalfHeight();
+    this.yArray = new <int>[int(this.halfHeight + 30), int(this.halfHeight + 30), int(int(this.halfHeight + 30) + 15), int(int(this.halfHeight + 30) + 15), int(int(this.halfHeight + 30) + 30), int(int(this.halfHeight + 30) + 30), int(int(this.halfHeight + 30) + 45), int(int(this.halfHeight + 30) + 45)];
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
+    this.baseRefreshHelperCharArray = (function():Vector.<Vector.<int>> { var array:Vector.<Vector.<int>> = new Vector.<Vector.<int>>(0); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<int>(0); } return array; })();
+    this.defaultStringWidth = 0;
+    this.RED = BasicColorFactory.getInstance().RED.intValue();
+        }
 
-
-import { Font } from '../../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { GameStatisticsFactory } from '../../../../../org/allbinary/canvas/GameStatisticsFactory.js';
-//not GWT import const GameStatisticsFactory
-
-import { BasicColorFactory } from '../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { DisplayInfoSingleton } from '../../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { MyFontProcessor } from '../../../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { UpdateMyFontInterface } from '../../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { UpdateMyFontProcessor } from '../../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
-//not GWT import const UpdateMyFontProcessor
-
-import { InitUpdatePaintable } from '../../../../../org/allbinary/graphics/paint/InitUpdatePaintable.js';
-//not GWT import const InitUpdatePaintable
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable implements UpdateMyFontInterface {
-        
-
-    private readonly halfHeight: number = DisplayInfoSingleton.getInstance()!.getLastHalfHeight()!;
-
-    private readonly yArray: number[] = [this.halfHeight +30,this.halfHeight +30,this.halfHeight +30 +15,this.halfHeight +30 +15,this.halfHeight +30 +30,this.halfHeight +30 +30,this.halfHeight +30 +45,this.halfHeight +30 +45];
-
-    private myFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
-
-    private baseRefreshHelperCharArray: string[][] = new Array(0).fill(null).map(() => new Array(0).fill(null));
-
-    private defaultStringWidth: number= 0;
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
-    
-this.defaultStringWidth= MyFontProcessor.defaultStringWidth(font, 2);
-    
-this.myFontProcessor= MyFontProcessor.getInstance();
-    
-}
-
-
-    public init(){
-}
-
-
-    public update(){
-this.baseRefreshHelperCharArray= GameStatisticsFactory.getInstance()!.to2DCharArray();
-    
-}
-
-
-    private readonly RED: number = BasicColorFactory.getInstance()!.RED.intValue()!;
-
-    public paint(graphics: Graphics){
-this.myFontProcessor!.process(graphics);
-    
-graphics.setColor(this.RED);
+        public function GamePerformanceInitUpdatePaintable() {
+            super();
+            this.initFieldsGamePerformanceInitUpdatePaintable();
+        }
     
 
-    let charArray: string[];;
+    public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        this.defaultStringWidth = MyFontProcessor.defaultStringWidth(font, 2);
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
     
 
-    let charArray2: string[];;
+    override public function init():void {
+    }
     
 
-    let size2: number= 0;;
+    override public function update():void {
+        this.baseRefreshHelperCharArray = GameStatisticsFactory.getInstance().to2DCharArray();
+    }
     
 
-    let size3: number= 0;;
-    
-
-    let size: number = this.baseRefreshHelperCharArray!.length -2;;
-    
-
-
-
-
-                        for (
-    let index: number = size;index >= 0; index -= 2)
-        {
-charArray= this.baseRefreshHelperCharArray[index]!;
-    
-charArray2= this.baseRefreshHelperCharArray[index +1]!;
-    
-size2= charArray!.length;
-    
-size3= charArray2!.length;
-    
-graphics.drawChars(charArray, 0, size2, 0, this.yArray[index]!, 0);
-    
-graphics.drawChars(charArray2, 0, size3, size2 *this.defaultStringWidth, this.yArray[index +1]!, 0);
-    
-}
-
-}
-
-
+    override public function paint(graphics:Graphics):void {
+        this.myFontProcessor.process(graphics);
+        graphics.setColor(this.RED);
+        var charArray:Vector.<int> = null;
+        var charArray2:Vector.<int> = null;
+        var size2:int = 0;
+        var size3:int = 0;
+        var size:int = int(this.baseRefreshHelperCharArray.length - 2);
+        for (var index:int = size; index >= 0; index -= 2) {
+            charArray = this.baseRefreshHelperCharArray[index];
+            charArray2 = this.baseRefreshHelperCharArray[int(index + 1)];
+            size2 = charArray.length;
+            size3 = charArray2.length;
+            graphics.drawChars(charArray, 0, size2, 0, this.yArray[index], 0);
+            graphics.drawChars(charArray2, 0, size3, int(size2 * this.defaultStringWidth), this.yArray[int(index + 1)], 0);
+        }
+    }
+    }
 }
 

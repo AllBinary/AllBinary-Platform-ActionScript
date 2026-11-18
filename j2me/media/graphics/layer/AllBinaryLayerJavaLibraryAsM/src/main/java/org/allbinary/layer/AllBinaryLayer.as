@@ -1,483 +1,261 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.layer {
+    import org.allbinary.game.identification.BasicGroupFactory;
+    import org.allbinary.game.identification.Group;
+    import org.allbinary.graphics.GPoint;
+    import org.allbinary.graphics.Rectangle;
+    import org.allbinary.graphics.RectangleFactory;
+    import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
+    import org.allbinary.TsUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.math.PositionStrings;
+    import org.allbinary.string.CommonLabels;
+    import org.allbinary.string.CommonSeps;
+    import org.allbinary.view.ViewPositionBase;
+    import org.allbinary.view.event.ViewPositionEvent;
+    import java.lang.JInteger;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AllBinaryLayer extends Layer implements LayerInterface {
+    private static var NULL_ALLBINARY_LAYER_value:AllBinaryLayer;
+    private static var NULL_ALLBINARY_LAYER_set:Boolean = false;
+    public static function get NULL_ALLBINARY_LAYER():AllBinaryLayer {
+        if (!AllBinaryLayer.NULL_ALLBINARY_LAYER_set) {
+            AllBinaryLayer.NULL_ALLBINARY_LAYER_set = true;
+            AllBinaryLayer.NULL_ALLBINARY_LAYER_value = new AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION);
+        }
+        return AllBinaryLayer.NULL_ALLBINARY_LAYER_value;
+    }
+    private static const TYPE:String = "Type: ";
+        public var viewPositionEvent:ViewPositionEvent = null;
+        private var halfWidth:int = 0;
+        private var halfHeight:int = 0;
+        private var name:String = null;
+        private var viewPosition:ViewPositionBase = null;
 
-        
-
-
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../java/lang/Integer.js';
-        
-import { Graphics } from '../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { BasicGroupFactory } from '../../../org/allbinary/game/identification/BasicGroupFactory.js';
-//not GWT import const BasicGroupFactory
-
-import { Group } from '../../../org/allbinary/game/identification/Group.js';
-//not GWT import const Group
-
-import { GPoint } from '../../../org/allbinary/graphics/GPoint.js';
-//not GWT import const GPoint
-
-import { Rectangle } from '../../../org/allbinary/graphics/Rectangle.js';
-//not GWT import const Rectangle
-
-import { RectangleFactory } from '../../../org/allbinary/graphics/RectangleFactory.js';
-//not GWT import const RectangleFactory
-
-import { OpenGLFeatureUtil } from '../../../org/allbinary/graphics/opengles/OpenGLFeatureUtil.js';
-//not GWT import const OpenGLFeatureUtil
-
-import { TsUtil } from '../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { PositionStrings } 
-const PositionStrings = globalThis.org.allbinary.math.PositionStrings;
-type PositionStrings<T = any, U = any> = typeof PositionStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PositionStrings;
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-import { ViewPositionBase } from '../../../org/allbinary/view/ViewPositionBase.js';
-//not GWT import const ViewPositionBase
-
-import { ViewPositionEvent } from '../../../org/allbinary/view/event/ViewPositionEvent.js';
-//not GWT import const ViewPositionEvent
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Layer } from './Layer.js';
-//sameFolderImports - not GWT import - same folder const Layer
-import { LayerInterface } from './LayerInterface.js';
-//sameFolderImports - not GWT import - same folder const LayerInterface
-
-export class AllBinaryLayer extends Layer implements LayerInterface {
-        
-
-    public static readonly NULL_ALLBINARY_LAYER: AllBinaryLayer = new AllBinaryLayer(StringUtil.getInstance()!.EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION);
-
-    private static readonly TYPE: string = "Type: ";
-
-    readonly viewPositionEvent: ViewPositionEvent = new ViewPositionEvent(this);
-
-    private halfWidth: number= 0;
-
-    private halfHeight: number= 0;
-
-    private readonly name: string;
-
-    private viewPosition: ViewPositionBase = ViewPositionBase.NULL_VIEW_POSITION;
-
-public constructor (name: string, rectangle: Rectangle, viewPosition: ViewPositionBase){
-            super(rectangle.getWidth(), rectangle.getHeight());
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-
-    let localName: string;;
+        // Java field initializers run after the base constructor
+        private function initFieldsAllBinaryLayer():void {
+    this.viewPositionEvent = new ViewPositionEvent(this);
+    this.halfWidth = 0;
+    this.halfHeight = 0;
     
-localName= new StringMaker().append(name)!.append(CommonSeps.getInstance()!.COLON)!.append(Integer.toHexString(TsUtil.getInstance()!.hashCode(this)))!.toString();
-    
-this.name= localName;
+    this.viewPosition = ViewPositionBase.NULL_VIEW_POSITION;
+        }
     
 
-    let point: GPoint = rectangle.getPoint()!;;
-    
-this.setPosition(point.getX(), point.getY(), point.getZ());
-    
-this.setHalfWidth((this.getWidth()>>1));
-    
-this.setHalfHeight((this.getHeight()>>1));
-    
-this.viewPosition= viewPosition;
-    
-this.viewPosition!.setAllbinaryLayer(this);
-    
-}
-
-
-    public setPosition(x: number, y: number, z: number){
-super.setPosition(x, y, z);
-    
-}
-
-
-    public moveDXYZ(dx: number, dy: number, dz: number){
-super.moveDXYZ(dx, dy, dz);
-    
-}
-
-
-    public getXP(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getXP();;
-    
-}
-
-
-    public getYP(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getYP();;
-    
-}
-
-
-    public getZP(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getZP();;
-    
-}
-
-
-    public getWidth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getWidth();;
-    
-}
-
-
-    public getHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getHeight();;
-    
-}
-
-
-    public setVisible(visible: boolean){
-super.setVisible(visible);
-    
-}
-
-
-    public isVisible(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.isVisible();;
-    
-}
-
-
-    public paint(graphics: Graphics){
-super.paint(graphics);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public onChangeEvent(layerManagerEvent: ViewPositionEvent){
-}
-
-
-    public paintThreed(graphics: Graphics){
-}
-
-
-    public getX2(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getXP() +this.getWidth();
-    
-}
-
-
-    public getY2(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getYP() +this.getHeight();
-    
-}
-
-
-    public getZ2(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return globalThis.Math.trunc((this.getZP() +this.getDepth()));
-    
-}
-
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.name;
-    
-}
-
-
-    setHalfWidth(halfWidth: number){
-this.halfWidth= halfWidth;
-    
-}
-
-
-    public getHalfWidth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.halfWidth;
-    
-}
-
-
-    setHalfHeight(halfHeight: number){
-this.halfHeight= halfHeight;
-    
-}
-
-
-    public getHalfHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.halfHeight;
-    
-}
-
-
-    public getHalfDepth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return globalThis.Math.trunc(globalThis.Math.trunc(this.getDepth()) /2);
-    
-}
-
-
-    public getViewPosition(): ViewPositionBase{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.viewPosition;
-    
-}
-
-
-    public setViewPosition(viewPosition: ViewPositionBase){
-this.viewPosition= viewPosition;
-    
-}
-
-
-    public getGroupInterface(): Group[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return BasicGroupFactory.getInstance()!.NONE_ARRAY;
-    
-}
-
-
-    public implmentsTickableInterface(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public implmentsGameInputInterface(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public implmentsArtificialIntelligenceCompositeInterface(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public implmentsCollidableInterface(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public implementsThreedInterface(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return OpenGLFeatureUtil.getInstance()!.isAnyThreed();;
-    
-}
-
-
-    public getType(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return  -1;
-    
-}
-
-
-    public getMultiPlayerType(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return  -1;
-    
-}
-
-
-    public toStringAppend(stringBuffer: StringMaker){
-
-    let commonSeps: CommonSeps = CommonSeps.getInstance()!;;
+    public function AllBinaryLayer(name:String, rectangle:Rectangle, viewPosition:ViewPositionBase) {
+        super(rectangle.getWidth(), rectangle.getHeight());
+        this.initFieldsAllBinaryLayer();
+        var localName:String = null;
+        localName = new StringMaker().append(name).append(CommonSeps.getInstance().COLON).append(JInteger.toHexString(TsUtil.getInstance().hashCode(this))).toString();
+        this.name = localName;
+        var point:GPoint = rectangle.getPoint();
+        this.setPosition(point.getX(), point.getY(), point.getZ());
+        this.setHalfWidth((this.getWidth() >> 1));
+        this.setHalfHeight((this.getHeight() >> 1));
+        this.viewPosition = viewPosition;
+        this.viewPosition.setAllbinaryLayer(this);
+    }
     
 
-    let positionStrings: PositionStrings = PositionStrings.getInstance()!;;
+    override public function setPosition(x:int, y:int, z:int):void {
+        super.setPosition(x, y, z);
+    }
     
 
-    let commonLabels: CommonLabels = CommonLabels.getInstance()!;;
-    
-stringBuffer!.append(this.getName());
-    
-stringBuffer!.append(commonSeps!.COLON);
-    
-stringBuffer!.append(AllBinaryLayer.TYPE);
-    
-stringBuffer!.appendint(this.getType());
-    
-stringBuffer!.append(commonSeps!.SPACE);
-    
-stringBuffer!.append(positionStrings!.X_LABEL);
-    
-stringBuffer!.appendint(this.getXP());
-    
-stringBuffer!.append(commonSeps!.SPACE);
-    
-stringBuffer!.append(positionStrings!.Y_LABEL);
-    
-stringBuffer!.appendint(this.getYP());
-    
-stringBuffer!.append(commonSeps!.SPACE);
-    
-stringBuffer!.append(positionStrings!.Z_LABEL);
-    
-stringBuffer!.appendint(this.getZP());
-    
-stringBuffer!.append(commonSeps!.SPACE);
-    
-stringBuffer!.append(commonLabels!.WIDTH_LABEL);
-    
-stringBuffer!.appendint(this.getWidth());
-    
-stringBuffer!.append(commonSeps!.SPACE);
-    
-stringBuffer!.append(commonLabels!.HEIGHT_LABEL);
-    
-stringBuffer!.appendint(this.getHeight());
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-this.toStringAppend(stringBuffer);
+    override public function moveDXYZ(dx:int, dy:int, dz:int):void {
+        super.moveDXYZ(dx, dy, dz);
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    override public function getXP():int {
+        return super.getXP();
+    }
     
-}
 
+    override public function getYP():int {
+        return super.getYP();
+    }
+    
 
+    override public function getZP():int {
+        return super.getZP();
+    }
+    
+
+    override public function getWidth():int {
+        return super.getWidth();
+    }
+    
+
+    override public function getHeight():int {
+        return super.getHeight();
+    }
+    
+
+    override public function setVisible(visible:Boolean):void {
+        super.setVisible(visible);
+    }
+    
+
+    override public function isVisible():Boolean {
+        return super.isVisible();
+    }
+    
+
+    override public function paint(graphics:Graphics):void {
+        super.paint(graphics);
+    }
+    
+
+    public function onChangeEvent(layerManagerEvent:ViewPositionEvent):void {
+    }
+    
+
+    public function paintThreed(graphics:Graphics):void {
+    }
+    
+
+    public function getX2():int {
+        return int(this.getXP() + this.getWidth());
+    }
+    
+
+    public function getY2():int {
+        return int(this.getYP() + this.getHeight());
+    }
+    
+
+    public function getZ2():int {
+        return (this.getZP() + this.getDepth());
+    }
+    
+
+    public function getName():String {
+        return this.name;
+    }
+    
+
+    public function setHalfWidth(halfWidth:int):void {
+        this.halfWidth = halfWidth;
+    }
+    
+
+    public function getHalfWidth():int {
+        return this.halfWidth;
+    }
+    
+
+    public function setHalfHeight(halfHeight:int):void {
+        this.halfHeight = halfHeight;
+    }
+    
+
+    public function getHalfHeight():int {
+        return this.halfHeight;
+    }
+    
+
+    public function getHalfDepth():int {
+        return int(this.getDepth() / 2);
+    }
+    
+
+    public function getViewPosition():ViewPositionBase {
+        return this.viewPosition;
+    }
+    
+
+    public function setViewPosition(viewPosition:ViewPositionBase):void {
+        this.viewPosition = viewPosition;
+    }
+    
+
+    public function getGroupInterface():Vector.<Group> {
+        return BasicGroupFactory.getInstance().NONE_ARRAY;
+    }
+    
+
+    public function implmentsTickableInterface():Boolean {
+        return false;
+    }
+    
+
+    public function implmentsGameInputInterface():Boolean {
+        return false;
+    }
+    
+
+    public function implmentsArtificialIntelligenceCompositeInterface():Boolean {
+        return false;
+    }
+    
+
+    public function implmentsCollidableInterface():Boolean {
+        return false;
+    }
+    
+
+    public function implementsThreedInterface():Boolean {
+        return OpenGLFeatureUtil.getInstance().isAnyThreed();
+    }
+    
+
+    public function getType():int {
+        return -1;
+    }
+    
+
+    public function getMultiPlayerType():int {
+        return -1;
+    }
+    
+
+    override public function toStringAppend(stringBuffer:StringMaker):void {
+        var commonSeps:CommonSeps = CommonSeps.getInstance();
+        var positionStrings:PositionStrings = PositionStrings.getInstance();
+        var commonLabels:CommonLabels = CommonLabels.getInstance();
+        stringBuffer.append(this.getName());
+        stringBuffer.append(commonSeps.COLON);
+        stringBuffer.append(AllBinaryLayer.TYPE);
+        stringBuffer.appendint(this.getType());
+        stringBuffer.append(commonSeps.SPACE);
+        stringBuffer.append(positionStrings.X_LABEL);
+        stringBuffer.appendint(this.getXP());
+        stringBuffer.append(commonSeps.SPACE);
+        stringBuffer.append(positionStrings.Y_LABEL);
+        stringBuffer.appendint(this.getYP());
+        stringBuffer.append(commonSeps.SPACE);
+        stringBuffer.append(positionStrings.Z_LABEL);
+        stringBuffer.appendint(this.getZP());
+        stringBuffer.append(commonSeps.SPACE);
+        stringBuffer.append(commonLabels.WIDTH_LABEL);
+        stringBuffer.appendint(this.getWidth());
+        stringBuffer.append(commonSeps.SPACE);
+        stringBuffer.append(commonLabels.HEIGHT_LABEL);
+        stringBuffer.appendint(this.getHeight());
+    }
+    
+
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        this.toStringAppend(stringBuffer);
+        return stringBuffer.toString();
+    }
+    }
 }
 

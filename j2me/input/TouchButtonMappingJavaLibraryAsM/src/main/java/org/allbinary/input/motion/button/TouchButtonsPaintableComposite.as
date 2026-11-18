@@ -1,234 +1,111 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
+    import org.allbinary.game.input.CompleteMotionGestureInputEvent;
+    import org.allbinary.game.input.CompleteMotionGestureInputEventHandler;
+    import org.allbinary.game.input.CompleteMotionGestureInputEventListenerInterface;
+    import org.allbinary.game.input.GameKey;
+    import org.allbinary.game.input.mapping.InputMappingInterface;
+    import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.paint.ProcessPaintable;
+    import org.allbinary.input.motion.gesture.MotionGestureInput;
+    import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+    import org.allbinary.logic.communication.log.ForcedLogUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventStrings;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.time.TimeDelayHelper;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TouchButtonsPaintableComposite extends ProcessPaintable implements CompleteMotionGestureInputEventListenerInterface {
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        private var inputMappingInterface:InputMappingInterface = null;
+        public var touchButtonsPaintable:TouchButtonsMappingPaintable = null;
+        private var timeHelper:TimeDelayHelper = null;
+        private var released:Boolean = false;
+        private var METHOD_NAME:String = null;
+        private var RELEASE:String = null;
+        private var FAST_REPEAT:String = null;
+        private var IGNORE:String = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { CompleteMotionGestureInputEvent } from '../../../../../org/allbinary/game/input/CompleteMotionGestureInputEvent.js';
-//not GWT import const CompleteMotionGestureInputEvent
-
-import { CompleteMotionGestureInputEventHandler } from '../../../../../org/allbinary/game/input/CompleteMotionGestureInputEventHandler.js';
-//not GWT import const CompleteMotionGestureInputEventHandler
-
-import { CompleteMotionGestureInputEventListenerInterface } from '../../../../../org/allbinary/game/input/CompleteMotionGestureInputEventListenerInterface.js';
-//not GWT import const CompleteMotionGestureInputEventListenerInterface
-
-import { GameKey } from '../../../../../org/allbinary/game/input/GameKey.js';
-//not GWT import const GameKey
-
-import { InputMappingInterface } from '../../../../../org/allbinary/game/input/mapping/InputMappingInterface.js';
-//not GWT import const InputMappingInterface
-
-import { GameKeyCompleteMotionGestureInputEvent } from '../../../../../org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.js';
-//not GWT import const GameKeyCompleteMotionGestureInputEvent
-
-import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { ProcessPaintable } from '../../../../../org/allbinary/graphics/paint/ProcessPaintable.js';
-//not GWT import const ProcessPaintable
-
-import { MotionGestureInput } from '../../../../../org/allbinary/input/motion/gesture/MotionGestureInput.js';
-//not GWT import const MotionGestureInput
-
-import { TouchMotionGestureFactory } from '../../../../../org/allbinary/input/motion/gesture/TouchMotionGestureFactory.js';
-//not GWT import const TouchMotionGestureFactory
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { AllBinaryEventObject } from '../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventStrings } from '../../../../../org/allbinary/logic/util/event/EventStrings.js';
-//not GWT import const EventStrings
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-import { TimeDelayHelper } from '../../../../../org/allbinary/time/TimeDelayHelper.js';
-//not GWT import const TimeDelayHelper
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TouchButtonsMappingPaintable } from './TouchButtonsMappingPaintable.js';
-//sameFolderImports - not GWT import - same folder const TouchButtonsMappingPaintable
-
-export class TouchButtonsPaintableComposite extends ProcessPaintable implements CompleteMotionGestureInputEventListenerInterface {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private inputMappingInterface: InputMappingInterface;
-
-    touchButtonsPaintable: TouchButtonsMappingPaintable;
-
-    private timeHelper: TimeDelayHelper = new TimeDelayHelper(250);
-
-    private released: boolean = true;
-
-public constructor (inputMappingInterface: InputMappingInterface, basicColor: BasicColor){
-
-            super();
-        this.inputMappingInterface= inputMappingInterface;
+        // Java field initializers run after the base constructor
+        private function initFieldsTouchButtonsPaintableComposite():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
     
-CompleteMotionGestureInputEventHandler.getInstance()!.addListenerInterface(this);
     
-this.touchButtonsPaintable= new TouchButtonsMappingPaintable(basicColor);
-    
-}
-
-
-    public onEvent(eventObject: AllBinaryEventObject){
-ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
-    
-}
-
-
-    private readonly METHOD_NAME: string = "onCompleteMotionGestureInputEvent";
-
-    private readonly RELEASE: string = "Ignoring: MotionGestureInput Release";
-
-    private readonly FAST_REPEAT: string = "Ignoring: MotionGestureInput Repeated To Quickly";
-
-    private readonly IGNORE: string = "Ignoring: Until Released";
-
-    public onCompleteMotionGestureInputEvent(completeMotionGestureInputEvent: CompleteMotionGestureInputEvent){
-
- try { this.logUtil!.putF(this.commonStrings!.START, this, "onCompleteMotionGestureInputEvent");
+    this.timeHelper = new TimeDelayHelper(250);
+    this.released = true;
+    this.METHOD_NAME = "onCompleteMotionGestureInputEvent";
+    this.RELEASE = "Ignoring: MotionGestureInput Release";
+    this.FAST_REPEAT = "Ignoring: MotionGestureInput Repeated To Quickly";
+    this.IGNORE = "Ignoring: Until Released";
+        }
     
 
-    let touchMotionGestureFactory: TouchMotionGestureFactory = TouchMotionGestureFactory.getInstance()!;;
+    public function TouchButtonsPaintableComposite(inputMappingInterface:InputMappingInterface, basicColor:BasicColor) {
+        super();
+        this.initFieldsTouchButtonsPaintableComposite();
+        this.inputMappingInterface = inputMappingInterface;
+        CompleteMotionGestureInputEventHandler.getInstance().addListenerInterface(this);
+        this.touchButtonsPaintable = new TouchButtonsMappingPaintable(basicColor);
+    }
     
 
-    let gameKeyCompleteMotionGestureInputEvent: GameKeyCompleteMotionGestureInputEvent = completeMotionGestureInputEvent as GameKeyCompleteMotionGestureInputEvent;;
+    public function onEvent(eventObject:AllBinaryEventObject):void {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    }
     
 
-    let gameKey: GameKey = gameKeyCompleteMotionGestureInputEvent!.getGameKey()!;;
+    public function onCompleteMotionGestureInputEvent(completeMotionGestureInputEvent:CompleteMotionGestureInputEvent):void {
+        try {
+            this.logUtil.putF(this.commonStrings.START, this, "onCompleteMotionGestureInputEvent");
+            var touchMotionGestureFactory:TouchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
+            var gameKeyCompleteMotionGestureInputEvent:GameKeyCompleteMotionGestureInputEvent = (completeMotionGestureInputEvent as GameKeyCompleteMotionGestureInputEvent);
+            var gameKey:GameKey = gameKeyCompleteMotionGestureInputEvent.getGameKey();
+            var motionGestureInput:MotionGestureInput = completeMotionGestureInputEvent.getMotionGestureInput();
+            if (motionGestureInput == touchMotionGestureFactory.RELEASED) {
+                this.logUtil.putF(this.RELEASE, this, this.METHOD_NAME);
+                this.released = true;
+                return;
+            }
+            if (motionGestureInput == TouchMotionGestureFactory.getInstance().NO_MOTION && !this.timeHelper.isTimeTNT()) {
+                this.logUtil.putF(this.FAST_REPEAT, this, this.METHOD_NAME);
+                return;
+            }
+            if (!this.released) {
+                this.logUtil.putF(this.IGNORE, this, this.METHOD_NAME);
+                return;
+            }
+            this.released = false;
+            this.logUtil.putF(new StringMaker().append("GameKey: ").append(StringUtil.getInstance().toString1(gameKey)).append(" MotionGestureInput: ").append(StringUtil.getInstance().toString1(motionGestureInput)).toString(), this, this.METHOD_NAME);
+            this.inputMappingInterface.processInputMapping(gameKey, motionGestureInput);
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.METHOD_NAME, e);
+        }
+    }
     
 
-    let motionGestureInput: MotionGestureInput = completeMotionGestureInputEvent!.getMotionGestureInput()!;;
-    
-
-                        if(motionGestureInput == touchMotionGestureFactory!.RELEASED)
-                        
-                                    {
-                                    this.logUtil!.putF(this.RELEASE, this, this.METHOD_NAME);
-    
-this.released= true;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
-    
-
-                                    }
-                                
-
-                        if(motionGestureInput == TouchMotionGestureFactory.getInstance()!.NO_MOTION && !this.timeHelper!.isTimeTNT())
-                        
-                                    {
-                                    this.logUtil!.putF(this.FAST_REPEAT, this, this.METHOD_NAME);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
-    
-
-                                    }
-                                
-
-                        if(!this.released)
-                        
-                                    {
-                                    this.logUtil!.putF(this.IGNORE, this, this.METHOD_NAME);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
-    
-
-                                    }
-                                
-this.released= false;
-    
-this.logUtil!.putF(new StringMaker().append("GameKey: ")!.append(StringUtil.getInstance()!.toString(gameKey))!.append(" MotionGestureInput: ")!.append(StringUtil.getInstance()!.toString(motionGestureInput))!.toString(), this, this.METHOD_NAME);
-    
-this.inputMappingInterface!.processInputMapping(gameKey, motionGestureInput);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.METHOD_NAME, e);
-    
-
- }
-   }
- 
-}
-
-
-    public process(){
-CompleteMotionGestureInputEventHandler.getInstance()!.removeListener(this);
-    
-}
-
-
+    override public function process():void {
+        CompleteMotionGestureInputEventHandler.getInstance().removeListener(this);
+    }
+    }
 }
 

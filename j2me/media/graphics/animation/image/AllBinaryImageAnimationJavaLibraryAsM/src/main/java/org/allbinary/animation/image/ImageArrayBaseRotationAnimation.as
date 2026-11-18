@@ -1,290 +1,142 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.DisposalUtil;
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.RotationAnimation;
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
+    import org.allbinary.math.AngleInfo;
+    import org.allbinary.media.image.ImageModifierUtil;
+    import org.allbinary.util.CircularIndexUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ImageArrayBaseRotationAnimation extends RotationAnimation {
+        private var imageModifierUtil:ImageModifierUtil = null;
+        private var originalImageArray:Vector.<Image> = null;
+        private var imageArray:Vector.<Image> = null;
+        private var currentImage:Image = null;
+        private var totalFrames:int = 0;
+        private var anchor:int = 0;
 
-        
-
-
-            import { Throwable } from '../../../../java/lang/Throwable.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { NullImage } from '../../../../javax/microedition/lcdui/NullImage.js';
-//not GWT import const NullImage
-
-import { DisposalUtil } from '../../../../org/allbinary/DisposalUtil.js';
-//not GWT import const DisposalUtil
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { RotationAnimation } from '../../../../org/allbinary/animation/RotationAnimation.js';
-//not GWT import const RotationAnimation
-
-import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-import { AngleInfo } from '../../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-import { ImageModifierUtil } from '../../../../org/allbinary/media/image/ImageModifierUtil.js';
-//not GWT import const ImageModifierUtil
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ImageArrayBaseRotationAnimation extends RotationAnimation {
-        
-
-    private readonly imageModifierUtil: ImageModifierUtil = ImageModifierUtil.getInstanceOrCreate()!;
-
-    private readonly originalImageArray: Image[];
-
-    private imageArray: Image[] = NullImage.NULL_IMAGE_ARRAY;
-
-    private currentImage: Image;
-
-    private totalFrames: number= 0;
-
-public constructor (originalImageArray: Image[], angleInfo: AngleInfo, animationBehavior: AnimationBehavior){
-            super(angleInfo, CircularIndexUtil.createInstance(360 /angleInfo!.getAngleIncrementInfo()!.getAngleIncrement()), animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.originalImageArray= originalImageArray;
+        // Java field initializers run after the base constructor
+        private function initFieldsImageArrayBaseRotationAnimation():void {
+    this.imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     
-this.setImageArray(this.imageModifierUtil!.getImageArray(originalImageArray));
+    this.imageArray = NullImage.NULL_IMAGE_ARRAY;
     
-this.currentImage= this.imageArray[this.circularIndexUtil!.getIndex()]!;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getAnimationSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getSize();;
-    
-}
-
-
-    public setAlpha(alpha: number){
-
-                        if(this.alphaP != alpha)
-                        
-                                    {
-                                    super.setAlpha(alpha);
-    
-this.imageModifierUtil!.reset();
+    this.totalFrames = 0;
+    this.anchor = Anchor.TOP_LEFT;
+        }
     
 
-    let index: number = this.circularIndexUtil!.getIndex()!;;
-    
-this.imageModifierUtil!.setAlpha(this.originalImageArray[index]!, this.imageArray[index]!, index, this.alphaP);
-    
-
-                                    }
-                                
-}
-
-
-    public nextRotation(){
-super.nextRotation();
+    public function ImageArrayBaseRotationAnimation(originalImageArray:Vector.<Image>, angleInfo:AngleInfo, animationBehavior:AnimationBehavior) {
+        super(angleInfo, CircularIndexUtil.createInstance(int(360 / angleInfo.getAngleIncrementInfo().getAngleIncrement())), animationBehavior);
+        this.initFieldsImageArrayBaseRotationAnimation();
+        this.originalImageArray = originalImageArray;
+        this.setImageArray(this.imageModifierUtil.getImageArray(originalImageArray));
+        this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()];
+    }
     
 
-    let index: number = this.circularIndexUtil!.getIndex()!;;
-    
-this.imageModifierUtil!.setAlpha(this.originalImageArray[index]!, this.imageArray[index]!, index, this.alphaP);
-    
-this.currentImage= this.imageArray[index]!;
-    
-}
-
-
-    public previousRotation(){
-super.previousRotation();
+    override public function getAnimationSize():int {
+        return this.getSize();
+    }
     
 
-    let index: number = this.circularIndexUtil!.getIndex()!;;
-    
-this.imageModifierUtil!.setAlpha(this.originalImageArray[index]!, this.imageArray[index]!, index, this.alphaP);
-    
-this.currentImage= this.imageArray[index]!;
-    
-}
-
-
-    public setFrame(index2: number){
-super.setFrame(index2);
+    override public function setAlpha(alpha:int):void {
+        if (this.alphaP != alpha) {
+            super.setAlpha(alpha);
+            this.imageModifierUtil.reset();
+            var index:int = this.circularIndexUtil.getIndex();
+            this.imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
+        }
+    }
     
 
-    let index: number = this.circularIndexUtil!.getIndex()!;;
-    
-this.imageModifierUtil!.setAlpha(this.originalImageArray[index]!, this.imageArray[index]!, index, this.alphaP);
-    
-this.currentImage= this.imageArray[index]!;
-    
-}
-
-
-    public setSequence(sequence: number[]){
-}
-
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PrimitiveIntUtil.getArrayInstance();;
-    
-}
-
-
-    setImageArray(imageArray: Image[]){
-this.imageArray= imageArray;
-    
-this.totalFrames= imageArray!.length;
-    
-this.circularIndexUtil= CircularIndexUtil.createInstance(this.totalFrames);
-    
-}
-
-
-    private anchor: number = Anchor.TOP_LEFT;
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-graphics.drawImage(this.currentImage, x, y, this.anchor);
-    
-}
-
-
-    public close(){
-
-    let disposalUtil: DisposalUtil = DisposalUtil.getInstance()!;;
+    override public function nextRotation():void {
+        super.nextRotation();
+        var index:int = this.circularIndexUtil.getIndex();
+        this.imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
+        this.currentImage = this.imageArray[index];
+    }
     
 
-    let size2: number = this.imageArray!.length
-                ;;
+    override public function previousRotation():void {
+        super.previousRotation();
+        var index:int = this.circularIndexUtil.getIndex();
+        this.imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
+        this.currentImage = this.imageArray[index];
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size2; index++)
-        {
-disposalUtil!.disposeImage(this.imageArray[index]!);
-    
-}
-
-
-    let size: number = this.originalImageArray!.length
-                ;;
+    override public function setFrame(index2:int):void {
+        super.setFrame(index2);
+        var index:int = this.circularIndexUtil.getIndex();
+        this.imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alphaP);
+        this.currentImage = this.imageArray[index];
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-disposalUtil!.disposeImage(this.originalImageArray[index]!);
-    
-}
-
-disposalUtil!.disposeImage(this.currentImage);
-    
-}
-
-
-                //@Throws(Throwable.constructor)
-            
-    finalize(){
-
-    let disposalUtil: DisposalUtil = DisposalUtil.getInstance()!;;
+    override public function setSequence(sequence:Vector.<int>):void {
+    }
     
 
-    let size2: number = this.imageArray!.length
-                ;;
+    override public function getSequence():Vector.<int> {
+        return PrimitiveIntUtil.getArrayInstance();
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size2; index++)
-        {
-disposalUtil!.disposeImage(this.imageArray[index]!);
-    
-}
-
-
-    let size: number = this.originalImageArray!.length
-                ;;
+    public function setImageArray(imageArray:Vector.<Image>):void {
+        this.imageArray = imageArray;
+        this.totalFrames = imageArray.length;
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.totalFrames);
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-disposalUtil!.disposeImage(this.originalImageArray[index]!);
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        graphics.drawImage(this.currentImage, x, y, this.anchor);
+    }
     
-}
 
-disposalUtil!.disposeImage(this.currentImage);
+    public function close():void {
+        var disposalUtil:DisposalUtil = DisposalUtil.getInstance();
+        var size2:int = this.imageArray.length;
+        for (var index:int = 0; index < size2; index++) {
+            disposalUtil.disposeImage(this.imageArray[index]);
+        }
+        var size:int = this.originalImageArray.length;
+        for (index = 0; index < size; index++) {
+            disposalUtil.disposeImage(this.originalImageArray[index]);
+        }
+        disposalUtil.disposeImage(this.currentImage);
+    }
     
-}
 
-
+    public function finalize():void {
+        var disposalUtil:DisposalUtil = DisposalUtil.getInstance();
+        var size2:int = this.imageArray.length;
+        for (var index:int = 0; index < size2; index++) {
+            disposalUtil.disposeImage(this.imageArray[index]);
+        }
+        var size:int = this.originalImageArray.length;
+        for (index = 0; index < size; index++) {
+            disposalUtil.disposeImage(this.originalImageArray[index]);
+        }
+        disposalUtil.disposeImage(this.currentImage);
+    }
+    }
 }
 

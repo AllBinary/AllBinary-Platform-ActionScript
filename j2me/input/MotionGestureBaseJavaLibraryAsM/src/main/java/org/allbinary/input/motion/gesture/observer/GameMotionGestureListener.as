@@ -1,262 +1,143 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.gesture.observer {
+    import org.allbinary.input.motion.gesture.MotionGestureInput;
+    import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+    import org.allbinary.logic.communication.log.ForcedLogUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameMotionGestureListener implements MotionGestureEventListener {
+        public var logUtil:LogUtil = null;
+        private var commonStrings:CommonStrings = null;
+        private var motionGestureCollection:BasicArrayList = null;
+        private var touchGestureCollection:BasicArrayList = null;
+        private var signed:CompleteMotionGestureListenerInterface = null;
 
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { MotionGestureInput } from '../../../../../../org/allbinary/input/motion/gesture/MotionGestureInput.js';
-//not GWT import const MotionGestureInput
-
-import { TouchMotionGestureFactory } from '../../../../../../org/allbinary/input/motion/gesture/TouchMotionGestureFactory.js';
-//not GWT import const TouchMotionGestureFactory
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { AllBinaryEventObject } from '../../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { MotionGestureEventListener } from './MotionGestureEventListener.js';
-//sameFolderImports - not GWT import - same folder const MotionGestureEventListener
-import { CompleteMotionGestureListenerInterface } from './CompleteMotionGestureListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const CompleteMotionGestureListenerInterface
-import { MotionGestureEvent } from './MotionGestureEvent.js';
-//sameFolderImports - not GWT import - same folder const MotionGestureEvent
-
-export class GameMotionGestureListener
-            extends Object
-         implements MotionGestureEventListener {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private motionGestureCollection: BasicArrayList = new BasicArrayListD();
-
-    private touchGestureCollection: BasicArrayList = new BasicArrayListD();
-
-    private signed: CompleteMotionGestureListenerInterface;
-
-public constructor (signed: CompleteMotionGestureListenerInterface){
-
-            super();
-        this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+        // Java field initializers run after the base constructor
+        private function initFieldsGameMotionGestureListener():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.motionGestureCollection = new BasicArrayListD();
+    this.touchGestureCollection = new BasicArrayListD();
     
-this.signed= signed;
-    
-}
-
-
-    public onEvent(eventObject: AllBinaryEventObject){
-ForcedLogUtil.log(this.commonStrings!.NOT_IMPLEMENTED, this);
-    
-}
-
-
-    public onUpMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onDownMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onLeftMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onRightMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onDiagonalDownRightMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onDiagonalDownLeftMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onDiagonalUpRightMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onDiagonalUpLeftMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onPressedMotionGestureEvent(ev: MotionGestureEvent){
-this.touchGestureCollection!.add(ev.getMotionGesture());
-    
-}
-
-
-    public released(ev: MotionGestureEvent){
-
- try { this.touchGestureCollection!.add(ev.getMotionGesture());
-    
-this.signed.onMotionGestureCompleted(this.touchGestureCollection);
-    
-this.touchGestureCollection!.clear();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append(this.commonStrings!.EXCEPTION_LABEL);
-    
-stringBuffer!.append(StringUtil.getInstance()!.toString(ev.getMotionGesture()));
-    
-this.logUtil!.put(stringBuffer!.toString(), this, "release", e);
+        }
     
 
- }
-   }
- 
-}
-
-
-    public onScrolledMotionGestureEvent(motionGestureEvent: MotionGestureEvent){
-}
-
-
-    public onMotionGestureEvent(ev: MotionGestureEvent){
-
- try { 
-    let motionGestureInput: MotionGestureInput = ev.getMotionGesture()!;;
+    public function GameMotionGestureListener(signed:CompleteMotionGestureListenerInterface) {
+        super();
+        this.initFieldsGameMotionGestureListener();
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+        this.signed = signed;
+    }
     
 
-                        if(motionGestureInput == TouchMotionGestureFactory.getInstance()!.PRESSED)
-                        
-                                    {
-                                    this.onPressedMotionGestureEvent(ev);
+    public function onEvent(eventObject:AllBinaryEventObject):void {
+        ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
+    }
     
 
-                                    }
-                                
-                             else 
-                        if(motionGestureInput == TouchMotionGestureFactory.getInstance()!.RELEASED)
-                        
-                                    {
-                                    this.released(ev);
+    public function onUpMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
     
 
-                                    }
-                                
-                        else {
-                            this.motionGestureCollection!.add(motionGestureInput);
-    
-this.signed.onMotionGestureCompleted(this.motionGestureCollection);
-    
-this.motionGestureCollection!.clear();
-    
-this.touchGestureCollection!.clear();
+    public function onDownMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
     
 
-                        }
-                            
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append(this.commonStrings!.EXCEPTION_LABEL);
-    
-stringBuffer!.append(StringUtil.getInstance()!.toString(ev.getMotionGesture()));
-    
-this.logUtil!.put(stringBuffer!.toString(), this, "onMotionGestureEvent", e);
+    public function onLeftMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
     
 
- }
-   }
- 
-}
+    public function onRightMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
+    
 
+    public function onDiagonalDownRightMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
+    
 
+    public function onDiagonalDownLeftMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
+    
+
+    public function onDiagonalUpRightMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
+    
+
+    public function onDiagonalUpLeftMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
+    
+
+    public function onPressedMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.touchGestureCollection.add(ev.getMotionGesture());
+    }
+    
+
+    public function released(ev:MotionGestureEvent):void {
+        try {
+            this.touchGestureCollection.add(ev.getMotionGesture());
+            this.signed.onMotionGestureCompleted(this.touchGestureCollection);
+            this.touchGestureCollection.clear();
+        } catch (e:*) {
+            var stringBuffer:StringMaker = new StringMaker();
+            stringBuffer.append(this.commonStrings.EXCEPTION_LABEL);
+            stringBuffer.append(StringUtil.getInstance().toString1(ev.getMotionGesture()));
+            this.logUtil.put(stringBuffer.toString(), this, "release", e);
+        }
+    }
+    
+
+    public function onScrolledMotionGestureEvent(motionGestureEvent:MotionGestureEvent):void {
+    }
+    
+
+    public function onMotionGestureEvent(ev:MotionGestureEvent):void {
+        try {
+            var motionGestureInput:MotionGestureInput = ev.getMotionGesture();
+            if (motionGestureInput == TouchMotionGestureFactory.getInstance().PRESSED) {
+                this.onPressedMotionGestureEvent(ev);
+            } else if (motionGestureInput == TouchMotionGestureFactory.getInstance().RELEASED) {
+                this.released(ev);
+            } else {
+                this.motionGestureCollection.add(motionGestureInput);
+                this.signed.onMotionGestureCompleted(this.motionGestureCollection);
+                this.motionGestureCollection.clear();
+                this.touchGestureCollection.clear();
+            }
+        } catch (e:*) {
+            var stringBuffer:StringMaker = new StringMaker();
+            stringBuffer.append(this.commonStrings.EXCEPTION_LABEL);
+            stringBuffer.append(StringUtil.getInstance().toString1(ev.getMotionGesture()));
+            this.logUtil.put(stringBuffer.toString(), this, "onMotionGestureEvent", e);
+        }
+    }
+    }
 }
 

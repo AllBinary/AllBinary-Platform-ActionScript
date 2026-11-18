@@ -1,110 +1,65 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.feature {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { InputFeature } from './InputFeature.js';
-//sameFolderImports - not GWT import - same folder const InputFeature
-import { Features } from './Features.js';
-//sameFolderImports - not GWT import - same folder const Features
-
-export class InputFeatureFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: InputFeatureFactory = new InputFeatureFactory();
-
-    public static getInstance(): InputFeatureFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return InputFeatureFactory.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class InputFeatureFactory {
+    private static var instance_value:InputFeatureFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():InputFeatureFactory {
+        if (!InputFeatureFactory.instance_set) {
+            InputFeatureFactory.instance_set = true;
+            InputFeatureFactory.instance_value = new InputFeatureFactory();
         }
+        return InputFeatureFactory.instance_value;
+    }
+        public var REMOVE_DUPLICATE_KEY_PRESSES:InputFeature = null;
+        public var INPUT_MAPPING:InputFeature = null;
+        public var MULTI_KEY_PRESS:InputFeature = null;
+        public var SINGLE_KEY_REPEAT_PRESS:InputFeature = null;
+        public var SINGLE_KEY_PRESS:InputFeature = null;
 
-
-    public readonly REMOVE_DUPLICATE_KEY_PRESSES: InputFeature = new InputFeature("Remove Duplicate Key Presses");
-
-    public readonly INPUT_MAPPING: InputFeature = new InputFeature("Input Mapping");
-
-    public readonly MULTI_KEY_PRESS: InputFeature = new InputFeature("Multi Key Press");
-
-    public readonly SINGLE_KEY_REPEAT_PRESS: InputFeature = new InputFeature("Single Key Repeat Press");
-
-    public readonly SINGLE_KEY_PRESS: InputFeature = new InputFeature("Single Key Press");
-
-    public isSingleKeyProcessing(): boolean{
-
-    let features: Features = Features.getInstance()!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsInputFeatureFactory():void {
+    this.REMOVE_DUPLICATE_KEY_PRESSES = new InputFeature("Remove Duplicate Key Presses");
+    this.INPUT_MAPPING = new InputFeature("Input Mapping");
+    this.MULTI_KEY_PRESS = new InputFeature("Multi Key Press");
+    this.SINGLE_KEY_REPEAT_PRESS = new InputFeature("Single Key Repeat Press");
+    this.SINGLE_KEY_PRESS = new InputFeature("Single Key Press");
+        }
     
 
-                        if(features.isFeature(this.SINGLE_KEY_REPEAT_PRESS) || features.isFeature(this.SINGLE_KEY_PRESS))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public static function getInstance():InputFeatureFactory {
+        return InputFeatureFactory.instance;
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function InputFeatureFactory() {
+        super();
+        this.initFieldsInputFeatureFactory();
+    }
     
 
-                        }
-                            
-}
-
-
+    public function isSingleKeyProcessing():Boolean {
+        var features:Features = Features.getInstance();
+        if (features.isFeature(this.SINGLE_KEY_REPEAT_PRESS) || features.isFeature(this.SINGLE_KEY_PRESS)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    }
 }
 

@@ -1,225 +1,117 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer.pickup {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.NullAnimationFactory;
+    import org.allbinary.game.collision.CollidableAlwaysPickupNeverCollideBehaviorFactory;
+    import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
+    import org.allbinary.game.identification.BasicGroupFactory;
+    import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
+    import org.allbinary.game.multiplayer.layer.RemoteInfo;
+    import org.allbinary.graphics.Rectangle;
+    import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
+    import org.allbinary.view.ViewPositionBase;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PickupLayer extends MultiPlayerGameLayer implements PickedUpLayerInterface, PickupableInterface {
+        private var pickedUpLayerInterfaceFactoryInterface:PickedUpLayerInterfaceFactoryInterface = null;
+        private var destroyed:Boolean = false;
+        private var animationInterface:Animation = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { GL } from '../../../../../javax/microedition/khronos/opengles/GL.js';
-//not GWT import const GL
-
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Animation } from '../../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { NullAnimationFactory } from '../../../../../org/allbinary/animation/NullAnimationFactory.js';
-//not GWT import const NullAnimationFactory
-
-import { CollidableAlwaysPickupNeverCollideBehaviorFactory } from '../../../../../org/allbinary/game/collision/CollidableAlwaysPickupNeverCollideBehaviorFactory.js';
-//not GWT import const CollidableAlwaysPickupNeverCollideBehaviorFactory
-
-import { DestroyedLayerProcessor } from '../../../../../org/allbinary/game/combat/destroy/DestroyedLayerProcessor.js';
-//not GWT import const DestroyedLayerProcessor
-
-import { BasicGroupFactory } from '../../../../../org/allbinary/game/identification/BasicGroupFactory.js';
-//not GWT import const BasicGroupFactory
-
-import { MultiPlayerGameLayer } from '../../../../../org/allbinary/game/multiplayer/layer/MultiPlayerGameLayer.js';
-//not GWT import const MultiPlayerGameLayer
-
-import { RemoteInfo } from '../../../../../org/allbinary/game/multiplayer/layer/RemoteInfo.js';
-//not GWT import const RemoteInfo
-
-import { Rectangle } from '../../../../../org/allbinary/graphics/Rectangle.js';
-//not GWT import const Rectangle
-
-import { OpenGLSurfaceChangedInterface } from '../../../../../org/allbinary/image/opengles/OpenGLSurfaceChangedInterface.js';
-//not GWT import const OpenGLSurfaceChangedInterface
-
-import { ViewPositionBase } from '../../../../../org/allbinary/view/ViewPositionBase.js';
-//not GWT import const ViewPositionBase
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PickedUpLayerInterface } from './PickedUpLayerInterface.js';
-//sameFolderImports - not GWT import - same folder const PickedUpLayerInterface
-import { PickupableInterface } from './PickupableInterface.js';
-//sameFolderImports - not GWT import - same folder const PickupableInterface
-import { CountedPickedUpLayerInterfaceFactory } from './CountedPickedUpLayerInterfaceFactory.js';
-//sameFolderImports - not GWT import - same folder const CountedPickedUpLayerInterfaceFactory
-import { PickedUpLayerInterfaceFactoryInterface } from './PickedUpLayerInterfaceFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const PickedUpLayerInterfaceFactoryInterface
-
-export class PickupLayer extends MultiPlayerGameLayer implements PickedUpLayerInterface, PickupableInterface {
-        
-
-    private pickedUpLayerInterfaceFactoryInterface: PickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
-
-    private destroyed: boolean= false;
-
-    private animationInterface: Animation = NullAnimationFactory.getFactoryInstance()!.getInstance(0)!;
-
-public constructor (name: string, remoteInfo: RemoteInfo, total: number, pickedUpLayerInterfaceFactoryInterface: PickedUpLayerInterfaceFactoryInterface, animationInterface: Animation, rectangle: Rectangle, viewPosition: ViewPositionBase){
-            super(remoteInfo, BasicGroupFactory.getInstance()!.NONE_ARRAY, name, rectangle, viewPosition);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance()!.createBehavior());
-    
-this.setLayerWidth(10);
-    
-this.setLayerHeight(10);
-    
-this.init(pickedUpLayerInterfaceFactoryInterface, animationInterface);
-    
-}
-
-
-    public init(pickedUpLayerInterfaceFactoryInterface: PickedUpLayerInterfaceFactoryInterface, animationInterface: Animation){
-this.pickedUpLayerInterfaceFactoryInterface= pickedUpLayerInterfaceFactoryInterface;
-    
-this.animationInterface= animationInterface;
-    
-this.setDestroyed(false);
-    
-}
-
-
-    public initXYZ(x: number, y: number, z: number){
-this.setPosition(x, y, z);
-    
-}
-
-
-    public paint(graphics: Graphics){
-
-    let viewPosition: ViewPositionBase = this.getViewPosition()!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsPickupLayer():void {
+    this.pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory.NULL_COUNTED_PICKUP_LAYER_FACTORY;
+    this.destroyed = false;
+    this.animationInterface = NullAnimationFactory.getFactoryInstance().getInstance1(0);
+        }
     
 
-    let viewX: number = viewPosition!.getX()!;;
+    public function PickupLayer(name:String, remoteInfo:RemoteInfo, total:int, pickedUpLayerInterfaceFactoryInterface:PickedUpLayerInterfaceFactoryInterface, animationInterface:Animation, rectangle:Rectangle, viewPosition:ViewPositionBase) {
+        super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle, viewPosition);
+        this.initFieldsPickupLayer();
+        this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance().createBehavior());
+        this.setLayerWidth(10);
+        this.setLayerHeight(10);
+        this.init(pickedUpLayerInterfaceFactoryInterface, animationInterface);
+    }
     
 
-    let viewY: number = viewPosition!.getY()!;;
-    
-this.animationInterface!.paintXY(graphics, viewX, viewY);
-    
-}
-
-
-    public paintThreed(graphics: Graphics){
-
-    let viewPosition: ViewPositionBase = this.getViewPosition()!;;
+    public function init(pickedUpLayerInterfaceFactoryInterface:PickedUpLayerInterfaceFactoryInterface, animationInterface:Animation):void {
+        this.pickedUpLayerInterfaceFactoryInterface = pickedUpLayerInterfaceFactoryInterface;
+        this.animationInterface = animationInterface;
+        this.setDestroyed(false);
+    }
     
 
-    let viewX: number = viewPosition!.getX()!;;
+    public function initXYZ(x:int, y:int, z:int):void {
+        this.setPosition(x, y, z);
+    }
     
 
-    let viewY: number = viewPosition!.getY()!;;
-    
-this.animationInterface!.paintThreedXYZ(graphics, viewX, viewY, 3);
-    
-}
-
-
-    public getPickedUpLayerInterfaceFactoryInterface(): PickedUpLayerInterfaceFactoryInterface{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.pickedUpLayerInterfaceFactoryInterface;
-    
-}
-
-
-    public setPickedUp(){
-this.setDestroyed(true);
-    
-}
-
-
-    public isDestroyed(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.destroyed;
-    
-}
-
-
-    public setDestroyed(destroyed: boolean){
-this.destroyed= destroyed;
+    override public function paint(graphics:Graphics):void {
+        var viewPosition:ViewPositionBase = this.getViewPosition();
+        var viewX:int = viewPosition.getX();
+        var viewY:int = viewPosition.getY();
+        this.animationInterface.paintXY(graphics, viewX, viewY);
+    }
     
 
-                        if(this.isDestroyed())
-                        
-                                    {
-                                    DestroyedLayerProcessor.getInstance()!.add(this);
+    override public function paintThreed(graphics:Graphics):void {
+        var viewPosition:ViewPositionBase = this.getViewPosition();
+        var viewX:int = viewPosition.getX();
+        var viewY:int = viewPosition.getY();
+        this.animationInterface.paintThreedXYZ(graphics, viewX, viewY, 3);
+    }
     
 
-                                    }
-                                
-}
-
-
-    public damage(damage: number, damageType: number){
-}
-
-
-    public getDamage(damageType: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public function getPickedUpLayerInterfaceFactoryInterface():PickedUpLayerInterfaceFactoryInterface {
+        return this.pickedUpLayerInterfaceFactoryInterface;
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public set(gl: GL){
-
-    let openGLSurfaceChangedInterface: OpenGLSurfaceChangedInterface = this.animationInterface as OpenGLSurfaceChangedInterface;;
+    public function setPickedUp():void {
+        this.setDestroyed(true);
+    }
     
-openGLSurfaceChangedInterface!.set(gl);
+
+    override public function isDestroyed():Boolean {
+        return this.destroyed;
+    }
     
-}
 
+    public function setDestroyed(destroyed:Boolean):void {
+        this.destroyed = destroyed;
+        if (this.isDestroyed()) {
+            DestroyedLayerProcessor.getInstance().add(this);
+        }
+    }
+    
 
+    override public function damage(damage:int, damageType:int):void {
+    }
+    
+
+    override public function getDamage(damageType:int):int {
+        return 0;
+    }
+    
+
+    override public function set_(gl:GL):void {
+        var openGLSurfaceChangedInterface:OpenGLSurfaceChangedInterface = (this.animationInterface as OpenGLSurfaceChangedInterface);
+        openGLSurfaceChangedInterface.set_(gl);
+    }
+    }
 }
 

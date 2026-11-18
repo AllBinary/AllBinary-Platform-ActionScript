@@ -1,151 +1,93 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input.event {
+    import org.allbinary.game.input.LocalPlayerInputIdFactory;
+    import org.allbinary.logic.util.event.EventListenerInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { LocalPlayerInputIdFactory } from '../../../../../org/allbinary/game/input/LocalPlayerInputIdFactory.js';
-//not GWT import const LocalPlayerInputIdFactory
-
-import { EventListenerInterface } from '../../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
-//not GWT import const EventListenerInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { UpGameKeyEventHandlerBase } from './UpGameKeyEventHandlerBase.js';
-//sameFolderImports - not GWT import - same folder const UpGameKeyEventHandlerBase
-
-export class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase {
-        
-
-    private static readonly instance: UpGameKeyEventHandler = new UpGameKeyEventHandler();
-
-    private static readonly instanceArray: UpGameKeyEventHandlerBase[] = 
-                                                        [
-                                                            new UpGameKeyEventHandlerBase(),new UpGameKeyEventHandlerBase(),new UpGameKeyEventHandlerBase(),new UpGameKeyEventHandlerBase(),new UpGameKeyEventHandlerBase(),new UpGameKeyEventHandlerBase()
-                                                        ];
-
-    public static getInstance(): UpGameKeyEventHandler{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return UpGameKeyEventHandler.instance;
-    
-}
-
-
-    private readonly playerInputIdFactory: LocalPlayerInputIdFactory = LocalPlayerInputIdFactory.getInstance()!;
-
-    public getInstanceForDevice(deviceId: number): UpGameKeyEventHandlerBase{
-
-    let playerInputId: number = this.playerInputIdFactory!.getPlayerForDevice(deviceId)!;;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return UpGameKeyEventHandler.instanceArray[playerInputId]!;
-    
-}
-
-
-    public getInstanceForPlayer(playerInputId: number): UpGameKeyEventHandlerBase{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return UpGameKeyEventHandler.instanceArray[playerInputId]!;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase {
+    private static var instance_value:UpGameKeyEventHandler;
+    private static var instance_set:Boolean = false;
+    private static function get instance():UpGameKeyEventHandler {
+        if (!UpGameKeyEventHandler.instance_set) {
+            UpGameKeyEventHandler.instance_set = true;
+            UpGameKeyEventHandler.instance_value = new UpGameKeyEventHandler();
         }
+        return UpGameKeyEventHandler.instance_value;
+    }
+    private static var instanceArray_value:Vector.<UpGameKeyEventHandlerBase>;
+    private static var instanceArray_set:Boolean = false;
+    private static function get instanceArray():Vector.<UpGameKeyEventHandlerBase> {
+        if (!UpGameKeyEventHandler.instanceArray_set) {
+            UpGameKeyEventHandler.instanceArray_set = true;
+            UpGameKeyEventHandler.instanceArray_value = new <UpGameKeyEventHandlerBase>[new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase(), new UpGameKeyEventHandlerBase()];
+        }
+        return UpGameKeyEventHandler.instanceArray_value;
+    }
+        private var playerInputIdFactory:LocalPlayerInputIdFactory = null;
 
-
-    public removeAllListeners(){
-super.removeAllListeners();
+        // Java field initializers run after the base constructor
+        private function initFieldsUpGameKeyEventHandler():void {
+    this.playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();
+        }
     
 
-
-
-
-                        for (
-    let index: number = UpGameKeyEventHandler.instanceArray!.length -1;index >= 0; index--)
-        {
-UpGameKeyEventHandler.instanceArray[index]!.removeAllListeners();
-    
-}
-
-}
-
-
-    public removeListenerSingleThreaded(eventListenerInterface: EventListenerInterface){
-super.removeListenerSingleThreaded(eventListenerInterface);
+    public static function getInstance():UpGameKeyEventHandler {
+        return UpGameKeyEventHandler.instance;
+    }
     
 
-
-
-
-                        for (
-    let index: number = UpGameKeyEventHandler.instanceArray!.length -1;index >= 0; index--)
-        {
-UpGameKeyEventHandler.instanceArray[index]!.removeListenerSingleThreaded(eventListenerInterface);
-    
-}
-
-}
-
-
-    public removeListener(eventListenerInterface: EventListenerInterface){
-super.removeListener(eventListenerInterface);
+    public function getInstanceForDevice(deviceId:int):UpGameKeyEventHandlerBase {
+        var playerInputId:int = this.playerInputIdFactory.getPlayerForDevice(deviceId);
+        return UpGameKeyEventHandler.instanceArray[playerInputId];
+    }
     
 
-
-
-
-                        for (
-    let index: number = UpGameKeyEventHandler.instanceArray!.length -1;index >= 0; index--)
-        {
-UpGameKeyEventHandler.instanceArray[index]!.removeListener(eventListenerInterface);
+    public function getInstanceForPlayer(playerInputId:int):UpGameKeyEventHandlerBase {
+        return UpGameKeyEventHandler.instanceArray[playerInputId];
+    }
     
-}
 
-}
+    public function UpGameKeyEventHandler() {
+        super();
+        this.initFieldsUpGameKeyEventHandler();
+    }
+    
 
+    override public function removeAllListeners():void {
+        super.removeAllListeners();
+        for (var index:int = int(UpGameKeyEventHandler.instanceArray.length - 1); index >= 0; index--) {
+            UpGameKeyEventHandler.instanceArray[index].removeAllListeners();
+        }
+    }
+    
 
+    override public function removeListenerSingleThreaded(eventListenerInterface:EventListenerInterface):void {
+        super.removeListenerSingleThreaded(eventListenerInterface);
+        for (var index:int = int(UpGameKeyEventHandler.instanceArray.length - 1); index >= 0; index--) {
+            UpGameKeyEventHandler.instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
+        }
+    }
+    
+
+    override public function removeListener(eventListenerInterface:EventListenerInterface):void {
+        super.removeListener(eventListenerInterface);
+        for (var index:int = int(UpGameKeyEventHandler.instanceArray.length - 1); index >= 0; index--) {
+            UpGameKeyEventHandler.instanceArray[index].removeListener(eventListenerInterface);
+        }
+    }
+    }
 }
 

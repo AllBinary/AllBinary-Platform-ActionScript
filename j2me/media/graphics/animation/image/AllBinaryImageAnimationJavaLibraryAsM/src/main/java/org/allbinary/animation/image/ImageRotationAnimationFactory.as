@@ -1,131 +1,56 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationBehaviorFactory;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
+    import org.allbinary.math.AngleFactory;
+    import org.allbinary.math.AngleInfo;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ImageRotationAnimationFactory extends BaseImageAnimationFactory {
+        public var angleIncrement:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationBehaviorFactory } from '../../../../org/allbinary/animation/AnimationBehaviorFactory.js';
-//not GWT import const AnimationBehaviorFactory
-
-import { GameConfigurationCentral } from '../../../../org/allbinary/game/configuration/GameConfigurationCentral.js';
-//not GWT import const GameConfigurationCentral
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-import { AngleFactory } from '../../../../org/allbinary/math/AngleFactory.js';
-//not GWT import const AngleFactory
-
-import { AngleInfo } from '../../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BaseImageAnimationFactory } from './BaseImageAnimationFactory.js';
-//sameFolderImports - not GWT import - same folder const BaseImageAnimationFactory
-import { ImageBaseRotationAnimation } from './ImageBaseRotationAnimation.js';
-//sameFolderImports - not GWT import - same folder const ImageBaseRotationAnimation
-import { AdjustedImageBaseRotationAnimation } from './AdjustedImageBaseRotationAnimation.js';
-//sameFolderImports - not GWT import - same folder const AdjustedImageBaseRotationAnimation
-
-export class ImageRotationAnimationFactory extends BaseImageAnimationFactory {
-        
-
-    readonly angleIncrement: number;
-
-public constructor (image: Image, width: number, height: number, dx: number, dy: number, angleIncrement: number, animationBehaviorFactory: AnimationBehaviorFactory){
-            super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.angleIncrement= angleIncrement;
+        // Java field initializers run after the base constructor
+        private function initFieldsImageRotationAnimationFactory():void {
     
-this.animationFactoryInitializationVisitor!.dx= dx;
-    
-this.animationFactoryInitializationVisitor!.dy= dy;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstance(instanceId: number): Animation{
-
-                        if(this.animationFactoryInitializationVisitor!.dx != 0 || this.animationFactoryInitializationVisitor!.dy != 0)
-                        
-                                    {
-                                    this.animationFactoryImageScaleUtil!.processAdjust(this);
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AdjustedImageBaseRotationAnimation(this.getImage(), AngleInfo.getInstance(this.angleIncrement), AngleFactory.getInstance()!.TOTAL_ANGLE, this.animationFactoryInitializationVisitor!.dx, this.animationFactoryInitializationVisitor!.dy, this.animationBehaviorFactory!.getOrCreateInstance());
+    public function ImageRotationAnimationFactory(image:Image, width:int, height:int, dx:int, dy:int, angleIncrement:int, animationBehaviorFactory:AnimationBehaviorFactory) {
+        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory);
+        this.initFieldsImageRotationAnimationFactory();
+        this.angleIncrement = angleIncrement;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new ImageBaseRotationAnimation(this.getImage(), AngleInfo.getInstance(this.angleIncrement), AngleFactory.getInstance()!.TOTAL_ANGLE, this.animationBehaviorFactory!.getOrCreateInstance());
+    override public function getInstance1(instanceId:int):Animation {
+        if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
+            this.animationFactoryImageScaleUtil.processAdjust(this);
+            return new AdjustedImageBaseRotationAnimation(this.getImage(), AngleInfo.getInstance1(this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
+        } else {
+            return new ImageBaseRotationAnimation(this.getImage(), AngleInfo.getInstance1(this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
+        }
+    }
     
 
-                        }
-                            
-}
-
-
-    getAngleIncrementP(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.angleIncrement;
-    
-}
-
-
+    public function getAngleIncrementP():int {
+        return this.angleIncrement;
+    }
+    }
 }
 

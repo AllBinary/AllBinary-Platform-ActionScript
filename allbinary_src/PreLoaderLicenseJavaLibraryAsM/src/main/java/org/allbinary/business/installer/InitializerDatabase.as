@@ -1,595 +1,268 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.installer {
+    import java.util.JHashMap;
+    import java.util.JMap;
+    import java.util.JSet;
+    import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
+    import org.allbinary.business.init.db.DbConnectionInfo;
+    import org.allbinary.logic.StdUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.string.StringValidationUtil;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class InitializerDatabase {
+    private static const MAXDB:int = 30;
+    private static const MAX:int = 16;
+    private static const MIN:int = 4;
+    private static const MINPASSWORD:int = 0;
+        public var logUtil:LogUtil = null;
+        private var adminDbUserName:String = null;
+        private var adminDbPassword:String = null;
+        private var adminJdbcDriver:String = null;
+        private var adminSchema:String = null;
+        private var adminServer:String = null;
+        private var adminPort:String = null;
+        private var initDb:DynamicInitDb = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            //import { Class } from '../../../../java/lang/Class.js';
-            const Class = (globalThis.java?.lang?.Class ?? class {}) as typeof globalThis.java.lang.Class;
-            type Class<T = any, U = any> = typeof Class extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Class;
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { HashMap } from '../../../../java/util/HashMap.js';
-//not GWT import const HashMap
-
-import { Map } from '../../../../java/util/Map.js';
-//not GWT import const Map
-
-import { Set } from '../../../../java/util/Set.js';
-//not GWT import const Set
-
-import { DatabaseConnectionInfoInterface } from '../../../../org/allbinary/business/init/db/DatabaseConnectionInfoInterface.js';
-//not GWT import const DatabaseConnectionInfoInterface
-
-import { DbConnectionInfo } from '../../../../org/allbinary/business/init/db/DbConnectionInfo.js';
-//not GWT import const DbConnectionInfo
-
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { StringValidationUtil } from '../../../../org/allbinary/logic/string/StringValidationUtil.js';
-//not GWT import const StringValidationUtil
-
-import { AbeClientInformationInterface } from '../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DynamicInitDb } from './DynamicInitDb.js';
-//sameFolderImports - not GWT import - same folder const DynamicInitDb
-import { InitializerData } from './InitializerData.js';
-//sameFolderImports - not GWT import - same folder const InitializerData
-
-export class InitializerDatabase
-            extends Object
-         {
-        
-
-    private static readonly MAXDB: number = 30;
-
-    private static readonly MAX: number = 16;
-
-    private static readonly MIN: number = 4;
-
-    private static readonly MINPASSWORD: number = 0;
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private adminDbUserName: string;
-
-    private adminDbPassword: string;
-
-    private adminJdbcDriver: string;
-
-    private adminSchema: string;
-
-    private adminServer: string;
-
-    private adminPort: string;
-
-    private initDb: DynamicInitDb;
-
-    public constructor(...args: any[]) {
-        super();if(args.length === 2 && args[0] instanceof AbeClientInformationInterface && args[1] instanceof Map) {
-            
-            this.constructor$0(args[0], args[1]);
-            
+        // Java field initializers run after the base constructor
+        private function initFieldsInitializerDatabase():void {
+    this.logUtil = LogUtil.getInstance();
+    this.adminDbUserName = null;
+    this.adminDbPassword = null;
+    this.adminJdbcDriver = null;
+    this.adminSchema = null;
+    this.adminServer = null;
+    this.adminPort = null;
+    this.initDb = null;
         }
-        else if(args.length === 2) {
-            
-            this.constructor$1(args[0], args[1]);
-            
+    
+
+    public function InitializerDatabase(abeClientInformation:AbeClientInformationInterface, map:Map) {
+        super();
+        this.initFieldsInitializerDatabase();
+        var stringBuffer:StringMaker = new StringMaker();
+        var hashMap:JHashMap = StdUtil.getInstance().createHashMap();
+        var keys:Set = map.keySet();
+        var keyArray:Vector.<Object> = keys.toArray();
+        var size:int = keyArray.length;
+        for (var index:int = 0; index < size; index++) {
+            var key:String = (keyArray[index] as String);
+            var values:Vector.<String> = (map.get_(key) as Vector.<String>);
+            hashMap.put(key, values[0]);
+            stringBuffer.delete_(0, stringBuffer.length());
+            stringBuffer.append("key: ");
+            stringBuffer.append(key);
+            stringBuffer.append(" Value: ");
+            stringBuffer.append(values[0]);
+            this.logUtil.putF(stringBuffer.toString(), this, "getFormData()");
         }
-        
+        this.getFormData(abeClientInformation, hashMap);
     }
     
-    private constructor$0(abeClientInformation: AbeClientInformationInterface, map: Map): void {
-        
-    let stringBuffer: StringMaker = new StringMaker();;
-    
 
-    let hashMap: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
-    
-
-    let keys: Set = map.keySet()!;;
-    
-
-    let keyArray: any[] = keys.toArray()!;;
-    
-
-    let size: number = keyArray!.length
-                ;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let key: string = keyArray[index]! as string;;
-    
-
-    let values: string[] = map.get(key) as string[];;
-    
-hashMap!.put(key.toCharArray().slice(0, ).join(''), .toCharArray());
-    
-stringBuffer!.delete(0, stringBuffer!.length());
-    
-stringBuffer!.append("key: ");
-    
-stringBuffer!.append(key);
-    
-stringBuffer!.append(" Value: ");
-    
-stringBuffer!.append(values[0]!);
-    
-this.logUtil!.putF(stringBuffer!.toString(), this, "getFormData()");
-    
-}
-
-this.getFormData(abeClientInformation, hashMap);
-    
-
-    }
-    
-    private constructor$1(abeClientInformation: AbeClientInformationInterface, initHashMap: HashMap<any, any>): void {
+    /* Java constructor: ActionScript classes have one constructor
+    public function InitializerDatabase(abeClientInformation:AbeClientInformationInterface, initHashMap:JHashMap) {
+        super();
+        this.initFieldsInitializerDatabase();
         this.getFormData(abeClientInformation, initHashMap);
+    }
+    */
     
 
+    public function getFormData(abeClientInformation:AbeClientInformationInterface, hashMap:JHashMap):void {
+        try {
+            var initializerData:InitializerData = InitializerData.getInstance();
+            this.setAdminDbUserName((hashMap.get_(initializerData.DBUSER) as String));
+            this.setAdminDbPassword((hashMap.get_(initializerData.DBPASSWORD) as String));
+            this.setAdminJdbcDriver((hashMap.get_(initializerData.ADMINJDBCDRIVER) as String));
+            this.setAdminSchema((hashMap.get_(initializerData.ADMINSCHEMA) as String));
+            this.setAdminServer((hashMap.get_(initializerData.ADMINSERVER) as String));
+            this.setAdminPort((hashMap.get_(initializerData.ADMINPORT) as String));
+            var dbConnectionInfo:DbConnectionInfo = new DbConnectionInfo();
+            var adminDbName:String = StringUtil.getInstance().EMPTY_STRING;
+            dbConnectionInfo.setJdbcDriver(this.getAdminJdbcDriver());
+            dbConnectionInfo.setName(adminDbName);
+            dbConnectionInfo.setUserName(this.getAdminDbUserName());
+            dbConnectionInfo.setPassword(this.getAdminDbPassword());
+            dbConnectionInfo.setSchema(this.getAdminSchema());
+            dbConnectionInfo.setServer(this.getAdminServer());
+            dbConnectionInfo.setPort(this.getAdminPort());
+            this.initDb = new DynamicInitDb(abeClientInformation, (dbConnectionInfo as DatabaseConnectionInfoInterface));
+        } catch (e:*) {
+            this.logUtil.put("Unable to get form data", this, "getFormData()", e);
+        }
     }
     
-    public getFormData(abeClientInformation: AbeClientInformationInterface, hashMap: HashMap<any, any>){
 
- try { 
-    let initializerData: InitializerData = InitializerData.getInstance()!;;
+    private function isJdbcDriverValid(jdbcDriverClassPathString:String):Boolean {
+        try {
+            Class.forName(jdbcDriverClassPathString).newInstance();
+            return true;
+        } catch (e:*) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+                var commonStrings:CommonStrings = CommonStrings.getInstance();
+                this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.IS_VALID, e);
+            }
+            return false;
+        }
+    }
+    
+
+    public function isValid():Boolean {
+        var isValid:Boolean = true;
+        if (!this.isJdbcDriverValid(this.adminJdbcDriver)) {
+            isValid = false;
+        }
+        var stringValidationUtil:StringValidationUtil = StringValidationUtil.getInstance();
+        if (!stringValidationUtil.isValidRequired(this.adminDbUserName, InitializerDatabase.MIN, InitializerDatabase.MAX)) {
+            isValid = false;
+        }
+        if (!stringValidationUtil.isValidNotRequired(this.adminDbPassword, InitializerDatabase.MINPASSWORD, InitializerDatabase.MAX)) {
+            isValid = false;
+        }
+        return isValid;
+    }
+    
+
+    private function getJdbcDriverValidationInfo(jdbcDriver:String):String {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append("The JDBC driver (");
+        stringBuffer.append(jdbcDriver);
+        stringBuffer.append(") you have provided is not valid.<br/>");
+        return stringBuffer.toString();
+    }
+    
+
+    public function getInvalidInfo():String {
+        var isValid:Boolean = true;
+        var isJdbcDriversValid:Boolean = true;
+        var stringBuffer:StringMaker = new StringMaker();
+        if (!this.isJdbcDriverValid(this.adminJdbcDriver)) {
+            isJdbcDriversValid = false;
+            stringBuffer.append(this.getJdbcDriverValidationInfo(this.getAdminJdbcDriver()));
+        }
+        var stringValidationUtil:StringValidationUtil = StringValidationUtil.getInstance();
+        if (!stringValidationUtil.isValidRequired(this.adminDbUserName, InitializerDatabase.MIN, InitializerDatabase.MAX)) {
+            stringBuffer.append("Admin username should be < " + String(InitializerDatabase.MAX) + " and > " + String(InitializerDatabase.MIN) + " characters in length.<br />");
+        }
+        if (!stringValidationUtil.isValidNotRequired(this.adminDbPassword, InitializerDatabase.MINPASSWORD, InitializerDatabase.MAX)) {
+            stringBuffer.append("Admin password should be < " + String(InitializerDatabase.MAX) + " and > " + String(InitializerDatabase.MINPASSWORD) + " characters in length.<br />");
+        }
+        if (!isJdbcDriversValid) {
+            stringBuffer.append(InitializerData.getInstance().getJdbcDriverSolutionInfo());
+        }
+        return stringBuffer.toString();
+    }
+    
+
+    public function createUsers():Boolean {
+        try {
+            this.initDb.addUsers();
+            return true;
+        } catch (e:*) {
+            this.logUtil.put("Unable to Create Users", this, "createUsers()", e);
+            return false;
+        }
+    }
+    
+
+    public function createDatabases():Boolean {
+        try {
+            this.initDb.addDatabases();
+            return true;
+        } catch (e:*) {
+            this.logUtil.put("Unable to Create Databases", this, "createDatabases()", e);
+            return false;
+        }
+    }
+    
+
+    public function createTables():Boolean {
+        try {
+            this.initDb.addTables();
+            return true;
+        } catch (e:*) {
+            this.logUtil.put("Unable to Create Tables", this, "createTables()", e);
+            return false;
+        }
+    }
+    
+
+    public function getAdminDbUserName():String {
+        return this.adminDbUserName;
+    }
+    
+
+    public function setAdminDbUserName(adminDbUserName:String):void {
+        this.adminDbUserName = adminDbUserName;
+    }
     
-this.setAdminDbUserName(hashMap!.get(initializerData!.DBUSER) as string);
-    
-this.setAdminDbPassword(hashMap!.get(initializerData!.DBPASSWORD) as string);
-    
-this.setAdminJdbcDriver(hashMap!.get(initializerData!.ADMINJDBCDRIVER) as string);
-    
-this.setAdminSchema(hashMap!.get(initializerData!.ADMINSCHEMA) as string);
-    
-this.setAdminServer(hashMap!.get(initializerData!.ADMINSERVER) as string);
-    
-this.setAdminPort(hashMap!.get(initializerData!.ADMINPORT) as string);
-    
-
-    let dbConnectionInfo: DbConnectionInfo = new DbConnectionInfo();;
-    
-
-    let adminDbName: string = StringUtil.getInstance()!.EMPTY_STRING;;
-    
-dbConnectionInfo!.setJdbcDriver(getAdminJdbcDriver());
-    
-dbConnectionInfo!.setName(adminDbName);
-    
-dbConnectionInfo!.setUserName(getAdminDbUserName());
-    
-dbConnectionInfo!.setPassword(getAdminDbPassword());
-    
-dbConnectionInfo!.setSchema(getAdminSchema());
-    
-dbConnectionInfo!.setServer(getAdminServer());
-    
-dbConnectionInfo!.setPort(getAdminPort());
-    
-this.initDb= new DynamicInitDb(abeClientInformation, dbConnectionInfo as DatabaseConnectionInfoInterface);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put("Unable to get form data", this, "getFormData()", e);
-    
-
- }
-   }
- 
-}
-
-
-    isJdbcDriverValid(jdbcDriverClassPathString: string): boolean{
-
- try { Class.forName(jdbcDriverClassPathString)!.newInstance();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.PRELOADERERROR))
-                        
-                                    {
-                                    
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.IS_VALID, e);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-
- }
-   }
- 
-}
-
-
-    public isValid(): boolean{
-
-    let isValid: boolean = true;;
-    
-
-                        if(!this.isJdbcDriverValid(this.adminJdbcDriver))
-                        
-                                    {
-                                    isValid= false;
-    
-
-                                    }
-                                
-
-    let stringValidationUtil: StringValidationUtil = StringValidationUtil.getInstance()!;;
-    
-
-                        if(!stringValidationUtil!.isValidRequired(this.adminDbUserName, InitializerDatabase.MIN, InitializerDatabase.MAX))
-                        
-                                    {
-                                    isValid= false;
-    
-
-                                    }
-                                
-
-                        if(!stringValidationUtil!.isValidNotRequired(this.adminDbPassword, InitializerDatabase.MINPASSWORD, InitializerDatabase.MAX))
-                        
-                                    {
-                                    isValid= false;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return isValid;
-    
-}
-
-
-    getJdbcDriverValidationInfo(jdbcDriver: string): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append("The JDBC driver (");
-    
-stringBuffer!.append(jdbcDriver);
-    
-stringBuffer!.append(") you have provided is not valid.<br/>");
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
-    
-}
-
-
-    public getInvalidInfo(): string{
-
-    let isValid: boolean = true;;
-    
-
-    let isJdbcDriversValid: boolean = true;;
-    
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-
-                        if(!this.isJdbcDriverValid(this.adminJdbcDriver))
-                        
-                                    {
-                                    isJdbcDriversValid= false;
-    
-stringBuffer!.append(this.getJdbcDriverValidationInfo(this.getAdminJdbcDriver()));
-    
-
-                                    }
-                                
-
-    let stringValidationUtil: StringValidationUtil = StringValidationUtil.getInstance()!;;
-    
-
-                        if(!stringValidationUtil!.isValidRequired(this.adminDbUserName, InitializerDatabase.MIN, InitializerDatabase.MAX))
-                        
-                                    {
-                                    stringBuffer!.append("Admin username should be < " +InitializerDatabase.MAX +" and > " +InitializerDatabase.MIN +" characters in length.<br />");
-    
-
-                                    }
-                                
-
-                        if(!stringValidationUtil!.isValidNotRequired(this.adminDbPassword, InitializerDatabase.MINPASSWORD, InitializerDatabase.MAX))
-                        
-                                    {
-                                    stringBuffer!.append("Admin password should be < " +InitializerDatabase.MAX +" and > " +InitializerDatabase.MINPASSWORD +" characters in length.<br />");
-    
 
-                                    }
-                                
-
-                        if(!isJdbcDriversValid)
-                        
-                                    {
-                                    stringBuffer!.append(InitializerData.getInstance()!.getJdbcDriverSolutionInfo());
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
-    
-}
-
-
-    public createUsers(): boolean{
-
- try { this.initDb!.addUsers();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put("Unable to Create Users", this, "createUsers()", e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-
- }
-   }
- 
-}
-
-
-    public createDatabases(): boolean{
-
- try { this.initDb!.addDatabases();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put("Unable to Create Databases", this, "createDatabases()", e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-
- }
-   }
- 
-}
-
-
-    public createTables(): boolean{
-
- try { this.initDb!.addTables();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put("Unable to Create Tables", this, "createTables()", e);
+    public function getAdminDbPassword():String {
+        return this.adminDbPassword;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-
- }
-   }
- 
-}
-
-
-    public getAdminDbUserName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.adminDbUserName;
-    
-}
-
-
-    public setAdminDbUserName(adminDbUserName: string){
-this.adminDbUserName= adminDbUserName;
-    
-}
-
-
-    public getAdminDbPassword(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.adminDbPassword;
-    
-}
-
-
-    public setAdminDbPassword(adminDbPassword: string){
-this.adminDbPassword= adminDbPassword;
-    
-}
-
-
-    public getAdminJdbcDriver(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.adminJdbcDriver;
+    public function setAdminDbPassword(adminDbPassword:String):void {
+        this.adminDbPassword = adminDbPassword;
+    }
     
-}
 
-
-    public setAdminJdbcDriver(adminJdbcDriver: string){
-this.adminJdbcDriver= adminJdbcDriver;
+    public function getAdminJdbcDriver():String {
+        return this.adminJdbcDriver;
+    }
     
-}
-
-
-    public getAdminSchema(): string{
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.adminSchema;
+    public function setAdminJdbcDriver(adminJdbcDriver:String):void {
+        this.adminJdbcDriver = adminJdbcDriver;
+    }
     
-}
-
 
-    public setAdminSchema(adminSchema: string){
-this.adminSchema= adminSchema;
+    public function getAdminSchema():String {
+        return this.adminSchema;
+    }
     
-}
 
-
-    public getAdminServer(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.adminServer;
+    public function setAdminSchema(adminSchema:String):void {
+        this.adminSchema = adminSchema;
+    }
     
-}
-
 
-    public setAdminServer(adminServer: string){
-this.adminServer= adminServer;
+    public function getAdminServer():String {
+        return this.adminServer;
+    }
     
-}
 
-
-    public getAdminPort(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.adminPort;
+    public function setAdminServer(adminServer:String):void {
+        this.adminServer = adminServer;
+    }
     
-}
 
-
-    public setAdminPort(adminPort: string){
-this.adminPort= adminPort;
+    public function getAdminPort():String {
+        return this.adminPort;
+    }
     
-}
-
 
+    public function setAdminPort(adminPort:String):void {
+        this.adminPort = adminPort;
+    }
+    }
 }
 

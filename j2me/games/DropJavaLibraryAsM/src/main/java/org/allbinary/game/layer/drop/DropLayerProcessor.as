@@ -1,116 +1,59 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer.drop {
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
+    import org.allbinary.layer.BasicLayerProcessor;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-import { BasicLayerProcessor } from '../../../../../org/allbinary/layer/BasicLayerProcessor.js';
-//not GWT import const BasicLayerProcessor
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DropLayerInterface } from './DropLayerInterface.js';
-//sameFolderImports - not GWT import - same folder const DropLayerInterface
-
-export class DropLayerProcessor extends BasicLayerProcessor {
-        
-
-    private static readonly LAYER_PROCESSOR: BasicLayerProcessor = new DropLayerProcessor();
-
-    public static getInstance(): BasicLayerProcessor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DropLayerProcessor.LAYER_PROCESSOR;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class DropLayerProcessor extends BasicLayerProcessor {
+    private static var LAYER_PROCESSOR_value:BasicLayerProcessor;
+    private static var LAYER_PROCESSOR_set:Boolean = false;
+    private static function get LAYER_PROCESSOR():BasicLayerProcessor {
+        if (!DropLayerProcessor.LAYER_PROCESSOR_set) {
+            DropLayerProcessor.LAYER_PROCESSOR_set = true;
+            DropLayerProcessor.LAYER_PROCESSOR_value = new DropLayerProcessor();
         }
-
-
-                //@Throws(Exception.constructor)
-            
-    public process(allBinaryLayerManager: AllBinaryLayerManager){
-
-    let list: BasicArrayList = this.getList()!;;
+        return DropLayerProcessor.LAYER_PROCESSOR_value;
+    }
     
 
-    let size: number = list.size()!;;
+    public function DropLayerProcessor() {
+        super();
+    }
     
 
-    let layerInterface: AllBinaryLayer;;
+    public static function getInstance():BasicLayerProcessor {
+        return DropLayerProcessor.LAYER_PROCESSOR;
+    }
     
 
-    let dropLayerInterface: DropLayerInterface;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-layerInterface= list.objectArray[index]! as AllBinaryLayer;
-    
-dropLayerInterface= layerInterface as unknown as DropLayerInterface;
-    
-layerInterface= dropLayerInterface!.getDroppedLayer() as unknown as AllBinaryLayer;
-    
-allBinaryLayerManager!.append(layerInterface);
-    
-}
-
-list.clear();
-    
-}
-
-
+    override public function process(allBinaryLayerManager:AllBinaryLayerManager):void {
+        var list:BasicArrayList = this.getList();
+        var size:int = list.size();
+        var layerInterface:AllBinaryLayer = null;
+        var dropLayerInterface:DropLayerInterface = null;
+        for (var index:int = 0; index < size; index++) {
+            layerInterface = (list.objectArray[index] as AllBinaryLayer);
+            dropLayerInterface = (layerInterface as DropLayerInterface);
+            layerInterface = (dropLayerInterface.getDroppedLayer() as AllBinaryLayer);
+            allBinaryLayerManager.append(layerInterface);
+        }
+        list.clear();
+    }
+    }
 }
 

@@ -1,111 +1,59 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.direction.Direction;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.math.Angle;
+    import org.allbinary.math.AngleFactory;
+    import org.allbinary.math.AngleInfo;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { Direction } from '../../../org/allbinary/direction/Direction.js';
-//not GWT import const Direction
-
-import { BasicColor } from '../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { Angle } from '../../../org/allbinary/math/Angle.js';
-//not GWT import const Angle
-
-import { AngleFactory } from '../../../org/allbinary/math/AngleFactory.js';
-//not GWT import const AngleFactory
-
-import { AngleInfo } from '../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { VectorBaseRotationAnimation } from './VectorBaseRotationAnimation.js';
-//sameFolderImports - not GWT import - same folder const VectorBaseRotationAnimation
-import { AnimationBehavior } from './AnimationBehavior.js';
-//sameFolderImports - not GWT import - same folder const AnimationBehavior
-
-export class VectorRotationAnimation extends VectorBaseRotationAnimation {
-        
-
-public constructor (currentPoints: number[][][], basicColor: BasicColor, animationBehavior: AnimationBehavior){
-            super(AngleInfo.getInstance((AngleFactory.getInstance()!.TOTAL_ANGLE /currentPoints!.length)), currentPoints, basicColor, animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.angleInfo!.adjustAngle(this.getFrame());
+    public class VectorRotationAnimation extends VectorBaseRotationAnimation {
     
-}
 
-
-    public setFrameByDirection(direction: Direction){
-
-    let angle: Angle = this.directionUtil!.getFrameAngle(direction)!;;
+    public function VectorRotationAnimation(currentPoints:Vector.<Vector.<Vector.<int>>>, basicColor:BasicColor, animationBehavior:AnimationBehavior) {
+        super(AngleInfo.getInstance1(((int((int(AngleFactory.getInstance().TOTAL_ANGLE / currentPoints.length))) << 16) >> 16)), currentPoints, basicColor, animationBehavior);
+        this.angleInfo.adjustAngle(this.getFrame());
+    }
     
-this.adjustFrameToAngle(angle);
+
+    override public function setFrameByDirection(direction:Direction):void {
+        var angle:Angle = this.directionUtil.getFrameAngle(direction);
+        this.adjustFrameToAngle(angle);
+    }
     
-}
 
-
-    public setFrameToAngle(angle: Angle){
-this.adjustFrameToAngle(angle);
+    override public function setFrameToAngle(angle:Angle):void {
+        this.adjustFrameToAngle(angle);
+    }
     
-}
 
-
-    public setFrame(index: number){
-super.setFrame(index);
+    override public function setFrame(index:int):void {
+        super.setFrame(index);
+        this.angleInfo.adjustAngle(this.getFrame());
+    }
     
-this.angleInfo!.adjustAngle(this.getFrame());
+
+    override public function adjustFrame(newAngle:int):void {
+        this.setFrame(this.frameUtil.getFrameForAngle(newAngle, this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
+    }
     
-}
 
-
-    public adjustFrame(newAngle: number){
-this.setFrame(this.frameUtil!.getFrameForAngle(newAngle, globalThis.Math.trunc(this.angleInfo!.getAngleIncrementInfo()!.getAngleIncrement())));
-    
-}
-
-
-    public adjustFrameToAngle(newAngle: Angle){
-this.adjustFrame(newAngle!.getValue());
-    
-}
-
-
+    override public function adjustFrameToAngle(newAngle:Angle):void {
+        this.adjustFrame(newAngle.getValue());
+    }
+    }
 }
 

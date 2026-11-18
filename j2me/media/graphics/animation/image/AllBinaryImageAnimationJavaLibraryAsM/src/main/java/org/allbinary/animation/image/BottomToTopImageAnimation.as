@@ -1,121 +1,70 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BottomToTopImageAnimation extends ImageSegmentAnimation {
+        private var startHeight:int = 0;
+        private var currentHeight:int = 0;
+        private var anchor:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { Sprite } from '../../../../javax/microedition/lcdui/game/Sprite.js';
-//not GWT import const Sprite
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageSegmentAnimation } from './ImageSegmentAnimation.js';
-//sameFolderImports - not GWT import - same folder const ImageSegmentAnimation
-
-export class BottomToTopImageAnimation extends ImageSegmentAnimation {
-        
-
-    private startHeight: number= 0;
-
-    private currentHeight: number= 0;
-
-public constructor (image: Image, animationBehavior: AnimationBehavior){
-            super(image, PrimitiveIntUtil.getArrayInstance(), animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.setFrame(this.getSize() -1);
+        // Java field initializers run after the base constructor
+        private function initFieldsBottomToTopImageAnimation():void {
+    this.startHeight = 0;
+    this.currentHeight = 0;
+    this.anchor = Anchor.TOP_LEFT;
+        }
     
-}
 
-
-    public nextFrame(){
-super.previousFrame();
+    public function BottomToTopImageAnimation(image:Image, animationBehavior:AnimationBehavior) {
+        super(image, PrimitiveIntUtil.getArrayInstance(), animationBehavior);
+        this.initFieldsBottomToTopImageAnimation();
+        this.setFrame(this.getSize() - 1);
+    }
     
-this.update();
+
+    override public function nextFrame():void {
+        super.previousFrame();
+        this.update();
+    }
     
-}
 
-
-    public previousFrame(){
-super.nextFrame();
+    override public function previousFrame():void {
+        super.nextFrame();
+        this.update();
+    }
     
-this.update();
+
+    override public function setFrame(index:int):void {
+        super.setFrame(index);
+        this.update();
+    }
     
-}
 
-
-    public setFrame(index: number){
-super.setFrame(index);
+    private function update():void {
+        this.startHeight = this.getDrawHeight() * this.getFrame() / this.getSize();
+        this.currentHeight = this.getDrawHeight() - this.startHeight;
+    }
     
-this.update();
-    
-}
 
-
-    update(){
-this.startHeight= this.getDrawHeight() *this.getFrame() /this.getSize();
-    
-this.currentHeight= this.getDrawHeight() -this.startHeight;
-    
-}
-
-
-    private anchor: number = Anchor.TOP_LEFT;
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-graphics.drawRegion(this.getImage(), this.getStartX(), this.startHeight, this.getDrawWidth(), this.currentHeight, Sprite.TRANS_NONE, x, y +this.startHeight, this.anchor);
-    
-}
-
-
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        graphics.drawRegion(this.getImage(), this.getStartX(), this.startHeight, this.getDrawWidth(), this.currentHeight, Sprite.TRANS_NONE, x, int(y + this.startHeight), this.anchor);
+    }
+    }
 }
 

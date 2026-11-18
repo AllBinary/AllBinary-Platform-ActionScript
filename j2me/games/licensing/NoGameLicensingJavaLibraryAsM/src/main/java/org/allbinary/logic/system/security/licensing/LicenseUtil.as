@@ -1,93 +1,53 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.security.licensing {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-import { CommandListener } from '../../../../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class LicenseUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: LicenseUtil = new LicenseUtil();
-
-    public static getInstance(): LicenseUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LicenseUtil.instance;
+    public class LicenseUtil {
+    private static var instance_value:LicenseUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():LicenseUtil {
+        if (!LicenseUtil.instance_set) {
+            LicenseUtil.instance_set = true;
+            LicenseUtil.instance_value = new LicenseUtil();
+        }
+        return LicenseUtil.instance_value;
+    }
     
-}
 
-
-    public init(){
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public isRunning(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public static function getInstance():LicenseUtil {
+        return LicenseUtil.instance;
+    }
     
-}
 
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public setRunning(running: boolean){
-}
-
-
-    public shouldWait(commandListener: CommandListener): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.isRunning();;
+    public function init():void {
+    }
     
-}
 
+    public function isRunning():Boolean {
+        return false;
+    }
+    
 
+    public function setRunning(running:Boolean):void {
+    }
+    
+
+    public function shouldWait(commandListener:CommandListener):Boolean {
+        return this.isRunning();
+    }
+    }
 }
 

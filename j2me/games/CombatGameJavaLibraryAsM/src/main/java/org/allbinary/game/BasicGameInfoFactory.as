@@ -1,105 +1,58 @@
+// Generated Code Do Not Modify
+package org.allbinary.game {
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class BasicGameInfoFactory
-            extends Object
-         {
-        
-
-    private static readonly SINGLETON: BasicGameInfoFactory = new BasicGameInfoFactory();
-
-    public static getInstance(): BasicGameInfoFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return BasicGameInfoFactory.SINGLETON;
-    
-}
-
-
-    public currentReleaseIndex: number= 0;
-
-    public currentDestroyIndex: number= 0;
-
-    public total: number= 0;
-
-private constructor (){
-
-            super();
+    public class BasicGameInfoFactory {
+    private static var SINGLETON_value:BasicGameInfoFactory;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():BasicGameInfoFactory {
+        if (!BasicGameInfoFactory.SINGLETON_set) {
+            BasicGameInfoFactory.SINGLETON_set = true;
+            BasicGameInfoFactory.SINGLETON_value = new BasicGameInfoFactory();
         }
+        return BasicGameInfoFactory.SINGLETON_value;
+    }
+        public var currentReleaseIndex:int = 0;
+        public var currentDestroyIndex:int = 0;
+        public var total:int = 0;
 
-
-    public init(total: number){
-this.currentReleaseIndex= 0;
-    
-this.currentDestroyIndex= 0;
-    
-this.total= total;
-    
-}
-
-
-    public isPeaked(): boolean{
-
-                        if(this.currentDestroyIndex >= this.total)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicGameInfoFactory():void {
+    this.currentReleaseIndex = 0;
+    this.currentDestroyIndex = 0;
+    this.total = 0;
+        }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public static function getInstance():BasicGameInfoFactory {
+        return BasicGameInfoFactory.SINGLETON;
+    }
     
 
-                        }
-                            
-}
-
-
-    public howManyLeft(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.total -this.currentDestroyIndex;
+    public function BasicGameInfoFactory() {
+        super();
+        this.initFieldsBasicGameInfoFactory();
+    }
     
-}
 
+    public function init(total:int):void {
+        this.currentReleaseIndex = 0;
+        this.currentDestroyIndex = 0;
+        this.total = total;
+    }
+    
 
+    public function isPeaked():Boolean {
+        if (this.currentDestroyIndex >= this.total) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+
+    public function howManyLeft():int {
+        return int(this.total - this.currentDestroyIndex);
+    }
+    }
 }
 

@@ -1,213 +1,111 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2002 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.displayable.screen {
+    import org.allbinary.canvas.Processor;
+    import org.allbinary.game.displayable.canvas.MenuListener;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.displayable.command.MyCommandInterface;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.logic.StdUtil;
+    import org.allbinary.util.ABStack;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2002 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CommandForm extends Form implements MyCommandInterface, MenuListener {
+    private static var NULL_COMMAND_FORM_value:Object;
+    private static var NULL_COMMAND_FORM_set:Boolean = false;
+    private static function get NULL_COMMAND_FORM():Object {
+        if (!CommandForm.NULL_COMMAND_FORM_set) {
+            CommandForm.NULL_COMMAND_FORM_set = true;
+            CommandForm.NULL_COMMAND_FORM_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return CommandForm.NULL_COMMAND_FORM_value;
+    }
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        private var repaintProcessor:Processor = null;
+        private var commandStack:ABStack = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Command } from '../../../../../javax/microedition/lcdui/Command.js';
-//not GWT import const Command
-
-import { CommandListener } from '../../../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
-
-import { Form } from '../../../../../javax/microedition/lcdui/Form.js';
-//not GWT import const Form
-
-import { NullCommandListener } from '../../../../../javax/microedition/lcdui/NullCommandListener.js';
-//not GWT import const NullCommandListener
-
-import { Processor } from '../../../../../org/allbinary/canvas/Processor.js';
-//not GWT import const Processor
-
-import { MenuListener } from '../../../../../org/allbinary/game/displayable/canvas/MenuListener.js';
-//not GWT import const MenuListener
-
-import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { MyCommandInterface } from '../../../../../org/allbinary/graphics/displayable/command/MyCommandInterface.js';
-//not GWT import const MyCommandInterface
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-//not plain js import { ABStack } 
-const ABStack = globalThis.org.allbinary.util.ABStack;
-type ABStack<T = any, U = any> = typeof ABStack extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABStack;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ScreenRepaintProcessorFactory } from './ScreenRepaintProcessorFactory.js';
-//sameFolderImports - not GWT import - same folder const ScreenRepaintProcessorFactory
-
-export class CommandForm extends Form implements MyCommandInterface, MenuListener {
-        
-
-    private static NULL_COMMAND_FORM: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getNullCommandForm(): CommandForm{
-
-                        if(CommandForm.NULL_COMMAND_FORM == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    CommandForm.NULL_COMMAND_FORM= new CommandForm(NullCommandListener.NULL_COMMAND_LISTENER, StringUtil.getInstance()!.EMPTY_STRING, BasicColorFactory.getInstance()!.BLACK, BasicColorFactory.getInstance()!.WHITE);
+        // Java field initializers run after the base constructor
+        private function initFieldsCommandForm():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.repaintProcessor = ScreenRepaintProcessorFactory.getInstance().create(this);
+    
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return CommandForm.NULL_COMMAND_FORM as CommandForm;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly repaintProcessor: Processor = ScreenRepaintProcessorFactory.getInstance()!.create(this)!;
-
-    private commandStack: ABStack<any>;
-
-public constructor (commandListener: CommandListener, formTitle: string, backgrounBasicColor: BasicColor, foregroundBasicColor: BasicColor){
-            super(formTitle);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.commandStack= StdUtil.getInstance()!.createStack();
+    public static function getNullCommandForm():CommandForm {
+        if (CommandForm.NULL_COMMAND_FORM == NullUtil.getInstance().NULL_OBJECT) {
+            CommandForm.NULL_COMMAND_FORM = new CommandForm(NullCommandListener.NULL_COMMAND_LISTENER, StringUtil.getInstance().EMPTY_STRING, BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
+        }
+        return (CommandForm.NULL_COMMAND_FORM as CommandForm);
+    }
     
 
- try { this.repaintProcessor!.process();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.CONSTRUCTOR, e);
-    
-
- }
-   }
- 
-}
-
-
-    public initCommands(cmdListener: CommandListener){
-}
-
-
-    public open(){
-this.logUtil!.putF(this.commonStrings!.START, this, "open");
-    
-}
-
-
-    public close(){
-this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CLOSE);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public update(){
-this.repaintProcessor!.process();
-    
-}
-
-
-    public getSourceId(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
-    
-}
-
-
-    public addCommand(command: Command){
-this.commandStack!.push(command);
-    
-super.addCommand(command);
-    
-}
-
-
-    public removeAllCommands(){
-
-    let size: number = this.commandStack!.size()!;;
+    public function CommandForm(commandListener:CommandListener, formTitle:String, backgrounBasicColor:BasicColor, foregroundBasicColor:BasicColor) {
+        super(formTitle);
+        this.initFieldsCommandForm();
+        this.commandStack = StdUtil.getInstance().createStack();
+        try {
+            this.repaintProcessor.process();
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
+        }
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-super.removeCommand(this.commandStack!.pop() as Command);
+    public function initCommands(cmdListener:CommandListener):void {
+    }
     
-}
 
-}
+    override public function open():void {
+        this.logUtil.putF(this.commonStrings.START, this, "open");
+    }
+    
 
+    override public function close():void {
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CLOSE);
+    }
+    
 
+    public function update():void {
+        this.repaintProcessor.process();
+    }
+    
+
+    override public function getSourceId():int {
+        return 0;
+    }
+    
+
+    override public function addCommand(command:Command):void {
+        this.commandStack.push(command);
+        super.addCommand(command);
+    }
+    
+
+    override public function removeAllCommands():void {
+        var size:int = this.commandStack.size();
+        for (var index:int = 0; index < size; index++) {
+            super.removeCommand((this.commandStack.pop() as Command));
+        }
+    }
+    }
 }
 

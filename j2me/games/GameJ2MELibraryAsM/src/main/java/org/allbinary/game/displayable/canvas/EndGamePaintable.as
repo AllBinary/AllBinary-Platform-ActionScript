@@ -1,68 +1,40 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.graphics.paint.Paintable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class EndGamePaintable extends Paintable {
+        private var gameCanvas:AllBinaryGameCanvas = null;
 
-        
-
-
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Paintable } from '../../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AllBinaryGameCanvas } from './AllBinaryGameCanvas.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryGameCanvas
-
-export class EndGamePaintable extends Paintable {
-        
-
-    private gameCanvas: AllBinaryGameCanvas;
-
-public constructor (gameCanvas: AllBinaryGameCanvas){
-
-            super();
-        this.gameCanvas= gameCanvas;
+        // Java field initializers run after the base constructor
+        private function initFieldsEndGamePaintable():void {
     
-}
-
-
-    public paint(graphics: Graphics){
-this.gameCanvas!.paintGameOver(graphics);
+        }
     
-}
 
+    public function EndGamePaintable(gameCanvas:AllBinaryGameCanvas) {
+        super();
+        this.initFieldsEndGamePaintable();
+        this.gameCanvas = gameCanvas;
+    }
+    
 
+    override public function paint(graphics:Graphics):void {
+        this.gameCanvas.paintGameOver(graphics);
+    }
+    }
 }
 

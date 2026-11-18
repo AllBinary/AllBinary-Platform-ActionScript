@@ -1,260 +1,139 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.audio {
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    //BasicPlayerJavaLibrary
+    public class BasicPlayer implements Player, Controllable2 {
+    public static var CONTROL_TYPE:String = "ToneControl";
+        public var commonStrings:CommonStrings = null;
+        public var listenersList:BasicArrayList = null;
+        public var stateP:int = 0;
+        public var loopCountP:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicPlayer():void {
+    this.commonStrings = CommonStrings.getInstance();
+    this.listenersList = new BasicArrayListD();
+    this.stateP = 0;
+    this.loopCountP = 0;
+        }
+    
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Control } from '../../../../javax/microedition/media/Control.js';
-//not GWT import const Control
-
-import { MediaException } from '../../../../javax/microedition/media/MediaException.js';
-//not GWT import const MediaException
-
-import { Player, PlayerI } from '../../../../javax/microedition/media/Player.js';
-//not GWT import const Player
-
-import { PlayerListenerI } from '../../../../javax/microedition/media/PlayerListener.js';
-const PlayerListener = PlayerListenerI;
-//not GWT import const PlayerListener
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Controllable2 } from './Controllable2.js';
-//sameFolderImports - not GWT import - same folder const Controllable2
-import { NullControl } from './NullControl.js';
-//sameFolderImports - not GWT import - same folder const NullControl
-//BasicPlayerJavaLibrary
-export class BasicPlayer
-            extends Object
-         implements Player, Controllable2 {
-        
-
-    public static CONTROL_TYPE: string = "ToneControl";
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    readonly listenersList: BasicArrayList = new BasicArrayListD();
-
-    stateP: number= 0;
-
-    loopCountP: number= 0;
-
-public constructor (){
-
-            super();
+    public function BasicPlayer() {
+        super();
+        this.initFieldsBasicPlayer();
         this.setLoopCount(0);
-    
-this.setState(PlayerI.UNREALIZED);
-    
-}
-
-
-    public getContentType(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StringUtil.getInstance()!.EMPTY_STRING;
-    
-}
-
-
-    public getControl(controlType: string): Control{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new NullControl();
-    
-}
-
-
-    public getControls(): Control[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return [];
-    
-}
-
-
-    public close(){
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public addPlayerListener(playerListener: PlayerListener){
-
-                        if(!this.listenersList!.contains(playerListener))
-                        
-                                    {
-                                    this.listenersList!.add(playerListener);
+        this.setState(Player.UNREALIZED);
+    }
     
 
-                                    }
-                                
-}
-
-
-    public removePlayerListener(playerListener: PlayerListener){
-this.listenersList!.remove(playerListener);
+    public function getContentType():String {
+        return StringUtil.getInstance().EMPTY_STRING;
+    }
     
-}
 
-
-    public getState(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.stateP;
+    public function getControl(controlType:String):Control {
+        return new NullControl();
+    }
     
-}
 
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public setState(state: number){
-this.stateP= state;
+    public function getControls():Vector.<Control> {
+        return new Vector.<Control>(0);
+    }
     
-}
 
-
-    public getDuration(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public function close():void {
+    }
     
-}
 
-
-    public getMediaTime(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public function addPlayerListener(playerListener:PlayerListener):void {
+        if (!this.listenersList.contains(playerListener)) {
+            this.listenersList.add(playerListener);
+        }
+    }
     
-}
 
-
-    public deallocate(){
-}
-
-
-                //@Throws(MediaException.constructor)
-            
-    public prefetch(){
-}
-
-
-                //@Throws(MediaException.constructor)
-            
-    public realize(){
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public setLoopCount(count: number){
-this.loopCountP= count;
+    public function removePlayerListener(playerListener:PlayerListener):void {
+        this.listenersList.remove(playerListener);
+    }
     
-}
 
-
-    getLoopCount(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.loopCountP;
+    public function getState():int {
+        return this.stateP;
+    }
     
-}
 
-
-                //@Throws(MediaException.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public setMediaTime(now: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public function setState(state:int):void {
+        this.stateP = state;
+    }
     
-}
 
-
-                //@Throws(MediaException.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public start(){
-this.setState(PlayerI.STARTED);
+    public function getDuration():Number {
+        return 0;
+    }
     
-}
 
-
-                //@Throws(MediaException.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public stop(){
-this.setState(PlayerI.PREFETCHED);
+    public function getMediaTime():Number {
+        return 0;
+    }
     
-}
 
+    public function deallocate():void {
+    }
+    
 
-    public setVolume(leftVolume: number, rightVolume: number){
-}
+    public function prefetch():void {
+    }
+    
 
+    public function realize():void {
+    }
+    
 
+    public function setLoopCount(count:int):void {
+        this.loopCountP = count;
+    }
+    
+
+    public function getLoopCount():int {
+        return this.loopCountP;
+    }
+    
+
+    public function setMediaTime(now:Number):Number {
+        return 0;
+    }
+    
+
+    public function start():void {
+        this.setState(Player.STARTED);
+    }
+    
+
+    public function stop():void {
+        this.setState(Player.PREFETCHED);
+    }
+    
+
+    public function setVolume(leftVolume:int, rightVolume:int):void {
+    }
+    }
 }
 

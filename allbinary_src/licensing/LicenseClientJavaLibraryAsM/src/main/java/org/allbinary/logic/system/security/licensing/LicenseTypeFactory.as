@@ -1,120 +1,61 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.security.licensing {
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LicenseTypeFactory {
+    private static var instance_value:LicenseTypeFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():LicenseTypeFactory {
+        if (!LicenseTypeFactory.instance_set) {
+            LicenseTypeFactory.instance_set = true;
+            LicenseTypeFactory.instance_value = new LicenseTypeFactory();
+        }
+        return LicenseTypeFactory.instance_value;
+    }
+        public var UNKNOWN:LicenseType = null;
+        public var DEMO:LicenseType = null;
+        public var NORMAL:LicenseType = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsLicenseTypeFactory():void {
+    this.UNKNOWN = new LicenseType(CommonStrings.getInstance().UNKNOWN);
+    this.DEMO = new LicenseType("Demo");
+    this.NORMAL = new LicenseType("Normal");
+        }
 
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LicenseType } from './LicenseType.js';
-//sameFolderImports - not GWT import - same folder const LicenseType
-
-export class LicenseTypeFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: LicenseTypeFactory = new LicenseTypeFactory();
-static getInstance(...args: any[]): any {
-   
-   
-    if (args.length === 0) return this.getInstance$overload1();
-   
-   throw new TypeError('No matching overload: getInstance'); }
-  
-    public static getInstance$overload1(): LicenseTypeFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LicenseTypeFactory.instance;
-    
-}
-
-
-    public readonly UNKNOWN: LicenseType = new LicenseType(CommonStrings.getInstance()!.UNKNOWN);
-
-    public readonly DEMO: LicenseType = new LicenseType("Demo");
-
-    public readonly NORMAL: LicenseType = new LicenseType("Normal");
-getInstance(...args: any[]): any {
-   
-   
-    if (args.length === 1 && typeof args[0] === 'string') return this.getInstance$overload2(args[0]);
-   
-   throw new TypeError('No matching overload: getInstance'); }
-  
-    public getInstance$overload2(name: string): LicenseType{
-
-                        if(this.DEMO.getName()!.compareTo(name) == 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.DEMO;
+        public function LicenseTypeFactory() {
+            super();
+            this.initFieldsLicenseTypeFactory();
+        }
     
 
-                                    }
-                                
-                             else 
-                        if(this.NORMAL.getName()!.compareTo(name) == 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.NORMAL;
+    public static function getInstance():LicenseTypeFactory {
+        return LicenseTypeFactory.instance;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.UNKNOWN;
-    
-}
-
-
+    public function getInstance1(name:String):LicenseType {
+        if (JSystem.compareToObject(this.DEMO.getName(), name) == 0) {
+            return this.DEMO;
+        } else if (JSystem.compareToObject(this.NORMAL.getName(), name) == 0) {
+            return this.NORMAL;
+        }
+        return this.UNKNOWN;
+    }
+    }
 }
 

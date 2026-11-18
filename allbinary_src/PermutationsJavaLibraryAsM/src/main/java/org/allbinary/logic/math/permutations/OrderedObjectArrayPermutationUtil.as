@@ -1,236 +1,119 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.math.permutations {
+    import java.util.JArrays;
+    import org.allbinary.TsUtil;
+    import org.allbinary.logic.util.visitor.Visitor;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { System } from '../../../../../java/lang/System.js';
-        
-import { Arrays } from '../../../../../java/util/Arrays.js';
-//not GWT import const Arrays
-
-import { TsUtil } from '../../../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-import { Visitor } from '../../../../../org/allbinary/logic/util/visitor/Visitor.js';
-//not GWT import const Visitor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ComparableObject } from './ComparableObject.js';
-//sameFolderImports - not GWT import - same folder const ComparableObject
-import { ObjectPermutationVisitor } from './ObjectPermutationVisitor.js';
-//sameFolderImports - not GWT import - same folder const ObjectPermutationVisitor
-
-export class OrderedObjectArrayPermutationUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: OrderedObjectArrayPermutationUtil = new OrderedObjectArrayPermutationUtil();
-
-    public static getInstance(): OrderedObjectArrayPermutationUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return OrderedObjectArrayPermutationUtil.instance;
-    
-}
-
-
-    public static main(args: string[]){
-
-    let TOTAL: number = 7;;
-    
-
-    let data: any[] = new Array(TOTAL);;
-    
-
-
-
-
-                        for (
-    let i: number = 0;i < TOTAL; i++)
-        {
-data[i]= new ComparableObject();
-    
-}
-
-Arrays.sort(data);
-    
-
-    let permutationVisitor: ObjectPermutationVisitor = new ObjectPermutationVisitor(data);;
-    
-
-    let ORIGINAL_DATA_LABEL: string = "Original Data: ";;
-    
-console.log(ORIGINAL_DATA_LABEL);
-    
-permutationVisitor!.visit(data);
-    
-OrderedObjectArrayPermutationUtil.getInstance()!.generate(data, permutationVisitor);
-    
-}
-
-
-    private readonly TOTAL_ITERATIONS_TABLE: string = "Total Iterations: ";
-
-    private readonly FINISHED: string = "\nFINISHED";
-
-private constructor (){
-
-            super();
+    public class OrderedObjectArrayPermutationUtil {
+    private static var instance_value:OrderedObjectArrayPermutationUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():OrderedObjectArrayPermutationUtil {
+        if (!OrderedObjectArrayPermutationUtil.instance_set) {
+            OrderedObjectArrayPermutationUtil.instance_set = true;
+            OrderedObjectArrayPermutationUtil.instance_value = new OrderedObjectArrayPermutationUtil();
         }
+        return OrderedObjectArrayPermutationUtil.instance_value;
+    }
+        private var TOTAL_ITERATIONS_TABLE:String = null;
+        private var FINISHED:String = null;
 
-
-    public getNext(data: any[]){
-
-    let length: number = data.length
-                ;;
+        // Java field initializers run after the base constructor
+        private function initFieldsOrderedObjectArrayPermutationUtil():void {
+    this.TOTAL_ITERATIONS_TABLE = "Total Iterations: ";
+    this.FINISHED = "\nFINISHED";
+        }
     
 
-    let i: number = length -1;;
+    public static function getInstance():OrderedObjectArrayPermutationUtil {
+        return OrderedObjectArrayPermutationUtil.instance;
+    }
     
 
-    let tsUtil: TsUtil = TsUtil.getInstance()!;;
+    public function OrderedObjectArrayPermutationUtil() {
+        super();
+        this.initFieldsOrderedObjectArrayPermutationUtil();
+    }
     
 
-        while(tsUtil!.hashCode(data[i -1]!) >= tsUtil!.hashCode(data[i]!))
-        {
-i= i -1;
-    
-}
-
-
-    let j: number = length;;
-    
-
-        while(tsUtil!.hashCode(data[j -1]!) <= tsUtil!.hashCode(data[i -1]!))
-        {
-j= j -1;
-    
-}
-
-this.swap(data, i -1, j -1);
-    
-i++;
-    
-j= length;
-    
-
-        while(i < j)
-        {
-this.swap(data, i -1, j -1);
-    
-i++;
-    
-j--;
-    
-}
-
-}
-
-
-    public swap(data: any[], a: number, b: number){
-
-    let temp: any = data[a]!;;
-    
-data[a]= data[b]!;
-    
-data[b]= temp;
-    
-}
-
-
-    public factorial(dataLength: number): number{
-
-    let temp: number = 1;;
+    public function getNext(data:Vector.<Object>):void {
+        var length:int = data.length;
+        var i:int = int(length - 1);
+        var tsUtil:TsUtil = TsUtil.getInstance();
+        while (tsUtil.hashCode(data[int(i - 1)]) >= tsUtil.hashCode(data[i])) {
+            i = int(i - 1);
+        }
+        var j:int = length;
+        while (tsUtil.hashCode(data[int(j - 1)]) <= tsUtil.hashCode(data[int(i - 1)])) {
+            j = int(j - 1);
+        }
+        this.swap(data, int(i - 1), int(j - 1));
+        i++;
+        j = length;
+        while (i < j) {
+            this.swap(data, int(i - 1), int(j - 1));
+            i++;
+            j--;
+        }
+    }
     
 
-                        if(dataLength > 1)
-                        
-                                    {
-                                    
-
-
-
-                        for (
-    let i: number = 1;i <= dataLength; i++)
-        {
-temp *= i;
-    
-}
-
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return temp;
-    
-}
-
-
-    public generate(data: any[], visitor: Visitor){
-
-    let iterations: number = this.factorial(data.length)!;;
-    
-console.log(this.TOTAL_ITERATIONS_TABLE);
-    
-console.log(iterations);
+    public function swap(data:Vector.<Object>, a:int, b:int):void {
+        var temp:Object = data[a];
+        data[a] = data[b];
+        data[b] = temp;
+    }
     
 
-
-
-
-                        for (
-    let count: number = 0;count < iterations -1; count++)
-        {
-this.getNext(data);
+    public function factorial(dataLength:int):Number {
+        var temp:Number = 1;
+        if (dataLength > 1) {
+            for (var i:int = 1; i <= dataLength; i++) {
+                temp *= Number(i);
+            }
+        }
+        return temp;
+    }
     
-visitor.visit(this);
+
+    public function generate(data:Vector.<Object>, visitor:Visitor):void {
+        var iterations:Number = this.factorial(data.length);
+        trace(this.TOTAL_ITERATIONS_TABLE);
+        trace(String(iterations));
+        for (var count:Number = 0; count < iterations - 1; count++) {
+            this.getNext(data);
+            visitor.visit(this);
+        }
+        trace(this.FINISHED);
+    }
     
-}
 
-console.log(this.FINISHED);
-    
-}
-
-
+    public static function main(args:Vector.<String>):void {
+        var TOTAL:int = 7;
+        var data:Vector.<Object> = new Vector.<Object>(TOTAL);
+        for (var i:int = 0; i < TOTAL; i++) {
+            data[i] = new ComparableObject();
+        }
+        Arrays.sort(data);
+        var permutationVisitor:ObjectPermutationVisitor = new ObjectPermutationVisitor(data);
+        var ORIGINAL_DATA_LABEL:String = "Original Data: ";
+        trace(ORIGINAL_DATA_LABEL);
+        permutationVisitor.visit(data);
+        OrderedObjectArrayPermutationUtil.getInstance().generate(data, permutationVisitor);
+    }
+    }
 }
 

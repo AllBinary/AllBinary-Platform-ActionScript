@@ -1,112 +1,71 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.vector {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.ColorCompositeInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class RectangleFilledAnimation extends Animation implements ColorCompositeInterface {
+        public var widthP:int = 0;
+        public var heightP:int = 0;
 
-        
-
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { ColorCompositeInterface } from '../../../../org/allbinary/graphics/color/ColorCompositeInterface.js';
-//not GWT import const ColorCompositeInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class RectangleFilledAnimation extends Animation implements ColorCompositeInterface {
-        
-
-    widthP: number;
-
-    heightP: number;
-
-public constructor (width: number, height: number, basicColor: BasicColor){
-
-            super();
-        this.widthP= width;
+        // Java field initializers run after the base constructor
+        private function initFieldsRectangleFilledAnimation():void {
     
-this.heightP= height;
     
-this.setBasicColorP(basicColor);
+        }
     
-}
 
-
-    public nextFrame(){
-}
-
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-this.basicSetColorUtil!.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
+    public function RectangleFilledAnimation(width:int, height:int, basicColor:BasicColor) {
+        super();
+        this.initFieldsRectangleFilledAnimation();
+        this.widthP = width;
+        this.heightP = height;
+        this.setBasicColorP(basicColor);
+    }
     
-graphics.fillRect(x, y, this.widthP, this.heightP);
+
+    override public function nextFrame():void {
+    }
     
-}
 
-
-    public setWidth(width: number){
-this.widthP= width;
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
+        graphics.fillRect(x, y, this.widthP, this.heightP);
+    }
     
-}
 
-
-    public setHeight(height: number){
-this.heightP= height;
+    public function setWidth(width:int):void {
+        this.widthP = width;
+    }
     
-}
 
-
-    public getBasicColorP(): BasicColor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getBasicColorP();;
+    public function setHeight(height:int):void {
+        this.heightP = height;
+    }
     
-}
 
-
-    public setBasicColorP(basicColor: BasicColor){
-super.setBasicColorP(basicColor);
+    override public function getBasicColorP():BasicColor {
+        return super.getBasicColorP();
+    }
     
-}
 
-
+    override public function setBasicColorP(basicColor:BasicColor):void {
+        super.setBasicColorP(basicColor);
+    }
+    }
 }
 

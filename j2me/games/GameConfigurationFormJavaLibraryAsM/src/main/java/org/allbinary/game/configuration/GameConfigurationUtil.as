@@ -1,305 +1,144 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonStrings;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameConfigurationUtil {
+    private static var instance_value:GameConfigurationUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GameConfigurationUtil {
+        if (!GameConfigurationUtil.instance_set) {
+            GameConfigurationUtil.instance_set = true;
+            GameConfigurationUtil.instance_value = new GameConfigurationUtil();
+        }
+        return GameConfigurationUtil.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var commonStrings:CommonStrings = null;
+        private var GAUGE_UPDATE:String = null;
+        private var FROM:String = null;
+        private var TO:String = null;
+        private var COMPETITION_VALUE:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGameConfigurationUtil():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.GAUGE_UPDATE = "Gauge Update: ";
+    this.FROM = " from: ";
+    this.TO = " to: ";
+    this.COMPETITION_VALUE = 1;
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../java/lang/Integer.js';
-        
-import { Item } from '../../../../javax/microedition/lcdui/Item.js';
-//not GWT import const Item
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { SmallIntegerSingletonFactory } from '../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
-//not GWT import const SmallIntegerSingletonFactory
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameConfigurationSingleton } from './GameConfigurationSingleton.js';
-//sameFolderImports - not GWT import - same folder const GameConfigurationSingleton
-import { GameConfiguration } from './GameConfiguration.js';
-//sameFolderImports - not GWT import - same folder const GameConfiguration
-import { GameOptionsForm } from './GameOptionsForm.js';
-//sameFolderImports - not GWT import - same folder const GameOptionsForm
-import { GameConfigurationGauge } from './GameConfigurationGauge.js';
-//sameFolderImports - not GWT import - same folder const GameConfigurationGauge
-import { GameConfigurationCentral } from './GameConfigurationCentral.js';
-//sameFolderImports - not GWT import - same folder const GameConfigurationCentral
-
-export class GameConfigurationUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: GameConfigurationUtil = new GameConfigurationUtil();
-
-    public static getInstance(): GameConfigurationUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameConfigurationUtil.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-                //@Throws(Exception.constructor)
-            
-    public change(gameOptionsForm: GameOptionsForm, gauge: GameConfigurationGauge){
-this.update(gauge);
+        public function GameConfigurationUtil() {
+            super();
+            this.initFieldsGameConfigurationUtil();
+        }
     
 
-    let gameConfigurationSingleton: GameConfigurationSingleton = GameConfigurationSingleton.getInstance()!;;
+    public static function getInstance():GameConfigurationUtil {
+        return GameConfigurationUtil.instance;
+    }
     
 
-    let gameConfiguration: GameConfiguration = gameConfigurationSingleton!.getInstanceByName(gauge.getLabel())!;;
-    
-this.updateChallange(gameOptionsForm, gameConfiguration);
-    
-}
-
-
-    private readonly GAUGE_UPDATE: string = "Gauge Update: ";
-
-    private readonly FROM: string = " from: ";
-
-    private readonly TO: string = " to: ";
-
-                //@Throws(Exception.constructor)
-            
-    public update(gauge: GameConfigurationGauge){
-
-    let gameConfigurationSingleton: GameConfigurationSingleton = GameConfigurationSingleton.getInstance()!;;
+    public function change(gameOptionsForm:GameOptionsForm, gauge:GameConfigurationGauge):void {
+        this.update(gauge);
+        var gameConfigurationSingleton:GameConfigurationSingleton = GameConfigurationSingleton.getInstance();
+        var gameConfiguration:GameConfiguration = gameConfigurationSingleton.getInstanceByName(gauge.getLabel());
+        this.updateChallange(gameOptionsForm, gameConfiguration);
+    }
     
 
-    let gameConfiguration: GameConfiguration = gameConfigurationSingleton!.getInstanceByName(gauge.getLabel())!;;
+    public function update(gauge:GameConfigurationGauge):void {
+        var gameConfigurationSingleton:GameConfigurationSingleton = GameConfigurationSingleton.getInstance();
+        var gameConfiguration:GameConfiguration = gameConfigurationSingleton.getInstanceByName(gauge.getLabel());
+        var smallIntegerSingletonFactory:SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
+        var value:* = smallIntegerSingletonFactory.getAt(gauge.getValue() + gameConfiguration.getMinValue().intValue());
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append(this.GAUGE_UPDATE);
+        stringBuffer.append(gameConfiguration.getName());
+        stringBuffer.append(this.FROM);
+        stringBuffer.appendint(gameConfiguration.getValue().intValue());
+        stringBuffer.append(this.TO);
+        stringBuffer.appendint(value.intValue());
+        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.UPDATE);
+        gameConfiguration.setValue(value);
+    }
     
 
-    let smallIntegerSingletonFactory: SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance()!;;
+    public function setDefault(gauge:GameConfigurationGauge):void {
+        var gameConfigurationSingleton:GameConfigurationSingleton = GameConfigurationSingleton.getInstance();
+        var gameConfiguration:GameConfiguration = gameConfigurationSingleton.getInstanceByName(gauge.getLabel());
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append("Gauge Default: ");
+        stringBuffer.append(gameConfiguration.getName());
+        stringBuffer.append(this.TO);
+        stringBuffer.appendint(gameConfiguration.getDefaultValue().intValue());
+        this.logUtil.putF(stringBuffer.toString(), this, "setDefault");
+        gauge.setValue(gameConfiguration.getDefaultValue().intValue() - gameConfiguration.getMinValue().intValue());
+        gameConfiguration.setValue(gameConfiguration.getDefaultValue());
+    }
     
 
-    let value: Integer = smallIntegerSingletonFactory!.getAt(gauge.getValue() +gameConfiguration!.getMinValue()!.intValue())!;;
+    public function updateChallange(gameOptionsForm:GameOptionsForm, gameConfiguration:GameConfiguration):void {
+        var gameConfigurationSingleton:GameConfigurationSingleton = GameConfigurationSingleton.getInstance();
+        var gameConfigurationCentral:GameConfigurationCentral = GameConfigurationCentral.getInstance();
+        if (gameConfiguration == gameConfigurationCentral.CHALLENGE_LEVEL) {
+            this.logUtil.putF(this.commonStrings.START, this, "updateChallange");
+            gameConfigurationCentral.COLLIDE_DAMAGE.setValue(gameConfiguration.getValue());
+            gameConfigurationCentral.ATTACK_CHALLENGE_LEVEL.setValue(gameConfiguration.getValue());
+            gameConfigurationCentral.DURABILITY_CHALLENGE_LEVEL.setValue(gameConfiguration.getValue());
+            gameConfigurationCentral.SPEED_CHALLENGE_LEVEL.setValue(gameConfiguration.getValue());
+            var size:int = gameOptionsForm.size();
+            for (var index:int = 0; index < size; index++) {
+                var item:Item = gameOptionsForm.get_(index);
+                if ((item is GameConfigurationGauge)) {
+                    var gauge:GameConfigurationGauge = (item as GameConfigurationGauge);
+                    var name:String = item.getLabel();
+                    var nextGameConfiguration:GameConfiguration = gameConfigurationSingleton.getInstanceByName(name);
+                    if (nextGameConfiguration == gameConfigurationCentral.COLLIDE_DAMAGE) {
+                        gauge.setValue(gameConfigurationCentral.COLLIDE_DAMAGE.getValue().intValue() - gameConfiguration.getMinValue().intValue());
+                    } else if (nextGameConfiguration == gameConfigurationCentral.DURABILITY_CHALLENGE_LEVEL) {
+                        gauge.setValue(gameConfigurationCentral.DURABILITY_CHALLENGE_LEVEL.getValue().intValue() - gameConfiguration.getMinValue().intValue());
+                    } else if (nextGameConfiguration == gameConfigurationCentral.ATTACK_CHALLENGE_LEVEL) {
+                        gauge.setValue(gameConfigurationCentral.ATTACK_CHALLENGE_LEVEL.getValue().intValue() - gameConfiguration.getMinValue().intValue());
+                    } else if (nextGameConfiguration == gameConfigurationCentral.SPEED_CHALLENGE_LEVEL) {
+                        gauge.setValue(gameConfigurationCentral.SPEED_CHALLENGE_LEVEL.getValue().intValue() - gameConfiguration.getMinValue().intValue());
+                    }
+                }
+            }
+        }
+    }
     
 
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append(this.GAUGE_UPDATE);
-    
-stringBuffer!.append(gameConfiguration!.getName());
-    
-stringBuffer!.append(this.FROM);
-    
-stringBuffer!.appendint(gameConfiguration!.getValue()!.intValue());
-    
-stringBuffer!.append(this.TO);
-    
-stringBuffer!.appendint(value.intValue());
-    
-this.logUtil!.putF(stringBuffer!.toString(), this, this.commonStrings!.UPDATE);
-    
-gameConfiguration!.setValue(value);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public setDefault(gauge: GameConfigurationGauge){
-
-    let gameConfigurationSingleton: GameConfigurationSingleton = GameConfigurationSingleton.getInstance()!;;
+    public function updateCompetitionValue():void {
+        this.logUtil.putF(this.commonStrings.START, this, "updateCompetitionValue");
+        var gameConfigurationCentral:GameConfigurationCentral = GameConfigurationCentral.getInstance();
+        this.COMPETITION_VALUE = gameConfigurationCentral.COLLIDE_DAMAGE.getValue().intValue() + gameConfigurationCentral.ATTACK_CHALLENGE_LEVEL.getValue().intValue() + gameConfigurationCentral.DURABILITY_CHALLENGE_LEVEL.getValue().intValue() + gameConfigurationCentral.SPEED_CHALLENGE_LEVEL.getValue().intValue();
+        this.COMPETITION_VALUE = (this.COMPETITION_VALUE >> 2);
+    }
     
 
-    let gameConfiguration: GameConfiguration = gameConfigurationSingleton!.getInstanceByName(gauge.getLabel())!;;
-    
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append("Gauge Default: ");
-    
-stringBuffer!.append(gameConfiguration!.getName());
-    
-stringBuffer!.append(this.TO);
-    
-stringBuffer!.appendint(gameConfiguration!.getDefaultValue()!.intValue());
-    
-this.logUtil!.putF(stringBuffer!.toString(), this, "setDefault");
-    
-gauge.setValue(gameConfiguration!.getDefaultValue()!.intValue() -gameConfiguration!.getMinValue()!.intValue());
-    
-gameConfiguration!.setValue(gameConfiguration!.getDefaultValue());
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public updateChallange(gameOptionsForm: GameOptionsForm, gameConfiguration: GameConfiguration){
-
-    let gameConfigurationSingleton: GameConfigurationSingleton = GameConfigurationSingleton.getInstance()!;;
-    
-
-    let gameConfigurationCentral: GameConfigurationCentral = GameConfigurationCentral.getInstance()!;;
-    
-
-                        if(gameConfiguration == gameConfigurationCentral!.CHALLENGE_LEVEL)
-                        
-                                    {
-                                    this.logUtil!.putF(this.commonStrings!.START, this, "updateChallange");
-    
-gameConfigurationCentral!.COLLIDE_DAMAGE.setValue(gameConfiguration!.getValue());
-    
-gameConfigurationCentral!.ATTACK_CHALLENGE_LEVEL.setValue(gameConfiguration!.getValue());
-    
-gameConfigurationCentral!.DURABILITY_CHALLENGE_LEVEL.setValue(gameConfiguration!.getValue());
-    
-gameConfigurationCentral!.SPEED_CHALLENGE_LEVEL.setValue(gameConfiguration!.getValue());
-    
-
-    let size: number = gameOptionsForm!.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let item: Item = gameOptionsForm!.get(index)!;;
-    
-
-                        if(item instanceof GameConfigurationGauge)
-                        
-                                    {
-                                    
-    let gauge: GameConfigurationGauge = item as GameConfigurationGauge;;
-    
-
-    let name: string = item.getLabel()!;;
-    
-
-    let nextGameConfiguration: GameConfiguration = gameConfigurationSingleton!.getInstanceByName(name)!;;
-    
-
-                        if(nextGameConfiguration == gameConfigurationCentral!.COLLIDE_DAMAGE)
-                        
-                                    {
-                                    gauge.setValue(gameConfigurationCentral!.COLLIDE_DAMAGE.getValue()!.intValue() -gameConfiguration!.getMinValue()!.intValue());
-    
-
-                                    }
-                                
-                             else 
-                        if(nextGameConfiguration == gameConfigurationCentral!.DURABILITY_CHALLENGE_LEVEL)
-                        
-                                    {
-                                    gauge.setValue(gameConfigurationCentral!.DURABILITY_CHALLENGE_LEVEL.getValue()!.intValue() -gameConfiguration!.getMinValue()!.intValue());
-    
-
-                                    }
-                                
-                             else 
-                        if(nextGameConfiguration == gameConfigurationCentral!.ATTACK_CHALLENGE_LEVEL)
-                        
-                                    {
-                                    gauge.setValue(gameConfigurationCentral!.ATTACK_CHALLENGE_LEVEL.getValue()!.intValue() -gameConfiguration!.getMinValue()!.intValue());
-    
-
-                                    }
-                                
-                             else 
-                        if(nextGameConfiguration == gameConfigurationCentral!.SPEED_CHALLENGE_LEVEL)
-                        
-                                    {
-                                    gauge.setValue(gameConfigurationCentral!.SPEED_CHALLENGE_LEVEL.getValue()!.intValue() -gameConfiguration!.getMinValue()!.intValue());
-    
-
-                                    }
-                                
-
-                                    }
-                                
-}
-
-
-                                    }
-                                
-}
-
-
-    private COMPETITION_VALUE: number = 1;
-
-    public updateCompetitionValue(){
-this.logUtil!.putF(this.commonStrings!.START, this, "updateCompetitionValue");
-    
-
-    let gameConfigurationCentral: GameConfigurationCentral = GameConfigurationCentral.getInstance()!;;
-    
-this.COMPETITION_VALUE= gameConfigurationCentral!.COLLIDE_DAMAGE.getValue()!.intValue() +gameConfigurationCentral!.ATTACK_CHALLENGE_LEVEL.getValue()!.intValue() +gameConfigurationCentral!.DURABILITY_CHALLENGE_LEVEL.getValue()!.intValue() +gameConfigurationCentral!.SPEED_CHALLENGE_LEVEL.getValue()!.intValue();
-    
-this.COMPETITION_VALUE= (this.COMPETITION_VALUE>>2);
-    
-}
-
-
-    public getCompetitionValue(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.COMPETITION_VALUE;
-    
-}
-
-
+    public function getCompetitionValue():int {
+        return this.COMPETITION_VALUE;
+    }
+    }
 }
 

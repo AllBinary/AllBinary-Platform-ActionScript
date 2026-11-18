@@ -1,255 +1,112 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.image {
+    import org.allbinary.game.configuration.feature.Features;
+    import org.allbinary.game.configuration.feature.GameFeatureFactory;
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { Features } from '../../../../org/allbinary/game/configuration/feature/Features.js';
-//not GWT import const Features
-
-import { GameFeatureFactory } from '../../../../org/allbinary/game/configuration/feature/GameFeatureFactory.js';
-//not GWT import const GameFeatureFactory
-
-import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageCreationUtil } from './ImageCreationUtil.js';
-//sameFolderImports - not GWT import - same folder const ImageCreationUtil
-
-export class ImageCopyUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: ImageCopyUtil = new ImageCopyUtil();
-
-    public static getInstance(): ImageCopyUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ImageCopyUtil.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly imageCreationUtil: ImageCreationUtil = ImageCreationUtil.getInstance()!;
-
-private constructor (){
-
-            super();
+    public class ImageCopyUtil {
+    private static var instance_value:ImageCopyUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ImageCopyUtil {
+        if (!ImageCopyUtil.instance_set) {
+            ImageCopyUtil.instance_set = true;
+            ImageCopyUtil.instance_value = new ImageCopyUtil();
         }
+        return ImageCopyUtil.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var commonStrings:CommonStrings = null;
+        private var imageCreationUtil:ImageCreationUtil = null;
+        private var anchor:int = 0;
+        private var gameFeatureFactory:GameFeatureFactory = null;
+        private var features:Features = null;
+        private var NO_COPY:String = null;
 
-
-    private anchor: number = Anchor.TOP_LEFT;
-
-    private readonly gameFeatureFactory: GameFeatureFactory = GameFeatureFactory.getInstance()!;
-
-    private readonly features: Features = Features.getInstance()!;
-
-    private readonly NO_COPY: string = "J2ME does not need to copy images after initial loading";
-
-                //@Throws(Exception.constructor)
-            
-    public createImageForRotation(originalImage: Image): Image{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.createImage(originalImage);;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public createImage(originalImage: Image): Image{
-
-                        if(!this.features.isFeature(this.gameFeatureFactory!.POST_IMAGE_LOADING_MODIFICATION))
-                        
-                                    {
-                                    this.logUtil!.put(this.NO_COPY, this, this.commonStrings!.CONSTRUCTOR, new Exception());
+        // Java field initializers run after the base constructor
+        private function initFieldsImageCopyUtil():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.imageCreationUtil = ImageCreationUtil.getInstance();
+    this.anchor = Anchor.TOP_LEFT;
+    this.gameFeatureFactory = GameFeatureFactory.getInstance();
+    this.features = Features.getInstance();
+    this.NO_COPY = "J2ME does not need to copy images after initial loading";
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return originalImage;
+    public static function getInstance():ImageCopyUtil {
+        return ImageCopyUtil.instance;
+    }
     
 
-                                    }
-                                
-
-    let image: Image = this.imageCreationUtil!.createImageWH(originalImage!.getWidth(), originalImage!.getHeight())!;;
+    public function ImageCopyUtil() {
+        super();
+        this.initFieldsImageCopyUtil();
+    }
     
 
-                        if(image.isMutable())
-                        
-                                    {
-                                    image.getGraphics()!.drawImage(originalImage, 0, 0, this.anchor);
+    public function createImageForRotation(originalImage:Image):Image {
+        return this.createImage(originalImage);
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return image;
+    public function createImage(originalImage:Image):Image {
+        if (!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
+            this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, new JException("Exception", ""));
+            return originalImage;
+        }
+        var image:Image = this.imageCreationUtil.createImageWH(originalImage.getWidth(), originalImage.getHeight());
+        if (image.isMutable()) {
+            image.getGraphics().drawImage(originalImage, 0, 0, this.anchor);
+            return image;
+        } else {
+            throw new JException("Exception", "Not Mutable");
+        }
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw new Exception("Not Mutable");
-                    
-
-                        }
-                            
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public createImageScale(originalImage: Image, canvasScale: number, resize: boolean): Image{
-
-                        if(!this.features.isFeature(this.gameFeatureFactory!.POST_IMAGE_LOADING_MODIFICATION))
-                        
-                                    {
-                                    this.logUtil!.put(this.NO_COPY, this, this.commonStrings!.CONSTRUCTOR, new Exception());
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return originalImage;
-    
-
-                                    }
-                                
-
-    let newWidth: number = globalThis.Math.trunc((originalImage!.getWidth() *canvasScale));;
-    
-
-    let newHeight: number = globalThis.Math.trunc((originalImage!.getHeight() *canvasScale));;
-    
-
-                        if(resize)
-                        
-                                    {
-                                    
-                        if(newWidth < newHeight)
-                        
-                                    {
-                                    newWidth= newHeight;
-    
-
-                                    }
-                                
-
-                        if(newHeight < newWidth)
-                        
-                                    {
-                                    newHeight= newWidth;
-    
-
-                                    }
-                                
-
-                                    }
-                                
-
-    let image: Image = this.imageCreationUtil!.createImageWH(newWidth, newHeight)!;;
-    
-
-                        if(image.isMutable())
-                        
-                                    {
-                                    
-    let halfWidthDelta: number = (newWidth -originalImage!.getWidth()) /2;;
-    
-
-    let halfHeightDelta: number = (newHeight -originalImage!.getHeight()) /2;;
-    
-
-    let graphics: Graphics = image.getGraphics()!;;
-    
-graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, this.anchor);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return image;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw new Exception("Not Mutable");
-                    
-
-                        }
-                            
-}
-
-
+    public function createImageScale(originalImage:Image, canvasScale:Number, resize:Boolean):Image {
+        if (!this.features.isFeature(this.gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
+            this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, new JException("Exception", ""));
+            return originalImage;
+        }
+        var newWidth:int = (originalImage.getWidth() * canvasScale);
+        var newHeight:int = (originalImage.getHeight() * canvasScale);
+        if (resize) {
+            if (newWidth < newHeight) {
+                newWidth = newHeight;
+            }
+            if (newHeight < newWidth) {
+                newHeight = newWidth;
+            }
+        }
+        var image:Image = this.imageCreationUtil.createImageWH(newWidth, newHeight);
+        if (image.isMutable()) {
+            var halfWidthDelta:int = (newWidth - originalImage.getWidth()) / 2;
+            var halfHeightDelta:int = (newHeight - originalImage.getHeight()) / 2;
+            var graphics:Graphics = image.getGraphics();
+            graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, this.anchor);
+            return image;
+        } else {
+            throw new JException("Exception", "Not Mutable");
+        }
+    }
+    }
 }
 

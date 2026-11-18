@@ -1,346 +1,176 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.init {
+    import org.allbinary.globals.PATH_GLOBALS;
+    import org.allbinary.globals.URLGLOBALS;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.io.AbDataInputStream;
+    import org.allbinary.logic.io.AbDataOutputStream;
+    import org.allbinary.logic.io.AbFileLocalInputStream;
+    import org.allbinary.logic.io.DataOutputStreamFactory;
+    import org.allbinary.logic.io.file.AbFile;
+    import org.allbinary.logic.io.path.AbPath;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.system.security.crypt.DatabaseEncoder;
+    import org.allbinary.logic.system.security.crypt.WeakCrypt;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { PATH_GLOBALS } from '../../../../org/allbinary/globals/PATH_GLOBALS.js';
-//not GWT import const PATH_GLOBALS
-
-import { URLGLOBALS } from '../../../../org/allbinary/globals/URLGLOBALS.js';
-//not GWT import const URLGLOBALS
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { AbDataInputStream } from '../../../../org/allbinary/logic/io/AbDataInputStream.js';
-//not GWT import const AbDataInputStream
-
-import { AbDataOutputStream } from '../../../../org/allbinary/logic/io/AbDataOutputStream.js';
-//not GWT import const AbDataOutputStream
-
-import { AbFileLocalInputStream } from '../../../../org/allbinary/logic/io/AbFileLocalInputStream.js';
-//not GWT import const AbFileLocalInputStream
-
-import { DataOutputStreamFactory } from '../../../../org/allbinary/logic/io/DataOutputStreamFactory.js';
-//not GWT import const DataOutputStreamFactory
-
-import { AbFile } from '../../../../org/allbinary/logic/io/file/AbFile.js';
-//not GWT import const AbFile
-
-import { AbPath } from '../../../../org/allbinary/logic/io/path/AbPath.js';
-//not GWT import const AbPath
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { DatabaseEncoder } from '../../../../org/allbinary/logic/system/security/crypt/DatabaseEncoder.js';
-//not GWT import const DatabaseEncoder
-
-import { WeakCrypt } from '../../../../org/allbinary/logic/system/security/crypt/WeakCrypt.js';
-//not GWT import const WeakCrypt
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class InstallerInfo
-            extends Object
-         {
-        
-
-    private static readonly instance: InstallerInfo = new InstallerInfo();
-
-    private static readonly INITFILENAME: string = "installerdata.dat";
-
-    private static readonly PACKAGE: string = PATH_GLOBALS.getInstance()!.INIT_PATH;
-
-    private static userName: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-    private static password: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-    private static hasRead: boolean = false;
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public static setHasRead(value: boolean){
-InstallerInfo.hasRead= value;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-public constructor (){
-
-            super();
+    public class InstallerInfo {
+    private static var instance_value:InstallerInfo;
+    private static var instance_set:Boolean = false;
+    private static function get instance():InstallerInfo {
+        if (!InstallerInfo.instance_set) {
+            InstallerInfo.instance_set = true;
+            InstallerInfo.instance_value = new InstallerInfo();
         }
+        return InstallerInfo.instance_value;
+    }
+    private static const INITFILENAME:String = "installerdata.dat";
+    private static var PACKAGE_value:String;
+    private static var PACKAGE_set:Boolean = false;
+    private static function get PACKAGE():String {
+        if (!InstallerInfo.PACKAGE_set) {
+            InstallerInfo.PACKAGE_set = true;
+            InstallerInfo.PACKAGE_value = PATH_GLOBALS.getInstance().INIT_PATH;
+        }
+        return InstallerInfo.PACKAGE_value;
+    }
+    private static var userName_value:String;
+    private static var userName_set:Boolean = false;
+    private static function get userName():String {
+        if (!InstallerInfo.userName_set) {
+            InstallerInfo.userName_set = true;
+            InstallerInfo.userName_value = StringUtil.getInstance().EMPTY_STRING;
+        }
+        return InstallerInfo.userName_value;
+    }
+    private static var password_value:String;
+    private static var password_set:Boolean = false;
+    private static function get password():String {
+        if (!InstallerInfo.password_set) {
+            InstallerInfo.password_set = true;
+            InstallerInfo.password_value = StringUtil.getInstance().EMPTY_STRING;
+        }
+        return InstallerInfo.password_value;
+    }
+    private static var hasRead:Boolean = false;
+        public var logUtil:LogUtil = null;
 
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public write(){
-
-    let FILEABPATH: AbPath = new AbPath(URLGLOBALS.getMainPath() +InstallerInfo.PACKAGE, InstallerInfo.INITFILENAME);;
+        // Java field initializers run after the base constructor
+        private function initFieldsInstallerInfo():void {
+    this.logUtil = LogUtil.getInstance();
+        }
     
 
- try { 
-    let newFile: AbFile = AbFile.createAbFileFromAbPath(FILEABPATH)!;;
-    
-newFile!.createNewFile();
-    
-
-    let dataOutputStream: AbDataOutputStream = DataOutputStreamFactory.getInstance()!.getInstanceForAbFile(newFile)!;;
+    public function InstallerInfo() {
+        super();
+        this.initFieldsInstallerInfo();
+    }
     
 
-    let cryptedUserName: number[] = Array.from(new TextEncoder().encode(new WeakCrypt(1).encrypt(this.getUserName())!), byte => (byte << 24) >> 24)!;;
+    public function write():void {
+        var FILEABPATH:AbPath = new AbPath(URLGLOBALS.getMainPath() + InstallerInfo.PACKAGE, InstallerInfo.INITFILENAME);
+        try {
+            var newFile:AbFile = AbFile.createAbFileFromAbPath(FILEABPATH);
+            newFile.createNewFile();
+            var dataOutputStream:AbDataOutputStream = DataOutputStreamFactory.getInstance().getInstanceForAbFile(newFile);
+            var cryptedUserName:Vector.<int> = new WeakCrypt(1).encrypt(this.getUserName()).getBytes();
+            var cryptedPassword:Vector.<int> = new WeakCrypt(2).encrypt(this.getPassword()).getBytes();
+            dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedUserName));
+            dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedPassword));
+            InstallerInfo.hasRead = false;
+        } catch (e:*) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+                this.logUtil.putF("Failed", this, "write");
+            }
+            throw e;
+        }
+    }
     
 
-    let cryptedPassword: number[] = Array.from(new TextEncoder().encode(new WeakCrypt(2).encrypt(this.getPassword())!), byte => (byte << 24) >> 24)!;;
-    
-dataOutputStream!.writeUTF(DatabaseEncoder.encode(cryptedUserName));
-    
-dataOutputStream!.writeUTF(DatabaseEncoder.encode(cryptedPassword));
-    
-InstallerInfo.hasRead= false;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.PRELOADERERROR))
-                        
-                                    {
-                                    this.logUtil!.putF("Failed", this, "write");
-    
-
-                                    }
-                                
-
-
-
-                            throw e;
-                    
-
- }
-   }
- 
-}
-
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    read(){
-
-    let FILEABPATH: AbPath = new AbPath(URLGLOBALS.getMainPath() +InstallerInfo.PACKAGE, InstallerInfo.INITFILENAME);;
+    private function read():void {
+        var FILEABPATH:AbPath = new AbPath(URLGLOBALS.getMainPath() + InstallerInfo.PACKAGE, InstallerInfo.INITFILENAME);
+        try {
+            var file:AbFile = AbFile.createAbFileFromAbPath(FILEABPATH);
+            if (file.isFile()) {
+                var iFile:AbFileLocalInputStream = new AbFileLocalInputStream(file);
+                var iData:AbDataInputStream = new AbDataInputStream(iFile);
+                var decryptedUserName:String = DatabaseEncoder.decode(iData.readUTF());
+                var decryptedPassword:String = DatabaseEncoder.decode(iData.readUTF());
+                this.setUserName(new WeakCrypt(1).decrypt(decryptedUserName));
+                this.setPassword(new WeakCrypt(2).decrypt(decryptedPassword));
+            } else {
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER)) {
+                    this.logUtil.putF("Not a File - Failed Loading: " + FILEABPATH.toString(), this, "read");
+                }
+            }
+        } catch (e:*) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+                this.logUtil.putF("Failed", this, "read");
+            }
+        }
+    }
     
 
- try { 
-    let file: AbFile = AbFile.createAbFileFromAbPath(FILEABPATH)!;;
+    public static function setHasRead(value:Boolean):void {
+        InstallerInfo.hasRead = value;
+    }
     
 
-                        if(file.isFile())
-                        
-                                    {
-                                    
-    let iFile: AbFileLocalInputStream = new AbFileLocalInputStream(file);;
+    public function setUserName(userName:String):void {
+        InstallerInfo.userName = userName;
+    }
     
 
-    let iData: AbDataInputStream = new AbDataInputStream(iFile);;
+    public function setPassword(password:String):void {
+        InstallerInfo.password = password;
+    }
     
 
-    let decryptedUserName: string = decode.toCharArray();;
+    private function updateIfNeeded():void {
+        if (!InstallerInfo.hasRead) {
+            InstallerInfo.hasRead = true;
+            this.read();
+            if (InstallerInfo.userName == null || InstallerInfo.password == null) {
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER)) {
+                    this.logUtil.putF("Failed", this, "updateIfNeeded");
+                }
+            }
+        }
+    }
     
 
-    let decryptedPassword: string = decode.toCharArray();;
-    
-this.setUserName(new WeakCrypt(1).decrypt(decryptedUserName));
-    
-this.setPassword(new WeakCrypt(2).decrypt(decryptedPassword));
-    
-
-                                    }
-                                
-                        else {
-                            
-                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.PRELOADER))
-                        
-                                    {
-                                    this.logUtil!.putF("Not a File - Failed Loading: " +FILEABPATH.toString(), this, "read");
+    public function getUserName():String {
+        this.updateIfNeeded();
+        return InstallerInfo.userName;
+    }
     
 
-                                    }
-                                
-
-                        }
-                            
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.PRELOADERERROR))
-                        
-                                    {
-                                    this.logUtil!.putF("Failed", this, "read");
+    public function getPassword():String {
+        this.updateIfNeeded();
+        return InstallerInfo.password;
+    }
     
 
-                                    }
-                                
-
- }
-   }
- 
-}
-
-
-    public setUserName(userName: string){
-InstallerInfo.userName= userName;
-    
-}
-
-
-    public setPassword(password: string){
-InstallerInfo.password= password;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    updateIfNeeded(){
-
-                        if(!InstallerInfo.hasRead)
-                        
-                                    {
-                                    InstallerInfo.hasRead= true;
-    
-this.read();
-    
-
-                        if(InstallerInfo.userName == 
-                                    null
-                                 || InstallerInfo.password == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.PRELOADER))
-                        
-                                    {
-                                    this.logUtil!.putF("Failed", this, "updateIfNeeded");
-    
-
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getUserName(): string{
-this.updateIfNeeded();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return InstallerInfo.userName;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getPassword(): string{
-this.updateIfNeeded();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return InstallerInfo.password;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public isValid(userName: string, password: string): boolean{
-this.updateIfNeeded();
-    
-
-                        if(this.userName != 
-                                    null
-                                 && this.userName!.compareTo(userName) == 0 && this.password != 
-                                    null
-                                 && this.password.compareTo(password) == 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
+    public function isValid(userName:String, password:String):Boolean {
+        this.updateIfNeeded();
+        if (InstallerInfo.userName != null && JString.compareTo(InstallerInfo.userName, userName) == 0 && InstallerInfo.password != null && JString.compareTo(InstallerInfo.password, password) == 0) {
+            return true;
+        }
+        return false;
+    }
+    }
 }
 

@@ -1,62 +1,35 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ScreenCapture } from './ScreenCapture.js';
-//sameFolderImports - not GWT import - same folder const ScreenCapture
-
-export class ScreenCaptureNoneFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: ScreenCapture = new ScreenCapture();
-
-    public static getInstance(): ScreenCapture{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ScreenCaptureNoneFactory.instance;
+    public class ScreenCaptureNoneFactory {
+    private static var instance_value:ScreenCapture;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ScreenCapture {
+        if (!ScreenCaptureNoneFactory.instance_set) {
+            ScreenCaptureNoneFactory.instance_set = true;
+            ScreenCaptureNoneFactory.instance_value = new ScreenCapture();
+        }
+        return ScreenCaptureNoneFactory.instance_value;
+    }
     
-}
 
-
+    public static function getInstance():ScreenCapture {
+        return ScreenCaptureNoneFactory.instance;
+    }
+    }
 }
 

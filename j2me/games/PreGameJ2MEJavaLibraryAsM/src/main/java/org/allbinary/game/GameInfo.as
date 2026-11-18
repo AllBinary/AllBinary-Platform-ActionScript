@@ -1,320 +1,171 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.string.CommonSeps;
+    import org.allbinary.logic.StdUtil;
+    import org.allbinary.string.CommonLabels;
+    import org.allbinary.util.ABHashtable;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameInfo {
+    private static var NONE_value:GameInfo;
+    private static var NONE_set:Boolean = false;
+    public static function get NONE():GameInfo {
+        if (!GameInfo.NONE_set) {
+            GameInfo.NONE_set = true;
+            GameInfo.NONE_value = new GameInfo(GameTypeFactory.getInstance().NONE, GameMode.NONE, PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE, -1, -1);
+        }
+        return GameInfo.NONE_value;
+    }
+    public static const LEVEL_NAME:String = "LEVEL";
+        public var logUtil:LogUtil = null;
+        private var gameInfoData:GameInfoData = null;
+        private var gameType:GameType = null;
+        private var gameMode:GameMode = null;
+        private var playerType:PlayerType = null;
+        private var highestLevel:int = 0;
+        private var currentLevel:int = 0;
+        private var NEW_LEVEL:String = null;
+        private var SET_CURRENT_LEVEL:String = null;
+        private var NEXT_GAME_LEVEL:String = null;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Integer } from '../../../java/lang/Integer.js';
-        
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameTypeFactory } from './GameTypeFactory.js';
-//sameFolderImports - not GWT import - same folder const GameTypeFactory
-import { GameMode } from './GameMode.js';
-//sameFolderImports - not GWT import - same folder const GameMode
-import { PlayerTypesFactory } from './PlayerTypesFactory.js';
-//sameFolderImports - not GWT import - same folder const PlayerTypesFactory
-import { GameInfoData } from './GameInfoData.js';
-//sameFolderImports - not GWT import - same folder const GameInfoData
-import { GameType } from './GameType.js';
-//sameFolderImports - not GWT import - same folder const GameType
-import { PlayerType } from './PlayerType.js';
-//sameFolderImports - not GWT import - same folder const PlayerType
-
-export class GameInfo
-            extends Object
-         {
-        
-
-    public static readonly NONE: GameInfo = new GameInfo(GameTypeFactory.getInstance()!.NONE, GameMode.NONE, PlayerTypesFactory.getInstance()!.PLAYER_TYPE_ONE,  -1,  -1);
-
-    public static readonly LEVEL_NAME: string = "LEVEL";
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly gameInfoData: GameInfoData = GameInfoData.getInstance()!;
-
-    private readonly gameType: GameType;
-
-    private readonly gameMode: GameMode;
-
-    private readonly playerType: PlayerType;
-
-    private highestLevel: number= 0;
-
-    private currentLevel: number;
-
-public constructor (gameType: GameType, gameMode: GameMode, playerType: PlayerType, highestLevel: number, currentLevel: number){
-
-            super();
-        this.gameType= gameType;
+        // Java field initializers run after the base constructor
+        private function initFieldsGameInfo():void {
+    this.logUtil = LogUtil.getInstance();
+    this.gameInfoData = GameInfoData.getInstance();
     
-this.gameMode= gameMode;
     
-this.setHighestLevel(highestLevel);
     
-this.currentLevel= currentLevel;
+    this.highestLevel = 0;
     
-this.playerType= playerType;
-    
-}
-
-
-    public getGameType(): GameType{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gameType;
-    
-}
-
-
-    public getGameMode(): GameMode{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gameMode;
-    
-}
-
-
-    public getPlayerType(): PlayerType{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.playerType;
-    
-}
-
-
-    public getHighestLevel(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.highestLevel;
-    
-}
-
-
-    public setHighestLevel(highestLevel: number){
-this.highestLevel= highestLevel;
-    
-}
-
-
-    public getCurrentLevel(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.currentLevel;
-    
-}
-
-
-    private readonly NEW_LEVEL: string = "New Level: ";
-
-    private readonly SET_CURRENT_LEVEL: string = "setCurrentLevel";
-
-    public setCurrentLevel(currentLevel: number){
-this.currentLevel= currentLevel;
-    
-this.logUtil!.putF(new StringMaker().append(this.NEW_LEVEL)!.appendint(this.getCurrentLevel())!.toString(), this, this.SET_CURRENT_LEVEL);
-    
-}
-
-
-    private readonly NEXT_GAME_LEVEL: string = "nextGameLevel";
-
-    public nextGameLevel(){
-
-                        if(this.getCurrentLevel() < this.getHighestLevel())
-                        
-                                    {
-                                    this.currentLevel++;
+    this.NEW_LEVEL = "New Level: ";
+    this.SET_CURRENT_LEVEL = "setCurrentLevel";
+    this.NEXT_GAME_LEVEL = "nextGameLevel";
+        }
     
 
-                                    }
-                                
-this.logUtil!.putF(new StringMaker().append(CommonLabels.getInstance()!.NEXT)!.append(CommonSeps.getInstance()!.SPACE)!.append(this.NEW_LEVEL)!.appendint(this.getCurrentLevel())!.toString(), this, this.NEXT_GAME_LEVEL);
-    
-}
-
-
-    public previousGameLevel(){
-
-                        if(this.getCurrentLevel() > 1)
-                        this.currentLevel--
-}
-
-
-    public isLastLevel(): boolean{
-
-                        if(this.getCurrentLevel() >= this.getHighestLevel())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function GameInfo(gameType:GameType, gameMode:GameMode, playerType:PlayerType, highestLevel:int, currentLevel:int) {
+        super();
+        this.initFieldsGameInfo();
+        this.gameType = gameType;
+        this.gameMode = gameMode;
+        this.setHighestLevel(highestLevel);
+        this.currentLevel = currentLevel;
+        this.playerType = playerType;
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function getGameType():GameType {
+        return this.gameType;
+    }
     
 
-                        }
-                            
-}
-
-
-    public toHashtable(): ABHashtable<any, any>{
-
-    let hashtable: ABHashtable<any, any> = StdUtil.getInstance()!.createHashtable()!;;
-    
-hashtable.put(this.gameInfoData!.GAME_TYPE, this.getGameType()!.toString());
-    
-hashtable.put(this.gameInfoData!.GAME_MODE, this.gameMode!.toString());
-    
-hashtable.put(this.gameInfoData!.PLAYER_TYPE, this.playerType!.toString());
-    
-hashtable.put(this.gameInfoData!.HIGHEST_LEVEL, Integer.toString(this.getHighestLevel()));
-    
-hashtable.put(this.gameInfoData!.CURRENT_LEVEL, this.currentLevel.toString());
+    public function getGameMode():GameMode {
+        return this.gameMode;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return hashtable;
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
+    public function getPlayerType():PlayerType {
+        return this.playerType;
+    }
     
 
-    let commonSeps: CommonSeps = CommonSeps.getInstance()!;;
-    
-stringBuffer!.append(this.gameInfoData!.GAME_TYPE);
-    
-stringBuffer!.append(commonSeps!.EQUALS);
-    
-stringBuffer!.append(this.getGameType()!.toString());
-    
-stringBuffer!.append(commonSeps!.COMMA_SEP);
-    
-stringBuffer!.append(this.gameInfoData!.GAME_MODE);
-    
-stringBuffer!.append(commonSeps!.EQUALS);
-    
-stringBuffer!.append(this.gameMode!.toString());
-    
-stringBuffer!.append(commonSeps!.COMMA_SEP);
-    
-stringBuffer!.append(this.gameInfoData!.PLAYER_TYPE);
-    
-stringBuffer!.append(commonSeps!.EQUALS);
-    
-stringBuffer!.append(StringUtil.getInstance()!.toString(this.playerType));
-    
-stringBuffer!.append(commonSeps!.COMMA_SEP);
-    
-stringBuffer!.append(this.gameInfoData!.HIGHEST_LEVEL);
-    
-stringBuffer!.append(commonSeps!.EQUALS);
-    
-stringBuffer!.appendint(this.getHighestLevel());
-    
-stringBuffer!.append(commonSeps!.COMMA_SEP);
-    
-stringBuffer!.append(this.gameInfoData!.CURRENT_LEVEL);
-    
-stringBuffer!.append(commonSeps!.EQUALS);
-    
-stringBuffer!.appendint(this.currentLevel);
+    public function getHighestLevel():int {
+        return this.highestLevel;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    public function setHighestLevel(highestLevel:int):void {
+        this.highestLevel = highestLevel;
+    }
     
-}
 
+    public function getCurrentLevel():int {
+        return this.currentLevel;
+    }
+    
 
+    public function setCurrentLevel(currentLevel:int):void {
+        this.currentLevel = currentLevel;
+        this.logUtil.putF(new StringMaker().append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, this.SET_CURRENT_LEVEL);
+    }
+    
+
+    public function nextGameLevel():void {
+        if (this.getCurrentLevel() < this.getHighestLevel()) {
+            this.currentLevel++;
+        }
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().NEXT).append(CommonSeps.getInstance().SPACE).append(this.NEW_LEVEL).appendint(this.getCurrentLevel()).toString(), this, this.NEXT_GAME_LEVEL);
+    }
+    
+
+    public function previousGameLevel():void {
+        if (this.getCurrentLevel() > 1) {
+            this.currentLevel--;
+        }
+    }
+    
+
+    public function isLastLevel():Boolean {
+        if (this.getCurrentLevel() >= this.getHighestLevel()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+
+    public function toHashtable():ABHashtable {
+        var hashtable:ABHashtable = StdUtil.getInstance().createHashtable();
+        hashtable.put(this.gameInfoData.GAME_TYPE, this.getGameType().toString());
+        hashtable.put(this.gameInfoData.GAME_MODE, this.gameMode.toString());
+        hashtable.put(this.gameInfoData.PLAYER_TYPE, this.playerType.toString());
+        hashtable.put(this.gameInfoData.HIGHEST_LEVEL, String(this.getHighestLevel()));
+        hashtable.put(this.gameInfoData.CURRENT_LEVEL, String(this.currentLevel));
+        return hashtable;
+    }
+    
+
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        var commonSeps:CommonSeps = CommonSeps.getInstance();
+        stringBuffer.append(this.gameInfoData.GAME_TYPE);
+        stringBuffer.append(commonSeps.EQUALS);
+        stringBuffer.append(this.getGameType().toString());
+        stringBuffer.append(commonSeps.COMMA_SEP);
+        stringBuffer.append(this.gameInfoData.GAME_MODE);
+        stringBuffer.append(commonSeps.EQUALS);
+        stringBuffer.append(this.gameMode.toString());
+        stringBuffer.append(commonSeps.COMMA_SEP);
+        stringBuffer.append(this.gameInfoData.PLAYER_TYPE);
+        stringBuffer.append(commonSeps.EQUALS);
+        stringBuffer.append(StringUtil.getInstance().toString1(this.playerType));
+        stringBuffer.append(commonSeps.COMMA_SEP);
+        stringBuffer.append(this.gameInfoData.HIGHEST_LEVEL);
+        stringBuffer.append(commonSeps.EQUALS);
+        stringBuffer.appendint(this.getHighestLevel());
+        stringBuffer.append(commonSeps.COMMA_SEP);
+        stringBuffer.append(this.gameInfoData.CURRENT_LEVEL);
+        stringBuffer.append(commonSeps.EQUALS);
+        stringBuffer.appendint(this.currentLevel);
+        return stringBuffer.toString();
+    }
+    }
 }
 

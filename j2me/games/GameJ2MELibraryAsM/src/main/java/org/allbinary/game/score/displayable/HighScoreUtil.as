@@ -1,216 +1,116 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score.displayable {
+    import org.allbinary.game.GameInfo;
+    import org.allbinary.game.score.HighScore;
+    import org.allbinary.game.score.HighScoreNamePersistanceSingleton;
+    import org.allbinary.game.score.HighScores;
+    import org.allbinary.game.score.HighScoresFactoryInterface;
+    import org.allbinary.game.score.HighScoresHelperBaseInterface;
+    import org.allbinary.game.score.HighScoresResultsListener;
+    import org.allbinary.graphics.displayable.MyCanvas;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class HighScoreUtil implements HighScoresResultsListener {
+    private static var SUBMIT_TEXTBOX_COMMAND_value:Command;
+    private static var SUBMIT_TEXTBOX_COMMAND_set:Boolean = false;
+    public static function get SUBMIT_TEXTBOX_COMMAND():Command {
+        if (!HighScoreUtil.SUBMIT_TEXTBOX_COMMAND_set) {
+            HighScoreUtil.SUBMIT_TEXTBOX_COMMAND_set = true;
+            HighScoreUtil.SUBMIT_TEXTBOX_COMMAND_value = new Command("Submit", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+        }
+        return HighScoreUtil.SUBMIT_TEXTBOX_COMMAND_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var commonStrings:CommonStrings = null;
+        private var highScoresFactoryInterface:HighScoresFactoryInterface = null;
+        private var highScoresArray:Vector.<HighScores> = null;
+        private var highScore:HighScore = null;
+        private var abeClientInformation:AbeClientInformationInterface = null;
+        private var gameInfo:GameInfo = null;
+        private var highScoresHelper:HighScoresHelperBaseInterface = null;
+        private var firstTime:Boolean = false;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Command } from '../../../../../javax/microedition/lcdui/Command.js';
-//not GWT import const Command
-
-import { CommandListener } from '../../../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
-
-import { GameInfo } from '../../../../../org/allbinary/game/GameInfo.js';
-//not GWT import const GameInfo
-
-import { HighScore } from '../../../../../org/allbinary/game/score/HighScore.js';
-//not GWT import const HighScore
-
-import { HighScoreNamePersistanceSingleton } from '../../../../../org/allbinary/game/score/HighScoreNamePersistanceSingleton.js';
-//not GWT import const HighScoreNamePersistanceSingleton
-
-import { HighScores } from '../../../../../org/allbinary/game/score/HighScores.js';
-//not GWT import const HighScores
-
-import { HighScoresFactoryInterface } from '../../../../../org/allbinary/game/score/HighScoresFactoryInterface.js';
-//not GWT import const HighScoresFactoryInterface
-
-import { HighScoresHelperBaseInterface } from '../../../../../org/allbinary/game/score/HighScoresHelperBaseInterface.js';
-//not GWT import const HighScoresHelperBaseInterface
-
-import { HighScoresResultsListener } from '../../../../../org/allbinary/game/score/HighScoresResultsListener.js';
-//not GWT import const HighScoresResultsListener
-
-import { MyCanvas } from '../../../../../org/allbinary/graphics/displayable/MyCanvas.js';
-//not GWT import const MyCanvas
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { AbeClientInformationInterface } from '../../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class HighScoreUtil
-            extends Object
-         implements HighScoresResultsListener {
-        
-
-    public static readonly SUBMIT_TEXTBOX_COMMAND: Command = new Command("Submit", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly highScoresFactoryInterface: HighScoresFactoryInterface;
-
-    private highScoresArray: HighScores[];
-
-    private readonly highScore: HighScore;
-
-    private readonly abeClientInformation: AbeClientInformationInterface;
-
-    private readonly gameInfo: GameInfo;
-
-    private readonly highScoresHelper: HighScoresHelperBaseInterface;
-
-    private firstTime: boolean = true;
-
-public constructor (highScoresFactoryInterface: HighScoresFactoryInterface, highScoresHelper: HighScoresHelperBaseInterface, abeClientInformation: AbeClientInformationInterface, gameInfo: GameInfo, cmdListener: CommandListener, name: string, highScore: HighScore){
-
-            super();
-        this.highScoresFactoryInterface= highScoresFactoryInterface;
+        // Java field initializers run after the base constructor
+        private function initFieldsHighScoreUtil():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
     
-this.highScoresHelper= highScoresHelper;
     
-this.highScoresArray= this.highScoresHelper!.getHighScoresArray();
     
-this.highScore= highScore;
     
-this.abeClientInformation= abeClientInformation;
     
-this.gameInfo= gameInfo;
     
-}
-
-
-    public setHighScoresArray(highScoresArray: HighScores[]){
-this.highScoresArray= highScoresArray;
-    
-this.firstTime= false;
-    
-this.saveHighScore();
-    
-}
-
-
-    public update(name: string){
-HighScoreNamePersistanceSingleton.getInstance()!.save(this.abeClientInformation, this.gameInfo, name);
-    
-this.highScore!.setName(name);
-    
-}
-
-
-    public saveHighScore(){
-this.logUtil!.putF(new StringMaker().append(this.commonStrings!.START)!.append(StringUtil.getInstance()!.toString(this.highScore))!.toString(), this, "saveHighScore");
+    this.firstTime = true;
+        }
     
 
-    let size: number = this.highScoresArray!.length
-                ;;
+    public function HighScoreUtil(highScoresFactoryInterface:HighScoresFactoryInterface, highScoresHelper:HighScoresHelperBaseInterface, abeClientInformation:AbeClientInformationInterface, gameInfo:GameInfo, cmdListener:CommandListener, name:String, highScore:HighScore) {
+        super();
+        this.initFieldsHighScoreUtil();
+        this.highScoresFactoryInterface = highScoresFactoryInterface;
+        this.highScoresHelper = highScoresHelper;
+        this.highScoresArray = this.highScoresHelper.getHighScoresArray();
+        this.highScore = highScore;
+        this.abeClientInformation = abeClientInformation;
+        this.gameInfo = gameInfo;
+    }
     
 
-                        if(this.firstTime && size == 0)
-                        
-                                    {
-                                    this.logUtil!.putF("Games canvas did not give us any HighScores", this, "saveHighScore");
-    
-this.highScoresFactoryInterface!.fetchHighScores(this.gameInfo, this);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
+    public function setHighScoresArray(highScoresArray:Vector.<HighScores>):void {
+        this.highScoresArray = highScoresArray;
+        this.firstTime = false;
+        this.saveHighScore();
+    }
     
 
-                                    }
-                                
-
-    let highScores: HighScores;;
+    public function update(name:String):void {
+        HighScoreNamePersistanceSingleton.getInstance().save(this.abeClientInformation, this.gameInfo, name);
+        this.highScore.setName(name);
+    }
     
 
-    let highScoresAsString: string;;
+    public function saveHighScore():void {
+        this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(StringUtil.getInstance().toString1(this.highScore)).toString(), this, "saveHighScore");
+        var size:int = this.highScoresArray.length;
+        if (this.firstTime && size == 0) {
+            this.logUtil.putF("Games canvas did not give us any HighScores", this, "saveHighScore");
+            this.highScoresFactoryInterface.fetchHighScores(this.gameInfo, this);
+            return;
+        }
+        var highScores:HighScores = null;
+        var highScoresAsString:String = null;
+        for (var index:int = 0; index < size; index++) {
+            highScores = this.highScoresArray[index];
+            highScores.addHighScore(this.highScore);
+            highScoresAsString = highScores.toString();
+            this.logUtil.putF(new StringMaker().append("Added/Adding Score: ").append(highScoresAsString).toString(), this, "saveHighScore");
+        }
+        this.highScoresHelper.setHighScoresArray(this.highScoresArray);
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-highScores= this.highScoresArray[index]!;
-    
-highScores!.addHighScore(this.highScore);
-    
-highScoresAsString= highScores!.toString();
-    
-this.logUtil!.putF(new StringMaker().append("Added/Adding Score: ")!.append(highScoresAsString)!.toString(), this, "saveHighScore");
-    
-}
-
-this.highScoresHelper!.setHighScoresArray(this.highScoresArray);
-    
-}
-
-
-    public submit(myCanvas: MyCanvas){
-
-    let commandListener: CommandListener = myCanvas!.getCustomCommandListener()!;;
-    
-commandListener!.commandAction(HighScoreUtil.SUBMIT_TEXTBOX_COMMAND, myCanvas);
-    
-}
-
-
+    public function submit(myCanvas:MyCanvas):void {
+        var commandListener:CommandListener = myCanvas.getCustomCommandListener();
+        commandListener.commandAction(HighScoreUtil.SUBMIT_TEXTBOX_COMMAND, myCanvas);
+    }
+    }
 }
 

@@ -1,70 +1,34 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.communication.http.request.session {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class WeblisketSessionData {
+    public static const INVALIDATESESSION:String = "SESSION_INVALIDATE_SESSION";
+    public static const ATTEMPTS:String = "SESSION_ATTEMPTS";
+    public static const TIMEOUT:String = "SESSION_TIMEOUT";
+    public static const REMOVABLEUSERNAME:String = "SESSION_REMOVABLE_USER_NAME";
+    public static const REMOVABLEPASSWORD:String = "SESSION_REMOVABLE_PASSWORD";
+    public static const REMOVABLENEWPASSWORD:String = "SESSION_REMOVABLE_NEW_PASSWORD";
+    public static const REMOVABLEREENTERNEWPASSWORD:String = "SESSION_REMOVABLE_REENTER_NEW_PASSWORD";
+    public static const AUTHENTICATED:String = "SESSION_AUTHENTICATED";
+    
 
-        
-
-
-            import { Object } from '../../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class WeblisketSessionData
-            extends Object
-         {
-        
-
-    public static readonly INVALIDATESESSION: string = "SESSION_INVALIDATE_SESSION";
-
-    public static readonly ATTEMPTS: string = "SESSION_ATTEMPTS";
-
-    public static readonly TIMEOUT: string = "SESSION_TIMEOUT";
-
-    public static readonly REMOVABLEUSERNAME: string = "SESSION_REMOVABLE_USER_NAME";
-
-    public static readonly REMOVABLEPASSWORD: string = "SESSION_REMOVABLE_PASSWORD";
-
-    public static readonly REMOVABLENEWPASSWORD: string = "SESSION_REMOVABLE_NEW_PASSWORD";
-
-    public static readonly REMOVABLEREENTERNEWPASSWORD: string = "SESSION_REMOVABLE_REENTER_NEW_PASSWORD";
-
-    public static readonly AUTHENTICATED: string = "SESSION_AUTHENTICATED";
-
-public constructor (){
-
-            super();
-        }
-
-
+    public function WeblisketSessionData() {
+        super();
+    }
+    }
 }
 

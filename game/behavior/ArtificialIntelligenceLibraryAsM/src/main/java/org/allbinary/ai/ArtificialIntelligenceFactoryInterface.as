@@ -1,52 +1,24 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.ai {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface ArtificialIntelligenceFactoryInterface {
+    
 
-        
-
-
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ArtificialIntelligence } from './ArtificialIntelligence.js';
-//sameFolderImports - not GWT import - same folder const ArtificialIntelligence
-
-export interface ArtificialIntelligenceFactoryInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    getInstance(anyType: any): ArtificialIntelligence;
-
+    function getInstance1(anyType:Object):ArtificialIntelligence;
+    }
 }
 

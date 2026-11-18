@@ -1,95 +1,47 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.init.db {
+    import org.allbinary.logic.communication.log.PreLogUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DbConnectionInfo } from './DbConnectionInfo.js';
-//sameFolderImports - not GWT import - same folder const DbConnectionInfo
-//import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
-export class DbInitInfo extends DbConnectionInfo {
-        
-
-public constructor (initFileName: string, read: boolean){
-            super();
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public getUrl(): string{
-
-    let url: string = super.getUrl()!;;
-    
-PreLogUtil.put("Url: " +url, this, "getUrl");
+    //import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+    public class DbInitInfo extends DbConnectionInfo {
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return url;
+    public function DbInitInfo(initFileName:String, read:Boolean) {
+        super();
+    }
     
-}
 
+    override public function getUrl():String {
+        var url:String = super.getUrl();
+        PreLogUtil.put("Url: " + url, this, "getUrl");
+        return url;
+    }
+    
 
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
+    public function write():void {
+    }
+    
 
-    public write(){
-}
+    private function load():void {
+    }
+    
 
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    load(){
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public setHasRead(value: boolean){
-}
-
-
+    public function setHasRead(value:Boolean):void {
+    }
+    }
 }
 

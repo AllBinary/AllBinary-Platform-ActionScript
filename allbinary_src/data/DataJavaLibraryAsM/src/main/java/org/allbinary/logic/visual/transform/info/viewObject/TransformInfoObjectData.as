@@ -1,70 +1,49 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.visual.transform.info.viewObject {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class TransformInfoObjectData
-            extends Object
-         {
-        
-
-    private static readonly instance: TransformInfoObjectData = new TransformInfoObjectData();
-
-    public static getInstance(): TransformInfoObjectData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return TransformInfoObjectData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class TransformInfoObjectData {
+    private static var instance_value:TransformInfoObjectData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():TransformInfoObjectData {
+        if (!TransformInfoObjectData.instance_set) {
+            TransformInfoObjectData.instance_set = true;
+            TransformInfoObjectData.instance_value = new TransformInfoObjectData();
         }
+        return TransformInfoObjectData.instance_value;
+    }
+        public var UNCRYPTED_EXTENSION:String = null;
+        public var ENCRYPTED_EXTENSION:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsTransformInfoObjectData():void {
+    this.UNCRYPTED_EXTENSION = "class";
+    this.ENCRYPTED_EXTENSION = "abw";
+        }
+    
 
-    public readonly UNCRYPTED_EXTENSION: string = "class";
+    public static function getInstance():TransformInfoObjectData {
+        return TransformInfoObjectData.instance;
+    }
+    
 
-    public readonly ENCRYPTED_EXTENSION: string = "abw";
-
+    public function TransformInfoObjectData() {
+        super();
+        this.initFieldsTransformInfoObjectData();
+    }
+    }
 }
 

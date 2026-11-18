@@ -1,97 +1,55 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.audio {
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { Control } from '../../../../javax/microedition/media/Control.js';
-//not GWT import const Control
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicPlayer } from './BasicPlayer.js';
-//sameFolderImports - not GWT import - same folder const BasicPlayer
-import { NullControl } from './NullControl.js';
-//sameFolderImports - not GWT import - same folder const NullControl
-
-export class NoPlayer extends BasicPlayer {
-        
-
-    public static readonly NO_PLAYER: NoPlayer = new NoPlayer();
-
-public constructor (){
-
-            super();
+    public class NoPlayer extends BasicPlayer {
+    private static var NO_PLAYER_value:NoPlayer;
+    private static var NO_PLAYER_set:Boolean = false;
+    public static function get NO_PLAYER():NoPlayer {
+        if (!NoPlayer.NO_PLAYER_set) {
+            NoPlayer.NO_PLAYER_set = true;
+            NoPlayer.NO_PLAYER_value = new NoPlayer();
         }
-
-
-    public close(){
-}
-
-
-    public getContentType(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StringUtil.getInstance()!.NULL_STRING;
+        return NoPlayer.NO_PLAYER_value;
+    }
     
-}
 
-
-    public getControl(controlType: string): Control{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new NullControl();
+    public function NoPlayer() {
+        super();
+    }
     
-}
 
-
-    public getControls(): Control[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return [];
+    override public function close():void {
+    }
     
-}
 
+    override public function getContentType():String {
+        return StringUtil.getInstance().NULL_STRING;
+    }
+    
 
+    override public function getControl(controlType:String):Control {
+        return new NullControl();
+    }
+    
+
+    override public function getControls():Vector.<Control> {
+        return new Vector.<Control>(0);
+    }
+    }
 }
 

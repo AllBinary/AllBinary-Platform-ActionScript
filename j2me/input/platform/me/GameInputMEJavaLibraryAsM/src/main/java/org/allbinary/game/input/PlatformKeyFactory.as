@@ -1,169 +1,84 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
+    import org.allbinary.logic.NullUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { J2MEGameKey } from './J2MEGameKey.js';
-//sameFolderImports - not GWT import - same folder const J2MEGameKey
-import { J2MEKeyFactory } from './J2MEKeyFactory.js';
-//sameFolderImports - not GWT import - same folder const J2MEKeyFactory
-import { Input } from './Input.js';
-//sameFolderImports - not GWT import - same folder const Input
-
-export class PlatformKeyFactory
-            extends Object
-         {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): PlatformKeyFactory{
-
-                        if(PlatformKeyFactory.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    PlatformKeyFactory.instance= new PlatformKeyFactory();
+    public class PlatformKeyFactory {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!PlatformKeyFactory.instance_set) {
+            PlatformKeyFactory.instance_set = true;
+            PlatformKeyFactory.instance_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return PlatformKeyFactory.instance_value;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PlatformKeyFactory.instance as PlatformKeyFactory;
+    public static function getInstance():PlatformKeyFactory {
+        if (PlatformKeyFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            PlatformKeyFactory.instance = new PlatformKeyFactory();
+        }
+        return (PlatformKeyFactory.instance as PlatformKeyFactory);
+    }
     
-}
 
-
-    public getString(keyCode: number): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return J2MEGameKey.getString(keyCode);;
+    public function getString(keyCode:int):String {
+        return J2MEGameKey.getString(keyCode);
+    }
     
-}
 
-
-    public isSubmission(input: Input): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return J2MEKeyFactory.getInstance()!.isSubmission(input);;
+    public function isSubmission(input:Input):Boolean {
+        return J2MEKeyFactory.getInstance().isSubmission(input);
+    }
     
-}
 
-
-    public isDelete(input: Input): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return J2MEKeyFactory.getInstance()!.isDelete(input);;
+    public function isDelete(input:Input):Boolean {
+        return J2MEKeyFactory.getInstance().isDelete(input);
+    }
     
-}
 
-
-    public isBackSpace(input: Input): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return J2MEKeyFactory.getInstance()!.isBackSpace(input);;
+    public function isBackSpace(input:Input):Boolean {
+        return J2MEKeyFactory.getInstance().isBackSpace(input);
+    }
     
-}
 
-
-    public isLeft(input: Input): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return J2MEKeyFactory.getInstance()!.isLeft(input);;
+    public function isLeft(input:Input):Boolean {
+        return J2MEKeyFactory.getInstance().isLeft(input);
+    }
     
-}
 
-
-    public isRight(input: Input): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return J2MEKeyFactory.getInstance()!.isRight(input);;
+    public function isRight(input:Input):Boolean {
+        return J2MEKeyFactory.getInstance().isRight(input);
+    }
     
-}
 
-
-    public isUp(input: Input): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return J2MEKeyFactory.getInstance()!.isUp(input);;
+    public function isUp(input:Input):Boolean {
+        return J2MEKeyFactory.getInstance().isUp(input);
+    }
     
-}
 
-
-    public isDown(input: Input): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return J2MEKeyFactory.getInstance()!.isDown(input);;
+    public function isDown(input:Input):Boolean {
+        return J2MEKeyFactory.getInstance().isDown(input);
+    }
     
-}
 
-
-    public isEnter(input: Input): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return J2MEKeyFactory.getInstance()!.isEnter(input);;
-    
-}
-
-
+    public function isEnter(input:Input):Boolean {
+        return J2MEKeyFactory.getInstance().isEnter(input);
+    }
+    }
 }
 

@@ -1,112 +1,62 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game {
+    import org.allbinary.time.TimeDelayHelper;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class Intermission implements IntermissionInterface {
+        private var enabled:Boolean = false;
+        private var timeElapsedHelper:TimeDelayHelper = null;
+        private var intermissionEnableListener:IntermissionEnableListenerInterface = null;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-import { TimeDelayHelper } from '../../../org/allbinary/time/TimeDelayHelper.js';
-//not GWT import const TimeDelayHelper
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { IntermissionInterface } from './IntermissionInterface.js';
-//sameFolderImports - not GWT import - same folder const IntermissionInterface
-import { NullIntermissionEnableListener } from './NullIntermissionEnableListener.js';
-//sameFolderImports - not GWT import - same folder const NullIntermissionEnableListener
-import { IntermissionEnableListenerInterface } from './IntermissionEnableListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const IntermissionEnableListenerInterface
-
-export class Intermission
-            extends Object
-         implements IntermissionInterface {
-        
-
-    private enabled: boolean= false;
-
-    private readonly timeElapsedHelper: TimeDelayHelper = new TimeDelayHelper(0);
-
-    private intermissionEnableListener: IntermissionEnableListenerInterface = NullIntermissionEnableListener.getInstance()!;
-
-public constructor (){
-
-            super();
+        // Java field initializers run after the base constructor
+        private function initFieldsIntermission():void {
+    this.enabled = false;
+    this.timeElapsedHelper = new TimeDelayHelper(0);
+    this.intermissionEnableListener = NullIntermissionEnableListener.getInstance();
         }
-
-
-    public setListener(enableListener: IntermissionEnableListenerInterface){
-this.intermissionEnableListener= enableListener;
-    
-}
-
-
-    public getTimeDelayHelper(): TimeDelayHelper{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.timeElapsedHelper;
-    
-}
-
-
-    public setEnabled(enabled: boolean){
-this.enabled= enabled;
     
 
-                        if(this.isEnabled())
-                        
-                                    {
-                                    this.getTimeDelayHelper()!.setStartTimeTNT();
+    public function Intermission() {
+        super();
+        this.initFieldsIntermission();
+    }
     
 
-                                    }
-                                
-this.intermissionEnableListener!.notifyIntermission(enabled);
+    public function setListener(enableListener:IntermissionEnableListenerInterface):void {
+        this.intermissionEnableListener = enableListener;
+    }
     
-}
 
-
-    public isEnabled(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.enabled;
+    public function getTimeDelayHelper():TimeDelayHelper {
+        return this.timeElapsedHelper;
+    }
     
-}
 
+    public function setEnabled(enabled:Boolean):void {
+        this.enabled = enabled;
+        if (this.isEnabled()) {
+            this.getTimeDelayHelper().setStartTimeTNT();
+        }
+        this.intermissionEnableListener.notifyIntermission(enabled);
+    }
+    
 
+    public function isEnabled():Boolean {
+        return this.enabled;
+    }
+    }
 }
 

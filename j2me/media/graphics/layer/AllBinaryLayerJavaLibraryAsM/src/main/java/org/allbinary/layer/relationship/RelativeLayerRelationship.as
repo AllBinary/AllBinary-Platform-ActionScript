@@ -1,100 +1,53 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.layer.relationship {
+    import org.allbinary.graphics.GPoint;
+    import org.allbinary.graphics.RelativeRelationship;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class RelativeLayerRelationship extends RelativeRelationship {
+        private var layer:AllBinaryLayer = null;
 
-        
-
-
-import { GPoint } from '../../../../org/allbinary/graphics/GPoint.js';
-//not GWT import const GPoint
-
-import { RelativeRelationship } from '../../../../org/allbinary/graphics/RelativeRelationship.js';
-//not GWT import const RelativeRelationship
-
-import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class RelativeLayerRelationship extends RelativeRelationship {
-        
-
-    private layer: AllBinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
-
-public constructor (layer: AllBinaryLayer, point: GPoint, typesAllowedList: BasicArrayList){
-            super(point, typesAllowedList);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.layer= layer;
+        // Java field initializers run after the base constructor
+        private function initFieldsRelativeLayerRelationship():void {
+    this.layer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
+        }
     
-}
 
-
-    public getX(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.layer.getXP() +super.getX();
+    public function RelativeLayerRelationship(layer:AllBinaryLayer, point:GPoint, typesAllowedList:BasicArrayList) {
+        super(point, typesAllowedList);
+        this.initFieldsRelativeLayerRelationship();
+        this.layer = layer;
+    }
     
-}
 
-
-    public getY(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.layer.getYP() +super.getY();
+    override public function getX():int {
+        return this.layer.getXP() + super.getX();
+    }
     
-}
 
-
-    public getZ(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.layer.getZP() +super.getZ();
+    override public function getY():int {
+        return this.layer.getYP() + super.getY();
+    }
     
-}
 
-
+    override public function getZ():int {
+        return this.layer.getZP() + super.getZ();
+    }
+    }
 }
 

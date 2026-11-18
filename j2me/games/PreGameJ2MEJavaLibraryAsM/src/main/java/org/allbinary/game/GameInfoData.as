@@ -1,78 +1,57 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GameInfoData
-            extends Object
-         {
-        
-
-    private static readonly instance: GameInfoData = new GameInfoData();
-
-    public static getInstance(): GameInfoData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameInfoData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class GameInfoData {
+    private static var instance_value:GameInfoData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GameInfoData {
+        if (!GameInfoData.instance_set) {
+            GameInfoData.instance_set = true;
+            GameInfoData.instance_value = new GameInfoData();
         }
+        return GameInfoData.instance_value;
+    }
+        public var GAME_TYPE:String = null;
+        public var GAME_MODE:String = null;
+        public var PLAYER_TYPE:String = null;
+        public var HIGHEST_LEVEL:String = null;
+        public var CURRENT_LEVEL:String = null;
+        public var SOFTWARE_INFORMATION:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsGameInfoData():void {
+    this.GAME_TYPE = "GAME_TYPE";
+    this.GAME_MODE = "GAME_MODE";
+    this.PLAYER_TYPE = "PLAYER_TYPE";
+    this.HIGHEST_LEVEL = "HIGHEST_LEVEL";
+    this.CURRENT_LEVEL = "CURRENT_LEVEL";
+    this.SOFTWARE_INFORMATION = "SOFTWARE_INFORMATION";
+        }
+    
 
-    public readonly GAME_TYPE: string = "GAME_TYPE";
+    public static function getInstance():GameInfoData {
+        return GameInfoData.instance;
+    }
+    
 
-    public readonly GAME_MODE: string = "GAME_MODE";
-
-    public readonly PLAYER_TYPE: string = "PLAYER_TYPE";
-
-    public readonly HIGHEST_LEVEL: string = "HIGHEST_LEVEL";
-
-    public readonly CURRENT_LEVEL: string = "CURRENT_LEVEL";
-
-    public readonly SOFTWARE_INFORMATION: string = "SOFTWARE_INFORMATION";
-
+    public function GameInfoData() {
+        super();
+        this.initFieldsGameInfoData();
+    }
+    }
 }
 

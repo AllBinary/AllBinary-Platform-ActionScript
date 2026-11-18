@@ -1,62 +1,35 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.part {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PartInterface } from './PartInterface.js';
-//sameFolderImports - not GWT import - same folder const PartInterface
-
-export class PartInterfaceUtil
-            extends Object
-         {
-        
-
-    private static readonly SINGLETON: PartInterface[] = [];
-
-    public static getZeroArray(): PartInterface[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PartInterfaceUtil.SINGLETON;
+    public class PartInterfaceUtil {
+    private static var SINGLETON_value:Vector.<PartInterface>;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():Vector.<PartInterface> {
+        if (!PartInterfaceUtil.SINGLETON_set) {
+            PartInterfaceUtil.SINGLETON_set = true;
+            PartInterfaceUtil.SINGLETON_value = new Vector.<PartInterface>(0);
+        }
+        return PartInterfaceUtil.SINGLETON_value;
+    }
     
-}
 
-
+    public static function getZeroArray():Vector.<PartInterface> {
+        return PartInterfaceUtil.SINGLETON;
+    }
+    }
 }
 

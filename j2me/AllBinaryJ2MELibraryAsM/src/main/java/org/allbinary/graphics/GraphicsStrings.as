@@ -1,76 +1,60 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GraphicsStrings {
+    private static var instance_value:GraphicsStrings;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GraphicsStrings {
+        if (!GraphicsStrings.instance_set) {
+            GraphicsStrings.instance_set = true;
+            GraphicsStrings.instance_value = new GraphicsStrings();
+        }
+        return GraphicsStrings.instance_value;
+    }
+        public var ANIMATION:String = null;
+        public var ANGLE:String = null;
+        public var MOVEMENT_ANGLE:String = null;
+        public var ROTATION:String = null;
+        public var OPACITY:String = null;
+        public var HTML:String = null;
+        public var WIDTH:String = null;
+        public var HEIGHT:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGraphicsStrings():void {
+    this.ANIMATION = "animation";
+    this.ANGLE = "angle";
+    this.MOVEMENT_ANGLE = "movement_angle";
+    this.ROTATION = "rotation";
+    this.OPACITY = "opacity";
+    this.HTML = "HTML";
+    this.WIDTH = "width";
+    this.HEIGHT = "height";
+        }
 
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GraphicsStrings
-            extends Object
-         {
-        
-
-    private static readonly instance: GraphicsStrings = new GraphicsStrings();
-
-    public static getInstance(): GraphicsStrings{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GraphicsStrings.instance;
+        public function GraphicsStrings() {
+            super();
+            this.initFieldsGraphicsStrings();
+        }
     
-}
 
-
-    public readonly ANIMATION: string = "animation";
-
-    public readonly ANGLE: string = "angle";
-
-    public readonly MOVEMENT_ANGLE: string = "movement_angle";
-
-    public readonly ROTATION: string = "rotation";
-
-    public readonly OPACITY: string = "opacity";
-
-    public readonly HTML: string = "HTML";
-
-    public readonly WIDTH: string = "width";
-
-    public readonly HEIGHT: string = "height";
-
+    public static function getInstance():GraphicsStrings {
+        return GraphicsStrings.instance;
+    }
+    }
 }
 

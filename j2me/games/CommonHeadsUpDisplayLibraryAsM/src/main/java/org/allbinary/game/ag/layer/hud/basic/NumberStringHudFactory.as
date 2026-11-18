@@ -1,132 +1,67 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.layer.hud.basic {
+    import org.allbinary.game.graphics.hud.BasicHudFactory;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class NumberStringHudFactory {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!NumberStringHudFactory.instance_set) {
+            NumberStringHudFactory.instance_set = true;
+            NumberStringHudFactory.instance_value = NullUtil.getInstance();
+        }
+        return NumberStringHudFactory.instance_value;
+    }
+        public var NULL_NUMBER_STRING_HUD:NumberStringHud = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsNumberStringHudFactory():void {
+    this.NULL_NUMBER_STRING_HUD = this.createHud();
+        }
 
-
-            import { Object } from '../../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../../java/lang/Exception.js';
-        
-            import { RuntimeException } from '../../../../../../../java/lang/RuntimeException.js';
-        
-import { BasicHudFactory } from '../../../../../../../org/allbinary/game/graphics/hud/BasicHudFactory.js';
-//not GWT import const BasicHudFactory
-
-import { BasicColorFactory } from '../../../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { NumberStringHud } from './NumberStringHud.js';
-//sameFolderImports - not GWT import - same folder const NumberStringHud
-
-export class NumberStringHudFactory
-            extends Object
-         {
-        
-
-    private static instance: any = NullUtil.getInstance()!;
-
-    public static getInstance(): NumberStringHudFactory{
-
-                        if(NumberStringHudFactory.instance == NullUtil.getInstance())
-                        
-                                    {
-                                    NumberStringHudFactory.instance= new NumberStringHudFactory();
+        public function NumberStringHudFactory() {
+            super();
+            this.initFieldsNumberStringHudFactory();
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NumberStringHudFactory.instance as NumberStringHudFactory;
-    
-}
-
-
-    public createHud(): NumberStringHud{
-
- try { 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new NumberStringHud(StringUtil.getInstance()!.EMPTY_STRING, 9, BasicHudFactory.getInstance()!.ABSOLUTE, 1, 0, BasicColorFactory.getInstance()!.NULL_COLOR);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    public static function getInstance():NumberStringHudFactory {
+        if (NumberStringHudFactory.instance == NullUtil.getInstance()) {
+            NumberStringHudFactory.instance = new NumberStringHudFactory();
+        }
+        return (NumberStringHudFactory.instance as NumberStringHudFactory);
+    }
     
 
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.CONSTRUCTOR, e);
-    
-
-
-
-                            throw new RuntimeException();
-                    
-
- }
-   }
- 
-}
-
-
-    public readonly NULL_NUMBER_STRING_HUD: NumberStringHud = this.createHud()!;
-
+    public function createHud():NumberStringHud {
+        try {
+            return new NumberStringHud(StringUtil.getInstance().EMPTY_STRING, 9, BasicHudFactory.getInstance().ABSOLUTE, 1, 0, BasicColorFactory.getInstance().NULL_COLOR);
+        } catch (e:*) {
+            var logUtil:LogUtil = LogUtil.getInstance();
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            throw new JException("RuntimeException", "");
+        }
+    }
+    }
 }
 

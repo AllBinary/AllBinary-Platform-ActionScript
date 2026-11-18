@@ -1,117 +1,48 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.paint {
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.logic.system.os.GenericOperatingSystem;
+    import org.allbinary.logic.system.os.OperatingSystemFactory;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { GenericOperatingSystem } from '../../../../org/allbinary/logic/system/os/GenericOperatingSystem.js';
-//not GWT import const GenericOperatingSystem
-
-import { OperatingSystemFactory } from '../../../../org/allbinary/logic/system/os/OperatingSystemFactory.js';
-//not GWT import const OperatingSystemFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ColorFillPaintable } from './ColorFillPaintable.js';
-//sameFolderImports - not GWT import - same folder const ColorFillPaintable
-import { OverScanColorFillPaintable } from './OverScanColorFillPaintable.js';
-//sameFolderImports - not GWT import - same folder const OverScanColorFillPaintable
-import { ColorFillBasePaintable } from './ColorFillBasePaintable.js';
-//sameFolderImports - not GWT import - same folder const ColorFillBasePaintable
-
-export class ColorFillPaintableFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: ColorFillPaintableFactory = new ColorFillPaintableFactory();
-static getInstance(...args: any[]): any {
-   
-   
-    if (args.length === 0) return this.getInstance$overload1();
-   
-   throw new TypeError('No matching overload: getInstance'); }
-  
-    public static getInstance$overload1(): ColorFillPaintableFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ColorFillPaintableFactory.instance;
-    
-}
-
-getInstance(...args: any[]): any {
-   
-   
-    if (args.length === 2 && typeof args[1] === 'boolean') return this.getInstance$overload2(args[0], args[1]);
-   
-   throw new TypeError('No matching overload: getInstance'); }
-  
-    public getInstance$overload2(basicColor: BasicColor, forThreedCanvas: boolean): ColorFillBasePaintable{
-
-    let operatingSystem: GenericOperatingSystem = OperatingSystemFactory.getInstance()!.getOperatingSystemInstance()!;;
+    public class ColorFillPaintableFactory {
+    private static var instance_value:ColorFillPaintableFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ColorFillPaintableFactory {
+        if (!ColorFillPaintableFactory.instance_set) {
+            ColorFillPaintableFactory.instance_set = true;
+            ColorFillPaintableFactory.instance_value = new ColorFillPaintableFactory();
+        }
+        return ColorFillPaintableFactory.instance_value;
+    }
     
 
-                        if(operatingSystem!.isOverScan())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new OverScanColorFillPaintable(basicColor);
+    public static function getInstance():ColorFillPaintableFactory {
+        return ColorFillPaintableFactory.instance;
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new ColorFillPaintable(basicColor);
-    
-
-                        }
-                            
-}
-
-
+    public function getInstance2(basicColor:BasicColor, forThreedCanvas:Boolean):ColorFillBasePaintable {
+        var operatingSystem:GenericOperatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
+        if (operatingSystem.isOverScan()) {
+            return new OverScanColorFillPaintable(basicColor);
+        } else {
+            return new ColorFillPaintable(basicColor);
+        }
+    }
+    }
 }
 

@@ -1,103 +1,59 @@
+// Generated Code Do Not Modify
+package org.allbinary.game.layer.drop {
+    import org.allbinary.layer.AllBinaryLayerFactoryInterface;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import org.allbinary.util.BasicArrayListUtil;
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { AllBinaryLayerFactoryInterface } from '../../../../../org/allbinary/layer/AllBinaryLayerFactoryInterface.js';
-//not GWT import const AllBinaryLayerFactoryInterface
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-//not plain js import { BasicArrayListUtil } 
-const BasicArrayListUtil = globalThis.org.allbinary.util.BasicArrayListUtil;
-type BasicArrayListUtil<T = any, U = any> = typeof BasicArrayListUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class PlacedLayerFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: PlacedLayerFactory = new PlacedLayerFactory();
-
-    public static getInstance(): PlacedLayerFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PlacedLayerFactory.instance;
-    
-}
-
-
-    private readonly list: BasicArrayList = new BasicArrayListD();
-
-private constructor (){
-
-            super();
+    public class PlacedLayerFactory {
+    private static var instance_value:PlacedLayerFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():PlacedLayerFactory {
+        if (!PlacedLayerFactory.instance_set) {
+            PlacedLayerFactory.instance_set = true;
+            PlacedLayerFactory.instance_value = new PlacedLayerFactory();
         }
+        return PlacedLayerFactory.instance_value;
+    }
+        private var list:BasicArrayList = null;
+        private var basicArrayListUtil:BasicArrayListUtil = null;
 
-
-    public clear(){
-this.list.clear();
+        // Java field initializers run after the base constructor
+        private function initFieldsPlacedLayerFactory():void {
+    this.list = new BasicArrayListD();
+    this.basicArrayListUtil = BasicArrayListUtil.getInstance();
+        }
     
-}
 
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list.size();;
+    public function PlacedLayerFactory() {
+        super();
+        this.initFieldsPlacedLayerFactory();
+    }
     
-}
 
-
-    private readonly basicArrayListUtil: BasicArrayListUtil = BasicArrayListUtil.getInstance()!;
-
-    public getRandomInstance(): AllBinaryLayerFactoryInterface{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicArrayListUtil!.getRandom(this.list) as AllBinaryLayerFactoryInterface;
+    public function clear():void {
+        this.list.clear();
+    }
     
-}
 
-
-    public add(layerInterfaceFactoryInterface: AllBinaryLayerFactoryInterface){
-this.list.add(layerInterfaceFactoryInterface);
+    public static function getInstance():PlacedLayerFactory {
+        return PlacedLayerFactory.instance;
+    }
     
-}
 
+    public function getSize():int {
+        return this.list.size();
+    }
+    
 
+    public function getRandomInstance():AllBinaryLayerFactoryInterface {
+        return (this.basicArrayListUtil.getRandom(this.list) as AllBinaryLayerFactoryInterface);
+    }
+    
+
+    public function add(layerInterfaceFactoryInterface:AllBinaryLayerFactoryInterface):void {
+        this.list.add(layerInterfaceFactoryInterface);
+    }
+    }
 }
 

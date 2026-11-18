@@ -1,228 +1,139 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.gesture.configuration {
+    import org.allbinary.game.input.CompleteMotionGestureInputEvent;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.input.motion.gesture.MotionGestureToMotionGestureActionAssociation;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class MotionGestureConfiguration {
+        private var diagonalMotionGestureAllowed:Boolean = false;
+        private var diagonalTolerance:int = 0;
+        private var minimumMotionGesture:int = 0;
+        private var button:String = null;
+        private var color:BasicColor = null;
+        private var executingActions:Boolean = false;
+        private var mouseButtonMask:int = 0;
+        private var activeCommands:BasicArrayList = null;
 
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-import { CompleteMotionGestureInputEvent } from '../../../../../../org/allbinary/game/input/CompleteMotionGestureInputEvent.js';
-//not GWT import const CompleteMotionGestureInputEvent
-
-import { BasicColor } from '../../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { MotionGestureToMotionGestureActionAssociation } from '../../../../../../org/allbinary/input/motion/gesture/MotionGestureToMotionGestureActionAssociation.js';
-//not GWT import const MotionGestureToMotionGestureActionAssociation
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class MotionGestureConfiguration
-            extends Object
-         {
-        
-
-    private diagonalMotionGestureAllowed: boolean = true;
-
-    private diagonalTolerance: number = 7;
-
-    private minimumMotionGesture: number = 9;
-
-    private button: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-    private color: BasicColor = BasicColorFactory.getInstance()!.BLUE;
-
-    private executingActions: boolean = true;
-
-    private mouseButtonMask: number = 0;
-
-    private activeCommands: BasicArrayList = new BasicArrayListD();
-
-public constructor (){
-
-            super();
+        // Java field initializers run after the base constructor
+        private function initFieldsMotionGestureConfiguration():void {
+    this.diagonalMotionGestureAllowed = true;
+    this.diagonalTolerance = 7;
+    this.minimumMotionGesture = 9;
+    this.button = StringUtil.getInstance().EMPTY_STRING;
+    this.color = BasicColorFactory.getInstance().BLUE;
+    this.executingActions = true;
+    this.mouseButtonMask = 0;
+    this.activeCommands = new BasicArrayListD();
         }
-
-
-    public addMotionGestureAction(list: BasicArrayList, commandAction: CompleteMotionGestureInputEvent){
-this.activeCommands!.add(new MotionGestureToMotionGestureActionAssociation(list, commandAction));
     
-}
 
-
-    public clearMotionGestureAction(){
-this.activeCommands!.clear();
+    public function MotionGestureConfiguration() {
+        super();
+        this.initFieldsMotionGestureConfiguration();
+    }
     
-}
 
-
-    public getAssociateCommandActionsList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.activeCommands;
+    public function addMotionGestureAction(list:BasicArrayList, commandAction:CompleteMotionGestureInputEvent):void {
+        this.activeCommands.add(new MotionGestureToMotionGestureActionAssociation(list, commandAction));
+    }
     
-}
 
-
-    public isDiagonalMotionGestureAllowed(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.diagonalMotionGestureAllowed;
+    public function clearMotionGestureAction():void {
+        this.activeCommands.clear();
+    }
     
-}
 
-
-    public isExecutingActionsAllowed(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.executingActions;
+    public function getAssociateCommandActionsList():BasicArrayList {
+        return this.activeCommands;
+    }
     
-}
 
-
-    public setExecutingActionsAllowed(executingActionAllowed: boolean){
-this.executingActions= executingActionAllowed;
+    public function isDiagonalMotionGestureAllowed():Boolean {
+        return this.diagonalMotionGestureAllowed;
+    }
     
-}
 
-
-    public setDiagonalMotionGestureAllowed(diagonalMotionGestureAllowed: boolean){
-this.diagonalMotionGestureAllowed= diagonalMotionGestureAllowed;
+    public function isExecutingActionsAllowed():Boolean {
+        return this.executingActions;
+    }
     
-}
 
-
-    public getDiagonalTolerance(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.diagonalTolerance;
+    public function setExecutingActionsAllowed(executingActionAllowed:Boolean):void {
+        this.executingActions = executingActionAllowed;
+    }
     
-}
 
-
-    public setDiagonalTolerance(diagonalTolerance: number){
-this.diagonalTolerance= diagonalTolerance;
+    public function setDiagonalMotionGestureAllowed(diagonalMotionGestureAllowed:Boolean):void {
+        this.diagonalMotionGestureAllowed = diagonalMotionGestureAllowed;
+    }
     
-}
 
-
-    public getMinimumMotionGesture(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.minimumMotionGesture;
+    public function getDiagonalTolerance():int {
+        return this.diagonalTolerance;
+    }
     
-}
 
-
-    public setMinimumMotionGesture(minimumMotionGesture: number){
-this.minimumMotionGesture= minimumMotionGesture;
+    public function setDiagonalTolerance(diagonalTolerance:int):void {
+        this.diagonalTolerance = diagonalTolerance;
+    }
     
-}
 
-
-    public getButton(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.button;
+    public function getMinimumMotionGesture():int {
+        return this.minimumMotionGesture;
+    }
     
-}
 
-
-    public setButton(button: string){
-this.button= button;
+    public function setMinimumMotionGesture(minimumMotionGesture:int):void {
+        this.minimumMotionGesture = minimumMotionGesture;
+    }
     
-}
 
-
-    public getColor(): BasicColor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.color;
+    public function getButton():String {
+        return this.button;
+    }
     
-}
 
-
-    public setColor(color: BasicColor){
-this.color= color;
+    public function setButton(button:String):void {
+        this.button = button;
+    }
     
-}
 
-
-    public getMouseButtonMask(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.mouseButtonMask;
+    public function getColor():BasicColor {
+        return this.color;
+    }
     
-}
 
-
-    public setMouseButtonMask(mouseButtonMask: number){
-this.mouseButtonMask= mouseButtonMask;
+    public function setColor(color:BasicColor):void {
+        this.color = color;
+    }
     
-}
 
+    public function getMouseButtonMask():int {
+        return this.mouseButtonMask;
+    }
+    
 
+    public function setMouseButtonMask(mouseButtonMask:int):void {
+        this.mouseButtonMask = mouseButtonMask;
+    }
+    }
 }
 

@@ -1,72 +1,56 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.audio {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class SoundStrings {
+    private static var instance_value:SoundStrings;
+    private static var instance_set:Boolean = false;
+    private static function get instance():SoundStrings {
+        if (!SoundStrings.instance_set) {
+            SoundStrings.instance_set = true;
+            SoundStrings.instance_value = new SoundStrings();
+        }
+        return SoundStrings.instance_value;
+    }
+        public var STOP_ALL:String = null;
+        public var CLOSE_ALL:String = null;
+        public var SOUND:String = null;
+        public var INIT_SOUND:String = null;
+        public var STOPPING_SOUND:String = null;
+        public var CLOSING_SOUND:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsSoundStrings():void {
+    this.STOP_ALL = "stopAll";
+    this.CLOSE_ALL = "closeAll";
+    this.SOUND = " Sound: ";
+    this.INIT_SOUND = "Initializing Sound: ";
+    this.STOPPING_SOUND = "Stopping Sound: ";
+    this.CLOSING_SOUND = "Closing Sound: ";
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class SoundStrings
-            extends Object
-         {
-        
-
-    private static readonly instance: SoundStrings = new SoundStrings();
-
-    public static getInstance(): SoundStrings{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return SoundStrings.instance;
+        public function SoundStrings() {
+            super();
+            this.initFieldsSoundStrings();
+        }
     
-}
 
-
-    public readonly STOP_ALL: string = "stopAll";
-
-    public readonly CLOSE_ALL: string = "closeAll";
-
-    public readonly SOUND: string = " Sound: ";
-
-    public readonly INIT_SOUND: string = "Initializing Sound: ";
-
-    public readonly STOPPING_SOUND: string = "Stopping Sound: ";
-
-    public readonly CLOSING_SOUND: string = "Closing Sound: ";
-
+    public static function getInstance():SoundStrings {
+        return SoundStrings.instance;
+    }
+    }
 }
 

@@ -1,192 +1,101 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.logic.string.StringMaker;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TouchButtonLocationHelper {
+        private var totalColumns:int = 0;
+        private var totalRows:int = 0;
+        private var columnsRemainder:int = 0;
+        private var rowsRemainder:int = 0;
+        private var columnsRemainderHalf:int = 0;
+        private var rowsRemainderHalf:int = 0;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Math } from '../../../../../java/lang/Math.js';
-        
-import { DisplayInfoSingleton } from '../../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CommonButtons } from './CommonButtons.js';
-//sameFolderImports - not GWT import - same folder const CommonButtons
-
-export class TouchButtonLocationHelper
-            extends Object
-         {
-        
-
-    private readonly totalColumns: number;
-
-    private readonly totalRows: number;
-
-    private columnsRemainder: number;
-
-    private rowsRemainder: number;
-
-    private columnsRemainderHalf: number;
-
-    private rowsRemainderHalf: number;
-
-public constructor (){
-
-            super();
-        
-    let buttonSize: number = CommonButtons.getInstance()!.STANDARD_BUTTON_SIZE;;
+        // Java field initializers run after the base constructor
+        private function initFieldsTouchButtonLocationHelper():void {
+    
+    
+    
+    
+    
+    
+        }
     
 
-    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
-    
-this.totalColumns= Math.round(displayInfo!.getLastWidth() /buttonSize);
-    
-this.totalRows= Math.round(displayInfo!.getLastHeight() /buttonSize);
-    
-this.columnsRemainder= displayInfo!.getLastWidth() % buttonSize;
-    
-this.columnsRemainderHalf= (this.columnsRemainder>>1);
-    
-this.rowsRemainder= displayInfo!.getLastHeight() % buttonSize;
-    
-this.rowsRemainderHalf= (this.rowsRemainder>>1);
-    
-}
-
-
-    public getTotalColumns(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.totalColumns;
-    
-}
-
-
-    public getTotalRows(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.totalRows;
-    
-}
-
-
-    public getColumnsRemainder(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.columnsRemainder;
-    
-}
-
-
-    public getRowsRemainder(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.rowsRemainder;
-    
-}
-
-
-    public getColumnsRemainderHalf(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.columnsRemainderHalf;
-    
-}
-
-
-    public getRowsRemainderHalf(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.rowsRemainderHalf;
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append("totalColumns: ");
-    
-stringBuffer!.appendint(this.totalColumns);
-    
-stringBuffer!.append(" totalRows: ");
-    
-stringBuffer!.appendint(this.totalRows);
-    
-stringBuffer!.append(" columnsRemainder: ");
-    
-stringBuffer!.appendint(this.columnsRemainder);
-    
-stringBuffer!.append(" rowsRemainder: ");
-    
-stringBuffer!.appendint(this.rowsRemainder);
-    
-stringBuffer!.append(" columnsRemainderHalf: ");
-    
-stringBuffer!.appendint(this.columnsRemainderHalf);
-    
-stringBuffer!.append(" rowsRemainderHalf: ");
-    
-stringBuffer!.appendint(this.rowsRemainderHalf);
+    public function TouchButtonLocationHelper() {
+        super();
+        this.initFieldsTouchButtonLocationHelper();
+        var buttonSize:int = CommonButtons.getInstance().STANDARD_BUTTON_SIZE;
+        var displayInfo:DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
+        this.totalColumns = Math.round(Number(displayInfo.getLastWidth()) / Number(buttonSize));
+        this.totalRows = Math.round(Number(displayInfo.getLastHeight()) / Number(buttonSize));
+        this.columnsRemainder = displayInfo.getLastWidth() % buttonSize;
+        this.columnsRemainderHalf = (this.columnsRemainder >> 1);
+        this.rowsRemainder = displayInfo.getLastHeight() % buttonSize;
+        this.rowsRemainderHalf = (this.rowsRemainder >> 1);
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    public function getTotalColumns():int {
+        return this.totalColumns;
+    }
     
-}
 
+    public function getTotalRows():int {
+        return this.totalRows;
+    }
+    
 
+    public function getColumnsRemainder():int {
+        return this.columnsRemainder;
+    }
+    
+
+    public function getRowsRemainder():int {
+        return this.rowsRemainder;
+    }
+    
+
+    public function getColumnsRemainderHalf():int {
+        return this.columnsRemainderHalf;
+    }
+    
+
+    public function getRowsRemainderHalf():int {
+        return this.rowsRemainderHalf;
+    }
+    
+
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append("totalColumns: ");
+        stringBuffer.appendint(this.totalColumns);
+        stringBuffer.append(" totalRows: ");
+        stringBuffer.appendint(this.totalRows);
+        stringBuffer.append(" columnsRemainder: ");
+        stringBuffer.appendint(this.columnsRemainder);
+        stringBuffer.append(" rowsRemainder: ");
+        stringBuffer.appendint(this.rowsRemainder);
+        stringBuffer.append(" columnsRemainderHalf: ");
+        stringBuffer.appendint(this.columnsRemainderHalf);
+        stringBuffer.append(" rowsRemainderHalf: ");
+        stringBuffer.appendint(this.rowsRemainderHalf);
+        return stringBuffer.toString();
+    }
+    }
 }
 

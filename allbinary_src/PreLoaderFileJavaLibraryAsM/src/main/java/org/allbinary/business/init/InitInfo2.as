@@ -1,88 +1,58 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.init {
+    import org.allbinary.logic.io.file.directory.Directory;
+    import org.allbinary.logic.io.path.AbPath;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class InitInfo2 {
+    private static var instance_value:InitInfo2;
+    private static var instance_set:Boolean = false;
+    private static function get instance():InitInfo2 {
+        if (!InitInfo2.instance_set) {
+            InitInfo2.instance_set = true;
+            InitInfo2.instance_value = new InitInfo2();
+        }
+        return InitInfo2.instance_value;
+    }
+        private var directory:Directory = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsInitInfo2():void {
+    this.directory = Directory.getInstance();
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Directory } from '../../../../org/allbinary/logic/io/file/directory/Directory.js';
-//not GWT import const Directory
-
-import { AbPath } from '../../../../org/allbinary/logic/io/path/AbPath.js';
-//not GWT import const AbPath
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class InitInfo2
-            extends Object
-         {
-        
-
-    private static readonly instance: InitInfo2 = new InitInfo2();
-
-    public static getInstance(): InitInfo2{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return InitInfo2.instance;
+        public function InitInfo2() {
+            super();
+            this.initFieldsInitInfo2();
+        }
     
-}
 
-
-    private readonly directory: Directory = Directory.getInstance()!;
-
-    public isTestHtmlPathValid(value: AbPath): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.directory.create(value);;
+    public static function getInstance():InitInfo2 {
+        return InitInfo2.instance;
+    }
     
-}
 
-
-    public isMainPathValid(value: AbPath): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.directory.create(value);;
+    public function isTestHtmlPathValid(value:AbPath):Boolean {
+        return this.directory.create(value);
+    }
     
-}
 
-
+    public function isMainPathValid(value:AbPath):Boolean {
+        return this.directory.create(value);
+    }
+    }
 }
 

@@ -1,167 +1,96 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.physics.movement {
+    import org.allbinary.game.layer.AllBinaryGameLayer;
+    import org.allbinary.game.physics.velocity.BasicVelocityProperties;
+    import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.logic.math.BasicDecimal;
+    import org.allbinary.logic.math.vector.AxisMathVectorUtil;
+    import org.allbinary.math.AngleFactory;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class NoZBasicConstantVelocityMovement extends Movement implements VelocityInterfaceCompositeInterface {
+        private var velocityProperties:BasicVelocityProperties = null;
+        private var speedBasicDecimal:BasicDecimal = null;
+        private var axisMathVectorUtil:AxisMathVectorUtil = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsNoZBasicConstantVelocityMovement():void {
+    
+    this.speedBasicDecimal = BasicDecimal.ZERO_BIGDECIMAL;
+    this.axisMathVectorUtil = AxisMathVectorUtil.getInstance();
+        }
+    
 
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AllBinaryGameLayer } from '../../../../org/allbinary/game/layer/AllBinaryGameLayer.js';
-//not GWT import const AllBinaryGameLayer
-
-import { BasicVelocityProperties } from '../../../../org/allbinary/game/physics/velocity/BasicVelocityProperties.js';
-//not GWT import const BasicVelocityProperties
-
-import { VelocityInterfaceCompositeInterface } from '../../../../org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.js';
-//not GWT import const VelocityInterfaceCompositeInterface
-
-import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { BasicDecimal } from '../../../../org/allbinary/logic/math/BasicDecimal.js';
-//not GWT import const BasicDecimal
-
-import { AxisMathVectorUtil } from '../../../../org/allbinary/logic/math/vector/AxisMathVectorUtil.js';
-//not GWT import const AxisMathVectorUtil
-
-import { AngleFactory } from '../../../../org/allbinary/math/AngleFactory.js';
-//not GWT import const AngleFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Movement } from './Movement.js';
-//sameFolderImports - not GWT import - same folder const Movement
-
-export class NoZBasicConstantVelocityMovement extends Movement implements VelocityInterfaceCompositeInterface {
-        
-
-    private velocityProperties: BasicVelocityProperties;
-
-    private speedBasicDecimal: BasicDecimal = BasicDecimal.ZERO_BIGDECIMAL;
-
-    private readonly axisMathVectorUtil: AxisMathVectorUtil = AxisMathVectorUtil.getInstance()!;
-
-public constructor (basicDecimal: BasicDecimal, velocityProperties: BasicVelocityProperties){
-
-            super();
+    public function NoZBasicConstantVelocityMovement(basicDecimal:BasicDecimal, velocityProperties:BasicVelocityProperties) {
+        super();
+        this.initFieldsNoZBasicConstantVelocityMovement();
         this.setSpeedBasicDecimal(basicDecimal);
-    
-this.velocityProperties= velocityProperties;
-    
-}
-
-
-    public init(speedBasicDecimal: BasicDecimal, angle: number, otherAngle: number){
-this.speedBasicDecimal= speedBasicDecimal;
+        this.velocityProperties = velocityProperties;
+    }
     
 
-    let angleFactory: AngleFactory = AngleFactory.getInstance()!;;
-    
-this.velocityProperties!.setVelocityWithBigDecimal(speedBasicDecimal, angleFactory!.getAt(angle), angleFactory!.getAt(otherAngle));
-    
-}
-
-
-    public moveOutsideRadius(layer: AllBinaryLayer, radius: number, angle: number, otherAngle: number){
-
-    let scaleFactorValue: number = this.speedBasicDecimal!.getScaledFactorValue()!;;
+    override public function init(speedBasicDecimal:BasicDecimal, angle:int, otherAngle:int):void {
+        this.speedBasicDecimal = speedBasicDecimal;
+        var angleFactory:AngleFactory = AngleFactory.getInstance();
+        this.velocityProperties.setVelocityWithBigDecimal(speedBasicDecimal, angleFactory.getAt(angle), angleFactory.getAt(otherAngle));
+    }
     
 
-    let xVector: number = globalThis.Math.trunc((this.axisMathVectorUtil!.calculateX(radius, angle) /scaleFactorValue));;
+    public function moveOutsideRadius(layer:AllBinaryLayer, radius:Number, angle:int, otherAngle:int):void {
+        var scaleFactorValue:int = this.speedBasicDecimal.getScaledFactorValue();
+        var xVector:int = int((this.axisMathVectorUtil.calculateX(radius, angle) / Number(scaleFactorValue)));
+        var yVector:int = int((this.axisMathVectorUtil.calculateY(radius, angle) / Number(scaleFactorValue)));
+        layer.moveDXYZ(xVector, yVector, 0);
+    }
     
 
-    let yVector: number = globalThis.Math.trunc((this.axisMathVectorUtil!.calculateY(radius, angle) /scaleFactorValue));;
+    override public function process(layer:AllBinaryGameLayer):void {
+        layer.moveDXYZ(this.velocityProperties.getVelocityXBasicDecimalP().getScaled(), this.velocityProperties.getVelocityYBasicDecimalP().getScaled(), 0);
+    }
     
-layer.moveDXYZ(xVector, yVector, 0);
+
+    public function toString():String {
+        return this.velocityProperties.toString();
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public process(layer: AllBinaryGameLayer){
-layer.moveDXYZ(this.velocityProperties!.getVelocityXBasicDecimalP()!.getScaled(), this.velocityProperties!.getVelocityYBasicDecimalP()!.getScaled(), 0);
+    override public function stop():void {
+        this.velocityProperties.zero();
+    }
     
-}
 
-
-    public toString(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.velocityProperties!.toString();;
+    public function getVelocityProperties():BasicVelocityProperties {
+        return this.velocityProperties;
+    }
     
-}
 
-
-    public stop(){
-this.velocityProperties!.zero();
+    public function setVelocityProperties(velocityProperties:BasicVelocityProperties):void {
+        this.velocityProperties = velocityProperties;
+    }
     
-}
 
-
-    public getVelocityProperties(): BasicVelocityProperties{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.velocityProperties;
+    public function setSpeedBasicDecimal(speedBasicDecimal:BasicDecimal):void {
+        this.speedBasicDecimal = speedBasicDecimal;
+    }
     
-}
 
-
-    public setVelocityProperties(velocityProperties: BasicVelocityProperties){
-this.velocityProperties= velocityProperties;
-    
-}
-
-
-    setSpeedBasicDecimal(speedBasicDecimal: BasicDecimal){
-this.speedBasicDecimal= speedBasicDecimal;
-    
-}
-
-
-    getSpeedBasicDecimal(): BasicDecimal{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.speedBasicDecimal;
-    
-}
-
-
+    public function getSpeedBasicDecimal():BasicDecimal {
+        return this.speedBasicDecimal;
+    }
+    }
 }
 

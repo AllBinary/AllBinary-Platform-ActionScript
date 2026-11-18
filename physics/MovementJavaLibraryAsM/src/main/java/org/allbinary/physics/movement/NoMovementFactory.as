@@ -1,74 +1,51 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.physics.movement {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class NoMovementFactory {
+    private static var instance_value:NoMovementFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():NoMovementFactory {
+        if (!NoMovementFactory.instance_set) {
+            NoMovementFactory.instance_set = true;
+            NoMovementFactory.instance_value = new NoMovementFactory();
+        }
+        return NoMovementFactory.instance_value;
+    }
+        private var movement:Movement = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsNoMovementFactory():void {
+    this.movement = new Movement();
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Movement } from './Movement.js';
-//sameFolderImports - not GWT import - same folder const Movement
-
-export class NoMovementFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: NoMovementFactory = new NoMovementFactory();
-
-    public static getInstance(): NoMovementFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NoMovementFactory.instance;
+        public function NoMovementFactory() {
+            super();
+            this.initFieldsNoMovementFactory();
+        }
     
-}
 
-
-    private readonly movement: Movement = new Movement();
-
-    public getMovmentInstance(): Movement{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.movement;
+    public static function getInstance():NoMovementFactory {
+        return NoMovementFactory.instance;
+    }
     
-}
 
-
+    public function getMovmentInstance():Movement {
+        return this.movement;
+    }
+    }
 }
 

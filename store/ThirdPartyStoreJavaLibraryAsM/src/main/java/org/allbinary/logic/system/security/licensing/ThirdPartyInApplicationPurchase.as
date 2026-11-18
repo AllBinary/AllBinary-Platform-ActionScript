@@ -1,126 +1,77 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.security.licensing {
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ThirdPartyInApplicationPurchaseInterface } from './ThirdPartyInApplicationPurchaseInterface.js';
-//sameFolderImports - not GWT import - same folder const ThirdPartyInApplicationPurchaseInterface
-import { LockableFeature } from './LockableFeature.js';
-//sameFolderImports - not GWT import - same folder const LockableFeature
-
-export class ThirdPartyInApplicationPurchase
-            extends Object
-         implements ThirdPartyInApplicationPurchaseInterface {
-        
-
-    public isPurchased(lockableFeature: LockableFeature): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public class ThirdPartyInApplicationPurchase implements ThirdPartyInApplicationPurchaseInterface {
     
-}
 
-
-    public onCreate(anyType: any, stateObject: any){
-}
-
-
-    public onDestroy(){
-}
-
-
-    public onStart(){
-}
-
-
-    public onActivityResult(requestCode: number, resultCode: number, dataObject: any){
-}
-
-
-    public onSaveInstanceState(anyType: any){
-}
-
-
-    public onStop(){
-}
-
-
-    public requestPurchase(lockableFeature: LockableFeature){
-}
-
-
-    public requestReceipts(){
-}
-
-
-    public add(lockableFeature: LockableFeature){
-}
-
-
-    public getUserName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StringUtil.getInstance()!.EMPTY_STRING;
+    public function isPurchased(lockableFeature:LockableFeature):Boolean {
+        return false;
+    }
     
-}
 
-
-    public isEnabled(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function onCreate(anyType:Object, stateObject:Object):void {
+    }
     
-}
 
+    public function onDestroy():void {
+    }
+    
 
-    requestProducts(){
-}
+    public function onStart():void {
+    }
+    
 
+    public function onActivityResult(requestCode:int, resultCode:int, dataObject:Object):void {
+    }
+    
 
+    public function onSaveInstanceState(anyType:Object):void {
+    }
+    
+
+    public function onStop():void {
+    }
+    
+
+    public function requestPurchase(lockableFeature:LockableFeature):void {
+    }
+    
+
+    public function requestReceipts():void {
+    }
+    
+
+    public function add(lockableFeature:LockableFeature):void {
+    }
+    
+
+    public function getUserName():String {
+        return StringUtil.getInstance().EMPTY_STRING;
+    }
+    
+
+    public function isEnabled():Boolean {
+        return false;
+    }
+    
+
+    public function requestProducts():void {
+    }
+    }
 }
 

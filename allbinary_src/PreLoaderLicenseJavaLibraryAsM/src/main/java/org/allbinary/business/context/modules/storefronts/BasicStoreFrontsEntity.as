@@ -1,121 +1,56 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.context.modules.storefronts {
+    import java.util.JHashMap;
+    import org.allbinary.business.context.modules.storefront.StoreFrontData;
+    import org.allbinary.business.init.InitSql;
+    import org.allbinary.business.init.db.UserDbInitInfo;
+    import org.allbinary.logic.StdUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicStoreFrontsEntity extends InitSql {
+        public var logUtil:LogUtil = null;
+        public var tableName:String = null;
 
-        
-
-
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { HashMap } from '../../../../../../java/util/HashMap.js';
-//not GWT import const HashMap
-
-import { StoreFrontData } from '../../../../../../org/allbinary/business/context/modules/storefront/StoreFrontData.js';
-//not GWT import const StoreFrontData
-
-import { InitSql } from '../../../../../../org/allbinary/business/init/InitSql.js';
-//not GWT import const InitSql
-
-import { UserDbInitInfo } from '../../../../../../org/allbinary/business/init/db/UserDbInitInfo.js';
-//not GWT import const UserDbInitInfo
-
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicStoreFront } from './BasicStoreFront.js';
-//sameFolderImports - not GWT import - same folder const BasicStoreFront
-import { BasicStoreFrontInterface } from './BasicStoreFrontInterface.js';
-//sameFolderImports - not GWT import - same folder const BasicStoreFrontInterface
-
-export class BasicStoreFrontsEntity extends InitSql {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly tableName: string = "storefronts";
-
-public constructor (){
-            super(new UserDbInitInfo());
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.setTable(this.tableName);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getStoreFrontInterface(name: string): BasicStoreFrontInterface{
-
-    let keysAndValues: HashMap<any, any> = StdUtil.getInstance()!.createHashMap()!;;
-    
-keysAndValues!.put(StoreFrontData.getInstance()!.NAME, name);
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicStoreFrontsEntity():void {
+    this.logUtil = LogUtil.getInstance();
+    this.tableName = "storefronts";
+        }
     
 
-    let storeHashMap: HashMap<any, any> = super.getRow(keysAndValues)!;;
+    public function BasicStoreFrontsEntity() {
+        super(new UserDbInitInfo());
+        this.initFieldsBasicStoreFrontsEntity();
+        this.setTable(this.tableName);
+    }
     
 
-                        if(storeHashMap == 
-                                    null
-                                )
-                        
-                                    throw new Exception("No Such Store: " +name);
-                                
-
-                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.FACTORYERROR))
-                        
-                                    {
-                                    this.logUtil!.putF("StoreFront: " +storeHashMap!.toString(), this, "getStore()");
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new BasicStoreFront(storeHashMap) as BasicStoreFrontInterface;
-    
-}
-
-
+    public function getStoreFrontInterface(name:String):BasicStoreFrontInterface {
+        var keysAndValues:JHashMap = StdUtil.getInstance().createHashMap();
+        keysAndValues.put(StoreFrontData.getInstance().NAME, name);
+        var storeHashMap:JHashMap = super.getRow(keysAndValues);
+        if (storeHashMap == null) {
+            throw new JException("Exception", "No Such Store: " + name);
+        }
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR)) {
+            this.logUtil.putF("StoreFront: " + storeHashMap.toString(), this, "getStore()");
+        }
+        return (new BasicStoreFront(storeHashMap) as BasicStoreFrontInterface);
+    }
+    }
 }
 

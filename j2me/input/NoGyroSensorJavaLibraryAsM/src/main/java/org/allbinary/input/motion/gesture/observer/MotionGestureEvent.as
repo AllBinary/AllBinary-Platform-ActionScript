@@ -1,189 +1,103 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.gesture.observer {
+    import org.allbinary.graphics.GPoint;
+    import org.allbinary.graphics.PointFactory;
+    import org.allbinary.input.motion.gesture.MotionGestureInput;
+    import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+    import org.allbinary.TsUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.string.CommonLabels;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class MotionGestureEvent extends AllBinaryEventObject {
+    private static const PREVIOUS:String = " Previous: ";
+    private static const HASHCODE:String = " hashcode: ";
+        private var motionGesture:MotionGestureInput = null;
+        private var id:int = 0;
+        private var previousPoint:GPoint = null;
+        private var currentPoint:GPoint = null;
+        private var commonLabels:CommonLabels = null;
 
-        
-
-
-import { GPoint } from '../../../../../../org/allbinary/graphics/GPoint.js';
-//not GWT import const GPoint
-
-import { PointFactory } from '../../../../../../org/allbinary/graphics/PointFactory.js';
-//not GWT import const PointFactory
-
-import { MotionGestureInput } from '../../../../../../org/allbinary/input/motion/gesture/MotionGestureInput.js';
-//not GWT import const MotionGestureInput
-
-import { TouchMotionGestureFactory } from '../../../../../../org/allbinary/input/motion/gesture/TouchMotionGestureFactory.js';
-//not GWT import const TouchMotionGestureFactory
-
-import { TsUtil } from '../../../../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { AllBinaryEventObject } from '../../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class MotionGestureEvent extends AllBinaryEventObject {
-        
-
-    private static readonly PREVIOUS: string = " Previous: ";
-
-    private static readonly HASHCODE: string = " hashcode: ";
-
-    private motionGesture: MotionGestureInput = TouchMotionGestureFactory.getInstance()!.NO_MOTION;
-
-    private readonly id: number;
-
-    private previousPoint: GPoint = PointFactory.getInstance()!.ZERO_ZERO;
-
-    private currentPoint: GPoint = PointFactory.getInstance()!.ZERO_ZERO;
-
-public constructor (source: any, id: number, motionGesture: MotionGestureInput){
-            super(source);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.id= id;
+        // Java field initializers run after the base constructor
+        private function initFieldsMotionGestureEvent():void {
+    this.motionGesture = TouchMotionGestureFactory.getInstance().NO_MOTION;
     
-this.setMotionGesture(motionGesture);
-    
-}
-
-
-    public getMotionGesture(): MotionGestureInput{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.motionGesture;
-    
-}
-
-
-    public setMotionGesture(motionGesture: MotionGestureInput){
-this.motionGesture= motionGesture;
-    
-}
-
-
-    public getPreviousPoint(): GPoint{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.previousPoint;
-    
-}
-
-
-    public setPreviousPoint(previousPoint: GPoint){
-this.previousPoint= previousPoint;
-    
-}
-
-
-    public getCurrentPoint(): GPoint{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.currentPoint;
-    
-}
-
-
-    public setCurrentPoint(currentPoint: GPoint){
-this.currentPoint= currentPoint;
-    
-}
-
-
-    private readonly commonLabels: CommonLabels = CommonLabels.getInstance()!;
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
+    this.previousPoint = PointFactory.getInstance().ZERO_ZERO;
+    this.currentPoint = PointFactory.getInstance().ZERO_ZERO;
+    this.commonLabels = CommonLabels.getInstance();
+        }
     
 
-    let stringUtil: StringUtil = StringUtil.getInstance()!;;
-    
-stringBuffer!.append(stringUtil!.toString(this.motionGesture));
-    
-stringBuffer!.append(this.commonLabels!.CURRENT);
-    
-stringBuffer!.append(stringUtil!.toString(this.currentPoint));
-    
-stringBuffer!.append(MotionGestureEvent.PREVIOUS);
-    
-stringBuffer!.append(stringUtil!.toString(this.previousPoint));
-    
-stringBuffer!.append(MotionGestureEvent.HASHCODE);
-    
-stringBuffer!.appendint(TsUtil.getInstance()!.hashCode(this));
+    public function MotionGestureEvent(source:Object, id:int, motionGesture:MotionGestureInput) {
+        super(source);
+        this.initFieldsMotionGestureEvent();
+        this.id = id;
+        this.setMotionGesture(motionGesture);
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    public function getMotionGesture():MotionGestureInput {
+        return this.motionGesture;
+    }
     
-}
 
-
-    public getId(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.id;
+    public function setMotionGesture(motionGesture:MotionGestureInput):void {
+        this.motionGesture = motionGesture;
+    }
     
-}
 
+    public function getPreviousPoint():GPoint {
+        return this.previousPoint;
+    }
+    
 
+    public function setPreviousPoint(previousPoint:GPoint):void {
+        this.previousPoint = previousPoint;
+    }
+    
+
+    public function getCurrentPoint():GPoint {
+        return this.currentPoint;
+    }
+    
+
+    public function setCurrentPoint(currentPoint:GPoint):void {
+        this.currentPoint = currentPoint;
+    }
+    
+
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        var stringUtil:StringUtil = StringUtil.getInstance();
+        stringBuffer.append(stringUtil.toString1(this.motionGesture));
+        stringBuffer.append(this.commonLabels.CURRENT);
+        stringBuffer.append(stringUtil.toString1(this.currentPoint));
+        stringBuffer.append(MotionGestureEvent.PREVIOUS);
+        stringBuffer.append(stringUtil.toString1(this.previousPoint));
+        stringBuffer.append(MotionGestureEvent.HASHCODE);
+        stringBuffer.appendint(TsUtil.getInstance().hashCode(this));
+        return stringBuffer.toString();
+    }
+    
+
+    public function getId():int {
+        return this.id;
+    }
+    }
 }
 

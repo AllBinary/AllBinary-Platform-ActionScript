@@ -1,154 +1,71 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationBehaviorFactory;
+    import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+    import org.allbinary.game.configuration.GameConfigurationCentral;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.math.AngleFactory;
+    import org.allbinary.media.ScaleProperties;
+    import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    //TWB - Adjustments should be done in the resource creation and not at the animation level
+    public class PooledImageArrayRotationAnimationFactory implements AnimationInterfaceFactoryInterface {
+        private var allBinaryImageRotationAnimationInfo:Object = null;
+        private var animationBehaviorFactory:AnimationBehaviorFactory = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationBehaviorFactory } from '../../../../org/allbinary/animation/AnimationBehaviorFactory.js';
-//not GWT import const AnimationBehaviorFactory
-
-import { AnimationInterfaceFactoryInterface } from '../../../../org/allbinary/animation/AnimationInterfaceFactoryInterface.js';
-//not GWT import const AnimationInterfaceFactoryInterface
-
-import { GameConfigurationCentral } from '../../../../org/allbinary/game/configuration/GameConfigurationCentral.js';
-//not GWT import const GameConfigurationCentral
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-import { AngleFactory } from '../../../../org/allbinary/math/AngleFactory.js';
-//not GWT import const AngleFactory
-
-import { ScaleProperties } from '../../../../org/allbinary/media/ScaleProperties.js';
-//not GWT import const ScaleProperties
-
-import { ImageToRotationImageArrayUtil } from '../../../../org/allbinary/media/image/ImageToRotationImageArrayUtil.js';
-//not GWT import const ImageToRotationImageArrayUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageArrayRotationAnimationInfo } from './ImageArrayRotationAnimationInfo.js';
-//sameFolderImports - not GWT import - same folder const ImageArrayRotationAnimationInfo
-import { AdjustedImageArrayRotationAnimation } from './AdjustedImageArrayRotationAnimation.js';
-//sameFolderImports - not GWT import - same folder const AdjustedImageArrayRotationAnimation
-//TWB - Adjustments should be done in the resource creation and not at the animation level
-export class PooledImageArrayRotationAnimationFactory
-            extends Object
-         implements AnimationInterfaceFactoryInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public static createFactory(image: Image, animationBehaviorFactory: AnimationBehaviorFactory): PooledImageArrayRotationAnimationFactory{
-
-    let totalAngle: number = globalThis.Math.trunc(AngleFactory.getInstance()!.TOTAL_ANGLE);;
+        // Java field initializers run after the base constructor
+        private function initFieldsPooledImageArrayRotationAnimationFactory():void {
+    this.allBinaryImageRotationAnimationInfo = NullUtil.getInstance().NULL_OBJECT;
+    
+        }
     
 
-    let angleIncrement: number = (totalAngle /GameConfigurationCentral.getInstance()!.getGameControlFidelity());;
+    public static function createFactory(image:Image, animationBehaviorFactory:AnimationBehaviorFactory):PooledImageArrayRotationAnimationFactory {
+        var totalAngle:int = AngleFactory.getInstance().TOTAL_ANGLE;
+        var angleIncrement:int = (int(totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity()));
+        return new PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), -(image.getWidth() >> 2), -(image.getHeight() >> 2), angleIncrement, animationBehaviorFactory);
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(),  -(image.getWidth()>>2),  -(image.getHeight()>>2), angleIncrement, animationBehaviorFactory);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public static createDXY(image: Image, dx: number, dy: number, animationBehaviorFactory: AnimationBehaviorFactory): PooledImageArrayRotationAnimationFactory{
-
-    let totalAngle: number = globalThis.Math.trunc(AngleFactory.getInstance()!.TOTAL_ANGLE);;
+    public static function createDXY(image:Image, dx:int, dy:int, animationBehaviorFactory:AnimationBehaviorFactory):PooledImageArrayRotationAnimationFactory {
+        var totalAngle:int = AngleFactory.getInstance().TOTAL_ANGLE;
+        var angleIncrement:int = (int(totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity()));
+        return new PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
+    }
     
 
-    let angleIncrement: number = (totalAngle /GameConfigurationCentral.getInstance()!.getGameControlFidelity());;
+    public function PooledImageArrayRotationAnimationFactory(image:Image, width:int, height:int, dx:int, dy:int, angleIncrement:int, animationBehaviorFactory:AnimationBehaviorFactory) {
+        super();
+        this.initFieldsPooledImageArrayRotationAnimationFactory();
+        this.animationBehaviorFactory = animationBehaviorFactory;
+        var totalAngle:int = AngleFactory.getInstance().TOTAL_ANGLE;
+        var imageArray:Vector.<Image> = ImageToRotationImageArrayUtil.getInstance().generate(image, angleIncrement, totalAngle);
+        this.allBinaryImageRotationAnimationInfo = new ImageArrayRotationAnimationInfo(imageArray, angleIncrement, totalAngle, dx, dy);
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new PooledImageArrayRotationAnimationFactory(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
-    
-}
-
-
-    private allBinaryImageRotationAnimationInfo: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    private readonly animationBehaviorFactory: AnimationBehaviorFactory;
-
-public constructor (image: Image, width: number, height: number, dx: number, dy: number, angleIncrement: number, animationBehaviorFactory: AnimationBehaviorFactory){
-
-            super();
-        this.animationBehaviorFactory= animationBehaviorFactory;
+    public function getInstance1(instanceId:int):Animation {
+        return AdjustedImageArrayRotationAnimation.createAdjustedImageArrayRotationAnimationInfo(this.allBinaryImageRotationAnimationInfo, this.animationBehaviorFactory.getOrCreateInstance());
+    }
     
 
-    let totalAngle: number = globalThis.Math.trunc(AngleFactory.getInstance()!.TOTAL_ANGLE);;
-    
-
-    let imageArray: Image[] = ImageToRotationImageArrayUtil.getInstance()!.generate(image, angleIncrement, totalAngle)!;;
-    
-this.allBinaryImageRotationAnimationInfo= new ImageArrayRotationAnimationInfo(imageArray, angleIncrement, totalAngle, dx, dy);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstance(instanceId: number): Animation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AdjustedImageArrayRotationAnimation.createAdjustedImageArrayRotationAnimationInfo(this.allBinaryImageRotationAnimationInfo, this.animationBehaviorFactory!.getOrCreateInstance());;
-    
-}
-
-
-    public setInitialScale(scaleProperties: ScaleProperties){
-}
-
-
+    public function setInitialScale(scaleProperties:ScaleProperties):void {
+    }
+    }
 }
 

@@ -1,96 +1,61 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.image {
+    import org.allbinary.graphics.color.BasicColor;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ImageModifierUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: ImageModifierUtil = new ImageModifierUtil();
-
-    public static getInstanceOrCreate(): ImageModifierUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ImageModifierUtil.instance;
+    public class ImageModifierUtil {
+    private static var instance_value:ImageModifierUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ImageModifierUtil {
+        if (!ImageModifierUtil.instance_set) {
+            ImageModifierUtil.instance_set = true;
+            ImageModifierUtil.instance_value = new ImageModifierUtil();
+        }
+        return ImageModifierUtil.instance_value;
+    }
     
-}
 
-
-    public setColor(unusedOriginalImage: Image, image: Image, imageIndex: number, basicColor: BasicColor){
-}
-
-
-    public changeColor(unusedOriginalImage: Image, image: Image, imageIndex: number, basicColor: BasicColor){
-}
-
-
-    public setAlpha(originalImage: Image, image: Image, imageIndex: number, alphaInt: number){
-}
-
-
-    public getImageArray(originalImageArray: Image[]): Image[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return originalImageArray;
+    public static function getInstanceOrCreate():ImageModifierUtil {
+        return ImageModifierUtil.instance;
+    }
     
-}
 
+    public function setColor(unusedOriginalImage:Image, image:Image, imageIndex:int, basicColor:BasicColor):void {
+    }
+    
 
-    public handleImage(imageArray: Image[], index: number, image: Image){
-}
+    public function changeColor(unusedOriginalImage:Image, image:Image, imageIndex:int, basicColor:BasicColor):void {
+    }
+    
 
+    public function setAlpha(originalImage:Image, image:Image, imageIndex:int, alphaInt:int):void {
+    }
+    
 
-    public reset(){
-}
+    public function getImageArray(originalImageArray:Vector.<Image>):Vector.<Image> {
+        return originalImageArray;
+    }
+    
 
+    public function handleImage(imageArray:Vector.<Image>, index:int, image:Image):void {
+    }
+    
 
+    public function reset():void {
+    }
+    }
 }
 

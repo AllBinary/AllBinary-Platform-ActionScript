@@ -1,76 +1,55 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.visual.dhtml.html.name {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class HtmlNameMathData
-            extends Object
-         {
-        
-
-    private static readonly instance: HtmlNameMathData = new HtmlNameMathData();
-
-    public static getInstance(): HtmlNameMathData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return HtmlNameMathData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class HtmlNameMathData {
+    private static var instance_value:HtmlNameMathData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():HtmlNameMathData {
+        if (!HtmlNameMathData.instance_set) {
+            HtmlNameMathData.instance_set = true;
+            HtmlNameMathData.instance_value = new HtmlNameMathData();
         }
+        return HtmlNameMathData.instance_value;
+    }
+        public var EQUALS:String = null;
+        public var PLUS:String = null;
+        public var MINUS:String = null;
+        public var DIVIDE:String = null;
+        public var MULTIPLY:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsHtmlNameMathData():void {
+    this.EQUALS = "_EQUALS_";
+    this.PLUS = "_PLUS_";
+    this.MINUS = "_MINUS_";
+    this.DIVIDE = "_DIVIDE_";
+    this.MULTIPLY = "_MULTIPLY_";
+        }
+    
 
-    public EQUALS: string = "_EQUALS_";
+    public static function getInstance():HtmlNameMathData {
+        return HtmlNameMathData.instance;
+    }
+    
 
-    public PLUS: string = "_PLUS_";
-
-    public MINUS: string = "_MINUS_";
-
-    public DIVIDE: string = "_DIVIDE_";
-
-    public MULTIPLY: string = "_MULTIPLY_";
-
+    public function HtmlNameMathData() {
+        super();
+        this.initFieldsHtmlNameMathData();
+    }
+    }
 }
 

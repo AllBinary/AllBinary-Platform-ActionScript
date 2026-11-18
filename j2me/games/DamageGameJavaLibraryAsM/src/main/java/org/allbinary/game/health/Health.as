@@ -1,299 +1,146 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.health {
+    import org.allbinary.logic.communication.log.ForcedLogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonSeps;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class Health implements HealthInterface {
+    private static var NULL_HEALTH_value:Health;
+    private static var NULL_HEALTH_set:Boolean = false;
+    public static function get NULL_HEALTH():Health {
+        if (!Health.NULL_HEALTH_set) {
+            Health.NULL_HEALTH_set = true;
+            Health.NULL_HEALTH_value = new Health(0);
+        }
+        return Health.NULL_HEALTH_value;
+    }
+    public static const NAME:String = "Health Resource";
+    private static const HEALTH_LABEL:String = "Health: ";
+    private static const MAX_HEALTH_LABEL:String = " Max: ";
+        private var health:int = 0;
+        private var maxHealth:int = 0;
+        private var healthListenerInterface:HealthListenerInterface = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsHealth():void {
+    this.health = 0;
+    this.maxHealth = 0;
+    this.healthListenerInterface = NullHealthListener.NULL_HEALTH_LISTENER;
+        }
+    
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { HealthInterface } from './HealthInterface.js';
-//sameFolderImports - not GWT import - same folder const HealthInterface
-import { NullHealthListener } from './NullHealthListener.js';
-//sameFolderImports - not GWT import - same folder const NullHealthListener
-import { HealthListenerInterface } from './HealthListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const HealthListenerInterface
-
-export class Health
-            extends Object
-         implements HealthInterface {
-        
-
-    public static readonly NULL_HEALTH: Health = new Health(0);
-
-    public static readonly NAME: string = "Health Resource";
-
-    private static readonly HEALTH_LABEL: string = "Health: ";
-
-    private static readonly MAX_HEALTH_LABEL: string = " Max: ";
-
-    private health: number= 0;
-
-    private maxHealth: number= 0;
-
-    private healthListenerInterface: HealthListenerInterface = NullHealthListener.NULL_HEALTH_LISTENER;
-
-public constructor (maxHealth: number){
-
-            super();
+    public function Health(maxHealth:int) {
+        super();
+        this.initFieldsHealth();
         this.setMaxHealth(maxHealth);
-    
-this.setHealth(maxHealth);
-    
-}
-
-
-    public heal(ahealth: number){
-
-    let newHealth: number = this.getHealth() +ahealth;;
+        this.setHealth(maxHealth);
+    }
     
 
-                        if(newHealth > this.getMaxHealth())
-                        
-                                    {
-                                    this.setHealth(this.getMaxHealth());
+    public function heal(ahealth:int):void {
+        var newHealth:int = int(this.getHealth() + ahealth);
+        if (newHealth > this.getMaxHealth()) {
+            this.setHealth(this.getMaxHealth());
+        } else {
+            this.setHealth(newHealth);
+        }
+    }
     
 
-                                    }
-                                
-                        else {
-                            this.setHealth(newHealth);
+    public function healMax():void {
+        this.setHealth(this.getMaxHealth());
+    }
     
 
-                        }
-                            
-}
-
-
-    public healMax(){
-this.setHealth(this.getMaxHealth());
-    
-}
-
-
-    public isDamaged(): boolean{
-
-                        if(this.getHealth() != this.getMaxHealth())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function isDamaged():Boolean {
+        if (this.getHealth() != this.getMaxHealth()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function damage(ahealth:int):void {
+        if (ahealth < 0) {
+            var stringBuffer:StringMaker = new StringMaker();
+            stringBuffer.append("******* Trying to heal when damaging. Damage: ");
+            stringBuffer.appendint(ahealth);
+            stringBuffer.append(CommonSeps.getInstance().SPACE);
+            stringBuffer.append(this.toString());
+            ForcedLogUtil.log(stringBuffer.toString(), this);
+            return;
+        }
+        var health:int = int(this.getHealth() - ahealth);
+        this.setHealth(health);
+    }
     
 
-                        }
-                            
-}
-
-
-    public damage(ahealth: number){
-
-                        if(ahealth < 0)
-                        
-                                    {
-                                    
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append("******* Trying to heal when damaging. Damage: ");
-    
-stringBuffer!.appendint(ahealth);
-    
-stringBuffer!.append(CommonSeps.getInstance()!.SPACE);
-    
-stringBuffer!.append(this.toString());
-    
-ForcedLogUtil.log(stringBuffer!.toString(), this);
+    public function isAlive():Boolean {
+        if (this.getHealth() <= 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
+    public function getMaxHealth():int {
+        return this.maxHealth;
+    }
     
 
-                                    }
-                                
-
-    let health: number = this.getHealth() -ahealth;;
-    
-this.setHealth(health);
-    
-}
-
-
-    public isAlive(): boolean{
-
-                        if(this.getHealth() <= 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function setMaxHealth(maxHealth:int):void {
+        this.maxHealth = maxHealth;
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function setHealth(health:int):void {
+        if (health > this.getMaxHealth()) {
+            this.health = this.getMaxHealth();
+        } else if (health < 0) {
+            this.health = 0;
+        } else {
+            this.health = health;
+        }
+        if (this.healthListenerInterface != null) {
+            this.healthListenerInterface.onHealthChange();
+        }
+    }
     
 
-                        }
-                            
-}
-
-
-    public getMaxHealth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.maxHealth;
-    
-}
-
-
-    public setMaxHealth(maxHealth: number){
-this.maxHealth= maxHealth;
-    
-}
-
-
-    public setHealth(health: number){
-
-                        if(health > this.getMaxHealth())
-                        
-                                    {
-                                    this.health= this.getMaxHealth();
+    public function getHealth():int {
+        return this.health;
+    }
     
 
-                                    }
-                                
-                             else 
-                        if(health < 0)
-                        
-                                    {
-                                    this.health= 0;
+    public function addListener(healthGraphic:HealthListenerInterface):void {
+        this.healthListenerInterface = healthGraphic;
+    }
     
 
-                                    }
-                                
-                        else {
-                            this.health= health;
-    
-
-                        }
-                            
-
-                        if(this.healthListenerInterface != 
-                                    null
-                                )
-                        
-                                    {
-                                    this.healthListenerInterface!.onHealthChange();
-    
-
-                                    }
-                                
-}
-
-
-    public getHealth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.health;
-    
-}
-
-
-    public addListener(healthGraphic: HealthListenerInterface){
-this.healthListenerInterface= healthGraphic;
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append(Health.HEALTH_LABEL);
-    
-stringBuffer!.appendint(this.health);
-    
-stringBuffer!.append(Health.MAX_HEALTH_LABEL);
-    
-stringBuffer!.appendint(this.maxHealth);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
-    
-}
-
-
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append(Health.HEALTH_LABEL);
+        stringBuffer.appendint(this.health);
+        stringBuffer.append(Health.MAX_HEALTH_LABEL);
+        stringBuffer.appendint(this.maxHealth);
+        return stringBuffer.toString();
+    }
+    }
 }
 

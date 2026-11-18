@@ -41,7 +41,7 @@ package org.allbinary.thread {
     
 
     override public function runTask(task:JRunnable):void {
-        this.logUtil.putF(new StringMaker().append(StringUtil.getInstance().toString1(task)).appendlong(Number(JSystem.currentTimeMillis())).toString(), this, this.threadPoolStrings.ADD_TASK);
+        this.logUtil.putF(new StringMaker().append(StringUtil.getInstance().toString1(task)).appendlong(JSystem.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK);
         super.runTask(task);
     }
     

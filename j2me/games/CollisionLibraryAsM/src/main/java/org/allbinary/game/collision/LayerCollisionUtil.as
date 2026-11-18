@@ -1,117 +1,63 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.collision {
+    import org.allbinary.game.configuration.feature.Features;
+    import org.allbinary.game.configuration.feature.GameFeatureFactory;
+    import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
+    import org.allbinary.layer.AllBinaryLayer;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LayerCollisionUtil {
+    private static var instance_value:LayerCollisionUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():LayerCollisionUtil {
+        if (!LayerCollisionUtil.instance_set) {
+            LayerCollisionUtil.instance_set = true;
+            LayerCollisionUtil.instance_value = new LayerCollisionUtil();
+        }
+        return LayerCollisionUtil.instance_value;
+    }
+        private var collisionProcessor:CollisionProcessor = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Features } from '../../../../org/allbinary/game/configuration/feature/Features.js';
-//not GWT import const Features
-
-import { GameFeatureFactory } from '../../../../org/allbinary/game/configuration/feature/GameFeatureFactory.js';
-//not GWT import const GameFeatureFactory
-
-import { OpenGLFeatureUtil } from '../../../../org/allbinary/graphics/opengles/OpenGLFeatureUtil.js';
-//not GWT import const OpenGLFeatureUtil
-
-import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CollisionProcessor } from './CollisionProcessor.js';
-//sameFolderImports - not GWT import - same folder const CollisionProcessor
-import { Collision2DProcessor } from './Collision2DProcessor.js';
-//sameFolderImports - not GWT import - same folder const Collision2DProcessor
-import { CollisionThreedProcessor } from './CollisionThreedProcessor.js';
-//sameFolderImports - not GWT import - same folder const CollisionThreedProcessor
-
-export class LayerCollisionUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: LayerCollisionUtil = new LayerCollisionUtil();
-
-    public static getInstance(): LayerCollisionUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LayerCollisionUtil.instance;
-    
-}
-
-
-    private readonly collisionProcessor: CollisionProcessor;
-
-private constructor (){
-
-            super();
-        
-    let features: Features = Features.getInstance()!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsLayerCollisionUtil():void {
+    this.collisionProcessor = null;
+        }
     
 
-    let gameFeatureFactory: GameFeatureFactory = GameFeatureFactory.getInstance()!;;
+    public static function getInstance():LayerCollisionUtil {
+        return LayerCollisionUtil.instance;
+    }
     
 
-                        if(OpenGLFeatureUtil.getInstance()!.isAnyThreed() && !features.isFeature(gameFeatureFactory!.COLLISIONS_FORCED_TWO_DIMENSIONAL))
-                        
-                                    {
-                                    this.collisionProcessor= new CollisionThreedProcessor();
+    public function LayerCollisionUtil() {
+        super();
+        this.initFieldsLayerCollisionUtil();
+        var features:Features = Features.getInstance();
+        var gameFeatureFactory:GameFeatureFactory = GameFeatureFactory.getInstance();
+        if (OpenGLFeatureUtil.getInstance().isAnyThreed() && !features.isFeature(gameFeatureFactory.COLLISIONS_FORCED_TWO_DIMENSIONAL)) {
+            this.collisionProcessor = new CollisionThreedProcessor();
+        } else {
+            this.collisionProcessor = new Collision2DProcessor();
+        }
+    }
     
 
-                                    }
-                                
-                        else {
-                            this.collisionProcessor= new Collision2DProcessor();
-    
-
-                        }
-                            
-}
-
-
-    public isCollision(myLayer: AllBinaryLayer, myLayer2: AllBinaryLayer): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.collisionProcessor!.isCollision(myLayer, myLayer2);;
-    
-}
-
-
+    public function isCollision(myLayer:AllBinaryLayer, myLayer2:AllBinaryLayer):Boolean {
+        return this.collisionProcessor.isCollision(myLayer, myLayer2);
+    }
+    }
 }
 

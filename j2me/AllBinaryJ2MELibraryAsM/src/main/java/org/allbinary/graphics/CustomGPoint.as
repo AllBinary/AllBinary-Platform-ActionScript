@@ -1,131 +1,86 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CustomGPoint extends GPoint {
+    private static var NULL_CUSTOM_POINT_value:CustomGPoint;
+    private static var NULL_CUSTOM_POINT_set:Boolean = false;
+    public static function get NULL_CUSTOM_POINT():CustomGPoint {
+        if (!CustomGPoint.NULL_CUSTOM_POINT_set) {
+            CustomGPoint.NULL_CUSTOM_POINT_set = true;
+            CustomGPoint.NULL_CUSTOM_POINT_value = new CustomGPoint(0, 0, 0);
+        }
+        return CustomGPoint.NULL_CUSTOM_POINT_value;
+    }
+        private var cx:int = 0;
+        private var cy:int = 0;
+        private var cz:int = 0;
 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GPoint } from './GPoint.js';
-//sameFolderImports - not GWT import - same folder const GPoint
-
-export class CustomGPoint extends GPoint {
-        
-
-    public static readonly NULL_CUSTOM_POINT: CustomGPoint = new CustomGPoint(0, 0, 0);
-
-    public static getInstance(point: GPoint): CustomGPoint{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new CustomGPoint(point.getX(), point.getY(), point.getZ());
+        // Java field initializers run after the base constructor
+        private function initFieldsCustomGPoint():void {
+    this.cx = 0;
+    this.cy = 0;
+    this.cz = 0;
+        }
     
-}
 
-
-    public static getInstance3(x: number, y: number): CustomGPoint{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new CustomGPoint(x, y, 3);
+    override public static function getInstance1(point:GPoint):CustomGPoint {
+        return new CustomGPoint(point.getX(), point.getY(), point.getZ());
+    }
     
-}
 
-
-    private cx: number= 0;
-
-    private cy: number= 0;
-
-    private cz: number= 0;
-
-public constructor (x: number, y: number, z: number){
-            super(x, y, z);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public setX(x: number){
-this.cx= x;
+    public static function getInstance3(x:int, y:int):CustomGPoint {
+        return new CustomGPoint(x, y, 3);
+    }
     
-}
 
-
-    public getX(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.cx;
+    public function CustomGPoint(x:int, y:int, z:int) {
+        super(x, y, z);
+        this.initFieldsCustomGPoint();
+    }
     
-}
 
-
-    public setY(y: number){
-this.cy= y;
+    public function setX(x:int):void {
+        this.cx = x;
+    }
     
-}
 
-
-    public getY(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.cy;
+    override public function getX():int {
+        return this.cx;
+    }
     
-}
 
-
-    public setZ(z: number){
-this.cz= z;
+    public function setY(y:int):void {
+        this.cy = y;
+    }
     
-}
 
-
-    public getZ(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.cz;
+    override public function getY():int {
+        return this.cy;
+    }
     
-}
 
+    public function setZ(z:int):void {
+        this.cz = z;
+    }
+    
 
+    override public function getZ():int {
+        return this.cz;
+    }
+    }
 }
 

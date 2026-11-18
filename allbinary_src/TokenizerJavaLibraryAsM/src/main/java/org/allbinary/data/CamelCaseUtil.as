@@ -1,140 +1,70 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.data {
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringValidationUtil;
+    import org.allbinary.logic.string.tokens.Tokenizer;
+    import org.allbinary.string.CommonSeps;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import java.lang.JCharacter;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CamelCaseUtil {
+    private static var instance_value:CamelCaseUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():CamelCaseUtil {
+        if (!CamelCaseUtil.instance_set) {
+            CamelCaseUtil.instance_set = true;
+            CamelCaseUtil.instance_value = new CamelCaseUtil();
+        }
+        return CamelCaseUtil.instance_value;
+    }
+        private var commonSeps:CommonSeps = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsCamelCaseUtil():void {
+    this.commonSeps = CommonSeps.getInstance();
+        }
 
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            //not plain js import { Character }
-            const Character = (globalThis.java?.lang?.Character ?? class {}) as typeof globalThis.java.lang.Character;
-            type Character<T = any, U = any> = typeof Character extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Character;
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { StringValidationUtil } from '../../../org/allbinary/logic/string/StringValidationUtil.js';
-//not GWT import const StringValidationUtil
-
-import { Tokenizer } from '../../../org/allbinary/logic/string/tokens/Tokenizer.js';
-//not GWT import const Tokenizer
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class CamelCaseUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: CamelCaseUtil = new CamelCaseUtil();
-
-    public static getInstance(): CamelCaseUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return CamelCaseUtil.instance;
-    
-}
-
-
-    private readonly commonSeps: CommonSeps = CommonSeps.getInstance()!;
-
-                //@Throws(Exception.constructor)
-            
-    public getAsCamelCase(string: string, stringBuilder: StringMaker): string{
-
-    let stringValidationUtil: StringValidationUtil = StringValidationUtil.getInstance()!;;
-    
-stringBuilder!.delete(0, stringBuilder!.length());
+        public function CamelCaseUtil() {
+            super();
+            this.initFieldsCamelCaseUtil();
+        }
     
 
-    let list: BasicArrayList = new BasicArrayListD();;
+    public static function getInstance():CamelCaseUtil {
+        return CamelCaseUtil.instance;
+    }
     
 
-    let tokenizer: Tokenizer = new Tokenizer(this.commonSeps!.UNDERSCORE);;
-    
-tokenizer.getTokensFromString(string, list);
-    
-
-    let size: number = list.size()!;;
-    
-
-    let word: string;;
-    
-
-
-
-
-                        for (
-    let i: number = 0;i < size; i++)
-        {
-word= list.get(i) as string;
-    
-word= (stringValidationUtil!.isEmpty(word) ? word : new StringMaker().appendchar(Character.toUpperCase(word[0]))!.append(word.substring(1)!.toLowerCase())!.toString());
-    
-stringBuilder!.append(word);
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuilder!.toString();;
-    
-}
-
-
+    public function getAsCamelCase(string:String, stringBuilder:StringMaker):String {
+        var stringValidationUtil:StringValidationUtil = StringValidationUtil.getInstance();
+        stringBuilder.delete_(0, stringBuilder.length());
+        var list:BasicArrayList = new BasicArrayListD();
+        var tokenizer:Tokenizer = new Tokenizer(this.commonSeps.UNDERSCORE);
+        tokenizer.getTokensFromString(string, list);
+        var size:int = list.size();
+        var word:String = null;
+        for (var i:int = 0; i < size; i++) {
+            word = (list.get_(i) as String);
+            word = (stringValidationUtil.isEmpty(word) ? word : new StringMaker().appendchar(JCharacter.toUpperCase(word.charCodeAt(0))).append(word.substring(1).toLowerCase()).toString());
+            stringBuilder.append(word);
+        }
+        return stringBuilder.toString();
+    }
+    }
 }
 

@@ -1,185 +1,81 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai.tactical {
+    import org.allbinary.game.ai.BasicAI;
+    import org.allbinary.game.ag.ai.InputProbability;
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.game.rand.MyRandomFactory;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
+    import org.allbinary.logic.util.visitor.Visitor;
+    import org.allbinary.time.GameTickTimeDelayHelperFactory;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicRandomAI extends BasicAI {
+        private var i_random:int = 0;
+        private var inputProbability:InputProbability = null;
+        private var visitor:Visitor = null;
+        private var keyArray:Vector.<int> = null;
+        private var myRandomFactory:MyRandomFactory = null;
 
-        
-
-
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../../../java/lang/Integer.js';
-        
-import { Canvas } from '../../../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { BasicAI } from '../../../../../../org/allbinary/game/ai/BasicAI.js';
-//not GWT import const BasicAI
-
-import { InputProbability } from '../../../../../../org/allbinary/game/ag/ai/InputProbability.js';
-//not GWT import const InputProbability
-
-import { GameInput } from '../../../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-//not plain js import { MyRandomFactory } 
-const MyRandomFactory = globalThis.org.allbinary.game.rand.MyRandomFactory;
-type MyRandomFactory<T = any, U = any> = typeof MyRandomFactory extends abstract new (...args: any[]) => infer Instance ? Instance : typeof MyRandomFactory;
-
-import { AllBinaryLayer } from '../../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-import { Visitor } from '../../../../../../org/allbinary/logic/util/visitor/Visitor.js';
-//not GWT import const Visitor
-
-import { GameTickTimeDelayHelperFactory } from '../../../../../../org/allbinary/time/GameTickTimeDelayHelperFactory.js';
-//not GWT import const GameTickTimeDelayHelperFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class BasicRandomAI extends BasicAI {
-        
-
-    private i_random: number = 0;
-
-    private readonly inputProbability: InputProbability;
-
-    private readonly visitor: Visitor;
-
-    private readonly keyArray: number[] = [Canvas.UP,Canvas.DOWN,Canvas.LEFT,Canvas.RIGHT,Canvas.KEY_NUM1,Canvas.KEY_NUM7,Canvas.KEY_NUM9];
-
-public constructor (ownerLayerInterface: AllBinaryLayer, gameInput: GameInput, inputProbability: InputProbability, visitor: Visitor){
-            super(ownerLayerInterface, gameInput);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.inputProbability= inputProbability;
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicRandomAI():void {
+    this.i_random = 0;
     
-this.visitor= visitor;
     
-}
-
-
-    private readonly myRandomFactory: MyRandomFactory = MyRandomFactory.getInstance()!;
-
-                //@Throws(Exception.constructor)
-            
-    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
-
-                        if(this.inputProbability!.getTimeDelayHelper()!.isTime(GameTickTimeDelayHelperFactory.getInstance()!.startTime))
-                        
-                                    {
-                                    this.i_random= this.myRandomFactory!.getAbsoluteNextInt(this.inputProbability!.getMax());
+    this.keyArray = new <int>[Canvas.UP, Canvas.DOWN, Canvas.LEFT, Canvas.RIGHT, Canvas.KEY_NUM1, Canvas.KEY_NUM7, Canvas.KEY_NUM9];
+    this.myRandomFactory = MyRandomFactory.getInstance();
+        }
     
 
-    let repeat: boolean = false;;
+    public function BasicRandomAI(ownerLayerInterface:AllBinaryLayer, gameInput:GameInput, inputProbability:InputProbability, visitor:Visitor) {
+        super(ownerLayerInterface, gameInput);
+        this.initFieldsBasicRandomAI();
+        this.inputProbability = inputProbability;
+        this.visitor = visitor;
+    }
     
 
-    let repeatLikelyhoodIntegerArray: Integer[] = this.inputProbability!.getRepeatLikelyhoodIntegerArray()!;;
-    
-
-                        if(this.getLastKey() !=  -1 && repeatLikelyhoodIntegerArray[this.getLastKey()]!.intValue() >= this.i_random)
-                        
-                                    {
-                                    repeat= true;
-    
-
-                                    }
-                                
-
-                        if(!repeat)
-                        
-                                    {
-                                    
-    let likelyhoodIntegerArray: Integer[][] = this.inputProbability!.getLikelyhoodIntegerArray()!;;
-    
-this.i_random= this.myRandomFactory!.getAbsoluteNextInt(this.inputProbability!.getMax());
-    
-
-    let size: number = this.keyArray!.length
-                ;;
-    
-
-    let likelyhoodIntegerKeyArray: Integer[];;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let key: number = this.keyArray[index]!;;
-    
-likelyhoodIntegerKeyArray= likelyhoodIntegerArray[key]!;
-    
-
-                        if(likelyhoodIntegerArray!.length >= key && likelyhoodIntegerKeyArray[0] != 
-                                    null
-                                )
-                        
-                                    {
-                                    
-                        if(this.i_random >= likelyhoodIntegerKeyArray[0]!.intValue() && this.i_random < likelyhoodIntegerKeyArray[1]!.intValue())
-                        
-                                    {
-                                    this.setLastKey(key);
-    
-break;
-
-                    
-
-                                    }
-                                
-
-                                    }
-                                
-}
-
-
-                                    }
-                                
-this.visitor.visit(this);
-    
-
-                                    }
-                                
-}
-
-
+    override public function processAI(allBinaryLayerManager:AllBinaryLayerManager):void {
+        if (this.inputProbability.getTimeDelayHelper().isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
+            this.i_random = this.myRandomFactory.getAbsoluteNextInt(this.inputProbability.getMax());
+            var repeat:Boolean = false;
+            var repeatLikelyhoodIntegerArray:Vector.<*> = this.inputProbability.getRepeatLikelyhoodIntegerArray();
+            if (this.getLastKey() != -1 && repeatLikelyhoodIntegerArray[this.getLastKey()].intValue() >= this.i_random) {
+                repeat = true;
+            }
+            if (!repeat) {
+                var likelyhoodIntegerArray:Vector.<Vector.<*>> = this.inputProbability.getLikelyhoodIntegerArray();
+                this.i_random = this.myRandomFactory.getAbsoluteNextInt(this.inputProbability.getMax());
+                var size:int = this.keyArray.length;
+                var likelyhoodIntegerKeyArray:Vector.<*> = null;
+                for (var index:int = 0; index < size; index++) {
+                    var key:int = this.keyArray[index];
+                    likelyhoodIntegerKeyArray = likelyhoodIntegerArray[key];
+                    if (likelyhoodIntegerArray.length >= key && likelyhoodIntegerKeyArray[0] != null) {
+                        if (this.i_random >= likelyhoodIntegerKeyArray[0].intValue() && this.i_random < likelyhoodIntegerKeyArray[1].intValue()) {
+                            this.setLastKey(key);
+                            break;
+                        }
+                    }
+                }
+            }
+            this.visitor.visit(this);
+        }
+    }
+    }
 }
 

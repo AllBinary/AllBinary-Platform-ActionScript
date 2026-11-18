@@ -1,147 +1,106 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.commands {
+    import org.allbinary.graphics.displayable.CanvasStrings;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Command } from '../../../../javax/microedition/lcdui/Command.js';
-//not GWT import const Command
-
-import { CanvasStrings } from '../../../../org/allbinary/graphics/displayable/CanvasStrings.js';
-//not GWT import const CanvasStrings
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GameCommandsFactory
-            extends Object
-         {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): GameCommandsFactory{
-
-                        if(GameCommandsFactory.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    GameCommandsFactory.instance= new GameCommandsFactory();
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameCommandsFactory.instance as GameCommandsFactory;
-    
-}
-
-
-    public readonly TOGGLE_FULLSCREEN: Command = new Command("Toggle FullScreen", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly TOGGLE_KEYBOARD: Command = new Command("Keyboard", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly SET_MENU_DISPLAYABLE: Command = new Command("Set Menu Displayable", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly APPLICATION_UPDATE: Command = new Command(CommonStrings.getInstance()!.UPDATE, StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly DISPLAY_ABOUT: Command = new Command(CanvasStrings.getInstance()!.ABOUT, StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 2);
-
-    public readonly OPEN_WEB_URL: Command = new Command("Open Web URL", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 2);
-
-    public readonly CLOSE_OPTIONS: Command = new Command("Back", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly DISPLAY_OPTIONS: Command = new Command(CanvasStrings.getInstance()!.OPTIONS, StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 2);
-
-    public readonly START_TRACE: Command = new Command("Start Trace", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly STOP_TRACE: Command = new Command("Stop Trace", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly DEFAULT_OPTIONS: Command = new Command("Default", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly SHOW_GAME_CANVAS: Command = new Command("Back to Game", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly CLOSE_AND_SHOW_GAME_CANVAS: Command = new Command("Back", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly QUIT_COMMAND: Command = new Command("Quit", StringUtil.getInstance()!.EMPTY_STRING, Command.STOP, 1);
-
-    public readonly RESTART_COMMAND: Command = new Command("Restart", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 0);
-
-    public readonly DISPLAY_SAVE_FORM: Command = new Command("Save To", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 3);
-
-    public readonly SAVE: Command = new Command("Save", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 3);
-
-    public readonly DISPLAY_LOAD_FORM: Command = new Command("Load", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 3);
-
-    public readonly LOAD_FILE: Command = new Command("Load File", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 3);
-
-    public readonly DELETE_FILE: Command = new Command("Delete File", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly EXIT_COMMAND: Command = new Command("Exit", StringUtil.getInstance()!.EMPTY_STRING, Command.EXIT, 2);
-
-    public readonly EXIT_WITHOUT_PROGRESS_COMMAND: Command = new Command("Exit Without Progress", StringUtil.getInstance()!.EMPTY_STRING, Command.EXIT, 2);
-
-    public readonly START_COMMAND: Command = new Command(CommonStrings.getInstance()!.START, StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly CONTINUE_COMMAND: Command = new Command("Continue", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly SELECT_COMMAND: Command = new Command("Select", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly FEATURE_UPDATE: Command = new Command("Feature Update", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public readonly BUY_COMMAND: Command = new Command("BUY", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-protected constructor (){
-
-            super();
+    public class GameCommandsFactory {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!GameCommandsFactory.instance_set) {
+            GameCommandsFactory.instance_set = true;
+            GameCommandsFactory.instance_value = NullUtil.getInstance().NULL_OBJECT;
         }
+        return GameCommandsFactory.instance_value;
+    }
+        public var TOGGLE_FULLSCREEN:Command = null;
+        public var TOGGLE_KEYBOARD:Command = null;
+        public var SET_MENU_DISPLAYABLE:Command = null;
+        public var APPLICATION_UPDATE:Command = null;
+        public var DISPLAY_ABOUT:Command = null;
+        public var OPEN_WEB_URL:Command = null;
+        public var CLOSE_OPTIONS:Command = null;
+        public var DISPLAY_OPTIONS:Command = null;
+        public var START_TRACE:Command = null;
+        public var STOP_TRACE:Command = null;
+        public var DEFAULT_OPTIONS:Command = null;
+        public var SHOW_GAME_CANVAS:Command = null;
+        public var CLOSE_AND_SHOW_GAME_CANVAS:Command = null;
+        public var QUIT_COMMAND:Command = null;
+        public var RESTART_COMMAND:Command = null;
+        public var DISPLAY_SAVE_FORM:Command = null;
+        public var SAVE:Command = null;
+        public var DISPLAY_LOAD_FORM:Command = null;
+        public var LOAD_FILE:Command = null;
+        public var DELETE_FILE:Command = null;
+        public var EXIT_COMMAND:Command = null;
+        public var EXIT_WITHOUT_PROGRESS_COMMAND:Command = null;
+        public var START_COMMAND:Command = null;
+        public var CONTINUE_COMMAND:Command = null;
+        public var SELECT_COMMAND:Command = null;
+        public var FEATURE_UPDATE:Command = null;
+        public var BUY_COMMAND:Command = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsGameCommandsFactory():void {
+    this.TOGGLE_FULLSCREEN = new Command("Toggle FullScreen", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.TOGGLE_KEYBOARD = new Command("Keyboard", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.SET_MENU_DISPLAYABLE = new Command("Set Menu Displayable", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.APPLICATION_UPDATE = new Command(CommonStrings.getInstance().UPDATE, StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.DISPLAY_ABOUT = new Command(CanvasStrings.getInstance().ABOUT, StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 2);
+    this.OPEN_WEB_URL = new Command("Open Web URL", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 2);
+    this.CLOSE_OPTIONS = new Command("Back", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.DISPLAY_OPTIONS = new Command(CanvasStrings.getInstance().OPTIONS, StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 2);
+    this.START_TRACE = new Command("Start Trace", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.STOP_TRACE = new Command("Stop Trace", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.DEFAULT_OPTIONS = new Command("Default", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.SHOW_GAME_CANVAS = new Command("Back to Game", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.CLOSE_AND_SHOW_GAME_CANVAS = new Command("Back", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.QUIT_COMMAND = new Command("Quit", StringUtil.getInstance().EMPTY_STRING, Command.STOP, 1);
+    this.RESTART_COMMAND = new Command("Restart", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 0);
+    this.DISPLAY_SAVE_FORM = new Command("Save To", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 3);
+    this.SAVE = new Command("Save", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 3);
+    this.DISPLAY_LOAD_FORM = new Command("Load", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 3);
+    this.LOAD_FILE = new Command("Load File", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 3);
+    this.DELETE_FILE = new Command("Delete File", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.EXIT_COMMAND = new Command("Exit", StringUtil.getInstance().EMPTY_STRING, Command.EXIT, 2);
+    this.EXIT_WITHOUT_PROGRESS_COMMAND = new Command("Exit Without Progress", StringUtil.getInstance().EMPTY_STRING, Command.EXIT, 2);
+    this.START_COMMAND = new Command(CommonStrings.getInstance().START, StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.CONTINUE_COMMAND = new Command("Continue", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.SELECT_COMMAND = new Command("Select", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.FEATURE_UPDATE = new Command("Feature Update", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+    this.BUY_COMMAND = new Command("BUY", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+        }
+    
 
+    public static function getInstance():GameCommandsFactory {
+        if (GameCommandsFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GameCommandsFactory.instance = new GameCommandsFactory();
+        }
+        return (GameCommandsFactory.instance as GameCommandsFactory);
+    }
+    
+
+    public function GameCommandsFactory() {
+        super();
+        this.initFieldsGameCommandsFactory();
+    }
+    }
 }
 

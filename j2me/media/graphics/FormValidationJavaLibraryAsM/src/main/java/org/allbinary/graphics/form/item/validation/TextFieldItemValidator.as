@@ -1,192 +1,84 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form.item.validation {
+    import org.allbinary.graphics.form.item.ABTextFieldItem;
+    import org.allbinary.logic.control.validate.ValidatorBase;
+    import org.allbinary.logic.java.bool.BooleanFactory;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TextFieldItemValidator extends ValidatorBase {
+        private var textFieldItem:ABTextFieldItem = null;
+        private var min:int = 0;
+        private var max:int = 0;
+        private var allowOnEmpty:Boolean = false;
 
-        
-
-
-import { ABTextFieldItem } from '../../../../../../org/allbinary/graphics/form/item/ABTextFieldItem.js';
-//not GWT import const ABTextFieldItem
-
-import { ValidatorBase } from '../../../../../../org/allbinary/logic/control/validate/ValidatorBase.js';
-//not GWT import const ValidatorBase
-
-import { BooleanFactory } from '../../../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
-//not GWT import const BooleanFactory
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class TextFieldItemValidator extends ValidatorBase {
-        
-
-    private readonly textFieldItem: ABTextFieldItem;
-
-    private min: number;
-
-    private max: number;
-
-    private allowOnEmpty: boolean;
-
-public constructor (textFieldItem: ABTextFieldItem, min: number, max: number, allowOnEmpty: boolean){
-
-            super();
-        this.textFieldItem= textFieldItem;
+        // Java field initializers run after the base constructor
+        private function initFieldsTextFieldItemValidator():void {
     
-this.min= min;
     
-this.max= max;
     
-this.allowOnEmpty= allowOnEmpty;
     
-}
-
-
-    public isValid(): Boolean{
-
-    let booleanFactory: BooleanFactory = BooleanFactory.getInstance()!;;
+        }
     
 
-    let result: Boolean = booleanFactory!.TRUE;;
+    public function TextFieldItemValidator(textFieldItem:ABTextFieldItem, min:int, max:int, allowOnEmpty:Boolean) {
+        super();
+        this.initFieldsTextFieldItemValidator();
+        this.textFieldItem = textFieldItem;
+        this.min = min;
+        this.max = max;
+        this.allowOnEmpty = allowOnEmpty;
+    }
     
 
-    let string: string = this.textFieldItem!.getString()!;;
+    override public function isValid():* {
+        var booleanFactory:BooleanFactory = BooleanFactory.getInstance();
+        var result:* = booleanFactory.TRUE;
+        var string:String = this.textFieldItem.getString();
+        var textLength:int = string.length;
+        if ((textLength == 0 && this.allowOnEmpty) || textLength > this.min && textLength < this.max) {
+        } else {
+            if (textLength < this.min) {
+                result = booleanFactory.FALSE;
+            } else if (textLength > this.max) {
+                result = booleanFactory.FALSE;
+            }
+        }
+        return result;
+    }
     
 
-    let textLength: number = string.length!;;
-    
-
-                        if((textLength == 0 && this.allowOnEmpty) || textLength > this.min && textLength < this.max)
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            
-                        if(textLength < this.min)
-                        
-                                    {
-                                    result= booleanFactory!.FALSE;
-    
-
-                                    }
-                                
-                             else 
-                        if(textLength > this.max)
-                        
-                                    {
-                                    result= booleanFactory!.FALSE;
-    
-
-                                    }
-                                
-
-                        }
-                            
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return result;
-    
-}
-
-
-    public toList(): BasicArrayList{
-
-    let list: BasicArrayList = new BasicArrayListD();;
-    
-
-    let string: string = this.textFieldItem!.getString()!;;
-    
-
-    let textLength: number = string.length!;;
-    
-
-                        if(textLength > this.min && textLength < this.max)
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            
-    let label: string = this.textFieldItem!.getLabel()!;;
-    
-
-    let name: string = label.substring(0, label.length -2)!;;
-    
-
-                        if(textLength < this.min)
-                        
-                                    {
-                                    list.add(new StringMaker().append(name)!.append(" is to short")!.toString());
-    
-
-                                    }
-                                
-                             else 
-                        if(textLength > this.max)
-                        
-                                    {
-                                    list.add(new StringMaker().append(name)!.append(" is to long")!.toString());
-    
-
-                                    }
-                                
-
-                        }
-                            
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return list;
-    
-}
-
-
+    override public function toList():BasicArrayList {
+        var list:BasicArrayList = new BasicArrayListD();
+        var string:String = this.textFieldItem.getString();
+        var textLength:int = string.length;
+        if (textLength > this.min && textLength < this.max) {
+        } else {
+            var label:String = this.textFieldItem.getLabel();
+            var name:String = label.substring(0, int(label.length - 2));
+            if (textLength < this.min) {
+                list.add(new StringMaker().append(name).append(" is to short").toString());
+            } else if (textLength > this.max) {
+                list.add(new StringMaker().append(name).append(" is to long").toString());
+            }
+        }
+        return list;
+    }
+    }
 }
 

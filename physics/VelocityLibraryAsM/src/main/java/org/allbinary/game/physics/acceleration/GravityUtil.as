@@ -1,73 +1,54 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.physics.acceleration {
+    import org.allbinary.game.physics.velocity.BasicVelocityProperties;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GravityUtil {
+    private static var instance_value:GravityUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GravityUtil {
+        if (!GravityUtil.instance_set) {
+            GravityUtil.instance_set = true;
+            GravityUtil.instance_value = new GravityUtil();
+        }
+        return GravityUtil.instance_value;
+    }
+        public var GAME_GRAVITY_VELOCITY:int = 0;
+        public var MAX_GAME_VELOCITY:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGravityUtil():void {
+    this.GAME_GRAVITY_VELOCITY = 1800;
+    this.MAX_GAME_VELOCITY = 18000;
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { BasicVelocityProperties } from '../../../../../org/allbinary/game/physics/velocity/BasicVelocityProperties.js';
-//not GWT import const BasicVelocityProperties
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GravityUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: GravityUtil = new GravityUtil();
-
-    public static getInstance(): GravityUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GravityUtil.instance;
+        public function GravityUtil() {
+            super();
+            this.initFieldsGravityUtil();
+        }
     
-}
 
-
-    public readonly GAME_GRAVITY_VELOCITY: number = 1800;
-
-    public readonly MAX_GAME_VELOCITY: number = 18000;
-
-    public process(velocityProperties: BasicVelocityProperties, customGravity: number){
-velocityProperties!.getVelocityYBasicDecimalP()!.addint(customGravity);
+    public static function getInstance():GravityUtil {
+        return GravityUtil.instance;
+    }
     
-}
 
-
+    public function process(velocityProperties:BasicVelocityProperties, customGravity:int):void {
+        velocityProperties.getVelocityYBasicDecimalP().addint(customGravity);
+    }
+    }
 }
 

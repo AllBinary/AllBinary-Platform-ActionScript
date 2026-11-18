@@ -1,232 +1,111 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.part {
+    import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.font.UpdateMyFontProcessor;
+    import org.allbinary.graphics.paint.PaintableInterface;
+    import org.allbinary.layer.AllBinaryLayer;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CountedLayersHudPaintable implements PaintableInterface, UpdateMyFontInterface {
+    private static var XXStringWidth:int = 0;
+        private var displayInfoSingleton:DisplayInfoSingleton = null;
+        private var partInterfaceArray:Vector.<PartInterface> = null;
+        private var countedTotalStringColor:int = 0;
+        private var countedPartsBorder:int = 0;
+        private var startIndex:int = 0;
+        private var dropSize:int = 0;
+        private var myFontProcessor:MyFontProcessor = null;
+        private var height:int = 0;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Font } from '../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { PickedUpLayerInterfaceFactoryInterface } from '../../../../org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.js';
-//not GWT import const PickedUpLayerInterfaceFactoryInterface
-
-import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { MyFontProcessor } from '../../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { UpdateMyFontInterface } from '../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { UpdateMyFontProcessor } from '../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
-//not GWT import const UpdateMyFontProcessor
-
-import { PaintableInterface } from '../../../../org/allbinary/graphics/paint/PaintableInterface.js';
-//not GWT import const PaintableInterface
-
-import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PartInterface } from './PartInterface.js';
-//sameFolderImports - not GWT import - same folder const PartInterface
-import { CountedLayerInterfaceFactoryPart } from './CountedLayerInterfaceFactoryPart.js';
-//sameFolderImports - not GWT import - same folder const CountedLayerInterfaceFactoryPart
-
-export class CountedLayersHudPaintable
-            extends Object
-         implements PaintableInterface, UpdateMyFontInterface {
-        
-
-    private static XXStringWidth: number = 0;
-
-    private readonly displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
-
-    private readonly partInterfaceArray: PartInterface[];
-
-    private readonly countedTotalStringColor: number;
-
-    private readonly countedPartsBorder: number;
-
-    private readonly startIndex: number;
-
-    private readonly dropSize: number;
-
-    private myFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
-
-    private height: number= 0;
-
-public constructor (partInterfaceArray: PartInterface[], dropSize: number, startIndex: number, countedTotalStringColor: number, countedPartsBorder: number){
-
-            super();
-        this.partInterfaceArray= partInterfaceArray;
+        // Java field initializers run after the base constructor
+        private function initFieldsCountedLayersHudPaintable():void {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
     
-this.startIndex= startIndex;
     
-this.countedTotalStringColor= countedTotalStringColor;
     
-this.countedPartsBorder= countedPartsBorder;
     
-this.dropSize= dropSize;
     
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
-    
-this.height= font.getHeight();
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
+    this.height = 0;
+        }
     
 
-                        if(this.dropSize > font.getHeight())
-                        
-                                    {
-                                    this.height= this.dropSize;
+    public function CountedLayersHudPaintable(partInterfaceArray:Vector.<PartInterface>, dropSize:int, startIndex:int, countedTotalStringColor:int, countedPartsBorder:int) {
+        super();
+        this.initFieldsCountedLayersHudPaintable();
+        this.partInterfaceArray = partInterfaceArray;
+        this.startIndex = startIndex;
+        this.countedTotalStringColor = countedTotalStringColor;
+        this.countedPartsBorder = countedPartsBorder;
+        this.dropSize = dropSize;
+    }
     
 
-                                    }
-                                
-
-                        if(CountedLayersHudPaintable.XXStringWidth == 0)
-                        
-                                    {
-                                    
-    let XXString: string = "XX";;
-    
-CountedLayersHudPaintable.XXStringWidth= font.stringWidth(XXString);
-    
-
-                                    }
-                                
-this.myFontProcessor= MyFontProcessor.getInstance();
-    
-}
-
-
-    public paint(graphics: Graphics){
-this.myFontProcessor!.process(graphics);
+    public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        this.height = font.getHeight();
+        if (this.dropSize > font.getHeight()) {
+            this.height = this.dropSize;
+        }
+        if (CountedLayersHudPaintable.XXStringWidth == 0) {
+            var XXString:String = "XX";
+            CountedLayersHudPaintable.XXStringWidth = font.stringWidth(XXString);
+        }
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
     
 
-    let lastWidth: number = this.displayInfoSingleton!.getLastWidth()!;;
+    public function paint(graphics:Graphics):void {
+        this.myFontProcessor.process(graphics);
+        var lastWidth:int = this.displayInfoSingleton.getLastWidth();
+        var widthEdge:int = int(lastWidth - this.dropSize);
+        var size:int = this.partInterfaceArray.length;
+        var count:int = 0;
+        var y:int = 0;
+        var countedLayerInterfaceFactory:CountedLayerInterfaceFactoryPart = null;
+        var pickedUpLayerInterfaceFactoryInterface:PickedUpLayerInterfaceFactoryInterface = null;
+        var layerInterface:AllBinaryLayer = null;
+        var charArray:Vector.<int> = null;
+        for (var index:int = this.startIndex; index < size; index++) {
+            countedLayerInterfaceFactory = (this.partInterfaceArray[index] as CountedLayerInterfaceFactoryPart);
+            if (countedLayerInterfaceFactory.getTotal() > 0) {
+                pickedUpLayerInterfaceFactoryInterface = countedLayerInterfaceFactory.getCountedPickedUpLayerInterfaceFactory();
+                layerInterface = pickedUpLayerInterfaceFactoryInterface.getIconLayer();
+                y = int(40 + (int(count * this.height)));
+                layerInterface.setPosition(widthEdge, y, layerInterface.getZP());
+                layerInterface.paint(graphics);
+                graphics.setColor(this.countedTotalStringColor);
+                countedLayerInterfaceFactory.paint(graphics);
+                charArray = countedLayerInterfaceFactory.getTotalString();
+                graphics.drawChars(charArray, 0, charArray.length, int(widthEdge - countedLayerInterfaceFactory.getXOffset()), y, 0);
+                count++;
+            }
+        }
+        if (count > 0) {
+            graphics.setColor(this.countedPartsBorder);
+            graphics.drawRect(lastWidth - (CountedLayersHudPaintable.XXStringWidth + this.dropSize), 40, CountedLayersHudPaintable.XXStringWidth + this.dropSize, int((int(count * this.height)) + 3));
+        }
+    }
     
 
-    let widthEdge: number = lastWidth -this.dropSize;;
-    
-
-    let size: number = this.partInterfaceArray!.length
-                ;;
-    
-
-    let count: number = 0;;
-    
-
-    let y: number= 0;;
-    
-
-    let countedLayerInterfaceFactory: CountedLayerInterfaceFactoryPart;;
-    
-
-    let pickedUpLayerInterfaceFactoryInterface: PickedUpLayerInterfaceFactoryInterface;;
-    
-
-    let layerInterface: AllBinaryLayer;;
-    
-
-    let charArray: string[];;
-    
-
-
-
-
-                        for (
-    let index: number = this.startIndex;index < size; index++)
-        {
-countedLayerInterfaceFactory= this.partInterfaceArray[index]! as CountedLayerInterfaceFactoryPart;
-    
-
-                        if(countedLayerInterfaceFactory!.getTotal() > 0)
-                        
-                                    {
-                                    pickedUpLayerInterfaceFactoryInterface= countedLayerInterfaceFactory!.getCountedPickedUpLayerInterfaceFactory();
-    
-layerInterface= pickedUpLayerInterfaceFactoryInterface!.getIconLayer();
-    
-y= 40 +(count *this.height);
-    
-layerInterface!.setPosition(widthEdge, y, layerInterface!.getZP());
-    
-layerInterface!.paint(graphics);
-    
-graphics.setColor(this.countedTotalStringColor);
-    
-countedLayerInterfaceFactory!.paint(graphics);
-    
-charArray= countedLayerInterfaceFactory!.getTotalString();
-    
-graphics.drawChars(charArray, 0, charArray!.length, widthEdge -countedLayerInterfaceFactory!.getXOffset(), y, 0);
-    
-count++;
-    
-
-                                    }
-                                
-}
-
-
-                        if(count > 0)
-                        
-                                    {
-                                    graphics.setColor(this.countedPartsBorder);
-    
-graphics.drawRect(lastWidth -(CountedLayersHudPaintable.XXStringWidth +this.dropSize), 40, CountedLayersHudPaintable.XXStringWidth +this.dropSize, (count *this.height) +3);
-    
-
-                                    }
-                                
-}
-
-
-    public paintThreed(graphics: Graphics){
-}
-
-
+    public function paintThreed(graphics:Graphics):void {
+    }
+    }
 }
 

@@ -1,58 +1,28 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.graphics.paint.LocationPaintableInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface AnimationInterface extends LocationPaintableInterface {
+    
 
-        
+    function nextFrame():void;
+    
 
-
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { LocationPaintableInterface } from '../../../org/allbinary/graphics/paint/LocationPaintableInterface.js';
-//not GWT import const LocationPaintableInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export interface AnimationInterface extends LocationPaintableInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    nextFrame(): void;
-
-    paintThreedXYZ(graphics: Graphics, x: number, y: number, z: number): void;
-
+    function paintThreedXYZ(graphics:Graphics, x:int, y:int, z:int):void;
+    }
 }
 

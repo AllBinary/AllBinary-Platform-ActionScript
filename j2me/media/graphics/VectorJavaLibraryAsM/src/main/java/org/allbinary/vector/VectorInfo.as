@@ -1,134 +1,83 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.vector {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class VectorInfo {
+        private var width:int = 0;
+        private var height:int = 0;
+        private var points:Vector.<Vector.<int>> = null;
+        private var totalFrames:int = 0;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class VectorInfo
-            extends Object
-         {
-        
-
-    private width: number;
-
-    private height: number;
-
-    private points: number[][];
-
-    private totalFrames: number;
-
-public constructor (width: number, height: number, points: number[][], totalFrames: number){
-
-            super();
-        this.width= width;
+        // Java field initializers run after the base constructor
+        private function initFieldsVectorInfo():void {
     
-this.height= height;
     
-this.points= points;
     
-this.totalFrames= totalFrames;
     
-}
-
-
-    public getWidth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.width;
+        }
     
-}
 
-
-    setWidth(width: number){
-this.width= width;
+    public function VectorInfo(width:int, height:int, points:Vector.<Vector.<int>>, totalFrames:int) {
+        super();
+        this.initFieldsVectorInfo();
+        this.width = width;
+        this.height = height;
+        this.points = points;
+        this.totalFrames = totalFrames;
+    }
     
-}
 
-
-    public getHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.height;
+    public function getWidth():int {
+        return this.width;
+    }
     
-}
 
-
-    setHeight(height: number){
-this.height= height;
+    private function setWidth(width:int):void {
+        this.width = width;
+    }
     
-}
 
-
-    public getPoints(): number[][]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.points;
+    public function getHeight():int {
+        return this.height;
+    }
     
-}
 
-
-    setPoints(points: number[][]){
-this.points= points;
+    private function setHeight(height:int):void {
+        this.height = height;
+    }
     
-}
 
-
-    public getTotalFrames(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.totalFrames;
+    public function getPoints():Vector.<Vector.<int>> {
+        return this.points;
+    }
     
-}
 
-
-    setTotalFrames(totalFrames: number){
-this.totalFrames= totalFrames;
+    private function setPoints(points:Vector.<Vector.<int>>):void {
+        this.points = points;
+    }
     
-}
 
+    public function getTotalFrames():int {
+        return this.totalFrames;
+    }
+    
 
+    private function setTotalFrames(totalFrames:int):void {
+        this.totalFrames = totalFrames;
+    }
+    }
 }
 

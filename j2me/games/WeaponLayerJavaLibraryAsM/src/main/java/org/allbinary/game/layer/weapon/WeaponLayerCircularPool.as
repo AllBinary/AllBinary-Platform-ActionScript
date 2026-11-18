@@ -1,85 +1,38 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer.weapon {
+    import org.allbinary.game.combat.weapon.WeaponProperties;
+    import org.allbinary.game.score.ScoreableInterface;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerCircularPool;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { WeaponProperties } from '../../../../../org/allbinary/game/combat/weapon/WeaponProperties.js';
-//not GWT import const WeaponProperties
-
-import { ScoreableInterface } from '../../../../../org/allbinary/game/score/ScoreableInterface.js';
-//not GWT import const ScoreableInterface
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerCircularPool } from '../../../../../org/allbinary/layer/AllBinaryLayerCircularPool.js';
-//not GWT import const AllBinaryLayerCircularPool
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { WeaponLayer } from './WeaponLayer.js';
-//sameFolderImports - not GWT import - same folder const WeaponLayer
-
-export class WeaponLayerCircularPool extends AllBinaryLayerCircularPool {
-        
-
-public constructor (){
-
-            super();
-        }
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceWeaponLayer(sourceLayerInterface: AllBinaryLayer, x: number, y: number, z: number, angle: number, otherAngle: number, weaponProperties: WeaponProperties, scoreable: ScoreableInterface): WeaponLayer{
-
-    let weaponLayer: WeaponLayer = super.getNextInstance() as WeaponLayer;;
-    
-weaponLayer!.initXYZ(x, y, z);
-    
-weaponLayer!.init(sourceLayerInterface, angle, otherAngle, weaponProperties, scoreable);
+    public class WeaponLayerCircularPool extends AllBinaryLayerCircularPool {
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return weaponLayer;
+    public function WeaponLayerCircularPool() {
+        super();
+    }
     
-}
 
-
+    public function getInstanceWeaponLayer(sourceLayerInterface:AllBinaryLayer, x:int, y:int, z:int, angle:int, otherAngle:int, weaponProperties:WeaponProperties, scoreable:ScoreableInterface):WeaponLayer {
+        var weaponLayer:WeaponLayer = (super.getNextInstance() as WeaponLayer);
+        weaponLayer.initXYZ(x, y, z);
+        weaponLayer.init(sourceLayerInterface, angle, otherAngle, weaponProperties, scoreable);
+        return weaponLayer;
+    }
+    }
 }
 

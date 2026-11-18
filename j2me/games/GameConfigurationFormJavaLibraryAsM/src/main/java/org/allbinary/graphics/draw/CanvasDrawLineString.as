@@ -1,106 +1,68 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.draw {
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.font.UpdateMyFontProcessor;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CanvasDrawLineString implements UpdateMyFontInterface {
+    private static var NULL_CANVAS_DRAW_LINE_STRING_value:CanvasDrawLineString;
+    private static var NULL_CANVAS_DRAW_LINE_STRING_set:Boolean = false;
+    public static function get NULL_CANVAS_DRAW_LINE_STRING():CanvasDrawLineString {
+        if (!CanvasDrawLineString.NULL_CANVAS_DRAW_LINE_STRING_set) {
+            CanvasDrawLineString.NULL_CANVAS_DRAW_LINE_STRING_set = true;
+            CanvasDrawLineString.NULL_CANVAS_DRAW_LINE_STRING_value = new CanvasDrawLineString(0, 0);
+        }
+        return CanvasDrawLineString.NULL_CANVAS_DRAW_LINE_STRING_value;
+    }
+        private var drawStringUtil:DrawStringUtil = null;
+        private var myFontProcessor:MyFontProcessor = null;
+        private var x:int = 0;
+        private var y:int = 0;
+        private var fontHeight:int = 0;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Font } from '../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { MyFontProcessor } from '../../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { UpdateMyFontInterface } from '../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { UpdateMyFontProcessor } from '../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
-//not GWT import const UpdateMyFontProcessor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DrawStringUtil } from './DrawStringUtil.js';
-//sameFolderImports - not GWT import - same folder const DrawStringUtil
-
-export class CanvasDrawLineString
-            extends Object
-         implements UpdateMyFontInterface {
-        
-
-    public static readonly NULL_CANVAS_DRAW_LINE_STRING: CanvasDrawLineString = new CanvasDrawLineString(0, 0);
-
-    private readonly drawStringUtil: DrawStringUtil = DrawStringUtil.getInstance()!;
-
-    private myFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
-
-    private x: number;
-
-    private y: number;
-
-    private fontHeight: number = 0;
-
-public constructor (x: number, y: number){
-
-            super();
-        this.x= x;
+        // Java field initializers run after the base constructor
+        private function initFieldsCanvasDrawLineString():void {
+    this.drawStringUtil = DrawStringUtil.getInstance();
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
     
-this.y= y;
     
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
+    this.fontHeight = 0;
+        }
     
-this.fontHeight= font.getHeight();
-    
-this.myFontProcessor= MyFontProcessor.getInstance();
-    
-}
 
-
-    public paint(graphics: Graphics, string: string, line: number){
-this.myFontProcessor!.process(graphics);
+    public function CanvasDrawLineString(x:int, y:int) {
+        super();
+        this.initFieldsCanvasDrawLineString();
+        this.x = x;
+        this.y = y;
+    }
     
-this.drawStringUtil!.drawCenterString(graphics, string, 0, string.length, this.x, this.y +(line *this.fontHeight));
+
+    public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        this.fontHeight = font.getHeight();
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
     
-}
 
-
+    public function paint(graphics:Graphics, string:String, line:int):void {
+        this.myFontProcessor.process(graphics);
+        this.drawStringUtil.drawCenterString(graphics, string, 0, string.length, this.x, int(this.y + (int(line * this.fontHeight))));
+    }
+    }
 }
 

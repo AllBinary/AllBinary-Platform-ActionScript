@@ -27,6 +27,10 @@ package org.allbinary.logic.communication.log.config.type {
         }
         return LogConfigTypes.LOGGING_value;
     }
+    public static function set LOGGING(value:BasicArrayList):void {
+        LogConfigTypes.LOGGING_set = true;
+        LogConfigTypes.LOGGING_value = value;
+    }
     
 
     public function LogConfigTypes() {

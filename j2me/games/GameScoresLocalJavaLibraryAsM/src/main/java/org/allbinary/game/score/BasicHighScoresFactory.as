@@ -1,142 +1,65 @@
+// Generated Code Do Not Modify
+package org.allbinary.game.score {
+    import org.allbinary.game.GameInfo;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.system.SoftwareInformation;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
-        /* Generated Code Do Not Modify */
+    public class BasicHighScoresFactory extends HighScoresBase {
+        public var logUtil:LogUtil = null;
+        private var abeClientInformation:AbeClientInformationInterface = null;
+        private var highScoresArray:Vector.<HighScores> = null;
+        private var TOP:String = null;
+        private var SCORES:String = null;
+        private var PERSONAL_HIGH_SCORES:String = null;
+        private var FETCH:String = null;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { GameInfo } from '../../../../org/allbinary/game/GameInfo.js';
-//not GWT import const GameInfo
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { SoftwareInformation } from '../../../../org/allbinary/logic/system/SoftwareInformation.js';
-//not GWT import const SoftwareInformation
-
-import { AbeClientInformationInterface } from '../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { HighScoresBase } from './HighScoresBase.js';
-//sameFolderImports - not GWT import - same folder const HighScoresBase
-import { HighScores } from './HighScores.js';
-//sameFolderImports - not GWT import - same folder const HighScores
-import { HighScoresResultsListener } from './HighScoresResultsListener.js';
-//sameFolderImports - not GWT import - same folder const HighScoresResultsListener
-import { RecordStoreHighScores } from './RecordStoreHighScores.js';
-//sameFolderImports - not GWT import - same folder const RecordStoreHighScores
-import { ScoreComparator } from './ScoreComparator.js';
-//sameFolderImports - not GWT import - same folder const ScoreComparator
-import { HighScoresHelper2 } from './HighScoresHelper2.js';
-//sameFolderImports - not GWT import - same folder const HighScoresHelper2
-import { HighScoresHelperBaseInterface } from './HighScoresHelperBaseInterface.js';
-//sameFolderImports - not GWT import - same folder const HighScoresHelperBaseInterface
-
-export class BasicHighScoresFactory extends HighScoresBase {
-        
-
-    public static loaded(index2: number): boolean{
-
-                        if(index2 >= 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicHighScoresFactory():void {
+    this.logUtil = LogUtil.getInstance();
+    
+    this.highScoresArray = new Vector.<HighScores>(1);
+    this.TOP = "Top";
+    this.SCORES = "Scores";
+    this.PERSONAL_HIGH_SCORES = "Personal Top Scores";
+    this.FETCH = "fetchHighScores";
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly abeClientInformation: AbeClientInformationInterface;
-
-public constructor (abeClientInformation: AbeClientInformationInterface, softwareInformation: SoftwareInformation){
-
-            super();
-        this.abeClientInformation= abeClientInformation;
-    
-}
-
-
-    private readonly highScoresArray: HighScores[] = new Array(1);
-
-    private readonly TOP: string = "Top";
-
-    private readonly SCORES: string = "Scores";
-
-    private readonly PERSONAL_HIGH_SCORES: string = "Personal Top Scores";
-
-    private readonly FETCH: string = "fetchHighScores";
-
-    public fetchHighScores(gameInfo: GameInfo, highScoresResultsListener: HighScoresResultsListener){
-this.logUtil!.putF("Getting Local HighScores", this, this.FETCH);
-    
-this.fetchHighScoresPreload(gameInfo, highScoresResultsListener, true);
-    
-}
-
-
-    public fetchHighScoresPreload(gameInfo: GameInfo, highScoresResultsListener: HighScoresResultsListener, preload: boolean){
-
- try { this.highScoresArray[0]= RecordStoreHighScores.getInstance(this.abeClientInformation, gameInfo, this.TOP, this.PERSONAL_HIGH_SCORES, this.SCORES, new ScoreComparator(true));
-    
-highScoresResultsListener!.setHighScoresArray(this.highScoresArray);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.FETCH, e);
+    public function BasicHighScoresFactory(abeClientInformation:AbeClientInformationInterface, softwareInformation:SoftwareInformation) {
+        super();
+        this.initFieldsBasicHighScoresFactory();
+        this.abeClientInformation = abeClientInformation;
+    }
     
 
- }
-   }
- 
-}
-
-
-    public createHighScoresHelper(): HighScoresHelperBaseInterface{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new HighScoresHelper2();
+    override public function fetchHighScores(gameInfo:GameInfo, highScoresResultsListener:HighScoresResultsListener):void {
+        this.logUtil.putF("Getting Local HighScores", this, this.FETCH);
+        this.fetchHighScoresPreload(gameInfo, highScoresResultsListener, true);
+    }
     
-}
 
+    override public function fetchHighScoresPreload(gameInfo:GameInfo, highScoresResultsListener:HighScoresResultsListener, preload:Boolean):void {
+        try {
+            this.highScoresArray[0] = RecordStoreHighScores.getInstance6(this.abeClientInformation, gameInfo, this.TOP, this.PERSONAL_HIGH_SCORES, this.SCORES, new ScoreComparator(true));
+            highScoresResultsListener.setHighScoresArray(this.highScoresArray);
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.FETCH, e);
+        }
+    }
+    
 
+    override public function createHighScoresHelper():HighScoresHelperBaseInterface {
+        return new HighScoresHelper2();
+    }
+    
+
+    public static function loaded(index2:int):Boolean {
+        if (index2 >= 0) {
+            return true;
+        }
+        return false;
+    }
+    }
 }
 

@@ -1,71 +1,48 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.image.opengles {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class OpenGLESDeviceImageTranslate extends OpenGLESImageTranslate {
+        public var translateX:Number = 0.0;
+        public var translateY:Number = 0.0;
+        public var translateX2:Number = 0.0;
+        public var translateY2:Number = 0.0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsOpenGLESDeviceImageTranslate():void {
+    this.translateX = 0.0;
+    this.translateY = 0.0;
+    this.translateX2 = 0.0;
+    this.translateY2 = 0.0;
+        }
 
-
-import { GL10 } from '../../../../javax/microedition/khronos/opengles/GL10.js';
-//not GWT import const GL10
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { OpenGLESImageTranslate } from './OpenGLESImageTranslate.js';
-//sameFolderImports - not GWT import - same folder const OpenGLESImageTranslate
-import { OpenGLESImage } from './OpenGLESImage.js';
-//sameFolderImports - not GWT import - same folder const OpenGLESImage
-
-export class OpenGLESDeviceImageTranslate extends OpenGLESImageTranslate {
-        
-
-    public translateX: number = 0.0;
-
-    public translateY: number = 0.0;
-
-    public translateX2: number = 0.0;
-
-    public translateY2: number = 0.0;
-
-    public translate(gl: GL10, openGLESImage: OpenGLESImage, x: number, y: number){
-openGLESImage!.imageProcessor!.translate(gl, this.translateX +(openGLESImage!.openGLESImageProperties!.scaleX *x), this.translateY +(openGLESImage!.openGLESImageProperties!.scaleY *y));
+        public function OpenGLESDeviceImageTranslate() {
+            super();
+            this.initFieldsOpenGLESDeviceImageTranslate();
+        }
     
-}
 
-
-    public translate2(gl: GL10, openGLESImage: OpenGLESImage){
-openGLESImage!.imageProcessor!.translate(gl, this.translateX2, this.translateY2);
+    override public function translate(gl:GL10, openGLESImage:OpenGLESImage, x:Number, y:Number):void {
+        openGLESImage.imageProcessor.translate(gl, this.translateX + (openGLESImage.openGLESImageProperties.scaleX * x), this.translateY + (openGLESImage.openGLESImageProperties.scaleY * y));
+    }
     
-}
 
-
+    override public function translate2(gl:GL10, openGLESImage:OpenGLESImage):void {
+        openGLESImage.imageProcessor.translate(gl, this.translateX2, this.translateY2);
+    }
+    }
 }
 

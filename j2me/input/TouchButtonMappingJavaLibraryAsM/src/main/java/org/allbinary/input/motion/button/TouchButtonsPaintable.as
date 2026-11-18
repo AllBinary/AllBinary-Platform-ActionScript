@@ -1,120 +1,60 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorSetUtil;
+    import org.allbinary.graphics.paint.Paintable;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TouchButtonsPaintable extends Paintable {
+        public var foregroundBasicColor:BasicColor = null;
+        public var foregroundColor:int = 0;
+        public var basicSetColorUtil:BasicColorSetUtil = null;
+        private var touchButtonFactory:TouchButtonFactory = null;
 
-        
-
-
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorSetUtil } from '../../../../../org/allbinary/graphics/color/BasicColorSetUtil.js';
-//not GWT import const BasicColorSetUtil
-
-import { Paintable } from '../../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TouchButtonFactory } from './TouchButtonFactory.js';
-//sameFolderImports - not GWT import - same folder const TouchButtonFactory
-import { TouchButton } from './TouchButton.js';
-//sameFolderImports - not GWT import - same folder const TouchButton
-
-export class TouchButtonsPaintable extends Paintable {
-        
-
-    readonly foregroundBasicColor: BasicColor;
-
-    readonly foregroundColor: number;
-
-    readonly basicSetColorUtil: BasicColorSetUtil = BasicColorSetUtil.getInstance()!;
-
-    private readonly touchButtonFactory: TouchButtonFactory = TouchButtonFactory.getInstance()!;
-
-public constructor (basicColor: BasicColor){
-
-            super();
-        this.foregroundBasicColor= basicColor;
+        // Java field initializers run after the base constructor
+        private function initFieldsTouchButtonsPaintable():void {
     
-this.foregroundColor= basicColor!.intValue();
     
-}
-
-
-    public paint(graphics: Graphics){
-
-    let list: BasicArrayList = this.touchButtonFactory!.getList()!;;
-    
-this.basicSetColorUtil!.setBasicColorP3(graphics, this.foregroundBasicColor, this.foregroundColor);
+    this.basicSetColorUtil = BasicColorSetUtil.getInstance();
+    this.touchButtonFactory = TouchButtonFactory.getInstance();
+        }
     
 
-    let touchButton: TouchButton;;
+    public function TouchButtonsPaintable(basicColor:BasicColor) {
+        super();
+        this.initFieldsTouchButtonsPaintable();
+        this.foregroundBasicColor = basicColor;
+        this.foregroundColor = basicColor.intValue();
+    }
     
 
-
-
-
-                        for (
-    let index: number = list.size()!;--index >= 0; )
-        {
-touchButton= list.objectArray[index]! as TouchButton;
-    
-touchButton!.paint(graphics);
-    
-}
-
-
-
-
-
-                        for (
-    let index: number = list.size()!;--index >= 0; )
-        {
-touchButton= list.objectArray[index]! as TouchButton;
-    
-touchButton!.paintHint(graphics);
-    
-}
-
-}
-
-
+    override public function paint(graphics:Graphics):void {
+        var list:BasicArrayList = this.touchButtonFactory.getList();
+        this.basicSetColorUtil.setBasicColorP3(graphics, this.foregroundBasicColor, this.foregroundColor);
+        var touchButton:TouchButton = null;
+        for (var index:int = list.size(); --index >= 0; ) {
+            touchButton = (list.objectArray[index] as TouchButton);
+            touchButton.paint(graphics);
+        }
+        for (index = list.size(); --index >= 0; ) {
+            touchButton = (list.objectArray[index] as TouchButton);
+            touchButton.paintHint(graphics);
+        }
+    }
+    }
 }
 

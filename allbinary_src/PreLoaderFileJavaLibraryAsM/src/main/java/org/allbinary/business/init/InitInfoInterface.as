@@ -1,71 +1,52 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.init {
+    import org.allbinary.logic.io.path.AbPath;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface InitInfoInterface {
+    
 
-        
+    function isTesting():Boolean;
+    
 
+    function getTesting():String;
+    
 
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AbPath } from '../../../../org/allbinary/logic/io/path/AbPath.js';
-//not GWT import const AbPath
+    function getTestHtmlPath():String;
+    
 
+    function getMainPath():String;
+    
 
+    function setTesting(value:String):void;
+    
 
+    function setTestHtmlPath(value:AbPath):void;
+    
 
+    function setMainPath(value:AbPath):void;
+    
 
+    function isTestingValid(testing:String):Boolean;
+    
 
+    function isTestHtmlPathValid(value:AbPath):Boolean;
+    
 
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export interface InitInfoInterface {
-        
-
-    isTesting(): boolean;
-
-    getTesting(): string;
-
-    getTestHtmlPath(): string;
-
-    getMainPath(): string;
-
-    setTesting(value: string): void;
-
-    setTestHtmlPath(value: AbPath): void;
-
-    setMainPath(value: AbPath): void;
-
-                //@Throws(Exception.constructor)
-            
-    isTestingValid(testing: string): boolean;
-
-    isTestHtmlPathValid(value: AbPath): boolean;
-
-    isMainPathValid(value: AbPath): boolean;
-
+    function isMainPathValid(value:AbPath):Boolean;
+    }
 }
 

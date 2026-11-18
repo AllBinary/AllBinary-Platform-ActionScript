@@ -1,111 +1,61 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.layer.event {
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.LayerManager;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LayerManagerEvent extends AllBinaryEventObject {
+        private var layerInterface:AllBinaryLayer = null;
+        private var crud:String = null;
 
-        
-
-
-import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { LayerManager } from '../../../../org/allbinary/layer/LayerManager.js';
-//not GWT import const LayerManager
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class LayerManagerEvent extends AllBinaryEventObject {
-        
-
-    private layerInterface: AllBinaryLayer = AllBinaryLayer.NULL_ALLBINARY_LAYER;
-
-    private readonly crud: string;
-
-public constructor (layerManager: LayerManager, crud: string){
-            super(layerManager);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.crud= crud;
+        // Java field initializers run after the base constructor
+        private function initFieldsLayerManagerEvent():void {
+    this.layerInterface = AllBinaryLayer.NULL_ALLBINARY_LAYER;
     
-}
-
-
-    public getLayerInterface(): AllBinaryLayer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.layerInterface;
-    
-}
-
-
-    public setLayerInterface(layerInterface: AllBinaryLayer){
-this.layerInterface= layerInterface;
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append("LayerManagerEvent: \n");
-    
-stringBuffer!.append("LayerInterface: ");
-    
-stringBuffer!.append(this.getLayerInterface()!.toString());
-    
-stringBuffer!.append("\nCRUD: ");
-    
-stringBuffer!.append(this.crud);
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    public function LayerManagerEvent(layerManager:LayerManager, crud:String) {
+        super(layerManager);
+        this.initFieldsLayerManagerEvent();
+        this.crud = crud;
+    }
     
-}
 
+    public function getLayerInterface():AllBinaryLayer {
+        return this.layerInterface;
+    }
+    
 
+    public function setLayerInterface(layerInterface:AllBinaryLayer):void {
+        this.layerInterface = layerInterface;
+    }
+    
+
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append("LayerManagerEvent: \n");
+        stringBuffer.append("LayerInterface: ");
+        stringBuffer.append(this.getLayerInterface().toString());
+        stringBuffer.append("\nCRUD: ");
+        stringBuffer.append(this.crud);
+        return stringBuffer.toString();
+    }
+    }
 }
 

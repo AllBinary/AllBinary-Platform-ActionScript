@@ -1,141 +1,75 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.init.crypt.jcehelper {
+    import java.io.JByteArrayInputStream;
+    import java.io.JByteArrayOutputStream;
+    import java.io.JInputStream;
+    import org.allbinary.TsUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicCryptUtil {
+    private static var instance_value:BasicCryptUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():BasicCryptUtil {
+        if (!BasicCryptUtil.instance_set) {
+            BasicCryptUtil.instance_set = true;
+            BasicCryptUtil.instance_value = new BasicCryptUtil();
+        }
+        return BasicCryptUtil.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var tsUtil:TsUtil = null;
+        private var XML_START:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicCryptUtil():void {
+    this.logUtil = LogUtil.getInstance();
+    this.tsUtil = TsUtil.getInstance();
+    this.XML_START = "<?xml";
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { ByteArrayInputStream } from '../../../../../java/io/ByteArrayInputStream.js';
-//not GWT import const ByteArrayInputStream
-
-import { ByteArrayOutputStream } from '../../../../../java/io/ByteArrayOutputStream.js';
-//not GWT import const ByteArrayOutputStream
-
-import { InputStream } from '../../../../../java/io/InputStream.js';
-//not GWT import const InputStream
-
-import { TsUtil } from '../../../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CryptInterface } from './CryptInterface.js';
-//sameFolderImports - not GWT import - same folder const CryptInterface
-
-export class BasicCryptUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: BasicCryptUtil = new BasicCryptUtil();
-
-    public static getInstance(): BasicCryptUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return BasicCryptUtil.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly tsUtil: TsUtil = TsUtil.getInstance()!;
-
-    private readonly XML_START: string = "<?xml";
-
-                //@Throws(Exception.constructor)
-            
-    public getDecryptedInputStream(inputStream: InputStream, cryptInterface: CryptInterface): InputStream{
-
-    let buffer: ByteArrayOutputStream = new ByteArrayOutputStream();;
+        public function BasicCryptUtil() {
+            super();
+            this.initFieldsBasicCryptUtil();
+        }
     
 
-    let ch: number= 0;;
+    public static function getInstance():BasicCryptUtil {
+        return BasicCryptUtil.instance;
+    }
     
 
-        while(true)
-        {
-ch= inputStream!.read();
-    
-
-                        if(ch ==  -1)
-                        
-                                    {
-                                    break;
-
-                    
-
-                                    }
-                                
-buffer.write(ch);
-    
-}
-
-
-    let decrypted: number[] = cryptInterface!.decrypt(buffer.toByteArray())!;;
-    
-
-    let decryptedString: string = String.fromCharCode(...decrypted);;
-    
-
-    let index: number = decryptedString!.indexOf(this.XML_START)!;;
-    
-
-                        if(index > 0)
-                        
-                                    {
-                                    decryptedString= decryptedString!.substring(index);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new ByteArrayInputStream(this.tsUtil!.getByteArray(decryptedString));
-    
-}
-
-
+    public function getDecryptedInputStream(inputStream:InputStream, cryptInterface:CryptInterface):InputStream {
+        var buffer:JByteArrayOutputStream = new JByteArrayOutputStream();
+        var ch:int = 0;
+        while (true) {
+            ch = inputStream.read();
+            if (ch == -1) {
+                break;
+            }
+            buffer.write(ch);
+        }
+        var decrypted:Vector.<int> = cryptInterface.decrypt(buffer.toByteArray());
+        var decryptedString:String = decrypted;
+        var index:int = JString.indexOf(decryptedString, this.XML_START);
+        if (index > 0) {
+            decryptedString = decryptedString.substring(index);
+        }
+        return new ByteArrayInputStream(this.tsUtil.getByteArray(decryptedString));
+    }
+    }
 }
 

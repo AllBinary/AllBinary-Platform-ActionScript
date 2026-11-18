@@ -1,210 +1,120 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TouchScreenFactory {
+    private static var SINGLETON_value:TouchScreenFactory;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():TouchScreenFactory {
+        if (!TouchScreenFactory.SINGLETON_set) {
+            TouchScreenFactory.SINGLETON_set = true;
+            TouchScreenFactory.SINGLETON_value = new TouchScreenFactory();
+        }
+        return TouchScreenFactory.SINGLETON_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var touch:Boolean = false;
+        private var multiTouch:Boolean = false;
+        private var multiTouchDistinct:Boolean = false;
+        private var touchScreenType:TouchScreenType = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TouchScreenTypesFactory } from './TouchScreenTypesFactory.js';
-//sameFolderImports - not GWT import - same folder const TouchScreenTypesFactory
-import { TouchScreenType } from './TouchScreenType.js';
-//sameFolderImports - not GWT import - same folder const TouchScreenType
-
-export class TouchScreenFactory
-            extends Object
-         {
-        
-
-    private static readonly SINGLETON: TouchScreenFactory = new TouchScreenFactory();
-
-    public static getInstance(): TouchScreenFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return TouchScreenFactory.SINGLETON;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private touch: boolean= false;
-
-    private multiTouch: boolean= false;
-
-    private multiTouchDistinct: boolean= false;
-
-    private touchScreenType: TouchScreenType = TouchScreenTypesFactory.getInstance()!.NOTOUCH;
-
-private constructor (){
-
-            super();
-        
- try { this.setTouch(true);
-    
-this.setMultiTouch(false);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.put(commonStrings!.EXCEPTION, TouchScreenFactory.SINGLETON, commonStrings!.GET_INSTANCE, e);
+        // Java field initializers run after the base constructor
+        private function initFieldsTouchScreenFactory():void {
+    this.logUtil = LogUtil.getInstance();
+    this.touch = false;
+    this.multiTouch = false;
+    this.multiTouchDistinct = false;
+    this.touchScreenType = TouchScreenTypesFactory.getInstance().NOTOUCH;
+        }
     
 
- }
-   }
- 
-}
-
-
-    public setMultiTouch(multiTouch: boolean){
-this.multiTouch= multiTouch;
-    
-}
-
-
-    public isMultiTouch(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.multiTouch;
-    
-}
-
-
-    public setTouch(touch: boolean){
-this.touch= touch;
-    
-}
-
-
-    public isTouch(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.touch;
-    
-}
-
-
-    public setMultiTouchDistinct(multiTouchDistinct: boolean){
-this.multiTouchDistinct= multiTouchDistinct;
-    
-}
-
-
-    public isMultiTouchDistinct(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.multiTouchDistinct;
-    
-}
-
-
-    public setTouchScreenType(touchScreenType: TouchScreenType){
-this.touchScreenType= touchScreenType;
-    
-}
-
-
-    public getTouchScreenType(): TouchScreenType{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.touchScreenType;
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append("TouchScreen: ");
-    
-stringBuffer!.appendboolean(this.isTouch());
-    
-stringBuffer!.append(" MultiTouch: ");
-    
-stringBuffer!.appendboolean(this.isMultiTouch());
-    
-stringBuffer!.append(" Distinct MultiTouch: ");
-    
-stringBuffer!.appendboolean(this.isMultiTouchDistinct());
-    
-stringBuffer!.append(" TouchScreenType: ");
-    
-stringBuffer!.append(StringUtil.getInstance()!.toString(this.getTouchScreenType()));
+    public function TouchScreenFactory() {
+        super();
+        this.initFieldsTouchScreenFactory();
+        try {
+            this.setTouch(true);
+            this.setMultiTouch(false);
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, TouchScreenFactory.SINGLETON, commonStrings.GET_INSTANCE, e);
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    public static function getInstance():TouchScreenFactory {
+        return TouchScreenFactory.SINGLETON;
+    }
     
-}
 
+    public function setMultiTouch(multiTouch:Boolean):void {
+        this.multiTouch = multiTouch;
+    }
+    
 
+    public function isMultiTouch():Boolean {
+        return this.multiTouch;
+    }
+    
+
+    public function setTouch(touch:Boolean):void {
+        this.touch = touch;
+    }
+    
+
+    public function isTouch():Boolean {
+        return this.touch;
+    }
+    
+
+    public function setMultiTouchDistinct(multiTouchDistinct:Boolean):void {
+        this.multiTouchDistinct = multiTouchDistinct;
+    }
+    
+
+    public function isMultiTouchDistinct():Boolean {
+        return this.multiTouchDistinct;
+    }
+    
+
+    public function setTouchScreenType(touchScreenType:TouchScreenType):void {
+        this.touchScreenType = touchScreenType;
+    }
+    
+
+    public function getTouchScreenType():TouchScreenType {
+        return this.touchScreenType;
+    }
+    
+
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append("TouchScreen: ");
+        stringBuffer.appendboolean(this.isTouch());
+        stringBuffer.append(" MultiTouch: ");
+        stringBuffer.appendboolean(this.isMultiTouch());
+        stringBuffer.append(" Distinct MultiTouch: ");
+        stringBuffer.appendboolean(this.isMultiTouchDistinct());
+        stringBuffer.append(" TouchScreenType: ");
+        stringBuffer.append(StringUtil.getInstance().toString1(this.getTouchScreenType()));
+        return stringBuffer.toString();
+    }
+    }
 }
 

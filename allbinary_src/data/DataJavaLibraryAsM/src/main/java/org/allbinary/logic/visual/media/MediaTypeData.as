@@ -1,70 +1,49 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.visual.media {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class MediaTypeData
-            extends Object
-         {
-        
-
-    private static readonly instance: MediaTypeData = new MediaTypeData();
-
-    public static getInstance(): MediaTypeData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MediaTypeData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class MediaTypeData {
+    private static var instance_value:MediaTypeData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():MediaTypeData {
+        if (!MediaTypeData.instance_set) {
+            MediaTypeData.instance_set = true;
+            MediaTypeData.instance_value = new MediaTypeData();
         }
+        return MediaTypeData.instance_value;
+    }
+        public var RESIZABLE_MEDIA:String = null;
+        public var NOT_RESIZABLE_MEDIA:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsMediaTypeData():void {
+    this.RESIZABLE_MEDIA = "RESIZABLE_MEDIA";
+    this.NOT_RESIZABLE_MEDIA = "NOT_RESIZABLE_MEDIA";
+        }
+    
 
-    public readonly RESIZABLE_MEDIA: string = "RESIZABLE_MEDIA";
+    public static function getInstance():MediaTypeData {
+        return MediaTypeData.instance;
+    }
+    
 
-    public readonly NOT_RESIZABLE_MEDIA: string = "NOT_RESIZABLE_MEDIA";
-
+    public function MediaTypeData() {
+        super();
+        this.initFieldsMediaTypeData();
+    }
+    }
 }
 

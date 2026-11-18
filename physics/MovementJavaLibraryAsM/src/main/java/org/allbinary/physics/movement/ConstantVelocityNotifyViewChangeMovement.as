@@ -1,143 +1,77 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.physics.movement {
+    import org.allbinary.game.layer.AllBinaryGameLayer;
+    import org.allbinary.game.physics.velocity.BasicVelocityProperties;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.logic.math.BasicDecimal;
+    import org.allbinary.logic.math.vector.AxisMathVectorUtil;
+    import org.allbinary.math.AngleFactory;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ConstantVelocityNotifyViewChangeMovement extends Movement {
+        public var basicVelocityProperties:BasicVelocityProperties = null;
+        private var speedBasicDecimal:BasicDecimal = null;
+        private var axisMathVectorUtil:AxisMathVectorUtil = null;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AllBinaryGameLayer } from '../../../../org/allbinary/game/layer/AllBinaryGameLayer.js';
-//not GWT import const AllBinaryGameLayer
-
-import { BasicVelocityProperties } from '../../../../org/allbinary/game/physics/velocity/BasicVelocityProperties.js';
-//not GWT import const BasicVelocityProperties
-
-import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { BasicDecimal } from '../../../../org/allbinary/logic/math/BasicDecimal.js';
-//not GWT import const BasicDecimal
-
-import { AxisMathVectorUtil } from '../../../../org/allbinary/logic/math/vector/AxisMathVectorUtil.js';
-//not GWT import const AxisMathVectorUtil
-
-import { AngleFactory } from '../../../../org/allbinary/math/AngleFactory.js';
-//not GWT import const AngleFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Movement } from './Movement.js';
-//sameFolderImports - not GWT import - same folder const Movement
-
-export class ConstantVelocityNotifyViewChangeMovement extends Movement {
-        
-
-    basicVelocityProperties: BasicVelocityProperties;
-
-    private speedBasicDecimal: BasicDecimal;
-
-    private readonly axisMathVectorUtil: AxisMathVectorUtil = AxisMathVectorUtil.getInstance()!;
-
-public constructor (){
-
-            super();
-        this.speedBasicDecimal= BasicDecimal.ZERO_BIGDECIMAL;
+        // Java field initializers run after the base constructor
+        private function initFieldsConstantVelocityNotifyViewChangeMovement():void {
     
-this.basicVelocityProperties= new BasicVelocityProperties();
     
-}
-
-
-    public init(speedBasicDecimal: BasicDecimal, angle: number, otherAngle: number){
-this.speedBasicDecimal= speedBasicDecimal;
+    this.axisMathVectorUtil = AxisMathVectorUtil.getInstance();
+        }
     
 
-    let angleFactory: AngleFactory = AngleFactory.getInstance()!;;
-    
-this.basicVelocityProperties!.setVelocityWithBigDecimal(speedBasicDecimal, angleFactory!.getAt(angle), angleFactory!.getAt(otherAngle));
-    
-}
-
-
-    public moveOutsideRadius(layer: AllBinaryLayer, radius: number, angle: number, otherAngle: number){
-
-    let scaleFactorValue: number = this.speedBasicDecimal!.getScaledFactorValue()!;;
+    public function ConstantVelocityNotifyViewChangeMovement() {
+        super();
+        this.initFieldsConstantVelocityNotifyViewChangeMovement();
+        this.speedBasicDecimal = BasicDecimal.ZERO_BIGDECIMAL;
+        this.basicVelocityProperties = new BasicVelocityProperties();
+    }
     
 
-    let xVector: number = globalThis.Math.trunc((this.axisMathVectorUtil!.calculateX(radius, angle) /scaleFactorValue));;
+    override public function init(speedBasicDecimal:BasicDecimal, angle:int, otherAngle:int):void {
+        this.speedBasicDecimal = speedBasicDecimal;
+        var angleFactory:AngleFactory = AngleFactory.getInstance();
+        this.basicVelocityProperties.setVelocityWithBigDecimal(speedBasicDecimal, angleFactory.getAt(angle), angleFactory.getAt(otherAngle));
+    }
     
 
-    let yVector: number = globalThis.Math.trunc((this.axisMathVectorUtil!.calculateY(radius, angle) /scaleFactorValue));;
+    public function moveOutsideRadius(layer:AllBinaryLayer, radius:Number, angle:int, otherAngle:int):void {
+        var scaleFactorValue:int = this.speedBasicDecimal.getScaledFactorValue();
+        var xVector:int = int((this.axisMathVectorUtil.calculateX(radius, angle) / Number(scaleFactorValue)));
+        var yVector:int = int((this.axisMathVectorUtil.calculateY(radius, angle) / Number(scaleFactorValue)));
+        var zVector:int = int((this.axisMathVectorUtil.calculateZ(radius, otherAngle) / Number(scaleFactorValue)));
+        layer.moveDXYZ(xVector, yVector, zVector);
+    }
     
 
-    let zVector: number = globalThis.Math.trunc((this.axisMathVectorUtil!.calculateZ(radius, otherAngle) /scaleFactorValue));;
-    
-layer.moveDXYZ(xVector, yVector, zVector);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public process(layer: AllBinaryGameLayer){
-
-    let x: number = this.basicVelocityProperties!.getVelocityXBasicDecimalP()!.getScaled()!;;
+    override public function process(layer:AllBinaryGameLayer):void {
+        var x:int = this.basicVelocityProperties.getVelocityXBasicDecimalP().getScaled();
+        var y:int = this.basicVelocityProperties.getVelocityYBasicDecimalP().getScaled();
+        var z:int = this.basicVelocityProperties.getVelocityZBasicDecimalP().getScaled();
+        layer.moveDXYZ(x, y, z);
+        if (x != 0 || y != 0 || z != 0) {
+            layer.onViewPositionChangeEvent();
+        }
+    }
     
 
-    let y: number = this.basicVelocityProperties!.getVelocityYBasicDecimalP()!.getScaled()!;;
-    
-
-    let z: number = this.basicVelocityProperties!.getVelocityZBasicDecimalP()!.getScaled()!;;
-    
-layer.moveDXYZ(x, y, z);
-    
-
-                        if(x != 0 || y != 0 || z != 0)
-                        
-                                    {
-                                    layer.onViewPositionChangeEvent();
-    
-
-                                    }
-                                
-}
-
-
-    public stop(){
-this.basicVelocityProperties!.zero();
-    
-}
-
-
+    override public function stop():void {
+        this.basicVelocityProperties.zero();
+    }
+    }
 }
 

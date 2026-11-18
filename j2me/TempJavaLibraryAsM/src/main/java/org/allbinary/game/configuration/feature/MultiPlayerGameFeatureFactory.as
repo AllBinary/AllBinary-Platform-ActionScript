@@ -1,56 +1,30 @@
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.feature {
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class MultiPlayerGameFeatureFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: MultiPlayerGameFeatureFactory = new MultiPlayerGameFeatureFactory();
-
-    public static getInstance(): MultiPlayerGameFeatureFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MultiPlayerGameFeatureFactory.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class MultiPlayerGameFeatureFactory {
+    private static var instance_value:MultiPlayerGameFeatureFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():MultiPlayerGameFeatureFactory {
+        if (!MultiPlayerGameFeatureFactory.instance_set) {
+            MultiPlayerGameFeatureFactory.instance_set = true;
+            MultiPlayerGameFeatureFactory.instance_value = new MultiPlayerGameFeatureFactory();
         }
+        return MultiPlayerGameFeatureFactory.instance_value;
+    }
+    
 
+    public static function getInstance():MultiPlayerGameFeatureFactory {
+        return MultiPlayerGameFeatureFactory.instance;
+    }
+    
 
-    public addCommands(anyType: any){
-}
+    public function MultiPlayerGameFeatureFactory() {
+        super();
+    }
+    
 
-
+    public function addCommands(anyType:Object):void {
+    }
+    }
 }
 

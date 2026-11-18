@@ -1,67 +1,27 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.graphics.color.BasicColor;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-import { BasicColor } from '../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { VectorAnimationFactoryInterface } from './VectorAnimationFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const VectorAnimationFactoryInterface
-import { VectorAnimation } from './VectorAnimation.js';
-//sameFolderImports - not GWT import - same folder const VectorAnimation
-import { AnimationBehavior } from './AnimationBehavior.js';
-//sameFolderImports - not GWT import - same folder const AnimationBehavior
-
-export class VectorAnimationFactory
-            extends Object
-         implements VectorAnimationFactoryInterface {
-        
-
-    public getInstance(points: number[][][], basicColor: BasicColor): VectorAnimation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new VectorAnimation(points, basicColor, AnimationBehavior.getInstance());
+    public class VectorAnimationFactory implements VectorAnimationFactoryInterface {
     
-}
 
-
+    public function getInstance2(points:Vector.<Vector.<Vector.<int>>>, basicColor:BasicColor):VectorAnimation {
+        return new VectorAnimation(points, basicColor, AnimationBehavior.getInstance());
+    }
+    }
 }
 

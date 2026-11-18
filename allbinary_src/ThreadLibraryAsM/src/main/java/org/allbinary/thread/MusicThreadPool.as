@@ -41,18 +41,18 @@ package org.allbinary.thread {
     
 
     override public function runTask(task:JRunnable):void {
-        this.logUtil.putF(new StringMaker().append(StringUtil.getInstance().toString1(task)).appendlong(Number(JSystem.currentTimeMillis())).toString(), this, this.threadPoolStrings.ADD_TASK);
+        this.logUtil.putF(new StringMaker().append(StringUtil.getInstance().toString1(task)).appendlong(JSystem.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK);
         super.runTask(task);
     }
     
 
     override public function startTask(task:JRunnable):void {
-        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.START_TASK).append(StringUtil.getInstance().toString1(task)).appendlong(Number(JSystem.currentTimeMillis())).toString(), this, this.commonStrings.RUN);
+        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.START_TASK).append(StringUtil.getInstance().toString1(task)).appendlong(JSystem.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
     
 
     override public function completedTask(task:JRunnable):void {
-        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(StringUtil.getInstance().toString1(task)).appendlong(Number(JSystem.currentTimeMillis())).toString(), this, this.commonStrings.RUN);
+        this.logUtil.putF(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(StringUtil.getInstance().toString1(task)).appendlong(JSystem.currentTimeMillis()).toString(), this, this.commonStrings.RUN);
     }
     }
 }

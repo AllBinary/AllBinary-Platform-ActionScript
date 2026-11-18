@@ -1,132 +1,64 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer.special {
+    import org.allbinary.game.collision.CollidableBaseBehavior;
+    import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
+    import org.allbinary.game.combat.damage.DamageUtil;
+    import org.allbinary.game.layer.CollidableCompositeLayer;
+    import org.allbinary.logic.communication.log.ForcedLogUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CollidableDestroyableDamageableBehavior extends CollidableBaseBehavior {
+        public var damageUtil:DamageUtil = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { CollidableBaseBehavior } from '../../../../../org/allbinary/game/collision/CollidableBaseBehavior.js';
-//not GWT import const CollidableBaseBehavior
-
-import { CollidableInterfaceCompositeInterface } from '../../../../../org/allbinary/game/collision/CollidableInterfaceCompositeInterface.js';
-//not GWT import const CollidableInterfaceCompositeInterface
-
-import { DamageUtil } from '../../../../../org/allbinary/game/combat/damage/DamageUtil.js';
-//not GWT import const DamageUtil
-
-import { CollidableCompositeLayer } from '../../../../../org/allbinary/game/layer/CollidableCompositeLayer.js';
-//not GWT import const CollidableCompositeLayer
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CollidableDestroyableDamageableLayer } from './CollidableDestroyableDamageableLayer.js';
-//sameFolderImports - not GWT import - same folder const CollidableDestroyableDamageableLayer
-
-export class CollidableDestroyableDamageableBehavior extends CollidableBaseBehavior {
-        
-
-    readonly damageUtil: DamageUtil = DamageUtil.getInstance()!;
-
-public constructor (collidable: boolean){
-            super(collidable);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public isCollision(ownerLayer: CollidableCompositeLayer, collisionLayer: CollidableCompositeLayer): boolean{
-
-                        if(ownerLayer!.getGroupInterface()[0] != collisionLayer!.getGroupInterface()[0])
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.isCollision(ownerLayer, collisionLayer);;
+        // Java field initializers run after the base constructor
+        private function initFieldsCollidableDestroyableDamageableBehavior():void {
+    this.damageUtil = DamageUtil.getInstance();
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public collide(ownerLayer: CollidableCompositeLayer, collidableInterfaceCompositeInterface: CollidableCompositeLayer){
-
-    let ownerCollidableDestroyableDamageableLayer: CollidableDestroyableDamageableLayer = ownerLayer as CollidableDestroyableDamageableLayer;;
+    public function CollidableDestroyableDamageableBehavior(collidable:Boolean) {
+        super(collidable);
+        this.initFieldsCollidableDestroyableDamageableBehavior();
+    }
     
 
-    let collidableDestroyableDamageableLayer: CollidableDestroyableDamageableLayer = collidableInterfaceCompositeInterface as CollidableDestroyableDamageableLayer;;
-    
-ownerCollidableDestroyableDamageableLayer!.damage(collidableDestroyableDamageableLayer!.getDamage(0), 0);
-    
-}
-
-
-    public isCollisionInterface(ownerLayer: CollidableCompositeLayer, collidableInterfaceCompositeInterface: CollidableInterfaceCompositeInterface): boolean{
-ForcedLogUtil.log("No Longer Used", this);
+    override public function isCollision(ownerLayer:CollidableCompositeLayer, collisionLayer:CollidableCompositeLayer):Boolean {
+        if (ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0]) {
+            return super.isCollision(ownerLayer, collisionLayer);
+        }
+        return false;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    override public function collide(ownerLayer:CollidableCompositeLayer, collidableInterfaceCompositeInterface:CollidableCompositeLayer):void {
+        var ownerCollidableDestroyableDamageableLayer:CollidableDestroyableDamageableLayer = (ownerLayer as CollidableDestroyableDamageableLayer);
+        var collidableDestroyableDamageableLayer:CollidableDestroyableDamageableLayer = (collidableInterfaceCompositeInterface as CollidableDestroyableDamageableLayer);
+        ownerCollidableDestroyableDamageableLayer.damage(collidableDestroyableDamageableLayer.getDamage(0), 0);
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public collideInterface(ownerLayer: CollidableCompositeLayer, collidableInterfaceCompositeInterface: CollidableInterfaceCompositeInterface){
-ForcedLogUtil.log("No Longer Used", this);
+    override public function isCollisionInterface(ownerLayer:CollidableCompositeLayer, collidableInterfaceCompositeInterface:CollidableInterfaceCompositeInterface):Boolean {
+        ForcedLogUtil.log("No Longer Used", this);
+        return false;
+    }
     
-}
 
-
+    override public function collideInterface(ownerLayer:CollidableCompositeLayer, collidableInterfaceCompositeInterface:CollidableInterfaceCompositeInterface):void {
+        ForcedLogUtil.log("No Longer Used", this);
+    }
+    }
 }
 

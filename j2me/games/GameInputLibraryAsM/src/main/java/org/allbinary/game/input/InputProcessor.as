@@ -1,63 +1,40 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class InputProcessor {
+        public var gameInputStrings:GameInputStrings = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsInputProcessor():void {
+    this.gameInputStrings = GameInputStrings.getInstance();
+        }
 
+        public function InputProcessor() {
+            super();
+            this.initFieldsInputProcessor();
+        }
+    
 
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Canvas } from '../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
+    public function keyPressedByDevice(keyCode:int, deviceId:int):void {
+    }
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameInputStrings } from './GameInputStrings.js';
-//sameFolderImports - not GWT import - same folder const GameInputStrings
-
-export class InputProcessor
-            extends Object
-         {
-        
-
-    readonly gameInputStrings: GameInputStrings = GameInputStrings.getInstance()!;
-
-    public keyPressedByDevice(keyCode: number, deviceId: number){
-}
-
-
-    public keyReleasedByDevice(canvas: Canvas, keyCode: number, deviceId: number){
-}
-
-
+    public function keyReleasedByDevice(canvas:Canvas, keyCode:int, deviceId:int):void {
+    }
+    }
 }
 

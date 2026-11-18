@@ -1,50 +1,24 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface PlayerGameInputCompositeInterface extends GameInputInterface {
+    
 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameInputInterface } from './GameInputInterface.js';
-//sameFolderImports - not GWT import - same folder const GameInputInterface
-import { PlayerGameInput } from './PlayerGameInput.js';
-//sameFolderImports - not GWT import - same folder const PlayerGameInput
-
-export interface PlayerGameInputCompositeInterface extends GameInputInterface {
-        
-
-    getPlayerGameInput(): PlayerGameInput;
-
+    function getPlayerGameInput():PlayerGameInput;
+    }
 }
 

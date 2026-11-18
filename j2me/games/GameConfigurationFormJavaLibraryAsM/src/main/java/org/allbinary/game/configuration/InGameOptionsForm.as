@@ -1,112 +1,72 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration {
+    import org.allbinary.game.commands.GameCommandsFactory;
+    import org.allbinary.game.configuration.feature.GameFeatureFormUtil;
+    import org.allbinary.game.configuration.feature.InGameFeatureChoiceGroups;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.displayable.screen.CommandForm;
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Choice, ChoiceI } from '../../../../javax/microedition/lcdui/Choice.js';
-//not GWT import const Choice
-
-import { Command } from '../../../../javax/microedition/lcdui/Command.js';
-//not GWT import const Command
-
-import { CommandListener } from '../../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
-
-import { GameCommandsFactory } from '../../../../org/allbinary/game/commands/GameCommandsFactory.js';
-//not GWT import const GameCommandsFactory
-
-import { GameFeatureFormUtil } from '../../../../org/allbinary/game/configuration/feature/GameFeatureFormUtil.js';
-//not GWT import const GameFeatureFormUtil
-
-import { InGameFeatureChoiceGroups } from '../../../../org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.js';
-//not GWT import const InGameFeatureChoiceGroups
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { CommandForm } from '../../../../org/allbinary/graphics/displayable/screen/CommandForm.js';
-//not GWT import const CommandForm
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class InGameOptionsForm extends CommandForm {
-        
-
-    public static readonly DISPLAY: Command = new Command("Options In Game", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public static readonly SAVE: Command = new Command("Save", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
-    public static readonly DEFAULT: Command = new Command("Default", StringUtil.getInstance()!.EMPTY_STRING, Command.SCREEN, 1);
-
- constructor (commandListener: CommandListener, title: string, backgrounBasicColor: BasicColor, foregroundBasicColor: BasicColor){
-            super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+    public class InGameOptionsForm extends CommandForm {
+    private static var DISPLAY_value:Command;
+    private static var DISPLAY_set:Boolean = false;
+    public static function get DISPLAY():Command {
+        if (!InGameOptionsForm.DISPLAY_set) {
+            InGameOptionsForm.DISPLAY_set = true;
+            InGameOptionsForm.DISPLAY_value = new Command("Options In Game", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+        }
+        return InGameOptionsForm.DISPLAY_value;
+    }
+    private static var SAVE_value:Command;
+    private static var SAVE_set:Boolean = false;
+    public static function get SAVE():Command {
+        if (!InGameOptionsForm.SAVE_set) {
+            InGameOptionsForm.SAVE_set = true;
+            InGameOptionsForm.SAVE_value = new Command("Save", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+        }
+        return InGameOptionsForm.SAVE_value;
+    }
+    private static var DEFAULT_value:Command;
+    private static var DEFAULT_set:Boolean = false;
+    public static function get DEFAULT():Command {
+        if (!InGameOptionsForm.DEFAULT_set) {
+            InGameOptionsForm.DEFAULT_set = true;
+            InGameOptionsForm.DEFAULT_value = new Command("Default", StringUtil.getInstance().EMPTY_STRING, Command.SCREEN, 1);
+        }
+        return InGameOptionsForm.DEFAULT_value;
+    }
     
 
-    let gameFeatureFormUtil: GameFeatureFormUtil = GameFeatureFormUtil.getInstance()!;;
+    public function InGameOptionsForm(commandListener:CommandListener, title:String, backgrounBasicColor:BasicColor, foregroundBasicColor:BasicColor) {
+        super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+        var gameFeatureFormUtil:GameFeatureFormUtil = GameFeatureFormUtil.getInstance();
+        gameFeatureFormUtil.addChoiceGroup(this, InGameFeatureChoiceGroups.getExclusiveInstance().get_(), Choice.EXCLUSIVE);
+        gameFeatureFormUtil.addChoiceGroup(this, InGameFeatureChoiceGroups.getMultipleInstance().get_(), Choice.MULTIPLE);
+        this.initCommands(commandListener);
+    }
     
-gameFeatureFormUtil!.addChoiceGroup(this, InGameFeatureChoiceGroups.getExclusiveInstance()!.get(), ChoiceI.EXCLUSIVE);
-    
-gameFeatureFormUtil!.addChoiceGroup(this, InGameFeatureChoiceGroups.getMultipleInstance()!.get(), ChoiceI.MULTIPLE);
-    
-this.initCommands(commandListener);
-    
-}
 
-
-    public initCommands(cmdListener: CommandListener){
-this.removeAllCommands();
-    
-this.addCommand(GameCommandsFactory.getInstance()!.CLOSE_AND_SHOW_GAME_CANVAS);
-    
-this.addCommand(InGameOptionsForm.DEFAULT);
-    
-this.setCommandListener(cmdListener);
-    
-}
-
-
+    override public function initCommands(cmdListener:CommandListener):void {
+        this.removeAllCommands();
+        this.addCommand(GameCommandsFactory.getInstance().CLOSE_AND_SHOW_GAME_CANVAS);
+        this.addCommand(InGameOptionsForm.DEFAULT);
+        this.setCommandListener(cmdListener);
+    }
+    }
 }
 

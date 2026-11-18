@@ -1,111 +1,68 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.feature {
+    import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
+    import org.allbinary.logic.StdUtil;
+    import org.allbinary.util.ABHashtable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class Feature {
+    private static var hashtable_value:ABHashtable;
+    private static var hashtable_set:Boolean = false;
+    private static function get hashtable():ABHashtable {
+        if (!Feature.hashtable_set) {
+            Feature.hashtable_set = true;
+            Feature.hashtable_value = StdUtil.getInstance().createHashtable();
+        }
+        return Feature.hashtable_value;
+    }
+        private var name:String = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { ChangedGameFeatureListener } from '../../../../../org/allbinary/game/configuration/event/ChangedGameFeatureListener.js';
-//not GWT import const ChangedGameFeatureListener
-
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class Feature
-            extends Object
-         {
-        
-
-    private static hashtable: ABHashtable<any, any> = StdUtil.getInstance()!.createHashtable()!;
-
-    public static getInstance(name: string): Feature{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return Feature.hashtable.get(name) as Feature;
+        // Java field initializers run after the base constructor
+        private function initFieldsFeature():void {
     
-}
-
-
-    static add(name: string, gameFeature: Feature){
-Feature.hashtable.put(name, gameFeature);
+        }
     
-}
 
-
-    private readonly name: string;
-
-public constructor (name: string){
-
-            super();
-        this.name= name;
+    public function Feature(name:String) {
+        super();
+        this.initFieldsFeature();
+        this.name = name;
+        Feature.add(name, this);
+        ChangedGameFeatureListener.getInstance().add(this);
+    }
     
-Feature.add(name, this);
+
+    public static function getInstance1(name:String):Feature {
+        return (Feature.hashtable.get_(name) as Feature);
+    }
     
-ChangedGameFeatureListener.getInstance()!.add(this);
+
+    private static function add(name:String, gameFeature:Feature):void {
+        Feature.hashtable.put(name, gameFeature);
+    }
     
-}
 
-
-    public toString(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getName();;
+    public function toString():String {
+        return this.getName();
+    }
     
-}
 
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.name;
-    
-}
-
-
+    public function getName():String {
+        return this.name;
+    }
+    }
 }
 

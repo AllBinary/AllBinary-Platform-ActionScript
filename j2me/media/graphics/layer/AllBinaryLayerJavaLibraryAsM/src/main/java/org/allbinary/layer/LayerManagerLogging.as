@@ -1,237 +1,132 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
+// Generated Code Do Not Modify
+package org.allbinary.layer {
+    import org.allbinary.TsUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.string.CommonSeps;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LayerManagerLogging extends LayerManagerLoggingBase {
+    private static var instance_value:LayerManagerLogging;
+    private static var instance_set:Boolean = false;
+    private static function get instance():LayerManagerLogging {
+        if (!LayerManagerLogging.instance_set) {
+            LayerManagerLogging.instance_set = true;
+            LayerManagerLogging.instance_value = new LayerManagerLogging();
+        }
+        return LayerManagerLogging.instance_value;
+    }
+    private static var removeFailed:Boolean = false;
+        public var logUtil:LogUtil = null;
+        private var stringBuilder:StringMaker = null;
+        private var APPEND:String = null;
+        private var APPEND_:String = null;
+        private var _AT_:String = null;
+        private var ATTEMPT_REMOVE_:String = null;
+        private var REMOVE_:String = null;
+        private var REMOVE:String = null;
+        private var DID_NOT_REMOVE:String = null;
+        private var CLEAR:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsLayerManagerLogging():void {
+    this.logUtil = LogUtil.getInstance();
+    this.stringBuilder = new StringMaker();
+    this.APPEND = "append";
+    this.APPEND_ = " append: ";
+    this._AT_ = " at: ";
+    this.ATTEMPT_REMOVE_ = " Remove Attempt: ";
+    this.REMOVE_ = " Remove: ";
+    this.REMOVE = "remove";
+    this.DID_NOT_REMOVE = " Did not remove: ";
+    this.CLEAR = " Clear List";
+        }
 
-
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../java/lang/Integer.js';
-        
-import { TsUtil } from '../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LayerManagerLoggingBase } from './LayerManagerLoggingBase.js';
-//sameFolderImports - not GWT import - same folder const LayerManagerLoggingBase
-import { AllBinaryLayer } from './AllBinaryLayer.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryLayer
-import { LayerManager } from './LayerManager.js';
-//sameFolderImports - not GWT import - same folder const LayerManager
-
-export class LayerManagerLogging extends LayerManagerLoggingBase {
-        
-
-    private static readonly instance: LayerManagerLogging = new LayerManagerLogging();
-
-    public static getInstance(): LayerManagerLogging{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LayerManagerLogging.instance;
-    
-}
-
-
-    private static removeFailed: boolean = false;
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly stringBuilder: StringMaker = new StringMaker();
-
-    private readonly APPEND: string = "append";
-
-    private readonly APPEND_: string = " append: ";
-
-    private readonly _AT_: string = " at: ";
-
-    private readonly ATTEMPT_REMOVE_: string = " Remove Attempt: ";
-
-    private readonly REMOVE_: string = " Remove: ";
-
-    private readonly REMOVE: string = "remove";
-
-    private readonly DID_NOT_REMOVE: string = " Did not remove: ";
-
-    private readonly CLEAR: string = " Clear List";
-
-                //@Throws(Exception.constructor)
-            
-    public append(layerInterface: AllBinaryLayer){
-this.stringBuilder!.delete(0, this.stringBuilder!.length());
-    
-this.logUtil!.putF(this.stringBuilder!.appendint(TsUtil.getInstance()!.hashCode(this))!.append(this.APPEND_)!.append(layerInterface!.getName())!.toString(), this, this.APPEND);
-    
-}
-
-
-    public appendAt(layerInterface: AllBinaryLayer, index: number){
-this.stringBuilder!.delete(0, this.stringBuilder!.length());
-    
-this.logUtil!.putF(this.stringBuilder!.appendint(TsUtil.getInstance()!.hashCode(this))!.append(this.APPEND_)!.append(layerInterface!.getName())!.append(this._AT_)!.appendint(index)!.toString(), this, this.APPEND);
-    
-}
-
-
-    public remove(layerInterface: AllBinaryLayer){
-
-                        if(layerInterface == 
-                                    null
-                                )
-                        
-                                    {
-                                    this.stringBuilder!.delete(0, this.stringBuilder!.length());
-    
-this.logUtil!.putF(this.stringBuilder!.appendint(TsUtil.getInstance()!.hashCode(this))!.append(this.ATTEMPT_REMOVE_)!.append(StringUtil.getInstance()!.toString(layerInterface))!.toString(), this, this.REMOVE);
+        public function LayerManagerLogging() {
+            super();
+            this.initFieldsLayerManagerLogging();
+        }
     
 
-                                    }
-                                
-                        else {
-                            this.stringBuilder!.delete(0, this.stringBuilder!.length());
-    
-this.logUtil!.putF(this.stringBuilder!.appendint(TsUtil.getInstance()!.hashCode(this))!.append(this.ATTEMPT_REMOVE_)!.append(layerInterface!.getName())!.toString(), this, this.REMOVE);
+    public static function getInstance():LayerManagerLogging {
+        return LayerManagerLogging.instance;
+    }
     
 
-                        }
-                            
-}
-
-
-    public removeResult(layerManager: LayerManager, layerInterface: AllBinaryLayer, result: boolean){
-
-                        if(layerInterface == 
-                                    null
-                                )
-                        
-                                    {
-                                    this.stringBuilder!.delete(0, this.stringBuilder!.length());
-    
-this.logUtil!.putF(this.stringBuilder!.appendint(TsUtil.getInstance()!.hashCode(this))!.append(this.REMOVE_)!.append(StringUtil.getInstance()!.toString(layerInterface))!.toString(), this, this.REMOVE);
+    override public function append(layerInterface:AllBinaryLayer):void {
+        this.stringBuilder.delete_(0, this.stringBuilder.length());
+        this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode(this)).append(this.APPEND_).append(layerInterface.getName()).toString(), this, this.APPEND);
+    }
     
 
-                                    }
-                                
-                             else 
-                        if(result)
-                        
-                                    {
-                                    
-                        if(LayerManagerLogging.removeFailed)
-                        
-                                    {
-                                    this.stringBuilder!.delete(0, this.stringBuilder!.length());
-    
-this.logUtil!.putF(this.stringBuilder!.appendint(TsUtil.getInstance()!.hashCode(this))!.append(this.REMOVE_)!.append(layerInterface!.getName())!.toString(), this, this.REMOVE);
+    override public function appendAt(layerInterface:AllBinaryLayer, index:int):void {
+        this.stringBuilder.delete_(0, this.stringBuilder.length());
+        this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode(this)).append(this.APPEND_).append(layerInterface.getName()).append(this._AT_).appendint(index).toString(), this, this.APPEND);
+    }
     
 
-                                    }
-                                
-
-                                    }
-                                
-                        else {
-                            this.stringBuilder!.delete(0, this.stringBuilder!.length());
-    
-this.logUtil!.putF(this.stringBuilder!.appendint(TsUtil.getInstance()!.hashCode(this))!.append(this.DID_NOT_REMOVE)!.append(layerInterface!.getName())!.toString(), this, this.REMOVE);
-    
-LayerManagerLogging.removeFailed= true;
+    override public function remove(layerInterface:AllBinaryLayer):void {
+        if (layerInterface == null) {
+            this.stringBuilder.delete_(0, this.stringBuilder.length());
+            this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode(this)).append(this.ATTEMPT_REMOVE_).append(StringUtil.getInstance().toString1(layerInterface)).toString(), this, this.REMOVE);
+        } else {
+            this.stringBuilder.delete_(0, this.stringBuilder.length());
+            this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode(this)).append(this.ATTEMPT_REMOVE_).append(layerInterface.getName()).toString(), this, this.REMOVE);
+        }
+    }
     
 
-                        }
-                            
-}
-
-
-    log(layerManager: LayerManager){
-this.stringBuilder!.delete(0, this.stringBuilder!.length());
+    override public function removeResult(layerManager:LayerManager, layerInterface:AllBinaryLayer, result:Boolean):void {
+        if (layerInterface == null) {
+            this.stringBuilder.delete_(0, this.stringBuilder.length());
+            this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode(this)).append(this.REMOVE_).append(StringUtil.getInstance().toString1(layerInterface)).toString(), this, this.REMOVE);
+        } else if (result) {
+            if (LayerManagerLogging.removeFailed) {
+                this.stringBuilder.delete_(0, this.stringBuilder.length());
+                this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode(this)).append(this.REMOVE_).append(layerInterface.getName()).toString(), this, this.REMOVE);
+            }
+        } else {
+            this.stringBuilder.delete_(0, this.stringBuilder.length());
+            this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode(this)).append(this.DID_NOT_REMOVE).append(layerInterface.getName()).toString(), this, this.REMOVE);
+            LayerManagerLogging.removeFailed = true;
+        }
+    }
     
 
-    let size: number = layerManager!.getSize()!;;
+    private function log(layerManager:LayerManager):void {
+        this.stringBuilder.delete_(0, this.stringBuilder.length());
+        var size:int = layerManager.getSize();
+        var commonSeps:CommonSeps = CommonSeps.getInstance();
+        this.stringBuilder.append(JInteger.toHexString(TsUtil.getInstance().hashCode(layerManager))).append(commonSeps.COLON_SEP);
+        this.stringBuilder.appendint(size).append(commonSeps.COLON_SEP);
+        var allBinaryLayer:AllBinaryLayer = null;
+        for (var index:int = 0; index < size; index++) {
+            allBinaryLayer = ((layerManager.getLayerAt(index) as AllBinaryLayer));
+            this.stringBuilder.append(allBinaryLayer.getName()).append(commonSeps.COMMA);
+        }
+        this.logUtil.putF(this.stringBuilder.toString(), this, this.REMOVE);
+    }
     
 
-    let commonSeps: CommonSeps = CommonSeps.getInstance()!;;
-    
-this.stringBuilder!.append(Integer.toHexString(TsUtil.getInstance()!.hashCode(layerManager)))!.append(commonSeps!.COLON_SEP);
-    
-this.stringBuilder!.appendint(size)!.append(commonSeps!.COLON_SEP);
-    
-
-    let allBinaryLayer: AllBinaryLayer;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-allBinaryLayer= (layerManager!.getLayerAt(index) as AllBinaryLayer);
-    
-this.stringBuilder!.append(allBinaryLayer!.getName())!.append(commonSeps!.COMMA);
-    
-}
-
-this.logUtil!.putF(this.stringBuilder!.toString(), this, this.REMOVE);
-    
-}
-
-
-    public clear(){
-this.stringBuilder!.delete(0, this.stringBuilder!.length());
-    
-this.logUtil!.putF(this.stringBuilder!.appendint(TsUtil.getInstance()!.hashCode(this))!.append(this.CLEAR)!.toString(), this, this.CLEAR);
-    
-}
-
-
+    override public function clear():void {
+        this.stringBuilder.delete_(0, this.stringBuilder.length());
+        this.logUtil.putF(this.stringBuilder.appendint(TsUtil.getInstance().hashCode(this)).append(this.CLEAR).toString(), this, this.CLEAR);
+    }
+    }
 }
 

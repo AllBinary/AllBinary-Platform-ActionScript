@@ -1,123 +1,56 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.image {
+    import org.allbinary.animation.Animation;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { Animation } from '../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameFeatureImageCacheFactory } from './GameFeatureImageCacheFactory.js';
-//sameFolderImports - not GWT import - same folder const GameFeatureImageCacheFactory
-
-export class AnimationFrameToImageUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: AnimationFrameToImageUtil = new AnimationFrameToImageUtil();
-
-    public static getInstance(): AnimationFrameToImageUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AnimationFrameToImageUtil.instance;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceTranslate(width: number, height: number, animationInterface: Animation): Image{
-
-    let image: Image = GameFeatureImageCacheFactory.getInstance()!.get(AnimationFrameToImageUtil.instance.constructor.name.toString()!, ((width *3)>>1), ((height *3)>>1))!;;
+    public class AnimationFrameToImageUtil {
+    private static var instance_value:AnimationFrameToImageUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():AnimationFrameToImageUtil {
+        if (!AnimationFrameToImageUtil.instance_set) {
+            AnimationFrameToImageUtil.instance_set = true;
+            AnimationFrameToImageUtil.instance_value = new AnimationFrameToImageUtil();
+        }
+        return AnimationFrameToImageUtil.instance_value;
+    }
     
 
-    let graphics: Graphics = image.getGraphics()!;;
+    public static function getInstance():AnimationFrameToImageUtil {
+        return AnimationFrameToImageUtil.instance;
+    }
     
 
-    let tranlateX: number = (width>>2);;
+    public function getInstanceTranslate(width:int, height:int, animationInterface:Animation):Image {
+        var image:Image = GameFeatureImageCacheFactory.getInstance().get_(JSystem.className(AnimationFrameToImageUtil.instance), ((int(width * 3)) >> 1), ((int(height * 3)) >> 1));
+        var graphics:Graphics = image.getGraphics();
+        var tranlateX:int = (width >> 2);
+        var tranlateY:int = (height >> 2);
+        graphics.translate(tranlateX, tranlateY);
+        animationInterface.paintXY(graphics, 0, 0);
+        graphics.translate(-tranlateX, -tranlateY);
+        return image;
+    }
     
 
-    let tranlateY: number = (height>>2);;
-    
-graphics.translate(tranlateX, tranlateY);
-    
-animationInterface!.paintXY(graphics, 0, 0);
-    
-graphics.translate( -tranlateX,  -tranlateY);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return image;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceWH(width: number, height: number, animationInterface: Animation): Image{
-
-    let image: Image = GameFeatureImageCacheFactory.getInstance()!.get(AnimationFrameToImageUtil.instance.constructor.name.toString()!, width, height)!;;
-    
-
-    let graphics: Graphics = image.getGraphics()!;;
-    
-animationInterface!.paintXY(graphics, 0, 0);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return image;
-    
-}
-
-
+    public function getInstanceWH(width:int, height:int, animationInterface:Animation):Image {
+        var image:Image = GameFeatureImageCacheFactory.getInstance().get_(JSystem.className(AnimationFrameToImageUtil.instance), width, height);
+        var graphics:Graphics = image.getGraphics();
+        animationInterface.paintXY(graphics, 0, 0);
+        return image;
+    }
+    }
 }
 

@@ -1,81 +1,52 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.opengles.shader {
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ShaderInitializer {
+    private static var instance_value:ShaderInitializer;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ShaderInitializer {
+        if (!ShaderInitializer.instance_set) {
+            ShaderInitializer.instance_set = true;
+            ShaderInitializer.instance_value = new ShaderInitializer();
+        }
+        return ShaderInitializer.instance_value;
+    }
+        public var commonStrings:CommonStrings = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsShaderInitializer():void {
+    this.commonStrings = CommonStrings.getInstance();
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { GL10 } from '../../../../../javax/microedition/khronos/opengles/GL10.js';
-//not GWT import const GL10
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Shader } from './Shader.js';
-//sameFolderImports - not GWT import - same folder const Shader
-
-export class ShaderInitializer
-            extends Object
-         {
-        
-
-    private static readonly instance: ShaderInitializer = new ShaderInitializer();
-
-    public static getInstance(): ShaderInitializer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ShaderInitializer.instance;
+        public function ShaderInitializer() {
+            super();
+            this.initFieldsShaderInitializer();
+        }
     
-}
 
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    public init(gl: GL10, shader: Shader[], attributeArray: string[]): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return  -1;
+    public static function getInstance():ShaderInitializer {
+        return ShaderInitializer.instance;
+    }
     
-}
 
-
+    public function init(gl:GL10, shader:Vector.<Shader>, attributeArray:Vector.<String>):int {
+        return -1;
+    }
+    }
 }
 

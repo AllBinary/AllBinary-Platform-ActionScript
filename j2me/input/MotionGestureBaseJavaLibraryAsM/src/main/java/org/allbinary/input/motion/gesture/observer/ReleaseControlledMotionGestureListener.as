@@ -1,261 +1,143 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.gesture.observer {
+    import org.allbinary.input.motion.gesture.MotionGestureInput;
+    import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+    import org.allbinary.logic.communication.log.ForcedLogUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ReleaseControlledMotionGestureListener implements MotionGestureEventListener {
+        public var logUtil:LogUtil = null;
+        private var commonStrings:CommonStrings = null;
+        private var currentMotionGesture:MotionGestureInput = null;
+        private var isMouseGestureOccurring:Boolean = false;
+        private var motionGestureCollection:BasicArrayList = null;
+        private var signed:CompleteMotionGestureListenerInterface = null;
 
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { MotionGestureInput } from '../../../../../../org/allbinary/input/motion/gesture/MotionGestureInput.js';
-//not GWT import const MotionGestureInput
-
-import { TouchMotionGestureFactory } from '../../../../../../org/allbinary/input/motion/gesture/TouchMotionGestureFactory.js';
-//not GWT import const TouchMotionGestureFactory
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { AllBinaryEventObject } from '../../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { MotionGestureEventListener } from './MotionGestureEventListener.js';
-//sameFolderImports - not GWT import - same folder const MotionGestureEventListener
-import { CompleteMotionGestureListenerInterface } from './CompleteMotionGestureListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const CompleteMotionGestureListenerInterface
-import { MotionGestureEvent } from './MotionGestureEvent.js';
-//sameFolderImports - not GWT import - same folder const MotionGestureEvent
-
-export class ReleaseControlledMotionGestureListener
-            extends Object
-         implements MotionGestureEventListener {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private currentMotionGesture: MotionGestureInput = TouchMotionGestureFactory.getInstance()!.NO_MOTION;
-
-    private isMouseGestureOccurring: boolean = false;
-
-    private motionGestureCollection: BasicArrayList = new BasicArrayListD();
-
-    private signed: CompleteMotionGestureListenerInterface;
-
-public constructor (signed: CompleteMotionGestureListenerInterface){
-
-            super();
-        this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.CONSTRUCTOR);
+        // Java field initializers run after the base constructor
+        private function initFieldsReleaseControlledMotionGestureListener():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.currentMotionGesture = TouchMotionGestureFactory.getInstance().NO_MOTION;
+    this.isMouseGestureOccurring = false;
+    this.motionGestureCollection = new BasicArrayListD();
     
-this.signed= signed;
-    
-}
-
-
-    public onEvent(eventObject: AllBinaryEventObject){
-ForcedLogUtil.log(this.commonStrings!.NOT_IMPLEMENTED, this);
-    
-}
-
-
-    public onUpMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onDownMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onLeftMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onRightMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onDiagonalDownRightMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onDiagonalDownLeftMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onDiagonalUpRightMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onDiagonalUpLeftMotionGestureEvent(ev: MotionGestureEvent){
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onPressedMotionGestureEvent(ev: MotionGestureEvent){
-this.isMouseGestureOccurring= true;
-    
-this.currentMotionGesture= TouchMotionGestureFactory.getInstance()!.NO_MOTION;
-    
-this.onMotionGestureEvent(ev);
-    
-}
-
-
-    public onScrolledMotionGestureEvent(motionGestureEvent: MotionGestureEvent){
-}
-
-
-    public released(ev: MotionGestureEvent){
-
- try { 
-                        if(this.isMouseGestureOccurring == false)
-                        
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
-    
-this.isMouseGestureOccurring= false;
-    
-this.signed.onMotionGestureCompleted(this.motionGestureCollection);
-    
-this.motionGestureCollection!.clear();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(new StringMaker().append(this.commonStrings!.EXCEPTION_LABEL)!.append(StringUtil.getInstance()!.toString(ev.getMotionGesture()))!.toString(), this, "release", e);
+        }
     
 
- }
-   }
- 
-}
-
-
-    public onMotionGestureEvent(ev: MotionGestureEvent){
-
-                        if(this.isMouseGestureOccurring == false)
-                        
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
+    public function ReleaseControlledMotionGestureListener(signed:CompleteMotionGestureListenerInterface) {
+        super();
+        this.initFieldsReleaseControlledMotionGestureListener();
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
+        this.signed = signed;
+    }
     
 
-    let motionGestureInput: MotionGestureInput = ev.getMotionGesture()!;;
+    public function onEvent(eventObject:AllBinaryEventObject):void {
+        ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
+    }
     
 
-                        if(motionGestureInput == TouchMotionGestureFactory.getInstance()!.PRESSED)
-                        
-                                    {
-                                    this.onPressedMotionGestureEvent(ev);
+    public function onUpMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
     
 
-                                    }
-                                
-                             else 
-                        if(motionGestureInput == TouchMotionGestureFactory.getInstance()!.RELEASED)
-                        
-                                    {
-                                    this.released(ev);
+    public function onDownMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-                        if(this.currentMotionGesture != motionGestureInput)
-                        
-                                    {
-                                    this.currentMotionGesture= motionGestureInput;
-    
-this.motionGestureCollection!.add(ev.getMotionGesture());
+    public function onLeftMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
     
 
-                                    }
-                                
+    public function onRightMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
+    
 
-                        }
-                            
-}
+    public function onDiagonalDownRightMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
+    
 
+    public function onDiagonalDownLeftMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
+    
 
+    public function onDiagonalUpRightMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
+    
+
+    public function onDiagonalUpLeftMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.onMotionGestureEvent(ev);
+    }
+    
+
+    public function onPressedMotionGestureEvent(ev:MotionGestureEvent):void {
+        this.isMouseGestureOccurring = true;
+        this.currentMotionGesture = TouchMotionGestureFactory.getInstance().NO_MOTION;
+        this.onMotionGestureEvent(ev);
+    }
+    
+
+    public function onScrolledMotionGestureEvent(motionGestureEvent:MotionGestureEvent):void {
+    }
+    
+
+    public function released(ev:MotionGestureEvent):void {
+        try {
+            if (this.isMouseGestureOccurring == false) {
+                return;
+            }
+            this.isMouseGestureOccurring = false;
+            this.signed.onMotionGestureCompleted(this.motionGestureCollection);
+            this.motionGestureCollection.clear();
+        } catch (e:*) {
+            this.logUtil.put(new StringMaker().append(this.commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString1(ev.getMotionGesture())).toString(), this, "release", e);
+        }
+    }
+    
+
+    public function onMotionGestureEvent(ev:MotionGestureEvent):void {
+        if (this.isMouseGestureOccurring == false) {
+            return;
+        }
+        var motionGestureInput:MotionGestureInput = ev.getMotionGesture();
+        if (motionGestureInput == TouchMotionGestureFactory.getInstance().PRESSED) {
+            this.onPressedMotionGestureEvent(ev);
+        } else if (motionGestureInput == TouchMotionGestureFactory.getInstance().RELEASED) {
+            this.released(ev);
+        } else {
+            if (this.currentMotionGesture !== motionGestureInput) {
+                this.currentMotionGesture = motionGestureInput;
+                this.motionGestureCollection.add(ev.getMotionGesture());
+            }
+        }
+    }
+    }
 }
 

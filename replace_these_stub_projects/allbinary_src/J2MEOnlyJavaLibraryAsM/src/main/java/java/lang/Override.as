@@ -1,29 +1,9 @@
+// Generated Code Do Not Modify
+package java.lang {
 
-        /* Generated Code Do Not Modify */
+    // Java annotation: annotations have no ActionScript form
+    public interface Override {
+    }
 
-        
-
-
-            import { Object } from '../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                //Otherwise - classOrInterfaceDeclaration - type - AnnotationDeclaration
+}
 

@@ -1,67 +1,46 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics.font {
+    import org.allbinary.logic.string.StringMaker;
 
-        /* Generated Code Do Not Modify */
+    //OpenGLESBaseJavaLibrary
+    public class FontDebugBase {
+    private static var instanceBase_value:FontDebugBase;
+    private static var instanceBase_set:Boolean = false;
+    private static function get instanceBase():FontDebugBase {
+        if (!FontDebugBase.instanceBase_set) {
+            FontDebugBase.instanceBase_set = true;
+            FontDebugBase.instanceBase_value = new FontDebugBase();
+        }
+        return FontDebugBase.instanceBase_value;
+    }
+        public var SET_FONT:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsFontDebugBase():void {
+    this.SET_FONT = "setFont";
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Font } from '../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //OpenGLESBaseJavaLibrary
-export class FontDebugBase
-            extends Object
-         {
-        
-
-    private static readonly instanceBase: FontDebugBase = new FontDebugBase();
-
-    public static getInstance(): FontDebugBase{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return FontDebugBase.instanceBase;
+        public function FontDebugBase() {
+            super();
+            this.initFieldsFontDebugBase();
+        }
     
-}
 
+    public static function getInstance():FontDebugBase {
+        return FontDebugBase.instanceBase;
+    }
+    
 
-    public readonly SET_FONT: string = "setFont";
+    public function debugMetrics(currentFont:Font, convertedTextSize:Number, displayMetrics:Object, stringBuffer:StringMaker):void {
+    }
+    
 
-    public debugMetrics(currentFont: Font, convertedTextSize: number, displayMetrics: any, stringBuffer: StringMaker){
-}
+    public function debugDpi(densityDpi:int, stringBuffer:StringMaker):void {
+    }
+    
 
-
-    public debugDpi(densityDpi: number, stringBuffer: StringMaker){
-}
-
-
-    public debugDimension(currentFont: Font, convertedTextSize: number, longestDimensionTotalPixels: number, stringBuffer: StringMaker){
-}
-
-
+    public function debugDimension(currentFont:Font, convertedTextSize:Number, longestDimensionTotalPixels:int, stringBuffer:StringMaker):void {
+    }
+    }
 }
 

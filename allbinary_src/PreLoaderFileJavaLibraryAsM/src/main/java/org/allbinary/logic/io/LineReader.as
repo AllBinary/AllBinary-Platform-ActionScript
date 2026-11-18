@@ -1,221 +1,94 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io {
+    import java.io.JDataInputStream;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonSeps;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LineReader {
+        public var logUtil:LogUtil = null;
+        private var commonStrings:CommonStrings = null;
+        private var fileName:String = null;
+        private var string:String = null;
+        private var index:int = 0;
+        private var idFile:AbFileInputStream = null;
+        private var idData:DataInputStream = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { DataInputStream } from '../../../../java/io/DataInputStream.js';
-//not GWT import const DataInputStream
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AbFileInputStream } from './AbFileInputStream.js';
-//sameFolderImports - not GWT import - same folder const AbFileInputStream
-
-export class LineReader
-            extends Object
-         {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private fileName: string;
-
-    private string: string;
-
-    private index: number = 0;
-
-    private idFile: AbFileInputStream;
-
-    private idData: DataInputStream;
-
-public constructor (fileName: string){
-
-            super();
-        
- try { 
-    let bytes: number[] = new Array(100000).fill(0);;
-    
-this.fileName= fileName;
-    
-this.idFile= new AbFileInputStream(fileName);
-    
-this.idFile!.read(bytes);
-    
-this.string= String.fromCharCode(...bytes);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put("File: " +fileName, this, "LineReader", e);
+        // Java field initializers run after the base constructor
+        private function initFieldsLineReader():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.fileName = null;
+    this.string = null;
+    this.index = 0;
+    this.idFile = null;
+    this.idData = null;
+        }
     
 
-
-                            {
-                            
-                            }
-                    
-
- }
-   }
- 
-}
-
-
-    public hasNext(): boolean{
-
- try { 
-    let nextIndex: number = this.string.indexOf(CommonSeps.getInstance()!.NEW_LINE, this.index)!;;
+    public function LineReader(fileName:String) {
+        super();
+        this.initFieldsLineReader();
+        try {
+            var bytes:Vector.<int> = new Vector.<int>(100000);
+            this.fileName = fileName;
+            this.idFile = new AbFileInputStream(fileName);
+            this.idFile.read(bytes);
+            this.string = bytes;
+        } catch (e:*) {
+            this.logUtil.put("File: " + fileName, this, "LineReader", e);
+            {
+            }
+        }
+    }
     
 
-                        if(nextIndex ==  -1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function hasNext():Boolean {
+        try {
+            var nextIndex:int = JString.indexOf(this.string, CommonSeps.getInstance().NEW_LINE, this.index);
+            if (nextIndex == -1) {
+                return false;
+            }
+            return true;
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "hasNext", e);
+            {
+            }
+            return false;
+        }
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "hasNext", e);
-    
-
-
-                            {
-                            
-                            }
-                    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-
- }
-   }
- 
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public next(): string{
-
- try { 
-    let nextIndex: number = this.string.indexOf(CommonSeps.getInstance()!.NEW_LINE, this.index)!;;
-    
-
-                        if(nextIndex ==  -1)
-                        
-                                    {
-                                    
-
-
-                            throw new Exception("next() should have been called first");
-                    
-
-                                    }
-                                
-
-    let temp: string = this.string.substring(this.index, nextIndex)!;;
-    
-this.index= nextIndex +1;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return temp;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "next", e);
-    
-
-
-                            {
-                            
-                            }
-                    
-
-
-
-                            throw e;
-                    
-
- }
-   }
- 
-}
-
-
+    public function next():String {
+        try {
+            var nextIndex:int = JString.indexOf(this.string, CommonSeps.getInstance().NEW_LINE, this.index);
+            if (nextIndex == -1) {
+                throw new JException("Exception", "next() should have been called first");
+            }
+            var temp:String = this.string.substring(this.index, nextIndex);
+            this.index = int(nextIndex + 1);
+            return temp;
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "next", e);
+            {
+            }
+            throw e;
+        }
+    }
+    }
 }
 

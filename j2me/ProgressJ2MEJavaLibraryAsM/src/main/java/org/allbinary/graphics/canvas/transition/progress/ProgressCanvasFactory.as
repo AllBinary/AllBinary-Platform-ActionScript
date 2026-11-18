@@ -1,105 +1,48 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.canvas.transition.progress {
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.paint.NullPaintable;
+    import org.allbinary.graphics.paint.PaintableInterface;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-import { BasicColorFactory } from '../../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { NullPaintable } from '../../../../../../org/allbinary/graphics/paint/NullPaintable.js';
-//not GWT import const NullPaintable
-
-import { PaintableInterface } from '../../../../../../org/allbinary/graphics/paint/PaintableInterface.js';
-//not GWT import const PaintableInterface
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ProgressCanvas } from './ProgressCanvas.js';
-//sameFolderImports - not GWT import - same folder const ProgressCanvas
-
-export class ProgressCanvasFactory
-            extends Object
-         {
-        
-
-    private static PROGRESS_FORM_SCREEN: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): ProgressCanvas{
-
-                        if(ProgressCanvasFactory.PROGRESS_FORM_SCREEN == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    ProgressCanvasFactory.PROGRESS_FORM_SCREEN= new ProgressCanvas(StringUtil.getInstance()!.EMPTY_STRING, BasicColorFactory.getInstance()!.BLACK, BasicColorFactory.getInstance()!.WHITE);
+    public class ProgressCanvasFactory {
+    private static var PROGRESS_FORM_SCREEN_value:Object;
+    private static var PROGRESS_FORM_SCREEN_set:Boolean = false;
+    private static function get PROGRESS_FORM_SCREEN():Object {
+        if (!ProgressCanvasFactory.PROGRESS_FORM_SCREEN_set) {
+            ProgressCanvasFactory.PROGRESS_FORM_SCREEN_set = true;
+            ProgressCanvasFactory.PROGRESS_FORM_SCREEN_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return ProgressCanvasFactory.PROGRESS_FORM_SCREEN_value;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ProgressCanvasFactory.PROGRESS_FORM_SCREEN as ProgressCanvas;
+    public static function getInstance():ProgressCanvas {
+        if (ProgressCanvasFactory.PROGRESS_FORM_SCREEN == NullUtil.getInstance().NULL_OBJECT) {
+            ProgressCanvasFactory.PROGRESS_FORM_SCREEN = new ProgressCanvas(StringUtil.getInstance().EMPTY_STRING, BasicColorFactory.getInstance().BLACK, BasicColorFactory.getInstance().WHITE);
+        }
+        return (ProgressCanvasFactory.PROGRESS_FORM_SCREEN as ProgressCanvas);
+    }
     
+
+    public static function getLazyInstance():PaintableInterface {
+        return NullPaintable.getInstance();
+    }
+    }
 }
-
-
-    public static getLazyInstance(): PaintableInterface{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullPaintable.getInstance();;
-    
-}
-
-
-}//JSNI Expose so JSNI can access this class *** 
- globalThis.org.allbinary = globalThis.org.allbinary || {}; 
- globalThis.org.allbinary.graphics globalThis.org.allbinary.graphics || {}; 
- globalThis.org.allbinary.graphics.canvas = globalThis.org.allbinary.graphics.canvas || {}; 
- globalThis.org.allbinary.graphics.canvas.transition = globalThis.org.allbinary.graphics.canvas.transition || {}; 
- globalThis.org.allbinary.graphics.canvas.transition.progress = globalThis.org.allbinary.graphics.canvas.transition.progress || {}; 
- globalThis.org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory = ProgressCanvasFactory; 
- console.log('Exported ProgressCanvasFactory as globalThis'); 
 

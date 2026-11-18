@@ -1,59 +1,31 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.paint {
+    import org.allbinary.graphics.displayable.StateControlledInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class StatePaintable extends Paintable implements StateControlledInterface {
+    
 
-        
+    public function StatePaintable() {
+        super();
+    }
+    
 
-
-import { StateControlledInterface } from '../../../../org/allbinary/graphics/displayable/StateControlledInterface.js';
-//not GWT import const StateControlledInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Paintable } from './Paintable.js';
-//sameFolderImports - not GWT import - same folder const Paintable
-
-export class StatePaintable extends Paintable implements StateControlledInterface {
-        
-
-public constructor (){
-
-            super();
-        }
-
-
-    public setState(state: number){
-}
-
-
+    public function setState(state:int):void {
+    }
+    }
 }
 

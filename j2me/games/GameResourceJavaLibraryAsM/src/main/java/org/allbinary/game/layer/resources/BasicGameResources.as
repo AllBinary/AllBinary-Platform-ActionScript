@@ -1,171 +1,88 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer.resources {
+    import org.allbinary.game.configuration.GameConfigurationCentral;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { GameConfigurationCentral } from '../../../../../org/allbinary/game/configuration/GameConfigurationCentral.js';
-//not GWT import const GameConfigurationCentral
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameGraphicsResourceUtil } from './GameGraphicsResourceUtil.js';
-//sameFolderImports - not GWT import - same folder const GameGraphicsResourceUtil
-
-export class BasicGameResources
-            extends Object
-         {
-        
-
-    static readonly stringBuffer: StringMaker = new StringMaker();
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    public RESOURCE: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-    public RESOURCE_DESTROY: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-protected constructor (){
-
-            super();
+    public class BasicGameResources {
+    private static var stringBuffer_value:StringMaker;
+    private static var stringBuffer_set:Boolean = false;
+    public static function get stringBuffer():StringMaker {
+        if (!BasicGameResources.stringBuffer_set) {
+            BasicGameResources.stringBuffer_set = true;
+            BasicGameResources.stringBuffer_value = new StringMaker();
         }
+        return BasicGameResources.stringBuffer_value;
+    }
+        public var logUtil:LogUtil = null;
+        public var RESOURCE:String = null;
+        public var RESOURCE_DESTROY:String = null;
 
-
-    public init(ROOT: string, SIZE: string[]){
-
- try { 
-    let scale: number = GameConfigurationCentral.getInstance()!.SCALE.getValue()!.intValue()!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicGameResources():void {
+    this.logUtil = LogUtil.getInstance();
+    this.RESOURCE = StringUtil.getInstance().EMPTY_STRING;
+    this.RESOURCE_DESTROY = StringUtil.getInstance().EMPTY_STRING;
+        }
     
 
-                        if(scale > 1 && scale -1 < SIZE.length)
-                        
-                                    {
-                                    this.append(ROOT, SIZE[scale -1]!);
+    public function BasicGameResources() {
+        super();
+        this.initFieldsBasicGameResources();
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw new Exception(new StringMaker().append("Invalid Value: ")!.appendint(scale)!.toString());
-                    
-
-                        }
-                            
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.INIT, e);
+    public function init(ROOT:String, SIZE:Vector.<String>):void {
+        try {
+            var scale:int = GameConfigurationCentral.getInstance().SCALE.getValue().intValue();
+            if (scale > 1 && int(scale - 1) < SIZE.length) {
+                this.append(ROOT, SIZE[int(scale - 1)]);
+            } else {
+                throw new JException("Exception", new StringMaker().append("Invalid Value: ").appendint(scale).toString());
+            }
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
+        }
+    }
     
 
- }
-   }
- 
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    append(ROOT: string, sizeString: string){
-
-    let DESTROY: string = "_destroy";;
+    public function append(ROOT:String, sizeString:String):void {
+        var DESTROY:String = "_destroy";
+        var string:String = this.getString();
+        BasicGameResources.stringBuffer.delete_(0, BasicGameResources.stringBuffer.length());
+        BasicGameResources.stringBuffer.append(ROOT);
+        BasicGameResources.stringBuffer.append(string);
+        BasicGameResources.stringBuffer.append(sizeString);
+        this.RESOURCE = BasicGameResources.stringBuffer.toString();
+        BasicGameResources.stringBuffer.delete_(0, BasicGameResources.stringBuffer.length());
+        BasicGameResources.stringBuffer.append(ROOT);
+        BasicGameResources.stringBuffer.append(DESTROY);
+        BasicGameResources.stringBuffer.append(string);
+        BasicGameResources.stringBuffer.append(sizeString);
+        this.RESOURCE_DESTROY = BasicGameResources.stringBuffer.toString();
+    }
     
 
-    let string: string = this.getString()!;;
-    
-BasicGameResources.stringBuffer!.delete(0, BasicGameResources.stringBuffer!.length());
-    
-BasicGameResources.stringBuffer!.append(ROOT);
-    
-BasicGameResources.stringBuffer!.append(string);
-    
-BasicGameResources.stringBuffer!.append(sizeString);
-    
-this.RESOURCE= BasicGameResources.stringBuffer!.toString();
-    
-BasicGameResources.stringBuffer!.delete(0, BasicGameResources.stringBuffer!.length());
-    
-BasicGameResources.stringBuffer!.append(ROOT);
-    
-BasicGameResources.stringBuffer!.append(DESTROY);
-    
-BasicGameResources.stringBuffer!.append(string);
-    
-BasicGameResources.stringBuffer!.append(sizeString);
-    
-this.RESOURCE_DESTROY= BasicGameResources.stringBuffer!.toString();
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    getString(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameGraphicsResourceUtil.getInstance()!.getName();;
-    
-}
-
-
+    public function getString():String {
+        return GameGraphicsResourceUtil.getInstance().getName();
+    }
+    }
 }
 

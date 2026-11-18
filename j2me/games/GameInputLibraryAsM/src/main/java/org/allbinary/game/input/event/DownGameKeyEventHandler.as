@@ -1,152 +1,93 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input.event {
+    import org.allbinary.game.input.LocalPlayerInputIdFactory;
+    import org.allbinary.logic.util.event.EventListenerInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { LocalPlayerInputIdFactory } from '../../../../../org/allbinary/game/input/LocalPlayerInputIdFactory.js';
-//not GWT import const LocalPlayerInputIdFactory
-
-import { EventListenerInterface } from '../../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
-//not GWT import const EventListenerInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DownGameKeyEventHandlerBase } from './DownGameKeyEventHandlerBase.js';
-//sameFolderImports - not GWT import - same folder const DownGameKeyEventHandlerBase
-
-export class DownGameKeyEventHandler extends DownGameKeyEventHandlerBase {
-        
-
-    private static readonly instance: DownGameKeyEventHandler = new DownGameKeyEventHandler();
-
-    private static readonly instanceArray: DownGameKeyEventHandlerBase[] = 
-                                                        [
-                                                            new DownGameKeyEventHandlerBase(),new DownGameKeyEventHandlerBase(),new DownGameKeyEventHandlerBase(),new DownGameKeyEventHandlerBase(),new DownGameKeyEventHandlerBase(),new DownGameKeyEventHandlerBase()
-                                                        ];
-
-    public static getInstance(): DownGameKeyEventHandler{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DownGameKeyEventHandler.instance;
-    
-}
-
-
-    private readonly playerInputIdFactory: LocalPlayerInputIdFactory = LocalPlayerInputIdFactory.getInstance()!;
-
-    public getInstanceForDevice(deviceId: number): DownGameKeyEventHandlerBase{
-
-    let playerInputId: number = this.playerInputIdFactory!.getPlayerForDevice(deviceId)!;;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DownGameKeyEventHandler.instanceArray[playerInputId]!;
-    
-}
-
-
-    public getInstanceForPlayer(playerInputId: number): DownGameKeyEventHandlerBase{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DownGameKeyEventHandler.instanceArray[playerInputId]!;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class DownGameKeyEventHandler extends DownGameKeyEventHandlerBase {
+    private static var instance_value:DownGameKeyEventHandler;
+    private static var instance_set:Boolean = false;
+    private static function get instance():DownGameKeyEventHandler {
+        if (!DownGameKeyEventHandler.instance_set) {
+            DownGameKeyEventHandler.instance_set = true;
+            DownGameKeyEventHandler.instance_value = new DownGameKeyEventHandler();
         }
+        return DownGameKeyEventHandler.instance_value;
+    }
+    private static var instanceArray_value:Vector.<DownGameKeyEventHandlerBase>;
+    private static var instanceArray_set:Boolean = false;
+    private static function get instanceArray():Vector.<DownGameKeyEventHandlerBase> {
+        if (!DownGameKeyEventHandler.instanceArray_set) {
+            DownGameKeyEventHandler.instanceArray_set = true;
+            DownGameKeyEventHandler.instanceArray_value = new <DownGameKeyEventHandlerBase>[new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase(), new DownGameKeyEventHandlerBase()];
+        }
+        return DownGameKeyEventHandler.instanceArray_value;
+    }
+        private var playerInputIdFactory:LocalPlayerInputIdFactory = null;
 
-
-    public removeAllListeners(){
-super.removeAllListeners();
+        // Java field initializers run after the base constructor
+        private function initFieldsDownGameKeyEventHandler():void {
+    this.playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();
+        }
     
 
-
-
-
-                        for (
-    let index: number = DownGameKeyEventHandler.instanceArray!.length -1;index >= 0; index--)
-        {
-DownGameKeyEventHandler.instanceArray[index]!.removeAllListeners();
-    
-}
-
-}
-
-
-    public removeListenerSingleThreaded(eventListenerInterface: EventListenerInterface){
-super.removeListenerSingleThreaded(eventListenerInterface);
+    public static function getInstance():DownGameKeyEventHandler {
+        return DownGameKeyEventHandler.instance;
+    }
     
 
-
-
-
-                        for (
-    let index: number = DownGameKeyEventHandler.instanceArray!.length -1;index >= 0; index--)
-        {
-DownGameKeyEventHandler.instanceArray[index]!.removeListenerSingleThreaded(eventListenerInterface);
-    
-}
-
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public removeListener(eventListenerInterface: EventListenerInterface){
-super.removeListener(eventListenerInterface);
+    public function getInstanceForDevice(deviceId:int):DownGameKeyEventHandlerBase {
+        var playerInputId:int = this.playerInputIdFactory.getPlayerForDevice(deviceId);
+        return DownGameKeyEventHandler.instanceArray[playerInputId];
+    }
     
 
-
-
-
-                        for (
-    let index: number = DownGameKeyEventHandler.instanceArray!.length -1;index >= 0; index--)
-        {
-DownGameKeyEventHandler.instanceArray[index]!.removeListener(eventListenerInterface);
+    public function getInstanceForPlayer(playerInputId:int):DownGameKeyEventHandlerBase {
+        return DownGameKeyEventHandler.instanceArray[playerInputId];
+    }
     
-}
 
-}
+    public function DownGameKeyEventHandler() {
+        super();
+        this.initFieldsDownGameKeyEventHandler();
+    }
+    
 
+    override public function removeAllListeners():void {
+        super.removeAllListeners();
+        for (var index:int = int(DownGameKeyEventHandler.instanceArray.length - 1); index >= 0; index--) {
+            DownGameKeyEventHandler.instanceArray[index].removeAllListeners();
+        }
+    }
+    
 
+    override public function removeListenerSingleThreaded(eventListenerInterface:EventListenerInterface):void {
+        super.removeListenerSingleThreaded(eventListenerInterface);
+        for (var index:int = int(DownGameKeyEventHandler.instanceArray.length - 1); index >= 0; index--) {
+            DownGameKeyEventHandler.instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
+        }
+    }
+    
+
+    override public function removeListener(eventListenerInterface:EventListenerInterface):void {
+        super.removeListener(eventListenerInterface);
+        for (var index:int = int(DownGameKeyEventHandler.instanceArray.length - 1); index >= 0; index--) {
+            DownGameKeyEventHandler.instanceArray[index].removeListener(eventListenerInterface);
+        }
+    }
+    }
 }
 

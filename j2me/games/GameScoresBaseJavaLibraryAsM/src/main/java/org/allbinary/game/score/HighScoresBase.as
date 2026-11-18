@@ -1,98 +1,50 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score {
+    import org.allbinary.game.GameInfo;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class HighScoresBase implements HighScoresFactoryInterface {
+        public var commonStrings:CommonStrings = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
-        
-import { GameInfo } from '../../../../org/allbinary/game/GameInfo.js';
-//not GWT import const GameInfo
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { HighScoresFactoryInterface } from './HighScoresFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const HighScoresFactoryInterface
-import { HighScoresResultsListener } from './HighScoresResultsListener.js';
-//sameFolderImports - not GWT import - same folder const HighScoresResultsListener
-import { HighScoresHelperBaseInterface } from './HighScoresHelperBaseInterface.js';
-//sameFolderImports - not GWT import - same folder const HighScoresHelperBaseInterface
-
-export class HighScoresBase
-            extends Object
-         implements HighScoresFactoryInterface {
-        
-
-    commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-protected constructor (){
-
-            super();
+        // Java field initializers run after the base constructor
+        private function initFieldsHighScoresBase():void {
+    this.commonStrings = CommonStrings.getInstance();
         }
+    
 
+    public function HighScoresBase() {
+        super();
+        this.initFieldsHighScoresBase();
+    }
+    
 
-    public fetchHighScores(gameInfo: GameInfo, highScoresResultsListener: HighScoresResultsListener){
+    public function fetchHighScores(gameInfo:GameInfo, highScoresResultsListener:HighScoresResultsListener):void {
+        throw new JException("RuntimeException", "");
+    }
+    
 
+    public function fetchHighScoresPreload(gameInfo:GameInfo, highScoresResultsListener:HighScoresResultsListener, preload:Boolean):void {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public fetchHighScoresPreload(gameInfo: GameInfo, highScoresResultsListener: HighScoresResultsListener, preload: boolean){
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public createHighScoresHelper(): HighScoresHelperBaseInterface{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
+    public function createHighScoresHelper():HighScoresHelperBaseInterface {
+        throw new JException("RuntimeException", "");
+    }
+    }
 }
 

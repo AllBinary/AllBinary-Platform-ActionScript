@@ -1,120 +1,62 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io {
+    import java.io.JBufferedReader;
+    import java.io.JFileReader;
+    import org.allbinary.logic.io.file.AbFile;
+    import org.allbinary.logic.io.file.AbFileNativeUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BufferedLineReader {
+        private var tmpIn:BufferedReader = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { BufferedReader } from '../../../../java/io/BufferedReader.js';
-//not GWT import const BufferedReader
-
-import { FileReader } from '../../../../java/io/FileReader.js';
-//not GWT import const FileReader
-
-import { AbFile } from '../../../../org/allbinary/logic/io/file/AbFile.js';
-//not GWT import const AbFile
-
-import { AbFileNativeUtil } from '../../../../org/allbinary/logic/io/file/AbFileNativeUtil.js';
-//not GWT import const AbFileNativeUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class BufferedLineReader
-            extends Object
-         {
-        
-
-    private readonly tmpIn: BufferedReader;
-
-public constructor (file: AbFile){
-
-            super();
-        this.tmpIn= new BufferedReader(new FileReader(AbFileNativeUtil.get(file)));
+        // Java field initializers run after the base constructor
+        private function initFieldsBufferedLineReader():void {
     
-}
-
-
-    public readUpToLines(readAheadIndex: number){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public readLine(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.tmpIn!.readLine();;
+        }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public ready(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.tmpIn!.ready();;
+    public function BufferedLineReader(file:AbFile) {
+        super();
+        this.initFieldsBufferedLineReader();
+        this.tmpIn = new BufferedReader(new FileReader(AbFileNativeUtil.get_(file)));
+    }
     
-}
 
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public function readUpToLines(readAheadIndex:Number):void {
+    }
     
-}
 
-
-    public getCurrent(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public function readLine():String {
+        return this.tmpIn.readLine();
+    }
     
-}
 
+    public function ready():Boolean {
+        return this.tmpIn.ready();
+    }
+    
 
+    public function getSize():Number {
+        return 0;
+    }
+    
+
+    public function getCurrent():int {
+        return 0;
+    }
+    }
 }
 

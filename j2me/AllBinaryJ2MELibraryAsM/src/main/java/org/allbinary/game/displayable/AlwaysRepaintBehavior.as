@@ -1,120 +1,66 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable {
+    import org.allbinary.game.configuration.feature.Features;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
+    import java.lang.JThread;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AlwaysRepaintBehavior extends RepaintBehavior {
+    private static var instanceC_value:AlwaysRepaintBehavior;
+    private static var instanceC_set:Boolean = false;
+    private static function get instanceC():AlwaysRepaintBehavior {
+        if (!AlwaysRepaintBehavior.instanceC_set) {
+            AlwaysRepaintBehavior.instanceC_set = true;
+            AlwaysRepaintBehavior.instanceC_value = new AlwaysRepaintBehavior();
+        }
+        return AlwaysRepaintBehavior.instanceC_value;
+    }
+        private var NAME:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsAlwaysRepaintBehavior():void {
+    this.NAME = "AlwaysRepaintBehavior";
+        }
 
-
-            import { Thread } from '../../../../java/lang/Thread.js';
-        
-import { Canvas } from '../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { Features } from '../../../../org/allbinary/game/configuration/feature/Features.js';
-//not GWT import const Features
-
-import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { OpenGLFeatureFactory } from '../../../../org/allbinary/graphics/opengles/OpenGLFeatureFactory.js';
-//not GWT import const OpenGLFeatureFactory
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { NullRunnable } 
-const NullRunnable = globalThis.org.allbinary.thread.NullRunnable;
-type NullRunnable<T = any, U = any> = typeof NullRunnable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullRunnable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { RepaintBehavior } from './RepaintBehavior.js';
-//sameFolderImports - not GWT import - same folder const RepaintBehavior
-import { RepaintRunnable } from './RepaintRunnable.js';
-//sameFolderImports - not GWT import - same folder const RepaintRunnable
-
-export class AlwaysRepaintBehavior extends RepaintBehavior {
-        
-
-    private static readonly instanceC: AlwaysRepaintBehavior = new AlwaysRepaintBehavior();
-
-    public static getInstance(): AlwaysRepaintBehavior{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AlwaysRepaintBehavior.instanceC;
-    
-}
-
-
-    private readonly NAME: string = "AlwaysRepaintBehavior";
-
-    public repaint(canvas: Canvas){
-
-    let features: Features = Features.getInstance()!;;
+        public function AlwaysRepaintBehavior() {
+            super();
+            this.initFieldsAlwaysRepaintBehavior();
+        }
     
 
-    let openGLFeatureFactory: OpenGLFeatureFactory = OpenGLFeatureFactory.getInstance()!;;
+    override public static function getInstance():AlwaysRepaintBehavior {
+        return AlwaysRepaintBehavior.instanceC;
+    }
     
 
-                        if(features.isFeature(openGLFeatureFactory!.OPENGL))
-                        
-                                    {
-                                    DisplayInfoSingleton.getInstance()!.process();
+    override public function repaint(canvas:Canvas):void {
+        var features:Features = Features.getInstance();
+        var openGLFeatureFactory:OpenGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+        if (features.isFeature(openGLFeatureFactory.OPENGL)) {
+            DisplayInfoSingleton.getInstance().process();
+        } else {
+            var thread:JThread = new JThread(new RepaintRunnable(canvas), this.NAME);
+            thread.start();
+        }
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-    let thread: Thread = new Thread(new RepaintRunnable(canvas), this.NAME);;
-    
-thread.start();
-    
-
-                        }
-                            
-}
-
-
-    public onChangeRepaint(canvas: Canvas){
-}
-
-
+    override public function onChangeRepaint(canvas:Canvas):void {
+    }
+    }
 }
 

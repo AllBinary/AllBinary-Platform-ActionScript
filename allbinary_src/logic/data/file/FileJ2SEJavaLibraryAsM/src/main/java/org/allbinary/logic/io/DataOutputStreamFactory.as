@@ -1,122 +1,51 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io {
+    import org.allbinary.logic.io.file.AbFile;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AbFile } from '../../../../org/allbinary/logic/io/file/AbFile.js';
-//not GWT import const AbFile
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AbFileOutputStream } from './AbFileOutputStream.js';
-//sameFolderImports - not GWT import - same folder const AbFileOutputStream
-import { AbDataOutputStream } from './AbDataOutputStream.js';
-//sameFolderImports - not GWT import - same folder const AbDataOutputStream
-import { FileStreamFactory } from './FileStreamFactory.js';
-//sameFolderImports - not GWT import - same folder const FileStreamFactory
-
-export class DataOutputStreamFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: DataOutputStreamFactory = new DataOutputStreamFactory();
-static getInstance(...args: any[]): any {
-   
-   
-    if (args.length === 0) return this.getInstance$overload1();
-   
-   throw new TypeError('No matching overload: getInstance'); }
-  
-    public static getInstance$overload1(): DataOutputStreamFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DataOutputStreamFactory.instance;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceForAbFile(file: AbFile): AbDataOutputStream{
-
-    let idFileOutputStream: AbFileOutputStream = AbFileOutputStream.createFromAbFile(file)!;;
+    public class DataOutputStreamFactory {
+    private static var instance_value:DataOutputStreamFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():DataOutputStreamFactory {
+        if (!DataOutputStreamFactory.instance_set) {
+            DataOutputStreamFactory.instance_set = true;
+            DataOutputStreamFactory.instance_value = new DataOutputStreamFactory();
+        }
+        return DataOutputStreamFactory.instance_value;
+    }
     
 
-    let idOutData: AbDataOutputStream = new AbDataOutputStream(idFileOutputStream);;
+    public static function getInstance():DataOutputStreamFactory {
+        return DataOutputStreamFactory.instance;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return idOutData;
-    
-}
-
-getInstance(...args: any[]): any {
-   
-   
-    if (args.length === 2 && typeof args[0] === 'string' && typeof args[1] === 'string') return this.getInstance$overload2(args[0], args[1]);
-   
-   throw new TypeError('No matching overload: getInstance'); }
-  
-                //@Throws(Exception.constructor)
-            
-    public getInstance$overload2(filePath: string, fileName: string): AbDataOutputStream{
-
-    let fileStreamFactory: FileStreamFactory = FileStreamFactory.getInstance()!;;
+    public function getInstanceForAbFile(file:AbFile):AbDataOutputStream {
+        var idFileOutputStream:AbFileOutputStream = AbFileOutputStream.createFromAbFile(file);
+        var idOutData:AbDataOutputStream = new AbDataOutputStream(idFileOutputStream);
+        return idOutData;
+    }
     
 
-    let fileOutputStream: AbFileOutputStream = fileStreamFactory!.getFileOutputStreamInstance(filePath, fileName)!;;
-    
-
-    let idOutData: AbDataOutputStream = new AbDataOutputStream(fileOutputStream);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return idOutData;
-    
-}
-
-
+    public function getInstance2(filePath:String, fileName:String):AbDataOutputStream {
+        var fileStreamFactory:FileStreamFactory = FileStreamFactory.getInstance();
+        var fileOutputStream:AbFileOutputStream = fileStreamFactory.getFileOutputStreamInstance(filePath, fileName);
+        var idOutData:AbDataOutputStream = new AbDataOutputStream(fileOutputStream);
+        return idOutData;
+    }
+    }
 }
 

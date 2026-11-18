@@ -1,89 +1,33 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.image {
+    import org.allbinary.animation.IndexedAnimation;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { Image } from '../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { IndexedAnimation } from '../../../org/allbinary/animation/IndexedAnimation.js';
-//not GWT import const IndexedAnimation
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AnimationFrameToImageUtil } from './AnimationFrameToImageUtil.js';
-//sameFolderImports - not GWT import - same folder const AnimationFrameToImageUtil
-
-export class IndexedAnimationToImageArrayUtil
-            extends Object
-         {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public static getInstance(width: number, height: number, sequentialAnimationInterface: IndexedAnimation): Image[]{
-
-    let size: number = sequentialAnimationInterface!.getAnimationSize()!;;
+    public class IndexedAnimationToImageArrayUtil {
     
 
-    let imageArray: Image[] = new Array(size);;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-sequentialAnimationInterface!.setFrame(index);
-    
-imageArray[index]= AnimationFrameToImageUtil.getInstance()!.getInstanceWH(width, height, sequentialAnimationInterface);
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return imageArray;
-    
-}
-
-
+    public static function getInstance3(width:int, height:int, sequentialAnimationInterface:IndexedAnimation):Vector.<Image> {
+        var size:int = sequentialAnimationInterface.getAnimationSize();
+        var imageArray:Vector.<Image> = new Vector.<Image>(size);
+        for (var index:int = 0; index < size; index++) {
+            sequentialAnimationInterface.setFrame(index);
+            imageArray[index] = AnimationFrameToImageUtil.getInstance().getInstanceWH(width, height, sequentialAnimationInterface);
+        }
+        return imageArray;
+    }
+    }
 }
 

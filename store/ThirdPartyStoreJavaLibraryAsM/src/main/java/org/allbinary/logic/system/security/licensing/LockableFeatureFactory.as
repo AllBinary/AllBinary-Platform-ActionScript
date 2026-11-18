@@ -1,80 +1,53 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.security.licensing {
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LockableFeatureFactory {
+    private static var instance_value:LockableFeatureFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():LockableFeatureFactory {
+        if (!LockableFeatureFactory.instance_set) {
+            LockableFeatureFactory.instance_set = true;
+            LockableFeatureFactory.instance_value = new LockableFeatureFactory();
+        }
+        return LockableFeatureFactory.instance_value;
+    }
+        private var list:BasicArrayList = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsLockableFeatureFactory():void {
+    this.list = new BasicArrayListD();
+        }
 
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class LockableFeatureFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: LockableFeatureFactory = new LockableFeatureFactory();
-
-    public static getInstance(): LockableFeatureFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LockableFeatureFactory.instance;
+        public function LockableFeatureFactory() {
+            super();
+            this.initFieldsLockableFeatureFactory();
+        }
     
-}
 
-
-    private readonly list: BasicArrayList = new BasicArrayListD();
-
-    public getList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list;
+    public static function getInstance():LockableFeatureFactory {
+        return LockableFeatureFactory.instance;
+    }
     
-}
 
-
+    public function getList():BasicArrayList {
+        return this.list;
+    }
+    }
 }
 

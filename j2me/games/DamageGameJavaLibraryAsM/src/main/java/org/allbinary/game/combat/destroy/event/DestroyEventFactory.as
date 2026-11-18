@@ -1,79 +1,42 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.combat.destroy.event {
+    import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.AllBinaryEventObjectFactoryInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class DestroyEventFactory implements AllBinaryEventObjectFactoryInterface {
+        private var combatGameCanvas:AllBinaryGameCanvas = null;
 
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-import { AllBinaryGameCanvas } from '../../../../../../org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.js';
-//not GWT import const AllBinaryGameCanvas
-
-import { AllBinaryEventObject } from '../../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { AllBinaryEventObjectFactoryInterface } from '../../../../../../org/allbinary/logic/util/event/AllBinaryEventObjectFactoryInterface.js';
-//not GWT import const AllBinaryEventObjectFactoryInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DestroyedEvent } from './DestroyedEvent.js';
-//sameFolderImports - not GWT import - same folder const DestroyedEvent
-
-export class DestroyEventFactory
-            extends Object
-         implements AllBinaryEventObjectFactoryInterface {
-        
-
-    private combatGameCanvas: AllBinaryGameCanvas;
-
-public constructor (combatGameCanvas: AllBinaryGameCanvas){
-
-            super();
-        this.combatGameCanvas= combatGameCanvas;
+        // Java field initializers run after the base constructor
+        private function initFieldsDestroyEventFactory():void {
     
-}
-
-
-    public getInstance(): AllBinaryEventObject{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new DestroyedEvent(this.combatGameCanvas);
+        }
     
-}
 
+    public function DestroyEventFactory(combatGameCanvas:AllBinaryGameCanvas) {
+        super();
+        this.initFieldsDestroyEventFactory();
+        this.combatGameCanvas = combatGameCanvas;
+    }
+    
 
+    public function getInstance():AllBinaryEventObject {
+        return new DestroyedEvent(this.combatGameCanvas);
+    }
+    }
 }
 

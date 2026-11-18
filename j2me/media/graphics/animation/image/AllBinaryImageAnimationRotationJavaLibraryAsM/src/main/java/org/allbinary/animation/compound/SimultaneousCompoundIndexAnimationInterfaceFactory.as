@@ -1,139 +1,66 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.compound {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationBehaviorFactory;
+    import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+    import org.allbinary.animation.IndexedAnimation;
+    import org.allbinary.media.ScaleProperties;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class SimultaneousCompoundIndexAnimationInterfaceFactory implements AnimationInterfaceFactoryInterface {
+        private var basicAnimationInterfaceFactoryInterfaceArray:Vector.<AnimationInterfaceFactoryInterface> = null;
+        private var animationBehaviorFactory:AnimationBehaviorFactory = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationBehaviorFactory } from '../../../../org/allbinary/animation/AnimationBehaviorFactory.js';
-//not GWT import const AnimationBehaviorFactory
-
-import { AnimationInterfaceFactoryInterface } from '../../../../org/allbinary/animation/AnimationInterfaceFactoryInterface.js';
-//not GWT import const AnimationInterfaceFactoryInterface
-
-import { IndexedAnimation } from '../../../../org/allbinary/animation/IndexedAnimation.js';
-//not GWT import const IndexedAnimation
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-import { ScaleProperties } from '../../../../org/allbinary/media/ScaleProperties.js';
-//not GWT import const ScaleProperties
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { SimultaneousCompoundIndexAnimation } from './SimultaneousCompoundIndexAnimation.js';
-//sameFolderImports - not GWT import - same folder const SimultaneousCompoundIndexAnimation
-
-export class SimultaneousCompoundIndexAnimationInterfaceFactory
-            extends Object
-         implements AnimationInterfaceFactoryInterface {
-        
-
-    private readonly basicAnimationInterfaceFactoryInterfaceArray: AnimationInterfaceFactoryInterface[];
-
-    private readonly animationBehaviorFactory: AnimationBehaviorFactory;
-
-public constructor (basicAnimationInterfaceFactoryInterfaceArray: AnimationInterfaceFactoryInterface[], animationBehaviorFactory: AnimationBehaviorFactory){
-
-            super();
-        this.basicAnimationInterfaceFactoryInterfaceArray= basicAnimationInterfaceFactoryInterfaceArray;
+        // Java field initializers run after the base constructor
+        private function initFieldsSimultaneousCompoundIndexAnimationInterfaceFactory():void {
     
-this.animationBehaviorFactory= animationBehaviorFactory;
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstance(instanceId: number): Animation{
-
-    let size: number = this.basicAnimationInterfaceFactoryInterfaceArray!.length
-                ;;
+        }
     
 
-    let animationInterfaceArray: IndexedAnimation[] = new Array(size);;
+    public function SimultaneousCompoundIndexAnimationInterfaceFactory(basicAnimationInterfaceFactoryInterfaceArray:Vector.<AnimationInterfaceFactoryInterface>, animationBehaviorFactory:AnimationBehaviorFactory) {
+        super();
+        this.initFieldsSimultaneousCompoundIndexAnimationInterfaceFactory();
+        this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
+        this.animationBehaviorFactory = animationBehaviorFactory;
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-animationInterfaceArray[index]= this.basicAnimationInterfaceFactoryInterfaceArray[index]!.getInstance(instanceId) as IndexedAnimation;
+    public function getInstance1(instanceId:int):Animation {
+        var size:int = this.basicAnimationInterfaceFactoryInterfaceArray.length;
+        var animationInterfaceArray:Vector.<IndexedAnimation> = new Vector.<IndexedAnimation>(size);
+        for (var index:int = 0; index < size; index++) {
+            animationInterfaceArray[index] = (this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance1(instanceId) as IndexedAnimation);
+        }
+        return this.getOrCreate(animationInterfaceArray);
+    }
     
-}
 
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getOrCreate(animationInterfaceArray);;
+    public function getOrCreate(animationInterfaceArray:Vector.<IndexedAnimation>):Animation {
+        return new SimultaneousCompoundIndexAnimation(animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
+    }
     
-}
 
-
-    getOrCreate(animationInterfaceArray: IndexedAnimation[]): Animation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new SimultaneousCompoundIndexAnimation(animationInterfaceArray, this.animationBehaviorFactory!.getOrCreateInstance());
+    public function getBasicAnimationInterfaceFactoryInterfaceArray():Vector.<AnimationInterfaceFactoryInterface> {
+        return this.basicAnimationInterfaceFactoryInterfaceArray;
+    }
     
-}
 
-
-    public getBasicAnimationInterfaceFactoryInterfaceArray(): AnimationInterfaceFactoryInterface[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicAnimationInterfaceFactoryInterfaceArray;
-    
-}
-
-
-    public setInitialScale(scaleProperties: ScaleProperties){
-}
-
-
+    public function setInitialScale(scaleProperties:ScaleProperties):void {
+    }
+    }
 }
 

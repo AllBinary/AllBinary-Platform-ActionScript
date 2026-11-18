@@ -1,98 +1,51 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.image {
+    import org.allbinary.image.ImageCache;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { ImageCache } from '../../../../org/allbinary/image/ImageCache.js';
-//not GWT import const ImageCache
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ImageScaleUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: ImageScaleUtil = new ImageScaleUtil();
-
-    public static getInstance(): ImageScaleUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ImageScaleUtil.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class ImageScaleUtil {
+    private static var instance_value:ImageScaleUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ImageScaleUtil {
+        if (!ImageScaleUtil.instance_set) {
+            ImageScaleUtil.instance_set = true;
+            ImageScaleUtil.instance_value = new ImageScaleUtil();
         }
-
-
-                //@Throws(Exception.constructor)
-            
-    public createImage2(imageCache: ImageCache, originalImage: Image, scaleNominatorX: number, scaleDenominatorX: number, scaleNominatorY: number, scaleDenominatorY: number, cached: boolean): Image{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.createImage3(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);;
+        return ImageScaleUtil.instance_value;
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public createImage3(imageCache: ImageCache, originalImage: Image, scaleNominatorX: number, scaleDenominatorX: number, scaleNominatorY: number, scaleDenominatorY: number, cached: boolean, mutable: boolean): Image{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return originalImage;
+    public static function getInstance():ImageScaleUtil {
+        return ImageScaleUtil.instance;
+    }
     
-}
 
+    public function ImageScaleUtil() {
+        super();
+    }
+    
 
+    public function createImage2(imageCache:ImageCache, originalImage:Image, scaleNominatorX:Number, scaleDenominatorX:Number, scaleNominatorY:Number, scaleDenominatorY:Number, cached:Boolean):Image {
+        return this.createImage3(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);
+    }
+    
+
+    public function createImage3(imageCache:ImageCache, originalImage:Image, scaleNominatorX:Number, scaleDenominatorX:Number, scaleNominatorY:Number, scaleDenominatorY:Number, cached:Boolean, mutable:Boolean):Image {
+        return originalImage;
+    }
+    }
 }
 

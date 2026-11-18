@@ -1,468 +1,196 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Enumeration } from '../../../../../java/util/Enumeration.js';
-//not GWT import const Enumeration
-
-import { ChoiceGroup } from '../../../../../javax/microedition/lcdui/ChoiceGroup.js';
-//not GWT import const ChoiceGroup
-
-import { TsUtil } from '../../../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { EnumerationUtil } 
-const EnumerationUtil = globalThis.org.allbinary.util.EnumerationUtil;
-type EnumerationUtil<T = any, U = any> = typeof EnumerationUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof EnumerationUtil;
-
-//not plain js import { HashtableUtil } 
-const HashtableUtil = globalThis.org.allbinary.util.HashtableUtil;
-type HashtableUtil<T = any, U = any> = typeof HashtableUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof HashtableUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Features } from './Features.js';
-//sameFolderImports - not GWT import - same folder const Features
-import { Feature } from './Feature.js';
-//sameFolderImports - not GWT import - same folder const Feature
-import { GameFeatureChoiceGroups } from './GameFeatureChoiceGroups.js';
-//sameFolderImports - not GWT import - same folder const GameFeatureChoiceGroups
-
-export class GameFeatureUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: GameFeatureUtil = new GameFeatureUtil();
-
-    public static getInstance(): GameFeatureUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameFeatureUtil.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly tsUtil: TsUtil = TsUtil.getInstance()!;
-
-    private readonly enumerationUtil: EnumerationUtil = EnumerationUtil.getInstance()!;
-
-    public readonly ON_GAME_FEATURE_CHANGE: string = "onGameFeatureChange";
-
-    public readonly GAME_FEATURE_CHANGED: string = "Game Feature Changed: ";
-
-                //@Throws(Exception.constructor)
-            
-    public setDefault(choiceGroup: ChoiceGroup){
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-
-    let METHOD_NAME: string = "setDefault";;
-    
-
-    let SELECTED_ARRAY_RETURN: string = "selectedArray_return[";;
-    
-
-    let SELECTED_SEP: string = "] = ";;
-    
-
-    let selectedArray_return: boolean[] = new Array(choiceGroup!.size()).fill(false);;
-    
-
-    let total: number = choiceGroup!.getSelectedFlags(selectedArray_return)!;;
-    
-stringBuffer!.append("Multiple Total Choices: ");
-    
-stringBuffer!.appendint(total);
-    
-this.logUtil!.putF(stringBuffer!.toString(), this, METHOD_NAME);
-    
-
-    let features: Features = Features.getInstance()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < selectedArray_return!.length; index++)
-        {
-
-    let isSelected: boolean = selectedArray_return[index]!;;
-    
-stringBuffer!.delete(0, stringBuffer!.length());
-    
-stringBuffer!.append(SELECTED_ARRAY_RETURN);
-    
-stringBuffer!.appendint(index);
-    
-stringBuffer!.append(SELECTED_SEP);
-    
-stringBuffer!.appendboolean(isSelected);
-    
-this.logUtil!.putF(stringBuffer!.toString(), this, METHOD_NAME);
-    
-
-    let selectedChoiceLabel: string = choiceGroup!.getString(index)!;;
-    
-
-    let gameFeature: Feature = Feature.getInstance(selectedChoiceLabel)!;;
-    
-
-                        if(features.isDefault(gameFeature))
-                        
-                                    {
-                                    features.add(gameFeature);
-    
-choiceGroup!.setSelectedIndex(index, true);
-    
-
-                                    }
-                                
-                        else {
-                            features.remove(gameFeature);
-    
-choiceGroup!.setSelectedIndex(index, false);
-    
-
-                        }
-                            
-}
-
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public updateMultiple(choiceGroup: ChoiceGroup){
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-
-    let METHOD_NAME: string = "updateMultiple";;
-    
-
-    let SELECTED_ARRAY_RETURN: string = "selectedArray_return[";;
-    
-
-    let SELECTED_SEP: string = "] = ";;
-    
-
-    let selectedArray_return: boolean[] = new Array(choiceGroup!.size()).fill(false);;
-    
-
-    let total: number = choiceGroup!.getSelectedFlags(selectedArray_return)!;;
-    
-stringBuffer!.append("Multiple Total Choices: ");
-    
-stringBuffer!.appendint(total);
-    
-this.logUtil!.putF(stringBuffer!.toString(), this, METHOD_NAME);
-    
-
-    let features: Features = Features.getInstance()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < selectedArray_return!.length; index++)
-        {
-
-    let isSelected: boolean = selectedArray_return[index]!;;
-    
-stringBuffer!.delete(0, stringBuffer!.length());
-    
-stringBuffer!.append(SELECTED_ARRAY_RETURN);
-    
-stringBuffer!.appendint(index);
-    
-stringBuffer!.append(SELECTED_SEP);
-    
-stringBuffer!.appendboolean(isSelected);
-    
-this.logUtil!.putF(stringBuffer!.toString(), this, METHOD_NAME);
-    
-
-    let selectedChoiceLabel: string = choiceGroup!.getString(index)!;;
-    
-
-    let gameFeature: Feature = Feature.getInstance(selectedChoiceLabel)!;;
-    
-
-                        if(!isSelected && features.isFeature(gameFeature))
-                        
-                                    {
-                                    features.remove(gameFeature);
-    
-
-                                    }
-                                
-                             else 
-                        if(isSelected && !features.isFeature(gameFeature))
-                        
-                                    {
-                                    features.add(gameFeature);
-    
-
-                                    }
-                                
-}
-
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public updateExclusiveForChoiceGroup(choiceGroup: ChoiceGroup){
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-
-    let METHOD_NAME: string = "updateExclusive";;
-    
-
-    let SELECTED_ARRAY_RETURN: string = "selectedArray_return[";;
-    
-
-    let SELECTED_SEP: string = "] = ";;
-    
-
-    let selectedArray_return: boolean[] = new Array(choiceGroup!.size()).fill(false);;
-    
-
-    let total: number = choiceGroup!.getSelectedFlags(selectedArray_return)!;;
-    
-stringBuffer!.append("Exclusive Total Choices: 1==");
-    
-stringBuffer!.appendint(total);
-    
-this.logUtil!.putF(stringBuffer!.toString(), this, METHOD_NAME);
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < selectedArray_return!.length; index++)
-        {
-
-    let isSelected: boolean = selectedArray_return[index]!;;
-    
-stringBuffer!.delete(0, stringBuffer!.length());
-    
-stringBuffer!.append(SELECTED_ARRAY_RETURN);
-    
-stringBuffer!.appendint(index);
-    
-stringBuffer!.append(SELECTED_SEP);
-    
-stringBuffer!.appendboolean(isSelected);
-    
-this.logUtil!.putF(stringBuffer!.toString(), this, METHOD_NAME);
-    
-
-                        if(isSelected)
-                        
-                                    {
-                                    
-    let selectedChoiceLabel: string = choiceGroup!.getString(index)!;;
-    
-this.updateExclusive(selectedChoiceLabel);
-    
-
-                                    }
-                                
-}
-
-}
-
-
-    public isExclusive(itemLabel: string): boolean{
-
-    let enumeration: Enumeration<any> = GameFeatureChoiceGroups.getExclusiveInstance()!.get()!.keys()!;;
-    
-
-    let name: string;;
-    
-
-        while(this.enumerationUtil!.hasMoreElements(enumeration))
-        {
-name= this.enumerationUtil!.nextElement(enumeration)! as string;
-    
-
-                        if(this.tsUtil!.compareTo(itemLabel, name) == 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    updateExclusive(selectedChoiceLabel: string){
-this.logUtil!.putF(new StringMaker().append(CommonLabels.getInstance()!.ITEM_LABEL)!.append(selectedChoiceLabel)!.toString(), this, "updateExclusive");
-    
-
-    let gameFeature: Feature = Feature.getInstance(selectedChoiceLabel)!;;
-    
-
-    let hashtable: ABHashtable<any, any> = GameFeatureChoiceGroups.getExclusiveInstance()!.get()!;;
-    
-
-    let objectArray: any[] = HashtableUtil.getInstance()!.getKeysAsArray(hashtable)!;;
-    
-
-    let basicArrayList: BasicArrayList;;
-    
-
-    let anyType: any;;
-    
-
-    let size: number = objectArray!.length
-                ;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-anyType= objectArray[index]!;
-    
-basicArrayList= hashtable.get(anyType) as BasicArrayList;
-    
-this.updateExclusiveList(gameFeature, basicArrayList);
-    
-}
-
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public updateExclusiveList(gameFeature: Feature, list: BasicArrayList){
-
-                        if(list.contains(gameFeature))
-                        
-                                    {
-                                    
-    let features: Features = Features.getInstance()!;;
-    
-
-    let addIndex: number = list.indexOf(gameFeature)!;;
-    
-
-    let size: number = list.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-                        if(addIndex != index)
-                        
-                                    {
-                                    features.remove(list.objectArray[index]! as Feature);
-    
-
-                                    }
-                                
-                        else {
-                            features.add(list.objectArray[index]! as Feature);
-    
-
-                        }
-                            
-}
-
-
-                                    }
-                                
-}
-
-
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.feature {
+    import java.util.JEnumeration;
+    import org.allbinary.TsUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonLabels;
+    import org.allbinary.util.ABHashtable;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.EnumerationUtil;
+    import org.allbinary.util.HashtableUtil;
+
+    public class GameFeatureUtil {
+    private static var instance_value:GameFeatureUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GameFeatureUtil {
+        if (!GameFeatureUtil.instance_set) {
+            GameFeatureUtil.instance_set = true;
+            GameFeatureUtil.instance_value = new GameFeatureUtil();
+        }
+        return GameFeatureUtil.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var tsUtil:TsUtil = null;
+        private var enumerationUtil:EnumerationUtil = null;
+        public var ON_GAME_FEATURE_CHANGE:String = null;
+        public var GAME_FEATURE_CHANGED:String = null;
+
+        // Java field initializers run after the base constructor
+        private function initFieldsGameFeatureUtil():void {
+    this.logUtil = LogUtil.getInstance();
+    this.tsUtil = TsUtil.getInstance();
+    this.enumerationUtil = EnumerationUtil.getInstance();
+    this.ON_GAME_FEATURE_CHANGE = "onGameFeatureChange";
+    this.GAME_FEATURE_CHANGED = "Game Feature Changed: ";
+        }
+
+        public function GameFeatureUtil() {
+            super();
+            this.initFieldsGameFeatureUtil();
+        }
+    
+
+    public static function getInstance():GameFeatureUtil {
+        return GameFeatureUtil.instance;
+    }
+    
+
+    public function setDefault(choiceGroup:ChoiceGroup):void {
+        var stringBuffer:StringMaker = new StringMaker();
+        var METHOD_NAME:String = "setDefault";
+        var SELECTED_ARRAY_RETURN:String = "selectedArray_return[";
+        var SELECTED_SEP:String = "] = ";
+        var selectedArray_return:Vector.<Boolean> = new Vector.<Boolean>(choiceGroup.size());
+        var total:int = choiceGroup.getSelectedFlags(selectedArray_return);
+        stringBuffer.append("Multiple Total Choices: ");
+        stringBuffer.appendint(total);
+        this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+        var features:Features = Features.getInstance();
+        for (var index:int = 0; index < selectedArray_return.length; index++) {
+            var isSelected:Boolean = selectedArray_return[index];
+            stringBuffer.delete_(0, stringBuffer.length());
+            stringBuffer.append(SELECTED_ARRAY_RETURN);
+            stringBuffer.appendint(index);
+            stringBuffer.append(SELECTED_SEP);
+            stringBuffer.appendboolean(isSelected);
+            this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+            var selectedChoiceLabel:String = choiceGroup.getString(index);
+            var gameFeature:Feature = Feature.getInstance1(selectedChoiceLabel);
+            if (features.isDefault(gameFeature)) {
+                features.add(gameFeature);
+                choiceGroup.setSelectedIndex(index, true);
+            } else {
+                features.remove(gameFeature);
+                choiceGroup.setSelectedIndex(index, false);
+            }
+        }
+    }
+    
+
+    public function updateMultiple(choiceGroup:ChoiceGroup):void {
+        var stringBuffer:StringMaker = new StringMaker();
+        var METHOD_NAME:String = "updateMultiple";
+        var SELECTED_ARRAY_RETURN:String = "selectedArray_return[";
+        var SELECTED_SEP:String = "] = ";
+        var selectedArray_return:Vector.<Boolean> = new Vector.<Boolean>(choiceGroup.size());
+        var total:int = choiceGroup.getSelectedFlags(selectedArray_return);
+        stringBuffer.append("Multiple Total Choices: ");
+        stringBuffer.appendint(total);
+        this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+        var features:Features = Features.getInstance();
+        for (var index:int = 0; index < selectedArray_return.length; index++) {
+            var isSelected:Boolean = selectedArray_return[index];
+            stringBuffer.delete_(0, stringBuffer.length());
+            stringBuffer.append(SELECTED_ARRAY_RETURN);
+            stringBuffer.appendint(index);
+            stringBuffer.append(SELECTED_SEP);
+            stringBuffer.appendboolean(isSelected);
+            this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+            var selectedChoiceLabel:String = choiceGroup.getString(index);
+            var gameFeature:Feature = Feature.getInstance1(selectedChoiceLabel);
+            if (!isSelected && features.isFeature(gameFeature)) {
+                features.remove(gameFeature);
+            } else if (isSelected && !features.isFeature(gameFeature)) {
+                features.add(gameFeature);
+            }
+        }
+    }
+    
+
+    public function updateExclusiveForChoiceGroup(choiceGroup:ChoiceGroup):void {
+        var stringBuffer:StringMaker = new StringMaker();
+        var METHOD_NAME:String = "updateExclusive";
+        var SELECTED_ARRAY_RETURN:String = "selectedArray_return[";
+        var SELECTED_SEP:String = "] = ";
+        var selectedArray_return:Vector.<Boolean> = new Vector.<Boolean>(choiceGroup.size());
+        var total:int = choiceGroup.getSelectedFlags(selectedArray_return);
+        stringBuffer.append("Exclusive Total Choices: 1==");
+        stringBuffer.appendint(total);
+        this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+        for (var index:int = 0; index < selectedArray_return.length; index++) {
+            var isSelected:Boolean = selectedArray_return[index];
+            stringBuffer.delete_(0, stringBuffer.length());
+            stringBuffer.append(SELECTED_ARRAY_RETURN);
+            stringBuffer.appendint(index);
+            stringBuffer.append(SELECTED_SEP);
+            stringBuffer.appendboolean(isSelected);
+            this.logUtil.putF(stringBuffer.toString(), this, METHOD_NAME);
+            if (isSelected) {
+                var selectedChoiceLabel:String = choiceGroup.getString(index);
+                this.updateExclusive(selectedChoiceLabel);
+            }
+        }
+    }
+    
+
+    public function isExclusive(itemLabel:String):Boolean {
+        var enumeration:JEnumeration = GameFeatureChoiceGroups.getExclusiveInstance().get_().keys();
+        var name:String = null;
+        while (this.enumerationUtil.hasMoreElements(enumeration)) {
+            name = (this.enumerationUtil.nextElement(enumeration) as String);
+            if (this.tsUtil.compareTo(itemLabel, name) == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+
+    private function updateExclusive(selectedChoiceLabel:String):void {
+        this.logUtil.putF(new StringMaker().append(CommonLabels.getInstance().ITEM_LABEL).append(selectedChoiceLabel).toString(), this, "updateExclusive");
+        var gameFeature:Feature = Feature.getInstance1(selectedChoiceLabel);
+        var hashtable:ABHashtable = GameFeatureChoiceGroups.getExclusiveInstance().get_();
+        var objectArray:Vector.<Object> = HashtableUtil.getInstance().getKeysAsArray(hashtable);
+        var basicArrayList:BasicArrayList = null;
+        var anyType:Object = null;
+        var size:int = objectArray.length;
+        for (var index:int = 0; index < size; index++) {
+            anyType = (objectArray[index] as Object);
+            basicArrayList = (hashtable.get_(anyType) as BasicArrayList);
+            this.updateExclusiveList(gameFeature, basicArrayList);
+        }
+    }
+    
+
+    public function updateExclusiveList(gameFeature:Feature, list:BasicArrayList):void {
+        if (list.contains(gameFeature)) {
+            var features:Features = Features.getInstance();
+            var addIndex:int = list.indexOf(gameFeature);
+            var size:int = list.size();
+            for (var index:int = 0; index < size; index++) {
+                if (addIndex != index) {
+                    features.remove((list.objectArray[index] as Feature));
+                } else {
+                    features.add((list.objectArray[index] as Feature));
+                }
+            }
+        }
+    }
+    }
 }
 

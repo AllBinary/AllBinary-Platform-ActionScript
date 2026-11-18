@@ -1,88 +1,60 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.identification {
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+    import java.lang.JInteger;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GroupCommonFactory {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!GroupCommonFactory.instance_set) {
+            GroupCommonFactory.instance_set = true;
+            GroupCommonFactory.instance_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return GroupCommonFactory.instance_value;
+    }
+        public var ID:* = null;
+        public var GROUP_NAME_LABEL:String = null;
+        public var ID_LABEL:String = null;
+        public var ADDING_LABEL:String = null;
+        public var TO_LABEL:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGroupCommonFactory():void {
+    this.ID = SmallIntegerSingletonFactory.getInstance().getAt(10);
+    this.GROUP_NAME_LABEL = "Group Name: ";
+    this.ID_LABEL = " Id: ";
+    this.ADDING_LABEL = "Adding: ";
+    this.TO_LABEL = " to: ";
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Integer } from '../../../../java/lang/Integer.js';
-        
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-import { SmallIntegerSingletonFactory } from '../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
-//not GWT import const SmallIntegerSingletonFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GroupCommonFactory
-            extends Object
-         {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): GroupCommonFactory{
-
-                        if(GroupCommonFactory.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    GroupCommonFactory.instance= new GroupCommonFactory();
+        public function GroupCommonFactory() {
+            super();
+            this.initFieldsGroupCommonFactory();
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GroupCommonFactory.instance as GroupCommonFactory;
-    
-}
-
-
-    public readonly ID: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(10)!;
-
-    public readonly GROUP_NAME_LABEL: string = "Group Name: ";
-
-    public readonly ID_LABEL: string = " Id: ";
-
-    public readonly ADDING_LABEL: string = "Adding: ";
-
-    public readonly TO_LABEL: string = " to: ";
-
+    public static function getInstance():GroupCommonFactory {
+        if (GroupCommonFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            GroupCommonFactory.instance = new GroupCommonFactory();
+        }
+        return (GroupCommonFactory.instance as GroupCommonFactory);
+    }
+    }
 }
 

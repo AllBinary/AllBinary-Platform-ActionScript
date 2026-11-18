@@ -1,118 +1,53 @@
+// Generated Code Do Not Modify
+package org.allbinary.physics.movement {
+    import org.allbinary.game.layer.AllBinaryGameLayer;
+    import org.allbinary.game.physics.velocity.BasicVelocityProperties;
+    import org.allbinary.logic.math.BasicDecimal;
+    import org.allbinary.logic.math.MathUtil;
+    import org.allbinary.logic.math.ScaleFactorFactory;
 
-        /* Generated Code Do Not Modify */
+    public class PreciseConstantVelocityMovement extends BasicConstantVelocityMovement {
+        private var accumulatedX:int = 0;
+        private var accumulatedY:int = 0;
+        private var accumulatedZ:int = 0;
+        private var factorValue:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AllBinaryGameLayer } from '../../../../org/allbinary/game/layer/AllBinaryGameLayer.js';
-//not GWT import const AllBinaryGameLayer
-
-import { BasicVelocityProperties } from '../../../../org/allbinary/game/physics/velocity/BasicVelocityProperties.js';
-//not GWT import const BasicVelocityProperties
-
-import { BasicDecimal } from '../../../../org/allbinary/logic/math/BasicDecimal.js';
-//not GWT import const BasicDecimal
-
-//not plain js import { MathUtil } 
-const MathUtil = globalThis.org.allbinary.logic.math.MathUtil;
-type MathUtil<T = any, U = any> = typeof MathUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof MathUtil;
-
-import { ScaleFactorFactory } from '../../../../org/allbinary/logic/math/ScaleFactorFactory.js';
-//not GWT import const ScaleFactorFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicConstantVelocityMovement } from './BasicConstantVelocityMovement.js';
-//sameFolderImports - not GWT import - same folder const BasicConstantVelocityMovement
-
-export class PreciseConstantVelocityMovement extends BasicConstantVelocityMovement {
-        
-
-    private accumulatedX: number= 0;
-
-    private accumulatedY: number= 0;
-
-    private accumulatedZ: number= 0;
-
-public constructor (basicDecimal: BasicDecimal, velocityProperties: BasicVelocityProperties){
-            super(basicDecimal, velocityProperties);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public init(speedBasicDecimal: BasicDecimal, angle: number, otherAngle: number){
-}
-
-
-    private readonly factorValue: number = ScaleFactorFactory.getInstance()!.DEFAULT_SCALE_VALUE;
-
-                //@Throws(Exception.constructor)
-            
-    public process(layer: AllBinaryGameLayer){
-
-    let mathUtil: MathUtil = MathUtil.getInstance()!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsPreciseConstantVelocityMovement():void {
+    this.accumulatedX = 0;
+    this.accumulatedY = 0;
+    this.accumulatedZ = 0;
+    this.factorValue = ScaleFactorFactory.getInstance().DEFAULT_SCALE_VALUE;
+        }
     
 
-    let velocityProperties: BasicVelocityProperties = this.getVelocityProperties()!;;
-    
-this.accumulatedX= globalThis.Math.trunc((this.accumulatedX +velocityProperties!.getVelocityXBasicDecimalP()!.getUnscaled()));
-    
-this.accumulatedY= globalThis.Math.trunc((this.accumulatedY +velocityProperties!.getVelocityYBasicDecimalP()!.getUnscaled()));
-    
-this.accumulatedZ= globalThis.Math.trunc((this.accumulatedZ +velocityProperties!.getVelocityZBasicDecimalP()!.getUnscaled()));
-    
-layer.moveDXYZ(globalThis.Math.trunc(this.accumulatedX /this.factorValue), globalThis.Math.trunc(this.accumulatedY /this.factorValue), globalThis.Math.trunc(this.accumulatedZ /this.factorValue));
+    public function PreciseConstantVelocityMovement(basicDecimal:BasicDecimal, velocityProperties:BasicVelocityProperties) {
+        super(basicDecimal, velocityProperties);
+        this.initFieldsPreciseConstantVelocityMovement();
+    }
     
 
-                        if(mathUtil!.abs(this.accumulatedX) > this.factorValue)
-                        
-                                    {
-                                    this.accumulatedX= 0;
+    override public function init(speedBasicDecimal:BasicDecimal, angle:int, otherAngle:int):void {
+    }
     
 
-                                    }
-                                
-
-                        if(mathUtil!.abs(this.accumulatedY) > this.factorValue)
-                        
-                                    {
-                                    this.accumulatedY= 0;
-    
-
-                                    }
-                                
-
-                        if(mathUtil!.abs(this.accumulatedZ) > this.factorValue)
-                        
-                                    {
-                                    this.accumulatedZ= 0;
-    
-
-                                    }
-                                
-}
-
-
+    override public function process(layer:AllBinaryGameLayer):void {
+        var mathUtil:MathUtil = MathUtil.getInstance();
+        var velocityProperties:BasicVelocityProperties = this.getVelocityProperties();
+        this.accumulatedX = int((Number(this.accumulatedX) + velocityProperties.getVelocityXBasicDecimalP().getUnscaled()));
+        this.accumulatedY = int((Number(this.accumulatedY) + velocityProperties.getVelocityYBasicDecimalP().getUnscaled()));
+        this.accumulatedZ = int((Number(this.accumulatedZ) + velocityProperties.getVelocityZBasicDecimalP().getUnscaled()));
+        layer.moveDXYZ(int(this.accumulatedX / this.factorValue), int(this.accumulatedY / this.factorValue), int(this.accumulatedZ / this.factorValue));
+        if (mathUtil.abs(this.accumulatedX) > this.factorValue) {
+            this.accumulatedX = 0;
+        }
+        if (mathUtil.abs(this.accumulatedY) > this.factorValue) {
+            this.accumulatedY = 0;
+        }
+        if (mathUtil.abs(this.accumulatedZ) > this.factorValue) {
+            this.accumulatedZ = 0;
+        }
+    }
+    }
 }
 

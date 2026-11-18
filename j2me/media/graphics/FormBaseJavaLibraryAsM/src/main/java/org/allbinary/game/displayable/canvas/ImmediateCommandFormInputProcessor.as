@@ -1,200 +1,93 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.game.input.event.GameKeyEvent;
+    import org.allbinary.graphics.form.ScrollSelectionForm;
+    import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+    import org.allbinary.time.TimeDelayHelper;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ImmediateCommandFormInputProcessor extends CommandFormInputProcessor {
+        private var timeHelper:TimeDelayHelper = null;
+        public var gameCommandCanvas:GameCommandCanvas = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { GameKeyEvent } from '../../../../../org/allbinary/game/input/event/GameKeyEvent.js';
-//not GWT import const GameKeyEvent
-
-import { ScrollSelectionForm } from '../../../../../org/allbinary/graphics/form/ScrollSelectionForm.js';
-//not GWT import const ScrollSelectionForm
-
-import { MotionGestureEvent } from '../../../../../org/allbinary/input/motion/gesture/observer/MotionGestureEvent.js';
-//not GWT import const MotionGestureEvent
-
-import { TimeDelayHelper } from '../../../../../org/allbinary/time/TimeDelayHelper.js';
-//not GWT import const TimeDelayHelper
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CommandFormInputProcessor } from './CommandFormInputProcessor.js';
-//sameFolderImports - not GWT import - same folder const CommandFormInputProcessor
-import { GameCommandCanvas } from './GameCommandCanvas.js';
-//sameFolderImports - not GWT import - same folder const GameCommandCanvas
-
-export class ImmediateCommandFormInputProcessor extends CommandFormInputProcessor {
-        
-
-    private readonly timeHelper: TimeDelayHelper = new TimeDelayHelper(25);
-
-    gameCommandCanvas: GameCommandCanvas;
-
-public constructor (gameKeyEventList: BasicArrayList, playerInputId: number, gameCommandCanvas: GameCommandCanvas, form: ScrollSelectionForm){
-            super(gameKeyEventList, playerInputId, gameCommandCanvas, form);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.gameCommandCanvas= gameCommandCanvas;
+        // Java field initializers run after the base constructor
+        private function initFieldsImmediateCommandFormInputProcessor():void {
+    this.timeHelper = new TimeDelayHelper(25);
     
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public onPressGameKeyEvent(gameKeyEvent: GameKeyEvent){
-
- try { super.onPressGameKeyEvent(gameKeyEvent);
+        }
     
 
-                        if(this.timeHelper!.isTimeTNT())
-                        
-                                    {
-                                    this.processInputList();
-    
-this.gameCommandCanvas!.repaintBehavior!.onChangeRepaint(this.getCanvas());
-    
-
-                                    }
-                                
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.gameInputStrings!.ON_PRESS_GAME_KEY, e);
+    public function ImmediateCommandFormInputProcessor(gameKeyEventList:BasicArrayList, playerInputId:int, gameCommandCanvas:GameCommandCanvas, form:ScrollSelectionForm) {
+        super(gameKeyEventList, playerInputId, gameCommandCanvas, form);
+        this.initFieldsImmediateCommandFormInputProcessor();
+        this.gameCommandCanvas = gameCommandCanvas;
+    }
     
 
- }
-   }
- 
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public onDownGameKeyEvent(gameKeyEvent: GameKeyEvent){
-
- try { super.onDownGameKeyEvent(gameKeyEvent);
+    override public function onPressGameKeyEvent(gameKeyEvent:GameKeyEvent):void {
+        try {
+            super.onPressGameKeyEvent(gameKeyEvent);
+            if (this.timeHelper.isTimeTNT()) {
+                this.processInputList();
+                this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
+            }
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.ON_PRESS_GAME_KEY, e);
+        }
+    }
     
 
-                        if(this.timeHelper!.isTimeTNT())
-                        
-                                    {
-                                    this.processInputList();
-    
-this.gameCommandCanvas!.repaintBehavior!.onChangeRepaint(this.getCanvas());
-    
-
-                                    }
-                                
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.gameInputStrings!.ON_DOWN_GAME_KEY, e);
+    override public function onDownGameKeyEvent(gameKeyEvent:GameKeyEvent):void {
+        try {
+            super.onDownGameKeyEvent(gameKeyEvent);
+            if (this.timeHelper.isTimeTNT()) {
+                this.processInputList();
+                this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
+            }
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.ON_DOWN_GAME_KEY, e);
+        }
+    }
     
 
- }
-   }
- 
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public onUpGameKeyEvent(gameKeyEvent: GameKeyEvent){
-
- try { super.onUpGameKeyEvent(gameKeyEvent);
+    override public function onUpGameKeyEvent(gameKeyEvent:GameKeyEvent):void {
+        try {
+            super.onUpGameKeyEvent(gameKeyEvent);
+            if (this.timeHelper.isTimeTNT()) {
+                this.processInputList();
+                this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
+            }
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.gameInputStrings.ON_UP_GAME_KEY, e);
+        }
+    }
     
 
-                        if(this.timeHelper!.isTimeTNT())
-                        
-                                    {
-                                    this.processInputList();
-    
-this.gameCommandCanvas!.repaintBehavior!.onChangeRepaint(this.getCanvas());
-    
-
-                                    }
-                                
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.gameInputStrings!.ON_UP_GAME_KEY, e);
-    
-
- }
-   }
- 
-}
-
-
-    public onMotionGestureEvent(motionGestureEvent: MotionGestureEvent){
-
- try { super.onMotionGestureEvent(motionGestureEvent);
-    
-
-                        if(this.timeHelper!.isTimeTNT())
-                        
-                                    {
-                                    this.processInputList();
-    
-this.gameCommandCanvas!.repaintBehavior!.onChangeRepaint(this.getCanvas());
-    
-
-                                    }
-                                
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "onMotionGestureEvent", e);
-    
-
- }
-   }
- 
-}
-
-
+    override public function onMotionGestureEvent(motionGestureEvent:MotionGestureEvent):void {
+        try {
+            super.onMotionGestureEvent(motionGestureEvent);
+            if (this.timeHelper.isTimeTNT()) {
+                this.processInputList();
+                this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
+            }
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "onMotionGestureEvent", e);
+        }
+    }
+    }
 }
 

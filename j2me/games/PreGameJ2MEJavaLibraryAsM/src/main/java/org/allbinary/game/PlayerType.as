@@ -1,96 +1,53 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game {
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PlayerType {
+        private var id:int = 0;
+        private var name:String = null;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class PlayerType
-            extends Object
-         {
-        
-
-    private id: number;
-
-    private name: string = StringUtil.getInstance()!.EMPTY_STRING;
-
- constructor (name: string, value: number){
-
-            super();
-        this.name= name;
+        // Java field initializers run after the base constructor
+        private function initFieldsPlayerType():void {
     
-this.id= value;
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+        }
     
-}
 
-
-    public getId(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.id;
+    public function PlayerType(name:String, value:int) {
+        super();
+        this.initFieldsPlayerType();
+        this.name = name;
+        this.id = value;
+    }
     
-}
 
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.name;
+    public function getId():int {
+        return this.id;
+    }
     
-}
 
-
-    public toString(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getName();;
+    public function getName():String {
+        return this.name;
+    }
     
-}
 
-
+    public function toString():String {
+        return this.getName();
+    }
+    }
 }
 

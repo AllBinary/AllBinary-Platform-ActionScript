@@ -1,72 +1,40 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.midlet {
+    import org.allbinary.canvas.Processor;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class MidletExitProcessor extends Processor {
+        private var midlet:MIDlet = null;
 
-        
-
-
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-            import { System } from '../../../java/lang/System.js';
-        
-import { MIDlet } from '../../../javax/microedition/midlet/MIDlet.js';
-//not GWT import const MIDlet
-
-import { Processor } from '../../../org/allbinary/canvas/Processor.js';
-//not GWT import const Processor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class MidletExitProcessor extends Processor {
-        
-
-    private readonly midlet: MIDlet;
-
-public constructor (midlet: MIDlet){
-
-            super();
-        this.midlet= midlet;
+        // Java field initializers run after the base constructor
+        private function initFieldsMidletExitProcessor():void {
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public process(){
-System.exit(0);
+        }
     
-}
 
+    public function MidletExitProcessor(midlet:MIDlet) {
+        super();
+        this.initFieldsMidletExitProcessor();
+        this.midlet = midlet;
+    }
+    
 
+    override public function process():void {
+        JSystem.exit(0);
+    }
+    }
 }
 

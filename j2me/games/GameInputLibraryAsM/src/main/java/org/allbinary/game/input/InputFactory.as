@@ -1,165 +1,88 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class InputFactory {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!InputFactory.instance_set) {
+            InputFactory.instance_set = true;
+            InputFactory.instance_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return InputFactory.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var commonStrings:CommonStrings = null;
+        public var KEY_CODE_LABEL:String = null;
+        public var DEVICE_ID_LABEL:String = null;
+        public var MAX:int = 0;
+        public var inputIntegerArray:Vector.<Input> = null;
+        public var NO_INPUT:Input = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { SmallIntegerSingletonFactory } from '../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
-//not GWT import const SmallIntegerSingletonFactory
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Input } from './Input.js';
-//sameFolderImports - not GWT import - same folder const Input
-
-export class InputFactory
-            extends Object
-         {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): InputFactory{
-
-                        if(InputFactory.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    InputFactory.instance= new InputFactory();
+        // Java field initializers run after the base constructor
+        private function initFieldsInputFactory():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.KEY_CODE_LABEL = "KeyCode: ";
+    this.DEVICE_ID_LABEL = "DeviceId: ";
+    this.MAX = SmallIntegerSingletonFactory.getInstance().getMin();
+    this.inputIntegerArray = new Vector.<Input>(this.MAX);
+    this.NO_INPUT = new Input(0, this.commonStrings.UNKNOWN);
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return InputFactory.instance as InputFactory;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    public readonly KEY_CODE_LABEL: string = "KeyCode: ";
-
-    public readonly DEVICE_ID_LABEL: string = "DeviceId: ";
-
-    public readonly MAX: number = SmallIntegerSingletonFactory.getInstance()!.getMin()!;
-
-    readonly inputIntegerArray: Input[] = new Array(this.MAX);
-
-    public readonly NO_INPUT: Input = new Input(0, this.commonStrings!.UNKNOWN);
-
-private constructor (){
-
-            super();
-        
-    let size: number = this.inputIntegerArray!.length
-                ;;
+    public static function getInstance():InputFactory {
+        if (InputFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            InputFactory.instance = new InputFactory();
+        }
+        return (InputFactory.instance as InputFactory);
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-this.inputIntegerArray[index]= this.NO_INPUT;
-    
-}
-
-}
-
-
-    public add(id: number, input: Input){
-this.inputIntegerArray[id]= input;
-    
-}
-
-
-    public getInstanceById(id: number): Input{
-
-                        if(id < 0)
-                        
-                                    {
-                                    id=  -id;
+    public function InputFactory() {
+        super();
+        this.initFieldsInputFactory();
+        var size:int = this.inputIntegerArray.length;
+        for (var index:int = 0; index < size; index++) {
+            this.inputIntegerArray[index] = this.NO_INPUT;
+        }
+    }
     
 
-                                    }
-                                
-
-                        if(id > this.inputIntegerArray!.length)
-                        
-                                    {
-                                    this.logUtil!.putF(new StringMaker().append("Warning id: ")!.appendint(id)!.toString(), this, this.commonStrings!.GET_INSTANCE);
+    public function add(id:int, input:Input):void {
+        this.inputIntegerArray[id] = input;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.NO_INPUT;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.inputIntegerArray[id]!;
-    
-}
-
-
+    public function getInstanceById(id:int):Input {
+        if (id < 0) {
+            id = -id;
+        }
+        if (id > this.inputIntegerArray.length) {
+            this.logUtil.putF(new StringMaker().append("Warning id: ").appendint(id).toString(), this, this.commonStrings.GET_INSTANCE);
+            return this.NO_INPUT;
+        }
+        return this.inputIntegerArray[id];
+    }
+    }
 }
 

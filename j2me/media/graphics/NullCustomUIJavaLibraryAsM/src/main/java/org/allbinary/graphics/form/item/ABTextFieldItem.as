@@ -1,111 +1,58 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form.item {
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.util.visitor.Visitor;
 
-        /* Generated Code Do Not Modify */
+    public class ABTextFieldItem extends ABTextItem {
+        private var font:Font = null;
 
-        
-
-
-import { Canvas } from '../../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { Font } from '../../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { Visitor } from '../../../../../org/allbinary/logic/util/visitor/Visitor.js';
-//not GWT import const Visitor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ABTextItem } from './ABTextItem.js';
-//sameFolderImports - not GWT import - same folder const ABTextItem
-
-export class ABTextFieldItem extends ABTextItem {
-        
-
-    private font: Font;
-
-public constructor (canvas: Canvas, visitor: Visitor, label: string, value: string, maxSize: number, layout: number, altText: string, font: Font, backgroundBasicColor: BasicColor, foregroundBasicColor: BasicColor){
-            super(label, layout, altText, backgroundBasicColor, foregroundBasicColor);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.font= font;
+        // Java field initializers run after the base constructor
+        private function initFieldsABTextFieldItem():void {
     
-}
-
-
-    public getLabel(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StringUtil.getInstance()!.EMPTY_STRING;
+        }
     
-}
 
-
-    public setLabel(label: string){
-}
-
-
-    public getString(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StringUtil.getInstance()!.EMPTY_STRING;
+    public function ABTextFieldItem(canvas:Canvas, visitor:Visitor, label:String, value:String, maxSize:int, layout:int, altText:String, font:Font, backgroundBasicColor:BasicColor, foregroundBasicColor:BasicColor) {
+        super(label, layout, altText, backgroundBasicColor, foregroundBasicColor);
+        this.initFieldsABTextFieldItem();
+        this.font = font;
+    }
     
-}
 
-
-    public setString(string: string){
-}
-
-
-    public setFocus(state: boolean){
-}
-
-
-    public getFontHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.font.getHeight();;
+    override public function getLabel():String {
+        return StringUtil.getInstance().EMPTY_STRING;
+    }
     
-}
 
+    override public function setLabel(label:String):void {
+    }
+    
 
-    public setBackgroundBasicColorP(basicColor: BasicColor){
-}
+    public function getString():String {
+        return StringUtil.getInstance().EMPTY_STRING;
+    }
+    
 
+    public function setString(string:String):void {
+    }
+    
 
-    public setForegroundBasicColorP(basicColor: BasicColor){
-}
+    public function setFocus(state:Boolean):void {
+    }
+    
 
+    public function getFontHeight():int {
+        return this.font.getHeight();
+    }
+    
 
+    public function setBackgroundBasicColorP(basicColor:BasicColor):void {
+    }
+    
+
+    public function setForegroundBasicColorP(basicColor:BasicColor):void {
+    }
+    }
 }
 

@@ -1,149 +1,77 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.graphics.Anchor;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TopToBottomImageAnimation extends ImageSegmentAnimation {
+        private var currentHeight:int = 0;
+        private var anchor:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { Sprite } from '../../../../javax/microedition/lcdui/game/Sprite.js';
-//not GWT import const Sprite
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageSegmentAnimation } from './ImageSegmentAnimation.js';
-//sameFolderImports - not GWT import - same folder const ImageSegmentAnimation
-
-export class TopToBottomImageAnimation extends ImageSegmentAnimation {
-        
-
-    private currentHeight: number;
-
-public constructor (image: Image, sequenceArray: number[], animationBehavior: AnimationBehavior){
-            super(image, sequenceArray, animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.currentHeight= 0;
+        // Java field initializers run after the base constructor
+        private function initFieldsTopToBottomImageAnimation():void {
+    
+    this.anchor = Anchor.TOP_LEFT;
+        }
     
 
-                        if(this.getSequence()[0] ==  -1)
-                        
-                                    {
-                                    this.setFrame(this.getSize() -1);
+    public function TopToBottomImageAnimation(image:Image, sequenceArray:Vector.<int>, animationBehavior:AnimationBehavior) {
+        super(image, sequenceArray, animationBehavior);
+        this.initFieldsTopToBottomImageAnimation();
+        this.currentHeight = 0;
+        if (this.getSequence()[0] == -1) {
+            this.setFrame(this.getSize() - 1);
+        }
+    }
     
 
-                                    }
-                                
-}
-
-
-    public nextFrame(){
-
-                        if(this.getSequence()[0] ==  -1)
-                        
-                                    {
-                                    super.previousFrame();
+    override public function nextFrame():void {
+        if (this.getSequence()[0] == -1) {
+            super.previousFrame();
+        } else {
+            super.nextFrame();
+        }
+        this.update();
+    }
     
 
-                                    }
-                                
-                        else {
-                            super.nextFrame();
+    override public function previousFrame():void {
+        if (this.getSequence()[0] == -1) {
+            super.nextFrame();
+        } else {
+            super.previousFrame();
+        }
+        this.update();
+    }
     
 
-                        }
-                            
-this.update();
-    
-}
-
-
-    public previousFrame(){
-
-                        if(this.getSequence()[0] ==  -1)
-                        
-                                    {
-                                    super.nextFrame();
+    override public function setFrame(index:int):void {
+        super.setFrame(index);
+        this.update();
+    }
     
 
-                                    }
-                                
-                        else {
-                            super.previousFrame();
+    private function update():void {
+        this.currentHeight = this.getDrawHeight() * this.getFrame() / this.getSize();
+    }
     
 
-                        }
-                            
-this.update();
-    
-}
-
-
-    public setFrame(index: number){
-super.setFrame(index);
-    
-this.update();
-    
-}
-
-
-    update(){
-this.currentHeight= this.getDrawHeight() *this.getFrame() /this.getSize();
-    
-}
-
-
-    private anchor: number = Anchor.TOP_LEFT;
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-graphics.drawRegion(this.getImage(), this.getStartX(), this.getStartY(), this.getDrawWidth(), this.currentHeight, Sprite.TRANS_NONE, x, y, this.anchor);
-    
-}
-
-
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        graphics.drawRegion(this.getImage(), this.getStartX(), this.getStartY(), this.getDrawWidth(), this.currentHeight, Sprite.TRANS_NONE, x, y, this.anchor);
+    }
+    }
 }
 

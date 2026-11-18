@@ -1,769 +1,542 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.opengles {
+    import com.jogamp.opengl.glu.GLU;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    //JOGLEToKhronosGL10
+    public class JOGL10 implements GL10 {
+        public var RED:String = null;
+        public var GREEN:String = null;
+        public var BLUE:String = null;
+        public var ALPHA:String = null;
+        public var PNAME:String = null;
+        public var _PNAME:String = null;
+        public var PARAM:String = null;
+        public var PARAMS:String = null;
+        public var LIGHT:String = null;
+        public var FACE:String = null;
+        public var TARGET:String = null;
+        private var gl10:GL2 = null;
+        public var glu:GLU = null;
+        public var GL_LINE:int = 0;
+        public var GL_QUAD_STRIP:int = 0;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-import { GLU } from '../../../com/jogamp/opengl/glu/GLU.js';
-//not GWT import const GLU
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GL10 } from './GL10.js';
-//sameFolderImports - not GWT import - same folder const GL10
-import { GL2 } from './GL2.js';
-//sameFolderImports - not GWT import - same folder const GL2
-import { GL } from './GL.js';
-//sameFolderImports - not GWT import - same folder const GL
-import { Buffer } from './Buffer.js';
-//sameFolderImports - not GWT import - same folder const Buffer
-import { IntBuffer } from './IntBuffer.js';
-//sameFolderImports - not GWT import - same folder const IntBuffer
-import { FloatBuffer } from './FloatBuffer.js';
-//sameFolderImports - not GWT import - same folder const FloatBuffer
-//JOGLEToKhronosGL10
-export class JOGL10
-            extends Object
-         implements javax.microedition.khronos.opengles.GL10 {
-        
-
-    readonly RED: string = "red: ";
-
-    readonly GREEN: string = " green: ";
-
-    readonly BLUE: string = " blue: ";
-
-    readonly ALPHA: string = " alpha: ";
-
-    readonly PNAME: string = "pname: ";
-
-    readonly _PNAME: string = " pname: ";
-
-    readonly PARAM: string = " param: ";
-
-    readonly PARAMS: string = " params: ";
-
-    readonly LIGHT: string = "light: ";
-
-    readonly FACE: string = "face: ";
-
-    readonly TARGET: string = "target: ";
-
-    private readonly gl10: com.jogamp.opengl.GL2;
-
-    public readonly glu: GLU;
-
-    public readonly GL_LINE: number;
-
-    public readonly GL_QUAD_STRIP: number;
-
-public constructor (gl: com.jogamp.opengl.GL, gl2: com.jogamp.opengl.GL2){
-
-            super();
-        this.gl10= gl2;
+        // Java field initializers run after the base constructor
+        private function initFieldsJOGL10():void {
+    this.RED = "red: ";
+    this.GREEN = " green: ";
+    this.BLUE = " blue: ";
+    this.ALPHA = " alpha: ";
+    this.PNAME = "pname: ";
+    this._PNAME = " pname: ";
+    this.PARAM = " param: ";
+    this.PARAMS = " params: ";
+    this.LIGHT = "light: ";
+    this.FACE = "face: ";
+    this.TARGET = "target: ";
     
-this.glu= GLU.createGLU(this.gl10);
     
-this.GL_LINE= com.jogamp.opengl.GL2.GL_LINE;
     
-this.GL_QUAD_STRIP= com.jogamp.opengl.GL2.GL_QUAD_STRIP;
     
-}
-
-
-    public getJOGLGL(): com.jogamp.opengl.GL2{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gl10;
+        }
     
-}
 
-
-    public glActiveTexture(texture: number){
-this.gl10.glActiveTexture(texture);
+    public function JOGL10(gl:GL, gl2:GL2) {
+        super();
+        this.initFieldsJOGL10();
+        this.gl10 = gl2;
+        this.glu = GLU.createGLU(this.gl10);
+        this.GL_LINE = com.jogamp.opengl.GL2.GL_LINE;
+        this.GL_QUAD_STRIP = com.jogamp.opengl.GL2.GL_QUAD_STRIP;
+    }
     
-}
-
 
-    public glAlphaFunc(func: number, ref: number){
-this.gl10.glAlphaFunc(func, ref);
+    public function getJOGLGL():GL2 {
+        return this.gl10;
+    }
     
-}
 
-
-    public glBindTexture(target: number, texture: number){
-this.gl10.glBindTexture(target, texture);
+    public function glActiveTexture(texture:int):void {
+        this.gl10.glActiveTexture(texture);
+    }
     
-}
-
 
-    public glBlendFunc(sfactor: number, dfactor: number){
-this.gl10.glBlendFunc(sfactor, dfactor);
+    public function glAlphaFunc(func:int, ref:Number):void {
+        this.gl10.glAlphaFunc(func, ref);
+    }
     
-}
 
-
-    public glClear(mask: number){
-this.gl10.glClear(mask);
+    public function glBindTexture(target:int, texture:int):void {
+        this.gl10.glBindTexture(target, texture);
+    }
     
-}
-
 
-    public glClearColor(red: number, green: number, blue: number, alpha: number){
-this.gl10.glClearColor(red, green, blue, alpha);
+    public function glBlendFunc(sfactor:int, dfactor:int):void {
+        this.gl10.glBlendFunc(sfactor, dfactor);
+    }
     
-}
 
-
-    public glClearDepthf(depth: number){
-this.gl10.glClearDepthf(depth);
+    public function glClear(mask:int):void {
+        this.gl10.glClear(mask);
+    }
     
-}
-
 
-    public glClearStencil(s: number){
-this.gl10.glClearStencil(s);
+    public function glClearColor(red:Number, green:Number, blue:Number, alpha:Number):void {
+        this.gl10.glClearColor(red, green, blue, alpha);
+    }
     
-}
 
-
-    public glClientActiveTexture(texture: number){
-this.gl10.glClientActiveTexture(texture);
+    public function glClearDepthf(depth:Number):void {
+        this.gl10.glClearDepthf(depth);
+    }
     
-}
-
 
-    public glColor4f(red: number, green: number, blue: number, alpha: number){
-this.gl10.glColor4f(red, green, blue, alpha);
+    public function glClearStencil(s:int):void {
+        this.gl10.glClearStencil(s);
+    }
     
-}
 
-
-    public glColorMask(red: boolean, green: boolean, blue: boolean, alpha: boolean){
-this.gl10.glColorMask(red, green, blue, alpha);
+    public function glClientActiveTexture(texture:int):void {
+        this.gl10.glClientActiveTexture(texture);
+    }
     
-}
-
 
-    public glColorPointer(size: number, type: number, stride: number, pointer: java.nio.Buffer){
-this.gl10.glColorPointer(size, type, stride, pointer);
+    public function glColor4f(red:Number, green:Number, blue:Number, alpha:Number):void {
+        this.gl10.glColor4f(red, green, blue, alpha);
+    }
     
-}
 
-
-    public glCompressedTexImage2D(target: number, level: number, internalformat: number, width: number, height: number, border: number, imageSize: number, data: java.nio.Buffer){
-this.gl10.glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
+    public function glColorMask(red:Boolean, green:Boolean, blue:Boolean, alpha:Boolean):void {
+        this.gl10.glColorMask(red, green, blue, alpha);
+    }
     
-}
-
 
-    public glCompressedTexSubImage2D(target: number, level: number, xoffset: number, yoffset: number, width: number, height: number, format: number, imageSize: number, data: java.nio.Buffer){
-this.gl10.glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
+    public function glColorPointer(size:int, type:int, stride:int, pointer:Buffer):void {
+        this.gl10.glColorPointer(size, type, stride, pointer);
+    }
     
-}
 
-
-    public glCopyTexImage2D(target: number, level: number, internalformat: number, x: number, y: number, width: number, height: number, border: number){
-this.gl10.glCopyTexImage2D(target, level, internalformat, x, y, width, height, border);
+    public function glCompressedTexImage2D(target:int, level:int, internalformat:int, width:int, height:int, border:int, imageSize:int, data:Buffer):void {
+        this.gl10.glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
+    }
     
-}
-
 
-    public glCopyTexSubImage2D(target: number, level: number, xoffset: number, yoffset: number, x: number, y: number, width: number, height: number){
-this.gl10.glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
+    public function glCompressedTexSubImage2D(target:int, level:int, xoffset:int, yoffset:int, width:int, height:int, format:int, imageSize:int, data:Buffer):void {
+        this.gl10.glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
+    }
     
-}
 
-
-    public glCullFace(mode: number){
-this.gl10.glCullFace(mode);
+    public function glCopyTexImage2D(target:int, level:int, internalformat:int, x:int, y:int, width:int, height:int, border:int):void {
+        this.gl10.glCopyTexImage2D(target, level, internalformat, x, y, width, height, border);
+    }
     
-}
 
-glDeleteTextures(...args: any[]): any {
-   
-   
-    if (args.length === 3 && typeof args[0] === 'number' && typeof args[2] === 'number') return this.glDeleteTextures$overload1(args[0], args[1], args[2]);
-   
-    if (args.length === 2 && typeof args[0] === 'number') return this.glDeleteTextures$overload2(args[0], args[1]);
-   
-   throw new TypeError('No matching overload: glDeleteTextures'); }
-  
-    public glDeleteTextures$overload1(n: number, textures: number[], offset: number){
-this.gl10.glDeleteTextures(n, textures, offset);
+    public function glCopyTexSubImage2D(target:int, level:int, xoffset:int, yoffset:int, x:int, y:int, width:int, height:int):void {
+        this.gl10.glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
+    }
     
-}
-
 
-    public glDeleteTextures$overload2(n: number, textures: java.nio.IntBuffer){
-this.gl10.glDeleteTextures(n, textures);
+    public function glCullFace(mode:int):void {
+        this.gl10.glCullFace(mode);
+    }
     
-}
 
-
-    public glDepthFunc(func: number){
-this.gl10.glDepthFunc(func);
+    public function glDeleteTextures(n:int, textures:Vector.<int>, offset:int):void {
+        this.gl10.glDeleteTextures(n, textures, offset);
+    }
     
-}
-
 
-    public glDepthMask(flag: boolean){
-this.gl10.glDepthMask(flag);
+    public function glDeleteTextures(n:int, textures:IntBuffer):void {
+        this.gl10.glDeleteTextures(n, textures);
+    }
     
-}
 
-
-    public glDepthRangef(zNear: number, zFar: number){
-this.gl10.glDepthRangef(zNear, zFar);
+    public function glDepthFunc(func:int):void {
+        this.gl10.glDepthFunc(func);
+    }
     
-}
-
 
-    public glDisable(cap: number){
-this.gl10.glDisable(cap);
+    public function glDepthMask(flag:Boolean):void {
+        this.gl10.glDepthMask(flag);
+    }
     
-}
 
-
-    public glDisableClientState(array: number){
-this.gl10.glDisableClientState(array);
+    public function glDepthRangef(zNear:Number, zFar:Number):void {
+        this.gl10.glDepthRangef(zNear, zFar);
+    }
     
-}
 
-
-    public glDrawArrays(mode: number, first: number, count: number){
-this.gl10.glDrawArrays(mode, first, count);
+    public function glDisable(cap:int):void {
+        this.gl10.glDisable(cap);
+    }
     
-}
-
 
-    public glDrawElements(mode: number, count: number, type: number, indices: java.nio.Buffer){
-this.gl10.glDrawElements(mode, count, type, indices);
+    public function glDisableClientState(array:int):void {
+        this.gl10.glDisableClientState(array);
+    }
     
-}
 
-
-    public glEnable(cap: number){
-this.gl10.glEnable(cap);
+    public function glDrawArrays(mode:int, first:int, count:int):void {
+        this.gl10.glDrawArrays(mode, first, count);
+    }
     
-}
-
 
-    public glEnableClientState(array: number){
-this.gl10.glEnableClientState(array);
+    public function glDrawElements(mode:int, count:int, type:int, indices:Buffer):void {
+        this.gl10.glDrawElements(mode, count, type, indices);
+    }
     
-}
 
-
-    public glFinish(){
-this.gl10.glFinish();
+    public function glEnable(cap:int):void {
+        this.gl10.glEnable(cap);
+    }
     
-}
-
 
-    public glFlush(){
-this.gl10.glFlush();
+    public function glEnableClientState(array:int):void {
+        this.gl10.glEnableClientState(array);
+    }
     
-}
 
-
-    public glFogf(pname: number, param: number){
-this.gl10.glFogf(pname, param);
+    public function glFinish():void {
+        this.gl10.glFinish();
+    }
     
-}
 
-glFogfv(...args: any[]): any {
-   
-   
-    if (args.length === 3 && typeof args[0] === 'number' && typeof args[2] === 'number') return this.glFogfv$overload1(args[0], args[1], args[2]);
-   
-    if (args.length === 2 && typeof args[0] === 'number') return this.glFogfv$overload2(args[0], args[1]);
-   
-   throw new TypeError('No matching overload: glFogfv'); }
-  
-    public glFogfv$overload1(pname: number, params: number[], offset: number){
-this.gl10.glFogfv(pname, params, offset);
+    public function glFlush():void {
+        this.gl10.glFlush();
+    }
     
-}
-
 
-    public glFogfv$overload2(pname: number, params: java.nio.FloatBuffer){
-this.gl10.glFogfv(pname, params);
+    public function glFogf(pname:int, param:Number):void {
+        this.gl10.glFogf(pname, param);
+    }
     
-}
 
-
-    public glFrontFace(mode: number){
-this.gl10.glFrontFace(mode);
+    public function glFogfv(pname:int, params:Vector.<Number>, offset:int):void {
+        this.gl10.glFogfv(pname, params, offset);
+    }
     
-}
-
 
-    public glFrustumf(left: number, right: number, bottom: number, top: number, zNear: number, zFar: number){
-this.gl10.glFrustumf(left, right, bottom, top, zNear, zFar);
+    public function glFogfv(pname:int, params:FloatBuffer):void {
+        this.gl10.glFogfv(pname, params);
+    }
     
-}
 
-glGenTextures(...args: any[]): any {
-   
-   
-    if (args.length === 3 && typeof args[0] === 'number' && typeof args[2] === 'number') return this.glGenTextures$overload1(args[0], args[1], args[2]);
-   
-    if (args.length === 2 && typeof args[0] === 'number') return this.glGenTextures$overload2(args[0], args[1]);
-   
-   throw new TypeError('No matching overload: glGenTextures'); }
-  
-    public glGenTextures$overload1(n: number, textures: number[], offset: number){
-this.gl10.glGenTextures(n, textures, offset);
+    public function glFrontFace(mode:int):void {
+        this.gl10.glFrontFace(mode);
+    }
     
-}
 
-
-    public glGenTextures$overload2(n: number, textures: java.nio.IntBuffer){
-this.gl10.glGenTextures(n, textures);
+    public function glFrustumf(left:Number, right:Number, bottom:Number, top:Number, zNear:Number, zFar:Number):void {
+        this.gl10.glFrustumf(left, right, bottom, top, zNear, zFar);
+    }
     
-}
-
-
-    public glGetError(): number{
-
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gl10.glGetError();;
+    public function glGenTextures(n:int, textures:Vector.<int>, offset:int):void {
+        this.gl10.glGenTextures(n, textures, offset);
+    }
     
-}
 
-glGetIntegerv(...args: any[]): any {
-   
-   
-    if (args.length === 3 && typeof args[0] === 'number' && typeof args[2] === 'number') return this.glGetIntegerv$overload1(args[0], args[1], args[2]);
-   
-    if (args.length === 2 && typeof args[0] === 'number') return this.glGetIntegerv$overload2(args[0], args[1]);
-   
-   throw new TypeError('No matching overload: glGetIntegerv'); }
-  
-    public glGetIntegerv$overload1(pname: number, params: number[], offset: number){
-this.gl10.glGetIntegerv(pname, params, offset);
+    public function glGenTextures(n:int, textures:IntBuffer):void {
+        this.gl10.glGenTextures(n, textures);
+    }
     
-}
-
 
-    public glGetIntegerv$overload2(pname: number, params: java.nio.IntBuffer){
-this.gl10.glGetIntegerv(pname, params);
+    public function glGetError():int {
+        return this.gl10.glGetError();
+    }
     
-}
-
-
-    public glGetString(name: number): string{
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gl10.glGetString(name);;
+    public function glGetIntegerv(pname:int, params:Vector.<int>, offset:int):void {
+        this.gl10.glGetIntegerv(pname, params, offset);
+    }
     
-}
 
-
-    public glHint(target: number, mode: number){
-this.gl10.glHint(target, mode);
+    public function glGetIntegerv(pname:int, params:IntBuffer):void {
+        this.gl10.glGetIntegerv(pname, params);
+    }
     
-}
-
 
-    public glLightModelf(pname: number, param: number){
-this.gl10.glLightModelf(pname, param);
+    public function glGetString(name:int):String {
+        return this.gl10.glGetString(name);
+    }
     
-}
 
-glLightModelfv(...args: any[]): any {
-   
-   
-    if (args.length === 3 && typeof args[0] === 'number' && typeof args[2] === 'number') return this.glLightModelfv$overload1(args[0], args[1], args[2]);
-   
-    if (args.length === 2 && typeof args[0] === 'number') return this.glLightModelfv$overload2(args[0], args[1]);
-   
-   throw new TypeError('No matching overload: glLightModelfv'); }
-  
-    public glLightModelfv$overload1(pname: number, params: number[], offset: number){
-this.gl10.glLightModelfv(pname, params, offset);
+    public function glHint(target:int, mode:int):void {
+        this.gl10.glHint(target, mode);
+    }
     
-}
 
-
-    public glLightModelfv$overload2(pname: number, params: java.nio.FloatBuffer){
-this.gl10.glLightModelfv(pname, params);
+    public function glLightModelf(pname:int, param:Number):void {
+        this.gl10.glLightModelf(pname, param);
+    }
     
-}
-
 
-    public glLightf(light: number, pname: number, param: number){
-this.gl10.glLightf(light, pname, param);
+    public function glLightModelfv(pname:int, params:Vector.<Number>, offset:int):void {
+        this.gl10.glLightModelfv(pname, params, offset);
+    }
     
-}
 
-glLightfv(...args: any[]): any {
-   
-   
-    if (args.length === 4 && typeof args[0] === 'number' && typeof args[1] === 'number' && typeof args[3] === 'number') return this.glLightfv$overload1(args[0], args[1], args[2], args[3]);
-   
-    if (args.length === 3 && typeof args[0] === 'number' && typeof args[1] === 'number') return this.glLightfv$overload2(args[0], args[1], args[2]);
-   
-   throw new TypeError('No matching overload: glLightfv'); }
-  
-    public glLightfv$overload1(light: number, pname: number, params: number[], offset: number){
-this.gl10.glLightfv(light, pname, params, offset);
+    public function glLightModelfv(pname:int, params:FloatBuffer):void {
+        this.gl10.glLightModelfv(pname, params);
+    }
     
-}
 
-
-    public glLightfv$overload2(light: number, pname: number, params: java.nio.FloatBuffer){
-this.gl10.glLightfv(light, pname, params);
+    public function glLightf(light:int, pname:int, param:Number):void {
+        this.gl10.glLightf(light, pname, param);
+    }
     
-}
-
 
-    public glLineWidth(width: number){
-this.gl10.glLineWidth(width);
+    public function glLightfv(light:int, pname:int, params:Vector.<Number>, offset:int):void {
+        this.gl10.glLightfv(light, pname, params, offset);
+    }
     
-}
 
-
-    public glLoadIdentity(){
-this.gl10.glLoadIdentity();
+    public function glLightfv(light:int, pname:int, params:FloatBuffer):void {
+        this.gl10.glLightfv(light, pname, params);
+    }
     
-}
 
-glLoadMatrixf(...args: any[]): any {
-   
-   
-    if (args.length === 2 && typeof args[1] === 'number') return this.glLoadMatrixf$overload1(args[0], args[1]);
-   
-    if (args.length === 1) return this.glLoadMatrixf$overload2(args[0]);
-   
-   throw new TypeError('No matching overload: glLoadMatrixf'); }
-  
-    public glLoadMatrixf$overload1(m: number[], offset: number){
-this.gl10.glLoadMatrixf(m, offset);
+    public function glLineWidth(width:Number):void {
+        this.gl10.glLineWidth(width);
+    }
     
-}
-
 
-    public glLoadMatrixf$overload2(m: java.nio.FloatBuffer){
-this.gl10.glLoadMatrixf(m);
+    public function glLoadIdentity():void {
+        this.gl10.glLoadIdentity();
+    }
     
-}
 
-
-    public glLogicOp(opcode: number){
-this.gl10.glLogicOp(opcode);
+    public function glLoadMatrixf(m:Vector.<Number>, offset:int):void {
+        this.gl10.glLoadMatrixf(m, offset);
+    }
     
-}
-
 
-    public glMaterialf(face: number, pname: number, param: number){
-this.gl10.glMaterialf(face, pname, param);
+    public function glLoadMatrixf(m:FloatBuffer):void {
+        this.gl10.glLoadMatrixf(m);
+    }
     
-}
 
-glMaterialfv(...args: any[]): any {
-   
-   
-    if (args.length === 4 && typeof args[0] === 'number' && typeof args[1] === 'number' && typeof args[3] === 'number') return this.glMaterialfv$overload1(args[0], args[1], args[2], args[3]);
-   
-    if (args.length === 3 && typeof args[0] === 'number' && typeof args[1] === 'number') return this.glMaterialfv$overload2(args[0], args[1], args[2]);
-   
-   throw new TypeError('No matching overload: glMaterialfv'); }
-  
-    public glMaterialfv$overload1(face: number, pname: number, params: number[], offset: number){
-this.gl10.glMaterialfv(face, pname, params, offset);
+    public function glLogicOp(opcode:int):void {
+        this.gl10.glLogicOp(opcode);
+    }
     
-}
 
-
-    public glMaterialfv$overload2(face: number, pname: number, params: java.nio.FloatBuffer){
-this.gl10.glMaterialfv(face, pname, params);
+    public function glMaterialf(face:int, pname:int, param:Number):void {
+        this.gl10.glMaterialf(face, pname, param);
+    }
     
-}
-
 
-    public glMatrixMode(mode: number){
-this.gl10.glMatrixMode(mode);
+    public function glMaterialfv(face:int, pname:int, params:Vector.<Number>, offset:int):void {
+        this.gl10.glMaterialfv(face, pname, params, offset);
+    }
     
-}
 
-glMultMatrixf(...args: any[]): any {
-   
-   
-    if (args.length === 2 && typeof args[1] === 'number') return this.glMultMatrixf$overload1(args[0], args[1]);
-   
-    if (args.length === 1) return this.glMultMatrixf$overload2(args[0]);
-   
-   throw new TypeError('No matching overload: glMultMatrixf'); }
-  
-    public glMultMatrixf$overload1(m: number[], offset: number){
-this.gl10.glMultMatrixf(m, offset);
+    public function glMaterialfv(face:int, pname:int, params:FloatBuffer):void {
+        this.gl10.glMaterialfv(face, pname, params);
+    }
     
-}
 
-
-    public glMultMatrixf$overload2(m: java.nio.FloatBuffer){
-this.gl10.glMultMatrixf(m);
+    public function glMatrixMode(mode:int):void {
+        this.gl10.glMatrixMode(mode);
+    }
     
-}
 
-
-    public glMultiTexCoord4f(target: number, s: number, t: number, r: number, q: number){
-this.gl10.glMultiTexCoord4f(target, s, t, r, q);
+    public function glMultMatrixf(m:Vector.<Number>, offset:int):void {
+        this.gl10.glMultMatrixf(m, offset);
+    }
     
-}
-
 
-    public glNormal3f(nx: number, ny: number, nz: number){
-this.gl10.glNormal3f(nx, ny, nz);
+    public function glMultMatrixf(m:FloatBuffer):void {
+        this.gl10.glMultMatrixf(m);
+    }
     
-}
 
-
-    public glNormalPointer(type: number, stride: number, pointer: java.nio.Buffer){
-this.gl10.glNormalPointer(type, stride, pointer);
+    public function glMultiTexCoord4f(target:int, s:Number, t:Number, r:Number, q:Number):void {
+        this.gl10.glMultiTexCoord4f(target, s, t, r, q);
+    }
     
-}
-
 
-    public glOrthof(left: number, right: number, bottom: number, top: number, zNear: number, zFar: number){
-this.gl10.glOrthof(left, right, bottom, top, zNear, zFar);
+    public function glNormal3f(nx:Number, ny:Number, nz:Number):void {
+        this.gl10.glNormal3f(nx, ny, nz);
+    }
     
-}
 
-
-    public glPixelStorei(pname: number, param: number){
-this.gl10.glPixelStorei(pname, param);
+    public function glNormalPointer(type:int, stride:int, pointer:Buffer):void {
+        this.gl10.glNormalPointer(type, stride, pointer);
+    }
     
-}
-
 
-    public glPointSize(size: number){
-this.gl10.glPointSize(size);
+    public function glOrthof(left:Number, right:Number, bottom:Number, top:Number, zNear:Number, zFar:Number):void {
+        this.gl10.glOrthof(left, right, bottom, top, zNear, zFar);
+    }
     
-}
 
-
-    public glPolygonOffset(factor: number, units: number){
-this.gl10.glPolygonOffset(factor, units);
+    public function glPixelStorei(pname:int, param:int):void {
+        this.gl10.glPixelStorei(pname, param);
+    }
     
-}
-
 
-    public glPopMatrix(){
-this.gl10.glPopMatrix();
+    public function glPointSize(size:Number):void {
+        this.gl10.glPointSize(size);
+    }
     
-}
 
-
-    public glPushMatrix(){
-this.gl10.glPushMatrix();
+    public function glPolygonOffset(factor:Number, units:Number):void {
+        this.gl10.glPolygonOffset(factor, units);
+    }
     
-}
-
 
-    public glReadPixels(x: number, y: number, width: number, height: number, format: number, type: number, pixels: java.nio.Buffer){
-this.gl10.glReadPixels(x, y, width, height, format, type, pixels);
+    public function glPopMatrix():void {
+        this.gl10.glPopMatrix();
+    }
     
-}
 
-
-    public glRotatef(angle: number, x: number, y: number, z: number){
-this.gl10.glRotatef(angle, x, y, z);
+    public function glPushMatrix():void {
+        this.gl10.glPushMatrix();
+    }
     
-}
-
 
-    public glRotatex(angle: number, x: number, y: number, z: number){
-this.gl10.glRotatef(angle, x, y, z);
+    public function glReadPixels(x:int, y:int, width:int, height:int, format:int, type:int, pixels:Buffer):void {
+        this.gl10.glReadPixels(x, y, width, height, format, type, pixels);
+    }
     
-}
 
-
-    public glSampleCoverage(value: number, invert: boolean){
-this.gl10.glSampleCoverage(value, invert);
+    public function glRotatef(angle:Number, x:Number, y:Number, z:Number):void {
+        this.gl10.glRotatef(angle, x, y, z);
+    }
     
-}
-
 
-    public glScalef(x: number, y: number, z: number){
-this.gl10.glScalef(x, y, z);
+    public function glRotatex(angle:int, x:int, y:int, z:int):void {
+        this.gl10.glRotatef(angle, x, y, z);
+    }
     
-}
 
-
-    public glScalex(x: number, y: number, z: number){
-this.gl10.glScalef(x, y, z);
+    public function glSampleCoverage(value:Number, invert:Boolean):void {
+        this.gl10.glSampleCoverage(value, invert);
+    }
     
-}
-
 
-    public glScissor(x: number, y: number, width: number, height: number){
-this.gl10.glScissor(x, y, width, height);
+    public function glScalef(x:Number, y:Number, z:Number):void {
+        this.gl10.glScalef(x, y, z);
+    }
     
-}
 
-
-    public glShadeModel(mode: number){
-this.gl10.glShadeModel(mode);
+    public function glScalex(x:int, y:int, z:int):void {
+        this.gl10.glScalef(x, y, z);
+    }
     
-}
-
 
-    public glStencilFunc(func: number, ref: number, mask: number){
-this.gl10.glStencilFunc(func, ref, mask);
+    public function glScissor(x:int, y:int, width:int, height:int):void {
+        this.gl10.glScissor(x, y, width, height);
+    }
     
-}
 
-
-    public glStencilMask(mask: number){
-this.gl10.glStencilMask(mask);
+    public function glShadeModel(mode:int):void {
+        this.gl10.glShadeModel(mode);
+    }
     
-}
-
 
-    public glStencilOp(fail: number, zfail: number, zpass: number){
-this.gl10.glStencilOp(fail, zfail, zpass);
+    public function glStencilFunc(func:int, ref:int, mask:int):void {
+        this.gl10.glStencilFunc(func, ref, mask);
+    }
     
-}
 
-
-    public glTexCoordPointer(size: number, type: number, stride: number, pointer: java.nio.Buffer){
-this.gl10.glTexCoordPointer(size, type, stride, pointer);
+    public function glStencilMask(mask:int):void {
+        this.gl10.glStencilMask(mask);
+    }
     
-}
-
 
-    public glTexEnvf(target: number, pname: number, param: number){
-this.gl10.glTexEnvf(target, pname, param);
+    public function glStencilOp(fail:int, zfail:int, zpass:int):void {
+        this.gl10.glStencilOp(fail, zfail, zpass);
+    }
     
-}
 
-glTexEnvfv(...args: any[]): any {
-   
-   
-    if (args.length === 4 && typeof args[0] === 'number' && typeof args[1] === 'number' && typeof args[3] === 'number') return this.glTexEnvfv$overload1(args[0], args[1], args[2], args[3]);
-   
-    if (args.length === 3 && typeof args[0] === 'number' && typeof args[1] === 'number') return this.glTexEnvfv$overload2(args[0], args[1], args[2]);
-   
-   throw new TypeError('No matching overload: glTexEnvfv'); }
-  
-    public glTexEnvfv$overload1(target: number, pname: number, params: number[], offset: number){
-this.gl10.glTexEnvfv(target, pname, params, offset);
+    public function glTexCoordPointer(size:int, type:int, stride:int, pointer:Buffer):void {
+        this.gl10.glTexCoordPointer(size, type, stride, pointer);
+    }
     
-}
 
-
-    public glTexEnvfv$overload2(target: number, pname: number, params: java.nio.FloatBuffer){
-this.gl10.glTexEnvfv(target, pname, params);
+    public function glTexEnvf(target:int, pname:int, param:Number):void {
+        this.gl10.glTexEnvf(target, pname, param);
+    }
     
-}
-
 
-    public glTexImage2D(target: number, level: number, internalformat: number, width: number, height: number, border: number, format: number, type: number, pixels: java.nio.Buffer){
-this.gl10.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
+    public function glTexEnvfv(target:int, pname:int, params:Vector.<Number>, offset:int):void {
+        this.gl10.glTexEnvfv(target, pname, params, offset);
+    }
     
-}
 
-
-    public glTexParameterf(target: number, pname: number, param: number){
-this.gl10.glTexParameterf(target, pname, param);
+    public function glTexEnvfv(target:int, pname:int, params:FloatBuffer):void {
+        this.gl10.glTexEnvfv(target, pname, params);
+    }
     
-}
-
 
-    public glTexParameteri(target: number, pname: number, param: number){
-this.gl10.glTexParameteri(target, pname, param);
+    public function glTexImage2D(target:int, level:int, internalformat:int, width:int, height:int, border:int, format:int, type:int, pixels:Buffer):void {
+        this.gl10.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
+    }
     
-}
 
-
-    public glTexSubImage2D(target: number, level: number, xoffset: number, yoffset: number, width: number, height: number, format: number, type: number, pixels: java.nio.Buffer){
-this.gl10.glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
+    public function glTexParameterf(target:int, pname:int, param:Number):void {
+        this.gl10.glTexParameterf(target, pname, param);
+    }
     
-}
-
 
-    public glTranslatef(x: number, y: number, z: number){
-this.gl10.glTranslatef(x, y, z);
+    public function glTexParameteri(target:int, pname:int, param:int):void {
+        this.gl10.glTexParameteri(target, pname, param);
+    }
     
-}
 
-
-    public glVertexPointer(size: number, type: number, stride: number, pointer: java.nio.Buffer){
-this.gl10.glVertexPointer(size, type, stride, pointer);
+    public function glTexSubImage2D(target:int, level:int, xoffset:int, yoffset:int, width:int, height:int, format:int, type:int, pixels:Buffer):void {
+        this.gl10.glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
+    }
     
-}
-
 
-    public glViewport(x: number, y: number, width: number, height: number){
-this.gl10.glViewport(x, y, width, height);
+    public function glTranslatef(x:Number, y:Number, z:Number):void {
+        this.gl10.glTranslatef(x, y, z);
+    }
     
-}
 
-
-    public glBegin(i: number){
-this.gl10.glBegin(i);
+    public function glVertexPointer(size:int, type:int, stride:int, pointer:Buffer):void {
+        this.gl10.glVertexPointer(size, type, stride, pointer);
+    }
     
-}
-
 
-    public glEnd(){
-this.gl10.glEnd();
+    public function glViewport(x:int, y:int, width:int, height:int):void {
+        this.gl10.glViewport(x, y, width, height);
+    }
     
-}
 
-
-    public glVertex3f(f: number, f2: number, f3: number){
-this.gl10.glVertex3f(f, f2, f3);
+    public function glBegin(i:int):void {
+        this.gl10.glBegin(i);
+    }
     
-}
 
-
-    public glPolygonMode(i: number, i1: number){
-this.gl10.glPolygonMode(i, i1);
+    public function glEnd():void {
+        this.gl10.glEnd();
+    }
     
-}
 
+    public function glVertex3f(f:Number, f2:Number, f3:Number):void {
+        this.gl10.glVertex3f(f, f2, f3);
+    }
+    
 
+    public function glPolygonMode(i:int, i1:int):void {
+        this.gl10.glPolygonMode(i, i1);
+    }
+    }
 }
 

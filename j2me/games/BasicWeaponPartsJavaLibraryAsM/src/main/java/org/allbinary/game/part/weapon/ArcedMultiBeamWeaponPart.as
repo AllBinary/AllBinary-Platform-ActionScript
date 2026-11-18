@@ -1,127 +1,61 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.part.weapon {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.game.combat.weapon.WeaponProperties;
+    import org.allbinary.game.layer.weapon.WeaponLayer;
+    import org.allbinary.game.layer.weapon.WeaponLayerCircularPool;
+    import org.allbinary.game.score.ScoreableInterface;
+    import org.allbinary.graphics.RelativeRelationship;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
+    import org.allbinary.math.AngleFactory;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ArcedMultiBeamWeaponPart extends BasicWeaponPart {
+        private var weaponLayerCircularStaticPool:WeaponLayerCircularPool = null;
+        private var total:int = 0;
+        private var TOTAL_ANGLE:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Animation } from '../../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { WeaponProperties } from '../../../../../org/allbinary/game/combat/weapon/WeaponProperties.js';
-//not GWT import const WeaponProperties
-
-import { WeaponLayer } from '../../../../../org/allbinary/game/layer/weapon/WeaponLayer.js';
-//not GWT import const WeaponLayer
-
-import { WeaponLayerCircularPool } from '../../../../../org/allbinary/game/layer/weapon/WeaponLayerCircularPool.js';
-//not GWT import const WeaponLayerCircularPool
-
-import { ScoreableInterface } from '../../../../../org/allbinary/game/score/ScoreableInterface.js';
-//not GWT import const ScoreableInterface
-
-import { RelativeRelationship } from '../../../../../org/allbinary/graphics/RelativeRelationship.js';
-//not GWT import const RelativeRelationship
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-import { AngleFactory } from '../../../../../org/allbinary/math/AngleFactory.js';
-//not GWT import const AngleFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicWeaponPart } from './BasicWeaponPart.js';
-//sameFolderImports - not GWT import - same folder const BasicWeaponPart
-
-export class ArcedMultiBeamWeaponPart extends BasicWeaponPart {
-        
-
-    private readonly weaponLayerCircularStaticPool: WeaponLayerCircularPool;
-
-    private readonly total: number;
-
-public constructor (animationInterface: Animation, sourceLayerInterface: AllBinaryLayer, weaponLayerCircularStaticPool: WeaponLayerCircularPool, total: number, weaponProperties: WeaponProperties, scoreableInterface: ScoreableInterface, relativeRelationship: RelativeRelationship){
-            super(animationInterface, sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.total= total;
+        // Java field initializers run after the base constructor
+        private function initFieldsArcedMultiBeamWeaponPart():void {
     
-this.weaponLayerCircularStaticPool= weaponLayerCircularStaticPool;
     
-}
-
-
-    private readonly TOTAL_ANGLE: number = globalThis.Math.trunc(AngleFactory.getInstance()!.TOTAL_ANGLE);
-
-                //@Throws(Exception.constructor)
-            
-    public processScore(allbinaryLayerManager: AllBinaryLayerManager, angle: number, otherAngle: number, weaponProperties: WeaponProperties, scoreableInterface: ScoreableInterface){
-
-    let increment: number = (globalThis.Math.trunc((this.total -1) /this.TOTAL_ANGLE));;
+    this.TOTAL_ANGLE = AngleFactory.getInstance().TOTAL_ANGLE;
+        }
     
 
-    let minAngle: number = (angle -((increment *this.total)>>1));;
+    public function ArcedMultiBeamWeaponPart(animationInterface:Animation, sourceLayerInterface:AllBinaryLayer, weaponLayerCircularStaticPool:WeaponLayerCircularPool, total:int, weaponProperties:WeaponProperties, scoreableInterface:ScoreableInterface, relativeRelationship:RelativeRelationship) {
+        super(animationInterface, sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
+        this.initFieldsArcedMultiBeamWeaponPart();
+        this.total = total;
+        this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;
+    }
     
 
-    let next: number = 0;;
-    
-
-    let weaponLayer: WeaponLayer;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < this.total; index++)
-        {
-weaponLayer= this.weaponLayerCircularStaticPool!.getInstanceWeaponLayer(this.getOwnerLayerInterface(), this.relativeRelationship!.getX(), this.relativeRelationship!.getY(), 0, globalThis.Math.trunc((minAngle +increment)), globalThis.Math.trunc(otherAngle), weaponProperties, scoreableInterface);
-    
-allbinaryLayerManager!.append(weaponLayer);
-    
-next += increment;
-    
-}
-
-}
-
-
+    override public function processScore(allbinaryLayerManager:AllBinaryLayerManager, angle:int, otherAngle:int, weaponProperties:WeaponProperties, scoreableInterface:ScoreableInterface):void {
+        var increment:int = ((int((int((int(this.total - 1)) / this.TOTAL_ANGLE))) << 16) >> 16);
+        var minAngle:int = ((int((int(angle - ((int(increment * this.total)) >> 1)))) << 16) >> 16);
+        var next:int = 0;
+        var weaponLayer:WeaponLayer = null;
+        for (var index:int = 0; index < this.total; index++) {
+            weaponLayer = this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(this.getOwnerLayerInterface(), this.relativeRelationship.getX(), this.relativeRelationship.getY(), 0, (int(minAngle + increment)), otherAngle, weaponProperties, scoreableInterface);
+            allbinaryLayerManager.append(weaponLayer);
+            next += increment;
+        }
+    }
+    }
 }
 

@@ -1,88 +1,49 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.tracking {
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventListenerInterface;
+    import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventListenerInterface } from '../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
-//not GWT import const EventListenerInterface
-
-import { BasicEventHandler } from '../../../../org/allbinary/logic/util/event/handler/BasicEventHandler.js';
-//not GWT import const BasicEventHandler
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TrackingEventListenerInterface } from './TrackingEventListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const TrackingEventListenerInterface
-import { TrackingEvent } from './TrackingEvent.js';
-//sameFolderImports - not GWT import - same folder const TrackingEvent
-
-export class TrackingEventHandler extends BasicEventHandler {
-        
-
-    private static readonly instance: TrackingEventHandler = new TrackingEventHandler();
-
-    public static getInstance(): TrackingEventHandler{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return TrackingEventHandler.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class TrackingEventHandler extends BasicEventHandler {
+    private static var instance_value:TrackingEventHandler;
+    private static var instance_set:Boolean = false;
+    private static function get instance():TrackingEventHandler {
+        if (!TrackingEventHandler.instance_set) {
+            TrackingEventHandler.instance_set = true;
+            TrackingEventHandler.instance_value = new TrackingEventHandler();
         }
-
-
-                //@Throws(Exception.constructor)
-            
-    process(eventObject: AllBinaryEventObject, eventListenerInterface: EventListenerInterface){
-
-    let trackingEventListenerInterface: TrackingEventListenerInterface = eventListenerInterface as TrackingEventListenerInterface;;
+        return TrackingEventHandler.instance_value;
+    }
     
-trackingEventListenerInterface!.onMovement(eventObject as TrackingEvent);
+
+    public static function getInstance():TrackingEventHandler {
+        return TrackingEventHandler.instance;
+    }
     
-}
 
+    public function TrackingEventHandler() {
+        super();
+    }
+    
 
+    override public function process(eventObject:AllBinaryEventObject, eventListenerInterface:EventListenerInterface):void {
+        var trackingEventListenerInterface:TrackingEventListenerInterface = (eventListenerInterface as TrackingEventListenerInterface);
+        trackingEventListenerInterface.onMovement((eventObject as TrackingEvent));
+    }
+    }
 }
 

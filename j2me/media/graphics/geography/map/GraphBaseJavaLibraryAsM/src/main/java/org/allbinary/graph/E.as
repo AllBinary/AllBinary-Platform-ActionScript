@@ -1,46 +1,21 @@
+// Generated Code Do Not Modify
+package org.allbinary.graph {
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class E
-            extends Object
-         {
-        
-
-    private static readonly e: E = new E();
-
-    public newInstance(): E{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return E.e;
+    public class E {
+    private static var e_value:E;
+    private static var e_set:Boolean = false;
+    private static function get e():E {
+        if (!E.e_set) {
+            E.e_set = true;
+            E.e_value = new E();
+        }
+        return E.e_value;
+    }
     
-}
 
-
+    public function newInstance():E {
+        return E.e;
+    }
+    }
 }
 

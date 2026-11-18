@@ -1,128 +1,55 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics.displayable {
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DisplayInfoSingleton } from './DisplayInfoSingleton.js';
-//sameFolderImports - not GWT import - same folder const DisplayInfoSingleton
-
-export class ScreenRelationalUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: ScreenRelationalUtil = new ScreenRelationalUtil();
-
-    public static getInstance(): ScreenRelationalUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ScreenRelationalUtil.instance;
-    
-}
-
-
-    public getScaleImage(image: Image): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getScaleWH(image.getWidth(), image.getHeight());;
-    
-}
-
-
-    public getScaleWH(aWidth: number, aHeight: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getScaleWHA(aWidth, aHeight, 20);;
-    
-}
-
-
-    public getScaleWHA(aWidth: number, aHeight: number, add: number): number{
-
-    let displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
+    public class ScreenRelationalUtil {
+    private static var instance_value:ScreenRelationalUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ScreenRelationalUtil {
+        if (!ScreenRelationalUtil.instance_set) {
+            ScreenRelationalUtil.instance_set = true;
+            ScreenRelationalUtil.instance_value = new ScreenRelationalUtil();
+        }
+        return ScreenRelationalUtil.instance_value;
+    }
     
 
-    let last: number[] = displayInfoSingleton!.getLast()!;;
+    public static function getInstance():ScreenRelationalUtil {
+        return ScreenRelationalUtil.instance;
+    }
     
 
-    let width: number = last[displayInfoSingleton!.WIDTH]!;;
+    public function getScaleImage(image:Image):Number {
+        return this.getScaleWH(image.getWidth(), image.getHeight());
+    }
     
 
-    let height: number = last[displayInfoSingleton!.HEIGHT]!;;
+    public function getScaleWH(aWidth:int, aHeight:int):Number {
+        return this.getScaleWHA(aWidth, aHeight, 20);
+    }
     
 
-    let largestSize: number = width;;
+    public function getScaleWHA(aWidth:int, aHeight:int, add:int):Number {
+        var displayInfoSingleton:DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
+        var last:Vector.<int> = displayInfoSingleton.getLast();
+        var width:Number = Number(last[displayInfoSingleton.WIDTH]);
+        var height:Number = Number(last[displayInfoSingleton.HEIGHT]);
+        var largestSize:Number = width;
+        if (largestSize < height) {
+            largestSize = height;
+        }
+        var scale:Number = (largestSize) / Number(aWidth);
+        return scale;
+    }
     
 
-                        if(largestSize < height)
-                        
-                                    {
-                                    largestSize= height;
+    public function getScaledHeight(aWidth:int, aHeight:int):int {
+        return JMath.toInt32((this.getScaleWH(aWidth, aHeight) * Number(aHeight)));
+    }
     
 
-                                    }
-                                
-
-    let scale: number = (largestSize) /aWidth;;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return scale;
-    
-}
-
-
-    public getScaledHeight(aWidth: number, aHeight: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return globalThis.Math.trunc((this.getScaleWH(aWidth, aHeight) *aHeight));
-    
-}
-
-
-    public getScaledHeightAdd(aWidth: number, aHeight: number, add: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return globalThis.Math.trunc((this.getScaleWHA(aWidth, aHeight, add) *aHeight));
-    
-}
-
-
+    public function getScaledHeightAdd(aWidth:int, aHeight:int, add:int):int {
+        return JMath.toInt32((this.getScaleWHA(aWidth, aHeight, add) * Number(aHeight)));
+    }
+    }
 }
 

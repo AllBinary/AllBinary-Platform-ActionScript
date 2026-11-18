@@ -1,34 +1,7 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form.item {
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ABImageStringItem
-            extends Object
-         {
-        
-
+    public class ABImageStringItem {
+    }
 }
 

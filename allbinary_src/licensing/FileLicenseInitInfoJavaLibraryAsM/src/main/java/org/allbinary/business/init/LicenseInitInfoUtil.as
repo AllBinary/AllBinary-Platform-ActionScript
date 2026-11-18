@@ -1,339 +1,148 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.init {
+    import org.allbinary.TsUtil;
+    import org.allbinary.globals.PATH_GLOBALS;
+    import org.allbinary.globals.URLGLOBALS;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.io.AbDataInputStream;
+    import org.allbinary.logic.io.AbDataOutputStream;
+    import org.allbinary.logic.io.AbFileInputStream;
+    import org.allbinary.logic.io.DataOutputStreamFactory;
+    import org.allbinary.logic.io.FileStreamFactory;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.system.security.crypt.DatabaseEncoder;
+    import org.allbinary.logic.system.security.crypt.WeakCrypt;
+    import org.allbinary.string.CommonLabels;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LicenseInitInfoUtil {
+    private static var instance_value:LicenseInitInfoUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():LicenseInitInfoUtil {
+        if (!LicenseInitInfoUtil.instance_set) {
+            LicenseInitInfoUtil.instance_set = true;
+            LicenseInitInfoUtil.instance_value = new LicenseInitInfoUtil();
+        }
+        return LicenseInitInfoUtil.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var stringUtil:StringUtil = null;
+        public var INITFILENAME:String = null;
+        public var ABOUT:String = null;
+        public var PRIVACY_POLICY:String = null;
+        private var filePath:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsLicenseInitInfoUtil():void {
+    this.logUtil = LogUtil.getInstance();
+    this.stringUtil = StringUtil.getInstance();
+    this.INITFILENAME = "licenseinitdata.dat";
+    this.ABOUT = "about";
+    this.PRIVACY_POLICY = "privacy_policy";
+    this.filePath = this.stringUtil.EMPTY_STRING;
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { TsUtil } from '../../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-import { PATH_GLOBALS } from '../../../../org/allbinary/globals/PATH_GLOBALS.js';
-//not GWT import const PATH_GLOBALS
-
-import { URLGLOBALS } from '../../../../org/allbinary/globals/URLGLOBALS.js';
-//not GWT import const URLGLOBALS
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { AbDataInputStream } from '../../../../org/allbinary/logic/io/AbDataInputStream.js';
-//not GWT import const AbDataInputStream
-
-import { AbDataOutputStream } from '../../../../org/allbinary/logic/io/AbDataOutputStream.js';
-//not GWT import const AbDataOutputStream
-
-import { AbFileInputStream } from '../../../../org/allbinary/logic/io/AbFileInputStream.js';
-//not GWT import const AbFileInputStream
-
-import { DataOutputStreamFactory } from '../../../../org/allbinary/logic/io/DataOutputStreamFactory.js';
-//not GWT import const DataOutputStreamFactory
-
-import { FileStreamFactory } from '../../../../org/allbinary/logic/io/FileStreamFactory.js';
-//not GWT import const FileStreamFactory
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { DatabaseEncoder } from '../../../../org/allbinary/logic/system/security/crypt/DatabaseEncoder.js';
-//not GWT import const DatabaseEncoder
-
-import { WeakCrypt } from '../../../../org/allbinary/logic/system/security/crypt/WeakCrypt.js';
-//not GWT import const WeakCrypt
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LicenseInitInfo } from './LicenseInitInfo.js';
-//sameFolderImports - not GWT import - same folder const LicenseInitInfo
-
-export class LicenseInitInfoUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: LicenseInitInfoUtil = new LicenseInitInfoUtil();
-
-    public static getInstance(): LicenseInitInfoUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LicenseInitInfoUtil.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly stringUtil: StringUtil = StringUtil.getInstance()!;
-
-    public readonly INITFILENAME: string = "licenseinitdata.dat";
-
-    public readonly ABOUT: string = "about";
-
-    public readonly PRIVACY_POLICY: string = "privacy_policy";
-
-    private filePath: string = this.stringUtil!.EMPTY_STRING;
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public setFilePath(filePath: string){
-this.filePath= filePath;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public write(initData: LicenseInitInfo){
-
-                        if(this.filePath == this.stringUtil!.EMPTY_STRING)
-                        
-                                    {
-                                    this.filePath= URLGLOBALS.getMainPath() +PATH_GLOBALS.getInstance()!.INIT_PATH;
+        public function LicenseInitInfoUtil() {
+            super();
+            this.initFieldsLicenseInitInfoUtil();
+        }
     
 
-                                    }
-                                
-
- try { 
-    let tsUtil: TsUtil = TsUtil.getInstance()!;;
+    public static function getInstance():LicenseInitInfoUtil {
+        return LicenseInitInfoUtil.instance;
+    }
     
 
-    let dataOutputStream: AbDataOutputStream = DataOutputStreamFactory.getInstance()!.getInstance(this.filePath, this.INITFILENAME)!;;
+    public function setFilePath(filePath:String):void {
+        this.filePath = filePath;
+    }
     
 
-    let licenseIdCrypted: number[] = tsUtil!.getByteArray(new WeakCrypt(1).encrypt(initData!.getLicenseId()))!;;
-    
-dataOutputStream!.writeUTF(DatabaseEncoder.encode(licenseIdCrypted));
-    
-
-    let numberOfLicenseServers: number = initData!.getNumberOfServers()!;;
-    
-dataOutputStream!.writeInt(numberOfLicenseServers);
-    
-
-    let licenseServerCrypted: number[];;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < numberOfLicenseServers; index++)
-        {
-licenseServerCrypted= tsUtil!.getByteArray(new WeakCrypt(3).encrypt(initData!.getServer(index)));
-    
-dataOutputStream!.writeUTF(DatabaseEncoder.encode(licenseServerCrypted));
-    
-}
-
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put("Command Failed: " +this.INITFILENAME, this, "write", e);
-    
-FileStreamFactory.getInstance()!.delete(this.filePath, this.INITFILENAME);
+    public function write(initData:LicenseInitInfo):void {
+        if (this.filePath == this.stringUtil.EMPTY_STRING) {
+            this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
+        }
+        try {
+            var tsUtil:TsUtil = TsUtil.getInstance();
+            var dataOutputStream:AbDataOutputStream = DataOutputStreamFactory.getInstance().getInstance2(this.filePath, this.INITFILENAME);
+            var licenseIdCrypted:Vector.<int> = tsUtil.getByteArray(new WeakCrypt(1).encrypt(initData.getLicenseId()));
+            dataOutputStream.writeUTF(DatabaseEncoder.encode(licenseIdCrypted));
+            var numberOfLicenseServers:int = initData.getNumberOfServers();
+            dataOutputStream.writeInt(numberOfLicenseServers);
+            var licenseServerCrypted:Vector.<int> = null;
+            for (var index:int = 0; index < numberOfLicenseServers; index++) {
+                licenseServerCrypted = tsUtil.getByteArray(new WeakCrypt(3).encrypt(initData.getServer(index)));
+                dataOutputStream.writeUTF(DatabaseEncoder.encode(licenseServerCrypted));
+            }
+        } catch (e:*) {
+            this.logUtil.put("Command Failed: " + this.INITFILENAME, this, "write", e);
+            FileStreamFactory.getInstance().delete_(this.filePath, this.INITFILENAME);
+            throw e;
+        }
+    }
     
 
-
-
-                            throw e;
-                    
-
- }
-   }
- 
-}
-
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public read(): LicenseInitInfo{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.readAgain(0);;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public readAgain(initializeCounter: number): LicenseInitInfo{
-
-    let METHOD_NAME: string = "readAgain";;
+    public function read():LicenseInitInfo {
+        return this.readAgain(0);
+    }
     
 
-                        if(this.filePath == this.stringUtil!.EMPTY_STRING)
-                        
-                                    {
-                                    this.filePath= URLGLOBALS.getMainPath() +PATH_GLOBALS.getInstance()!.INIT_PATH;
+    public function readAgain(initializeCounter:int):LicenseInitInfo {
+        var METHOD_NAME:String = "readAgain";
+        if (this.filePath == this.stringUtil.EMPTY_STRING) {
+            this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
+        }
+        try {
+            this.logUtil.putF("LicenseInitInfo File: " + this.INITFILENAME, this, METHOD_NAME);
+            var fileStreamFactory:FileStreamFactory = FileStreamFactory.getInstance();
+            var iFile:AbFileInputStream = fileStreamFactory.getFileInputStreamInstance(this.filePath, this.INITFILENAME);
+            if (iFile != null) {
+                var iData:AbDataInputStream = new AbDataInputStream(iFile);
+                var initInfo:LicenseInitInfo = new LicenseInitInfo();
+                var decodedByteArray:Vector.<int> = DatabaseEncoder.decode(iData.readUTF());
+                var licenseIdDecoded:String = decodedByteArray;
+                initInfo.setLicenseId(new WeakCrypt(1).decrypt(licenseIdDecoded));
+                var numberOfLicenseServers:int = iData.readInt();
+                var NEXT_FILE:String = new StringMaker().append(CommonLabels.getInstance().NEXT).append(" License Server From File: ").toString();
+                var licenseServerDecoded:String = null;
+                for (var index:int = 0; index < numberOfLicenseServers; index++) {
+                    decodedByteArray = DatabaseEncoder.decode(iData.readUTF());
+                    licenseServerDecoded = decodedByteArray;
+                    initInfo.setServer(new WeakCrypt(3).decrypt(licenseServerDecoded), index);
+                    this.logUtil.putF(NEXT_FILE + initInfo.getServer(index), this, METHOD_NAME);
+                }
+                return initInfo;
+            } else {
+                throw new JException("Exception", "Could Not Load License InitInfo: " + this.INITFILENAME);
+            }
+        } catch (e:*) {
+            try {
+                this.logUtil.put("Command Failed: " + this.INITFILENAME, this, METHOD_NAME, e);
+            } catch (e2:*) {
+                this.logUtil.put("LicenseInitInfo Read Retry: " + this.INITFILENAME, this, "readAgain()", e2);
+            }
+            throw new JException("Exception", "LicenseInitInfo Read Error: " + this.INITFILENAME);
+        }
+    }
     
 
-                                    }
-                                
-
- try { this.logUtil!.putF("LicenseInitInfo File: " +this.INITFILENAME, this, METHOD_NAME);
-    
-
-    let fileStreamFactory: FileStreamFactory = FileStreamFactory.getInstance()!;;
-    
-
-    let iFile: AbFileInputStream = fileStreamFactory!.getFileInputStreamInstance(this.filePath, this.INITFILENAME)!;;
-    
-
-                        if(iFile != 
-                                    null
-                                )
-                        
-                                    {
-                                    
-    let iData: AbDataInputStream = new AbDataInputStream(iFile);;
-    
-
-    let initInfo: LicenseInitInfo = new LicenseInitInfo();;
-    
-
-    let decodedByteArray: number[] = DatabaseEncoder.decode(iData!.readUTF())!;;
-    
-
-    let licenseIdDecoded: string = String.fromCharCode(...decodedByteArray);;
-    
-initInfo!.setLicenseId(new WeakCrypt(1).decrypt(licenseIdDecoded));
-    
-
-    let numberOfLicenseServers: number = iData!.readInt()!;;
-    
-
-    let NEXT_FILE: string = new StringMaker().append(CommonLabels.getInstance()!.NEXT)!.append(" License Server From File: ")!.toString()!;;
-    
-
-    let licenseServerDecoded: string;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < numberOfLicenseServers; index++)
-        {
-decodedByteArray= DatabaseEncoder.decode(iData!.readUTF());
-    
-licenseServerDecoded= String.fromCharCode(...decodedByteArray);
-    
-initInfo!.setServer(new WeakCrypt(3).decrypt(licenseServerDecoded), index);
-    
-this.logUtil!.putF(NEXT_FILE +initInfo!.getServer(index), this, METHOD_NAME);
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return initInfo;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw new Exception("Could Not Load License InitInfo: " +this.INITFILENAME);
-                    
-
-                        }
-                            
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
- try { this.logUtil!.put("Command Failed: " +this.INITFILENAME, this, METHOD_NAME, e);
-    
- }
- catch (caught: any) {
- {
-  const e2 = caught;
-  
-this.logUtil!.put("LicenseInitInfo Read Retry: " +this.INITFILENAME, this, "readAgain()", e2);
-    
-
- }
-   }
- 
-
-
-
-                            throw new Exception("LicenseInitInfo Read Error: " +this.INITFILENAME);
-                    
-
- }
-   }
- 
-}
-
-
-    public getFilePath(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.filePath;
-    
-}
-
-
+    public function getFilePath():String {
+        return this.filePath;
+    }
+    }
 }
 

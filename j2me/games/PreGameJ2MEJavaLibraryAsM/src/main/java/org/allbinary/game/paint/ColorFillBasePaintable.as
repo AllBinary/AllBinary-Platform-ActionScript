@@ -1,109 +1,65 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.paint {
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.color.ColorCompositeInterface;
+    import org.allbinary.graphics.paint.Paintable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ColorFillBasePaintable extends Paintable implements ColorCompositeInterface {
+        public var basicColor:BasicColor = null;
+        public var colorP:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsColorFillBasePaintable():void {
+    this.basicColor = BasicColorFactory.getInstance().WHITE;
+    this.colorP = 0;
+        }
+    
 
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { ColorCompositeInterface } from '../../../../org/allbinary/graphics/color/ColorCompositeInterface.js';
-//not GWT import const ColorCompositeInterface
-
-import { Paintable } from '../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ColorFillBasePaintable extends Paintable implements ColorCompositeInterface {
-        
-
-    basicColor: BasicColor = BasicColorFactory.getInstance()!.WHITE;
-
-    colorP: number= 0;
-
-public constructor (basicColor: BasicColor){
-
-            super();
+    public function ColorFillBasePaintable(basicColor:BasicColor) {
+        super();
+        this.initFieldsColorFillBasePaintable();
         this.setBasicColorP(basicColor);
+    }
     
-}
 
-
-    public setBasicColorP(basicColor: BasicColor){
-this.basicColor= basicColor;
+    override public function setBasicColorP(basicColor:BasicColor):void {
+        this.basicColor = basicColor;
+        this.setColor(this.getBasicColorP().intValue());
+    }
     
-this.setColor(this.getBasicColorP()!.intValue());
+
+    public function getBasicColorP():BasicColor {
+        return this.basicColor;
+    }
     
-}
 
-
-    public getBasicColorP(): BasicColor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicColor;
+    public function getColor():int {
+        return this.colorP;
+    }
     
-}
 
-
-    getColor(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.colorP;
+    public function setColor(color:int):void {
+        this.colorP = color;
+    }
     
-}
 
-
-    setColor(color: number){
-this.colorP= color;
-    
-}
-
-
-    public paint(graphics: Graphics){
-}
-
-
+    override public function paint(graphics:Graphics):void {
+    }
+    }
 }
 

@@ -1,80 +1,46 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.loader {
+    import org.allbinary.logic.NullUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { ClassLoader } from '../../../../../java/lang/ClassLoader.js';
-        
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class WebappClassLoaderInfo
-            extends Object
-         {
-        
-
-    private static classLoader: any = NullUtil.getInstance()!.NULL_OBJECT;
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public static setLoader(classLoader: ClassLoader){
-WebappClassLoaderInfo.classLoader= classLoader;
-    
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public static getLoader(): ClassLoader{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return WebappClassLoaderInfo.classLoader as ClassLoader;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class WebappClassLoaderInfo {
+    private static var classLoader_value:Object;
+    private static var classLoader_set:Boolean = false;
+    private static function get classLoader():Object {
+        if (!WebappClassLoaderInfo.classLoader_set) {
+            WebappClassLoaderInfo.classLoader_set = true;
+            WebappClassLoaderInfo.classLoader_value = NullUtil.getInstance().NULL_OBJECT;
         }
+        return WebappClassLoaderInfo.classLoader_value;
+    }
+    
 
+    public function WebappClassLoaderInfo() {
+        super();
+    }
+    
 
+    public static function setLoader(classLoader:ClassLoader):void {
+        WebappClassLoaderInfo.classLoader = classLoader;
+    }
+    
+
+    public static function getLoader():ClassLoader {
+        return (WebappClassLoaderInfo.classLoader as ClassLoader);
+    }
+    }
 }
 

@@ -1,62 +1,35 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.opengles.shader {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { OpenGLObject3dProcessor } from './OpenGLObject3dProcessor.js';
-//sameFolderImports - not GWT import - same folder const OpenGLObject3dProcessor
-
-export class NullOpenGLTextureProcessor
-            extends Object
-         {
-        
-
-    private static readonly instance: OpenGLObject3dProcessor = new OpenGLObject3dProcessor();
-
-    public static getInstance(): OpenGLObject3dProcessor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullOpenGLTextureProcessor.instance;
+    public class NullOpenGLTextureProcessor {
+    private static var instance_value:OpenGLObject3dProcessor;
+    private static var instance_set:Boolean = false;
+    private static function get instance():OpenGLObject3dProcessor {
+        if (!NullOpenGLTextureProcessor.instance_set) {
+            NullOpenGLTextureProcessor.instance_set = true;
+            NullOpenGLTextureProcessor.instance_value = new OpenGLObject3dProcessor();
+        }
+        return NullOpenGLTextureProcessor.instance_value;
+    }
     
-}
 
-
+    public static function getInstance():OpenGLObject3dProcessor {
+        return NullOpenGLTextureProcessor.instance;
+    }
+    }
 }
 

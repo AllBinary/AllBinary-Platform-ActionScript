@@ -1,92 +1,54 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input.motion.action {
+    import org.allbinary.game.input.CompleteMotionGestureInputEvent;
+    import org.allbinary.game.input.CompleteMotionGestureInputEventListenerInterface;
+    import org.allbinary.logic.communication.log.ForcedLogUtil;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-import { CompleteMotionGestureInputEvent } from '../../../../../../org/allbinary/game/input/CompleteMotionGestureInputEvent.js';
-//not GWT import const CompleteMotionGestureInputEvent
-
-import { CompleteMotionGestureInputEventListenerInterface } from '../../../../../../org/allbinary/game/input/CompleteMotionGestureInputEventListenerInterface.js';
-//not GWT import const CompleteMotionGestureInputEventListenerInterface
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-import { AllBinaryEventObject } from '../../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventStrings } from '../../../../../../org/allbinary/logic/util/event/EventStrings.js';
-//not GWT import const EventStrings
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class NoCompleteMotionGestureInputEventListener
-            extends Object
-         implements CompleteMotionGestureInputEventListenerInterface {
-        
-
-    private static readonly instance: NoCompleteMotionGestureInputEventListener = new NoCompleteMotionGestureInputEventListener();
-
-    public static getInstance(): NoCompleteMotionGestureInputEventListener{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NoCompleteMotionGestureInputEventListener.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class NoCompleteMotionGestureInputEventListener implements CompleteMotionGestureInputEventListenerInterface {
+    private static var instance_value:NoCompleteMotionGestureInputEventListener;
+    private static var instance_set:Boolean = false;
+    private static function get instance():NoCompleteMotionGestureInputEventListener {
+        if (!NoCompleteMotionGestureInputEventListener.instance_set) {
+            NoCompleteMotionGestureInputEventListener.instance_set = true;
+            NoCompleteMotionGestureInputEventListener.instance_value = new NoCompleteMotionGestureInputEventListener();
         }
-
-
-    public onEvent(eventObject: AllBinaryEventObject){
-ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
+        return NoCompleteMotionGestureInputEventListener.instance_value;
+    }
     
-}
 
+    public function NoCompleteMotionGestureInputEventListener() {
+        super();
+    }
+    
 
-    public onCompleteMotionGestureInputEvent(completeMotionGestureInputEvent: CompleteMotionGestureInputEvent){
-}
+    public function onEvent(eventObject:AllBinaryEventObject):void {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    }
+    
 
+    public function onCompleteMotionGestureInputEvent(completeMotionGestureInputEvent:CompleteMotionGestureInputEvent):void {
+    }
+    
 
+    public static function getInstance():NoCompleteMotionGestureInputEventListener {
+        return NoCompleteMotionGestureInputEventListener.instance;
+    }
+    }
 }
 

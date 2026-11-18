@@ -1,93 +1,50 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.combat.destroy {
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DestroyableInterface } from './DestroyableInterface.js';
-//sameFolderImports - not GWT import - same folder const DestroyableInterface
-
-export class DestroyableBaseBehavior
-            extends Object
-         implements DestroyableInterface {
-        
-
-    private static readonly instance: DestroyableBaseBehavior = new DestroyableBaseBehavior();
-
-    public static getInstance(): DestroyableBaseBehavior{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DestroyableBaseBehavior.instance;
+    public class DestroyableBaseBehavior implements DestroyableInterface {
+    private static var instance_value:DestroyableBaseBehavior;
+    private static var instance_set:Boolean = false;
+    private static function get instance():DestroyableBaseBehavior {
+        if (!DestroyableBaseBehavior.instance_set) {
+            DestroyableBaseBehavior.instance_set = true;
+            DestroyableBaseBehavior.instance_value = new DestroyableBaseBehavior();
+        }
+        return DestroyableBaseBehavior.instance_value;
+    }
     
-}
 
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.constructor.name.toString()!;;
+    public static function getInstance():DestroyableBaseBehavior {
+        return DestroyableBaseBehavior.instance;
+    }
     
-}
 
+    public function getName():String {
+        return JSystem.className(this);
+    }
+    
 
-                //@Throws(Exception.constructor)
-            
-    public isDestroyed(): boolean{
+    public function isDestroyed():Boolean {
+        throw new JException("Exception", CommonStrings.getInstance().NOT_IMPLEMENTED);
+    }
+    
 
-
-
-                            throw new Exception(CommonStrings.getInstance()!.NOT_IMPLEMENTED);
-                    
-}
-
-
-    public setDestroyed(destroyed: boolean){
-}
-
-
+    public function setDestroyed(destroyed:Boolean):void {
+    }
+    }
 }
 

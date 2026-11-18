@@ -1,164 +1,80 @@
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.graphics.color.BasicColor;
 
-        /* Generated Code Do Not Modify */
+    public class FillAnimation extends IndexedAnimation {
+        private var pixelBuffer:Vector.<int> = null;
+        private var width:int = 0;
+        private var height:int = 0;
 
-        
-
-
-import { Graphics } from '../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { BasicColor } from '../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { IndexedAnimation } from './IndexedAnimation.js';
-//sameFolderImports - not GWT import - same folder const IndexedAnimation
-import { AnimationBehavior } from './AnimationBehavior.js';
-//sameFolderImports - not GWT import - same folder const AnimationBehavior
-
-export class FillAnimation extends IndexedAnimation {
-        
-
-    private readonly pixelBuffer: number[];
-
-    private readonly width: number;
-
-    private readonly height: number;
-
-public constructor (pixelBuffer: number[], width: number, height: number, animationBehavior: AnimationBehavior){
-            super(animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.width= 100;
+        // Java field initializers run after the base constructor
+        private function initFieldsFillAnimation():void {
     
-this.height= 100;
     
-this.pixelBuffer= pixelBuffer;
     
-}
-
-
-    public setBasicColorP(basicColor: BasicColor){
-
-    let changed: boolean = false;;
+        }
     
 
-                        if(this.getBasicColorP() == 
-                                    null
-                                 || this.getBasicColorP()!.intValue() != basicColor!.intValue())
-                        
-                                    {
-                                    changed= true;
+    public function FillAnimation(pixelBuffer:Vector.<int>, width:int, height:int, animationBehavior:AnimationBehavior) {
+        super(animationBehavior);
+        this.initFieldsFillAnimation();
+        this.width = 100;
+        this.height = 100;
+        this.pixelBuffer = pixelBuffer;
+    }
     
 
-                                    }
-                                
-super.setBasicColorP(basicColor);
+    override public function setBasicColorP(basicColor:BasicColor):void {
+        var changed:Boolean = false;
+        if (this.getBasicColorP() == null || this.getBasicColorP().intValue() != basicColor.intValue()) {
+            changed = true;
+        }
+        super.setBasicColorP(basicColor);
+        if (changed) {
+            this.updateModifiers();
+        }
+    }
     
 
-                        if(changed)
-                        
-                                    {
-                                    this.updateModifiers();
+    override public function changeBasicColor(basicColor:BasicColor):void {
+        var changed:Boolean = false;
+        if (this.getChangeBasicColor() == null || this.getChangeBasicColor().intValue() != basicColor.intValue()) {
+            changed = true;
+        }
+        super.changeBasicColor(basicColor);
+        if (changed) {
+            this.updateModifiers();
+        }
+    }
     
 
-                                    }
-                                
-}
-
-
-    public changeBasicColor(basicColor: BasicColor){
-
-    let changed: boolean = false;;
+    override public function setAlpha(alpha:int):void {
+        var changed:Boolean = false;
+        if (this.alphaP != alpha) {
+            changed = true;
+        }
+        super.setAlpha(alpha);
+        if (changed) {
+            this.updateModifiers();
+        }
+    }
     
 
-                        if(this.getChangeBasicColor() == 
-                                    null
-                                 || this.getChangeBasicColor()!.intValue() != basicColor!.intValue())
-                        
-                                    {
-                                    changed= true;
+    override public function setScale(scaleX:Number, scaleY:Number):void {
+    }
     
 
-                                    }
-                                
-super.changeBasicColor(basicColor);
+    override public function setMaxScale(maxScaleX:Number, maxScaleY:Number):void {
+    }
     
 
-                        if(changed)
-                        
-                                    {
-                                    this.updateModifiers();
+    private function updateModifiers():void {
+    }
     
 
-                                    }
-                                
-}
-
-
-    public setAlpha(alpha: number){
-
-    let changed: boolean = false;;
-    
-
-                        if(this.alphaP != alpha)
-                        
-                                    {
-                                    changed= true;
-    
-
-                                    }
-                                
-super.setAlpha(alpha);
-    
-
-                        if(changed)
-                        
-                                    {
-                                    this.updateModifiers();
-    
-
-                                    }
-                                
-}
-
-
-    public setScale(scaleX: number, scaleY: number){
-}
-
-
-    public setMaxScale(maxScaleX: number, maxScaleY: number){
-}
-
-
-    updateModifiers(){
-}
-
-
-    paint(g: Graphics){
-g.drawRGB(this.pixelBuffer, 0, this.width, 0, 0, this.width, this.height, true);
-    
-}
-
-
+    public function paint(g:Graphics):void {
+        g.drawRGB(this.pixelBuffer, 0, this.width, 0, 0, this.width, this.height, true);
+    }
+    }
 }
 

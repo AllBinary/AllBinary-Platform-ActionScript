@@ -1,67 +1,39 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.content {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-import { Command } from '../../../javax/microedition/lcdui/Command.js';
-//not GWT import const Command
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class NotificationUtil
-            extends Object
-         {
-        
-
-    private static readonly SINGLETON: NotificationUtil = new NotificationUtil();
-
-    public static getInstance(): NotificationUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NotificationUtil.SINGLETON;
+    public class NotificationUtil {
+    private static var SINGLETON_value:NotificationUtil;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():NotificationUtil {
+        if (!NotificationUtil.SINGLETON_set) {
+            NotificationUtil.SINGLETON_set = true;
+            NotificationUtil.SINGLETON_value = new NotificationUtil();
+        }
+        return NotificationUtil.SINGLETON_value;
+    }
     
-}
 
+    public static function getInstance():NotificationUtil {
+        return NotificationUtil.SINGLETON;
+    }
+    
 
-    public notify(command: Command, resource: string, message: string){
-}
-
-
+    public function notify(command:Command, resource:String, message:String):void {
+    }
+    }
 }
 

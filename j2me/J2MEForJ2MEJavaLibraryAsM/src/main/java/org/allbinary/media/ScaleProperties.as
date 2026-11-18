@@ -1,78 +1,56 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media {
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonLabels;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ScaleProperties {
+    private static var instance_value:ScaleProperties;
+    private static var instance_set:Boolean = false;
+    public static function get instance():ScaleProperties {
+        if (!ScaleProperties.instance_set) {
+            ScaleProperties.instance_set = true;
+            ScaleProperties.instance_value = new ScaleProperties();
+        }
+        return ScaleProperties.instance_value;
+    }
+        public var scaleX:Number = 0.0;
+        public var scaleY:Number = 0.0;
+        public var scaleWidth:int = 0;
+        public var scaleHeight:int = 0;
+        public var shouldScale:Boolean = false;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsScaleProperties():void {
+    this.scaleX = 1.0;
+    this.scaleY = 1.0;
+    this.scaleWidth = 0;
+    this.scaleHeight = 0;
+    this.shouldScale = false;
+        }
 
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ScaleProperties
-            extends Object
-         {
-        
-
-    public static readonly instance: ScaleProperties = new ScaleProperties();
-
-    public scaleX: number = 1.0;
-
-    public scaleY: number = 1.0;
-
-    public scaleWidth: number= 0;
-
-    public scaleHeight: number= 0;
-
-    public shouldScale: boolean= false;
-
-    public toString(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new StringMaker().append(CommonLabels.getInstance()!.COLON_SEP)!.appendboolean(this.shouldScale)!.append("scaleX: ")!.appendfloat(this.scaleX)!.append("scaleY: ")!.appendfloat(this.scaleY)!.append("scaleWidth: ")!.appendint(this.scaleWidth)!.append("scaleHeight: ")!.appendint(this.scaleHeight)!.toString();;
+        public function ScaleProperties() {
+            super();
+            this.initFieldsScaleProperties();
+        }
     
-}
 
-
+    public function toString():String {
+        return new StringMaker().append(CommonLabels.getInstance().COLON_SEP).appendboolean(this.shouldScale).append("scaleX: ").appendfloat(this.scaleX).append("scaleY: ").appendfloat(this.scaleY).append("scaleWidth: ").appendint(this.scaleWidth).append("scaleHeight: ").appendint(this.scaleHeight).toString();
+    }
+    }
 }
 

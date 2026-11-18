@@ -1,248 +1,115 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
+    import org.allbinary.game.configuration.feature.Features;
+    import org.allbinary.game.configuration.feature.InputFeatureFactory;
+    import org.allbinary.game.input.event.GameKeyEvent;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameInput {
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        private var gameKeyEventList:BasicArrayList = null;
+        private var removalGameKeyEventList:BasicArrayList = null;
+        public var isRemoveDuplicateKeyPresses:Boolean = false;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Features } from '../../../../org/allbinary/game/configuration/feature/Features.js';
-//not GWT import const Features
-
-import { InputFeatureFactory } from '../../../../org/allbinary/game/configuration/feature/InputFeatureFactory.js';
-//not GWT import const InputFeatureFactory
-
-import { GameKeyEvent } from '../../../../org/allbinary/game/input/event/GameKeyEvent.js';
-//not GWT import const GameKeyEvent
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GameInput
-            extends Object
-         {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly gameKeyEventList: BasicArrayList;
-
-    private readonly removalGameKeyEventList: BasicArrayList;
-
-    readonly isRemoveDuplicateKeyPresses: boolean;
-
-public constructor (gameKeyEventList: BasicArrayList, removalGameKeyEventList: BasicArrayList){
-
-            super();
-        this.gameKeyEventList= gameKeyEventList;
+        // Java field initializers run after the base constructor
+        private function initFieldsGameInput():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
     
-this.removalGameKeyEventList= removalGameKeyEventList;
     
-this.isRemoveDuplicateKeyPresses= Features.getInstance()!.isFeature(InputFeatureFactory.getInstance()!.REMOVE_DUPLICATE_KEY_PRESSES);
     
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public add(gameKeyEvent: GameKeyEvent){
-
-                        if(this.isRemoveDuplicateKeyPresses && this.gameKeyEventList!.contains(gameKeyEvent))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
+        }
     
 
-                                    }
-                                
-
-                        if(gameKeyEvent != 
-                                    null
-                                )
-                        
-                                    {
-                                    this.gameKeyEventList!.add(gameKeyEvent);
+    public function GameInput(gameKeyEventList:BasicArrayList, removalGameKeyEventList:BasicArrayList) {
+        super();
+        this.initFieldsGameInput();
+        this.gameKeyEventList = gameKeyEventList;
+        this.removalGameKeyEventList = removalGameKeyEventList;
+        this.isRemoveDuplicateKeyPresses = Features.getInstance().isFeature(InputFeatureFactory.getInstance().REMOVE_DUPLICATE_KEY_PRESSES);
+    }
     
 
-                                    }
-                                
-                        else {
-                            this.logUtil!.putF("Danger Passed Null GameKeyEvent", this, this.commonStrings!.ADD);
+    public function add(gameKeyEvent:GameKeyEvent):void {
+        if (this.isRemoveDuplicateKeyPresses && this.gameKeyEventList.contains(gameKeyEvent)) {
+            return;
+        }
+        if (gameKeyEvent != null) {
+            this.gameKeyEventList.add(gameKeyEvent);
+        } else {
+            this.logUtil.putF("Danger Passed Null GameKeyEvent", this, this.commonStrings.ADD);
+        }
+    }
     
 
-                        }
-                            
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public addForRemoval(gameKeyEvent: GameKeyEvent){
-this.removalGameKeyEventList!.add(gameKeyEvent);
-    
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public isForRemoval(gameKeyEvent: GameKeyEvent): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.removalGameKeyEventList!.contains(gameKeyEvent);;
-    
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public clear(){
-this.gameKeyEventList!.clear();
-    
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public removeNonAIInputGameKeyEvents(){
-
-    let list: BasicArrayList = this.gameKeyEventList;;
+    public function addForRemoval(gameKeyEvent:GameKeyEvent):void {
+        this.removalGameKeyEventList.add(gameKeyEvent);
+    }
     
 
-    let gameKeyEvent: GameKeyEvent;;
+    public function isForRemoval(gameKeyEvent:GameKeyEvent):Boolean {
+        return this.removalGameKeyEventList.contains(gameKeyEvent);
+    }
     
 
-
-
-
-                        for (
-    let index: number = list.size()!;--index >= 0; )
-        {
-gameKeyEvent= list.objectArray[index]! as GameKeyEvent;
+    public function clear():void {
+        this.gameKeyEventList.clear();
+    }
     
 
-                        if(gameKeyEvent!.getSourceId() != 1)
-                        
-                                    {
-                                    list.removeAt(index);
+    public function removeNonAIInputGameKeyEvents():void {
+        var list:BasicArrayList = this.gameKeyEventList;
+        var gameKeyEvent:GameKeyEvent = null;
+        for (var index:int = list.size(); --index >= 0; ) {
+            gameKeyEvent = (list.objectArray[index] as GameKeyEvent);
+            if (gameKeyEvent.getSourceId() != 1) {
+                list.removeAt(index);
+            }
+        }
+    }
     
 
-                                    }
-                                
-}
-
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public update(){
-
-    let removeList: BasicArrayList = this.removalGameKeyEventList;;
+    public function update():void {
+        var removeList:BasicArrayList = this.removalGameKeyEventList;
+        var list:BasicArrayList = this.gameKeyEventList;
+        var size:int = removeList.size();
+        for (var index:int = 0; index < size; index++) {
+            var anyType:Object = removeList.objectArray[index];
+            for (var index2:int = list.size(); --index2 >= 0; ) {
+                if (list.objectArray[index2] == anyType) {
+                    list.removeAt(index2);
+                }
+            }
+        }
+        removeList.clear();
+    }
     
 
-    let list: BasicArrayList = this.gameKeyEventList;;
+    public function getRemovalGameKeyEventList():BasicArrayList {
+        return this.removalGameKeyEventList;
+    }
     
 
-    let size: number = removeList!.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let anyType: any = removeList!.objectArray[index]!;;
-    
-
-
-
-
-                        for (
-    let index2: number = list.size()!;--index2 >= 0; )
-        {
-
-                        if(list.objectArray[index2] == anyType)
-                        
-                                    {
-                                    list.removeAt(index2);
-    
-
-                                    }
-                                
-}
-
-}
-
-removeList!.clear();
-    
-}
-
-
-    getRemovalGameKeyEventList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.removalGameKeyEventList;
-    
-}
-
-
-    getGameKeyEventList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gameKeyEventList;
-    
-}
-
-
+    public function getGameKeyEventList():BasicArrayList {
+        return this.gameKeyEventList;
+    }
+    }
 }
 

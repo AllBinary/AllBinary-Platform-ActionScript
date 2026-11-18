@@ -1,127 +1,63 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.physics.movement {
+    import org.allbinary.game.layer.AllBinaryGameLayer;
+    import org.allbinary.game.physics.velocity.VelocityProperties;
+    import org.allbinary.logic.math.BasicDecimal;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class XYOscillateVelocityMovement extends BasicConstantVelocityMovement {
+        private var oscillateMin:int = 0;
+        private var oscillateMax:int = 0;
+        private var oscillate:int = 0;
+        private var oscillatePositive:Boolean = false;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AllBinaryGameLayer } from '../../../../org/allbinary/game/layer/AllBinaryGameLayer.js';
-//not GWT import const AllBinaryGameLayer
-
-import { VelocityProperties } from '../../../../org/allbinary/game/physics/velocity/VelocityProperties.js';
-//not GWT import const VelocityProperties
-
-import { BasicDecimal } from '../../../../org/allbinary/logic/math/BasicDecimal.js';
-//not GWT import const BasicDecimal
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicConstantVelocityMovement } from './BasicConstantVelocityMovement.js';
-//sameFolderImports - not GWT import - same folder const BasicConstantVelocityMovement
-
-export class XYOscillateVelocityMovement extends BasicConstantVelocityMovement {
-        
-
-    private oscillateMin: number;
-
-    private oscillateMax: number;
-
-    private oscillate: number= 0;
-
-    private oscillatePositive: boolean= false;
-
-public constructor (speedBasicDecimal: BasicDecimal, oscillateMin: number, oscillateMax: number){
-            super(speedBasicDecimal, new VelocityProperties(globalThis.Math.trunc(speedBasicDecimal!.getUnscaled()), globalThis.Math.trunc(speedBasicDecimal!.getUnscaled())));
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.oscillateMin= oscillateMin;
+        // Java field initializers run after the base constructor
+        private function initFieldsXYOscillateVelocityMovement():void {
     
-this.oscillateMax= oscillateMax;
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public process(layer: AllBinaryGameLayer){
-super.process(layer);
+    this.oscillate = 0;
+    this.oscillatePositive = false;
+        }
     
 
-                        if(this.oscillate < this.oscillateMin)
-                        
-                                    {
-                                    this.oscillatePositive= true;
-    
-this.getVelocityProperties()!.getVelocityYBasicDecimalP()!.addint(3000);
-    
-
-                                    }
-                                
-                             else 
-                        if(this.oscillate > this.oscillateMax)
-                        
-                                    {
-                                    this.oscillatePositive= false;
-    
-this.getVelocityProperties()!.getVelocityYBasicDecimalP()!.subtractint(3000);
+    public function XYOscillateVelocityMovement(speedBasicDecimal:BasicDecimal, oscillateMin:int, oscillateMax:int) {
+        super(speedBasicDecimal, new VelocityProperties(int(speedBasicDecimal.getUnscaled()), int(speedBasicDecimal.getUnscaled())));
+        this.initFieldsXYOscillateVelocityMovement();
+        this.oscillateMin = oscillateMin;
+        this.oscillateMax = oscillateMax;
+    }
     
 
-                                    }
-                                
-
-                        if(this.oscillatePositive)
-                        
-                                    {
-                                    this.oscillate++;
-    
-this.getVelocityProperties()!.getVelocityXBasicDecimalP()!.addint(5000);
-    
-
-                                    }
-                                
-                        else {
-                            this.oscillate--;
-    
-this.getVelocityProperties()!.getVelocityXBasicDecimalP()!.subtractint(5000);
-    
-
-                        }
-                            
-}
-
-
+    override public function process(layer:AllBinaryGameLayer):void {
+        super.process(layer);
+        if (this.oscillate < this.oscillateMin) {
+            this.oscillatePositive = true;
+            this.getVelocityProperties().getVelocityYBasicDecimalP().addint(3000);
+        } else if (this.oscillate > this.oscillateMax) {
+            this.oscillatePositive = false;
+            this.getVelocityProperties().getVelocityYBasicDecimalP().subtractint(3000);
+        }
+        if (this.oscillatePositive) {
+            this.oscillate++;
+            this.getVelocityProperties().getVelocityXBasicDecimalP().addint(5000);
+        } else {
+            this.oscillate--;
+            this.getVelocityProperties().getVelocityXBasicDecimalP().subtractint(5000);
+        }
+    }
+    }
 }
 

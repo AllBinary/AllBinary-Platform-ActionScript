@@ -1,55 +1,33 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics {
+    import org.allbinary.platform.graphics.PlatformBitmapBase;
 
-        /* Generated Code Do Not Modify */
+    public class OpenGLBitmap extends PlatformBitmapBase {
+        public var bitmap:Object = null;
 
-        
-
-
-import { PlatformBitmapBase } from '../../../org/allbinary/platform/graphics/PlatformBitmapBase.js';
-//not GWT import const PlatformBitmapBase
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class OpenGLBitmap extends PlatformBitmapBase {
-        
-
-    public readonly bitmap: any;
-
-public constructor (bitmap: any){
-
-            super();
-        this.bitmap= bitmap;
+        // Java field initializers run after the base constructor
+        private function initFieldsOpenGLBitmap():void {
     
-}
+        }
+    
 
+    public function OpenGLBitmap(bitmap:Object) {
+        super();
+        this.initFieldsOpenGLBitmap();
+        this.bitmap = bitmap;
+    }
+    
 
-    public getPixels(pixels: number[], offset: number, stride: number, x: number, y: number, width: number, height: number){
-}
+    public function getPixels(pixels:Vector.<int>, offset:int, stride:int, x:int, y:int, width:int, height:int):void {
+    }
+    
 
+    public function setPixels(pixels:Vector.<int>, offset:int, stride:int, x:int, y:int, width:int, height:int):void {
+    }
+    
 
-    public setPixels(pixels: number[], offset: number, stride: number, x: number, y: number, width: number, height: number){
-}
-
-
-    public recycle(){
-}
-
-
+    public function recycle():void {
+    }
+    }
 }
 

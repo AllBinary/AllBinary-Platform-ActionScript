@@ -1,84 +1,63 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.entry {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class EntryData
-            extends Object
-         {
-        
-
-    private static readonly instance: EntryData = new EntryData();
-
-    public static getInstance(): EntryData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return EntryData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class EntryData {
+    private static var instance_value:EntryData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():EntryData {
+        if (!EntryData.instance_set) {
+            EntryData.instance_set = true;
+            EntryData.instance_value = new EntryData();
         }
+        return EntryData.instance_value;
+    }
+        public var ID:String = null;
+        public var ENCRYPTION:String = null;
+        public var TIMECREATED:String = null;
+        public var LASTMODIFIED:String = null;
+        public var DEFAULT:String = null;
+        public var SPECIAL:String = null;
+        public var ENABLE:String = null;
+        public var YES:String = null;
+        public var NO:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsEntryData():void {
+    this.ID = "ENTRY_ID";
+    this.ENCRYPTION = "ENTRY_ENCRYPTION";
+    this.TIMECREATED = "ENTRY_TIMECREATED";
+    this.LASTMODIFIED = "ENTRY_LASTMODIFIED";
+    this.DEFAULT = "ENTRY_DEFAULT";
+    this.SPECIAL = "ENTRY_SPECIAL";
+    this.ENABLE = "ENTRY_ENABLE";
+    this.YES = "Yes";
+    this.NO = "No";
+        }
+    
 
-    public readonly ID: string = "ENTRY_ID";
+    public static function getInstance():EntryData {
+        return EntryData.instance;
+    }
+    
 
-    public readonly ENCRYPTION: string = "ENTRY_ENCRYPTION";
-
-    public readonly TIMECREATED: string = "ENTRY_TIMECREATED";
-
-    public readonly LASTMODIFIED: string = "ENTRY_LASTMODIFIED";
-
-    public readonly DEFAULT: string = "ENTRY_DEFAULT";
-
-    public readonly SPECIAL: string = "ENTRY_SPECIAL";
-
-    public readonly ENABLE: string = "ENTRY_ENABLE";
-
-    public readonly YES: string = "Yes";
-
-    public readonly NO: string = "No";
-
+    public function EntryData() {
+        super();
+        this.initFieldsEntryData();
+    }
+    }
 }
 

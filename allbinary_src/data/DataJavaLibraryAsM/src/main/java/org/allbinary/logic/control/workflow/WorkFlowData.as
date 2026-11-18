@@ -1,74 +1,53 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.control.workflow {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class WorkFlowData
-            extends Object
-         {
-        
-
-    private static readonly instance: WorkFlowData = new WorkFlowData();
-
-    public static getInstance(): WorkFlowData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return WorkFlowData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class WorkFlowData {
+    private static var instance_value:WorkFlowData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():WorkFlowData {
+        if (!WorkFlowData.instance_set) {
+            WorkFlowData.instance_set = true;
+            WorkFlowData.instance_value = new WorkFlowData();
         }
+        return WorkFlowData.instance_value;
+    }
+        public var WORKFLOWS:String = null;
+        public var WORKFLOW:String = null;
+        public var NAME:String = null;
+        public var DATA:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsWorkFlowData():void {
+    this.WORKFLOWS = "WORKFLOWS";
+    this.WORKFLOW = "WORKFLOW";
+    this.NAME = "WORKFLOW_NAME";
+    this.DATA = "WORKFLOW_DATA";
+        }
+    
 
-    public WORKFLOWS: string = "WORKFLOWS";
+    public static function getInstance():WorkFlowData {
+        return WorkFlowData.instance;
+    }
+    
 
-    public WORKFLOW: string = "WORKFLOW";
-
-    public NAME: string = "WORKFLOW_NAME";
-
-    public DATA: string = "WORKFLOW_DATA";
-
+    public function WorkFlowData() {
+        super();
+        this.initFieldsWorkFlowData();
+    }
+    }
 }
 

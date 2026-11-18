@@ -1,68 +1,31 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.user.commerce.inventory.item.group {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class BasicGroupItemData
-            extends Object
-         {
-        
-
-    public static readonly ITEM_ONE: string = "BASICGROUPITEM_ONE";
-
-    public static readonly ITEM_TWO: string = "BASICGROUPITEM_TWO";
-
-    public static readonly ITEM_THREE: string = "BASICGROUPITEM_THREE";
-
-    public static readonly ITEM_FOUR: string = "BASICGROUPITEM_FOUR";
-
-    public static readonly ITEM_FIVE: string = "BASICGROUPITEM_FIVE";
-
-    public static readonly ITEM_SIX: string = "BASICGROUPITEM_SIX";
-
-    public static readonly ITEM_SEVEN: string = "BASICGROUPITEM_SEVEN";
-
-    public static readonly ITEM_EIGHT: string = "BASICGROUPITEM_EIGHT";
-
-    public static readonly ITEM_NINE: string = "BASICGROUPITEM_NINE";
-
-    public static readonly ITEM_TEN: string = "BASICGROUPITEM_TEN";
-
+    public class BasicGroupItemData {
+    public static const ITEM_ONE:String = "BASICGROUPITEM_ONE";
+    public static const ITEM_TWO:String = "BASICGROUPITEM_TWO";
+    public static const ITEM_THREE:String = "BASICGROUPITEM_THREE";
+    public static const ITEM_FOUR:String = "BASICGROUPITEM_FOUR";
+    public static const ITEM_FIVE:String = "BASICGROUPITEM_FIVE";
+    public static const ITEM_SIX:String = "BASICGROUPITEM_SIX";
+    public static const ITEM_SEVEN:String = "BASICGROUPITEM_SEVEN";
+    public static const ITEM_EIGHT:String = "BASICGROUPITEM_EIGHT";
+    public static const ITEM_NINE:String = "BASICGROUPITEM_NINE";
+    public static const ITEM_TEN:String = "BASICGROUPITEM_TEN";
+    }
 }
 

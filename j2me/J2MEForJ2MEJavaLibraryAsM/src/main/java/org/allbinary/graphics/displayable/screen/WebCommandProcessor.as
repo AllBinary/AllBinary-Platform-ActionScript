@@ -1,116 +1,64 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2022 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.displayable.screen {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2022 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class WebCommandProcessor {
+    private static var instance_value:WebCommandProcessor;
+    private static var instance_set:Boolean = false;
+    private static function get instance():WebCommandProcessor {
+        if (!WebCommandProcessor.instance_set) {
+            WebCommandProcessor.instance_set = true;
+            WebCommandProcessor.instance_value = new WebCommandProcessor();
+        }
+        return WebCommandProcessor.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var aboutCommandProcessor:AboutCommandProcessor = null;
+        public var list:BasicArrayList = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsWebCommandProcessor():void {
+    this.logUtil = LogUtil.getInstance();
+    this.aboutCommandProcessor = AboutCommandProcessor.getInstance();
+    this.list = new BasicArrayListD();
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Canvas } from '../../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { Command } from '../../../../../javax/microedition/lcdui/Command.js';
-//not GWT import const Command
-
-import { CommandListener } from '../../../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AboutCommandProcessor } from './AboutCommandProcessor.js';
-//sameFolderImports - not GWT import - same folder const AboutCommandProcessor
-
-export class WebCommandProcessor
-            extends Object
-         {
-        
-
-    private static readonly instance: WebCommandProcessor = new WebCommandProcessor();
-
-    public static getInstance(): WebCommandProcessor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return WebCommandProcessor.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly aboutCommandProcessor: AboutCommandProcessor = AboutCommandProcessor.getInstance()!;
-
-    public readonly list: BasicArrayList = new BasicArrayListD();
-
-    public process(midletCommandListener: CommandListener, command: Command, canvas: Canvas){
-
- try { this.list.removeAt(0);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.PROCESS, e);
+        public function WebCommandProcessor() {
+            super();
+            this.initFieldsWebCommandProcessor();
+        }
     
 
- }
-   }
- 
-}
+    public static function getInstance():WebCommandProcessor {
+        return WebCommandProcessor.instance;
+    }
+    
 
-
+    public function process(midletCommandListener:CommandListener, command:Command, canvas:Canvas):void {
+        try {
+            this.list.removeAt(0);
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+        }
+    }
+    }
 }
 

@@ -1,245 +1,129 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion {
+    import org.allbinary.graphics.CustomGPoint;
+    import org.allbinary.graphics.GPointCircularPool;
+    import org.allbinary.input.motion.button.TouchButtonRecognizer;
+    import org.allbinary.input.motion.gesture.MotionGestureRecognizer;
+    import org.allbinary.logic.communication.log.LogUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AllMotionRecognizer extends MotionRecognizer {
+    private static var index:int = 0;
+    private static var pointCircularPool_value:GPointCircularPool;
+    private static var pointCircularPool_set:Boolean = false;
+    private static function get pointCircularPool():GPointCircularPool {
+        if (!AllMotionRecognizer.pointCircularPool_set) {
+            AllMotionRecognizer.pointCircularPool_set = true;
+            AllMotionRecognizer.pointCircularPool_value = new GPointCircularPool(40);
+        }
+        return AllMotionRecognizer.pointCircularPool_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var motionGestureRecognizer:MotionGestureRecognizer = null;
+        private var touchButtonProcessing:Boolean = false;
+        private var touchButtonRecognizer:TouchButtonRecognizer = null;
+        private var id:int = 0;
+        private var lastX:int = 0;
+        private var lastY:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { CustomGPoint } from '../../../../org/allbinary/graphics/CustomGPoint.js';
-//not GWT import const CustomGPoint
-
-import { GPointCircularPool } from '../../../../org/allbinary/graphics/GPointCircularPool.js';
-//not GWT import const GPointCircularPool
-
-import { TouchButtonRecognizer } from '../../../../org/allbinary/input/motion/button/TouchButtonRecognizer.js';
-//not GWT import const TouchButtonRecognizer
-
-import { MotionGestureRecognizer } from '../../../../org/allbinary/input/motion/gesture/MotionGestureRecognizer.js';
-//not GWT import const MotionGestureRecognizer
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { MotionRecognizer } from './MotionRecognizer.js';
-//sameFolderImports - not GWT import - same folder const MotionRecognizer
-
-export class AllMotionRecognizer extends MotionRecognizer {
-        
-
-    private static index: number = 0;
-
-    private static readonly pointCircularPool: GPointCircularPool = new GPointCircularPool(40);
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly motionGestureRecognizer: MotionGestureRecognizer;
-
-    private touchButtonProcessing: boolean = false;
-
-    private readonly touchButtonRecognizer: TouchButtonRecognizer;
-
-    private readonly id: number;
-
-public constructor (){
-
-            super();
-        this.id= AllMotionRecognizer.index++;
+        // Java field initializers run after the base constructor
+        private function initFieldsAllMotionRecognizer():void {
+    this.logUtil = LogUtil.getInstance();
     
-this.motionGestureRecognizer= new MotionGestureRecognizer(this.id);
+    this.touchButtonProcessing = false;
     
-this.touchButtonRecognizer= new TouchButtonRecognizer();
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processStartMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-
-                        if(this.touchButtonRecognizer!.pressTouchButtonInput(x, y, deviceId))
-                        
-                                    {
-                                    this.touchButtonProcessing= true;
+    this.lastX = 0;
+    this.lastY = 0;
+        }
     
 
-                                    }
-                                
-
-                        if(!this.touchButtonProcessing)
-                        
-                                    {
-                                    
-    let point: CustomGPoint = AllMotionRecognizer.pointCircularPool!.getNextInstance() as CustomGPoint;;
-    
-point.setX(x);
-    
-point.setY(y);
-    
-this.motionGestureRecognizer!.processPressedMotionEvent(point, deviceId, modifiers);
+    public function AllMotionRecognizer() {
+        super();
+        this.initFieldsAllMotionRecognizer();
+        this.id = AllMotionRecognizer.index++;
+        this.motionGestureRecognizer = new MotionGestureRecognizer(this.id);
+        this.touchButtonRecognizer = new TouchButtonRecognizer();
+    }
     
 
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processEndMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-
-                        if(this.touchButtonRecognizer!.releaseTouchButtonInput(x, y, deviceId))
-                        
-                                    {
-                                    
-                                    }
-                                
-
-                        if(!this.touchButtonProcessing)
-                        
-                                    {
-                                    
-    let point: CustomGPoint = AllMotionRecognizer.pointCircularPool!.getNextInstance() as CustomGPoint;;
-    
-point.setX(x);
-    
-point.setY(y);
-    
-this.motionGestureRecognizer!.processReleasedMotionEvent(point, deviceId, modifiers);
+    override public function processStartMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+        if (this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId)) {
+            this.touchButtonProcessing = true;
+        }
+        if (!this.touchButtonProcessing) {
+            var point:CustomGPoint = (AllMotionRecognizer.pointCircularPool.getNextInstance() as CustomGPoint);
+            point.setX(x);
+            point.setY(y);
+            this.motionGestureRecognizer.processPressedMotionEvent(point, deviceId, modifiers);
+        }
+    }
     
 
-                                    }
-                                
-
-                        if(this.touchButtonProcessing)
-                        
-                                    {
-                                    this.touchButtonProcessing= false;
+    override public function processEndMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+        if (this.touchButtonRecognizer.releaseTouchButtonInput(x, y, deviceId)) {
+        }
+        if (!this.touchButtonProcessing) {
+            var point:CustomGPoint = (AllMotionRecognizer.pointCircularPool.getNextInstance() as CustomGPoint);
+            point.setX(x);
+            point.setY(y);
+            this.motionGestureRecognizer.processReleasedMotionEvent(point, deviceId, modifiers);
+        }
+        if (this.touchButtonProcessing) {
+            this.touchButtonProcessing = false;
+        }
+    }
     
 
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processDraggedMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-
-                        if(this.touchButtonProcessing)
-                        
-                                    {
-                                    this.touchButtonRecognizer!.pressTouchButtonInput(x, y, deviceId);
+    override public function processDraggedMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+        if (this.touchButtonProcessing) {
+            this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId);
+        }
+        if (!this.touchButtonProcessing) {
+            var point:CustomGPoint = (AllMotionRecognizer.pointCircularPool.getNextInstance() as CustomGPoint);
+            point.setX(x);
+            point.setY(y);
+            this.motionGestureRecognizer.processDraggedMotionEvent(point, deviceId, modifiers);
+        }
+    }
     
 
-                                    }
-                                
-
-                        if(!this.touchButtonProcessing)
-                        
-                                    {
-                                    
-    let point: CustomGPoint = AllMotionRecognizer.pointCircularPool!.getNextInstance() as CustomGPoint;;
-    
-point.setX(x);
-    
-point.setY(y);
-    
-this.motionGestureRecognizer!.processDraggedMotionEvent(point, deviceId, modifiers);
+    public function processMovedMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+        if (x != this.lastX || y != this.lastY) {
+            this.lastX = x;
+            this.lastY = y;
+            var point:CustomGPoint = (AllMotionRecognizer.pointCircularPool.getNextInstance() as CustomGPoint);
+            point.setX(x);
+            point.setY(y);
+            this.motionGestureRecognizer.processMovedMotionEvent(point, deviceId, modifiers);
+        }
+    }
     
 
-                                    }
-                                
-}
-
-
-    private lastX: number= 0;
-
-    private lastY: number= 0;
-
-                //@Throws(Exception.constructor)
-            
-    public processMovedMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-
-                        if(x != this.lastX || y != this.lastY)
-                        
-                                    {
-                                    this.lastX= x;
-    
-this.lastY= y;
+    public function processScrolledMotionEvent(x:int, y:int, deviceId:int, modifiers:int):void {
+        var point:CustomGPoint = (AllMotionRecognizer.pointCircularPool.getNextInstance() as CustomGPoint);
+        point.setX(x);
+        point.setY(y);
+        this.motionGestureRecognizer.processScrolledMotionEvent(point, deviceId, modifiers);
+    }
     
 
-    let point: CustomGPoint = AllMotionRecognizer.pointCircularPool!.getNextInstance() as CustomGPoint;;
-    
-point.setX(x);
-    
-point.setY(y);
-    
-this.motionGestureRecognizer!.processMovedMotionEvent(point, deviceId, modifiers);
-    
-
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processScrolledMotionEvent(x: number, y: number, deviceId: number, modifiers: number){
-
-    let point: CustomGPoint = AllMotionRecognizer.pointCircularPool!.getNextInstance() as CustomGPoint;;
-    
-point.setX(x);
-    
-point.setY(y);
-    
-this.motionGestureRecognizer!.processScrolledMotionEvent(point, deviceId, modifiers);
-    
-}
-
-
-    public getMotionGestureRecognizer(): MotionGestureRecognizer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.motionGestureRecognizer;
-    
-}
-
-
+    public function getMotionGestureRecognizer():MotionGestureRecognizer {
+        return this.motionGestureRecognizer;
+    }
+    }
 }
 

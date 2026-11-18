@@ -1,544 +1,264 @@
+// Generated Code Do Not Modify
+package javax.microedition.khronos.opengles {
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GL10 } from './GL10.js';
-//sameFolderImports - not GWT import - same folder const GL10
-import { Buffer } from './Buffer.js';
-//sameFolderImports - not GWT import - same folder const Buffer
-import { FloatBuffer } from './FloatBuffer.js';
-//sameFolderImports - not GWT import - same folder const FloatBuffer
-import { IntBuffer } from './IntBuffer.js';
-//sameFolderImports - not GWT import - same folder const IntBuffer
-
-            //Interfaces do not have static fields for typescript so create a class with the static fields
-            export class GL11I {
-        
-    public static readonly GL_ACTIVE_TEXTURE: number = 34016;
-    public static readonly GL_ADD_SIGNED: number = 34164;
-    public static readonly GL_ALPHA_SCALE: number = 3356;
-    public static readonly GL_ALPHA_TEST_FUNC: number = 3009;
-    public static readonly GL_ALPHA_TEST_REF: number = 3010;
-    public static readonly GL_ARRAY_BUFFER: number = 34962;
-    public static readonly GL_ARRAY_BUFFER_BINDING: number = 34964;
-    public static readonly GL_BLEND_DST: number = 3040;
-    public static readonly GL_BLEND_SRC: number = 3041;
-    public static readonly GL_BUFFER_ACCESS: number = 35003;
-    public static readonly GL_BUFFER_SIZE: number = 34660;
-    public static readonly GL_BUFFER_USAGE: number = 34661;
-    public static readonly GL_CLIENT_ACTIVE_TEXTURE: number = 34017;
-    public static readonly GL_CLIP_PLANE0: number = 12288;
-    public static readonly GL_CLIP_PLANE1: number = 12289;
-    public static readonly GL_CLIP_PLANE2: number = 12290;
-    public static readonly GL_CLIP_PLANE3: number = 12291;
-    public static readonly GL_CLIP_PLANE4: number = 12292;
-    public static readonly GL_CLIP_PLANE5: number = 12293;
-    public static readonly GL_COLOR_ARRAY_BUFFER_BINDING: number = 34968;
-    public static readonly GL_COLOR_ARRAY_POINTER: number = 32912;
-    public static readonly GL_COLOR_ARRAY_SIZE: number = 32897;
-    public static readonly GL_COLOR_ARRAY_STRIDE: number = 32899;
-    public static readonly GL_COLOR_ARRAY_TYPE: number = 32898;
-    public static readonly GL_COLOR_CLEAR_VALUE: number = 3106;
-    public static readonly GL_COLOR_WRITEMASK: number = 3107;
-    public static readonly GL_COMBINE: number = 34160;
-    public static readonly GL_COMBINE_ALPHA: number = 34162;
-    public static readonly GL_COMBINE_RGB: number = 34161;
-    public static readonly GL_CONSTANT: number = 34166;
-    public static readonly GL_COORD_REPLACE_OES: number = 34914;
-    public static readonly GL_CULL_FACE_MODE: number = 2885;
-    public static readonly GL_CURRENT_COLOR: number = 2816;
-    public static readonly GL_CURRENT_NORMAL: number = 2818;
-    public static readonly GL_CURRENT_TEXTURE_COORDS: number = 2819;
-    public static readonly GL_DEPTH_CLEAR_VALUE: number = 2931;
-    public static readonly GL_DEPTH_FUNC: number = 2932;
-    public static readonly GL_DEPTH_RANGE: number = 2928;
-    public static readonly GL_DEPTH_WRITEMASK: number = 2930;
-    public static readonly GL_DOT3_RGB: number = 34478;
-    public static readonly GL_DOT3_RGBA: number = 34479;
-    public static readonly GL_DYNAMIC_DRAW: number = 35048;
-    public static readonly GL_ELEMENT_ARRAY_BUFFER: number = 34963;
-    public static readonly GL_ELEMENT_ARRAY_BUFFER_BINDING: number = 34965;
-    public static readonly GL_FRONT_FACE: number = 2886;
-    public static readonly GL_GENERATE_MIPMAP: number = 33169;
-    public static readonly GL_GENERATE_MIPMAP_HINT: number = 33170;
-    public static readonly GL_INTERPOLATE: number = 34165;
-    public static readonly GL_LINE_WIDTH: number = 2849;
-    public static readonly GL_LOGIC_OP_MODE: number = 3056;
-    public static readonly GL_MATRIX_MODE: number = 2976;
-    public static readonly GL_MAX_CLIP_PLANES: number = 3378;
-    public static readonly GL_MODELVIEW_MATRIX: number = 2982;
-    public static readonly GL_MODELVIEW_MATRIX_FLOAT_AS_INT_BITS_OES: number = 35213;
-    public static readonly GL_MODELVIEW_STACK_DEPTH: number = 2979;
-    public static readonly GL_NORMAL_ARRAY_BUFFER_BINDING: number = 34967;
-    public static readonly GL_NORMAL_ARRAY_POINTER: number = 32911;
-    public static readonly GL_NORMAL_ARRAY_STRIDE: number = 32895;
-    public static readonly GL_NORMAL_ARRAY_TYPE: number = 32894;
-    public static readonly GL_OPERAND0_ALPHA: number = 34200;
-    public static readonly GL_OPERAND0_RGB: number = 34192;
-    public static readonly GL_OPERAND1_ALPHA: number = 34201;
-    public static readonly GL_OPERAND1_RGB: number = 34193;
-    public static readonly GL_OPERAND2_ALPHA: number = 34202;
-    public static readonly GL_OPERAND2_RGB: number = 34194;
-    public static readonly GL_POINT_DISTANCE_ATTENUATION: number = 33065;
-    public static readonly GL_POINT_FADE_THRESHOLD_SIZE: number = 33064;
-    public static readonly GL_POINT_SIZE: number = 2833;
-    public static readonly GL_POINT_SIZE_ARRAY_BUFFER_BINDING_OES: number = 35743;
-    public static readonly GL_POINT_SIZE_ARRAY_OES: number = 35740;
-    public static readonly GL_POINT_SIZE_ARRAY_POINTER_OES: number = 35212;
-    public static readonly GL_POINT_SIZE_ARRAY_STRIDE_OES: number = 35211;
-    public static readonly GL_POINT_SIZE_ARRAY_TYPE_OES: number = 35210;
-    public static readonly GL_POINT_SIZE_MAX: number = 33063;
-    public static readonly GL_POINT_SIZE_MIN: number = 33062;
-    public static readonly GL_POINT_SPRITE_OES: number = 34913;
-    public static readonly GL_POLYGON_OFFSET_FACTOR: number = 32824;
-    public static readonly GL_POLYGON_OFFSET_UNITS: number = 10752;
-    public static readonly GL_PREVIOUS: number = 34168;
-    public static readonly GL_PRIMARY_COLOR: number = 34167;
-    public static readonly GL_PROJECTION_MATRIX: number = 2983;
-    public static readonly GL_PROJECTION_MATRIX_FLOAT_AS_INT_BITS_OES: number = 35214;
-    public static readonly GL_PROJECTION_STACK_DEPTH: number = 2980;
-    public static readonly GL_RGB_SCALE: number = 34163;
-    public static readonly GL_SAMPLE_BUFFERS: number = 32936;
-    public static readonly GL_SAMPLE_COVERAGE_INVERT: number = 32939;
-    public static readonly GL_SAMPLE_COVERAGE_VALUE: number = 32938;
-    public static readonly GL_SAMPLES: number = 32937;
-    public static readonly GL_SCISSOR_BOX: number = 3088;
-    public static readonly GL_SHADE_MODEL: number = 2900;
-    public static readonly GL_SRC0_ALPHA: number = 34184;
-    public static readonly GL_SRC0_RGB: number = 34176;
-    public static readonly GL_SRC1_ALPHA: number = 34185;
-    public static readonly GL_SRC1_RGB: number = 34177;
-    public static readonly GL_SRC2_ALPHA: number = 34186;
-    public static readonly GL_SRC2_RGB: number = 34178;
-    public static readonly GL_STATIC_DRAW: number = 35044;
-    public static readonly GL_STENCIL_CLEAR_VALUE: number = 2961;
-    public static readonly GL_STENCIL_FAIL: number = 2964;
-    public static readonly GL_STENCIL_FUNC: number = 2962;
-    public static readonly GL_STENCIL_PASS_DEPTH_FAIL: number = 2965;
-    public static readonly GL_STENCIL_PASS_DEPTH_PASS: number = 2966;
-    public static readonly GL_STENCIL_REF: number = 2967;
-    public static readonly GL_STENCIL_VALUE_MASK: number = 2963;
-    public static readonly GL_STENCIL_WRITEMASK: number = 2968;
-    public static readonly GL_SUBTRACT: number = 34023;
-    public static readonly GL_TEXTURE_BINDING_2D: number = 32873;
-    public static readonly GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING: number = 34970;
-    public static readonly GL_TEXTURE_COORD_ARRAY_POINTER: number = 32914;
-    public static readonly GL_TEXTURE_COORD_ARRAY_SIZE: number = 32904;
-    public static readonly GL_TEXTURE_COORD_ARRAY_STRIDE: number = 32906;
-    public static readonly GL_TEXTURE_COORD_ARRAY_TYPE: number = 32905;
-    public static readonly GL_TEXTURE_MATRIX: number = 2984;
-    public static readonly GL_TEXTURE_MATRIX_FLOAT_AS_INT_BITS_OES: number = 35215;
-    public static readonly GL_TEXTURE_STACK_DEPTH: number = 2981;
-    public static readonly GL_VERTEX_ARRAY_BUFFER_BINDING: number = 34966;
-    public static readonly GL_VERTEX_ARRAY_POINTER: number = 32910;
-    public static readonly GL_VERTEX_ARRAY_SIZE: number = 32890;
-    public static readonly GL_VERTEX_ARRAY_STRIDE: number = 32892;
-    public static readonly GL_VERTEX_ARRAY_TYPE: number = 32891;
-    public static readonly GL_VIEWPORT: number = 2978;
-    public static readonly GL_WRITE_ONLY: number = 35001;
+    public interface GL11 extends GL10 {
+    public static const GL_ACTIVE_TEXTURE:int = 34016;
+    public static const GL_ADD_SIGNED:int = 34164;
+    public static const GL_ALPHA_SCALE:int = 3356;
+    public static const GL_ALPHA_TEST_FUNC:int = 3009;
+    public static const GL_ALPHA_TEST_REF:int = 3010;
+    public static const GL_ARRAY_BUFFER:int = 34962;
+    public static const GL_ARRAY_BUFFER_BINDING:int = 34964;
+    public static const GL_BLEND_DST:int = 3040;
+    public static const GL_BLEND_SRC:int = 3041;
+    public static const GL_BUFFER_ACCESS:int = 35003;
+    public static const GL_BUFFER_SIZE:int = 34660;
+    public static const GL_BUFFER_USAGE:int = 34661;
+    public static const GL_CLIENT_ACTIVE_TEXTURE:int = 34017;
+    public static const GL_CLIP_PLANE0:int = 12288;
+    public static const GL_CLIP_PLANE1:int = 12289;
+    public static const GL_CLIP_PLANE2:int = 12290;
+    public static const GL_CLIP_PLANE3:int = 12291;
+    public static const GL_CLIP_PLANE4:int = 12292;
+    public static const GL_CLIP_PLANE5:int = 12293;
+    public static const GL_COLOR_ARRAY_BUFFER_BINDING:int = 34968;
+    public static const GL_COLOR_ARRAY_POINTER:int = 32912;
+    public static const GL_COLOR_ARRAY_SIZE:int = 32897;
+    public static const GL_COLOR_ARRAY_STRIDE:int = 32899;
+    public static const GL_COLOR_ARRAY_TYPE:int = 32898;
+    public static const GL_COLOR_CLEAR_VALUE:int = 3106;
+    public static const GL_COLOR_WRITEMASK:int = 3107;
+    public static const GL_COMBINE:int = 34160;
+    public static const GL_COMBINE_ALPHA:int = 34162;
+    public static const GL_COMBINE_RGB:int = 34161;
+    public static const GL_CONSTANT:int = 34166;
+    public static const GL_COORD_REPLACE_OES:int = 34914;
+    public static const GL_CULL_FACE_MODE:int = 2885;
+    public static const GL_CURRENT_COLOR:int = 2816;
+    public static const GL_CURRENT_NORMAL:int = 2818;
+    public static const GL_CURRENT_TEXTURE_COORDS:int = 2819;
+    public static const GL_DEPTH_CLEAR_VALUE:int = 2931;
+    public static const GL_DEPTH_FUNC:int = 2932;
+    public static const GL_DEPTH_RANGE:int = 2928;
+    public static const GL_DEPTH_WRITEMASK:int = 2930;
+    public static const GL_DOT3_RGB:int = 34478;
+    public static const GL_DOT3_RGBA:int = 34479;
+    public static const GL_DYNAMIC_DRAW:int = 35048;
+    public static const GL_ELEMENT_ARRAY_BUFFER:int = 34963;
+    public static const GL_ELEMENT_ARRAY_BUFFER_BINDING:int = 34965;
+    public static const GL_FRONT_FACE:int = 2886;
+    public static const GL_GENERATE_MIPMAP:int = 33169;
+    public static const GL_GENERATE_MIPMAP_HINT:int = 33170;
+    public static const GL_INTERPOLATE:int = 34165;
+    public static const GL_LINE_WIDTH:int = 2849;
+    public static const GL_LOGIC_OP_MODE:int = 3056;
+    public static const GL_MATRIX_MODE:int = 2976;
+    public static const GL_MAX_CLIP_PLANES:int = 3378;
+    public static const GL_MODELVIEW_MATRIX:int = 2982;
+    public static const GL_MODELVIEW_MATRIX_FLOAT_AS_INT_BITS_OES:int = 35213;
+    public static const GL_MODELVIEW_STACK_DEPTH:int = 2979;
+    public static const GL_NORMAL_ARRAY_BUFFER_BINDING:int = 34967;
+    public static const GL_NORMAL_ARRAY_POINTER:int = 32911;
+    public static const GL_NORMAL_ARRAY_STRIDE:int = 32895;
+    public static const GL_NORMAL_ARRAY_TYPE:int = 32894;
+    public static const GL_OPERAND0_ALPHA:int = 34200;
+    public static const GL_OPERAND0_RGB:int = 34192;
+    public static const GL_OPERAND1_ALPHA:int = 34201;
+    public static const GL_OPERAND1_RGB:int = 34193;
+    public static const GL_OPERAND2_ALPHA:int = 34202;
+    public static const GL_OPERAND2_RGB:int = 34194;
+    public static const GL_POINT_DISTANCE_ATTENUATION:int = 33065;
+    public static const GL_POINT_FADE_THRESHOLD_SIZE:int = 33064;
+    public static const GL_POINT_SIZE:int = 2833;
+    public static const GL_POINT_SIZE_ARRAY_BUFFER_BINDING_OES:int = 35743;
+    public static const GL_POINT_SIZE_ARRAY_OES:int = 35740;
+    public static const GL_POINT_SIZE_ARRAY_POINTER_OES:int = 35212;
+    public static const GL_POINT_SIZE_ARRAY_STRIDE_OES:int = 35211;
+    public static const GL_POINT_SIZE_ARRAY_TYPE_OES:int = 35210;
+    public static const GL_POINT_SIZE_MAX:int = 33063;
+    public static const GL_POINT_SIZE_MIN:int = 33062;
+    public static const GL_POINT_SPRITE_OES:int = 34913;
+    public static const GL_POLYGON_OFFSET_FACTOR:int = 32824;
+    public static const GL_POLYGON_OFFSET_UNITS:int = 10752;
+    public static const GL_PREVIOUS:int = 34168;
+    public static const GL_PRIMARY_COLOR:int = 34167;
+    public static const GL_PROJECTION_MATRIX:int = 2983;
+    public static const GL_PROJECTION_MATRIX_FLOAT_AS_INT_BITS_OES:int = 35214;
+    public static const GL_PROJECTION_STACK_DEPTH:int = 2980;
+    public static const GL_RGB_SCALE:int = 34163;
+    public static const GL_SAMPLE_BUFFERS:int = 32936;
+    public static const GL_SAMPLE_COVERAGE_INVERT:int = 32939;
+    public static const GL_SAMPLE_COVERAGE_VALUE:int = 32938;
+    public static const GL_SAMPLES:int = 32937;
+    public static const GL_SCISSOR_BOX:int = 3088;
+    public static const GL_SHADE_MODEL:int = 2900;
+    public static const GL_SRC0_ALPHA:int = 34184;
+    public static const GL_SRC0_RGB:int = 34176;
+    public static const GL_SRC1_ALPHA:int = 34185;
+    public static const GL_SRC1_RGB:int = 34177;
+    public static const GL_SRC2_ALPHA:int = 34186;
+    public static const GL_SRC2_RGB:int = 34178;
+    public static const GL_STATIC_DRAW:int = 35044;
+    public static const GL_STENCIL_CLEAR_VALUE:int = 2961;
+    public static const GL_STENCIL_FAIL:int = 2964;
+    public static const GL_STENCIL_FUNC:int = 2962;
+    public static const GL_STENCIL_PASS_DEPTH_FAIL:int = 2965;
+    public static const GL_STENCIL_PASS_DEPTH_PASS:int = 2966;
+    public static const GL_STENCIL_REF:int = 2967;
+    public static const GL_STENCIL_VALUE_MASK:int = 2963;
+    public static const GL_STENCIL_WRITEMASK:int = 2968;
+    public static const GL_SUBTRACT:int = 34023;
+    public static const GL_TEXTURE_BINDING_2D:int = 32873;
+    public static const GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING:int = 34970;
+    public static const GL_TEXTURE_COORD_ARRAY_POINTER:int = 32914;
+    public static const GL_TEXTURE_COORD_ARRAY_SIZE:int = 32904;
+    public static const GL_TEXTURE_COORD_ARRAY_STRIDE:int = 32906;
+    public static const GL_TEXTURE_COORD_ARRAY_TYPE:int = 32905;
+    public static const GL_TEXTURE_MATRIX:int = 2984;
+    public static const GL_TEXTURE_MATRIX_FLOAT_AS_INT_BITS_OES:int = 35215;
+    public static const GL_TEXTURE_STACK_DEPTH:int = 2981;
+    public static const GL_VERTEX_ARRAY_BUFFER_BINDING:int = 34966;
+    public static const GL_VERTEX_ARRAY_POINTER:int = 32910;
+    public static const GL_VERTEX_ARRAY_SIZE:int = 32890;
+    public static const GL_VERTEX_ARRAY_STRIDE:int = 32892;
+    public static const GL_VERTEX_ARRAY_TYPE:int = 32891;
+    public static const GL_VIEWPORT:int = 2978;
+    public static const GL_WRITE_ONLY:int = 35001;
     
+
+    function glBindBuffer(target:int, buffer:int):void;
     
+
+    function glBufferData(target:int, size:int, data:Buffer, usage:int):void;
     
+
+    function glBufferSubData(target:int, offset:int, size:int, data:Buffer):void;
     
+
+    function glClipPlanef(plane:int, equation:Vector.<Number>, offset:int):void;
     
+
+    function glClipPlanef(plane:int, equation:FloatBuffer):void;
     
+
+    function glColor4ub(red:int, green:int, blue:int, alpha:int):void;
     
+
+    function glColorPointer(size:int, type:int, stride:int, offset:int):void;
     
+
+    function glDeleteBuffers(n:int, buffers:Vector.<int>, offset:int):void;
     
+
+    function glDeleteBuffers(n:int, buffers:IntBuffer):void;
     
+
+    function glDrawElements(mode:int, count:int, type:int, offset:int):void;
     
+
+    function glGenBuffers(n:int, buffers:Vector.<int>, offset:int):void;
     
+
+    function glGenBuffers(n:int, buffers:IntBuffer):void;
     
+
+    function glGetBufferParameteriv(target:int, pname:int, params:Vector.<int>, offset:int):void;
     
+
+    function glGetBufferParameteriv(target:int, pname:int, params:IntBuffer):void;
     
+
+    function glGetClipPlanef(pname:int, eqn:Vector.<Number>, offset:int):void;
     
+
+    function glGetClipPlanef(pname:int, eqn:FloatBuffer):void;
     
+
+    function glGetFloatv(pname:int, params:Vector.<Number>, offset:int):void;
     
+
+    function glGetFloatv(pname:int, params:FloatBuffer):void;
     
+
+    function glGetLightfv(light:int, pname:int, params:Vector.<Number>, offset:int):void;
     
+
+    function glGetLightfv(light:int, pname:int, params:FloatBuffer):void;
     
+
+    function glGetMaterialfv(face:int, pname:int, params:Vector.<Number>, offset:int):void;
     
+
+    function glGetMaterialfv(face:int, pname:int, params:FloatBuffer):void;
     
+
+    function glGetTexEnviv(env:int, pname:int, params:Vector.<int>, offset:int):void;
     
+
+    function glGetTexEnviv(env:int, pname:int, params:IntBuffer):void;
     
+
+    function glGetTexParameterfv(target:int, pname:int, params:Vector.<Number>, offset:int):void;
     
+
+    function glGetTexParameterfv(target:int, pname:int, params:FloatBuffer):void;
     
+
+    function glGetTexParameteriv(target:int, pname:int, params:Vector.<int>, offset:int):void;
     
+
+    function glGetTexParameteriv(target:int, pname:int, params:IntBuffer):void;
     
+
+    function glIsBuffer(buffer:int):Boolean;
     
+
+    function glIsEnabled(cap:int):Boolean;
     
+
+    function glIsTexture(texture:int):Boolean;
     
+
+    function glNormalPointer(type:int, stride:int, offset:int):void;
     
+
+    function glPointParameterf(pname:int, param:Number):void;
     
+
+    function glPointParameterfv(pname:int, params:Vector.<Number>, offset:int):void;
     
+
+    function glPointParameterfv(pname:int, params:FloatBuffer):void;
     
+
+    function glTexCoordPointer(size:int, type:int, stride:int, offset:int):void;
     
+
+    function glTexEnvi(target:int, pname:int, param:int):void;
     
+
+    function glTexEnviv(target:int, pname:int, params:Vector.<int>, offset:int):void;
     
+
+    function glTexEnviv(target:int, pname:int, params:IntBuffer):void;
     
+
+    function glTexParameterfv(target:int, pname:int, params:Vector.<Number>, offset:int):void;
     
+
+    function glTexParameterfv(target:int, pname:int, params:FloatBuffer):void;
     
+
+    function glTexParameteri(target:int, pname:int, param:int):void;
     
+
+    function glTexParameteriv(target:int, pname:int, params:Vector.<int>, offset:int):void;
     
+
+    function glTexParameteriv(target:int, pname:int, params:IntBuffer):void;
     
-            }
-        
-export interface GL11 extends javax.microedition.khronos.opengles.GL10 {
-        
 
-    //Interfaces do not have static fields - public static readonly GL_ACTIVE_TEXTURE: number = 34016;
-
-    //Interfaces do not have static fields - public static readonly GL_ADD_SIGNED: number = 34164;
-
-    //Interfaces do not have static fields - public static readonly GL_ALPHA_SCALE: number = 3356;
-
-    //Interfaces do not have static fields - public static readonly GL_ALPHA_TEST_FUNC: number = 3009;
-
-    //Interfaces do not have static fields - public static readonly GL_ALPHA_TEST_REF: number = 3010;
-
-    //Interfaces do not have static fields - public static readonly GL_ARRAY_BUFFER: number = 34962;
-
-    //Interfaces do not have static fields - public static readonly GL_ARRAY_BUFFER_BINDING: number = 34964;
-
-    //Interfaces do not have static fields - public static readonly GL_BLEND_DST: number = 3040;
-
-    //Interfaces do not have static fields - public static readonly GL_BLEND_SRC: number = 3041;
-
-    //Interfaces do not have static fields - public static readonly GL_BUFFER_ACCESS: number = 35003;
-
-    //Interfaces do not have static fields - public static readonly GL_BUFFER_SIZE: number = 34660;
-
-    //Interfaces do not have static fields - public static readonly GL_BUFFER_USAGE: number = 34661;
-
-    //Interfaces do not have static fields - public static readonly GL_CLIENT_ACTIVE_TEXTURE: number = 34017;
-
-    //Interfaces do not have static fields - public static readonly GL_CLIP_PLANE0: number = 12288;
-
-    //Interfaces do not have static fields - public static readonly GL_CLIP_PLANE1: number = 12289;
-
-    //Interfaces do not have static fields - public static readonly GL_CLIP_PLANE2: number = 12290;
-
-    //Interfaces do not have static fields - public static readonly GL_CLIP_PLANE3: number = 12291;
-
-    //Interfaces do not have static fields - public static readonly GL_CLIP_PLANE4: number = 12292;
-
-    //Interfaces do not have static fields - public static readonly GL_CLIP_PLANE5: number = 12293;
-
-    //Interfaces do not have static fields - public static readonly GL_COLOR_ARRAY_BUFFER_BINDING: number = 34968;
-
-    //Interfaces do not have static fields - public static readonly GL_COLOR_ARRAY_POINTER: number = 32912;
-
-    //Interfaces do not have static fields - public static readonly GL_COLOR_ARRAY_SIZE: number = 32897;
-
-    //Interfaces do not have static fields - public static readonly GL_COLOR_ARRAY_STRIDE: number = 32899;
-
-    //Interfaces do not have static fields - public static readonly GL_COLOR_ARRAY_TYPE: number = 32898;
-
-    //Interfaces do not have static fields - public static readonly GL_COLOR_CLEAR_VALUE: number = 3106;
-
-    //Interfaces do not have static fields - public static readonly GL_COLOR_WRITEMASK: number = 3107;
-
-    //Interfaces do not have static fields - public static readonly GL_COMBINE: number = 34160;
-
-    //Interfaces do not have static fields - public static readonly GL_COMBINE_ALPHA: number = 34162;
-
-    //Interfaces do not have static fields - public static readonly GL_COMBINE_RGB: number = 34161;
-
-    //Interfaces do not have static fields - public static readonly GL_CONSTANT: number = 34166;
-
-    //Interfaces do not have static fields - public static readonly GL_COORD_REPLACE_OES: number = 34914;
-
-    //Interfaces do not have static fields - public static readonly GL_CULL_FACE_MODE: number = 2885;
-
-    //Interfaces do not have static fields - public static readonly GL_CURRENT_COLOR: number = 2816;
-
-    //Interfaces do not have static fields - public static readonly GL_CURRENT_NORMAL: number = 2818;
-
-    //Interfaces do not have static fields - public static readonly GL_CURRENT_TEXTURE_COORDS: number = 2819;
-
-    //Interfaces do not have static fields - public static readonly GL_DEPTH_CLEAR_VALUE: number = 2931;
-
-    //Interfaces do not have static fields - public static readonly GL_DEPTH_FUNC: number = 2932;
-
-    //Interfaces do not have static fields - public static readonly GL_DEPTH_RANGE: number = 2928;
-
-    //Interfaces do not have static fields - public static readonly GL_DEPTH_WRITEMASK: number = 2930;
-
-    //Interfaces do not have static fields - public static readonly GL_DOT3_RGB: number = 34478;
-
-    //Interfaces do not have static fields - public static readonly GL_DOT3_RGBA: number = 34479;
-
-    //Interfaces do not have static fields - public static readonly GL_DYNAMIC_DRAW: number = 35048;
-
-    //Interfaces do not have static fields - public static readonly GL_ELEMENT_ARRAY_BUFFER: number = 34963;
-
-    //Interfaces do not have static fields - public static readonly GL_ELEMENT_ARRAY_BUFFER_BINDING: number = 34965;
-
-    //Interfaces do not have static fields - public static readonly GL_FRONT_FACE: number = 2886;
-
-    //Interfaces do not have static fields - public static readonly GL_GENERATE_MIPMAP: number = 33169;
-
-    //Interfaces do not have static fields - public static readonly GL_GENERATE_MIPMAP_HINT: number = 33170;
-
-    //Interfaces do not have static fields - public static readonly GL_INTERPOLATE: number = 34165;
-
-    //Interfaces do not have static fields - public static readonly GL_LINE_WIDTH: number = 2849;
-
-    //Interfaces do not have static fields - public static readonly GL_LOGIC_OP_MODE: number = 3056;
-
-    //Interfaces do not have static fields - public static readonly GL_MATRIX_MODE: number = 2976;
-
-    //Interfaces do not have static fields - public static readonly GL_MAX_CLIP_PLANES: number = 3378;
-
-    //Interfaces do not have static fields - public static readonly GL_MODELVIEW_MATRIX: number = 2982;
-
-    //Interfaces do not have static fields - public static readonly GL_MODELVIEW_MATRIX_FLOAT_AS_INT_BITS_OES: number = 35213;
-
-    //Interfaces do not have static fields - public static readonly GL_MODELVIEW_STACK_DEPTH: number = 2979;
-
-    //Interfaces do not have static fields - public static readonly GL_NORMAL_ARRAY_BUFFER_BINDING: number = 34967;
-
-    //Interfaces do not have static fields - public static readonly GL_NORMAL_ARRAY_POINTER: number = 32911;
-
-    //Interfaces do not have static fields - public static readonly GL_NORMAL_ARRAY_STRIDE: number = 32895;
-
-    //Interfaces do not have static fields - public static readonly GL_NORMAL_ARRAY_TYPE: number = 32894;
-
-    //Interfaces do not have static fields - public static readonly GL_OPERAND0_ALPHA: number = 34200;
-
-    //Interfaces do not have static fields - public static readonly GL_OPERAND0_RGB: number = 34192;
-
-    //Interfaces do not have static fields - public static readonly GL_OPERAND1_ALPHA: number = 34201;
-
-    //Interfaces do not have static fields - public static readonly GL_OPERAND1_RGB: number = 34193;
-
-    //Interfaces do not have static fields - public static readonly GL_OPERAND2_ALPHA: number = 34202;
-
-    //Interfaces do not have static fields - public static readonly GL_OPERAND2_RGB: number = 34194;
-
-    //Interfaces do not have static fields - public static readonly GL_POINT_DISTANCE_ATTENUATION: number = 33065;
-
-    //Interfaces do not have static fields - public static readonly GL_POINT_FADE_THRESHOLD_SIZE: number = 33064;
-
-    //Interfaces do not have static fields - public static readonly GL_POINT_SIZE: number = 2833;
-
-    //Interfaces do not have static fields - public static readonly GL_POINT_SIZE_ARRAY_BUFFER_BINDING_OES: number = 35743;
-
-    //Interfaces do not have static fields - public static readonly GL_POINT_SIZE_ARRAY_OES: number = 35740;
-
-    //Interfaces do not have static fields - public static readonly GL_POINT_SIZE_ARRAY_POINTER_OES: number = 35212;
-
-    //Interfaces do not have static fields - public static readonly GL_POINT_SIZE_ARRAY_STRIDE_OES: number = 35211;
-
-    //Interfaces do not have static fields - public static readonly GL_POINT_SIZE_ARRAY_TYPE_OES: number = 35210;
-
-    //Interfaces do not have static fields - public static readonly GL_POINT_SIZE_MAX: number = 33063;
-
-    //Interfaces do not have static fields - public static readonly GL_POINT_SIZE_MIN: number = 33062;
-
-    //Interfaces do not have static fields - public static readonly GL_POINT_SPRITE_OES: number = 34913;
-
-    //Interfaces do not have static fields - public static readonly GL_POLYGON_OFFSET_FACTOR: number = 32824;
-
-    //Interfaces do not have static fields - public static readonly GL_POLYGON_OFFSET_UNITS: number = 10752;
-
-    //Interfaces do not have static fields - public static readonly GL_PREVIOUS: number = 34168;
-
-    //Interfaces do not have static fields - public static readonly GL_PRIMARY_COLOR: number = 34167;
-
-    //Interfaces do not have static fields - public static readonly GL_PROJECTION_MATRIX: number = 2983;
-
-    //Interfaces do not have static fields - public static readonly GL_PROJECTION_MATRIX_FLOAT_AS_INT_BITS_OES: number = 35214;
-
-    //Interfaces do not have static fields - public static readonly GL_PROJECTION_STACK_DEPTH: number = 2980;
-
-    //Interfaces do not have static fields - public static readonly GL_RGB_SCALE: number = 34163;
-
-    //Interfaces do not have static fields - public static readonly GL_SAMPLE_BUFFERS: number = 32936;
-
-    //Interfaces do not have static fields - public static readonly GL_SAMPLE_COVERAGE_INVERT: number = 32939;
-
-    //Interfaces do not have static fields - public static readonly GL_SAMPLE_COVERAGE_VALUE: number = 32938;
-
-    //Interfaces do not have static fields - public static readonly GL_SAMPLES: number = 32937;
-
-    //Interfaces do not have static fields - public static readonly GL_SCISSOR_BOX: number = 3088;
-
-    //Interfaces do not have static fields - public static readonly GL_SHADE_MODEL: number = 2900;
-
-    //Interfaces do not have static fields - public static readonly GL_SRC0_ALPHA: number = 34184;
-
-    //Interfaces do not have static fields - public static readonly GL_SRC0_RGB: number = 34176;
-
-    //Interfaces do not have static fields - public static readonly GL_SRC1_ALPHA: number = 34185;
-
-    //Interfaces do not have static fields - public static readonly GL_SRC1_RGB: number = 34177;
-
-    //Interfaces do not have static fields - public static readonly GL_SRC2_ALPHA: number = 34186;
-
-    //Interfaces do not have static fields - public static readonly GL_SRC2_RGB: number = 34178;
-
-    //Interfaces do not have static fields - public static readonly GL_STATIC_DRAW: number = 35044;
-
-    //Interfaces do not have static fields - public static readonly GL_STENCIL_CLEAR_VALUE: number = 2961;
-
-    //Interfaces do not have static fields - public static readonly GL_STENCIL_FAIL: number = 2964;
-
-    //Interfaces do not have static fields - public static readonly GL_STENCIL_FUNC: number = 2962;
-
-    //Interfaces do not have static fields - public static readonly GL_STENCIL_PASS_DEPTH_FAIL: number = 2965;
-
-    //Interfaces do not have static fields - public static readonly GL_STENCIL_PASS_DEPTH_PASS: number = 2966;
-
-    //Interfaces do not have static fields - public static readonly GL_STENCIL_REF: number = 2967;
-
-    //Interfaces do not have static fields - public static readonly GL_STENCIL_VALUE_MASK: number = 2963;
-
-    //Interfaces do not have static fields - public static readonly GL_STENCIL_WRITEMASK: number = 2968;
-
-    //Interfaces do not have static fields - public static readonly GL_SUBTRACT: number = 34023;
-
-    //Interfaces do not have static fields - public static readonly GL_TEXTURE_BINDING_2D: number = 32873;
-
-    //Interfaces do not have static fields - public static readonly GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING: number = 34970;
-
-    //Interfaces do not have static fields - public static readonly GL_TEXTURE_COORD_ARRAY_POINTER: number = 32914;
-
-    //Interfaces do not have static fields - public static readonly GL_TEXTURE_COORD_ARRAY_SIZE: number = 32904;
-
-    //Interfaces do not have static fields - public static readonly GL_TEXTURE_COORD_ARRAY_STRIDE: number = 32906;
-
-    //Interfaces do not have static fields - public static readonly GL_TEXTURE_COORD_ARRAY_TYPE: number = 32905;
-
-    //Interfaces do not have static fields - public static readonly GL_TEXTURE_MATRIX: number = 2984;
-
-    //Interfaces do not have static fields - public static readonly GL_TEXTURE_MATRIX_FLOAT_AS_INT_BITS_OES: number = 35215;
-
-    //Interfaces do not have static fields - public static readonly GL_TEXTURE_STACK_DEPTH: number = 2981;
-
-    //Interfaces do not have static fields - public static readonly GL_VERTEX_ARRAY_BUFFER_BINDING: number = 34966;
-
-    //Interfaces do not have static fields - public static readonly GL_VERTEX_ARRAY_POINTER: number = 32910;
-
-    //Interfaces do not have static fields - public static readonly GL_VERTEX_ARRAY_SIZE: number = 32890;
-
-    //Interfaces do not have static fields - public static readonly GL_VERTEX_ARRAY_STRIDE: number = 32892;
-
-    //Interfaces do not have static fields - public static readonly GL_VERTEX_ARRAY_TYPE: number = 32891;
-
-    //Interfaces do not have static fields - public static readonly GL_VIEWPORT: number = 2978;
-
-    //Interfaces do not have static fields - public static readonly GL_WRITE_ONLY: number = 35001;
-
-    glBindBuffer(target: number, buffer: number): void;
-
-    glBufferData(target: number, size: number, data: java.nio.Buffer, usage: number): void;
-
-    glBufferSubData(target: number, offset: number, size: number, data: java.nio.Buffer): void;
-
-    glClipPlanef(plane: number, equation: number[], offset: number): void;
-
-    glClipPlanef(plane: number, equation: java.nio.FloatBuffer): void;
-
-    glColor4ub(red: number, green: number, blue: number, alpha: number): void;
-
-    glColorPointer(size: number, type: number, stride: number, offset: number): void;
-
-    glDeleteBuffers(n: number, buffers: number[], offset: number): void;
-
-    glDeleteBuffers(n: number, buffers: java.nio.IntBuffer): void;
-
-    glDrawElements(mode: number, count: number, type: number, offset: number): void;
-
-    glGenBuffers(n: number, buffers: number[], offset: number): void;
-
-    glGenBuffers(n: number, buffers: java.nio.IntBuffer): void;
-
-    glGetBufferParameteriv(target: number, pname: number, params: number[], offset: number): void;
-
-    glGetBufferParameteriv(target: number, pname: number, params: java.nio.IntBuffer): void;
-
-    glGetClipPlanef(pname: number, eqn: number[], offset: number): void;
-
-    glGetClipPlanef(pname: number, eqn: java.nio.FloatBuffer): void;
-
-    glGetFloatv(pname: number, params: number[], offset: number): void;
-
-    glGetFloatv(pname: number, params: java.nio.FloatBuffer): void;
-
-    glGetLightfv(light: number, pname: number, params: number[], offset: number): void;
-
-    glGetLightfv(light: number, pname: number, params: java.nio.FloatBuffer): void;
-
-    glGetMaterialfv(face: number, pname: number, params: number[], offset: number): void;
-
-    glGetMaterialfv(face: number, pname: number, params: java.nio.FloatBuffer): void;
-
-    glGetTexEnviv(env: number, pname: number, params: number[], offset: number): void;
-
-    glGetTexEnviv(env: number, pname: number, params: java.nio.IntBuffer): void;
-
-    glGetTexParameterfv(target: number, pname: number, params: number[], offset: number): void;
-
-    glGetTexParameterfv(target: number, pname: number, params: java.nio.FloatBuffer): void;
-
-    glGetTexParameteriv(target: number, pname: number, params: number[], offset: number): void;
-
-    glGetTexParameteriv(target: number, pname: number, params: java.nio.IntBuffer): void;
-
-    glIsBuffer(buffer: number): boolean;
-
-    glIsEnabled(cap: number): boolean;
-
-    glIsTexture(texture: number): boolean;
-
-    glNormalPointer(type: number, stride: number, offset: number): void;
-
-    glPointParameterf(pname: number, param: number): void;
-
-    glPointParameterfv(pname: number, params: number[], offset: number): void;
-
-    glPointParameterfv(pname: number, params: java.nio.FloatBuffer): void;
-
-    glTexCoordPointer(size: number, type: number, stride: number, offset: number): void;
-
-    glTexEnvi(target: number, pname: number, param: number): void;
-
-    glTexEnviv(target: number, pname: number, params: number[], offset: number): void;
-
-    glTexEnviv(target: number, pname: number, params: java.nio.IntBuffer): void;
-
-    glTexParameterfv(target: number, pname: number, params: number[], offset: number): void;
-
-    glTexParameterfv(target: number, pname: number, params: java.nio.FloatBuffer): void;
-
-    glTexParameteri(target: number, pname: number, param: number): void;
-
-    glTexParameteriv(target: number, pname: number, params: number[], offset: number): void;
-
-    glTexParameteriv(target: number, pname: number, params: java.nio.IntBuffer): void;
-
-    glVertexPointer(size: number, type: number, stride: number, offset: number): void;
-
+    function glVertexPointer(size:int, type:int, stride:int, offset:int):void;
+    }
 }
 

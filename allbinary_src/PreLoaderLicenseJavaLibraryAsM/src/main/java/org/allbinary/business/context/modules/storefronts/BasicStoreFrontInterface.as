@@ -1,116 +1,118 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.context.modules.storefronts {
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface BasicStoreFrontInterface {
+    
 
-        
+    function getTestHtmlPath():String;
+    
 
+    function getCurrentHostName():String;
+    
 
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
+    function getCurrentHostNamePath():String;
+    
 
+    function getCurrentHomeHostName():String;
+    
 
+    function getCurrentHomeHostNamePath():String;
+    
 
+    function getName():String;
+    
 
+    function getUserName():String;
+    
 
+    function getBasketName():String;
+    
 
+    function getHomeHostName():String;
+    
 
+    function getHomeHostNamePath():String;
+    
 
+    function getHostName():String;
+    
 
+    function getHostNamePath():String;
+    
 
+    function getTestHomeHostName():String;
+    
 
+    function getTestHomeHostNamePath():String;
+    
 
+    function getTestHostName():String;
+    
 
+    function getTestHostNamePath():String;
+    
 
+    function getStaticPath():String;
+    
 
+    function getCategoryPath():String;
+    
 
+    function getSubStores():BasicArrayList;
+    
 
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export interface BasicStoreFrontInterface {
-        
+    function getTagLocation():String;
+    
 
-    getTestHtmlPath(): string;
+    function getPackageLocation():String;
+    
 
-    getCurrentHostName(): string;
+    function getInventoryControl():String;
+    
 
-    getCurrentHostNamePath(): string;
+    function getFtp():String;
+    
 
-    getCurrentHomeHostName(): string;
+    function getFtpPath():String;
+    
 
-    getCurrentHomeHostNamePath(): string;
+    function getFtpUserName():String;
+    
 
-    getName(): string;
+    function getFtpPassword():String;
+    
 
-    getUserName(): string;
+    function getTestFtp():String;
+    
 
-    getBasketName(): string;
+    function getTestFtpPath():String;
+    
 
-    getHomeHostName(): string;
+    function getTestFtpUserName():String;
+    
 
-    getHomeHostNamePath(): string;
+    function getTestFtpPassword():String;
+    
 
-    getHostName(): string;
+    function getTimeCreated():String;
+    
 
-    getHostNamePath(): string;
-
-    getTestHomeHostName(): string;
-
-    getTestHomeHostNamePath(): string;
-
-    getTestHostName(): string;
-
-    getTestHostNamePath(): string;
-
-    getStaticPath(): string;
-
-    getCategoryPath(): string;
-
-                //@Throws(Exception.constructor)
-            
-    getSubStores(): BasicArrayList;
-
-    getTagLocation(): string;
-
-    getPackageLocation(): string;
-
-    getInventoryControl(): string;
-
-    getFtp(): string;
-
-    getFtpPath(): string;
-
-    getFtpUserName(): string;
-
-    getFtpPassword(): string;
-
-    getTestFtp(): string;
-
-    getTestFtpPath(): string;
-
-    getTestFtpUserName(): string;
-
-    getTestFtpPassword(): string;
-
-    getTimeCreated(): string;
-
-    getLastModified(): string;
-
+    function getLastModified():String;
+    }
 }
 

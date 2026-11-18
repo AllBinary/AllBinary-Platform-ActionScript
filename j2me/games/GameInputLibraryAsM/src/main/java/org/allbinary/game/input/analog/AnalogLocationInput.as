@@ -1,127 +1,79 @@
+// Generated Code Do Not Modify
+package org.allbinary.game.input.analog {
+    import org.allbinary.graphics.CustomGPoint;
 
-        /* Generated Code Do Not Modify */
+    public class AnalogLocationInput {
+    private static var NULL_ANALOG_LOCATION_INPUT_value:AnalogLocationInput;
+    private static var NULL_ANALOG_LOCATION_INPUT_set:Boolean = false;
+    public static function get NULL_ANALOG_LOCATION_INPUT():AnalogLocationInput {
+        if (!AnalogLocationInput.NULL_ANALOG_LOCATION_INPUT_set) {
+            AnalogLocationInput.NULL_ANALOG_LOCATION_INPUT_set = true;
+            AnalogLocationInput.NULL_ANALOG_LOCATION_INPUT_value = new AnalogLocationInput(-1);
+        }
+        return AnalogLocationInput.NULL_ANALOG_LOCATION_INPUT_value;
+    }
+        private var playerId:int = 0;
+        private var customGPoint:CustomGPoint = null;
+        private var rz:int = 0;
+        private var rightTrigger:int = 0;
+        private var leftTrigger:int = 0;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { CustomGPoint } from '../../../../../org/allbinary/graphics/CustomGPoint.js';
-//not GWT import const CustomGPoint
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AnalogLocationInput
-            extends Object
-         {
-        
-
-    public static readonly NULL_ANALOG_LOCATION_INPUT: AnalogLocationInput = new AnalogLocationInput( -1);
-
-    private readonly playerId: number;
-
-    private readonly customGPoint: CustomGPoint;
-
-    private rz: number= 0;
-
-    private rightTrigger: number= 0;
-
-    private leftTrigger: number= 0;
-
- constructor (playerId: number){
-
-            super();
-        this.playerId= playerId;
+        // Java field initializers run after the base constructor
+        private function initFieldsAnalogLocationInput():void {
     
-this.customGPoint= new CustomGPoint(0, 0, 0);
     
-}
-
-
-    public getPlayerId(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.playerId;
+    this.rz = 0;
+    this.rightTrigger = 0;
+    this.leftTrigger = 0;
+        }
     
-}
 
-
-    public getCustomGPoint(): CustomGPoint{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.customGPoint;
+    public function AnalogLocationInput(playerId:int) {
+        super();
+        this.initFieldsAnalogLocationInput();
+        this.playerId = playerId;
+        this.customGPoint = new CustomGPoint(0, 0, 0);
+    }
     
-}
 
-
-    public getRz(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.rz;
+    public function getPlayerId():int {
+        return this.playerId;
+    }
     
-}
 
-
-    public setRz(rz: number){
-this.rz= rz;
+    public function getCustomGPoint():CustomGPoint {
+        return this.customGPoint;
+    }
     
-}
 
-
-    public getRightTrigger(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.rightTrigger;
+    public function getRz():int {
+        return this.rz;
+    }
     
-}
 
-
-    public setRightTrigger(rightTrigger: number){
-this.rightTrigger= rightTrigger;
+    public function setRz(rz:int):void {
+        this.rz = rz;
+    }
     
-}
 
-
-    public getLeftTrigger(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.leftTrigger;
+    public function getRightTrigger():int {
+        return this.rightTrigger;
+    }
     
-}
 
-
-    public setLeftTrigger(leftTrigger: number){
-this.leftTrigger= leftTrigger;
+    public function setRightTrigger(rightTrigger:int):void {
+        this.rightTrigger = rightTrigger;
+    }
     
-}
 
+    public function getLeftTrigger():int {
+        return this.leftTrigger;
+    }
+    
 
+    public function setLeftTrigger(leftTrigger:int):void {
+        this.leftTrigger = leftTrigger;
+    }
+    }
 }
 

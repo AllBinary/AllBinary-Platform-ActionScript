@@ -1,89 +1,66 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.category {
+    import org.allbinary.logic.io.file.CommonDataFileStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { CommonDataFileStrings } from '../../../../org/allbinary/logic/io/file/CommonDataFileStrings.js';
-//not GWT import const CommonDataFileStrings
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class CategoryData
-            extends Object
-         {
-        
-
-    private static readonly instance: CategoryData = new CategoryData();
-
-    public static getInstance(): CategoryData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return CategoryData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class CategoryData {
+    private static var instance_value:CategoryData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():CategoryData {
+        if (!CategoryData.instance_set) {
+            CategoryData.instance_set = true;
+            CategoryData.instance_value = new CategoryData();
         }
+        return CategoryData.instance_value;
+    }
+        public var PARENT:String = null;
+        public var NAME:String = null;
+        public var PATH:String = null;
+        public var LABEL:String = null;
+        public var VIEW:String = null;
+        public var LEVEL:String = null;
+        public var REQUEST:String = null;
+        public var ROOTCATEGORY:String = null;
+        public var UNCRYPTED_EXTENSION:String = null;
+        public var ENCRYPTED_EXTENSION:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsCategoryData():void {
+    this.PARENT = "CATEGORY_PARENT";
+    this.NAME = "CATEGORY_NAME";
+    this.PATH = "CATEGORY_PATH";
+    this.LABEL = "CATEGORY_LABEL";
+    this.VIEW = "CATEGORY_VIEW_CATEGORY";
+    this.LEVEL = "CATEGORY_LEVEL";
+    this.REQUEST = "request";
+    this.ROOTCATEGORY = "Category";
+    this.UNCRYPTED_EXTENSION = CommonDataFileStrings.getInstance().UNCRYPTED_EXTENSION;
+    this.ENCRYPTED_EXTENSION = CommonDataFileStrings.getInstance().ENCRYPTED_EXTENSION;
+        }
+    
 
-    public readonly PARENT: string = "CATEGORY_PARENT";
+    public static function getInstance():CategoryData {
+        return CategoryData.instance;
+    }
+    
 
-    public readonly NAME: string = "CATEGORY_NAME";
-
-    public readonly PATH: string = "CATEGORY_PATH";
-
-    public readonly LABEL: string = "CATEGORY_LABEL";
-
-    public readonly VIEW: string = "CATEGORY_VIEW_CATEGORY";
-
-    public readonly LEVEL: string = "CATEGORY_LEVEL";
-
-    public readonly REQUEST: string = "request";
-
-    public readonly ROOTCATEGORY: string = "Category";
-
-    public readonly UNCRYPTED_EXTENSION: string = CommonDataFileStrings.getInstance()!.UNCRYPTED_EXTENSION;
-
-    public readonly ENCRYPTED_EXTENSION: string = CommonDataFileStrings.getInstance()!.ENCRYPTED_EXTENSION;
-
+    public function CategoryData() {
+        super();
+        this.initFieldsCategoryData();
+    }
+    }
 }
 

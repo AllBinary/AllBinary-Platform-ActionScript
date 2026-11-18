@@ -1,72 +1,51 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.time {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class TimeData
-            extends Object
-         {
-        
-
-    private static readonly instance: TimeData = new TimeData();
-
-    public static getInstance(): TimeData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return TimeData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class TimeData {
+    private static var instance_value:TimeData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():TimeData {
+        if (!TimeData.instance_set) {
+            TimeData.instance_set = true;
+            TimeData.instance_value = new TimeData();
         }
+        return TimeData.instance_value;
+    }
+        public var NAME:String = null;
+        public var START:String = null;
+        public var END:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsTimeData():void {
+    this.NAME = "TIME_NAME";
+    this.START = "TIME_START";
+    this.END = "TIME_END";
+        }
+    
 
-    public readonly NAME: string = "TIME_NAME";
+    public static function getInstance():TimeData {
+        return TimeData.instance;
+    }
+    
 
-    public readonly START: string = "TIME_START";
-
-    public readonly END: string = "TIME_END";
-
+    public function TimeData() {
+        super();
+        this.initFieldsTimeData();
+    }
+    }
 }
 

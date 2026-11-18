@@ -1,107 +1,96 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io.file {
+    import java.io.JFilenameFilter;
+    import java.io.JIOException;
+    import java.net.JURI;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface AbFileInterface {
+    
 
-        
+    function canRead():Boolean;
+    
 
+    function canWrite():Boolean;
+    
 
-import { FilenameFilter } from '../../../../../java/io/FilenameFilter.js';
-//not GWT import const FilenameFilter
+    function createNewFile():Boolean;
+    
 
-import { IOException } from '../../../../../java/io/IOException.js';
-//not GWT import const IOException
+    function delete_():Boolean;
+    
 
-import { URI } from '../../../../../java/net/URI.js';
-//not GWT import const URI
+    function deleteOnExit():void;
+    
 
+    function exists():Boolean;
+    
 
+    function getAbsolutePath():String;
+    
 
+    function getCanonicalPath():String;
+    
 
+    function getParent():String;
+    
 
+    function getPath():String;
+    
 
+    function isAbsolute():Boolean;
+    
 
+    function isDirectory():Boolean;
+    
 
+    function isFile():Boolean;
+    
 
+    function isHidden():Boolean;
+    
 
+    function lastModified():Number;
+    
 
+    function length():Number;
+    
 
+    function list():Vector.<String>;
+    
 
+    function listWithFilter(filter:FilenameFilter):Vector.<String>;
+    
 
+    function mkdir():Boolean;
+    
 
+    function mkdirs():Boolean;
+    
 
+    function setLastModified(time:Number):Boolean;
+    
 
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export interface AbFileInterface {
-        
+    function setReadOnly():Boolean;
+    
 
-    canRead(): boolean;
+    function toString():String;
+    
 
-    canWrite(): boolean;
-
-                //@Throws(IOException.constructor)
-            
-    createNewFile(): boolean;
-
-                //@Throws(IOException.constructor)
-            
-    delete(): boolean;
-
-    deleteOnExit(): void;
-
-    exists(): boolean;
-
-    getAbsolutePath(): string;
-
-                //@Throws(IOException.constructor)
-            
-    getCanonicalPath(): string;
-
-    getParent(): string;
-
-    getPath(): string;
-
-    isAbsolute(): boolean;
-
-    isDirectory(): boolean;
-
-    isFile(): boolean;
-
-    isHidden(): boolean;
-
-    lastModified(): number;
-
-    length(): number;
-
-    list(): string[];
-
-    listWithFilter(filter: FilenameFilter): string[];
-
-    mkdir(): boolean;
-
-    mkdirs(): boolean;
-
-    setLastModified(time: number): boolean;
-
-    setReadOnly(): boolean;
-
-    toString(): string;
-
-    toURI(): URI;
-
+    function toURI():URI;
+    }
 }
 

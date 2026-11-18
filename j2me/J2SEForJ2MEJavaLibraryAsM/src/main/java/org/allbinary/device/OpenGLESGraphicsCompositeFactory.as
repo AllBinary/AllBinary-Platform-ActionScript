@@ -1,80 +1,56 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.device {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class OpenGLESGraphicsCompositeFactory {
+    private static var instance_value:OpenGLESGraphicsCompositeFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():OpenGLESGraphicsCompositeFactory {
+        if (!OpenGLESGraphicsCompositeFactory.instance_set) {
+            OpenGLESGraphicsCompositeFactory.instance_set = true;
+            OpenGLESGraphicsCompositeFactory.instance_value = new OpenGLESGraphicsCompositeFactory();
+        }
+        return OpenGLESGraphicsCompositeFactory.instance_value;
+    }
+        private var openGLESGraphicsFactory:OpenGLESGraphicsFactory = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsOpenGLESGraphicsCompositeFactory():void {
+    this.openGLESGraphicsFactory = new OpenGLESGraphicsFactory();
+        }
 
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { OpenGLESGraphicsFactory } from './OpenGLESGraphicsFactory.js';
-//sameFolderImports - not GWT import - same folder const OpenGLESGraphicsFactory
-
-export class OpenGLESGraphicsCompositeFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: OpenGLESGraphicsCompositeFactory = new OpenGLESGraphicsCompositeFactory();
-
-    public static getInstance(): OpenGLESGraphicsCompositeFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return OpenGLESGraphicsCompositeFactory.instance;
+        public function OpenGLESGraphicsCompositeFactory() {
+            super();
+            this.initFieldsOpenGLESGraphicsCompositeFactory();
+        }
     
-}
 
-
-    private openGLESGraphicsFactory: OpenGLESGraphicsFactory = new OpenGLESGraphicsFactory();
-
-    public set(openGLESGraphicsFactory: OpenGLESGraphicsFactory){
-this.openGLESGraphicsFactory= openGLESGraphicsFactory;
+    public static function getInstance():OpenGLESGraphicsCompositeFactory {
+        return OpenGLESGraphicsCompositeFactory.instance;
+    }
     
-}
 
-
-    public get(): OpenGLESGraphicsFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.openGLESGraphicsFactory;
+    public function set_(openGLESGraphicsFactory:OpenGLESGraphicsFactory):void {
+        this.openGLESGraphicsFactory = openGLESGraphicsFactory;
+    }
     
-}
 
-
+    public function get_():OpenGLESGraphicsFactory {
+        return this.openGLESGraphicsFactory;
+    }
+    }
 }
 

@@ -1,79 +1,34 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.init.db {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class HistoryDbInitInfo extends DbInitInfo {
+    private static const INITFILE:String = "historydbinitdata.dat";
+    
 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DbInitInfo } from './DbInitInfo.js';
-//sameFolderImports - not GWT import - same folder const DbInitInfo
-
-export class HistoryDbInitInfo extends DbInitInfo {
-        
-
-    private static readonly INITFILE: string = "historydbinitdata.dat";
-
-    public constructor(...args: any[]) {
-        if(args.length === 0) {
-            super(INITFILE, true);
-            this.constructor$0();
-            
-        }
-        else if(args.length === 1) {
-            const read = args[0];
-            super(INITFILE, read);
-            this.constructor$1(read);
-            
-        }
-        
+    public function HistoryDbInitInfo() {
+        super(HistoryDbInitInfo.INITFILE, true);
     }
     
-    private constructor$0(): void {
-        
 
-                            //For kotlin this is before the body of the constructor.
-                    
-
+    /* Java constructor: ActionScript classes have one constructor
+    public function HistoryDbInitInfo(read:Boolean = false) {
+        super(HistoryDbInitInfo.INITFILE, read);
     }
-    
-    private constructor$1(read: boolean): void {
-        
-
-                            //For kotlin this is before the body of the constructor.
-                    
-
+    */
     }
-    
 }
 

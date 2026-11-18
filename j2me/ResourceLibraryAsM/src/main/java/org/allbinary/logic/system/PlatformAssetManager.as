@@ -1,87 +1,44 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system {
+    import java.io.JInputStream;
+    import org.allbinary.data.resource.ResourceUtil;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { InputStream } from '../../../../java/io/InputStream.js';
-//not GWT import const InputStream
-
-//not plain js import { ResourceUtil } 
-const ResourceUtil = globalThis.org.allbinary.data.resource.ResourceUtil;
-type ResourceUtil<T = any, U = any> = typeof ResourceUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ResourceUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class PlatformAssetManager
-            extends Object
-         {
-        
-
-    private static readonly instance: PlatformAssetManager = new PlatformAssetManager();
-
-    public static getInstance(): PlatformAssetManager{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PlatformAssetManager.instance;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getResourceAsStream(resource: string): InputStream{
-
-    let resourceUtil: ResourceUtil = ResourceUtil.getInstance()!;;
+    public class PlatformAssetManager {
+    private static var instance_value:PlatformAssetManager;
+    private static var instance_set:Boolean = false;
+    private static function get instance():PlatformAssetManager {
+        if (!PlatformAssetManager.instance_set) {
+            PlatformAssetManager.instance_set = true;
+            PlatformAssetManager.instance_value = new PlatformAssetManager();
+        }
+        return PlatformAssetManager.instance_value;
+    }
     
 
-    let inputStream: InputStream = resourceUtil!.getResourceAsStream(resource)!;;
+    public static function getInstance():PlatformAssetManager {
+        return PlatformAssetManager.instance;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return inputStream;
-    
-}
-
-
+    public function getResourceAsStream(resource:String):InputStream {
+        var resourceUtil:ResourceUtil = ResourceUtil.getInstance();
+        var inputStream:InputStream = resourceUtil.getResourceAsStream(resource);
+        return inputStream;
+    }
+    }
 }
 

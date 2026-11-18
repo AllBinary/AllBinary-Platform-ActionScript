@@ -1,312 +1,142 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score.remote {
+    import java.util.JEnumeration;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.game.GameInfo;
+    import org.allbinary.game.score.HighScore;
+    import org.allbinary.game.score.HighScores;
+    import org.allbinary.game.score.RemoteErrorHighScoresSingletonFactory;
+    import org.allbinary.logic.StdUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.system.SoftwareInformation;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+    import org.allbinary.string.CommonLabels;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.ABHashtable;
+    import org.allbinary.util.EnumerationUtil;
+    import java.lang.JLong;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class RemoteHighScores extends HighScores {
+    private static var hashTable_value:ABHashtable;
+    private static var hashTable_set:Boolean = false;
+    private static function get hashTable():ABHashtable {
+        if (!RemoteHighScores.hashTable_set) {
+            RemoteHighScores.hashTable_set = true;
+            RemoteHighScores.hashTable_value = StdUtil.getInstance().createHashtable();
+        }
+        return RemoteHighScores.hashTable_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var enumerationUtil:EnumerationUtil = null;
+        private var abeClientInformation:AbeClientInformationInterface = null;
+        private var softwareInformation:SoftwareInformation = null;
+        private var ascending:* = null;
+        public var ASCENDING:String = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-            import { Long } from '../../../../../java/lang/Long.js';
-        
-import { Enumeration } from '../../../../../java/util/Enumeration.js';
-//not GWT import const Enumeration
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-import { GameInfo } from '../../../../../org/allbinary/game/GameInfo.js';
-//not GWT import const GameInfo
-
-import { HighScore } from '../../../../../org/allbinary/game/score/HighScore.js';
-//not GWT import const HighScore
-
-import { HighScores } from '../../../../../org/allbinary/game/score/HighScores.js';
-//not GWT import const HighScores
-
-import { RemoteErrorHighScoresSingletonFactory } from '../../../../../org/allbinary/game/score/RemoteErrorHighScoresSingletonFactory.js';
-//not GWT import const RemoteErrorHighScoresSingletonFactory
-
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { SoftwareInformation } from '../../../../../org/allbinary/logic/system/SoftwareInformation.js';
-//not GWT import const SoftwareInformation
-
-import { AbeClientInformationInterface } from '../../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-//not plain js import { EnumerationUtil } 
-const EnumerationUtil = globalThis.org.allbinary.util.EnumerationUtil;
-type EnumerationUtil<T = any, U = any> = typeof EnumerationUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof EnumerationUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { RemoteHighScoresProcessorFactory } from './RemoteHighScoresProcessorFactory.js';
-//sameFolderImports - not GWT import - same folder const RemoteHighScoresProcessorFactory
-import { RemoteHighScoresSubmissionProcessorFactory } from './RemoteHighScoresSubmissionProcessorFactory.js';
-//sameFolderImports - not GWT import - same folder const RemoteHighScoresSubmissionProcessorFactory
-import { RemoteHighScoresData } from './RemoteHighScoresData.js';
-//sameFolderImports - not GWT import - same folder const RemoteHighScoresData
-
-export class RemoteHighScores extends HighScores {
-        
-
-    private static readonly hashTable: ABHashtable<any, any> = StdUtil.getInstance()!.createHashtable()!;
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public static getInstance(abeClientInformation: AbeClientInformationInterface, softwareInformation: SoftwareInformation, gameInfo: GameInfo, heading: string, columnTwoHeading: string, isAscending: Boolean): HighScores{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return RemoteHighScores.getInstancePreload(abeClientInformation, softwareInformation, gameInfo, heading, columnTwoHeading, isAscending, true);;
+        // Java field initializers run after the base constructor
+        private function initFieldsRemoteHighScores():void {
+    this.logUtil = LogUtil.getInstance();
+    this.enumerationUtil = EnumerationUtil.getInstance();
     
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public static getInstancePreload(abeClientInformation: AbeClientInformationInterface, softwareInformation: SoftwareInformation, gameInfo: GameInfo, heading: string, columnTwoHeading: string, isAscending: Boolean, preload: boolean): HighScores{
-
-    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    
+    this.ascending = null;
+    this.ASCENDING = "ASCENDING";
+        }
     
 
- try { 
-    let highScores: HighScores = RemoteHighScores.hashTable!.get(gameInfo) as HighScores;;
+    public function RemoteHighScores(abeClientInformation:AbeClientInformationInterface, softwareInformation:SoftwareInformation, gameInfo:GameInfo, heading:String, columnTwoHeading:String, ascending:*, preload:Boolean) {
+        super(gameInfo.toString(), heading, columnTwoHeading);
+        this.initFieldsRemoteHighScores();
+        this.abeClientInformation = abeClientInformation;
+        this.softwareInformation = softwareInformation;
+        this.setAscending(ascending);
+        if (preload) {
+            RemoteHighScoresProcessorFactory.getInstance().process(this, this.abeClientInformation, gameInfo);
+        }
+    }
     
 
-                        if(highScores == 
-                                    null
-                                )
-                        
-                                    {
-                                    highScores= new RemoteHighScores(abeClientInformation, softwareInformation, gameInfo, heading, columnTwoHeading, isAscending, preload);
-    
-RemoteHighScores.hashTable!.put(gameInfo, highScores);
+    public static function getInstance6(abeClientInformation:AbeClientInformationInterface, softwareInformation:SoftwareInformation, gameInfo:GameInfo, heading:String, columnTwoHeading:String, isAscending:*):HighScores {
+        return RemoteHighScores.getInstancePreload(abeClientInformation, softwareInformation, gameInfo, heading, columnTwoHeading, isAscending, true);
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return highScores;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-logUtil!.put(commonStrings!.EXCEPTION, RemoteErrorHighScoresSingletonFactory.getInstance(), commonStrings!.GET_INSTANCE, e);
+    public static function getInstancePreload(abeClientInformation:AbeClientInformationInterface, softwareInformation:SoftwareInformation, gameInfo:GameInfo, heading:String, columnTwoHeading:String, isAscending:*, preload:Boolean):HighScores {
+        var logUtil:LogUtil = LogUtil.getInstance();
+        try {
+            var highScores:HighScores = (RemoteHighScores.hashTable.get_(gameInfo) as HighScores);
+            if (highScores == null) {
+                highScores = new RemoteHighScores(abeClientInformation, softwareInformation, gameInfo, heading, columnTwoHeading, isAscending, preload);
+                RemoteHighScores.hashTable.put(gameInfo, highScores);
+            }
+            return highScores;
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            logUtil.put(commonStrings.EXCEPTION, RemoteErrorHighScoresSingletonFactory.getInstance(), commonStrings.GET_INSTANCE, e);
+            return RemoteErrorHighScoresSingletonFactory.getInstance();
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return RemoteErrorHighScoresSingletonFactory.getInstance();;
+    override public function addHighScore(newHighScore:HighScore):void {
+        RemoteHighScoresSubmissionProcessorFactory.getInstance().process(this, this.abeClientInformation, newHighScore);
+    }
     
 
- }
-   }
- 
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly enumerationUtil: EnumerationUtil = EnumerationUtil.getInstance()!;
-
-    private readonly abeClientInformation: AbeClientInformationInterface;
-
-    private readonly softwareInformation: SoftwareInformation;
-
-    private ascending: Boolean;
-
-    public readonly ASCENDING: string = "ASCENDING";
-
-private constructor (abeClientInformation: AbeClientInformationInterface, softwareInformation: SoftwareInformation, gameInfo: GameInfo, heading: string, columnTwoHeading: string, ascending: Boolean, preload: boolean){
-            super(gameInfo!.toString(), heading, columnTwoHeading);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.abeClientInformation= abeClientInformation;
-    
-this.softwareInformation= softwareInformation;
-    
-this.setAscending(ascending);
+    public function update(hashtable:ABHashtable):void {
+        this.getList().clear();
+        var vector:BasicArrayList = (hashtable.get_((RemoteHighScoresData.getInstance().HIGH_SCORES as Object)) as BasicArrayList);
+        if (vector != null) {
+            var size:int = vector.size();
+            for (var index:int = 0; index < size; index++) {
+                var highScoreVector:BasicArrayList = (vector.get_(index) as BasicArrayList);
+                var displayName:String = (highScoreVector.get_(0) as String);
+                var score:String = (highScoreVector.get_(1) as String);
+                var longScore:Number = Number(parseInt(score));
+                var highScore:HighScore = new HighScore(-1, displayName, null, longScore);
+                this.getList().add(highScore);
+            }
+        } else {
+            var NEXT_ELEMENT:String = new StringMaker().append(CommonLabels.getInstance().NEXT).append("Element: ").toString();
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            var enumeration:JEnumeration = hashtable.elements();
+            var nextElement:Object = null;
+            while (this.enumerationUtil.hasMoreElements(enumeration)) {
+                nextElement = this.enumerationUtil.nextElement(enumeration);
+                this.logUtil.putF(NEXT_ELEMENT + JString.ofObject(nextElement), this, commonStrings.PROCESS);
+            }
+        }
+    }
     
 
-                        if(preload)
-                        
-                                    {
-                                    RemoteHighScoresProcessorFactory.getInstance()!.process(this, this.abeClientInformation, gameInfo);
+    private function setAscending(ascending:*):void {
+        this.ascending = ascending;
+    }
     
 
-                                    }
-                                
-}
-
-
-    public addHighScore(newHighScore: HighScore){
-RemoteHighScoresSubmissionProcessorFactory.getInstance()!.process(this, this.abeClientInformation, newHighScore);
-    
-}
-
-
-    public update(hashtable: ABHashtable<any, any>){
-this.getList()!.clear();
+    public function getAscending():* {
+        return this.ascending;
+    }
     
 
-    let vector: BasicArrayList = hashtable.get(RemoteHighScoresData.getInstance()!.HIGH_SCORES) as BasicArrayList;;
-    
-
-                        if(vector != 
-                                    null
-                                )
-                        
-                                    {
-                                    
-    let size: number = vector.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let highScoreVector: BasicArrayList = vector.get(index) as BasicArrayList;;
-    
-
-    let displayName: string = highScoreVector!.get(0) as string;;
-    
-
-    let score: string = highScoreVector!.get(1) as string;;
-    
-
-    let longScore: number = Number(score)!;;
-    
-
-    let highScore: HighScore = new HighScore( -1, displayName, 
-                            null, longScore);;
-    
-this.getList()!.add(highScore);
-    
-}
-
-
-                                    }
-                                
-                        else {
-                            
-    let NEXT_ELEMENT: string = new StringMaker().append(CommonLabels.getInstance()!.NEXT)!.append("Element: ")!.toString()!;;
-    
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-
-    let enumeration: Enumeration<any> = hashtable.elements()!;;
-    
-
-    let nextElement: any;;
-    
-
-        while(this.enumerationUtil!.hasMoreElements(enumeration))
-        {
-nextElement= this.enumerationUtil!.nextElement(enumeration)!;
-    
-this.logUtil!.putF(NEXT_ELEMENT +nextElement, this, commonStrings!.PROCESS);
-    
-}
-
-
-                        }
-                            
-}
-
-
-    setAscending(ascending: Boolean){
-this.ascending= ascending;
-    
-}
-
-
-    public getAscending(): Boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.ascending;
-    
-}
-
-
-    public getSoftwareInformation(): SoftwareInformation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.softwareInformation;
-    
-}
-
-
+    public function getSoftwareInformation():SoftwareInformation {
+        return this.softwareInformation;
+    }
+    }
 }
 

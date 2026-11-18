@@ -1,97 +1,58 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.resource {
+    import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class FeatureResourceInitializationUtil {
+    private static var instance_value:FeatureResourceInitializationUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():FeatureResourceInitializationUtil {
+        if (!FeatureResourceInitializationUtil.instance_set) {
+            FeatureResourceInitializationUtil.instance_set = true;
+            FeatureResourceInitializationUtil.instance_value = new FeatureResourceInitializationUtil();
+        }
+        return FeatureResourceInitializationUtil.instance_value;
+    }
+        public var logUtil:LogUtil = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsFeatureResourceInitializationUtil():void {
+    this.logUtil = LogUtil.getInstance();
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { FeaturedAnimationInterfaceFactoryInterfaceFactory } from '../../../../org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.js';
-//not GWT import const FeaturedAnimationInterfaceFactoryInterfaceFactory
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { FeaturedResourceFactory } from './FeaturedResourceFactory.js';
-//sameFolderImports - not GWT import - same folder const FeaturedResourceFactory
-import { FeaturedResourceRelativeRelationshipFactory } from './FeaturedResourceRelativeRelationshipFactory.js';
-//sameFolderImports - not GWT import - same folder const FeaturedResourceRelativeRelationshipFactory
-
-export class FeatureResourceInitializationUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: FeatureResourceInitializationUtil = new FeatureResourceInitializationUtil();
-
-    public static getInstance(): FeatureResourceInitializationUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return FeatureResourceInitializationUtil.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-                //@Throws(Exception.constructor)
-            
-    public init(level: number){
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.putF(commonStrings!.START, this, commonStrings!.INIT);
+        public function FeatureResourceInitializationUtil() {
+            super();
+            this.initFieldsFeatureResourceInitializationUtil();
+        }
     
 
-    let featuredResourceFactory: FeaturedResourceFactory = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()!;;
+    public static function getInstance():FeatureResourceInitializationUtil {
+        return FeatureResourceInitializationUtil.instance;
+    }
     
-featuredResourceFactory!.init(level);
-    
-FeaturedResourceRelativeRelationshipFactory.getInstance()!.init(level);
-    
-}
 
-
+    public function init(level:int):void {
+        var commonStrings:CommonStrings = CommonStrings.getInstance();
+        this.logUtil.putF(commonStrings.START, this, commonStrings.INIT);
+        var featuredResourceFactory:FeaturedResourceFactory = FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance();
+        featuredResourceFactory.init(level);
+        FeaturedResourceRelativeRelationshipFactory.getInstance().init(level);
+    }
+    }
 }
 

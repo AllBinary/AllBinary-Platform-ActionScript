@@ -1,122 +1,68 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score {
+    import org.allbinary.util.CircularIndexUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class HighScoresHelper2 extends HighScoresHelperBase {
+        private var circularIndexUtil:CircularIndexUtil = null;
+        private var selectedHighScores:HighScores = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsHighScoresHelper2():void {
+    this.circularIndexUtil = CircularIndexUtil.createInstanceAt(0, 0);
+    this.selectedHighScores = NullHighScoresSingletonFactory.getInstance();
+        }
 
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { HighScoresHelperBase } from './HighScoresHelperBase.js';
-//sameFolderImports - not GWT import - same folder const HighScoresHelperBase
-import { NullHighScoresSingletonFactory } from './NullHighScoresSingletonFactory.js';
-//sameFolderImports - not GWT import - same folder const NullHighScoresSingletonFactory
-import { HighScores } from './HighScores.js';
-//sameFolderImports - not GWT import - same folder const HighScores
-
-export class HighScoresHelper2 extends HighScoresHelperBase {
-        
-
-    private readonly circularIndexUtil: CircularIndexUtil = CircularIndexUtil.createInstanceAt(0, 0)!;
-
-    private selectedHighScores: HighScores = NullHighScoresSingletonFactory.getInstance()!;
-
-    public setSelectedHighScores(selectedHighScores: HighScores){
-this.selectedHighScores= selectedHighScores;
-    
-}
-
-
-    public getSelectedHighScores(): HighScores{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.selectedHighScores;
-    
-}
-
-
-    public setHighScoresArray(highScoresArrayP: HighScores[]){
-super.setHighScoresArray(highScoresArrayP);
-    
-this.circularIndexUtil!.setSize(this.highScoresArrayP!.length);
-    
-this.selectHighScores();
-    
-}
-
-
-    public selectHighScores(){
-
-                        if(this.highScoresArrayP!.length == 0)
-                        
-                                    {
-                                    this.setSelectedHighScores(NullHighScoresSingletonFactory.getInstance());
+        public function HighScoresHelper2() {
+            super();
+            this.initFieldsHighScoresHelper2();
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
+    override public function setSelectedHighScores(selectedHighScores:HighScores):void {
+        this.selectedHighScores = selectedHighScores;
+    }
     
 
-                                    }
-                                
-this.circularIndexUtil!.next();
+    override public function getSelectedHighScores():HighScores {
+        return this.selectedHighScores;
+    }
     
 
-    let highScores: HighScores = this.highScoresArrayP[this.circularIndexUtil!.getIndex()]!;;
+    override public function setHighScoresArray(highScoresArrayP:Vector.<HighScores>):void {
+        super.setHighScoresArray(highScoresArrayP);
+        this.circularIndexUtil.setSize(this.highScoresArrayP.length);
+        this.selectHighScores();
+    }
     
 
-    let index: number = 0;;
-    
-
-        while(highScores!.getTotal() < 1 && index < this.highScoresArrayP!.length)
-        {
-highScores= this.highScoresArrayP[this.circularIndexUtil!.next()]!;
-    
-index++;
-    
-}
-
-this.setSelectedHighScores(highScores);
-    
-}
-
-
+    override public function selectHighScores():void {
+        if (this.highScoresArrayP.length == 0) {
+            this.setSelectedHighScores(NullHighScoresSingletonFactory.getInstance());
+            return;
+        }
+        this.circularIndexUtil.next();
+        var highScores:HighScores = this.highScoresArrayP[this.circularIndexUtil.getIndex()];
+        var index:int = 0;
+        while (highScores.getTotal() < 1 && index < this.highScoresArrayP.length) {
+            highScores = this.highScoresArrayP[this.circularIndexUtil.next()];
+            index++;
+        }
+        this.setSelectedHighScores(highScores);
+    }
+    }
 }
 

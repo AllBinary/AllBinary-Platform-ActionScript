@@ -1,58 +1,33 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics.opengles {
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class OpenGLThreadUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: OpenGLThreadUtil = new OpenGLThreadUtil();
-
-    public static getInstance(): OpenGLThreadUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return OpenGLThreadUtil.instance;
+    public class OpenGLThreadUtil {
+    private static var instance_value:OpenGLThreadUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():OpenGLThreadUtil {
+        if (!OpenGLThreadUtil.instance_set) {
+            OpenGLThreadUtil.instance_set = true;
+            OpenGLThreadUtil.instance_value = new OpenGLThreadUtil();
+        }
+        return OpenGLThreadUtil.instance_value;
+    }
     
-}
 
+    public static function getInstance():OpenGLThreadUtil {
+        return OpenGLThreadUtil.instance;
+    }
+    
 
-    public set(glSurfaceView: any){
-}
+    public function set_(glSurfaceView:Object):void {
+    }
+    
 
+    public function onPause():void {
+    }
+    
 
-    public onPause(){
-}
-
-
-    public onResume(){
-}
-
-
+    public function onResume():void {
+    }
+    }
 }
 

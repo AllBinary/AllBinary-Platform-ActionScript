@@ -1,542 +1,199 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io.file.path {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.io.file.FilePathData;
+    import org.allbinary.logic.io.path.AbFilePath;
+    import org.allbinary.logic.io.path.AbPath;
+    import org.allbinary.logic.io.path.AbPathData;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.string.StringValidationUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { FilePathData } 
-const FilePathData = globalThis.org.allbinary.logic.io.file.FilePathData;
-type FilePathData<T = any, U = any> = typeof FilePathData extends abstract new (...args: any[]) => infer Instance ? Instance : typeof FilePathData;
-
-import { AbFilePath } from '../../../../../../org/allbinary/logic/io/path/AbFilePath.js';
-//not GWT import const AbFilePath
-
-import { AbPath } from '../../../../../../org/allbinary/logic/io/path/AbPath.js';
-//not GWT import const AbPath
-
-//not plain js import { AbPathData } 
-const AbPathData = globalThis.org.allbinary.logic.io.path.AbPathData;
-type AbPathData<T = any, U = any> = typeof AbPathData extends abstract new (...args: any[]) => infer Instance ? Instance : typeof AbPathData;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { StringValidationUtil } from '../../../../../../org/allbinary/logic/string/StringValidationUtil.js';
-//not GWT import const StringValidationUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //Used to correct user input for paths
-export class AbPathUtilOld
-            extends Object
-         {
-        
-
-    private static readonly instance: AbPathUtilOld = new AbPathUtilOld();
-
-    public static getInstance(): AbPathUtilOld{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AbPathUtilOld.instance;
-    
-}
-
-
-    private static readonly MIN: number = 4;
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly abPathData: AbPathData = AbPathData.getInstance()!;
-
-    private readonly filePathData: FilePathData = FilePathData.getInstance()!;
-
-private constructor (){
-
-            super();
+    //Used to correct user input for paths
+    public class AbPathUtilOld {
+    private static var instance_value:AbPathUtilOld;
+    private static var instance_set:Boolean = false;
+    private static function get instance():AbPathUtilOld {
+        if (!AbPathUtilOld.instance_set) {
+            AbPathUtilOld.instance_set = true;
+            AbPathUtilOld.instance_value = new AbPathUtilOld();
         }
+        return AbPathUtilOld.instance_value;
+    }
+    private static const MIN:int = 4;
+        public var logUtil:LogUtil = null;
+        private var abPathData:AbPathData = null;
+        private var filePathData:FilePathData = null;
 
-getExtension(...args: any[]): any {
-   
-   
-    if (args.length === 1 && args[0] instanceof AbFilePath) return this.getExtension$overload1(args[0]);
-    
-    if (args.length === 1 && args[0] instanceof AbPath) return this.getExtension$overload2(args[0]);
-    
-    if (args.length === 1 && args[0] == null) return this.getExtension$overload1(args[0]);
-   
-    if (args.length === 1 && args[0] == null) return this.getExtension$overload2(args[0]);
-   
-    if (args.length === 1 && typeof args[0] === 'string') return this.getExtension$overload3(args[0]);
-   
-    if (args.length === 1) return this.getExtension$overload1(args[0]);
-    
-    if (args.length === 1) return this.getExtension$overload2(args[0]);
-    
-   throw new TypeError('No matching overload: getExtension'); }
-  
-                //@Throws(Exception.constructor)
-            
-    public getExtension$overload1(abFilePath: AbFilePath): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getExtension(abFilePath!.toString());;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getExtension$overload2(abPath: AbPath): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getExtension(abPath!.toString());;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getExtension$overload3(filePath: string): string{
-
-                        if(filePath!.length < AbPathUtilOld.MIN)
-                        
-                                    {
-                                    
-
-
-                            throw new Exception("Could not be a file path since its less that 4 characters");
-                    
-
-                                    }
-                                
-
-    let beginIndex: number = filePath!.length -AbPathUtilOld.MIN;;
+        // Java field initializers run after the base constructor
+        private function initFieldsAbPathUtilOld():void {
+    this.logUtil = LogUtil.getInstance();
+    this.abPathData = AbPathData.getInstance();
+    this.filePathData = FilePathData.getInstance();
+        }
     
 
-    let extension: string = filePath!.substring(beginIndex +1)!;;
+    public static function getInstance():AbPathUtilOld {
+        return AbPathUtilOld.instance;
+    }
     
 
-                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
-                        
-                                    {
-                                    this.logUtil!.putF("FileExtension: " +extension, this, "getExtension()");
+    public function AbPathUtilOld() {
+        super();
+        this.initFieldsAbPathUtilOld();
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return extension;
-    
-}
-
-getWithoutExtension(...args: any[]): any {
-   
-   
-    if (args.length === 1 && args[0] instanceof AbFilePath) return this.getWithoutExtension$overload1(args[0]);
-    
-    if (args.length === 1 && args[0] instanceof AbPath) return this.getWithoutExtension$overload2(args[0]);
-    
-    if (args.length === 1 && args[0] == null) return this.getWithoutExtension$overload1(args[0]);
-   
-    if (args.length === 1 && args[0] == null) return this.getWithoutExtension$overload2(args[0]);
-   
-    if (args.length === 1 && typeof args[0] === 'string') return this.getWithoutExtension$overload3(args[0]);
-   
-    if (args.length === 1) return this.getWithoutExtension$overload1(args[0]);
-    
-    if (args.length === 1) return this.getWithoutExtension$overload2(args[0]);
-    
-   throw new TypeError('No matching overload: getWithoutExtension'); }
-  
-                //@Throws(Exception.constructor)
-            
-    public getWithoutExtension$overload1(abFilePath: AbFilePath): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getWithoutExtension(abFilePath!.toString());;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getWithoutExtension$overload2(abPath: AbPath): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getWithoutExtension(abPath!.toString());;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getWithoutExtension$overload3(filePath: string): string{
-
-                        if(filePath!.length < AbPathUtilOld.MIN)
-                        
-                                    {
-                                    
-
-
-                            throw new Exception("Could not be a file path since its less that 4 characters");
-                    
-
-                                    }
-                                
-
-    let endIndex: number = filePath!.length -AbPathUtilOld.MIN;;
+    public function getExtension(abFilePath:AbFilePath):String {
+        return this.getExtension(abFilePath.toString());
+    }
     
 
-    let pathWithoutExtension: string = filePath!.substring(0, endIndex)!;;
+    public function getExtension(abPath:AbPath):String {
+        return this.getExtension(abPath.toString());
+    }
     
 
-                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
-                        
-                                    {
-                                    this.logUtil!.putF("FileWithoutExtension: " +pathWithoutExtension, this, "getWithoutExtension()");
+    public function getExtension(filePath:String):String {
+        if (filePath.length < AbPathUtilOld.MIN) {
+            throw new JException("Exception", "Could not be a file path since its less that 4 characters");
+        }
+        var beginIndex:int = filePath.length - AbPathUtilOld.MIN;
+        var extension:String = filePath.substring(int(beginIndex + 1));
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+            this.logUtil.putF("FileExtension: " + extension, this, "getExtension()");
+        }
+        return extension;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return pathWithoutExtension;
-    
-}
-
-
-    public isValid(path: string): boolean{
-
-                        if(this.isValidStart(path))
-                        
-                                    {
-                                    
-                        if(this.isValidEnd(path))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function getWithoutExtension(abFilePath:AbFilePath):String {
+        return this.getWithoutExtension(abFilePath.toString());
+    }
     
 
-                                    }
-                                
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    isValidStart(path: string): boolean{
-
-                        if(path[0] == this.abPathData!.SEPARATORCHAR)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function getWithoutExtension(abPath:AbPath):String {
+        return this.getWithoutExtension(abPath.toString());
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function getWithoutExtension(filePath:String):String {
+        if (filePath.length < AbPathUtilOld.MIN) {
+            throw new JException("Exception", "Could not be a file path since its less that 4 characters");
+        }
+        var endIndex:int = filePath.length - AbPathUtilOld.MIN;
+        var pathWithoutExtension:String = filePath.substring(0, endIndex);
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+            this.logUtil.putF("FileWithoutExtension: " + pathWithoutExtension, this, "getWithoutExtension()");
+        }
+        return pathWithoutExtension;
+    }
     
 
-                        }
-                            
-}
-
-
-    isValidEnd(path: string): boolean{
-
-                        if(StringValidationUtil.getInstance()!.isEmpty(path))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function isValid(path:String):Boolean {
+        if (this.isValidStart(path)) {
+            if (this.isValidEnd(path)) {
+                return true;
+            }
+        }
+        return false;
+    }
     
 
-                                    }
-                                
-
-                        if(path[path.length -1] == this.abPathData!.SEPARATORCHAR)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    private function isValidStart(path:String):Boolean {
+        if (path.charCodeAt(0) == this.abPathData.SEPARATORCHAR) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    private function isValidEnd(path:String):Boolean {
+        if (StringValidationUtil.getInstance().isEmpty(path)) {
+            return false;
+        }
+        if (path.charCodeAt(int(path.length - 1)) == this.abPathData.SEPARATORCHAR) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 
-                        }
-                            
-}
-
-
-    public adjustStart(path: string): string{
-
-                        if(!this.isValidStart(path))
-                        
-                                    {
-                                    path= this.abPathData!.SEPARATOR +path;
+    public function adjustStart(path:String):String {
+        if (!this.isValidStart(path)) {
+            path = this.abPathData.SEPARATOR + path;
+        }
+        return path;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return path;
-    
-}
-
-
-    public adjustEnd(path: string): string{
-
-                        if(!this.isValidEnd(path))
-                        
-                                    {
-                                    path= path +this.abPathData!.SEPARATOR;
+    public function adjustEnd(path:String):String {
+        if (!this.isValidEnd(path)) {
+            path = path + this.abPathData.SEPARATOR;
+        }
+        return path;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return path;
-    
-}
-
-
-    public adjust(path: string): string{
-
-                        if(StringValidationUtil.getInstance()!.isEmpty(path))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.abPathData!.SEPARATOR;
+    public function adjust(path:String):String {
+        if (StringValidationUtil.getInstance().isEmpty(path)) {
+            return this.abPathData.SEPARATOR;
+        }
+        if (JString.indexOf(path, "\\") >= 0) {
+            path = JString.replace(path, "\\".charCodeAt(0), this.abPathData.SEPARATORCHAR);
+        }
+        return path;
+    }
     
 
-                                    }
-                                
-
-                        if(path.indexOf("\\") >= 0)
-                        
-                                    {
-                                    path= path.replace('\\', this.abPathData!.SEPARATORCHAR);
+    public function getNameFromPath(categoryPath:String):String {
+        var endIndex:int = JString.lastIndexOf(categoryPath, this.abPathData.SEPARATOR);
+        if (endIndex < 0) {
+            endIndex = JString.lastIndexOf(categoryPath, this.filePathData.SEPARATORCHAR);
+        }
+        if (endIndex < 0) {
+            return categoryPath;
+        }
+        if (categoryPath.length == int(endIndex + 1)) {
+            categoryName = categoryPath.substring(0, endIndex);
+            return this.getNameFromPath(categoryName);
+        } else {
+            var categoryName:String = categoryPath.substring(int(endIndex + 1));
+            return categoryName;
+        }
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return path;
-    
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public getNameFromPath(categoryPath: string): string{
-
-    let endIndex: number = categoryPath!.lastIndexOf(this.abPathData!.SEPARATOR)!;;
-    
-
-                        if(endIndex < 0)
-                        
-                                    {
-                                    endIndex= categoryPath!.lastIndexOf(this.filePathData!.SEPARATORCHAR);
-    
-
-                                    }
-                                
-
-                        if(endIndex < 0)
-                        
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return categoryPath;
-    
-
-                        if(categoryPath!.length == endIndex +1)
-                        
-                                    {
-                                    
-    let categoryName: string = categoryPath!.substring(0, endIndex)!;;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getNameFromPath(categoryName);;
-    
-
-                                    }
-                                
-                        else {
-                            
-    let categoryName: string = categoryPath!.substring(endIndex +1)!;;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return categoryName;
-    
-
-                        }
-                            
-}
-
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public removeNameFromPath(categoryPath: string): AbPath{
-
-    let endIndex: number = categoryPath!.lastIndexOf(this.abPathData!.SEPARATOR)!;;
-    
-
-                        if(endIndex < 0)
-                        
-                                    {
-                                    endIndex= categoryPath!.lastIndexOf(this.filePathData!.SEPARATORCHAR);
-    
-
-                                    }
-                                
-
-                        if(endIndex < 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AbPath.createAbPath();;
-    
-
-                                    }
-                                
-
-                        if(categoryPath!.length == endIndex +1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.removeNameFromPath(categoryPath!.substring(0, endIndex -1));;
-    
-
-                                    }
-                                
-                        else {
-                            
-    let categoryName: string = categoryPath!.substring(0, endIndex)!;;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AbPath(categoryName, StringUtil.getInstance()!.EMPTY_STRING);
-    
-
-                        }
-                            
-}
-
-
+    public function removeNameFromPath(categoryPath:String):AbPath {
+        var endIndex:int = JString.lastIndexOf(categoryPath, this.abPathData.SEPARATOR);
+        if (endIndex < 0) {
+            endIndex = JString.lastIndexOf(categoryPath, this.filePathData.SEPARATORCHAR);
+        }
+        if (endIndex < 0) {
+            return AbPath.createAbPath();
+        }
+        if (categoryPath.length == int(endIndex + 1)) {
+            return this.removeNameFromPath(categoryPath.substring(0, int(endIndex - 1)));
+        } else {
+            var categoryName:String = categoryPath.substring(0, endIndex);
+            return new AbPath(categoryName, StringUtil.getInstance().EMPTY_STRING);
+        }
+    }
+    }
 }
 

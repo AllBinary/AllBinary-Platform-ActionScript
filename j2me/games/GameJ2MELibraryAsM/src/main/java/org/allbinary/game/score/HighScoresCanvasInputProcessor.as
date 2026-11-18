@@ -1,126 +1,73 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score {
+    import org.allbinary.game.input.PlayerGameInput;
+    import org.allbinary.game.input.event.GameKeyEvent;
+    import org.allbinary.game.score.displayable.HighScoresCanvas;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class HighScoresCanvasInputProcessor extends PlayerGameInput {
+        private var highScoresCanvas:HighScoresCanvas = null;
 
-        
-
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { PlayerGameInput } from '../../../../org/allbinary/game/input/PlayerGameInput.js';
-//not GWT import const PlayerGameInput
-
-import { GameKeyEvent } from '../../../../org/allbinary/game/input/event/GameKeyEvent.js';
-//not GWT import const GameKeyEvent
-
-import { HighScoresCanvas } from '../../../../org/allbinary/game/score/displayable/HighScoresCanvas.js';
-//not GWT import const HighScoresCanvas
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class HighScoresCanvasInputProcessor extends PlayerGameInput {
-        
-
-    private readonly highScoresCanvas: HighScoresCanvas;
-
-public constructor (highScoresCanvas: HighScoresCanvas){
-            super(new BasicArrayListD(), new BasicArrayListD(),  -1);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.highScoresCanvas= highScoresCanvas;
+        // Java field initializers run after the base constructor
+        private function initFieldsHighScoresCanvasInputProcessor():void {
     
-}
-
-
-    public open(){
-}
-
-
-    public close(){
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public onPressGameKeyEvent(gameKeyEvent: GameKeyEvent){
-super.onPressGameKeyEvent(gameKeyEvent);
+        }
     
-this.update();
+
+    public function HighScoresCanvasInputProcessor(highScoresCanvas:HighScoresCanvas) {
+        super(new BasicArrayListD(), new BasicArrayListD(), -1);
+        this.initFieldsHighScoresCanvasInputProcessor();
+        this.highScoresCanvas = highScoresCanvas;
+    }
     
-}
 
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public onDownGameKeyEvent(gameKeyEvent: GameKeyEvent){
-super.onDownGameKeyEvent(gameKeyEvent);
+    public function open():void {
+    }
     
-this.update();
+
+    public function close():void {
+    }
     
-}
 
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public onUpGameKeyEvent(gameKeyEvent: GameKeyEvent){
-super.onUpGameKeyEvent(gameKeyEvent);
+    override public function onPressGameKeyEvent(gameKeyEvent:GameKeyEvent):void {
+        super.onPressGameKeyEvent(gameKeyEvent);
+        this.update();
+    }
     
-this.update();
+
+    override public function onDownGameKeyEvent(gameKeyEvent:GameKeyEvent):void {
+        super.onDownGameKeyEvent(gameKeyEvent);
+        this.update();
+    }
     
-}
 
-
-    public paint(graphics: Graphics){
-}
-
-
-    public getHighScoresCanvas(): HighScoresCanvas{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.highScoresCanvas;
+    override public function onUpGameKeyEvent(gameKeyEvent:GameKeyEvent):void {
+        super.onUpGameKeyEvent(gameKeyEvent);
+        this.update();
+    }
     
-}
 
+    public function paint(graphics:Graphics):void {
+    }
+    
 
+    public function getHighScoresCanvas():HighScoresCanvas {
+        return this.highScoresCanvas;
+    }
+    }
 }
 

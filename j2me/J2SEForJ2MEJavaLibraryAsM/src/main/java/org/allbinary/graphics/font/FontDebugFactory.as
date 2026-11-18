@@ -1,72 +1,40 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.font {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Font } from '../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class FontDebugFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: FontDebugFactory = new FontDebugFactory();
-
-    public static getInstance(): FontDebugFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return FontDebugFactory.instance;
+    public class FontDebugFactory {
+    private static var instance_value:FontDebugFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():FontDebugFactory {
+        if (!FontDebugFactory.instance_set) {
+            FontDebugFactory.instance_set = true;
+            FontDebugFactory.instance_value = new FontDebugFactory();
+        }
+        return FontDebugFactory.instance_value;
+    }
     
-}
 
-
-    public setFont(font: Font, graphics: Graphics){
-graphics.setFont(font);
+    public static function getInstance():FontDebugFactory {
+        return FontDebugFactory.instance;
+    }
     
-}
 
-
+    public function setFont(font:Font, graphics:Graphics):void {
+        graphics.setFont(font);
+    }
+    }
 }
 

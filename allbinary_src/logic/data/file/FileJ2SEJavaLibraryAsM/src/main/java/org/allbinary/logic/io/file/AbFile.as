@@ -1,633 +1,306 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io.file {
+    import java.io.JFile;
+    import java.io.JFileFilter;
+    import java.io.JFilenameFilter;
+    import java.io.JIOException;
+    import java.net.JURI;
+    import org.allbinary.TsUtil;
+    import org.allbinary.logic.io.path.AbPath;
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AbFile implements AbFileInterface {
+    private static var NULL_FILE_value:AbFile;
+    private static var NULL_FILE_set:Boolean = false;
+    public static function get NULL_FILE():AbFile {
+        if (!AbFile.NULL_FILE_set) {
+            AbFile.NULL_FILE_set = true;
+            AbFile.NULL_FILE_value = AbFile.createAbFileFromRawPath(StringUtil.getInstance().EMPTY_STRING);
+        }
+        return AbFile.NULL_FILE_value;
+    }
+        private var file:JFile = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { File } from '../../../../../java/io/File.js';
-//not GWT import const File
-
-import { FileFilter } from '../../../../../java/io/FileFilter.js';
-//not GWT import const FileFilter
-
-import { FilenameFilter } from '../../../../../java/io/FilenameFilter.js';
-//not GWT import const FilenameFilter
-
-import { IOException } from '../../../../../java/io/IOException.js';
-//not GWT import const IOException
-
-import { URI } from '../../../../../java/net/URI.js';
-//not GWT import const URI
-
-import { TsUtil } from '../../../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-import { AbPath } from '../../../../../org/allbinary/logic/io/path/AbPath.js';
-//not GWT import const AbPath
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AbFileInterface } from './AbFileInterface.js';
-//sameFolderImports - not GWT import - same folder const AbFileInterface
-
-export class AbFile
-            extends Object
-         implements AbFileInterface {
-        
-
-    public static readonly NULL_FILE: AbFile = AbFile.createAbFileFromRawPath(StringUtil.getInstance()!.EMPTY_STRING)!;
-
-                //@Throws(Exception.constructor)
-            
-    public static createAbFileWithChild(file: AbFile, childPathName: string): AbFile{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AbFile(new File(file.getFile(), childPathName));
+        // Java field initializers run after the base constructor
+        private function initFieldsAbFile():void {
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public static createAbFile(filePath: string): AbFile{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AbFile(new File(new AbPath(filePath, StringUtil.getInstance()!.EMPTY_STRING).toFileSystemString()));
+        }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public static createAbFilePathAndName(filePath: string, fileName: string): AbFile{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AbFile(new File(new AbPath(filePath, StringUtil.getInstance()!.EMPTY_STRING).toFileSystemString(), fileName));
+    public static function createAbFileWithChild(file:AbFile, childPathName:String):AbFile {
+        return new AbFile(new JFile(file.getFile(), childPathName));
+    }
     
-}
 
-
-    public static createAbFileFromAbPath(abPath: AbPath): AbFile{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AbFile(new File(abPath!.toFileSystemString()));
+    public static function createAbFile(filePath:String):AbFile {
+        return new AbFile(new JFile(new AbPath(filePath, StringUtil.getInstance().EMPTY_STRING).toFileSystemString()));
+    }
     
-}
 
-
-    public static createAbFileFromRawPath(filePath: string): AbFile{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AbFile(new File(filePath));
+    public static function createAbFilePathAndName(filePath:String, fileName:String):AbFile {
+        return new AbFile(new JFile(new AbPath(filePath, StringUtil.getInstance().EMPTY_STRING).toFileSystemString(), fileName));
+    }
     
-}
 
-
-    private readonly file: File;
-
- constructor (file: File){
-
-            super();
-        this.file= file;
+    public static function createAbFileFromAbPath(abPath:AbPath):AbFile {
+        return new AbFile(new JFile(abPath.toFileSystemString()));
+    }
     
-}
 
-
-    getFile(): File{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file;
+    public static function createAbFileFromRawPath(filePath:String):AbFile {
+        return new AbFile(new JFile(filePath));
+    }
     
-}
 
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.getName();;
+    public function AbFile(file:JFile) {
+        super();
+        this.initFieldsAbFile();
+        this.file = file;
+    }
     
-}
 
-
-    public getParent(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.getParent();;
+    public function getFile():JFile {
+        return this.file;
+    }
     
-}
 
-
-    public getParentFile(): any{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.getParentFile();;
+    public function getName():String {
+        return this.file.getName();
+    }
     
-}
 
-
-    public getPath(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.getPath();;
+    public function getParent():String {
+        return this.file.getParent();
+    }
     
-}
 
-
-    public isAbsolute(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.isAbsolute();;
+    public function getParentFile():Object {
+        return this.file.getParentFile();
+    }
     
-}
 
-
-    public getAbsolutePath(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.getAbsolutePath();;
+    public function getPath():String {
+        return this.file.getPath();
+    }
     
-}
 
-
-    public getAbsoluteFile(): any{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.getAbsoluteFile();;
+    public function isAbsolute():Boolean {
+        return this.file.isAbsolute();
+    }
     
-}
 
-
-                //@Throws(IOException.constructor)
-            
-    public getCanonicalPath(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.getCanonicalPath();;
+    public function getAbsolutePath():String {
+        return this.file.getAbsolutePath();
+    }
     
-}
 
-
-                //@Throws(IOException.constructor)
-            
-    public getCanonicalFile(): any{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.getCanonicalFile();;
+    public function getAbsoluteFile():Object {
+        return this.file.getAbsoluteFile();
+    }
     
-}
 
-
-    public toURI(): URI{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.toURI();;
+    public function getCanonicalPath():String {
+        return this.file.getCanonicalPath();
+    }
     
-}
 
-
-    public canRead(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.canRead();;
+    public function getCanonicalFile():Object {
+        return this.file.getCanonicalFile();
+    }
     
-}
 
-
-    public canWrite(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.canWrite();;
+    public function toURI():URI {
+        return this.file.toURI();
+    }
     
-}
 
-
-    public exists(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.exists();;
+    public function canRead():Boolean {
+        return this.file.canRead();
+    }
     
-}
 
-
-    public isDirectory(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.isDirectory();;
+    public function canWrite():Boolean {
+        return this.file.canWrite();
+    }
     
-}
 
-
-    public isFile(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.isFile();;
+    public function exists():Boolean {
+        return this.file.exists();
+    }
     
-}
 
-
-    public isHidden(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.isHidden();;
+    public function isDirectory():Boolean {
+        return this.file.isDirectory();
+    }
     
-}
 
-
-    public lastModified(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.lastModified();;
+    public function isFile():Boolean {
+        return this.file.isFile();
+    }
     
-}
 
-
-    public length(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.length();;
+    public function isHidden():Boolean {
+        return this.file.isHidden();
+    }
     
-}
 
-
-                //@Throws(IOException.constructor)
-            
-    public createNewFile(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.createNewFile();;
+    public function lastModified():Number {
+        return this.file.lastModified();
+    }
     
-}
 
-
-                //@Throws(IOException.constructor)
-            
-    public delete(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.delete();;
+    public function length():Number {
+        return Number(this.file.length());
+    }
     
-}
 
-
-    public deleteOnExit(){
-this.file.deleteOnExit();
+    public function createNewFile():Boolean {
+        return this.file.createNewFile();
+    }
     
-}
 
-
-    public list(): string[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.list();;
+    public function delete_():Boolean {
+        return this.file.delete_();
+    }
     
-}
 
-
-    public listWithFilter(filter: FilenameFilter): string[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.list(filter);;
+    public function deleteOnExit():void {
+        this.file.deleteOnExit();
+    }
     
-}
 
-
-    public listFiles(): any[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.listFiles() as any[];
+    public function list():Vector.<String> {
+        return this.file.list();
+    }
     
-}
 
-
-    public listFilesFileNameFilter(filter: FilenameFilter): any[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.listFiles(filter) as any[];
+    public function listWithFilter(filter:FilenameFilter):Vector.<String> {
+        return this.file.list(filter);
+    }
     
-}
 
-
-    public listFilesFileFilter(filter: FileFilter): any[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.listFiles(filter) as any[];
+    public function listFiles():Vector.<Object> {
+        return (this.file.listFiles() as Vector.<Object>);
+    }
     
-}
 
-
-    public mkdir(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.mkdir();;
+    public function listFilesFileNameFilter(filter:FilenameFilter):Vector.<Object> {
+        return (this.file.listFiles(filter) as Vector.<Object>);
+    }
     
-}
 
-
-    public mkdirs(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.mkdirs();;
+    public function listFilesFileFilter(filter:FileFilter):Vector.<Object> {
+        return (this.file.listFiles(filter) as Vector.<Object>);
+    }
     
-}
 
-
-    public renameTo(dest: AbFile): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.renameTo(dest.getFile());;
+    public function mkdir():Boolean {
+        return this.file.mkdir();
+    }
     
-}
 
-
-    public setLastModified(time: number): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.setLastModified(time);;
+    public function mkdirs():Boolean {
+        return this.file.mkdirs();
+    }
     
-}
 
-
-    public setReadOnly(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.setReadOnly();;
+    public function renameTo(dest:AbFile):Boolean {
+        return this.file.renameTo(dest.getFile());
+    }
     
-}
 
-setWritable(...args: any[]): any {
-   
-   
-    if (args.length === 2 && typeof args[0] === 'boolean' && typeof args[1] === 'boolean') return this.setWritable$overload1(args[0], args[1]);
-   
-    if (args.length === 1 && typeof args[0] === 'boolean') return this.setWritable$overload2(args[0]);
-   
-   throw new TypeError('No matching overload: setWritable'); }
-  
-    public setWritable$overload1(writable: boolean, ownerOnly: boolean): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.setExecutable(writable, ownerOnly);;
+    public function setLastModified(time:Number):Boolean {
+        return this.file.setLastModified(time);
+    }
     
-}
 
-
-    public setWritable$overload2(writable: boolean): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.setWritable(writable);;
+    public function setReadOnly():Boolean {
+        return this.file.setReadOnly();
+    }
     
-}
 
-setReadable(...args: any[]): any {
-   
-   
-    if (args.length === 2 && typeof args[0] === 'boolean' && typeof args[1] === 'boolean') return this.setReadable$overload1(args[0], args[1]);
-   
-    if (args.length === 1 && typeof args[0] === 'boolean') return this.setReadable$overload2(args[0]);
-   
-   throw new TypeError('No matching overload: setReadable'); }
-  
-    public setReadable$overload1(readable: boolean, ownerOnly: boolean): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.setReadable(readable, ownerOnly);;
+    public function setWritable(writable:Boolean, ownerOnly:Boolean):Boolean {
+        return this.file.setExecutable(writable, ownerOnly);
+    }
     
-}
 
-
-    public setReadable$overload2(readable: boolean): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.setReadable(readable);;
+    public function setWritable(writable:Boolean):Boolean {
+        return this.file.setWritable(writable);
+    }
     
-}
 
-setExecutable(...args: any[]): any {
-   
-   
-    if (args.length === 2 && typeof args[0] === 'boolean' && typeof args[1] === 'boolean') return this.setExecutable$overload1(args[0], args[1]);
-   
-    if (args.length === 1 && typeof args[0] === 'boolean') return this.setExecutable$overload2(args[0]);
-   
-   throw new TypeError('No matching overload: setExecutable'); }
-  
-    public setExecutable$overload1(executable: boolean, ownerOnly: boolean): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.setExecutable(executable, ownerOnly);;
+    public function setReadable(readable:Boolean, ownerOnly:Boolean):Boolean {
+        return this.file.setReadable(readable, ownerOnly);
+    }
     
-}
 
-
-    public setExecutable$overload2(executable: boolean): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.setExecutable(executable);;
+    public function setReadable(readable:Boolean):Boolean {
+        return this.file.setReadable(readable);
+    }
     
-}
 
-
-    public canExecute(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.canExecute();;
+    public function setExecutable(executable:Boolean, ownerOnly:Boolean):Boolean {
+        return this.file.setExecutable(executable, ownerOnly);
+    }
     
-}
 
-
-    public getTotalSpace(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.getTotalSpace();;
+    public function setExecutable(executable:Boolean):Boolean {
+        return this.file.setExecutable(executable);
+    }
     
-}
 
-
-    public getFreeSpace(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.getFreeSpace();;
+    public function canExecute():Boolean {
+        return this.file.canExecute();
+    }
     
-}
 
-
-    public getUsableSpace(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.getUsableSpace();;
+    public function getTotalSpace():Number {
+        return this.file.getTotalSpace();
+    }
     
-}
 
-
-    public compareTo(pathname: File): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.compareTo(pathname);;
+    public function getFreeSpace():Number {
+        return this.file.getFreeSpace();
+    }
     
-}
 
-
-    public equals(obj: any): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return TsUtil.getInstance()!.equalsNotstring(this.file, obj);;
+    public function getUsableSpace():Number {
+        return this.file.getUsableSpace();
+    }
     
-}
 
-
-    public hashCode(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.hashCode();;
+    public function compareTo(pathname:JFile):int {
+        return this.file.compareTo(pathname);
+    }
     
-}
 
-
-    public toString(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.file.toString();;
+    public function equals(obj:Object):Boolean {
+        return TsUtil.getInstance().equalsNotstring(this.file, obj);
+    }
     
-}
 
+    public function hashCode():int {
+        return this.file.hashCode();
+    }
+    
 
+    public function toString():String {
+        return this.file.toString();
+    }
+    }
 }
 

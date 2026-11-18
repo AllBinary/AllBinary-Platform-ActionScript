@@ -1,48 +1,21 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics.opengles {
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { OpenGLProcessor } from './OpenGLProcessor.js';
-//sameFolderImports - not GWT import - same folder const OpenGLProcessor
-
-export class NullOpenGLProcessorFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: OpenGLProcessor = new OpenGLProcessor();
-
-    public static getInstance(): OpenGLProcessor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullOpenGLProcessorFactory.instance;
+    public class NullOpenGLProcessorFactory {
+    private static var instance_value:OpenGLProcessor;
+    private static var instance_set:Boolean = false;
+    private static function get instance():OpenGLProcessor {
+        if (!NullOpenGLProcessorFactory.instance_set) {
+            NullOpenGLProcessorFactory.instance_set = true;
+            NullOpenGLProcessorFactory.instance_value = new OpenGLProcessor();
+        }
+        return NullOpenGLProcessorFactory.instance_value;
+    }
     
-}
 
-
+    public static function getInstance():OpenGLProcessor {
+        return NullOpenGLProcessorFactory.instance;
+    }
+    }
 }
 

@@ -1,77 +1,41 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form {
+    import org.allbinary.graphics.form.item.ABCustomItem;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { ABCustomItem } from '../../../../org/allbinary/graphics/form/item/ABCustomItem.js';
-//not GWT import const ABCustomItem
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ItemIndexDx
-            extends Object
-         {
-        
-
-    private static readonly instance: ItemIndexDx = new ItemIndexDx();
-
-    public static getInstance(): ItemIndexDx{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ItemIndexDx.instance;
+    public class ItemIndexDx {
+    private static var instance_value:ItemIndexDx;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ItemIndexDx {
+        if (!ItemIndexDx.instance_set) {
+            ItemIndexDx.instance_set = true;
+            ItemIndexDx.instance_value = new ItemIndexDx();
+        }
+        return ItemIndexDx.instance_value;
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public getDx(index: number, item: ABCustomItem, dx: number, dy: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public static function getInstance():ItemIndexDx {
+        return ItemIndexDx.instance;
+    }
     
-}
 
-
+    public function getDx(index:int, item:ABCustomItem, dx:int, dy:int):int {
+        return 0;
+    }
+    }
 }
 

@@ -1,190 +1,134 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.threed {
+    import java.lang.JRunnable;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    //SWTWithoutJOGL
+    public class SWTJOGLProcessor implements JRunnable {
+    private static var instance_value:SWTJOGLProcessor;
+    private static var instance_set:Boolean = false;
+    private static function get instance():SWTJOGLProcessor {
+        if (!SWTJOGLProcessor.instance_set) {
+            SWTJOGLProcessor.instance_set = true;
+            SWTJOGLProcessor.instance_value = new SWTJOGLProcessor();
+        }
+        return SWTJOGLProcessor.instance_value;
+    }
+        public var glHolder:GLHolder = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { RuntimeException } from '../../../../java/lang/RuntimeException.js';
-        
-            import { Runnable } from '../../../../java/lang/Runnable.js';
-        
-import { Font } from '../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { MIDlet } from '../../../../javax/microedition/midlet/MIDlet.js';
-//not GWT import const MIDlet
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GLHolder } from './GLHolder.js';
-//sameFolderImports - not GWT import - same folder const GLHolder
-import { RatioProcessor } from './RatioProcessor.js';
-//sameFolderImports - not GWT import - same folder const RatioProcessor
-//SWTWithoutJOGL
-export class SWTJOGLProcessor
-            extends Object
-         implements Runnable {
+        // Java field initializers run after the base constructor
+        private function initFieldsSWTJOGLProcessor():void {
+    this.glHolder = new GLHolder() /* Java anonymous class body: implement it as a named subclass
         
 
-    private static readonly instance: SWTJOGLProcessor = new SWTJOGLProcessor();
+        public function run(renderer:Object):void {
+        } */;
+        }
 
-    public static getInstance(): SWTJOGLProcessor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return SWTJOGLProcessor.instance;
+        public function SWTJOGLProcessor() {
+            super();
+            this.initFieldsSWTJOGLProcessor();
+        }
     
-}
 
-
-    public glHolder: GLHolder = new class extends GLHolder
-                                {
-                                
-    public run(renderer: any){
-}
-
-                                }();
-
-    public init(display: any, comp: any){
-}
-
-
-    public isHolderCreated(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.glHolder!.isCreated;
+    public static function getInstance():SWTJOGLProcessor {
+        return SWTJOGLProcessor.instance;
+    }
     
-}
 
-
-    public setRenderer(renderer: any){
-}
-
-
-    public isJOGL(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function init(display:Object, comp:Object):void {
+    }
     
-}
 
+    public function isHolderCreated():Boolean {
+        return this.glHolder.isCreated;
+    }
+    
 
-    public createSurface(){
-}
+    public function setRenderer(renderer:Object):void {
+    }
+    
 
+    public function isJOGL():Boolean {
+        return false;
+    }
+    
 
-    public onSurfaceCreated(){
-}
+    public function createSurface():void {
+    }
+    
 
+    public function onSurfaceCreated():void {
+    }
+    
 
-    public onSurfaceChangedForEvent(event: any){
-}
+    public function onSurfaceChangedForEvent(event:Object):void {
+    }
+    
 
+    public function onSurfaceChanged():void {
+    }
+    
 
-    public onSurfaceChanged(){
-}
+    public function onSurfaceChangedWH(width:int, height:int):void {
+    }
+    
 
+    public function addListener():void {
+    }
+    
 
-    public onSurfaceChangedWH(width: number, height: number){
-}
+    public function addListeners(midlet:MIDlet):void {
+    }
+    
 
+    public function run():void {
+    }
+    
 
-    public addListener(){
-}
+    public function clear():void {
+    }
+    
 
+    public function setCustom(width:int, height:int, ratio:Number):void {
+    }
+    
 
-    public addListeners(midlet: MIDlet){
-}
+    public function setRatioProcessor(ratioProcessor:RatioProcessor):void {
+    }
+    
 
+    public function charWidth(font:Font, ch:int):int {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-    public run(){
-}
+    public function charsWidth(font:Font, ch:Vector.<int>, offset:int, length:int):int {
+        throw new JException("RuntimeException", "");
+    }
+    
 
+    public function stringWidth(font:Font, str:String):int {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-    public clear(){
-}
-
-
-    public setCustom(width: number, height: number, ratio: number){
-}
-
-
-    public setRatioProcessor(ratioProcessor: RatioProcessor){
-}
-
-
-    public charWidth(font: Font, ch: string): number{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public charsWidth(font: Font, ch: string[], offset: number, length: number): number{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public stringWidth(font: Font, str: string): number{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public substringWidth(font: Font, str: string, offset: number, len: number): number{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
+    public function substringWidth(font:Font, str:String, offset:int, len:int):int {
+        throw new JException("RuntimeException", "");
+    }
+    }
 }
 

@@ -1,237 +1,113 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationBehaviorFactory;
+    import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+    import org.allbinary.animation.NullAnimationFactory;
+    import org.allbinary.image.AnimationFactoryImageScaleUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.media.ScaleProperties;
+    import org.allbinary.string.CommonLabels;
+    import org.allbinary.string.CommonSeps;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
+        public var animationFactoryImageScaleUtil:AnimationFactoryImageScaleUtil = null;
+        private var image:Image = null;
+        public var animationBehaviorFactory:AnimationBehaviorFactory = null;
+        private var sequenceArray:Vector.<int> = null;
+        public var animationFactoryInitializationVisitor:AnimationFactoryInitializationVisitor = null;
+        public var scaleProperties:ScaleProperties = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationBehaviorFactory } from '../../../../org/allbinary/animation/AnimationBehaviorFactory.js';
-//not GWT import const AnimationBehaviorFactory
-
-import { AnimationInterfaceFactoryInterface } from '../../../../org/allbinary/animation/AnimationInterfaceFactoryInterface.js';
-//not GWT import const AnimationInterfaceFactoryInterface
-
-import { NullAnimationFactory } from '../../../../org/allbinary/animation/NullAnimationFactory.js';
-//not GWT import const NullAnimationFactory
-
-import { AnimationFactoryImageScaleUtil } from '../../../../org/allbinary/image/AnimationFactoryImageScaleUtil.js';
-//not GWT import const AnimationFactoryImageScaleUtil
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { ScaleProperties } from '../../../../org/allbinary/media/ScaleProperties.js';
-//not GWT import const ScaleProperties
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AnimationFactoryInitializationVisitor } from './AnimationFactoryInitializationVisitor.js';
-//sameFolderImports - not GWT import - same folder const AnimationFactoryInitializationVisitor
-
-export class BaseImageAnimationFactory
-            extends Object
-         implements AnimationInterfaceFactoryInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public static createFactoryBase(image: Image, sequenceArray: number[], width: number, height: number, animationBehaviorFactory: AnimationBehaviorFactory): BaseImageAnimationFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new BaseImageAnimationFactory(image, sequenceArray, width, height, 0, 0, animationBehaviorFactory);
+        // Java field initializers run after the base constructor
+        private function initFieldsBaseImageAnimationFactory():void {
+    this.animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
     
-}
-
-
-    readonly animationFactoryImageScaleUtil: AnimationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance()!;
-
-    private readonly image: Image;
-
-    public readonly animationBehaviorFactory: AnimationBehaviorFactory;
-
-    private readonly sequenceArray: number[];
-
-    readonly animationFactoryInitializationVisitor: AnimationFactoryInitializationVisitor;
-
-    scaleProperties: ScaleProperties = ScaleProperties.instance;
-
-public constructor (image: Image, sequenceArray: number[], width: number, height: number, dx: number, dy: number, animationBehaviorFactory: AnimationBehaviorFactory){
-
-            super();
-        this.animationFactoryInitializationVisitor= new AnimationFactoryInitializationVisitor();
     
-this.image= image;
     
-this.animationFactoryInitializationVisitor!.width= width;
     
-this.animationFactoryInitializationVisitor!.height= height;
-    
-this.animationBehaviorFactory= animationBehaviorFactory;
-    
-this.sequenceArray= sequenceArray;
-    
-this.animationFactoryInitializationVisitor!.dx= dx;
-    
-this.animationFactoryInitializationVisitor!.dy= dy;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstance(instanceId: number): Animation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullAnimationFactory.getFactoryInstance()!.getInstance(instanceId);;
-    
-}
-
-
-    public getImage(): Image{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.image;
-    
-}
-
-
-    public getSequenceArray(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.sequenceArray;
-    
-}
-
-
-    public setInitialScale(scaleProperties: ScaleProperties){
-this.scaleProperties= scaleProperties;
+    this.scaleProperties = ScaleProperties.instance;
+        }
     
 
-                        if(this.scaleProperties!.shouldScale)
-                        
-                                    {
-                                    this.scaleProperties!.scaleWidth= globalThis.Math.trunc((this.animationFactoryInitializationVisitor!.width *this.scaleProperties!.scaleX));
-    
-this.scaleProperties!.scaleHeight= globalThis.Math.trunc((this.animationFactoryInitializationVisitor!.height *this.scaleProperties!.scaleY));
+    public static function createFactoryBase(image:Image, sequenceArray:Vector.<int>, width:int, height:int, animationBehaviorFactory:AnimationBehaviorFactory):BaseImageAnimationFactory {
+        return new BaseImageAnimationFactory(image, sequenceArray, width, height, 0, 0, animationBehaviorFactory);
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-                        }
-                            
-}
-
-
-    public getAnimationFactoryInitializationVisitorP(): AnimationFactoryInitializationVisitor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.animationFactoryInitializationVisitor;
-    
-}
-
-
-    public getScalePropertiesP(): ScaleProperties{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.scaleProperties;
-    
-}
-
-
-    public toString(): string{
-
-    let commonSeps: CommonSeps = CommonSeps.getInstance()!;;
+    public function BaseImageAnimationFactory(image:Image, sequenceArray:Vector.<int>, width:int, height:int, dx:int, dy:int, animationBehaviorFactory:AnimationBehaviorFactory) {
+        super();
+        this.initFieldsBaseImageAnimationFactory();
+        this.animationFactoryInitializationVisitor = new AnimationFactoryInitializationVisitor();
+        this.image = image;
+        this.animationFactoryInitializationVisitor.width = width;
+        this.animationFactoryInitializationVisitor.height = height;
+        this.animationBehaviorFactory = animationBehaviorFactory;
+        this.sequenceArray = sequenceArray;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
+    }
     
 
-    let commonLabels: CommonLabels = CommonLabels.getInstance()!;;
+    public function getInstance1(instanceId:int):Animation {
+        return NullAnimationFactory.getFactoryInstance().getInstance1(instanceId);
+    }
     
 
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append(super.toString());
-    
-stringBuffer!.append(commonLabels!.HEIGHT_LABEL);
-    
-stringBuffer!.appendint(this.image.getHeight());
-    
-stringBuffer!.append(commonSeps!.SPACE);
-    
-stringBuffer!.append(this.animationFactoryInitializationVisitor!.toString());
+    public function getImage():Image {
+        return this.image;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    public function getSequenceArray():Vector.<int> {
+        return this.sequenceArray;
+    }
     
-}
 
+    public function setInitialScale(scaleProperties:ScaleProperties):void {
+        this.scaleProperties = scaleProperties;
+        if (this.scaleProperties.shouldScale) {
+            this.scaleProperties.scaleWidth = JMath.toInt32((Number(this.animationFactoryInitializationVisitor.width) * this.scaleProperties.scaleX));
+            this.scaleProperties.scaleHeight = JMath.toInt32((Number(this.animationFactoryInitializationVisitor.height) * this.scaleProperties.scaleY));
+        } else {
+        }
+    }
+    
 
+    public function getAnimationFactoryInitializationVisitorP():AnimationFactoryInitializationVisitor {
+        return this.animationFactoryInitializationVisitor;
+    }
+    
+
+    public function getScalePropertiesP():ScaleProperties {
+        return this.scaleProperties;
+    }
+    
+
+    public function toString():String {
+        var commonSeps:CommonSeps = CommonSeps.getInstance();
+        var commonLabels:CommonLabels = CommonLabels.getInstance();
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append(super.toString());
+        stringBuffer.append(commonLabels.HEIGHT_LABEL);
+        stringBuffer.appendint(this.image.getHeight());
+        stringBuffer.append(commonSeps.SPACE);
+        stringBuffer.append(this.animationFactoryInitializationVisitor.toString());
+        return stringBuffer.toString();
+    }
+    }
 }
 

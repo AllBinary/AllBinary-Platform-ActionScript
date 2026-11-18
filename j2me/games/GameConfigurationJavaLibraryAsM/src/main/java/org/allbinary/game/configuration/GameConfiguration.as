@@ -1,261 +1,152 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration {
+    import org.allbinary.game.configuration.event.GameFeatureEvent;
+    import org.allbinary.game.configuration.event.GameFeatureEventHandler;
+    import org.allbinary.logic.java.bool.BooleanFactory;
+    import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameConfiguration {
+    private static var MIN_VALUE_value:*;
+    private static var MIN_VALUE_set:Boolean = false;
+    private static function get MIN_VALUE():* {
+        if (!GameConfiguration.MIN_VALUE_set) {
+            GameConfiguration.MIN_VALUE_set = true;
+            GameConfiguration.MIN_VALUE_value = JInteger.MIN_VALUE;
+        }
+        return GameConfiguration.MIN_VALUE_value;
+    }
+        private var name:String = null;
+        private var defaultValue:* = null;
+        private var value:* = null;
+        private var minValue:* = null;
+        private var maxValue:* = null;
+        private var modifiable:* = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGameConfiguration():void {
+    this.name = StringUtil.getInstance().EMPTY_STRING;
+    this.defaultValue = SmallIntegerSingletonFactory.getInstance().getAt(0);
+    this.value = GameConfiguration.MIN_VALUE;
+    this.minValue = this.defaultValue;
+    this.maxValue = this.defaultValue;
+    this.modifiable = BooleanFactory.getInstance().TRUE;
+        }
+    
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../java/lang/Integer.js';
-        
-import { GameFeatureEvent } from '../../../../org/allbinary/game/configuration/event/GameFeatureEvent.js';
-//not GWT import const GameFeatureEvent
-
-import { GameFeatureEventHandler } from '../../../../org/allbinary/game/configuration/event/GameFeatureEventHandler.js';
-//not GWT import const GameFeatureEventHandler
-
-import { BooleanFactory } from '../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
-//not GWT import const BooleanFactory
-
-import { SmallIntegerSingletonFactory } from '../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
-//not GWT import const SmallIntegerSingletonFactory
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameConfigurationSingleton } from './GameConfigurationSingleton.js';
-//sameFolderImports - not GWT import - same folder const GameConfigurationSingleton
-
-export class GameConfiguration
-            extends Object
-         {
-        
-
-    private static readonly MIN_VALUE: Integer = new Integer(Integer.MIN_VALUE);
-
-    private name: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-    private defaultValue: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(0)!;
-
-    private value: Integer = GameConfiguration.MIN_VALUE;
-
-    private minValue: Integer = this.defaultValue;
-
-    private maxValue: Integer = this.defaultValue;
-
-    private modifiable: Boolean = BooleanFactory.getInstance()!.TRUE;
-
-public constructor (name: string, defaultValue: Integer, minValue: Integer, maxValue: Integer){
-
-            super();
+    public function GameConfiguration(name:String, defaultValue:*, minValue:*, maxValue:*) {
+        super();
+        this.initFieldsGameConfiguration();
         this.setName(name);
-    
-this.setDefaultValue(defaultValue);
-    
-this.value= this.getDefaultValue();
-    
-this.setMinValue(minValue);
-    
-this.setMaxValue(maxValue);
-    
-GameConfigurationSingleton.getInstance()!.getHashtable()!.put(this.getName(), this);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public setValue(value: Integer){
-
-                        if(this.value != value)
-                        
-                                    {
-                                    
-    let oldValue: Integer = this.value;;
-    
-this.value= value;
-    
-GameFeatureEventHandler.getInstance()!.fireEvent(new GameFeatureEvent(this, new StringMaker().append(this.name)!.append(" value: from: ")!.appendint(oldValue!.intValue())!.append(" to ")!.appendint(this.value.intValue())!.toString()));
+        this.setDefaultValue(defaultValue);
+        this.value = this.getDefaultValue();
+        this.setMinValue(minValue);
+        this.setMaxValue(maxValue);
+        GameConfigurationSingleton.getInstance().getHashtable().put(this.getName(), this);
+    }
     
 
-                                    }
-                                
-}
-
-
-    public getValue(): Integer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.value;
-    
-}
-
-
-    public setMaxValue(maxValue: Integer){
-this.maxValue= maxValue;
-    
-}
-
-
-    public getMaxValue(): Integer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.maxValue;
-    
-}
-
-
-    public setMinValue(minValue: Integer){
-this.minValue= minValue;
-    
-}
-
-
-    public getMinValue(): Integer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.minValue;
-    
-}
-
-
-    public setName(name: string){
-this.name= name;
-    
-}
-
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.name;
-    
-}
-
-
-    public setDefaultValue(defaultValue: Integer){
-this.defaultValue= defaultValue;
-    
-}
-
-
-    getDefaultValue(): Integer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.defaultValue;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public setDefault(){
-this.setValue(this.getDefaultValue());
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append("Name: ");
-    
-stringBuffer!.append(this.name);
-    
-stringBuffer!.append(" Min: ");
-    
-stringBuffer!.appendint(this.getMinValue()!.intValue());
-    
-stringBuffer!.append(" Max: ");
-    
-stringBuffer!.appendint(this.getMaxValue()!.intValue());
-    
-stringBuffer!.append(" Value: ");
-    
-stringBuffer!.appendint(this.getValue()!.intValue());
-    
-stringBuffer!.append(" Default: ");
-    
-stringBuffer!.appendint(this.getDefaultValue()!.intValue());
-    
-stringBuffer!.append(" Modifiable: ");
-    
-stringBuffer!.appendboolean(this.isModifiable().valueOf());
+    public function setValue(value:*):void {
+        if (this.value !== value) {
+            var oldValue:* = this.value;
+            this.value = value;
+            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(this, new StringMaker().append(this.name).append(" value: from: ").appendint(oldValue.intValue()).append(" to ").appendint(this.value.intValue()).toString()));
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    public function getValue():* {
+        return this.value;
+    }
     
-}
 
-
-    public setModifiable(modifiable: Boolean){
-this.modifiable= modifiable;
+    public function setMaxValue(maxValue:*):void {
+        this.maxValue = maxValue;
+    }
     
-}
 
-
-    public isModifiable(): Boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.modifiable;
+    public function getMaxValue():* {
+        return this.maxValue;
+    }
     
-}
 
+    public function setMinValue(minValue:*):void {
+        this.minValue = minValue;
+    }
+    
 
+    public function getMinValue():* {
+        return this.minValue;
+    }
+    
+
+    public function setName(name:String):void {
+        this.name = name;
+    }
+    
+
+    public function getName():String {
+        return this.name;
+    }
+    
+
+    public function setDefaultValue(defaultValue:*):void {
+        this.defaultValue = defaultValue;
+    }
+    
+
+    public function getDefaultValue():* {
+        return this.defaultValue;
+    }
+    
+
+    public function setDefault():void {
+        this.setValue(this.getDefaultValue());
+    }
+    
+
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append("Name: ");
+        stringBuffer.append(this.name);
+        stringBuffer.append(" Min: ");
+        stringBuffer.appendint(this.getMinValue().intValue());
+        stringBuffer.append(" Max: ");
+        stringBuffer.appendint(this.getMaxValue().intValue());
+        stringBuffer.append(" Value: ");
+        stringBuffer.appendint(this.getValue().intValue());
+        stringBuffer.append(" Default: ");
+        stringBuffer.appendint(this.getDefaultValue().intValue());
+        stringBuffer.append(" Modifiable: ");
+        stringBuffer.appendboolean(this.isModifiable().booleanValue());
+        return stringBuffer.toString();
+    }
+    
+
+    public function setModifiable(modifiable:*):void {
+        this.modifiable = modifiable;
+    }
+    
+
+    public function isModifiable():* {
+        return this.modifiable;
+    }
+    }
 }
 

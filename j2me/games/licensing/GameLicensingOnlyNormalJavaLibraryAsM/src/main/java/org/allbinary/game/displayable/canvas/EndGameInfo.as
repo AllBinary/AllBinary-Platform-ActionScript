@@ -1,112 +1,68 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.game.GameInfo;
+    import org.allbinary.graphics.displayable.MyCanvas;
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class EndGameInfo {
+        private var NORMAL_GAME_OVER:String = null;
+        public var NORMAL_GAME_OVER_WIN:String = null;
+        private var gameOverStr:String = null;
+        private var winStr:String = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { GameInfo } from '../../../../../org/allbinary/game/GameInfo.js';
-//not GWT import const GameInfo
-
-import { MyCanvas } from '../../../../../org/allbinary/graphics/displayable/MyCanvas.js';
-//not GWT import const MyCanvas
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class EndGameInfo
-            extends Object
-         {
-        
-
-    private readonly NORMAL_GAME_OVER: string = "Game Over";
-
-    readonly NORMAL_GAME_OVER_WIN: string = "You Won";
-
-    private gameOverStr: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-    private winStr: string = this.gameOverStr;
-
-public constructor (){
-
-            super();
+        // Java field initializers run after the base constructor
+        private function initFieldsEndGameInfo():void {
+    this.NORMAL_GAME_OVER = "Game Over";
+    this.NORMAL_GAME_OVER_WIN = "You Won";
+    this.gameOverStr = StringUtil.getInstance().EMPTY_STRING;
+    this.winStr = this.gameOverStr;
         }
-
-
-    public update(gameInfo: GameInfo, myCanvas: MyCanvas){
-this.setGameOverStr(this.NORMAL_GAME_OVER);
     
-this.setWinStr(this.NORMAL_GAME_OVER_WIN);
+
+    public function EndGameInfo() {
+        super();
+        this.initFieldsEndGameInfo();
+    }
     
-}
 
-
-    public getGameOverStr(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gameOverStr;
+    public function update(gameInfo:GameInfo, myCanvas:MyCanvas):void {
+        this.setGameOverStr(this.NORMAL_GAME_OVER);
+        this.setWinStr(this.NORMAL_GAME_OVER_WIN);
+    }
     
-}
 
-
-    public setGameOverStr(gameOverStr: string){
-this.gameOverStr= gameOverStr;
+    public function getGameOverStr():String {
+        return this.gameOverStr;
+    }
     
-}
 
-
-    public getWinStr(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.winStr;
+    public function setGameOverStr(gameOverStr:String):void {
+        this.gameOverStr = gameOverStr;
+    }
     
-}
 
-
-    public setWinStr(winStr: string){
-this.winStr= winStr;
+    public function getWinStr():String {
+        return this.winStr;
+    }
     
-}
 
-
+    public function setWinStr(winStr:String):void {
+        this.winStr = winStr;
+    }
+    }
 }
 

@@ -1,70 +1,52 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.midlet {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LicenseLoadingTypeFactory {
+    private static var instance_value:LicenseLoadingTypeFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():LicenseLoadingTypeFactory {
+        if (!LicenseLoadingTypeFactory.instance_set) {
+            LicenseLoadingTypeFactory.instance_set = true;
+            LicenseLoadingTypeFactory.instance_value = new LicenseLoadingTypeFactory();
+        }
+        return LicenseLoadingTypeFactory.instance_value;
+    }
+        public var INITIAL_LOADING:LicenseLoadingType = null;
+        public var GAME_START:LicenseLoadingType = null;
+        public var LOGIN:LicenseLoadingType = null;
+        public var OTHER:LicenseLoadingType = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsLicenseLoadingTypeFactory():void {
+    this.INITIAL_LOADING = new LicenseLoadingType("Initial Loading");
+    this.GAME_START = new LicenseLoadingType("Game Start");
+    this.LOGIN = new LicenseLoadingType("Login");
+    this.OTHER = new LicenseLoadingType("Other/Usually The First Non Demo Level");
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LicenseLoadingType } from './LicenseLoadingType.js';
-//sameFolderImports - not GWT import - same folder const LicenseLoadingType
-
-export class LicenseLoadingTypeFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: LicenseLoadingTypeFactory = new LicenseLoadingTypeFactory();
-
-    public static getIntance(): LicenseLoadingTypeFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LicenseLoadingTypeFactory.instance;
+        public function LicenseLoadingTypeFactory() {
+            super();
+            this.initFieldsLicenseLoadingTypeFactory();
+        }
     
-}
 
-
-    public readonly INITIAL_LOADING: LicenseLoadingType = new LicenseLoadingType("Initial Loading");
-
-    public readonly GAME_START: LicenseLoadingType = new LicenseLoadingType("Game Start");
-
-    public readonly LOGIN: LicenseLoadingType = new LicenseLoadingType("Login");
-
-    public readonly OTHER: LicenseLoadingType = new LicenseLoadingType("Other/Usually The First Non Demo Level");
-
+    public static function getIntance():LicenseLoadingTypeFactory {
+        return LicenseLoadingTypeFactory.instance;
+    }
+    }
 }
 

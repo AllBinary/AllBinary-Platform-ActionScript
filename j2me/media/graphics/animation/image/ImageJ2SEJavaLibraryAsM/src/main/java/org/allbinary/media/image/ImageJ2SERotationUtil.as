@@ -1,290 +1,130 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.image {
+    import java.awt.JGraphics2D;
+    import java.awt.JImage;
+    import java.awt.image.JBufferedImage;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Math } from '../../../../java/lang/Math.js';
-        
-import { Graphics2D } from '../../../../java/awt/Graphics2D.js';
-//not GWT import const Graphics2D
-
-import { Image } from '../../../../java/awt/Image.js';
-//not GWT import const Image
-
-import { BufferedImage } from '../../../../java/awt/image/BufferedImage.js';
-//not GWT import const BufferedImage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageUtil } from './ImageUtil.js';
-//sameFolderImports - not GWT import - same folder const ImageUtil
-import { ImageJ2SEUtil } from './ImageJ2SEUtil.js';
-//sameFolderImports - not GWT import - same folder const ImageJ2SEUtil
-
-export class ImageJ2SERotationUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: ImageJ2SERotationUtil = new ImageJ2SERotationUtil();
-
-    public static getInstance(): ImageJ2SERotationUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ImageJ2SERotationUtil.instance;
-    
-}
-
-
-    private readonly imageUtil: ImageUtil = ImageUtil.getInstance()!;
-
-    private readonly imageJ2SEUtil: ImageJ2SEUtil = ImageJ2SEUtil.getInstance()!;
-
-private constructor (){
-
-            super();
+    public class ImageJ2SERotationUtil {
+    private static var instance_value:ImageJ2SERotationUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ImageJ2SERotationUtil {
+        if (!ImageJ2SERotationUtil.instance_set) {
+            ImageJ2SERotationUtil.instance_set = true;
+            ImageJ2SERotationUtil.instance_value = new ImageJ2SERotationUtil();
         }
+        return ImageJ2SERotationUtil.instance_value;
+    }
+        private var imageUtil:ImageUtil = null;
+        private var imageJ2SEUtil:ImageJ2SEUtil = null;
+        private var TWO_PIE:Number = 0.0;
 
-
-    public getRotatedImage(bufferedImage: Image, totalAngle: number): BufferedImage{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getRotatedImageRadians(bufferedImage, this.TWO_PIE *totalAngle /360);;
-    
-}
-
-
-    public getRotatedImageRadians(bufferedImage: Image, radians: number): BufferedImage{
-
-    let newBufferedImage: BufferedImage = this.imageUtil!.create(bufferedImage!.getWidth(
-                            null), bufferedImage!.getHeight(
-                            null))!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsImageJ2SERotationUtil():void {
+    this.imageUtil = ImageUtil.getInstance();
+    this.imageJ2SEUtil = ImageJ2SEUtil.getInstance();
+    this.TWO_PIE = 2 * Math.PI;
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, newBufferedImage!.createGraphics(), radians);;
-    
-}
-
-
-    drawRotatedImageRadians(bufferedImage: Image, newBufferedImage: BufferedImage, g: Graphics2D, radians: number): BufferedImage{
-g.rotate(radians, newBufferedImage!.getWidth(
-                            null) /2, newBufferedImage!.getHeight(
-                            null) /2);
-    
-g.drawImage(bufferedImage, 0, 0, bufferedImage!.getWidth(
-                            null), bufferedImage!.getHeight(
-                            null), 
-                            null);
-    
-g.dispose();
+    public static function getInstance():ImageJ2SERotationUtil {
+        return ImageJ2SERotationUtil.instance;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return newBufferedImage;
-    
-}
-
-
-    private readonly TWO_PIE: number = 2 *Math.PI;
-
-    public rotateImage(bufferedImage: Image, newBufferedImage: BufferedImage, totalAngle: number): BufferedImage{
-
-    let g: Graphics2D = newBufferedImage!.createGraphics()!;;
-    
-g.setBackground(this.imageJ2SEUtil!.TRANSPARENT_COLOR);
-    
-g.clearRect(0, 0, newBufferedImage!.getWidth(), newBufferedImage!.getHeight());
+    public function ImageJ2SERotationUtil() {
+        super();
+        this.initFieldsImageJ2SERotationUtil();
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, g, this.TWO_PIE *totalAngle /360);;
-    
-}
-
-
-    public createRotatedImage(bufferedImage: Image, newBufferedImage: BufferedImage, totalAngle: number): BufferedImage{
-
-    let g: Graphics2D = newBufferedImage!.createGraphics()!;;
+    public function getRotatedImage(bufferedImage:Image, totalAngle:int):BufferedImage {
+        return this.getRotatedImageRadians(bufferedImage, this.TWO_PIE * Number(totalAngle) / 360.0);
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, g, this.TWO_PIE *totalAngle /360);;
-    
-}
-
-
-    public getRotatedImages(bufferedImage: Image, numberOfFrames: number, totalAngle: number): BufferedImage[]{
-
-    let bufferedImageArray: BufferedImage[] = new Array(numberOfFrames);;
+    public function getRotatedImageRadians(bufferedImage:Image, radians:Number):BufferedImage {
+        var newBufferedImage:BufferedImage = this.imageUtil.create(bufferedImage.getWidth(null), bufferedImage.getHeight(null));
+        return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, newBufferedImage.createGraphics(), radians);
+    }
     
 
-    let arc: number = () *totalAngle /360;;
+    private function drawRotatedImageRadians(bufferedImage:Image, newBufferedImage:BufferedImage, g:Graphics2D, radians:Number):BufferedImage {
+        g.rotate(radians, newBufferedImage.getWidth(null) / 2, newBufferedImage.getHeight(null) / 2);
+        g.drawImage(bufferedImage, 0, 0, bufferedImage.getWidth(null), bufferedImage.getHeight(null), null);
+        g.dispose();
+        return newBufferedImage;
+    }
     
 
-    let size: number = bufferedImageArray!.length
-                ;;
+    public function rotateImage(bufferedImage:Image, newBufferedImage:BufferedImage, totalAngle:int):BufferedImage {
+        var g:Graphics2D = newBufferedImage.createGraphics();
+        g.setBackground(this.imageJ2SEUtil.TRANSPARENT_COLOR);
+        g.clearRect(0, 0, newBufferedImage.getWidth(), newBufferedImage.getHeight());
+        return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, g, this.TWO_PIE * Number(totalAngle) / 360.0);
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let radians: number = (arc /size) *index;;
-    
-bufferedImageArray[index]= this.getRotatedImageRadians(bufferedImage, radians);
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return bufferedImageArray;
-    
-}
-
-
-    public createSpriteImage(bufferedImageArray: BufferedImage[]): BufferedImage{
-
-    let columns: number = 9;;
+    public function createRotatedImage(bufferedImage:Image, newBufferedImage:BufferedImage, totalAngle:int):BufferedImage {
+        var g:Graphics2D = newBufferedImage.createGraphics();
+        return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, g, this.TWO_PIE * Number(totalAngle) / 360.0);
+    }
     
 
-    let rows: number = 0;;
+    public function getRotatedImages(bufferedImage:Image, numberOfFrames:int, totalAngle:int):Vector.<BufferedImage> {
+        var bufferedImageArray:Vector.<BufferedImage> = new Vector.<BufferedImage>(numberOfFrames);
+        var arc:Number = (this.TWO_PIE) * Number(totalAngle) / 360.0;
+        var size:int = bufferedImageArray.length;
+        for (var index:int = 0; index < size; index++) {
+            var radians:Number = (arc / Number(size)) * Number(index);
+            bufferedImageArray[index] = this.getRotatedImageRadians(bufferedImage, radians);
+        }
+        return bufferedImageArray;
+    }
     
 
-    let size: number = bufferedImageArray!.length
-                ;;
-    
-
-                        if(size < columns)
-                        
-                                    {
-                                    columns= size;
-    
-
-                                    }
-                                
-rows= (globalThis.Math.trunc(size /columns));
-    
-
-                        if(size % columns != 0)
-                        
-                                    {
-                                    rows++;
-    
-
-                                    }
-                                
-
-    let firstBufferedImage: BufferedImage = bufferedImageArray[0]!;;
-    
-
-    let bufferedImage: BufferedImage = this.imageUtil!.create(firstBufferedImage!.getWidth(
-                            null) *columns, firstBufferedImage!.getHeight(
-                            null) *rows)!;;
-    
-
-    let g: Graphics2D = bufferedImage!.createGraphics()!;;
-    
-
-    let columnIndex: number = 0;;
-    
-
-    let rowIndex: number = 0;;
-    
-
-    let nextBufferedImage: BufferedImage;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-                        if(globalThis.Math.trunc(index /9) != 0 && index % 9 == 0)
-                        
-                                    {
-                                    rowIndex++;
-    
-columnIndex= 0;
-    
-
-                                    }
-                                
-nextBufferedImage= bufferedImageArray[index]!;
-    
-g.drawImage(nextBufferedImage, nextBufferedImage!.getWidth(
-                            null) *columnIndex, nextBufferedImage!.getHeight(
-                            null) *rowIndex, nextBufferedImage!.getWidth(
-                            null), nextBufferedImage!.getHeight(
-                            null), 
-                            null);
-    
-columnIndex++;
-    
-}
-
-g.dispose();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return bufferedImage;
-    
-}
-
-
+    public function createSpriteImage(bufferedImageArray:Vector.<BufferedImage>):BufferedImage {
+        var columns:int = 9;
+        var rows:int = 0;
+        var size:int = bufferedImageArray.length;
+        if (size < columns) {
+            columns = size;
+        }
+        rows = (int(size / columns));
+        if (size % columns != 0) {
+            rows++;
+        }
+        var firstBufferedImage:BufferedImage = bufferedImageArray[0];
+        var bufferedImage:BufferedImage = this.imageUtil.create(firstBufferedImage.getWidth(null) * columns, firstBufferedImage.getHeight(null) * rows);
+        var g:Graphics2D = bufferedImage.createGraphics();
+        var columnIndex:int = 0;
+        var rowIndex:int = 0;
+        var nextBufferedImage:BufferedImage = null;
+        for (var index:int = 0; index < size; index++) {
+            if (int(index / 9) != 0 && index % 9 == 0) {
+                rowIndex++;
+                columnIndex = 0;
+            }
+            nextBufferedImage = bufferedImageArray[index];
+            g.drawImage(nextBufferedImage, nextBufferedImage.getWidth(null) * columnIndex, nextBufferedImage.getHeight(null) * rowIndex, nextBufferedImage.getWidth(null), nextBufferedImage.getHeight(null), null);
+            columnIndex++;
+        }
+        g.dispose();
+        return bufferedImage;
+    }
+    }
 }
 

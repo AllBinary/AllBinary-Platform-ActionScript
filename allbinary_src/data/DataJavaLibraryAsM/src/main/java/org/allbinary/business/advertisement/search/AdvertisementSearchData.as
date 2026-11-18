@@ -1,74 +1,53 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.advertisement.search {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AdvertisementSearchData
-            extends Object
-         {
-        
-
-    private static readonly instance: AdvertisementSearchData = new AdvertisementSearchData();
-
-    public static getInstance(): AdvertisementSearchData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AdvertisementSearchData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class AdvertisementSearchData {
+    private static var instance_value:AdvertisementSearchData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():AdvertisementSearchData {
+        if (!AdvertisementSearchData.instance_set) {
+            AdvertisementSearchData.instance_set = true;
+            AdvertisementSearchData.instance_value = new AdvertisementSearchData();
         }
+        return AdvertisementSearchData.instance_value;
+    }
+        public var TITLE:String = null;
+        public var PRICE:String = null;
+        public var RELEVANCY:String = null;
+        public var POPULARITY:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsAdvertisementSearchData():void {
+    this.TITLE = "AFFILIATE_TITLE";
+    this.PRICE = "AFFILIATE_PRICE";
+    this.RELEVANCY = "AFFILIATE_RELEVANCY";
+    this.POPULARITY = "AFFILIATE_POPULARITY";
+        }
+    
 
-    public readonly TITLE: string = "AFFILIATE_TITLE";
+    public static function getInstance():AdvertisementSearchData {
+        return AdvertisementSearchData.instance;
+    }
+    
 
-    public readonly PRICE: string = "AFFILIATE_PRICE";
-
-    public readonly RELEVANCY: string = "AFFILIATE_RELEVANCY";
-
-    public readonly POPULARITY: string = "AFFILIATE_POPULARITY";
-
+    public function AdvertisementSearchData() {
+        super();
+        this.initFieldsAdvertisementSearchData();
+    }
+    }
 }
 

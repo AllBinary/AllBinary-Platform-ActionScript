@@ -1,142 +1,73 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.audio {
+    import org.allbinary.logic.communication.log.PreLogUtil;
+    import org.allbinary.string.CommonStrings;
+    import java.lang.JRunnable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class Sound implements SoundInterface, JRunnable {
+        private var resource:String = null;
+        public var player:Player = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-            import { Runnable } from '../../../../java/lang/Runnable.js';
-        
-import { Player, PlayerI } from '../../../../javax/microedition/media/Player.js';
-//not GWT import const Player
-
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { SoundInterface } from './SoundInterface.js';
-//sameFolderImports - not GWT import - same folder const SoundInterface
-import { NoPlayer } from './NoPlayer.js';
-//sameFolderImports - not GWT import - same folder const NoPlayer
-
-export class Sound
-            extends Object
-         implements SoundInterface, Runnable {
-        
-
-    private resource: string;
-
-    player: Player = NoPlayer.NO_PLAYER;
-
-protected constructor (resource: string){
-
-            super();
-        this.resource= resource;
+        // Java field initializers run after the base constructor
+        private function initFieldsSound():void {
     
-}
-
-
-    public getResource(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.resource;
-    
-}
-
-
-    public getPlayerP(): Player{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.player;
-    
-}
-
-
-    public setPlayerP(player: Player){
-this.player= player;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public init(){
-}
-
-
-    public getDuration(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return  -1;
-    
-}
-
-
-    public run(){
-
- try { this.player.start();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-PreLogUtil.put(commonStrings!.EXCEPTION, this, commonStrings!.RUN);
+    this.player = NoPlayer.NO_PLAYER;
+        }
     
 
- }
-   }
- 
-}
+    public function Sound(resource:String) {
+        super();
+        this.initFieldsSound();
+        this.resource = resource;
+    }
+    
 
+    public function getResource():String {
+        return this.resource;
+    }
+    
 
+    public function getPlayerP():Player {
+        return this.player;
+    }
+    
+
+    public function setPlayerP(player:Player):void {
+        this.player = player;
+    }
+    
+
+    public function init():void {
+    }
+    
+
+    public function getDuration():int {
+        return -1;
+    }
+    
+
+    public function run():void {
+        try {
+            this.player.start();
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN);
+        }
+    }
+    }
 }
 

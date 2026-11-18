@@ -1,71 +1,41 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.event {
+    import org.allbinary.game.configuration.GameConfiguration;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { GameConfiguration } from '../../../../../org/allbinary/game/configuration/GameConfiguration.js';
-//not GWT import const GameConfiguration
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BaseChangedGameFeatureListener } from './BaseChangedGameFeatureListener.js';
-//sameFolderImports - not GWT import - same folder const BaseChangedGameFeatureListener
-
-export class ChangedGameFeatureListener extends BaseChangedGameFeatureListener {
-        
-
-    private static readonly gameFeatureListener: ChangedGameFeatureListener = new ChangedGameFeatureListener();
-
-    public static getInstance(): ChangedGameFeatureListener{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ChangedGameFeatureListener.gameFeatureListener;
+    public class ChangedGameFeatureListener extends BaseChangedGameFeatureListener {
+    private static var gameFeatureListener_value:ChangedGameFeatureListener;
+    private static var gameFeatureListener_set:Boolean = false;
+    private static function get gameFeatureListener():ChangedGameFeatureListener {
+        if (!ChangedGameFeatureListener.gameFeatureListener_set) {
+            ChangedGameFeatureListener.gameFeatureListener_set = true;
+            ChangedGameFeatureListener.gameFeatureListener_value = new ChangedGameFeatureListener();
+        }
+        return ChangedGameFeatureListener.gameFeatureListener_value;
+    }
     
-}
 
-
-    public isChangedGameConfiguration(gameConfiguration: GameConfiguration): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list.contains(gameConfiguration);;
+    public static function getInstance():ChangedGameFeatureListener {
+        return ChangedGameFeatureListener.gameFeatureListener;
+    }
     
-}
 
-
+    public function isChangedGameConfiguration(gameConfiguration:GameConfiguration):Boolean {
+        return this.list.contains(gameConfiguration);
+    }
+    }
 }
 

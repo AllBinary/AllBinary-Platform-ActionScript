@@ -1,237 +1,123 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationInterface;
+    import org.allbinary.graphics.CellPosition;
+    import org.allbinary.graphics.GPoint;
+    import org.allbinary.graphics.PointFactory;
+    import org.allbinary.graphics.Rectangle;
+    import org.allbinary.graphics.RectangleFactory;
+    import org.allbinary.graphics.paint.Paintable;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TouchButton extends Paintable {
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        private var touchButtonInput:TouchButtonInput = null;
+        private var animationInterface:Animation = null;
+        public var rawRectangle:Rectangle = null;
+        public var xBorder:int = 0;
+        public var yBorder:int = 0;
+        public var rectangle:Rectangle = null;
+        public var cellPosition:CellPosition = null;
+        public var animationX:int = 0;
+        public var animationY:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Animation } from '../../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationInterface } from '../../../../../org/allbinary/animation/AnimationInterface.js';
-//not GWT import const AnimationInterface
-
-import { CellPosition } from '../../../../../org/allbinary/graphics/CellPosition.js';
-//not GWT import const CellPosition
-
-import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
-//not GWT import const GPoint
-
-import { PointFactory } from '../../../../../org/allbinary/graphics/PointFactory.js';
-//not GWT import const PointFactory
-
-import { Rectangle } from '../../../../../org/allbinary/graphics/Rectangle.js';
-//not GWT import const Rectangle
-
-import { RectangleFactory } from '../../../../../org/allbinary/graphics/RectangleFactory.js';
-//not GWT import const RectangleFactory
-
-import { Paintable } from '../../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TouchButtonInput } from './TouchButtonInput.js';
-//sameFolderImports - not GWT import - same folder const TouchButtonInput
-
-export class TouchButton extends Paintable {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly touchButtonInput: TouchButtonInput;
-
-    private readonly animationInterface: Animation;
-
-    readonly rawRectangle: Rectangle;
-
-    readonly xBorder: number;
-
-    readonly yBorder: number;
-
-    rectangle: Rectangle = RectangleFactory.SINGLETON;
-
-    readonly cellPosition: CellPosition;
-
-    animationX: number= 0;
-
-    animationY: number= 0;
-
-public constructor (touchButtonInput: TouchButtonInput, animationInterface: AnimationInterface, rawRectangle: Rectangle, cellPosition: CellPosition, xBorder: number, yBorder: number){
-
-            super();
-        this.touchButtonInput= touchButtonInput;
+        // Java field initializers run after the base constructor
+        private function initFieldsTouchButton():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
     
-this.animationInterface= animationInterface as Animation;
     
-this.rawRectangle= rawRectangle;
     
-this.cellPosition= cellPosition;
     
-this.xBorder= xBorder;
     
-this.yBorder= yBorder;
+    this.rectangle = RectangleFactory.SINGLETON;
     
-this.updateRectangle();
-    
-this.logUtil!.putF(new StringMaker().append("Created: ")!.append(this.toString())!.toString(), this, this.commonStrings!.CONSTRUCTOR);
-    
-}
-
-
-    public paint(graphics: Graphics){
-this.animationInterface!.paintXY(graphics, this.animationX, this.animationY);
-    
-}
-
-
-    updateRectangle(){
-
- try { 
-    let x: number = this.rawRectangle!.getWidth() *this.cellPosition!.getColumn();;
+    this.animationX = 0;
+    this.animationY = 0;
+        }
     
 
-    let y: number = this.rawRectangle!.getHeight() *this.cellPosition!.getRow();;
+    public function TouchButton(touchButtonInput:TouchButtonInput, animationInterface:AnimationInterface, rawRectangle:Rectangle, cellPosition:CellPosition, xBorder:int, yBorder:int) {
+        super();
+        this.initFieldsTouchButton();
+        this.touchButtonInput = touchButtonInput;
+        this.animationInterface = (animationInterface as Animation);
+        this.rawRectangle = rawRectangle;
+        this.cellPosition = cellPosition;
+        this.xBorder = xBorder;
+        this.yBorder = yBorder;
+        this.updateRectangle();
+        this.logUtil.putF(new StringMaker().append("Created: ").append(this.toString()).toString(), this, this.commonStrings.CONSTRUCTOR);
+    }
     
 
-    let pointFactory: PointFactory = PointFactory.getInstance()!;;
-    
-this.rectangle= new Rectangle(pointFactory!.createXY(x +this.xBorder, y +this.yBorder), this.rawRectangle!.getWidth(), this.rawRectangle!.getHeight());
-    
-
-    let point: GPoint = this.rectangle.getPoint()!;;
-    
-this.animationX= point.getX();
-    
-this.animationY= point.getY();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "updateRectangle", e);
+    override public function paint(graphics:Graphics):void {
+        this.animationInterface.paintXY(graphics, this.animationX, this.animationY);
+    }
     
 
- }
-   }
- 
-}
-
-
-    public getCellPositionP(): CellPosition{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.cellPosition;
-    
-}
-
-
-    public getRectangleP(): Rectangle{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.rectangle;
-    
-}
-
-
-    public getTouchButtonInput(): TouchButtonInput{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.touchButtonInput;
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
+    public function updateRectangle():void {
+        try {
+            var x:int = int(this.rawRectangle.getWidth() * this.cellPosition.getColumn());
+            var y:int = int(this.rawRectangle.getHeight() * this.cellPosition.getRow());
+            var pointFactory:PointFactory = PointFactory.getInstance();
+            this.rectangle = new Rectangle(pointFactory.createXY(int(x + this.xBorder), int(y + this.yBorder)), this.rawRectangle.getWidth(), this.rawRectangle.getHeight());
+            var point:GPoint = this.rectangle.getPoint();
+            this.animationX = point.getX();
+            this.animationY = point.getY();
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "updateRectangle", e);
+        }
+    }
     
 
-    let stringUtil: StringUtil = StringUtil.getInstance()!;;
-    
-stringBuffer!.append("TouchButton: ");
-    
-stringBuffer!.append(stringUtil!.toString(this.rectangle));
-    
-stringBuffer!.append(" CellPosition: ");
-    
-stringBuffer!.append(stringUtil!.toString(this.cellPosition));
-    
-stringBuffer!.append(" xBorder: ");
-    
-stringBuffer!.appendint(this.xBorder);
-    
-stringBuffer!.append(" yBorder: ");
-    
-stringBuffer!.appendint(this.yBorder);
+    public function getCellPositionP():CellPosition {
+        return this.cellPosition;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    public function getRectangleP():Rectangle {
+        return this.rectangle;
+    }
     
-}
 
+    public function getTouchButtonInput():TouchButtonInput {
+        return this.touchButtonInput;
+    }
+    
 
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        var stringUtil:StringUtil = StringUtil.getInstance();
+        stringBuffer.append("TouchButton: ");
+        stringBuffer.append(stringUtil.toString1(this.rectangle));
+        stringBuffer.append(" CellPosition: ");
+        stringBuffer.append(stringUtil.toString1(this.cellPosition));
+        stringBuffer.append(" xBorder: ");
+        stringBuffer.appendint(this.xBorder);
+        stringBuffer.append(" yBorder: ");
+        stringBuffer.appendint(this.yBorder);
+        return stringBuffer.toString();
+    }
+    }
 }
 

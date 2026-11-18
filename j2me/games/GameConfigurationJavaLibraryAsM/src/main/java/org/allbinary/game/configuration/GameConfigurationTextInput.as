@@ -1,139 +1,100 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration {
+    import org.allbinary.logic.StdUtil;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.util.ABHashtable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameConfigurationTextInput {
+    private static var hashtable_value:ABHashtable;
+    private static var hashtable_set:Boolean = false;
+    private static function get hashtable():ABHashtable {
+        if (!GameConfigurationTextInput.hashtable_set) {
+            GameConfigurationTextInput.hashtable_set = true;
+            GameConfigurationTextInput.hashtable_value = StdUtil.getInstance().createHashtable();
+        }
+        return GameConfigurationTextInput.hashtable_value;
+    }
+    private static var SIMULATOR_IP_value:GameConfigurationTextInput;
+    private static var SIMULATOR_IP_set:Boolean = false;
+    public static function get SIMULATOR_IP():GameConfigurationTextInput {
+        if (!GameConfigurationTextInput.SIMULATOR_IP_set) {
+            GameConfigurationTextInput.SIMULATOR_IP_set = true;
+            GameConfigurationTextInput.SIMULATOR_IP_value = new GameConfigurationTextInput("IP: ", "192.168.1.3");
+        }
+        return GameConfigurationTextInput.SIMULATOR_IP_value;
+    }
+    private static var SIMULATOR_PORT_value:GameConfigurationTextInput;
+    private static var SIMULATOR_PORT_set:Boolean = false;
+    public static function get SIMULATOR_PORT():GameConfigurationTextInput {
+        if (!GameConfigurationTextInput.SIMULATOR_PORT_set) {
+            GameConfigurationTextInput.SIMULATOR_PORT_set = true;
+            GameConfigurationTextInput.SIMULATOR_PORT_value = new GameConfigurationTextInput("Port: ", "8010");
+        }
+        return GameConfigurationTextInput.SIMULATOR_PORT_value;
+    }
+        private var label:String = null;
+        private var text:String = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { TextField } from '../../../../javax/microedition/lcdui/TextField.js';
-//not GWT import const TextField
-
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GameConfigurationTextInput
-            extends Object
-         {
-        
-
-    private static hashtable: ABHashtable<any, any> = StdUtil.getInstance()!.createHashtable()!;
-
-    public static SIMULATOR_IP: GameConfigurationTextInput = new GameConfigurationTextInput("IP: ", "192.168.1.3");
-
-    public static SIMULATOR_PORT: GameConfigurationTextInput = new GameConfigurationTextInput("Port: ", "8010");
-
-    public static update(textField: TextField){
-
-    let anyType: any = textField!.getLabel();;
+        // Java field initializers run after the base constructor
+        private function initFieldsGameConfigurationTextInput():void {
+    this.label = StringUtil.getInstance().EMPTY_STRING;
+    this.text = StringUtil.getInstance().EMPTY_STRING;
+        }
     
 
-    let gameConfigurationTextInput: GameConfigurationTextInput = GameConfigurationTextInput.hashtable.get(anyType) as GameConfigurationTextInput;;
-    
-gameConfigurationTextInput!.setText(textField!.getString());
-    
-}
-
-
-    public static getHashtable(): ABHashtable<any, any>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameConfigurationTextInput.hashtable;
-    
-}
-
-
-    private label: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-    private text: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-public constructor (label: string, text: string){
-
-            super();
+    public function GameConfigurationTextInput(label:String, text:String) {
+        super();
+        this.initFieldsGameConfigurationTextInput();
         this.setText(text);
+        this.setLabel(label);
+        GameConfigurationTextInput.hashtable.put(this.getLabel(), this);
+    }
     
-this.setLabel(label);
+
+    public static function update(textField:TextField):void {
+        var anyType:Object = (textField.getLabel() as Object);
+        var gameConfigurationTextInput:GameConfigurationTextInput = (GameConfigurationTextInput.hashtable.get_(anyType) as GameConfigurationTextInput);
+        gameConfigurationTextInput.setText(textField.getString());
+    }
     
-GameConfigurationTextInput.hashtable.put(this.getLabel(), this);
+
+    public function setText(text:String):void {
+        this.text = text;
+    }
     
-}
 
-
-    public setText(text: string){
-this.text= text;
+    public function getText():String {
+        return this.text;
+    }
     
-}
 
-
-    public getText(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.text;
+    public function setLabel(label:String):void {
+        this.label = label;
+    }
     
-}
 
-
-    public setLabel(label: string){
-this.label= label;
+    public function getLabel():String {
+        return this.label;
+    }
     
-}
 
-
-    public getLabel(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.label;
-    
-}
-
-
+    public static function getHashtable():ABHashtable {
+        return GameConfigurationTextInput.hashtable;
+    }
+    }
 }
 

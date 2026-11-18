@@ -1,439 +1,200 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form {
+    import org.allbinary.J2MEUtil;
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.NullAnimationFactory;
+    import org.allbinary.animation.vector.RectangleAdjustedAnimation;
+    import org.allbinary.animation.vector.RectangleFilledAdjustedAnimation;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.form.item.CommandTextItem;
+    import org.allbinary.graphics.form.item.ABCustomItem;
+
+    public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm implements UpdateMyFontInterface {
+        public var selectedAnimationArray:Vector.<Animation> = null;
+        public var unSelectedAnimationArray:Vector.<Animation> = null;
+
+        // Java field initializers run after the base constructor
+        private function initFieldsCommandCurrentSelectionForm():void {
+    this.selectedAnimationArray = new Vector.<Animation>(16);
+    this.unSelectedAnimationArray = new Vector.<Animation>(16);
+        }
+    
+
+    public function CommandCurrentSelectionForm(title:String, items:Vector.<ABCustomItem>, border:int, moveForSmallScreen:Boolean, backgroundBasicColor:BasicColor, foregroundBasicColor:BasicColor) {
+        super(title, items, ItemPaintableFactory.getInstance(), border, -3, moveForSmallScreen, backgroundBasicColor, foregroundBasicColor);
+        this.initFieldsCommandCurrentSelectionForm();
+        this.initAnimations();
+        this.addAll(items);
+    }
+    
+
+    override public function updateMeasurement(graphics:Graphics):void {
+        this.updateAll(graphics, this.getAllitems());
+        super.updateMeasurement(graphics);
+    }
+    
+
+    private function initAnimations():void {
+        var nullAnimation:Animation = NullAnimationFactory.getFactoryInstance().getInstance1(0);
+        for (var index:int = this.selectedAnimationArray.length; --index >= 0; ) {
+            this.selectedAnimationArray[index] = nullAnimation;
+        }
+        for (index = this.unSelectedAnimationArray.length; --index >= 0; ) {
+            this.unSelectedAnimationArray[index] = nullAnimation;
+        }
+    }
+    
+
+    private function addAll(items:Vector.<ABCustomItem>):void {
+        for (var index:int = items.length; --index >= 0; ) {
+            this.addAt(index, items[index]);
+        }
+    }
+    
+
+    private function addAt(index:int, item:ABCustomItem):void {
+        var basicColorFactory:BasicColorFactory = BasicColorFactory.getInstance();
+        var buttonColor:BasicColor = basicColorFactory.TRANSPARENT_GREY;
+        var selectedButtonColor:BasicColor = basicColorFactory.TRANSPARENT_RED;
+        var width:int = item.getMinimumWidth();
+        var height:int = item.getMinimumHeight();
+        var adjustedBorder:int = 3;
+        var offset:int = -(this.halfBorder + adjustedBorder);
+        var rectWidth:int = width + this.border - adjustedBorder;
+        var rectHeight:int = height + this.border - adjustedBorder;
+        if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML()) {
+            this.selectedAnimationArray[index] = new RectangleAdjustedAnimation(rectWidth, rectHeight, offset, offset, selectedButtonColor);
+        } else {
+            this.selectedAnimationArray[index] = new RectangleFilledAdjustedAnimation(rectWidth, rectHeight, offset, offset, selectedButtonColor);
+        }
+        adjustedBorder = 4;
+        if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML()) {
+            this.unSelectedAnimationArray[index] = new RectangleAdjustedAnimation(rectWidth, rectHeight, offset, offset, buttonColor);
+        } else {
+            this.unSelectedAnimationArray[index] = new RectangleFilledAdjustedAnimation(rectWidth, rectHeight, offset, offset, buttonColor);
+        }
+    }
+    
+
+    private function updateAll(graphics:Graphics, items:Vector.<ABCustomItem>):void {
+        for (var index:int = items.length; --index >= 0; ) {
+            items[index].preMeasurement(graphics);
+            this.updateAt(index, items[index]);
+        }
+    }
+    
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Command } from '../../../../javax/microedition/lcdui/Command.js';
-//not GWT import const Command
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { J2MEUtil } from '../../../../org/allbinary/J2MEUtil.js';
-//not GWT import const J2MEUtil
-
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { NullAnimationFactory } from '../../../../org/allbinary/animation/NullAnimationFactory.js';
-//not GWT import const NullAnimationFactory
-
-import { RectangleAdjustedAnimation } from '../../../../org/allbinary/animation/vector/RectangleAdjustedAnimation.js';
-//not GWT import const RectangleAdjustedAnimation
-
-import { RectangleFilledAdjustedAnimation } from '../../../../org/allbinary/animation/vector/RectangleFilledAdjustedAnimation.js';
-//not GWT import const RectangleFilledAdjustedAnimation
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { UpdateMyFontInterface } from '../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { CommandTextItem } from '../../../../org/allbinary/graphics/form/item/CommandTextItem.js';
-//not GWT import const CommandTextItem
-
-import { ABCustomItem } from '../../../../org/allbinary/graphics/form/item/ABCustomItem.js';
-//not GWT import const ABCustomItem
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ScrollCurrentSelectionForm } from './ScrollCurrentSelectionForm.js';
-//sameFolderImports - not GWT import - same folder const ScrollCurrentSelectionForm
-import { ItemPaintableFactory } from './ItemPaintableFactory.js';
-//sameFolderImports - not GWT import - same folder const ItemPaintableFactory
-
-export class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm implements UpdateMyFontInterface {
-        
-
-    readonly selectedAnimationArray: Animation[] = new Array(16);
-
-    readonly unSelectedAnimationArray: Animation[] = new Array(16);
-
-public constructor (title: string, items: ABCustomItem[], border: number, moveForSmallScreen: boolean, backgroundBasicColor: BasicColor, foregroundBasicColor: BasicColor){
-            super(title, items, ItemPaintableFactory.getInstance(), border,  -3, moveForSmallScreen, backgroundBasicColor, foregroundBasicColor);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.initAnimations();
-    
-this.addAll(items);
-    
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-this.updateAll(graphics, this.getAllitems());
-    
-super.updateMeasurement(graphics);
-    
-}
-
-
-    initAnimations(){
-
-    let nullAnimation: Animation = NullAnimationFactory.getFactoryInstance()!.getInstance(0)!;;
-    
-
-
-
-
-                        for (
-    let index: number = this.selectedAnimationArray!.length
-                ;--index >= 0; )
-        {
-this.selectedAnimationArray[index]= nullAnimation;
-    
-}
-
-
-
-
-
-                        for (
-    let index: number = this.unSelectedAnimationArray!.length
-                ;--index >= 0; )
-        {
-this.unSelectedAnimationArray[index]= nullAnimation;
-    
-}
-
-}
-
-
-    addAll(items: ABCustomItem[]){
-
-
-
-
-                        for (
-    let index: number = items.length
-                ;--index >= 0; )
-        {
-this.addAt(index, items[index]!);
-    
-}
-
-}
-
-
-    addAt(index: number, item: ABCustomItem){
-
-    let basicColorFactory: BasicColorFactory = BasicColorFactory.getInstance()!;;
-    
-
-    let buttonColor: BasicColor = basicColorFactory!.TRANSPARENT_GREY;;
-    
-
-    let selectedButtonColor: BasicColor = basicColorFactory!.TRANSPARENT_RED;;
-    
-
-    let width: number = item.getMinimumWidth()!;;
-    
-
-    let height: number = item.getMinimumHeight()!;;
-    
-
-    let adjustedBorder: number = 3;;
-    
-
-    let offset: number =  -(this.halfBorder +adjustedBorder);;
-    
-
-    let rectWidth: number = width +this.border -adjustedBorder;;
-    
-
-    let rectHeight: number = height +this.border -adjustedBorder;;
-    
-
-                        if(J2MEUtil.isJ2ME() || J2MEUtil.isHTML())
-                        
-                                    {
-                                    this.selectedAnimationArray[index]= new RectangleAdjustedAnimation(rectWidth, rectHeight, offset, offset, selectedButtonColor);
-    
-
-                                    }
-                                
-                        else {
-                            this.selectedAnimationArray[index]= new RectangleFilledAdjustedAnimation(rectWidth, rectHeight, offset, offset, selectedButtonColor);
-    
-
-                        }
-                            
-adjustedBorder= 4;
-    
-
-                        if(J2MEUtil.isJ2ME() || J2MEUtil.isHTML())
-                        
-                                    {
-                                    this.unSelectedAnimationArray[index]= new RectangleAdjustedAnimation(rectWidth, rectHeight, offset, offset, buttonColor);
-    
-
-                                    }
-                                
-                        else {
-                            this.unSelectedAnimationArray[index]= new RectangleFilledAdjustedAnimation(rectWidth, rectHeight, offset, offset, buttonColor);
-    
-
-                        }
-                            
-}
-
-
-    updateAll(graphics: Graphics, items: ABCustomItem[]){
-
-
-
-
-                        for (
-    let index: number = items.length
-                ;--index >= 0; )
-        {
-items[index]!.preMeasurement(graphics);
-    
-this.updateAt(index, items[index]!);
-    
-}
-
-}
-
-
-    updateAt(index: number, item: ABCustomItem){
-
-    let basicColorFactory: BasicColorFactory = BasicColorFactory.getInstance()!;;
-    
-
-    let buttonColor: BasicColor = basicColorFactory!.TRANSPARENT_GREY;;
-    
-
-    let selectedButtonColor: BasicColor = basicColorFactory!.TRANSPARENT_RED;;
-    
-
-    let width: number = item.getMinimumWidth()!;;
-    
-
-    let height: number = item.getMinimumHeight()!;;
-    
-
-    let adjustedBorder: number = 3;;
-    
-
-    let offset: number =  -(this.halfBorder +adjustedBorder);;
-    
-
-    let rectWidth: number = width +this.border -adjustedBorder;;
-    
-
-    let rectHeight: number = height +this.border -adjustedBorder;;
-    
-
-                        if(J2MEUtil.isJ2ME() || J2MEUtil.isHTML())
-                        
-                                    {
-                                    
-    let rectangleAdjustedAnimation: RectangleAdjustedAnimation = this.selectedAnimationArray[index]! as RectangleAdjustedAnimation;;
-    
-rectangleAdjustedAnimation!.setWidth(rectWidth);
-    
-rectangleAdjustedAnimation!.setHeight(rectHeight);
-    
-rectangleAdjustedAnimation!.setOffsetX(offset);
-    
-rectangleAdjustedAnimation!.setOffsetY(offset);
-    
-rectangleAdjustedAnimation!.setBasicColorP(selectedButtonColor);
-    
-
-                                    }
-                                
-                        else {
-                            
-    let rectangleAdjustedAnimation: RectangleFilledAdjustedAnimation = this.selectedAnimationArray[index]! as RectangleFilledAdjustedAnimation;;
-    
-rectangleAdjustedAnimation!.setWidth(rectWidth);
-    
-rectangleAdjustedAnimation!.setHeight(rectHeight);
-    
-rectangleAdjustedAnimation!.setOffsetX(offset);
-    
-rectangleAdjustedAnimation!.setOffsetY(offset);
-    
-rectangleAdjustedAnimation!.setBasicColorP(selectedButtonColor);
-    
-
-                        }
-                            
-adjustedBorder= 4;
-    
-
-                        if(J2MEUtil.isJ2ME() || J2MEUtil.isHTML())
-                        
-                                    {
-                                    
-    let rectangleAdjustedAnimation: RectangleAdjustedAnimation = this.unSelectedAnimationArray[index]! as RectangleAdjustedAnimation;;
-    
-rectangleAdjustedAnimation!.setWidth(rectWidth);
-    
-rectangleAdjustedAnimation!.setHeight(rectHeight);
-    
-rectangleAdjustedAnimation!.setOffsetX(offset);
-    
-rectangleAdjustedAnimation!.setOffsetY(offset);
-    
-rectangleAdjustedAnimation!.setBasicColorP(buttonColor);
-    
-
-                                    }
-                                
-                        else {
-                            
-    let rectangleAdjustedAnimation: RectangleFilledAdjustedAnimation = this.unSelectedAnimationArray[index]! as RectangleFilledAdjustedAnimation;;
-    
-rectangleAdjustedAnimation!.setWidth(rectWidth);
-    
-rectangleAdjustedAnimation!.setHeight(rectHeight);
-    
-rectangleAdjustedAnimation!.setOffsetX(offset);
-    
-rectangleAdjustedAnimation!.setOffsetY(offset);
-    
-rectangleAdjustedAnimation!.setBasicColorP(buttonColor);
-    
-
-                        }
-                            
-}
-
-
-    public getSelectedCommand(): Command{
-
-    let index: number = super.getSelectedIndex()!;;
-    
-
-    let commandTextItem: CommandTextItem = this.get(index) as unknown as CommandTextItem;;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return commandTextItem!.getCommand();;
-    
-}
-
-
-    public append(item: ABCustomItem): number{
-
-    let result: number = super.append(item)!;;
-    
-this.addAt(result, item);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return result;
-    
-}
-
-
-    public delete(itemNum: number){
-super.delete(itemNum);
-    
-}
-
-
-    public deleteAll(){
-this.initAnimations();
-    
-super.deleteAll();
-    
-}
-
-
-    public insert(itemNum: number, item: ABCustomItem){
-super.insert(itemNum, item);
-    
-}
-
-
-    public set(itemNum: number, item: ABCustomItem){
-super.set(itemNum, item);
-    
-}
-
-
-    public paint(graphics: Graphics){
-this.myFontProcessor!.process(graphics);
-    
-super.paint(graphics);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public paintItem(graphics: Graphics, index: number, item: ABCustomItem, x: number, y: number): number{
-this.selectedAnimationArray[index]!.paintXY(graphics, x, y);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.paintItem(graphics, index, item, x, y);;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public paintUnselectedItem(graphics: Graphics, index: number, item: ABCustomItem, x: number, y: number): number{
-this.unSelectedAnimationArray[index]!.paintXY(graphics, x, y);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.paintUnselectedItem(graphics, index, item, x, y);;
-    
-}
-
-
+    private function updateAt(index:int, item:ABCustomItem):void {
+        var basicColorFactory:BasicColorFactory = BasicColorFactory.getInstance();
+        var buttonColor:BasicColor = basicColorFactory.TRANSPARENT_GREY;
+        var selectedButtonColor:BasicColor = basicColorFactory.TRANSPARENT_RED;
+        var width:int = item.getMinimumWidth();
+        var height:int = item.getMinimumHeight();
+        var adjustedBorder:int = 3;
+        var offset:int = -(this.halfBorder + adjustedBorder);
+        var rectWidth:int = width + this.border - adjustedBorder;
+        var rectHeight:int = height + this.border - adjustedBorder;
+        if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML()) {
+            rectangleAdjustedAnimation = (this.selectedAnimationArray[index] as RectangleAdjustedAnimation);
+            rectangleAdjustedAnimation.setWidth(rectWidth);
+            rectangleAdjustedAnimation.setHeight(rectHeight);
+            rectangleAdjustedAnimation.setOffsetX(offset);
+            rectangleAdjustedAnimation.setOffsetY(offset);
+            rectangleAdjustedAnimation.setBasicColorP(selectedButtonColor);
+        } else {
+            var rectangleAdjustedAnimation:RectangleFilledAdjustedAnimation = (this.selectedAnimationArray[index] as RectangleFilledAdjustedAnimation);
+            rectangleAdjustedAnimation.setWidth(rectWidth);
+            rectangleAdjustedAnimation.setHeight(rectHeight);
+            rectangleAdjustedAnimation.setOffsetX(offset);
+            rectangleAdjustedAnimation.setOffsetY(offset);
+            rectangleAdjustedAnimation.setBasicColorP(selectedButtonColor);
+        }
+        adjustedBorder = 4;
+        if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML()) {
+            rectangleAdjustedAnimation = (this.unSelectedAnimationArray[index] as RectangleAdjustedAnimation);
+            rectangleAdjustedAnimation.setWidth(rectWidth);
+            rectangleAdjustedAnimation.setHeight(rectHeight);
+            rectangleAdjustedAnimation.setOffsetX(offset);
+            rectangleAdjustedAnimation.setOffsetY(offset);
+            rectangleAdjustedAnimation.setBasicColorP(buttonColor);
+        } else {
+            rectangleAdjustedAnimation = (this.unSelectedAnimationArray[index] as RectangleFilledAdjustedAnimation);
+            rectangleAdjustedAnimation.setWidth(rectWidth);
+            rectangleAdjustedAnimation.setHeight(rectHeight);
+            rectangleAdjustedAnimation.setOffsetX(offset);
+            rectangleAdjustedAnimation.setOffsetY(offset);
+            rectangleAdjustedAnimation.setBasicColorP(buttonColor);
+        }
+    }
+    
+
+    public function getSelectedCommand():Command {
+        var index:int = super.getSelectedIndex();
+        var commandTextItem:CommandTextItem = (this.get_(index) as CommandTextItem);
+        return commandTextItem.getCommand();
+    }
+    
+
+    override public function append(item:ABCustomItem):int {
+        var result:int = super.append(item);
+        this.addAt(result, item);
+        return result;
+    }
+    
+
+    override public function delete_(itemNum:int):void {
+        super.delete_(itemNum);
+    }
+    
+
+    override public function deleteAll():void {
+        this.initAnimations();
+        super.deleteAll();
+    }
+    
+
+    override public function insert(itemNum:int, item:ABCustomItem):void {
+        super.insert(itemNum, item);
+    }
+    
+
+    override public function set_(itemNum:int, item:ABCustomItem):void {
+        super.set_(itemNum, item);
+    }
+    
+
+    override public function paint(graphics:Graphics):void {
+        this.myFontProcessor.process(graphics);
+        super.paint(graphics);
+    }
+    
+
+    override public function paintItem(graphics:Graphics, index:int, item:ABCustomItem, x:int, y:int):int {
+        this.selectedAnimationArray[index].paintXY(graphics, x, y);
+        return super.paintItem(graphics, index, item, x, y);
+    }
+    
+
+    override public function paintUnselectedItem(graphics:Graphics, index:int, item:ABCustomItem, x:int, y:int):int {
+        this.unSelectedAnimationArray[index].paintXY(graphics, x, y);
+        return super.paintUnselectedItem(graphics, index, item, x, y);
+    }
+    }
 }
 

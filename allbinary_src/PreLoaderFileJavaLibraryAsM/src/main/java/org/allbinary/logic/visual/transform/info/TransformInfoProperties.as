@@ -1,170 +1,104 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.visual.transform.info {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TransformInfoProperties {
+        private var name:String = null;
+        private var label:String = null;
+        private var description:String = null;
+        private var objectFileName:String = null;
+        private var objectConfigFileName:String = null;
+        private var templateFileName:String = null;
 
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class TransformInfoProperties
-            extends Object
-         {
-        
-
-    private name: string;
-
-    private label: string;
-
-    private description: string;
-
-    private objectFileName: string;
-
-    private objectConfigFileName: string;
-
-    private templateFileName: string;
-
-public constructor (name: string, label: string, description: string, objectFileName: string, objectConfigFileName: string, templateFileName: string){
-
-            super();
-        this.name= name;
+        // Java field initializers run after the base constructor
+        private function initFieldsTransformInfoProperties():void {
     
-this.label= label;
     
-this.description= description;
     
-this.objectFileName= objectFileName;
     
-this.templateFileName= templateFileName;
     
-this.objectConfigFileName= objectConfigFileName;
     
-}
-
-
-    public setName(value: string){
-this.name= value;
+        }
     
-}
 
-
-    public setDescription(value: string){
-this.description= value;
+    public function TransformInfoProperties(name:String, label:String, description:String, objectFileName:String, objectConfigFileName:String, templateFileName:String) {
+        super();
+        this.initFieldsTransformInfoProperties();
+        this.name = name;
+        this.label = label;
+        this.description = description;
+        this.objectFileName = objectFileName;
+        this.templateFileName = templateFileName;
+        this.objectConfigFileName = objectConfigFileName;
+    }
     
-}
 
-
-    public setViewFile(value: string){
-this.objectFileName= value;
+    public function setName(value:String):void {
+        this.name = value;
+    }
     
-}
 
-
-    public setTemplateFile(value: string){
-this.templateFileName= value;
+    public function setDescription(value:String):void {
+        this.description = value;
+    }
     
-}
 
-
-    public setObjectConfigFile(value: string){
-this.objectConfigFileName= value;
+    public function setViewFile(value:String):void {
+        this.objectFileName = value;
+    }
     
-}
 
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.name;
+    public function setTemplateFile(value:String):void {
+        this.templateFileName = value;
+    }
     
-}
 
-
-    public getLabel(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.label;
+    public function setObjectConfigFile(value:String):void {
+        this.objectConfigFileName = value;
+    }
     
-}
 
-
-    public getDescription(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.description;
+    public function getName():String {
+        return this.name;
+    }
     
-}
 
-
-    public getViewFile(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.objectFileName;
+    public function getLabel():String {
+        return this.label;
+    }
     
-}
 
-
-    public getTemplateFile(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.templateFileName;
+    public function getDescription():String {
+        return this.description;
+    }
     
-}
 
-
-    public getObjectConfigFile(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.objectConfigFileName;
+    public function getViewFile():String {
+        return this.objectFileName;
+    }
     
-}
 
+    public function getTemplateFile():String {
+        return this.templateFileName;
+    }
+    
 
+    public function getObjectConfigFile():String {
+        return this.objectConfigFileName;
+    }
+    }
 }
 

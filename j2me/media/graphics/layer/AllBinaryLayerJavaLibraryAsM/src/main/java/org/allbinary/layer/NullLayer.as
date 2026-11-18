@@ -1,74 +1,44 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.layer {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { Graphics } from '../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Layer } from './Layer.js';
-//sameFolderImports - not GWT import - same folder const Layer
-
-export class NullLayer extends Layer {
-        
-
-    private static readonly instance: NullLayer = new NullLayer();
-
-    public static getInstance(): NullLayer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullLayer.instance;
+    public class NullLayer extends Layer {
+    private static var instance_value:NullLayer;
+    private static var instance_set:Boolean = false;
+    private static function get instance():NullLayer {
+        if (!NullLayer.instance_set) {
+            NullLayer.instance_set = true;
+            NullLayer.instance_value = new NullLayer();
+        }
+        return NullLayer.instance_value;
+    }
     
-}
 
+    public static function getInstance():NullLayer {
+        return NullLayer.instance;
+    }
+    
 
-private constructor (){
-            super(0, 0);
-                    
+    public function NullLayer() {
+        super(0, 0);
+    }
+    
 
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public paint(graphics: Graphics){
-}
-
-
+    override public function paint(graphics:Graphics):void {
+    }
+    }
 }
 

@@ -1,173 +1,70 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
+    import org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
+    import org.allbinary.game.configuration.feature.Features;
+    import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+    import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
+    import org.allbinary.image.ImageCache;
+    import org.allbinary.image.ImageCacheFactory;
+    import org.allbinary.logic.StdUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { BaseResourceAnimationInterfaceFactoryInterfaceFactory } from '../../../../../org/allbinary/animation/resource/BaseResourceAnimationInterfaceFactoryInterfaceFactory.js';
-//not GWT import const BaseResourceAnimationInterfaceFactoryInterfaceFactory
-
-import { Features } from '../../../../../org/allbinary/game/configuration/feature/Features.js';
-//not GWT import const Features
-
-import { ResourceLoadingLevelFactory } from '../../../../../org/allbinary/game/resource/ResourceLoadingLevelFactory.js';
-//not GWT import const ResourceLoadingLevelFactory
-
-import { OpenGLFeatureFactory } from '../../../../../org/allbinary/graphics/opengles/OpenGLFeatureFactory.js';
-//not GWT import const OpenGLFeatureFactory
-
-import { ImageCache } from '../../../../../org/allbinary/image/ImageCache.js';
-//not GWT import const ImageCache
-
-import { ImageCacheFactory } from '../../../../../org/allbinary/image/ImageCacheFactory.js';
-//not GWT import const ImageCacheFactory
-
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory extends BaseResourceAnimationInterfaceFactoryInterfaceFactory {
-        
-
-    public static createFactory(): TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory("TouchButton Animations");
-    
-}
-
-
-public constructor (name: string){
-            super(name, StdUtil.getInstance()!.createHashtable(), StdUtil.getInstance()!.createHashtable(), StdUtil.getInstance()!.createHashtable());
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public init(level: number){
-this.initImageCache(ImageCacheFactory.getInstance(), level);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    initImageCache(imageCache: ImageCache, level: number){
-
-                        if(this.isInitialized())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ;
+    public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory extends BaseResourceAnimationInterfaceFactoryInterfaceFactory {
     
 
-                                    }
-                                
-super.init(level);
-    
-}
-
-
-    public isLoadingLevel(level: number): boolean{
-
-    let resourceLoadingLevelFactory: ResourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance()!;;
+    public static function createFactory():TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory {
+        return new TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory("TouchButton Animations");
+    }
     
 
-                        if(level == resourceLoadingLevelFactory!.LOAD_TOUCH.getLevel())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory(name:String) {
+        super(name, StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable(), StdUtil.getInstance().createHashtable());
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.isLoadingLevel(level);;
+    override public function init(level:int):void {
+        this.initImageCache(ImageCacheFactory.getInstance(), level);
+    }
     
 
-                        }
-                            
-}
-
-
-    public isFeature(): boolean{
-
-                        if(!Features.getInstance()!.isDefault(OpenGLFeatureFactory.getInstance()!.OPENGL))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    override public function initImageCache(imageCache:ImageCache, level:int):void {
+        if (this.isInitialized()) {
+            return;
+        }
+        super.init(level);
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    override public function isLoadingLevel(level:int):Boolean {
+        var resourceLoadingLevelFactory:ResourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
+        if (level == resourceLoadingLevelFactory.LOAD_TOUCH.getLevel()) {
+            return true;
+        } else {
+            return super.isLoadingLevel(level);
+        }
+    }
     
 
-                        }
-                            
-}
-
-
+    override public function isFeature():Boolean {
+        if (!Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    }
 }
 

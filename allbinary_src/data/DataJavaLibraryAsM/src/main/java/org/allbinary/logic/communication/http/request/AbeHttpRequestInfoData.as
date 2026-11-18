@@ -1,78 +1,57 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.communication.http.request {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AbeHttpRequestInfoData
-            extends Object
-         {
-        
-
-    private static readonly instance: AbeHttpRequestInfoData = new AbeHttpRequestInfoData();
-
-    public static getInstance(): AbeHttpRequestInfoData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AbeHttpRequestInfoData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class AbeHttpRequestInfoData {
+    private static var instance_value:AbeHttpRequestInfoData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():AbeHttpRequestInfoData {
+        if (!AbeHttpRequestInfoData.instance_set) {
+            AbeHttpRequestInfoData.instance_set = true;
+            AbeHttpRequestInfoData.instance_value = new AbeHttpRequestInfoData();
         }
+        return AbeHttpRequestInfoData.instance_value;
+    }
+        public var HTTP_USER_AGENT:String = null;
+        public var REMOTE_ADDRESS:String = null;
+        public var REMOTE_HOST:String = null;
+        public var REMOTE_HOST_BY_ADDRESS:String = null;
+        public var REMOTE_PORT:String = null;
+        public var REQUEST_FILE_PATH:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsAbeHttpRequestInfoData():void {
+    this.HTTP_USER_AGENT = "HTTP_USER_AGENT";
+    this.REMOTE_ADDRESS = "REMOTE_ADDRESS";
+    this.REMOTE_HOST = "REMOTE_HOST";
+    this.REMOTE_HOST_BY_ADDRESS = "REMOTE_HOST_BY_ADDRESS";
+    this.REMOTE_PORT = "REMOTE_PORT";
+    this.REQUEST_FILE_PATH = "REQUEST_FILE_PATH";
+        }
+    
 
-    public readonly HTTP_USER_AGENT: string = "HTTP_USER_AGENT";
+    public static function getInstance():AbeHttpRequestInfoData {
+        return AbeHttpRequestInfoData.instance;
+    }
+    
 
-    public readonly REMOTE_ADDRESS: string = "REMOTE_ADDRESS";
-
-    public readonly REMOTE_HOST: string = "REMOTE_HOST";
-
-    public readonly REMOTE_HOST_BY_ADDRESS: string = "REMOTE_HOST_BY_ADDRESS";
-
-    public readonly REMOTE_PORT: string = "REMOTE_PORT";
-
-    public readonly REQUEST_FILE_PATH: string = "REQUEST_FILE_PATH";
-
+    public function AbeHttpRequestInfoData() {
+        super();
+        this.initFieldsAbeHttpRequestInfoData();
+    }
+    }
 }
 

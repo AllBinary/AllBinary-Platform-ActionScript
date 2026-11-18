@@ -1,106 +1,62 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.combat.destroy.event {
+    import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.logic.util.event.AllBinaryEventCircularPool;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { AllBinaryGameCanvas } from '../../../../../../org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.js';
-//not GWT import const AllBinaryGameCanvas
-
-import { AllBinaryLayer } from '../../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryEventCircularPool } from '../../../../../../org/allbinary/logic/util/event/AllBinaryEventCircularPool.js';
-//not GWT import const AllBinaryEventCircularPool
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DestroyEventFactory } from './DestroyEventFactory.js';
-//sameFolderImports - not GWT import - same folder const DestroyEventFactory
-import { DestroyedEvent } from './DestroyedEvent.js';
-//sameFolderImports - not GWT import - same folder const DestroyedEvent
-
-export class DestroyEventCircularStaticPool
-            extends Object
-         {
-        
-
-    private static readonly instance: DestroyEventCircularStaticPool = new DestroyEventCircularStaticPool();
-
-    public static getInstance(): DestroyEventCircularStaticPool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DestroyEventCircularStaticPool.instance;
-    
-}
-
-
-    private EVENT_POOL: AllBinaryEventCircularPool = new AllBinaryEventCircularPool(20);
-
-private constructor (){
-
-            super();
+    public class DestroyEventCircularStaticPool {
+    private static var instance_value:DestroyEventCircularStaticPool;
+    private static var instance_set:Boolean = false;
+    private static function get instance():DestroyEventCircularStaticPool {
+        if (!DestroyEventCircularStaticPool.instance_set) {
+            DestroyEventCircularStaticPool.instance_set = true;
+            DestroyEventCircularStaticPool.instance_value = new DestroyEventCircularStaticPool();
         }
+        return DestroyEventCircularStaticPool.instance_value;
+    }
+        private var EVENT_POOL:AllBinaryEventCircularPool = null;
 
-
-    public init(combatGameCanvas: AllBinaryGameCanvas){
-this.EVENT_POOL.initAllBinaryEventCircularPool(new DestroyEventFactory(combatGameCanvas));
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceForLayer(layerInterface: AllBinaryLayer): DestroyedEvent{
-
-    let destroyedEvent: DestroyedEvent = this.EVENT_POOL.getNextInstance() as DestroyedEvent;;
-    
-destroyedEvent!.setLayerInterfaceForCircularStaticPool(layerInterface);
+        // Java field initializers run after the base constructor
+        private function initFieldsDestroyEventCircularStaticPool():void {
+    this.EVENT_POOL = new AllBinaryEventCircularPool(20);
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return destroyedEvent;
+    public static function getInstance():DestroyEventCircularStaticPool {
+        return DestroyEventCircularStaticPool.instance;
+    }
     
-}
 
+    public function DestroyEventCircularStaticPool() {
+        super();
+        this.initFieldsDestroyEventCircularStaticPool();
+    }
+    
 
+    public function init(combatGameCanvas:AllBinaryGameCanvas):void {
+        this.EVENT_POOL.initAllBinaryEventCircularPool(new DestroyEventFactory(combatGameCanvas));
+    }
+    
+
+    public function getInstanceForLayer(layerInterface:AllBinaryLayer):DestroyedEvent {
+        var destroyedEvent:DestroyedEvent = (this.EVENT_POOL.getNextInstance() as DestroyedEvent);
+        destroyedEvent.setLayerInterfaceForCircularStaticPool(layerInterface);
+        return destroyedEvent;
+    }
+    }
 }
 

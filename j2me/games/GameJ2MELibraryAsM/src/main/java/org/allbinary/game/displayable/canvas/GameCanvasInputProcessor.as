@@ -1,219 +1,107 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.game.input.GameKey;
+    import org.allbinary.game.input.GameKeyEventSourceInterface;
+    import org.allbinary.game.input.GameKeyFactory;
+    import org.allbinary.game.input.InputProcessor;
+    import org.allbinary.game.input.PlatformInputMappingFactory;
+    import org.allbinary.game.input.event.DownGameKeyEventHandler;
+    import org.allbinary.game.input.event.DownKeyEventHandler;
+    import org.allbinary.game.input.event.GameKeyEvent;
+    import org.allbinary.game.input.event.GameKeyEventFactory;
+    import org.allbinary.game.input.event.UpGameKeyEventHandler;
+    import org.allbinary.game.input.mapping.InputToGameKeyMapping;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+    import org.allbinary.logic.string.StringMaker;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameCanvasInputProcessor extends InputProcessor {
+        public var logUtil:LogUtil = null;
+        private var allBinaryGameCanvas:AllBinaryGameCanvas = null;
+        private var downGameKeyEventHandler:DownGameKeyEventHandler = null;
+        private var upGameKeyEventHandler:UpGameKeyEventHandler = null;
+        private var downKeyEventHandler:DownKeyEventHandler = null;
+        private var smallIntegerSingletonFactory:SmallIntegerSingletonFactory = null;
+        private var inputToGameKeyMapping:InputToGameKeyMapping = null;
+        private var NONE:GameKey = null;
+        private var gameKeyEventFactory:GameKeyEventFactory = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../../java/lang/Integer.js';
-        
-import { Canvas } from '../../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { GameKey } from '../../../../../org/allbinary/game/input/GameKey.js';
-//not GWT import const GameKey
-
-import { GameKeyEventSourceInterface } from '../../../../../org/allbinary/game/input/GameKeyEventSourceInterface.js';
-//not GWT import const GameKeyEventSourceInterface
-
-import { GameKeyFactory } from '../../../../../org/allbinary/game/input/GameKeyFactory.js';
-//not GWT import const GameKeyFactory
-
-import { InputProcessor } from '../../../../../org/allbinary/game/input/InputProcessor.js';
-//not GWT import const InputProcessor
-
-import { PlatformInputMappingFactory } from '../../../../../org/allbinary/game/input/PlatformInputMappingFactory.js';
-//not GWT import const PlatformInputMappingFactory
-
-import { DownGameKeyEventHandler } from '../../../../../org/allbinary/game/input/event/DownGameKeyEventHandler.js';
-//not GWT import const DownGameKeyEventHandler
-
-import { DownKeyEventHandler } from '../../../../../org/allbinary/game/input/event/DownKeyEventHandler.js';
-//not GWT import const DownKeyEventHandler
-
-import { GameKeyEvent } from '../../../../../org/allbinary/game/input/event/GameKeyEvent.js';
-//not GWT import const GameKeyEvent
-
-import { GameKeyEventFactory } from '../../../../../org/allbinary/game/input/event/GameKeyEventFactory.js';
-//not GWT import const GameKeyEventFactory
-
-import { UpGameKeyEventHandler } from '../../../../../org/allbinary/game/input/event/UpGameKeyEventHandler.js';
-//not GWT import const UpGameKeyEventHandler
-
-import { InputToGameKeyMapping } from '../../../../../org/allbinary/game/input/mapping/InputToGameKeyMapping.js';
-//not GWT import const InputToGameKeyMapping
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { SmallIntegerSingletonFactory } from '../../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
-//not GWT import const SmallIntegerSingletonFactory
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AllBinaryGameCanvas } from './AllBinaryGameCanvas.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryGameCanvas
-
-export class GameCanvasInputProcessor extends InputProcessor {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly allBinaryGameCanvas: AllBinaryGameCanvas;
-
-    private readonly downGameKeyEventHandler: DownGameKeyEventHandler = DownGameKeyEventHandler.getInstance()!;
-
-    private readonly upGameKeyEventHandler: UpGameKeyEventHandler = UpGameKeyEventHandler.getInstance()!;
-
-    private readonly downKeyEventHandler: DownKeyEventHandler = DownKeyEventHandler.getInstance()!;
-
-    private readonly smallIntegerSingletonFactory: SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance()!;
-
-    private readonly inputToGameKeyMapping: InputToGameKeyMapping = PlatformInputMappingFactory.getInstance()!.getPersistentInputMappingInstance()!.getInputMapping()!;
-
-public constructor (allBinaryGameCanvas: AllBinaryGameCanvas){
-
-            super();
-        this.allBinaryGameCanvas= allBinaryGameCanvas;
+        // Java field initializers run after the base constructor
+        private function initFieldsGameCanvasInputProcessor():void {
+    this.logUtil = LogUtil.getInstance();
     
-this.inputToGameKeyMapping!.init(this.allBinaryGameCanvas);
-    
-}
-
-
-    private readonly NONE: GameKey = GameKeyFactory.getInstance()!.NONE;
-
-    private readonly gameKeyEventFactory: GameKeyEventFactory = GameKeyEventFactory.getInstance()!;
-
-    public keyPressedByDevice(keyCode: number, deviceId: number){
-
- try { 
-    let gameKey: GameKey = this.inputToGameKeyMapping!.getInstanceForCanvas(this.allBinaryGameCanvas, keyCode)!;;
+    this.downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
+    this.upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
+    this.downKeyEventHandler = DownKeyEventHandler.getInstance();
+    this.smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
+    this.inputToGameKeyMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
+    this.NONE = GameKeyFactory.getInstance().NONE;
+    this.gameKeyEventFactory = GameKeyEventFactory.getInstance();
+        }
     
 
-                        if(gameKey != this.NONE)
-                        
-                                    {
-                                    
-    let gameKeyEvent: GameKeyEvent = this.gameKeyEventFactory!.getInstanceForInput(this.allBinaryGameCanvas, gameKey)!;;
-    
-this.downGameKeyEventHandler!.fireEvent(gameKeyEvent);
-    
-this.downGameKeyEventHandler!.getInstanceForDevice(deviceId)!.fireEvent(gameKeyEvent);
+    public function GameCanvasInputProcessor(allBinaryGameCanvas:AllBinaryGameCanvas) {
+        super();
+        this.initFieldsGameCanvasInputProcessor();
+        this.allBinaryGameCanvas = allBinaryGameCanvas;
+        this.inputToGameKeyMapping.init(this.allBinaryGameCanvas);
+    }
     
 
-                                    }
-                                
-                        else {
-                            this.logUtil!.putF(new StringMaker().append(this.gameInputStrings!.NO_KEY)!.appendint(keyCode)!.toString(), this, this.gameInputStrings!.ADD_KEY_EVENT);
+    override public function keyPressedByDevice(keyCode:int, deviceId:int):void {
+        try {
+            var gameKey:GameKey = this.inputToGameKeyMapping.getInstanceForCanvas(this.allBinaryGameCanvas, keyCode);
+            if (gameKey !== this.NONE) {
+                var gameKeyEvent:GameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this.allBinaryGameCanvas, gameKey);
+                this.downGameKeyEventHandler.fireEvent(gameKeyEvent);
+                this.downGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
+            } else {
+                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
+            }
+            var keyCodeAsInteger:* = this.smallIntegerSingletonFactory.getAtNoThrow(keyCode);
+            this.downKeyEventHandler.fireEventI(keyCodeAsInteger);
+            this.downKeyEventHandler.getInstanceForDevice(deviceId).fireEventI(keyCodeAsInteger);
+        } catch (e:*) {
+            this.logUtil.put("Key Event Error", this, this.gameInputStrings.ADD_KEY_EVENT, e);
+        }
+    }
     
 
-                        }
-                            
-
-    let keyCodeAsInteger: Integer = this.smallIntegerSingletonFactory!.getAtNoThrow(keyCode)!;;
-    
-this.downKeyEventHandler!.fireEventI(keyCodeAsInteger);
-    
-this.downKeyEventHandler!.getInstanceForDevice(deviceId)!.fireEventI(keyCodeAsInteger);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put("Key Event Error", this, this.gameInputStrings!.ADD_KEY_EVENT, e);
+    override public function keyReleasedByDevice(canvas:Canvas, keyCode:int, deviceId:int):void {
+        this.removeGameKeyEvent(canvas, keyCode, deviceId, false);
+    }
     
 
- }
-   }
- 
-}
-
-
-    public keyReleasedByDevice(canvas: Canvas, keyCode: number, deviceId: number){
-this.removeGameKeyEvent(canvas, keyCode, deviceId, false);
-    
-}
-
-
-    removeGameKeyEvent(canvas: Canvas, keyCode: number, deviceId: number, repeated: boolean){
-
- try { 
-    let gameKey: GameKey = this.inputToGameKeyMapping!.getInstanceForCanvas(canvas, keyCode)!;;
-    
-
-                        if(gameKey != this.NONE)
-                        
-                                    {
-                                    
-    let gameKeyEventSourceInterface: GameKeyEventSourceInterface = canvas as unknown as GameKeyEventSourceInterface;;
-    
-
-    let gameKeyEvent: GameKeyEvent = this.gameKeyEventFactory!.getInstanceForInput(gameKeyEventSourceInterface, gameKey)!;;
-    
-this.upGameKeyEventHandler!.fireEvent(gameKeyEvent);
-    
-this.upGameKeyEventHandler!.getInstanceForDevice(deviceId)!.fireEvent(gameKeyEvent);
-    
-
-                                    }
-                                
-                        else {
-                            this.logUtil!.putF(new StringMaker().append(this.gameInputStrings!.NO_KEY)!.appendint(keyCode)!.toString(), this, this.gameInputStrings!.REMOVE_KEY_EVENT);
-    
-
-                        }
-                            
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put("Key Event Error", this, this.gameInputStrings!.REMOVE_KEY_EVENT, e);
-    
-
- }
-   }
- 
-}
-
-
+    private function removeGameKeyEvent(canvas:Canvas, keyCode:int, deviceId:int, repeated:Boolean):void {
+        try {
+            var gameKey:GameKey = this.inputToGameKeyMapping.getInstanceForCanvas(canvas, keyCode);
+            if (gameKey !== this.NONE) {
+                var gameKeyEventSourceInterface:GameKeyEventSourceInterface = (canvas as GameKeyEventSourceInterface);
+                var gameKeyEvent:GameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(gameKeyEventSourceInterface, gameKey);
+                this.upGameKeyEventHandler.fireEvent(gameKeyEvent);
+                this.upGameKeyEventHandler.getInstanceForDevice(deviceId).fireEvent(gameKeyEvent);
+            } else {
+                this.logUtil.putF(new StringMaker().append(this.gameInputStrings.NO_KEY).appendint(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT);
+            }
+        } catch (e:*) {
+            this.logUtil.put("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e);
+        }
+    }
+    }
 }
 

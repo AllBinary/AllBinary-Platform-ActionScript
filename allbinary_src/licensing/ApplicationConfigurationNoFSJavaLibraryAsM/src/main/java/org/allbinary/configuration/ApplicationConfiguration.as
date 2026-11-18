@@ -1,255 +1,127 @@
+// Generated Code Do Not Modify
+package org.allbinary.configuration {
+    import org.allbinary.game.configuration.feature.Feature;
+    import org.allbinary.game.configuration.feature.Features;
+    import org.allbinary.game.configuration.feature.MainFeatureFactory;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonStrings;
 
-        /* Generated Code Do Not Modify */
+    public class ApplicationConfiguration {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!ApplicationConfiguration.instance_set) {
+            ApplicationConfiguration.instance_set = true;
+            ApplicationConfiguration.instance_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return ApplicationConfiguration.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var fullscreen:Boolean = false;
+        private var showTitleBar:Boolean = false;
+        private var progressBarView:Boolean = false;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { Feature } from '../../../org/allbinary/game/configuration/feature/Feature.js';
-//not GWT import const Feature
-
-import { Features } from '../../../org/allbinary/game/configuration/feature/Features.js';
-//not GWT import const Features
-
-import { MainFeatureFactory } from '../../../org/allbinary/game/configuration/feature/MainFeatureFactory.js';
-//not GWT import const MainFeatureFactory
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ApplicationConfiguration
-            extends Object
-         {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): ApplicationConfiguration{
-
-                        if(ApplicationConfiguration.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    ApplicationConfiguration.instance= new ApplicationConfiguration();
+        // Java field initializers run after the base constructor
+        private function initFieldsApplicationConfiguration():void {
+    this.logUtil = LogUtil.getInstance();
+    this.fullscreen = true;
+    this.showTitleBar = false;
+    this.progressBarView = false;
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ApplicationConfiguration.instance as ApplicationConfiguration;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private fullscreen: boolean = true;
-
-    private showTitleBar: boolean = false;
-
-    private progressBarView: boolean = false;
-
-private constructor (){
-
-            super();
-        
- try { this.read();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.CONSTRUCTOR, e);
+    public static function getInstance():ApplicationConfiguration {
+        if (ApplicationConfiguration.instance == NullUtil.getInstance().NULL_OBJECT) {
+            ApplicationConfiguration.instance = new ApplicationConfiguration();
+        }
+        return (ApplicationConfiguration.instance as ApplicationConfiguration);
+    }
     
 
- }
-   }
- 
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    read(){
-this.setFullscreen(true);
-    
-this.setProgressBarView(false);
-    
-this.setShowTitleBar(false);
-    
-this.logUtil!.putF("Read Configuration: " +this.toString(), this, "read");
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public write(){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public update(gameFeature: Feature){
-
-                        if(gameFeature == MainFeatureFactory.getInstance()!.FULL_SCREEN)
-                        
-                                    {
-                                    
-    let features: Features = Features.getInstance()!;;
+    public function ApplicationConfiguration() {
+        super();
+        this.initFieldsApplicationConfiguration();
+        try {
+            this.read();
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+        }
+    }
     
 
-                        if(features.isFeature(gameFeature))
-                        
-                                    {
-                                    
-                        if(!this.isFullscreen())
-                        
-                                    {
-                                    this.setFullscreen(true);
-    
-this.write();
+    private function read():void {
+        this.setFullscreen(true);
+        this.setProgressBarView(false);
+        this.setShowTitleBar(false);
+        this.logUtil.putF("Read Configuration: " + this.toString(), this, "read");
+    }
     
 
-                                    }
-                                
-
-                                    }
-                                
-                        else {
-                            
-                        if(this.isFullscreen())
-                        
-                                    {
-                                    this.setFullscreen(false);
-    
-this.write();
+    public function write():void {
+    }
     
 
-                                    }
-                                
-
-                        }
-                            
-
-                                    }
-                                
-}
-
-
-    public setFullscreen(fullscreen: boolean){
-this.fullscreen= fullscreen;
-    
-}
-
-
-    public isFullscreen(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.fullscreen;
-    
-}
-
-
-    public setShowTitleBar(showTitleBar: boolean){
-this.showTitleBar= showTitleBar;
-    
-}
-
-
-    public isShowTitleBar(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.showTitleBar;
-    
-}
-
-
-    public setProgressBarView(progressBarView: boolean){
-this.progressBarView= progressBarView;
-    
-}
-
-
-    public isProgressBarView(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.progressBarView;
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append("isFullscreen: ");
-    
-stringBuffer!.appendboolean(this.isFullscreen());
-    
-stringBuffer!.append(" isProgressBarView: ");
-    
-stringBuffer!.appendboolean(this.isProgressBarView());
-    
-stringBuffer!.append(" isShowTitleBar: ");
-    
-stringBuffer!.appendboolean(this.isShowTitleBar());
+    public function update(gameFeature:Feature):void {
+        if (gameFeature == MainFeatureFactory.getInstance().FULL_SCREEN) {
+            var features:Features = Features.getInstance();
+            if (features.isFeature(gameFeature)) {
+                if (!this.isFullscreen()) {
+                    this.setFullscreen(true);
+                    this.write();
+                }
+            } else {
+                if (this.isFullscreen()) {
+                    this.setFullscreen(false);
+                    this.write();
+                }
+            }
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    public function setFullscreen(fullscreen:Boolean):void {
+        this.fullscreen = fullscreen;
+    }
     
-}
 
+    public function isFullscreen():Boolean {
+        return this.fullscreen;
+    }
+    
 
+    public function setShowTitleBar(showTitleBar:Boolean):void {
+        this.showTitleBar = showTitleBar;
+    }
+    
+
+    public function isShowTitleBar():Boolean {
+        return this.showTitleBar;
+    }
+    
+
+    public function setProgressBarView(progressBarView:Boolean):void {
+        this.progressBarView = progressBarView;
+    }
+    
+
+    public function isProgressBarView():Boolean {
+        return this.progressBarView;
+    }
+    
+
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append("isFullscreen: ");
+        stringBuffer.appendboolean(this.isFullscreen());
+        stringBuffer.append(" isProgressBarView: ");
+        stringBuffer.appendboolean(this.isProgressBarView());
+        stringBuffer.append(" isShowTitleBar: ");
+        stringBuffer.appendboolean(this.isShowTitleBar());
+        return stringBuffer.toString();
+    }
+    }
 }
 

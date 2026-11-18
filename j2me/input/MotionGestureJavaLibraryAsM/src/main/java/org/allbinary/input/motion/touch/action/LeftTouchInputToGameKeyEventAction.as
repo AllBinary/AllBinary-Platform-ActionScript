@@ -1,87 +1,47 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.touch.action {
+    import org.allbinary.game.input.PlatformInputMappingFactory;
+    import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
+    import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+    import org.allbinary.logic.NullUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { PlatformInputMappingFactory } from '../../../../../../org/allbinary/game/input/PlatformInputMappingFactory.js';
-//not GWT import const PlatformInputMappingFactory
-
-import { GameKeyCompleteMotionGestureInputEvent } from '../../../../../../org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.js';
-//not GWT import const GameKeyCompleteMotionGestureInputEvent
-
-import { TouchMotionGestureFactory } from '../../../../../../org/allbinary/input/motion/gesture/TouchMotionGestureFactory.js';
-//not GWT import const TouchMotionGestureFactory
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class LeftTouchInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): GameKeyCompleteMotionGestureInputEvent{
-
-                        if(LeftTouchInputToGameKeyEventAction.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    LeftTouchInputToGameKeyEventAction.instance= new LeftTouchInputToGameKeyEventAction();
+    public class LeftTouchInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!LeftTouchInputToGameKeyEventAction.instance_set) {
+            LeftTouchInputToGameKeyEventAction.instance_set = true;
+            LeftTouchInputToGameKeyEventAction.instance_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return LeftTouchInputToGameKeyEventAction.instance_value;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LeftTouchInputToGameKeyEventAction.instance as GameKeyCompleteMotionGestureInputEvent;
+    public static function getInstance():GameKeyCompleteMotionGestureInputEvent {
+        if (LeftTouchInputToGameKeyEventAction.instance == NullUtil.getInstance().NULL_OBJECT) {
+            LeftTouchInputToGameKeyEventAction.instance = new LeftTouchInputToGameKeyEventAction();
+        }
+        return (LeftTouchInputToGameKeyEventAction.instance as GameKeyCompleteMotionGestureInputEvent);
+    }
     
-}
 
-
-private constructor (){
-            super("Left Action", TouchMotionGestureFactory.getInstance()!.LEFT, PlatformInputMappingFactory.getInstance()!.getPersistentInputMappingInstance()!.getInputMapping());
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
+    public function LeftTouchInputToGameKeyEventAction() {
+        super("Left Action", TouchMotionGestureFactory.getInstance().LEFT, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
+    }
+    }
 }
 

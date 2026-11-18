@@ -1,100 +1,45 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai {
+    import org.allbinary.ai.ArtificialIntelligenceInterface;
+    import org.allbinary.game.ai.ArtificialIntelligenceInterfaceFactoryInterface;
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.util.ABHashtable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { ArtificialIntelligenceInterface } from '../../../../../org/allbinary/ai/ArtificialIntelligenceInterface.js';
-//not GWT import const ArtificialIntelligenceInterface
-
-import { ArtificialIntelligenceInterfaceFactoryInterface } from '../../../../../org/allbinary/game/ai/ArtificialIntelligenceInterfaceFactoryInterface.js';
-//not GWT import const ArtificialIntelligenceInterfaceFactoryInterface
-
-import { GameInput } from '../../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { NullAI } from './NullAI.js';
-//sameFolderImports - not GWT import - same folder const NullAI
-
-export class NullAIFactory
-            extends Object
-         implements ArtificialIntelligenceInterfaceFactoryInterface {
-        
-
-    private static NULL_AI: NullAI = new NullAI();
-static getInstance(...args: any[]): any {
-   
-   
-    if (args.length === 0) return this.getInstance$overload2();
-   
-   throw new TypeError('No matching overload: getInstance'); }
-  
-    public static getInstance$overload2(): ArtificialIntelligenceInterface{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullAIFactory.NULL_AI;
+    public class NullAIFactory implements ArtificialIntelligenceInterfaceFactoryInterface {
+    private static var NULL_AI_value:NullAI;
+    private static var NULL_AI_set:Boolean = false;
+    private static function get NULL_AI():NullAI {
+        if (!NullAIFactory.NULL_AI_set) {
+            NullAIFactory.NULL_AI_set = true;
+            NullAIFactory.NULL_AI_value = new NullAI();
+        }
+        return NullAIFactory.NULL_AI_value;
+    }
     
-}
 
-getInstance(...args: any[]): any {
-   
-   
-    if (args.length === 3) return this.getInstance$overload1(args[0], args[1], args[2]);
-   
-   throw new TypeError('No matching overload: getInstance'); }
-  
-    public getInstance$overload1(hashtable: ABHashtable<any, any>, ownerLayerInterface: AllBinaryLayer, gameInput: GameInput): ArtificialIntelligenceInterface{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullAIFactory.NULL_AI;
+    public function getInstance3(hashtable:ABHashtable, ownerLayerInterface:AllBinaryLayer, gameInput:GameInput):ArtificialIntelligenceInterface {
+        return NullAIFactory.NULL_AI;
+    }
     
-}
 
-
+    public static function getInstance():ArtificialIntelligenceInterface {
+        return NullAIFactory.NULL_AI;
+    }
+    }
 }
 

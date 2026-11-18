@@ -1,216 +1,103 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer.weapon {
+    import org.allbinary.game.collision.CollidableHelperFactory;
+    import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
+    import org.allbinary.game.collision.CollisionHelper;
+    import org.allbinary.game.collision.CollisionType;
+    import org.allbinary.game.collision.CollisionTypeFactory;
+    import org.allbinary.game.combat.damage.DamageableInterface;
+    import org.allbinary.game.layer.CollidableCompositeLayer;
+    import org.allbinary.game.layer.special.CollidableDestroyableDamageableBehavior;
+    import org.allbinary.layer.AllBinaryLayer;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CollidableDamageWeaponBehavior extends CollidableDestroyableDamageableBehavior {
+        private var collided:Boolean = false;
+        public var collisionHelper:CollisionHelper = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { CollidableHelperFactory } from '../../../../../org/allbinary/game/collision/CollidableHelperFactory.js';
-//not GWT import const CollidableHelperFactory
-
-import { CollidableInterfaceCompositeInterface } from '../../../../../org/allbinary/game/collision/CollidableInterfaceCompositeInterface.js';
-//not GWT import const CollidableInterfaceCompositeInterface
-
-import { CollisionHelper } from '../../../../../org/allbinary/game/collision/CollisionHelper.js';
-//not GWT import const CollisionHelper
-
-import { CollisionType } from '../../../../../org/allbinary/game/collision/CollisionType.js';
-//not GWT import const CollisionType
-
-import { CollisionTypeFactory } from '../../../../../org/allbinary/game/collision/CollisionTypeFactory.js';
-//not GWT import const CollisionTypeFactory
-
-import { DamageableInterface } from '../../../../../org/allbinary/game/combat/damage/DamageableInterface.js';
-//not GWT import const DamageableInterface
-
-import { CollidableCompositeLayer } from '../../../../../org/allbinary/game/layer/CollidableCompositeLayer.js';
-//not GWT import const CollidableCompositeLayer
-
-import { CollidableDestroyableDamageableBehavior } from '../../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableBehavior.js';
-//not GWT import const CollidableDestroyableDamageableBehavior
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class CollidableDamageWeaponBehavior extends CollidableDestroyableDamageableBehavior {
-        
-
-    private collided: boolean= false;
-
-    collisionHelper: CollisionHelper;
-
-public constructor (collidable: boolean){
-            super(collidable);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.setCollided(false);
+        // Java field initializers run after the base constructor
+        private function initFieldsCollidableDamageWeaponBehavior():void {
+    this.collided = false;
     
-this.setCollidable(true);
-    
-this.collisionHelper= CollidableHelperFactory.getInstance();
-    
-}
-
-
-    public init(sourceLayerInterface: AllBinaryLayer){
-this.setCollided(false);
-    
-this.collisionHelper!.setOwnerLayerInterface(sourceLayerInterface);
-    
-}
-
-
-    public isCollision(ownerLayer: CollidableCompositeLayer, collisionLayer: CollidableCompositeLayer): boolean{
-
-                        if(this.collisionHelper!.isCollidable(collisionLayer))
-                        
-                                    {
-                                    
-                        if(ownerLayer!.getGroupInterface()[0] != collisionLayer!.getGroupInterface()[0])
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.isCollision(ownerLayer, collisionLayer);;
+        }
     
 
-                                    }
-                                
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public collide(ownerLayer: CollidableCompositeLayer, collisionLayer: CollidableCompositeLayer){
-super.collide(ownerLayer, collisionLayer);
-    
-this.collided= true;
-    
-}
-
-
-    public isCollisionInterface(ownerLayer: CollidableCompositeLayer, collidableInterfaceCompositeInterface: CollidableInterfaceCompositeInterface): boolean{
-
-                        if(this.collisionHelper!.isCollidable(collidableInterfaceCompositeInterface as CollidableCompositeLayer))
-                        
-                                    {
-                                    
-    let layerInterface: AllBinaryLayer = collidableInterfaceCompositeInterface as AllBinaryLayer;;
+    public function CollidableDamageWeaponBehavior(collidable:Boolean) {
+        super(collidable);
+        this.initFieldsCollidableDamageWeaponBehavior();
+        this.setCollided(false);
+        this.setCollidable(true);
+        this.collisionHelper = CollidableHelperFactory.getInstance();
+    }
     
 
-                        if(ownerLayer!.getGroupInterface()[0] != layerInterface!.getGroupInterface()[0])
-                        
-                                    {
-                                    
-                        if(this.layerCollisionUtil!.isCollision(ownerLayer, layerInterface))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function init(sourceLayerInterface:AllBinaryLayer):void {
+        this.setCollided(false);
+        this.collisionHelper.setOwnerLayerInterface(sourceLayerInterface);
+    }
     
 
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    override public function isCollision(ownerLayer:CollidableCompositeLayer, collisionLayer:CollidableCompositeLayer):Boolean {
+        if (this.collisionHelper.isCollidable(collisionLayer)) {
+            if (ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0]) {
+                return super.isCollision(ownerLayer, collisionLayer);
+            }
+        }
+        return false;
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public collideInterface(ownerLayer: CollidableCompositeLayer, collidableInterfaceCompositeInterface: CollidableInterfaceCompositeInterface){
-this.damageUtil!.process(ownerLayer as DamageableInterface, collidableInterfaceCompositeInterface as DamageableInterface);
+    override public function collide(ownerLayer:CollidableCompositeLayer, collisionLayer:CollidableCompositeLayer):void {
+        super.collide(ownerLayer, collisionLayer);
+        this.collided = true;
+    }
     
-this.collided= true;
+
+    override public function isCollisionInterface(ownerLayer:CollidableCompositeLayer, collidableInterfaceCompositeInterface:CollidableInterfaceCompositeInterface):Boolean {
+        if (this.collisionHelper.isCollidable((collidableInterfaceCompositeInterface as CollidableCompositeLayer))) {
+            var layerInterface:AllBinaryLayer = (collidableInterfaceCompositeInterface as AllBinaryLayer);
+            if (ownerLayer.getGroupInterface()[0] != layerInterface.getGroupInterface()[0]) {
+                if (this.layerCollisionUtil.isCollision(ownerLayer, layerInterface)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     
-}
 
-
-    public getCollisionTypeWith(layerInterface: AllBinaryLayer): CollisionType{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return CollisionTypeFactory.getInstance()!.COLLISION;
+    override public function collideInterface(ownerLayer:CollidableCompositeLayer, collidableInterfaceCompositeInterface:CollidableInterfaceCompositeInterface):void {
+        this.damageUtil.process((ownerLayer as DamageableInterface), (collidableInterfaceCompositeInterface as DamageableInterface));
+        this.collided = true;
+    }
     
-}
 
-
-    public isCollided(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.collided;
+    override public function getCollisionTypeWith(layerInterface:AllBinaryLayer):CollisionType {
+        return CollisionTypeFactory.getInstance().COLLISION;
+    }
     
-}
 
-
-    setCollided(collided: boolean){
-this.collided= collided;
+    public function isCollided():Boolean {
+        return this.collided;
+    }
     
-}
 
-
+    private function setCollided(collided:Boolean):void {
+        this.collided = collided;
+    }
+    }
 }
 

@@ -153,7 +153,7 @@
                         
         <dependency>
             <groupId>org.microemu</groupId>
-            <artifactId>microemu-midpAs</artifactId>
+            <artifactId>microemu-midp-for-polyglotAs</artifactId>
             <version>2.0.4</version>
             <optional>true</optional>
         </dependency>

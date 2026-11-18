@@ -1,376 +1,168 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.resource {
+    import org.allbinary.animation.BasicAnimationInterfaceFactoryInterface;
+    import org.allbinary.animation.NullAnimationFactory;
+    import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+    import org.allbinary.graphics.Rectangle;
+    import org.allbinary.graphics.RectangleFactory;
+    import org.allbinary.image.ImageCache;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonSeps;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.ABHashtable;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BaseResourceAnimationInterfaceFactoryInterfaceFactory implements FeatureResourceAnimationInterfaceFactoryInterface {
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        private var hashtable:ABHashtable = null;
+        private var rectangleHashtable:ABHashtable = null;
+        private var rectangleArrayOfArraysHashtable:ABHashtable = null;
+        private var name:String = null;
+        private var initialized:Boolean = false;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { BasicAnimationInterfaceFactoryInterface } from '../../../../org/allbinary/animation/BasicAnimationInterfaceFactoryInterface.js';
-//not GWT import const BasicAnimationInterfaceFactoryInterface
-
-import { NullAnimationFactory } from '../../../../org/allbinary/animation/NullAnimationFactory.js';
-//not GWT import const NullAnimationFactory
-
-import { ResourceLoadingLevelFactory } from '../../../../org/allbinary/game/resource/ResourceLoadingLevelFactory.js';
-//not GWT import const ResourceLoadingLevelFactory
-
-import { Rectangle } from '../../../../org/allbinary/graphics/Rectangle.js';
-//not GWT import const Rectangle
-
-import { RectangleFactory } from '../../../../org/allbinary/graphics/RectangleFactory.js';
-//not GWT import const RectangleFactory
-
-import { ImageCache } from '../../../../org/allbinary/image/ImageCache.js';
-//not GWT import const ImageCache
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { FeatureResourceAnimationInterfaceFactoryInterface } from './FeatureResourceAnimationInterfaceFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const FeatureResourceAnimationInterfaceFactoryInterface
-
-export class BaseResourceAnimationInterfaceFactoryInterfaceFactory
-            extends Object
-         implements FeatureResourceAnimationInterfaceFactoryInterface {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly hashtable: ABHashtable<any, any>;
-
-    private readonly rectangleHashtable: ABHashtable<any, any>;
-
-    private readonly rectangleArrayOfArraysHashtable: ABHashtable<any, any>;
-
-    private readonly name: string;
-
-    private initialized: boolean= false;
-
-public constructor (name: string, hashtable: ABHashtable<any, any>, rectangleHashtable: ABHashtable<any, any>, rectangleArrayHashtable: ABHashtable<any, any>){
-
-            super();
-        this.hashtable= hashtable;
+        // Java field initializers run after the base constructor
+        private function initFieldsBaseResourceAnimationInterfaceFactoryInterfaceFactory():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
     
-this.rectangleHashtable= rectangleHashtable;
     
-this.rectangleArrayOfArraysHashtable= rectangleArrayHashtable;
     
-this.name= name;
     
-}
-
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.name;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public init(level: number){
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.putF(new StringMaker().append("Available List of Animations: ")!.append(this.hashtable.toString())!.toString(), this, commonStrings!.INIT);
-    
-this.setInitialized(true);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    initImageCache(imageCache: ImageCache, level: number){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public add(resource: string, animationInterfaceFactoryInterface: BasicAnimationInterfaceFactoryInterface){
-
-                        if(this.hashtable.containsKey(resource))
-                        
-                                    {
-                                    
-
-
-                            throw new Exception(new StringMaker().append("Resource Already Created: ")!.append(resource)!.toString());
-                    
-
-                                    }
-                                
-this.hashtable.put(resource, animationInterfaceFactoryInterface);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getBasicAnimationInterfaceFactoryInstance(resource: string): BasicAnimationInterfaceFactoryInterface{
-
-    let basicAnimationInterfaceFactoryInterfaceCanBeNull: any = this.hashtable.get(resource);;
+    this.initialized = false;
+        }
     
 
-                        if(basicAnimationInterfaceFactoryInterfaceCanBeNull == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY;
+    public function BaseResourceAnimationInterfaceFactoryInterfaceFactory(name:String, hashtable:ABHashtable, rectangleHashtable:ABHashtable, rectangleArrayHashtable:ABHashtable) {
+        super();
+        this.initFieldsBaseResourceAnimationInterfaceFactoryInterfaceFactory();
+        this.hashtable = hashtable;
+        this.rectangleHashtable = rectangleHashtable;
+        this.rectangleArrayOfArraysHashtable = rectangleArrayHashtable;
+        this.name = name;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return basicAnimationInterfaceFactoryInterfaceCanBeNull as BasicAnimationInterfaceFactoryInterface;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getRectangle(resource: string): Rectangle{
-
-    let rectangleCanBeNull: any = this.rectangleHashtable!.get(resource);;
+    public function getName():String {
+        return this.name;
+    }
     
 
-                        if(rectangleCanBeNull == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return RectangleFactory.SINGLETON;
+    public function init(level:int):void {
+        var commonStrings:CommonStrings = CommonStrings.getInstance();
+        this.logUtil.putF(new StringMaker().append("Available List of Animations: ").append(this.hashtable.toString()).toString(), this, commonStrings.INIT);
+        this.setInitialized(true);
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return rectangleCanBeNull as Rectangle;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public addRectangle(resource: string, rectangle: Rectangle){
-this.rectangleHashtable!.put(resource, rectangle);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getRectangleArrayOfArrays(resource: string): Rectangle[][]{
-
-    let valueCanBeNull: any = this.rectangleArrayOfArraysHashtable!.get(resource);;
+    public function initImageCache(imageCache:ImageCache, level:int):void {
+    }
     
 
-                        if(valueCanBeNull != 
-                                    null
-                                )
-                        
-                                    {
-                                    
-    let rectangleArrayOfArrays: Rectangle[][] = valueCanBeNull as Rectangle[][];;
+    public function add(resource:String, animationInterfaceFactoryInterface:BasicAnimationInterfaceFactoryInterface):void {
+        if (this.hashtable.containsKey((resource as Object))) {
+            throw new JException("Exception", new StringMaker().append("Resource Already Created: ").append(resource).toString());
+        }
+        this.hashtable.put(resource, animationInterfaceFactoryInterface);
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return rectangleArrayOfArrays;
+    public function getBasicAnimationInterfaceFactoryInstance(resource:String):BasicAnimationInterfaceFactoryInterface {
+        var basicAnimationInterfaceFactoryInterfaceCanBeNull:Object = this.hashtable.get_(resource);
+        if (basicAnimationInterfaceFactoryInterfaceCanBeNull == null) {
+            return NullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY;
+        }
+        return (basicAnimationInterfaceFactoryInterfaceCanBeNull as BasicAnimationInterfaceFactoryInterface);
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return RectangleFactory.ARRAY_OF_ARRAYS;
+    public function getRectangle(resource:String):Rectangle {
+        var rectangleCanBeNull:Object = this.rectangleHashtable.get_(resource);
+        if (rectangleCanBeNull == null) {
+            return RectangleFactory.SINGLETON;
+        }
+        return (rectangleCanBeNull as Rectangle);
+    }
     
 
-                        }
-                            
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public addRectangleArrayOfArrays(resource: string, rectangleArrayOfArrays: Rectangle[][]){
-this.rectangleArrayOfArraysHashtable!.put(resource, rectangleArrayOfArrays);
-    
-}
-
-
-    public isFeature(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public isLoadingLevel(level: number): boolean{
-
-    let resourceLoadingLevelFactory: ResourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance()!;;
+    public function addRectangle(resource:String, rectangle:Rectangle):void {
+        this.rectangleHashtable.put(resource, rectangle);
+    }
     
 
-                        if(level == resourceLoadingLevelFactory!.LOAD_ALL.getLevel())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function getRectangleArrayOfArrays(resource:String):Vector.<Vector.<Rectangle>> {
+        var valueCanBeNull:Object = this.rectangleArrayOfArraysHashtable.get_(resource);
+        if (valueCanBeNull != null) {
+            var rectangleArrayOfArrays:Vector.<Vector.<Rectangle>> = (valueCanBeNull as Vector.<Vector.<Rectangle>>);
+            return rectangleArrayOfArrays;
+        } else {
+            return RectangleFactory.ARRAY_OF_ARRAYS;
+        }
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function addRectangleArrayOfArrays(resource:String, rectangleArrayOfArrays:Vector.<Vector.<Rectangle>>):void {
+        this.rectangleArrayOfArraysHashtable.put(resource, rectangleArrayOfArrays);
+    }
     
 
-                        }
-                            
-}
-
-
-    public toString(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new StringMaker().append(this.constructor.name.toString()!)!.append(CommonSeps.getInstance()!.SEMICOLON)!.append(CommonSeps.getInstance()!.SPACE)!.append(this.name)!.toString();;
+    public function isFeature():Boolean {
+        return false;
+    }
     
-}
 
-
-    public getHashtable(): ABHashtable<any, any>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.hashtable;
+    public function isLoadingLevel(level:int):Boolean {
+        var resourceLoadingLevelFactory:ResourceLoadingLevelFactory = ResourceLoadingLevelFactory.getInstance();
+        if (level == resourceLoadingLevelFactory.LOAD_ALL.getLevel()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
-}
 
-
-    public getRectangleHashtable(): ABHashtable<any, any>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.rectangleHashtable;
+    public function toString():String {
+        return new StringMaker().append(JSystem.className(this)).append(CommonSeps.getInstance().SEMICOLON).append(CommonSeps.getInstance().SPACE).append(this.name).toString();
+    }
     
-}
 
-
-    public getRectangleArrayOfArraysHashtable(): ABHashtable<any, any>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.rectangleArrayOfArraysHashtable;
+    public function getHashtable():ABHashtable {
+        return this.hashtable;
+    }
     
-}
 
-
-    setInitialized(initialized: boolean){
-this.initialized= initialized;
+    public function getRectangleHashtable():ABHashtable {
+        return this.rectangleHashtable;
+    }
     
-}
 
-
-    public isInitialized(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.initialized;
+    public function getRectangleArrayOfArraysHashtable():ABHashtable {
+        return this.rectangleArrayOfArraysHashtable;
+    }
     
-}
 
+    public function setInitialized(initialized:Boolean):void {
+        this.initialized = initialized;
+    }
+    
 
+    public function isInitialized():Boolean {
+        return this.initialized;
+    }
+    }
 }
 

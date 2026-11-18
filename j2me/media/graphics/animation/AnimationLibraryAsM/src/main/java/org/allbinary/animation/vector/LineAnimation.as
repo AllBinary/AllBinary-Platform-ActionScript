@@ -1,144 +1,86 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.vector {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.ColorCompositeInterface;
+    import org.allbinary.layer.PositionInterface;
+    import org.allbinary.logic.NullUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LineAnimation extends Animation implements ColorCompositeInterface, PositionInterface {
+        private var newLine:Vector.<Vector.<int>> = null;
+        private var tempLine:Vector.<Vector.<int>> = null;
+        private var line:Vector.<Vector.<int>> = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsLineAnimation():void {
+    this.newLine = (function():Vector.<Vector.<int>> { var array:Vector.<Vector.<int>> = new Vector.<Vector.<int>>(2); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<int>(2); } return array; })();
+    this.tempLine = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
+    this.line = (function():Vector.<Vector.<int>> { var array:Vector.<Vector.<int>> = new Vector.<Vector.<int>>(2); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<int>(2); } return array; })();
+        }
+    
 
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { ColorCompositeInterface } from '../../../../org/allbinary/graphics/color/ColorCompositeInterface.js';
-//not GWT import const ColorCompositeInterface
-
-import { PositionInterface } from '../../../../org/allbinary/layer/PositionInterface.js';
-//not GWT import const PositionInterface
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class LineAnimation extends Animation implements ColorCompositeInterface, PositionInterface {
-        
-
-    private newLine: number[][] = new Array(2).fill(null).map(() => new Array(2).fill(0));
-
-    private tempLine: number[][] = NullUtil.getInstance()!.NULL_INT_ARRAY_ARRAY;
-
-    private line: number[][] = new Array(2).fill(null).map(() => new Array(2).fill(0));
-
-public constructor (basicColor: BasicColor){
-
-            super();
+    public function LineAnimation(basicColor:BasicColor) {
+        super();
+        this.initFieldsLineAnimation();
         this.setBasicColorP(basicColor);
+    }
     
-}
 
+    public function init(x:int, y:int):void {
+        this.newLine[0][0] = x;
+        this.newLine[0][1] = y;
+        this.newLine[1][0] = x;
+        this.newLine[1][1] = y;
+        this.tempLine = this.line;
+        this.line = this.newLine;
+        this.newLine = this.tempLine;
+    }
+    
 
-    public init(x: number, y: number){
-this.newLine[0]![0]= x;
+    public function setPosition(x:int, y:int, z:int):void {
+        this.newLine[0][0] = this.line[1][0];
+        this.newLine[0][1] = this.line[1][1];
+        this.newLine[1][0] = x;
+        this.newLine[1][1] = y;
+        this.tempLine = this.line;
+        this.line = this.newLine;
+        this.newLine = this.tempLine;
+    }
     
-this.newLine[0]![1]= y;
-    
-this.newLine[1]![0]= x;
-    
-this.newLine[1]![1]= y;
-    
-this.tempLine= this.line;
-    
-this.line= this.newLine;
-    
-this.newLine= this.tempLine;
-    
-}
 
-
-    public setPosition(x: number, y: number, z: number){
-this.newLine[0]![0]= this.line[1]![0]!;
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        var currentLine:Vector.<Vector.<int>> = this.line;
+        this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
+        graphics.drawLine(currentLine[0][0], currentLine[0][1], currentLine[1][0], currentLine[1][1]);
+    }
     
-this.newLine[0]![1]= this.line[1]![1]!;
+
+    override public function nextFrame():void {
+    }
     
-this.newLine[1]![0]= x;
+
+    override public function getBasicColorP():BasicColor {
+        return super.getBasicColorP();
+    }
     
-this.newLine[1]![1]= y;
-    
-this.tempLine= this.line;
-    
-this.line= this.newLine;
-    
-this.newLine= this.tempLine;
-    
-}
 
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-
-    let currentLine: number[][] = this.line;;
-    
-this.basicSetColorUtil!.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
-    
-graphics.drawLine(currentLine[0]![0]!, currentLine[0]![1]!, currentLine[1]![0]!, currentLine[1]![1]!);
-    
-}
-
-
-    public nextFrame(){
-}
-
-
-    public getBasicColorP(): BasicColor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getBasicColorP();;
-    
-}
-
-
-    public setBasicColorP(basicColor: BasicColor){
-super.setBasicColorP(basicColor);
-    
-}
-
-
+    override public function setBasicColorP(basicColor:BasicColor):void {
+        super.setBasicColorP(basicColor);
+    }
+    }
 }
 

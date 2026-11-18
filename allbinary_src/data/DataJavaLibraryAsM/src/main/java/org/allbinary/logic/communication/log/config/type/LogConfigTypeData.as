@@ -1,70 +1,49 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.communication.log.config.type {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class LogConfigTypeData
-            extends Object
-         {
-        
-
-    private static readonly instance: LogConfigTypeData = new LogConfigTypeData();
-
-    public static getInstance(): LogConfigTypeData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LogConfigTypeData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class LogConfigTypeData {
+    private static var instance_value:LogConfigTypeData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():LogConfigTypeData {
+        if (!LogConfigTypeData.instance_set) {
+            LogConfigTypeData.instance_set = true;
+            LogConfigTypeData.instance_value = new LogConfigTypeData();
         }
+        return LogConfigTypeData.instance_value;
+    }
+        public var NAME:String = null;
+        public var DESCRIPTION:String = null;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsLogConfigTypeData():void {
+    this.NAME = "LOG_CONFIG_TYPE_NAME";
+    this.DESCRIPTION = "LOG_CONFIG_TYPE_DESCRIPTION";
+        }
+    
 
-    public readonly NAME: string = "LOG_CONFIG_TYPE_NAME";
+    public static function getInstance():LogConfigTypeData {
+        return LogConfigTypeData.instance;
+    }
+    
 
-    public readonly DESCRIPTION: string = "LOG_CONFIG_TYPE_DESCRIPTION";
-
+    public function LogConfigTypeData() {
+        super();
+        this.initFieldsLogConfigTypeData();
+    }
+    }
 }
 

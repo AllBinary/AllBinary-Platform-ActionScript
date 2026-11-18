@@ -1,137 +1,80 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.event {
+    import org.allbinary.logic.java.bool.BooleanFactory;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventListenerInterface;
+    import org.allbinary.logic.util.event.handler.BasicEventHandler;
+    import java.lang.JThread;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-            import { Thread } from '../../../../java/lang/Thread.js';
-        
-import { BooleanFactory } from '../../../../org/allbinary/logic/java/bool/BooleanFactory.js';
-//not GWT import const BooleanFactory
-
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventListenerInterface } from '../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
-//not GWT import const EventListenerInterface
-
-import { BasicEventHandler } from '../../../../org/allbinary/logic/util/event/handler/BasicEventHandler.js';
-//not GWT import const BasicEventHandler
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { VirtualKeyboardEvent } from './VirtualKeyboardEvent.js';
-//sameFolderImports - not GWT import - same folder const VirtualKeyboardEvent
-import { VirtualKeyboardEventListenerInterface } from './VirtualKeyboardEventListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const VirtualKeyboardEventListenerInterface
-
-export class VirtualKeyboardEventHandler extends BasicEventHandler {
-        
-
-    private static readonly gameKeyEventHandler: VirtualKeyboardEventHandler = new VirtualKeyboardEventHandler();
-
-    public static getInstance(): VirtualKeyboardEventHandler{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return VirtualKeyboardEventHandler.gameKeyEventHandler;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class VirtualKeyboardEventHandler extends BasicEventHandler {
+    private static var gameKeyEventHandler_value:VirtualKeyboardEventHandler;
+    private static var gameKeyEventHandler_set:Boolean = false;
+    private static function get gameKeyEventHandler():VirtualKeyboardEventHandler {
+        if (!VirtualKeyboardEventHandler.gameKeyEventHandler_set) {
+            VirtualKeyboardEventHandler.gameKeyEventHandler_set = true;
+            VirtualKeyboardEventHandler.gameKeyEventHandler_value = new VirtualKeyboardEventHandler();
         }
+        return VirtualKeyboardEventHandler.gameKeyEventHandler_value;
+    }
+        public var SHOW_EVENT:VirtualKeyboardEvent = null;
+        public var HIDE_EVENT:VirtualKeyboardEvent = null;
 
-
-    public readonly SHOW_EVENT: VirtualKeyboardEvent = new VirtualKeyboardEvent(BooleanFactory.getInstance()!.TRUE);
-
-    public readonly HIDE_EVENT: VirtualKeyboardEvent = new VirtualKeyboardEvent(BooleanFactory.getInstance()!.FALSE);
-
-                //@Throws(Exception.constructor)
-            
-    process(eventObject: AllBinaryEventObject, eventListenerInterface: EventListenerInterface){
-
-    let virtualKeyboardEventListenerInterface: VirtualKeyboardEventListenerInterface = eventListenerInterface as unknown as VirtualKeyboardEventListenerInterface;;
-    
-virtualKeyboardEventListenerInterface!.onVirtualKeyboardEvent(eventObject as VirtualKeyboardEvent);
-    
-}
-
-
-    public open(){
-
- try { Thread.sleep(120);
-    
-this.fireEvent(this.SHOW_EVENT);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, "open", e);
+        // Java field initializers run after the base constructor
+        private function initFieldsVirtualKeyboardEventHandler():void {
+    this.SHOW_EVENT = new VirtualKeyboardEvent(BooleanFactory.getInstance().TRUE);
+    this.HIDE_EVENT = new VirtualKeyboardEvent(BooleanFactory.getInstance().FALSE);
+        }
     
 
- }
-   }
- 
-}
-
-
-    public close(){
-
- try { Thread.sleep(120);
-    
-this.fireEvent(this.HIDE_EVENT);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.CLOSE, e);
+    public function VirtualKeyboardEventHandler() {
+        super();
+        this.initFieldsVirtualKeyboardEventHandler();
+    }
     
 
- }
-   }
- 
-}
+    public static function getInstance():VirtualKeyboardEventHandler {
+        return VirtualKeyboardEventHandler.gameKeyEventHandler;
+    }
+    
 
+    override public function process(eventObject:AllBinaryEventObject, eventListenerInterface:EventListenerInterface):void {
+        var virtualKeyboardEventListenerInterface:VirtualKeyboardEventListenerInterface = (eventListenerInterface as VirtualKeyboardEventListenerInterface);
+        virtualKeyboardEventListenerInterface.onVirtualKeyboardEvent((eventObject as VirtualKeyboardEvent));
+    }
+    
 
+    public function open():void {
+        try {
+            JThread.sleep(120);
+            this.fireEvent(this.SHOW_EVENT);
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, "open", e);
+        }
+    }
+    
+
+    public function close():void {
+        try {
+            JThread.sleep(120);
+            this.fireEvent(this.HIDE_EVENT);
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CLOSE, e);
+        }
+    }
+    }
 }
 

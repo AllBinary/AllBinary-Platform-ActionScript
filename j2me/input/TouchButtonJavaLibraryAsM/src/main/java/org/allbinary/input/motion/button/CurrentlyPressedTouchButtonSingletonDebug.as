@@ -1,216 +1,146 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
+    import org.allbinary.graphics.GPoint;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.string.CommonSeps;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CurrentlyPressedTouchButtonSingletonDebug extends CurrentlyPressedTouchButtonSingleton {
+    private static var instanceC_value:CurrentlyPressedTouchButtonSingletonDebug;
+    private static var instanceC_set:Boolean = false;
+    private static function get instanceC():CurrentlyPressedTouchButtonSingletonDebug {
+        if (!CurrentlyPressedTouchButtonSingletonDebug.instanceC_set) {
+            CurrentlyPressedTouchButtonSingletonDebug.instanceC_set = true;
+            CurrentlyPressedTouchButtonSingletonDebug.instanceC_value = new CurrentlyPressedTouchButtonSingletonDebug();
+        }
+        return CurrentlyPressedTouchButtonSingletonDebug.instanceC_value;
+    }
+        private var string:String = null;
+        private var listString:String = null;
+        private var appendText:String = null;
+        private var PRESSED_AND_FIRED:String = null;
+        private var PRESSED_AND_NOT_FIRED:String = null;
+        private var ASSOCIATED_RELEASED_AND_FIRED:String = null;
+        private var RELEASED_AND_FIRED:String = null;
+        private var RELEASED_AND_FIRED_2:String = null;
+        private var RELEASED_AND_NOT_FIRED:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsCurrentlyPressedTouchButtonSingletonDebug():void {
+    this.string = StringUtil.getInstance().EMPTY_STRING;
+    this.listString = StringUtil.getInstance().EMPTY_STRING;
+    this.appendText = StringUtil.getInstance().EMPTY_STRING;
+    this.PRESSED_AND_FIRED = "pressed & fired";
+    this.PRESSED_AND_NOT_FIRED = "pressed in button but not fired";
+    this.ASSOCIATED_RELEASED_AND_FIRED = "assoc. rel & fired";
+    this.RELEASED_AND_FIRED = "rel & fired 1";
+    this.RELEASED_AND_FIRED_2 = "rel & fired 2";
+    this.RELEASED_AND_NOT_FIRED = "rel & not fired";
+        }
 
-
-import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
-//not GWT import const GPoint
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CurrentlyPressedTouchButtonSingleton } from './CurrentlyPressedTouchButtonSingleton.js';
-//sameFolderImports - not GWT import - same folder const CurrentlyPressedTouchButtonSingleton
-import { TouchButtonInput } from './TouchButtonInput.js';
-//sameFolderImports - not GWT import - same folder const TouchButtonInput
-
-export class CurrentlyPressedTouchButtonSingletonDebug extends CurrentlyPressedTouchButtonSingleton {
-        
-
-    private static readonly instanceC: CurrentlyPressedTouchButtonSingletonDebug = new CurrentlyPressedTouchButtonSingletonDebug();
-
-    public static getInstance(): CurrentlyPressedTouchButtonSingleton{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return CurrentlyPressedTouchButtonSingletonDebug.instanceC;
-    
-}
-
-
-    private string: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-    private listString: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-    private appendText: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-    private readonly PRESSED_AND_FIRED: string = "pressed & fired";
-
-    private readonly PRESSED_AND_NOT_FIRED: string = "pressed in button but not fired";
-
-    private readonly ASSOCIATED_RELEASED_AND_FIRED: string = "assoc. rel & fired";
-
-    private readonly RELEASED_AND_FIRED: string = "rel & fired 1";
-
-    private readonly RELEASED_AND_FIRED_2: string = "rel & fired 2";
-
-    private readonly RELEASED_AND_NOT_FIRED: string = "rel & not fired";
-
-    appendTouchButtonInput(append: string, touchButtonInput: TouchButtonInput){
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append(touchButtonInput!.toString());
-    
-stringBuffer!.append(CommonSeps.getInstance()!.SPACE);
-    
-stringBuffer!.append(append);
-    
-this.appendText= stringBuffer!.toString();
-    
-this.string= new StringMaker().append(this.listString)!.append(this.appendText)!.toString();
-    
-}
-
-
-    append(append: string){
-this.appendText= new StringMaker().append(this.appendText)!.append(append)!.toString();
-    
-this.string= new StringMaker().append(this.listString)!.append(this.appendText)!.toString();
-    
-}
-
-
-    public clearLog(x: number, y: number){
-this.appendText= new StringMaker().append(GPoint.toStringStatic(x, y, 0))!.append(CommonSeps.getInstance()!.SPACE)!.toString();
-    
-this.string= new StringMaker().append(this.listString)!.append(this.appendText)!.toString();
-    
-}
-
-
-    public releaseAndNotFired(){
-this.append(this.RELEASED_AND_NOT_FIRED);
-    
-}
-
-
-    public releaseAndFired(touchButtonInput: TouchButtonInput){
-this.appendTouchButtonInput(this.RELEASED_AND_FIRED, touchButtonInput);
-    
-}
-
-
-    public releaseAndFired2(touchButtonInput: TouchButtonInput){
-this.appendTouchButtonInput(this.RELEASED_AND_FIRED_2, touchButtonInput);
-    
-}
-
-
-    public releaseAndFiredAssociated(touchButtonInput: TouchButtonInput){
-this.appendTouchButtonInput(this.ASSOCIATED_RELEASED_AND_FIRED, touchButtonInput);
-    
-}
-
-
-    public pressedAndFired(touchButtonInput: TouchButtonInput){
-this.appendTouchButtonInput(this.PRESSED_AND_FIRED, touchButtonInput);
-    
-}
-
-
-    public pressedAndNotFired(touchButtonInput: TouchButtonInput){
-this.appendTouchButtonInput(this.PRESSED_AND_NOT_FIRED, touchButtonInput);
-    
-}
-
-
-    public removeAt(index: number): TouchButtonInput{
-
-    let touchButtonInput: TouchButtonInput = super.removeAt(index)!;;
-    
-this.listString= this.list.toString();
-    
-this.string= new StringMaker().append(this.listString)!.append(this.appendText)!.toString();
+        public function CurrentlyPressedTouchButtonSingletonDebug() {
+            super();
+            this.initFieldsCurrentlyPressedTouchButtonSingletonDebug();
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return touchButtonInput;
-    
-}
-
-
-    public remove(touchButtonInput: TouchButtonInput): boolean{
-
-    let isRemoved: boolean = super.remove(touchButtonInput)!;;
-    
-this.listString= this.list.toString();
-    
-this.string= new StringMaker().append(this.listString)!.append(this.appendText)!.toString();
+    override public static function getInstance():CurrentlyPressedTouchButtonSingleton {
+        return CurrentlyPressedTouchButtonSingletonDebug.instanceC;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return isRemoved;
+    private function appendTouchButtonInput(append:String, touchButtonInput:TouchButtonInput):void {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append(touchButtonInput.toString());
+        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(append);
+        this.appendText = stringBuffer.toString();
+        this.string = new StringMaker().append(this.listString).append(this.appendText).toString();
+    }
     
-}
 
-
-    public add(touchButtonInput: TouchButtonInput){
-super.add(touchButtonInput);
+    private function append(append:String):void {
+        this.appendText = new StringMaker().append(this.appendText).append(append).toString();
+        this.string = new StringMaker().append(this.listString).append(this.appendText).toString();
+    }
     
-this.listString= this.list.toString();
+
+    public function clearLog(x:int, y:int):void {
+        this.appendText = new StringMaker().append(GPoint.toStringStatic(x, y, 0)).append(CommonSeps.getInstance().SPACE).toString();
+        this.string = new StringMaker().append(this.listString).append(this.appendText).toString();
+    }
     
-this.string= new StringMaker().append(this.listString)!.append(this.appendText)!.toString();
+
+    public function releaseAndNotFired():void {
+        this.append(this.RELEASED_AND_NOT_FIRED);
+    }
     
-}
 
-
-    public toString(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.string;
+    public function releaseAndFired(touchButtonInput:TouchButtonInput):void {
+        this.appendTouchButtonInput(this.RELEASED_AND_FIRED, touchButtonInput);
+    }
     
-}
 
+    public function releaseAndFired2(touchButtonInput:TouchButtonInput):void {
+        this.appendTouchButtonInput(this.RELEASED_AND_FIRED_2, touchButtonInput);
+    }
+    
 
+    public function releaseAndFiredAssociated(touchButtonInput:TouchButtonInput):void {
+        this.appendTouchButtonInput(this.ASSOCIATED_RELEASED_AND_FIRED, touchButtonInput);
+    }
+    
+
+    public function pressedAndFired(touchButtonInput:TouchButtonInput):void {
+        this.appendTouchButtonInput(this.PRESSED_AND_FIRED, touchButtonInput);
+    }
+    
+
+    public function pressedAndNotFired(touchButtonInput:TouchButtonInput):void {
+        this.appendTouchButtonInput(this.PRESSED_AND_NOT_FIRED, touchButtonInput);
+    }
+    
+
+    override public function removeAt(index:int):TouchButtonInput {
+        var touchButtonInput:TouchButtonInput = super.removeAt(index);
+        this.listString = this.list.toString();
+        this.string = new StringMaker().append(this.listString).append(this.appendText).toString();
+        return touchButtonInput;
+    }
+    
+
+    override public function remove(touchButtonInput:TouchButtonInput):Boolean {
+        var isRemoved:Boolean = super.remove(touchButtonInput);
+        this.listString = this.list.toString();
+        this.string = new StringMaker().append(this.listString).append(this.appendText).toString();
+        return isRemoved;
+    }
+    
+
+    override public function add(touchButtonInput:TouchButtonInput):void {
+        super.add(touchButtonInput);
+        this.listString = this.list.toString();
+        this.string = new StringMaker().append(this.listString).append(this.appendText).toString();
+    }
+    
+
+    public function toString():String {
+        return this.string;
+    }
+    }
 }
 

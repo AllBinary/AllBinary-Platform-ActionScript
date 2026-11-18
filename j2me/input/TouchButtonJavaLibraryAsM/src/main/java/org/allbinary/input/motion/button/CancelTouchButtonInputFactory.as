@@ -1,120 +1,65 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
+    import org.allbinary.game.input.InputFactory;
+    import org.allbinary.logic.NullUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CancelTouchButtonInputFactory {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!CancelTouchButtonInputFactory.instance_set) {
+            CancelTouchButtonInputFactory.instance_set = true;
+            CancelTouchButtonInputFactory.instance_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return CancelTouchButtonInputFactory.instance_value;
+    }
+        private var cancelInputArray:Vector.<TouchButtonInput> = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { InputFactory } from '../../../../../org/allbinary/game/input/InputFactory.js';
-//not GWT import const InputFactory
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TouchButtonInput } from './TouchButtonInput.js';
-//sameFolderImports - not GWT import - same folder const TouchButtonInput
-import { BasicTouchInputFactory } from './BasicTouchInputFactory.js';
-//sameFolderImports - not GWT import - same folder const BasicTouchInputFactory
-
-export class CancelTouchButtonInputFactory
-            extends Object
-         {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): CancelTouchButtonInputFactory{
-
-                        if(CancelTouchButtonInputFactory.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    CancelTouchButtonInputFactory.instance= new CancelTouchButtonInputFactory();
+        // Java field initializers run after the base constructor
+        private function initFieldsCancelTouchButtonInputFactory():void {
+    this.cancelInputArray = new Vector.<TouchButtonInput>(InputFactory.getInstance().MAX);
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return CancelTouchButtonInputFactory.instance as CancelTouchButtonInputFactory;
-    
-}
-
-
-    private readonly cancelInputArray: TouchButtonInput[] = new Array(InputFactory.getInstance()!.MAX);
-
-private constructor (){
-
-            super();
-        
-    let basicTouchInputFactory: BasicTouchInputFactory = BasicTouchInputFactory.getInstance()!;;
+    public static function getInstance():CancelTouchButtonInputFactory {
+        if (CancelTouchButtonInputFactory.instance == NullUtil.getInstance().NULL_OBJECT) {
+            CancelTouchButtonInputFactory.instance = new CancelTouchButtonInputFactory();
+        }
+        return (CancelTouchButtonInputFactory.instance as CancelTouchButtonInputFactory);
+    }
     
 
-
-
-
-                        for (
-    let index: number = this.cancelInputArray!.length -1;index >= 0; index--)
-        {
-this.cancelInputArray[index]= basicTouchInputFactory!.NONE;
+    public function CancelTouchButtonInputFactory() {
+        super();
+        this.initFieldsCancelTouchButtonInputFactory();
+        var basicTouchInputFactory:BasicTouchInputFactory = BasicTouchInputFactory.getInstance();
+        for (var index:int = int(this.cancelInputArray.length - 1); index >= 0; index--) {
+            this.cancelInputArray[index] = basicTouchInputFactory.NONE;
+        }
+        this.cancelInputArray[basicTouchInputFactory.UP.getSourceId()] = basicTouchInputFactory.DOWN;
+        this.cancelInputArray[basicTouchInputFactory.DOWN.getSourceId()] = basicTouchInputFactory.UP;
+        this.cancelInputArray[basicTouchInputFactory.LEFT.getSourceId()] = basicTouchInputFactory.RIGHT;
+        this.cancelInputArray[basicTouchInputFactory.RIGHT.getSourceId()] = basicTouchInputFactory.LEFT;
+    }
     
-}
 
-this.cancelInputArray[basicTouchInputFactory!.UP.getSourceId()]= basicTouchInputFactory!.DOWN;
-    
-this.cancelInputArray[basicTouchInputFactory!.DOWN.getSourceId()]= basicTouchInputFactory!.UP;
-    
-this.cancelInputArray[basicTouchInputFactory!.LEFT.getSourceId()]= basicTouchInputFactory!.RIGHT;
-    
-this.cancelInputArray[basicTouchInputFactory!.RIGHT.getSourceId()]= basicTouchInputFactory!.LEFT;
-    
-}
-
-
-    public getCancel(touchButtonInput: TouchButtonInput): TouchButtonInput{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.cancelInputArray[touchButtonInput!.getSourceId()]!;
-    
-}
-
-
+    public function getCancel(touchButtonInput:TouchButtonInput):TouchButtonInput {
+        return this.cancelInputArray[touchButtonInput.getSourceId()];
+    }
+    }
 }
 

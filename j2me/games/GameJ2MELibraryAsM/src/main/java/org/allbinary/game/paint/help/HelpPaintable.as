@@ -1,175 +1,93 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.paint.help {
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.font.UpdateMyFontProcessor;
+    import org.allbinary.graphics.paint.Paintable;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class HelpPaintable extends Paintable implements UpdateMyFontInterface {
+        public var displayInfo:DisplayInfoSingleton = null;
+        public var updateMyFontProcessor:MyFontProcessor = null;
+        public var myFontProcessor:MyFontProcessor = null;
+        public var anchor:int = 0;
+        public var title:String = null;
+        public var inputInfo:Vector.<String> = null;
+        public var basicColor:BasicColor = null;
+        public var titleBeginWidth:int = 0;
+        private var beginWidthArray:Vector.<int> = null;
+        private var charHeight:int = 0;
 
-        
-
-
-import { Font } from '../../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Anchor } from '../../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { DisplayInfoSingleton } from '../../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { MyFontProcessor } from '../../../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { UpdateMyFontInterface } from '../../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { UpdateMyFontProcessor } from '../../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
-//not GWT import const UpdateMyFontProcessor
-
-import { Paintable } from '../../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class HelpPaintable extends Paintable implements UpdateMyFontInterface {
-        
-
-    readonly displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
-
-    readonly updateMyFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
-
-    myFontProcessor: MyFontProcessor = this.updateMyFontProcessor;
-
-    anchor: number = Anchor.TOP_LEFT;
-
-    readonly title: string;
-
-    inputInfo: string[] = StringUtil.getInstance()!.getArrayInstance()!;
-
-    basicColor: BasicColor;
-
-    titleBeginWidth: number= 0;
-
-    private beginWidthArray: number[] = NullUtil.getInstance()!.NULL_INT_ARRAY;
-
-    private charHeight: number= 0;
-
-public constructor (title: string, backgroundBasicColor: BasicColor, basicColor: BasicColor){
-
-            super();
-        this.title= title;
+        // Java field initializers run after the base constructor
+        private function initFieldsHelpPaintable():void {
+    this.displayInfo = DisplayInfoSingleton.getInstance();
+    this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    this.myFontProcessor = this.updateMyFontProcessor;
+    this.anchor = Anchor.TOP_LEFT;
     
-this.basicColor= basicColor;
+    this.inputInfo = StringUtil.getInstance().getArrayInstance();
     
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
-    
-this.titleBeginWidth= (font.stringWidth(this.title)>>1);
-    
-this.charHeight= font.getHeight();
+    this.titleBeginWidth = 0;
+    this.beginWidthArray = NullUtil.getInstance().NULL_INT_ARRAY;
+    this.charHeight = 0;
+        }
     
 
-    let size: number = this.inputInfo!.length
-                ;;
+    public function HelpPaintable(title:String, backgroundBasicColor:BasicColor, basicColor:BasicColor) {
+        super();
+        this.initFieldsHelpPaintable();
+        this.title = title;
+        this.basicColor = basicColor;
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-this.beginWidthArray[index]= (font.stringWidth(this.inputInfo[index]!)>>1);
-    
-}
-
-this.myFontProcessor= MyFontProcessor.getInstance();
-    
-}
-
-
-    public setInputInfoP(inputInfo: string[]){
-this.inputInfo= inputInfo;
-    
-this.beginWidthArray= new Array(this.inputInfo!.length).fill(0);
-    
-this.myFontProcessor= this.updateMyFontProcessor;
-    
-}
-
-
-    public paint(graphics: Graphics){
-this.myFontProcessor!.process(graphics);
+    public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        this.titleBeginWidth = (font.stringWidth(this.title) >> 1);
+        this.charHeight = font.getHeight();
+        var size:int = this.inputInfo.length;
+        for (var index:int = 0; index < size; index++) {
+            this.beginWidthArray[index] = (font.stringWidth(this.inputInfo[index]) >> 1);
+        }
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
     
 
-    let halfWidth: number = this.displayInfo!.getLastHalfWidth()!;;
-    
-graphics.setColor(this.basicColor!.intValue());
-    
-graphics.drawString(this.title, halfWidth -this.titleBeginWidth, this.charHeight, this.anchor);
-    
-
-    let size: number = this.inputInfo!.length
-                ;;
+    public function setInputInfoP(inputInfo:Vector.<String>):void {
+        this.inputInfo = inputInfo;
+        this.beginWidthArray = new Vector.<int>(this.inputInfo.length);
+        this.myFontProcessor = this.updateMyFontProcessor;
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-graphics.drawString(this.inputInfo[index]!, halfWidth -this.beginWidthArray[index], (index +3) *this.charHeight, this.anchor);
-    
-}
-
-}
-
-
+    override public function paint(graphics:Graphics):void {
+        this.myFontProcessor.process(graphics);
+        var halfWidth:int = this.displayInfo.getLastHalfWidth();
+        graphics.setColor(this.basicColor.intValue());
+        graphics.drawString(this.title, int(halfWidth - this.titleBeginWidth), this.charHeight, this.anchor);
+        var size:int = this.inputInfo.length;
+        for (var index:int = 0; index < size; index++) {
+            graphics.drawString(this.inputInfo[index], int(halfWidth - this.beginWidthArray[index]), int((int(index + 3)) * this.charHeight), this.anchor);
+        }
+    }
+    }
 }
 

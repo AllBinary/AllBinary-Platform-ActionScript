@@ -1,197 +1,111 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.DisposalUtil;
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.IndexedAnimation;
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
+    import org.allbinary.util.CircularIndexUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TweenedImageAnimation extends IndexedAnimation {
+        private var image:Image = null;
+        private var dx:int = 0;
+        private var dy:int = 0;
+        private var totalFrames:int = 0;
+        public var circularIndexUtil:CircularIndexUtil = null;
+        private var anchor:int = 0;
 
-        
-
-
-            import { Throwable } from '../../../../java/lang/Throwable.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { DisposalUtil } from '../../../../org/allbinary/DisposalUtil.js';
-//not GWT import const DisposalUtil
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { IndexedAnimation } from '../../../../org/allbinary/animation/IndexedAnimation.js';
-//not GWT import const IndexedAnimation
-
-import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class TweenedImageAnimation extends IndexedAnimation {
-        
-
-    private readonly image: Image;
-
-    private readonly dx: number;
-
-    private readonly dy: number;
-
-    private totalFrames: number;
-
-    circularIndexUtil: CircularIndexUtil;
-
-public constructor (image: Image, dx: number, dy: number, totalFrames: number, animationBehavior: AnimationBehavior){
-            super(animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.image= image;
+        // Java field initializers run after the base constructor
+        private function initFieldsTweenedImageAnimation():void {
     
-this.dx= dx;
     
-this.dy= dy;
     
-this.totalFrames= totalFrames;
     
-this.circularIndexUtil= CircularIndexUtil.createInstance(this.totalFrames);
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getAnimationSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getSize();;
-    
-}
-
-
-    public nextFrame(){
-this.circularIndexUtil!.next();
-    
-}
-
-
-    public previousFrame(){
-this.circularIndexUtil!.previous();
-    
-}
-
-
-    public setFrame(index: number){
-this.circularIndexUtil!.setIndex(index);
-    
-}
-
-
-    public getFrame(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.circularIndexUtil!.getIndex();;
-    
-}
-
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.totalFrames;
-    
-}
-
-
-    public setSequence(sequence: number[]){
-}
-
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PrimitiveIntUtil.getArrayInstance();;
-    
-}
-
-
-    private anchor: number = Anchor.TOP_LEFT;
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-
-    let frame: number = this.getFrame()!;;
+    this.anchor = Anchor.TOP_LEFT;
+        }
     
 
-    let currentX: number = this.dx *frame;;
+    public function TweenedImageAnimation(image:Image, dx:int, dy:int, totalFrames:int, animationBehavior:AnimationBehavior) {
+        super(animationBehavior);
+        this.initFieldsTweenedImageAnimation();
+        this.image = image;
+        this.dx = dx;
+        this.dy = dy;
+        this.totalFrames = totalFrames;
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.totalFrames);
+    }
     
 
-    let currentY: number = this.dy *frame;;
+    override public function getAnimationSize():int {
+        return this.getSize();
+    }
     
-graphics.drawImage(this.image, x +currentX, y +currentY, this.anchor);
+
+    override public function nextFrame():void {
+        this.circularIndexUtil.next();
+    }
     
-}
 
-
-    public close(){
-DisposalUtil.getInstance()!.disposeImage(this.image);
+    override public function previousFrame():void {
+        this.circularIndexUtil.previous();
+    }
     
-}
 
-
-                //@Throws(Throwable.constructor)
-            
-    finalize(){
-DisposalUtil.getInstance()!.disposeImage(this.image);
+    override public function setFrame(index:int):void {
+        this.circularIndexUtil.setIndex(index);
+    }
     
-}
 
+    override public function getFrame():int {
+        return this.circularIndexUtil.getIndex();
+    }
+    
 
+    override public function getSize():int {
+        return this.totalFrames;
+    }
+    
+
+    override public function setSequence(sequence:Vector.<int>):void {
+    }
+    
+
+    override public function getSequence():Vector.<int> {
+        return PrimitiveIntUtil.getArrayInstance();
+    }
+    
+
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        var frame:int = this.getFrame();
+        var currentX:int = int(this.dx * frame);
+        var currentY:int = int(this.dy * frame);
+        graphics.drawImage(this.image, int(x + currentX), int(y + currentY), this.anchor);
+    }
+    
+
+    public function close():void {
+        DisposalUtil.getInstance().disposeImage(this.image);
+    }
+    
+
+    public function finalize():void {
+        DisposalUtil.getInstance().disposeImage(this.image);
+    }
+    }
 }
 

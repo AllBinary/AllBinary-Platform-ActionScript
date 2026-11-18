@@ -1,93 +1,40 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.util.cache.CacheableInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { CacheableInterface } from '../../../../org/allbinary/logic/util/cache/CacheableInterface.js';
-//not GWT import const CacheableInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AdjustedImageArrayRotationAnimation } from './AdjustedImageArrayRotationAnimation.js';
-//sameFolderImports - not GWT import - same folder const AdjustedImageArrayRotationAnimation
-import { ImageArrayRotationAnimationInfo } from './ImageArrayRotationAnimationInfo.js';
-//sameFolderImports - not GWT import - same folder const ImageArrayRotationAnimationInfo
-
-export class ImageArrayRotationAnimationCacheable extends AdjustedImageArrayRotationAnimation implements CacheableInterface {
-        
-
-public constructor (anyType: any, animationBehavior: AnimationBehavior){
-            super((anyType as ImageArrayRotationAnimationInfo).getImageArray(), (anyType as ImageArrayRotationAnimationInfo).getAngleInfoP(), (anyType as ImageArrayRotationAnimationInfo).getTotalAngle(), (anyType as ImageArrayRotationAnimationInfo).getDx(), (anyType as ImageArrayRotationAnimationInfo).getDy(), animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public getKey(): any{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullUtil.getInstance()!.NULL_OBJECT;
+    public class ImageArrayRotationAnimationCacheable extends AdjustedImageArrayRotationAnimation implements CacheableInterface {
     
-}
 
-
-    public toString(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StringUtil.getInstance()!.EMPTY_STRING;
+    public function ImageArrayRotationAnimationCacheable(anyType:Object, animationBehavior:AnimationBehavior) {
+        super(((anyType as ImageArrayRotationAnimationInfo)).getImageArray(), ((anyType as ImageArrayRotationAnimationInfo)).getAngleInfoP(), ((anyType as ImageArrayRotationAnimationInfo)).getTotalAngle(), ((anyType as ImageArrayRotationAnimationInfo)).getDx(), ((anyType as ImageArrayRotationAnimationInfo)).getDy(), animationBehavior);
+    }
     
-}
 
+    public function getKey():Object {
+        return NullUtil.getInstance().NULL_OBJECT;
+    }
+    
 
+    override public function toString():String {
+        return StringUtil.getInstance().EMPTY_STRING;
+    }
+    }
 }
 

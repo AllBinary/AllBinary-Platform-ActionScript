@@ -1,181 +1,127 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai.scroller {
+    import org.allbinary.game.ai.BasicAI;
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.game.physics.velocity.BasicVelocityProperties;
+    import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.logic.math.MathUtil;
+    import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+    import org.allbinary.util.ABHashtable;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasePatrolAI extends BasicAI {
+    private static var MAX_DISTANCE_value:*;
+    private static var MAX_DISTANCE_set:Boolean = false;
+    public static function get MAX_DISTANCE():* {
+        if (!BasePatrolAI.MAX_DISTANCE_set) {
+            BasePatrolAI.MAX_DISTANCE_set = true;
+            BasePatrolAI.MAX_DISTANCE_value = SmallIntegerSingletonFactory.getInstance().getAt(2);
+        }
+        return BasePatrolAI.MAX_DISTANCE_value;
+    }
+    private static var DIRECTION_ARRAY_value:*;
+    private static var DIRECTION_ARRAY_set:Boolean = false;
+    public static function get DIRECTION_ARRAY():* {
+        if (!BasePatrolAI.DIRECTION_ARRAY_set) {
+            BasePatrolAI.DIRECTION_ARRAY_set = true;
+            BasePatrolAI.DIRECTION_ARRAY_value = SmallIntegerSingletonFactory.getInstance().getAt(3);
+        }
+        return BasePatrolAI.DIRECTION_ARRAY_value;
+    }
+    private static var FIRING_DISTANCE_value:*;
+    private static var FIRING_DISTANCE_set:Boolean = false;
+    public static function get FIRING_DISTANCE():* {
+        if (!BasePatrolAI.FIRING_DISTANCE_set) {
+            BasePatrolAI.FIRING_DISTANCE_set = true;
+            BasePatrolAI.FIRING_DISTANCE_value = SmallIntegerSingletonFactory.getInstance().getAt(4);
+        }
+        return BasePatrolAI.FIRING_DISTANCE_value;
+    }
+    private static var SPEED_value:*;
+    private static var SPEED_set:Boolean = false;
+    public static function get SPEED():* {
+        if (!BasePatrolAI.SPEED_set) {
+            BasePatrolAI.SPEED_set = true;
+            BasePatrolAI.SPEED_value = SmallIntegerSingletonFactory.getInstance().getAt(5);
+        }
+        return BasePatrolAI.SPEED_value;
+    }
+        public var maxDistance:* = null;
+        public var currentDistance:int = 0;
+        public var xTotalDistance:int = 0;
+        public var lastKeyDirection:int = 0;
+        public var keyDirection:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../../../java/lang/Integer.js';
-        
-import { Canvas } from '../../../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { BasicAI } from '../../../../../../org/allbinary/game/ai/BasicAI.js';
-//not GWT import const BasicAI
-
-import { GameInput } from '../../../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-import { BasicVelocityProperties } from '../../../../../../org/allbinary/game/physics/velocity/BasicVelocityProperties.js';
-//not GWT import const BasicVelocityProperties
-
-import { VelocityInterfaceCompositeInterface } from '../../../../../../org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.js';
-//not GWT import const VelocityInterfaceCompositeInterface
-
-import { AllBinaryLayer } from '../../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-//not plain js import { MathUtil } 
-const MathUtil = globalThis.org.allbinary.logic.math.MathUtil;
-type MathUtil<T = any, U = any> = typeof MathUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof MathUtil;
-
-import { SmallIntegerSingletonFactory } from '../../../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
-//not GWT import const SmallIntegerSingletonFactory
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class BasePatrolAI extends BasicAI {
-        
-
-    public static readonly MAX_DISTANCE: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(2)!;
-
-    public static readonly DIRECTION_ARRAY: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(3)!;
-
-    public static readonly FIRING_DISTANCE: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(4)!;
-
-    public static SPEED: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(5)!;
-
-    maxDistance: Integer;
-
-    currentDistance: number;
-
-    xTotalDistance: number= 0;
-
-    lastKeyDirection: number = Canvas.RIGHT;
-
-    keyDirection: number = Canvas.RIGHT;
-
-public constructor (hashtable: ABHashtable<any, any>, ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
-            super(ownerLayerInterface, gameInput);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.maxDistance= hashtable.get(BasePatrolAI.MAX_DISTANCE) as Integer;
+        // Java field initializers run after the base constructor
+        private function initFieldsBasePatrolAI():void {
     
-this.currentDistance= this.maxDistance!.intValue();
     
-}
-
-
-    update(){
-this.updateTotalDistance();
-    
-this.changeDirectionIfReachedPacingAreaMax();
-    
-}
-
-
-    updateTotalDistance(){
-
-    let velocityInterfaceCompositeInterface: VelocityInterfaceCompositeInterface = this.getOwnerLayerInterface() as VelocityInterfaceCompositeInterface;;
+    this.xTotalDistance = 0;
+    this.lastKeyDirection = Canvas.RIGHT;
+    this.keyDirection = Canvas.RIGHT;
+        }
     
 
-    let velocityProperties: BasicVelocityProperties = velocityInterfaceCompositeInterface!.getVelocityProperties()!;;
-    
-this.xTotalDistance += velocityProperties!.getVelocityXBasicDecimalP()!.getScaled();
-    
-}
-
-
-    changeDirectionIfReachedPacingAreaMax(){
-
-    let mathUtil: MathUtil = MathUtil.getInstance()!;;
+    public function BasePatrolAI(hashtable:ABHashtable, ownerLayerInterface:AllBinaryLayer, gameInput:GameInput) {
+        super(ownerLayerInterface, gameInput);
+        this.initFieldsBasePatrolAI();
+        this.maxDistance = (hashtable.get_(BasePatrolAI.MAX_DISTANCE) as *);
+        this.currentDistance = this.maxDistance.intValue();
+    }
     
 
-    let totalDistance: number = mathUtil!.abs(this.xTotalDistance)!;;
+    public function update():void {
+        this.updateTotalDistance();
+        this.changeDirectionIfReachedPacingAreaMax();
+    }
     
 
-                        if(totalDistance > this.currentDistance)
-                        
-                                    {
-                                    this.nextDirection();
+    private function updateTotalDistance():void {
+        var velocityInterfaceCompositeInterface:VelocityInterfaceCompositeInterface = (this.getOwnerLayerInterface() as VelocityInterfaceCompositeInterface);
+        var velocityProperties:BasicVelocityProperties = velocityInterfaceCompositeInterface.getVelocityProperties();
+        this.xTotalDistance += velocityProperties.getVelocityXBasicDecimalP().getScaled();
+    }
     
 
-                                    }
-                                
-}
-
-
-    nextDirection(){
-
-                        if(this.lastKeyDirection == Canvas.LEFT)
-                        
-                                    {
-                                    this.keyDirection= Canvas.RIGHT;
-    
-this.lastKeyDirection= this.keyDirection;
-    
-this.xTotalDistance= 0;
+    private function changeDirectionIfReachedPacingAreaMax():void {
+        var mathUtil:MathUtil = MathUtil.getInstance();
+        var totalDistance:int = mathUtil.abs(this.xTotalDistance);
+        if (totalDistance > this.currentDistance) {
+            this.nextDirection();
+        }
+    }
     
 
-                                    }
-                                
-                             else 
-                        if(this.lastKeyDirection == Canvas.RIGHT)
-                        
-                                    {
-                                    this.keyDirection= Canvas.LEFT;
+    public function nextDirection():void {
+        if (this.lastKeyDirection == Canvas.LEFT) {
+            this.keyDirection = Canvas.RIGHT;
+            this.lastKeyDirection = this.keyDirection;
+            this.xTotalDistance = 0;
+        } else if (this.lastKeyDirection == Canvas.RIGHT) {
+            this.keyDirection = Canvas.LEFT;
+            this.lastKeyDirection = this.keyDirection;
+            this.xTotalDistance = 0;
+        }
+    }
     
-this.lastKeyDirection= this.keyDirection;
-    
-this.xTotalDistance= 0;
-    
 
-                                    }
-                                
-}
-
-
-    public disable(){
-}
-
-
+    public function disable():void {
+    }
+    }
 }
 

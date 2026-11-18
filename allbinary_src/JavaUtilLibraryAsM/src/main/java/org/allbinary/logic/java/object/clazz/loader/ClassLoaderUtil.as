@@ -1,87 +1,35 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.java.anyType.clazz.loader {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../../java/lang/Object.js';
-        
-            import { ClassLoader } from '../../../../../../../java/lang/ClassLoader.js';
-        
-            import { Exception } from '../../../../../../../java/lang/Exception.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ClassLoaderUtil
-            extends Object
-         {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public static getName(anyType: any): string{
-
-    let classLoader: ClassLoader = anyType!.constructor.namegetClassLoader()!;;
+    public class ClassLoaderUtil {
     
 
-                        if(classLoader != 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return "ClassLoader: " +classLoader!.constructor.name.toString()!;
+    public function ClassLoaderUtil() {
+        super();
+    }
     
 
-                                    }
-                                
-
-
-
-                            throw new Exception("Unable to get ClassLoader");
-                    
-}
-
-
-private constructor (){
-
-            super();
+    public static function getName(anyType:Object):String {
+        var classLoader:ClassLoader = JSystem.className(anyType).getClassLoader();
+        if (classLoader != null) {
+            return "ClassLoader: " + JSystem.className(classLoader);
         }
-
-
+        throw new JException("Exception", "Unable to get ClassLoader");
+    }
+    }
 }
 

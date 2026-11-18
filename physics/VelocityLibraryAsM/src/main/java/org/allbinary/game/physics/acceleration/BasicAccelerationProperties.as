@@ -1,94 +1,57 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.physics.acceleration {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicAccelerationProperties {
+        private var forward:int = 0;
+        private var reverse:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicAccelerationProperties():void {
+    this.forward = 0;
+    this.reverse = 0;
+        }
+    
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class BasicAccelerationProperties
-            extends Object
-         {
-        
-
-    private forward: number= 0;
-
-    private reverse: number= 0;
-
-public constructor (forward: number, reverse: number){
-
-            super();
+    public function BasicAccelerationProperties(forward:int, reverse:int) {
+        super();
+        this.initFieldsBasicAccelerationProperties();
         this.setForward(forward);
+        this.setReverse(reverse);
+    }
     
-this.setReverse(reverse);
+
+    public function setReverse(reverse:int):void {
+        this.reverse = reverse;
+    }
     
-}
 
-
-    public setReverse(reverse: number){
-this.reverse= reverse;
+    public function getReverse():int {
+        return this.reverse;
+    }
     
-}
 
-
-    public getReverse(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.reverse;
+    public function setForward(forward:int):void {
+        this.forward = forward;
+    }
     
-}
 
-
-    public setForward(forward: number){
-this.forward= forward;
-    
-}
-
-
-    public getForward(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.forward;
-    
-}
-
-
+    public function getForward():int {
+        return this.forward;
+    }
+    }
 }
 

@@ -1,120 +1,46 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.canvas.RunnableCanvas;
+    import org.allbinary.game.commands.GameCommandsFactory;
+    import org.allbinary.game.input.GameInputStrings;
+    import org.allbinary.game.input.event.GameKeyEvent;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { NullCanvas } from '../../../../../javax/microedition/lcdui/NullCanvas.js';
-//not GWT import const NullCanvas
-
-import { RunnableCanvas } from '../../../../../org/allbinary/canvas/RunnableCanvas.js';
-//not GWT import const RunnableCanvas
-
-import { GameCommandsFactory } from '../../../../../org/allbinary/game/commands/GameCommandsFactory.js';
-//not GWT import const GameCommandsFactory
-
-import { GameInputStrings } from '../../../../../org/allbinary/game/input/GameInputStrings.js';
-//not GWT import const GameInputStrings
-
-import { GameKeyEvent } from '../../../../../org/allbinary/game/input/event/GameKeyEvent.js';
-//not GWT import const GameKeyEvent
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicMenuInputProcessor } from './BasicMenuInputProcessor.js';
-//sameFolderImports - not GWT import - same folder const BasicMenuInputProcessor
-
-export class DemoCanvasBasicStartInputProcessor extends BasicMenuInputProcessor {
-        
-
-public constructor (gameKeyEventList: BasicArrayList, gameCanvas: RunnableCanvas){
-            super(gameKeyEventList,  -1, gameCanvas);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processInputList(): number{
-
-    let list: BasicArrayList = this.getGameKeyEventList()!;;
+    public class DemoCanvasBasicStartInputProcessor extends BasicMenuInputProcessor {
     
 
-    let size: number = list.size()!;;
+    public function DemoCanvasBasicStartInputProcessor(gameKeyEventList:BasicArrayList, gameCanvas:RunnableCanvas) {
+        super(gameKeyEventList, -1, gameCanvas);
+    }
     
 
-    let gameKeyEvent: GameKeyEvent;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-gameKeyEvent= list.objectArray[index]! as GameKeyEvent;
-    
-this.logUtil!.putF(new StringMaker().append("Start GameKey: ")!.append(StringUtil.getInstance()!.toString(gameKeyEvent))!.toString(), this, GameInputStrings.getInstance()!.PROCESS_INPUT);
-    
-}
-
-this.getCanvas()!.getCustomCommandListener()!.commandAction(GameCommandsFactory.getInstance()!.START_COMMAND, NullCanvas.NULL_CANVAS);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return size;
-    
-}
-
-
+    override public function processInputList():int {
+        var list:BasicArrayList = this.getGameKeyEventList();
+        var size:int = list.size();
+        var gameKeyEvent:GameKeyEvent = null;
+        for (var index:int = 0; index < size; index++) {
+            gameKeyEvent = (list.objectArray[index] as GameKeyEvent);
+            this.logUtil.putF(new StringMaker().append("Start GameKey: ").append(StringUtil.getInstance().toString1(gameKeyEvent)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
+        }
+        this.getCanvas().getCustomCommandListener().commandAction(GameCommandsFactory.getInstance().START_COMMAND, NullCanvas.NULL_CANVAS);
+        return size;
+    }
+    }
 }
 

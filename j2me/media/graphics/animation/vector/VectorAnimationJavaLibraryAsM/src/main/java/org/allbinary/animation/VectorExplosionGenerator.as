@@ -1,370 +1,149 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.graphics.GPoint;
+    import org.allbinary.graphics.PointFactory;
+    import org.allbinary.graphics.pipeline.RandomRotationFactory;
+    import org.allbinary.graphics.pipeline.RandomTranslation;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import org.allbinary.util.BasicArrayListS;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { GPoint } from '../../../org/allbinary/graphics/GPoint.js';
-//not GWT import const GPoint
-
-import { PointFactory } from '../../../org/allbinary/graphics/PointFactory.js';
-//not GWT import const PointFactory
-
-import { RandomRotationFactory } from '../../../org/allbinary/graphics/pipeline/RandomRotationFactory.js';
-//not GWT import const RandomRotationFactory
-
-import { RandomTranslation } from '../../../org/allbinary/graphics/pipeline/RandomTranslation.js';
-//not GWT import const RandomTranslation
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-//not plain js import { BasicArrayListS } 
-const BasicArrayListS = globalThis.org.allbinary.util.BasicArrayListS;
-type BasicArrayListS<T = any, U = any> = typeof BasicArrayListS extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListS;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { VectorExplosionType } from './VectorExplosionType.js';
-//sameFolderImports - not GWT import - same folder const VectorExplosionType
-import { VectorAnimationUtil } from './VectorAnimationUtil.js';
-//sameFolderImports - not GWT import - same folder const VectorAnimationUtil
-
-export class VectorExplosionGenerator
-            extends Object
-         {
-        
-
-    private static readonly instance: VectorExplosionGenerator = new VectorExplosionGenerator();
-static getInstance(...args: any[]): any {
-   
-   
-    if (args.length === 0) return this.getInstance$overload1();
-   
-   throw new TypeError('No matching overload: getInstance'); }
-  
-    public static getInstance$overload1(): VectorExplosionGenerator{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return VectorExplosionGenerator.instance;
-    
-}
-
-
-    public readonly RANDOM: VectorExplosionType = new VectorExplosionType();
-
-    public readonly ROTATION: VectorExplosionType = new VectorExplosionType();
-
-    private readonly vectorAnimationUtil: VectorAnimationUtil = VectorAnimationUtil.getInstance()!;
-
-private constructor (){
-
-            super();
+    public class VectorExplosionGenerator {
+    private static var instance_value:VectorExplosionGenerator;
+    private static var instance_set:Boolean = false;
+    private static function get instance():VectorExplosionGenerator {
+        if (!VectorExplosionGenerator.instance_set) {
+            VectorExplosionGenerator.instance_set = true;
+            VectorExplosionGenerator.instance_value = new VectorExplosionGenerator();
         }
+        return VectorExplosionGenerator.instance_value;
+    }
+        public var RANDOM:VectorExplosionType = null;
+        public var ROTATION:VectorExplosionType = null;
+        private var vectorAnimationUtil:VectorAnimationUtil = null;
+        private var randomRotationFactory:RandomRotationFactory = null;
 
-
-                //@Throws(Exception.constructor)
-            
-    public createList(list: BasicArrayList, howMuch: number, type: VectorExplosionType): BasicArrayList{
-
-    let point: GPoint;;
+        // Java field initializers run after the base constructor
+        private function initFieldsVectorExplosionGenerator():void {
+    this.RANDOM = new VectorExplosionType();
+    this.ROTATION = new VectorExplosionType();
+    this.vectorAnimationUtil = VectorAnimationUtil.getInstance();
+    this.randomRotationFactory = RandomRotationFactory.getInstance();
+        }
     
 
-    let size: number = list.size()!;;
+    public static function getInstance():VectorExplosionGenerator {
+        return VectorExplosionGenerator.instance;
+    }
     
 
-    let points: number[][] = new Array(size).fill(null).map(() => new Array(2).fill(0));;
+    public function VectorExplosionGenerator() {
+        super();
+        this.initFieldsVectorExplosionGenerator();
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-point= list.objectArray[index]! as GPoint;
-    
-points[index]![0]= point.getX();
-    
-points[index]![1]= point.getY();
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.createListFromPoints(list, points, howMuch, type);;
-    
-}
-
-getInstance(...args: any[]): any {
-   
-   
-    if (args.length === 3 && typeof args[1] === 'number') return this.getInstance$overload2(args[0], args[1], args[2]);
-   
-   throw new TypeError('No matching overload: getInstance'); }
-  
-                //@Throws(Exception.constructor)
-            
-    public getInstance$overload2(points: number[][], howMuch: number, type: VectorExplosionType): number[][][]{
-
-    let pointsBasicArrayList: BasicArrayList = this.getInstanceStartFrame(points, howMuch, type, true)!;;
+    public function createList(list:BasicArrayList, howMuch:int, type:VectorExplosionType):BasicArrayList {
+        var point:GPoint = null;
+        var size:int = list.size();
+        var points:Vector.<Vector.<int>> = (function():Vector.<Vector.<int>> { var array:Vector.<Vector.<int>> = new Vector.<Vector.<int>>(size); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<int>(2); } return array; })();
+        for (var index:int = 0; index < size; index++) {
+            point = (list.objectArray[index] as GPoint);
+            points[index][0] = point.getX();
+            points[index][1] = point.getY();
+        }
+        return this.createListFromPoints(list, points, howMuch, type);
+    }
     
 
-    let tempBasicArrayList: BasicArrayList = pointsBasicArrayList!.objectArray[0]! as BasicArrayList;;
+    public function getInstance3(points:Vector.<Vector.<int>>, howMuch:int, type:VectorExplosionType):Vector.<Vector.<Vector.<int>>> {
+        var pointsBasicArrayList:BasicArrayList = this.getInstanceStartFrame(points, howMuch, type, true);
+        var tempBasicArrayList:BasicArrayList = (pointsBasicArrayList.objectArray[0] as BasicArrayList);
+        var newPoints:Vector.<Vector.<Vector.<int>>> = this.vectorAnimationUtil.toAnimationArrayFromListOfPointListWithPointsPerFrame(pointsBasicArrayList, tempBasicArrayList.size());
+        return newPoints;
+    }
     
 
-    let newPoints: number[][][] = this.vectorAnimationUtil!.toAnimationArrayFromListOfPointListWithPointsPerFrame(pointsBasicArrayList, tempBasicArrayList!.size())!;;
+    public function getInstanceStartFrame(points:Vector.<Vector.<int>>, howMuch:int, type:VectorExplosionType, startFrame:Boolean):BasicArrayList {
+        try {
+            var pointsBasicArrayList:BasicArrayList = new BasicArrayListS(howMuch);
+            pointsBasicArrayList.add(this.createPointsBasicArrayList(points));
+            var frameIndex:int = 0;
+            var tempBasicArrayList:BasicArrayList = null;
+            var pointBasicArrayList:BasicArrayList = null;
+            while (frameIndex < howMuch) {
+                tempBasicArrayList = (pointsBasicArrayList.objectArray[frameIndex] as BasicArrayList);
+                pointBasicArrayList = this.createListFromPoints(tempBasicArrayList, points, howMuch, type);
+                pointsBasicArrayList.add(pointBasicArrayList);
+                frameIndex++;
+            }
+            if (!startFrame) {
+                pointsBasicArrayList.removeAt(0);
+            }
+            return pointsBasicArrayList;
+        } catch (e:*) {
+            throw e;
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return newPoints;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceStartFrame(points: number[][], howMuch: number, type: VectorExplosionType, startFrame: boolean): BasicArrayList{
-
- try { 
-    let pointsBasicArrayList: BasicArrayList = new BasicArrayListS(howMuch);;
-    
-pointsBasicArrayList!.add(this.createPointsBasicArrayList(points));
-    
-
-    let frameIndex: number = 0;;
-    
-
-    let tempBasicArrayList: BasicArrayList;;
-    
-
-    let pointBasicArrayList: BasicArrayList;;
-    
-
-        while(frameIndex < howMuch)
-        {
-tempBasicArrayList= pointsBasicArrayList!.objectArray[frameIndex]! as BasicArrayList;
-    
-pointBasicArrayList= this.createListFromPoints(tempBasicArrayList, points, howMuch, type);
-    
-pointsBasicArrayList!.add(pointBasicArrayList);
-    
-frameIndex++;
-    
-}
-
-
-                        if(!startFrame)
-                        
-                                    {
-                                    pointsBasicArrayList!.removeAt(0);
+    private function createListFromPoints(tempBasicArrayList:BasicArrayList, points:Vector.<Vector.<int>>, howMuch:int, type:VectorExplosionType):BasicArrayList {
+        var index:int = 0;
+        var pointBasicArrayList:BasicArrayList = new BasicArrayListD();
+        var sectionBasicArrayList:BasicArrayList = null;
+        while (index < points.length) {
+            sectionBasicArrayList = new BasicArrayListD();
+            while (points[index][0] != 1000) {
+                sectionBasicArrayList.add(tempBasicArrayList.objectArray[index]);
+                index++;
+                if (index >= points.length) {
+                    break;
+                }
+            }
+            sectionBasicArrayList = RandomTranslation.getInstance2(sectionBasicArrayList, howMuch);
+            if (type === this.ROTATION) {
+                sectionBasicArrayList = this.randomRotationFactory.getInstanceList(sectionBasicArrayList, howMuch);
+            }
+            var size:int = sectionBasicArrayList.size();
+            for (var index2:int = 0; index2 < size; index2++) {
+                pointBasicArrayList.add(sectionBasicArrayList.objectArray[index2]);
+            }
+            if (index >= points.length) {
+                break;
+            } else if (points[index][0] == 1000) {
+                pointBasicArrayList.add(tempBasicArrayList.objectArray[index]);
+                index++;
+            }
+        }
+        return pointBasicArrayList;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return pointsBasicArrayList;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-
-
-                            throw e;
-                    
-
- }
-   }
- 
-}
-
-
-    private readonly randomRotationFactory: RandomRotationFactory = RandomRotationFactory.getInstance()!;
-
-                //@Throws(Exception.constructor)
-            
-    createListFromPoints(tempBasicArrayList: BasicArrayList, points: number[][], howMuch: number, type: VectorExplosionType): BasicArrayList{
-
-    let index: number = 0;;
-    
-
-    let pointBasicArrayList: BasicArrayList = new BasicArrayListD();;
-    
-
-    let sectionBasicArrayList: BasicArrayList;;
-    
-
-        while(index < points.length)
-        {
-sectionBasicArrayList= new BasicArrayListD();
-    
-
-        while(points[index]![0] != 1000)
-        {
-sectionBasicArrayList!.add(tempBasicArrayList!.objectArray[index]!);
-    
-index++;
-    
-
-                        if(index >= points.length)
-                        
-                                    {
-                                    break;
-
-                    
-
-                                    }
-                                
-}
-
-sectionBasicArrayList= RandomTranslation.getInstance(sectionBasicArrayList, howMuch);
-    
-
-                        if(type == this.ROTATION)
-                        
-                                    {
-                                    sectionBasicArrayList= this.randomRotationFactory!.getInstanceList(sectionBasicArrayList, howMuch);
-    
-
-                                    }
-                                
-
-    let size: number = sectionBasicArrayList!.size()!;;
-    
-
-
-
-
-                        for (
-    let index2: number = 0;index2 < size; index2++)
-        {
-pointBasicArrayList!.add(sectionBasicArrayList!.objectArray[index2]!);
-    
-}
-
-
-                        if(index >= points.length)
-                        
-                                    {
-                                    break;
-
-                    
-
-                                    }
-                                
-                             else 
-                        if(points[index]![0] == 1000)
-                        
-                                    {
-                                    pointBasicArrayList!.add(tempBasicArrayList!.objectArray[index]!);
-    
-index++;
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return pointBasicArrayList;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    createPointsBasicArrayList(points: number[][]): BasicArrayList{
-
-                        if(points.length == 0)
-                        
-                                    {
-                                    
-
-
-                            throw new Exception("Not Points Provided");
-                    
-
-                                    }
-                                
-
-    let firstPointBasicArrayList: BasicArrayList = new BasicArrayListS(points.length);;
-    
-
-    let pointFactory: PointFactory = PointFactory.getInstance()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < points.length; index++)
-        {
-firstPointBasicArrayList!.add(pointFactory!.createXY(points[index]![0]!, points[index]![1]!));
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return firstPointBasicArrayList;
-    
-}
-
-
+    private function createPointsBasicArrayList(points:Vector.<Vector.<int>>):BasicArrayList {
+        if (points.length == 0) {
+            throw new JException("Exception", "Not Points Provided");
+        }
+        var firstPointBasicArrayList:BasicArrayList = new BasicArrayListS(points.length);
+        var pointFactory:PointFactory = PointFactory.getInstance();
+        for (var index:int = 0; index < points.length; index++) {
+            firstPointBasicArrayList.add(pointFactory.createXY(points[index][0], points[index][1]));
+        }
+        return firstPointBasicArrayList;
+    }
+    }
 }
 

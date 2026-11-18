@@ -1,244 +1,121 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score {
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.color.ColorChangeEvent;
+    import org.allbinary.graphics.color.ColorChangeListener;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.font.UpdateMyFontProcessor;
+    import org.allbinary.graphics.paint.Paintable;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class HighScoresPaintable extends Paintable implements ColorChangeListener, UpdateMyFontInterface {
+        private var displayInfoSingleton:DisplayInfoSingleton = null;
+        private var myFontProcessor:MyFontProcessor = null;
+        private var basicColor:BasicColor = null;
+        private var highScores:HighScores = null;
+        private var anchor:int = 0;
+        private var charHeight:int = 0;
 
-        
-
-
-import { Font } from '../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { ColorChangeEvent } from '../../../../org/allbinary/graphics/color/ColorChangeEvent.js';
-//not GWT import const ColorChangeEvent
-
-import { ColorChangeListener } from '../../../../org/allbinary/graphics/color/ColorChangeListener.js';
-//not GWT import const ColorChangeListener
-
-import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { MyFontProcessor } from '../../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { UpdateMyFontInterface } from '../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { UpdateMyFontProcessor } from '../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
-//not GWT import const UpdateMyFontProcessor
-
-import { Paintable } from '../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { NullHighScoresSingletonFactory } from './NullHighScoresSingletonFactory.js';
-//sameFolderImports - not GWT import - same folder const NullHighScoresSingletonFactory
-import { HighScores } from './HighScores.js';
-//sameFolderImports - not GWT import - same folder const HighScores
-import { HighScore } from './HighScore.js';
-//sameFolderImports - not GWT import - same folder const HighScore
-
-export class HighScoresPaintable extends Paintable implements ColorChangeListener, UpdateMyFontInterface {
-        
-
-    private readonly displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
-
-    private myFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
-
-    private basicColor: BasicColor = BasicColorFactory.getInstance()!.WHITE;
-
-    private highScores: HighScores = NullHighScoresSingletonFactory.getInstance()!;
-
-    private anchor: number = Anchor.TOP_LEFT;
-
-    private charHeight: number= 0;
-
-public constructor (){
-
-            super();
+        // Java field initializers run after the base constructor
+        private function initFieldsHighScoresPaintable():void {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
+    this.basicColor = BasicColorFactory.getInstance().WHITE;
+    this.highScores = NullHighScoresSingletonFactory.getInstance();
+    this.anchor = Anchor.TOP_LEFT;
+    this.charHeight = 0;
         }
-
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
-    
-this.charHeight= font.getHeight();
-    
-this.myFontProcessor= MyFontProcessor.getInstance();
-    
-}
-
-
-    public onEvent(eventObject: AllBinaryEventObject){
-
-    let colorChangeEvent: ColorChangeEvent = eventObject as ColorChangeEvent;;
-    
-this.basicColor= colorChangeEvent!.getBasicColorP();
-    
-}
-
-
-    public paint(graphics: Graphics){
-this.myFontProcessor!.process(graphics);
     
 
-    let width: number = this.displayInfoSingleton!.getLastWidth()!;;
+    public function HighScoresPaintable() {
+        super();
+        this.initFieldsHighScoresPaintable();
+    }
     
 
-    let height: number = this.displayInfoSingleton!.getLastHeight()!;;
-    
-graphics.setColor(this.getBasicColorP()!.intValue());
-    
-
-    let heading: string = this.highScores!.getHeading()!;;
-    
-
-    let topScoresWidth: number = (graphics.getFont()!.stringWidth(heading)>>1);;
+    public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        this.charHeight = font.getHeight();
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
     
 
-    let charHeight: number = this.charHeight;;
-    
-graphics.drawString(heading, (width>>1) -topScoresWidth, charHeight, this.anchor);
-    
-graphics.drawString(this.highScores!.getColumnOneHeading(), 10, charHeight *3, this.anchor);
-    
-
-    let columnTwoHeading: string = this.highScores!.getColumnTwoHeading()!;;
+    public function onEvent(eventObject:AllBinaryEventObject):void {
+        var colorChangeEvent:ColorChangeEvent = (eventObject as ColorChangeEvent);
+        this.basicColor = colorChangeEvent.getBasicColorP();
+    }
     
 
-    let columnTwoHeadingWidth: number = graphics.getFont()!.stringWidth(columnTwoHeading)!;;
-    
-graphics.drawString(columnTwoHeading, width -10 -columnTwoHeadingWidth, charHeight *3, this.anchor);
-    
-
-    let index: number = 4;;
-    
-
-    let largestSecondColumnWidth: number = columnTwoHeadingWidth;;
-    
-
-    let list: BasicArrayList = this.highScores!.getList()!;;
-    
-
-    let size: number = list.size()!;;
-    
-
-    let vectorIndex: number = 0;;
-    
-
-    let highScore: HighScore;;
-    
-
-        while(vectorIndex < size && charHeight *index < height -(charHeight *2))
-        {
-highScore= list.objectArray[vectorIndex]! as HighScore;
-    
-
-    let nextScoreWidth: number = graphics.getFont()!.stringWidth(highScore!.getScoreString())!;;
-    
-
-                        if(nextScoreWidth > largestSecondColumnWidth)
-                        
-                                    {
-                                    largestSecondColumnWidth= nextScoreWidth;
-    
-
-                                    }
-                                
-vectorIndex++;
-    
-}
-
-vectorIndex= 0;
+    override public function paint(graphics:Graphics):void {
+        this.myFontProcessor.process(graphics);
+        var width:int = this.displayInfoSingleton.getLastWidth();
+        var height:int = this.displayInfoSingleton.getLastHeight();
+        graphics.setColor(this.getBasicColorP().intValue());
+        var heading:String = this.highScores.getHeading();
+        var topScoresWidth:int = (graphics.getFont().stringWidth(heading) >> 1);
+        var charHeight:int = this.charHeight;
+        graphics.drawString(heading, int((width >> 1) - topScoresWidth), charHeight, this.anchor);
+        graphics.drawString(this.highScores.getColumnOneHeading(), 10, int(charHeight * 3), this.anchor);
+        var columnTwoHeading:String = this.highScores.getColumnTwoHeading();
+        var columnTwoHeadingWidth:int = graphics.getFont().stringWidth(columnTwoHeading);
+        graphics.drawString(columnTwoHeading, int(int(width - 10) - columnTwoHeadingWidth), int(charHeight * 3), this.anchor);
+        var index:int = 4;
+        var largestSecondColumnWidth:int = columnTwoHeadingWidth;
+        var list:BasicArrayList = this.highScores.getList();
+        var size:int = list.size();
+        var vectorIndex:int = 0;
+        var highScore:HighScore = null;
+        while (vectorIndex < size && int(charHeight * index) < int(height - (int(charHeight * 2)))) {
+            highScore = (list.objectArray[vectorIndex] as HighScore);
+            var nextScoreWidth:int = graphics.getFont().stringWidth(highScore.getScoreString());
+            if (nextScoreWidth > largestSecondColumnWidth) {
+                largestSecondColumnWidth = nextScoreWidth;
+            }
+            vectorIndex++;
+        }
+        vectorIndex = 0;
+        while (vectorIndex < size && int(charHeight * index) < int(height - (int(charHeight * 2)))) {
+            highScore = (list.objectArray[vectorIndex] as HighScore);
+            graphics.drawString(highScore.getName(), 10, int(charHeight * index), this.anchor);
+            graphics.drawString(highScore.getScoreString(), int(int(width - 10) - largestSecondColumnWidth), int(charHeight * index), this.anchor);
+            index++;
+            vectorIndex++;
+        }
+    }
     
 
-        while(vectorIndex < size && charHeight *index < height -(charHeight *2))
-        {
-highScore= list.objectArray[vectorIndex]! as HighScore;
+    override public function setBasicColorP(basicColor:BasicColor):void {
+        this.basicColor = basicColor;
+    }
     
-graphics.drawString(highScore!.getName(), 10, charHeight *index, this.anchor);
+
+    public function getBasicColorP():BasicColor {
+        return this.basicColor;
+    }
     
-graphics.drawString(highScore!.getScoreString(), width -10 -largestSecondColumnWidth, charHeight *index, this.anchor);
-    
-index++;
-    
-vectorIndex++;
-    
-}
 
-}
-
-
-    public setBasicColorP(basicColor: BasicColor){
-this.basicColor= basicColor;
-    
-}
-
-
-    public getBasicColorP(): BasicColor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicColor;
-    
-}
-
-
-    public setHighScores(highScores: HighScores){
-this.highScores= highScores;
-    
-}
-
-
+    public function setHighScores(highScores:HighScores):void {
+        this.highScores = highScores;
+    }
+    }
 }
 

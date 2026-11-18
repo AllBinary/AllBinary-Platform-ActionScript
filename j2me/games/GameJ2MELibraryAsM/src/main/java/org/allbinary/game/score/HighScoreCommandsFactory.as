@@ -1,74 +1,40 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { Command } from '../../../../javax/microedition/lcdui/Command.js';
-//not GWT import const Command
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { HighScoreCommandsBaseFactory } from './HighScoreCommandsBaseFactory.js';
-//sameFolderImports - not GWT import - same folder const HighScoreCommandsBaseFactory
-import { HighScoreCommands } from './HighScoreCommands.js';
-//sameFolderImports - not GWT import - same folder const HighScoreCommands
-
-export class HighScoreCommandsFactory extends HighScoreCommandsBaseFactory {
-        
-
-    private static readonly instance: HighScoreCommandsFactory = new HighScoreCommandsFactory();
-
-    public static getInstance(): HighScoreCommandsFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return HighScoreCommandsFactory.instance;
+    public class HighScoreCommandsFactory extends HighScoreCommandsBaseFactory {
+    private static var instance_value:HighScoreCommandsFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():HighScoreCommandsFactory {
+        if (!HighScoreCommandsFactory.instance_set) {
+            HighScoreCommandsFactory.instance_set = true;
+            HighScoreCommandsFactory.instance_value = new HighScoreCommandsFactory();
+        }
+        return HighScoreCommandsFactory.instance_value;
+    }
     
-}
 
+    public static function getInstance():HighScoreCommandsFactory {
+        return HighScoreCommandsFactory.instance;
+    }
+    
 
-private constructor (){
-            super([
-HighScoreCommands.getInstance()!.PERSONAL,HighScoreCommands.getInstance()!.WORLD
-                                                ]);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
+    public function HighScoreCommandsFactory() {
+        super(new <Command>[HighScoreCommands.getInstance().PERSONAL, HighScoreCommands.getInstance().WORLD]);
+    }
+    }
 }
 

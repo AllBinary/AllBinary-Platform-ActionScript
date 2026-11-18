@@ -1,99 +1,51 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.visual.dhtml.html.head.meta {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class HtmlMetaAttributeData {
+        private var id:int = 0;
+        private var name:String = null;
 
-        
-
-
-            import { Object } from '../../../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class HtmlMetaAttributeData
-            extends Object
-         {
-        
-
-    private id: number;
-
-    private name: string;
-
-public constructor (id: number, value: string){
-
-            super();
-        this.name= value;
+        // Java field initializers run after the base constructor
+        private function initFieldsHtmlMetaAttributeData():void {
     
-this.id= id;
     
-}
-
-
-    public equals(htmlMetaAttributeData: HtmlMetaAttributeData): boolean{
-
-                        if(htmlMetaAttributeData!.id == this.id)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+        }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function HtmlMetaAttributeData(id:int, value:String) {
+        super();
+        this.initFieldsHtmlMetaAttributeData();
+        this.name = value;
+        this.id = id;
+    }
     
 
-                        }
-                            
-}
-
-
-    public toString(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.name;
+    public function equals(htmlMetaAttributeData:HtmlMetaAttributeData):Boolean {
+        if (htmlMetaAttributeData.id == this.id) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
-}
 
-
+    public function toString():String {
+        return this.name;
+    }
+    }
 }
 

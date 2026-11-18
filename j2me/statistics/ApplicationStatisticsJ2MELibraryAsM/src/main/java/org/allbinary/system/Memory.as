@@ -24,9 +24,9 @@ package org.allbinary.system {
     public static function getInfo():String {
         var stringBuffer:StringMaker = new StringMaker();
         stringBuffer.append("Memory: Free: ");
-        stringBuffer.appendlong(Number(JRuntime.getRuntime().freeMemory()));
+        stringBuffer.appendlong(JRuntime.getRuntime().freeMemory());
         stringBuffer.append(" Total: ");
-        stringBuffer.appendlong(Number(JRuntime.getRuntime().totalMemory()));
+        stringBuffer.appendlong(JRuntime.getRuntime().totalMemory());
         return stringBuffer.toString();
     }
     }

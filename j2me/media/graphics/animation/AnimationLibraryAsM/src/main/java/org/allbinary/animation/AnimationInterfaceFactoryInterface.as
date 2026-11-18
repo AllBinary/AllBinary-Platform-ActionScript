@@ -1,59 +1,28 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.media.ScaleProperties;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface AnimationInterfaceFactoryInterface extends BasicAnimationInterfaceFactoryInterface {
+    
 
-        
+    function getInstance1(instanceId:int):Animation;
+    
 
-
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { ScaleProperties } from '../../../org/allbinary/media/ScaleProperties.js';
-//not GWT import const ScaleProperties
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicAnimationInterfaceFactoryInterface } from './BasicAnimationInterfaceFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const BasicAnimationInterfaceFactoryInterface
-import { Animation } from './Animation.js';
-//sameFolderImports - not GWT import - same folder const Animation
-
-export interface AnimationInterfaceFactoryInterface extends BasicAnimationInterfaceFactoryInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    getInstance(instanceId: number): Animation;
-
-    setInitialScale(scaleProperties: ScaleProperties): void;
-
+    function setInitialScale(scaleProperties:ScaleProperties):void;
+    }
 }
 

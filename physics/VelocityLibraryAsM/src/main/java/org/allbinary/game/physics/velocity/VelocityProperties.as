@@ -1,302 +1,177 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.physics.velocity {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class VelocityProperties extends BasicVelocityProperties implements VelocityInterface {
+    private static var NULL_VELOCITY_PROPERTIES_value:VelocityProperties;
+    private static var NULL_VELOCITY_PROPERTIES_set:Boolean = false;
+    public static function get NULL_VELOCITY_PROPERTIES():VelocityProperties {
+        if (!VelocityProperties.NULL_VELOCITY_PROPERTIES_set) {
+            VelocityProperties.NULL_VELOCITY_PROPERTIES_set = true;
+            VelocityProperties.NULL_VELOCITY_PROPERTIES_value = new VelocityProperties(0, 0);
+        }
+        return VelocityProperties.NULL_VELOCITY_PROPERTIES_value;
+    }
+        private var maxForwardVelocity:int = 0;
+        private var maxReverseVelocity:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsVelocityProperties():void {
+    this.maxForwardVelocity = 0;
+    this.maxReverseVelocity = 0;
+        }
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicVelocityProperties } from './BasicVelocityProperties.js';
-//sameFolderImports - not GWT import - same folder const BasicVelocityProperties
-import { VelocityInterface } from './VelocityInterface.js';
-//sameFolderImports - not GWT import - same folder const VelocityInterface
-
-export class VelocityProperties extends BasicVelocityProperties implements VelocityInterface {
-        
-
-    public static readonly NULL_VELOCITY_PROPERTIES: VelocityProperties = new VelocityProperties(0, 0);
-
-    private maxForwardVelocity: number= 0;
-
-    private maxReverseVelocity: number= 0;
-
-public constructor (maxForwardVelocity: number, maxReverseVelocity: number){
-
-            super();
+    public function VelocityProperties(maxForwardVelocity:int, maxReverseVelocity:int) {
+        super();
+        this.initFieldsVelocityProperties();
         this.setMaxForwardVelocity(maxForwardVelocity);
-    
-this.setMaxReverseVelocity(maxReverseVelocity);
-    
-}
-
-
-    public getMaxForwardVelocity(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.maxForwardVelocity;
-    
-}
-
-
-    public setMaxForwardVelocity(maxForwardVelocity: number){
-this.maxForwardVelocity= maxForwardVelocity;
-    
-}
-
-
-    public getMaxReverseVelocity(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.maxReverseVelocity;
-    
-}
-
-
-    public setMaxReverseVelocity(maxReverseVelocity: number){
-this.maxReverseVelocity= maxReverseVelocity;
-    
-}
-
-
-    public limitMaxXYForwardVelocity(){
-this.limitMaxXYVelocity(this.getMaxForwardVelocity());
-    
-}
-
-
-    public limitMaxXYReverseVelocity(){
-this.limitMaxXYVelocity(this.getMaxReverseVelocity());
-    
-}
-
-
-    public limitMaxYForwardVelocity(){
-this.limitMaxYVelocity(this.getMaxForwardVelocity());
-    
-}
-
-
-    public limitMaxYReverseVelocity(){
-this.limitMaxYVelocity(this.getMaxReverseVelocity());
-    
-}
-
-
-    public limitMaxXForwardVelocity(){
-this.limitMaxXVelocity(this.getMaxForwardVelocity());
-    
-}
-
-
-    public limitMaxXReverseVelocity(){
-this.limitMaxXVelocity(this.getMaxReverseVelocity());
-    
-}
-
-
-    public isOverXYMaxForwardVelocity(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.isOverXYMaxVelocity(this.getMaxForwardVelocity());;
-    
-}
-
-
-    public isOverXYMaxReverseVelocity(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.isOverXYMaxVelocity(this.getMaxReverseVelocity());;
-    
-}
-
-
-    public limitXYToForwardAndReverseMaxVelocity(){
-this.limitMaxXYForwardVelocity();
-    
-this.limitMaxXYReverseVelocity();
-    
-}
-
-
-    public limitMaxXYVelocity(maxVelocity: number){
-this.limitMaxXVelocity(maxVelocity);
-    
-this.limitMaxYVelocity(maxVelocity);
-    
-}
-
-
-    public limitMaxPositiveYVelocity(maxVelocity: number){
-
-                        if(this.velocityYBasicDecimal!.getUnscaled() > maxVelocity)
-                        
-                                    {
-                                    this.velocityYBasicDecimal!.setint(maxVelocity);
+        this.setMaxReverseVelocity(maxReverseVelocity);
+    }
     
 
-                                    }
-                                
-}
-
-
-    public limitMaxNegativeYVelocity(maxVelocity: number){
-
-                        if(this.velocityYBasicDecimal!.getUnscaled() <  -maxVelocity)
-                        
-                                    {
-                                    this.velocityYBasicDecimal!.setint( -maxVelocity);
+    public function getMaxForwardVelocity():int {
+        return this.maxForwardVelocity;
+    }
     
 
-                                    }
-                                
-}
-
-
-    public limitMaxYVelocity(maxVelocity: number){
-this.limitMaxPositiveYVelocity(maxVelocity);
-    
-this.limitMaxNegativeYVelocity(maxVelocity);
-    
-}
-
-
-    public limitMaxXVelocity(maxVelocity: number){
-
-                        if(this.velocityXBasicDecimal!.getUnscaled() > maxVelocity)
-                        
-                                    {
-                                    this.velocityXBasicDecimal!.setint(maxVelocity);
+    public function setMaxForwardVelocity(maxForwardVelocity:int):void {
+        this.maxForwardVelocity = maxForwardVelocity;
+    }
     
 
-                                    }
-                                
-
-                        if(this.velocityXBasicDecimal!.getUnscaled() <  -maxVelocity)
-                        
-                                    {
-                                    this.velocityXBasicDecimal!.setint( -maxVelocity);
+    public function getMaxReverseVelocity():int {
+        return this.maxReverseVelocity;
+    }
     
 
-                                    }
-                                
-}
-
-
-    public isOverXYMaxVelocity(maxVelocity: number): boolean{
-
-                        if(this.velocityXBasicDecimal!.getUnscaled() > maxVelocity)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function setMaxReverseVelocity(maxReverseVelocity:int):void {
+        this.maxReverseVelocity = maxReverseVelocity;
+    }
     
 
-                                    }
-                                
-
-                        if(this.velocityXBasicDecimal!.getUnscaled() <  -maxVelocity)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function limitMaxXYForwardVelocity():void {
+        this.limitMaxXYVelocity(this.getMaxForwardVelocity());
+    }
     
 
-                                    }
-                                
-
-                        if(this.velocityYBasicDecimal!.getUnscaled() > maxVelocity)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function limitMaxXYReverseVelocity():void {
+        this.limitMaxXYVelocity(this.getMaxReverseVelocity());
+    }
     
 
-                                    }
-                                
-
-                        if(this.velocityYBasicDecimal!.getUnscaled() <  -maxVelocity)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function limitMaxYForwardVelocity():void {
+        this.limitMaxYVelocity(this.getMaxForwardVelocity());
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function limitMaxYReverseVelocity():void {
+        this.limitMaxYVelocity(this.getMaxReverseVelocity());
+    }
     
-}
 
-
-    public setVelocityi(magnitude: number, angle: number, otherAngle: number){
-super.setVelocityi(magnitude, angle, otherAngle);
+    public function limitMaxXForwardVelocity():void {
+        this.limitMaxXVelocity(this.getMaxForwardVelocity());
+    }
     
-this.limitXYToForwardAndReverseMaxVelocity();
+
+    public function limitMaxXReverseVelocity():void {
+        this.limitMaxXVelocity(this.getMaxReverseVelocity());
+    }
     
-}
 
-
-    public addVelocityi(magnitude: number, angle: number, otherAngle: number){
-super.addVelocityi(magnitude, angle, otherAngle);
+    public function isOverXYMaxForwardVelocity():Boolean {
+        return this.isOverXYMaxVelocity(this.getMaxForwardVelocity());
+    }
     
-this.limitXYToForwardAndReverseMaxVelocity();
+
+    public function isOverXYMaxReverseVelocity():Boolean {
+        return this.isOverXYMaxVelocity(this.getMaxReverseVelocity());
+    }
     
-}
 
+    public function limitXYToForwardAndReverseMaxVelocity():void {
+        this.limitMaxXYForwardVelocity();
+        this.limitMaxXYReverseVelocity();
+    }
+    
 
+    public function limitMaxXYVelocity(maxVelocity:int):void {
+        this.limitMaxXVelocity(maxVelocity);
+        this.limitMaxYVelocity(maxVelocity);
+    }
+    
+
+    public function limitMaxPositiveYVelocity(maxVelocity:int):void {
+        if (this.velocityYBasicDecimal.getUnscaled() > Number(maxVelocity)) {
+            this.velocityYBasicDecimal.setint(maxVelocity);
+        }
+    }
+    
+
+    public function limitMaxNegativeYVelocity(maxVelocity:int):void {
+        if (this.velocityYBasicDecimal.getUnscaled() < Number(-maxVelocity)) {
+            this.velocityYBasicDecimal.setint(-maxVelocity);
+        }
+    }
+    
+
+    public function limitMaxYVelocity(maxVelocity:int):void {
+        this.limitMaxPositiveYVelocity(maxVelocity);
+        this.limitMaxNegativeYVelocity(maxVelocity);
+    }
+    
+
+    public function limitMaxXVelocity(maxVelocity:int):void {
+        if (this.velocityXBasicDecimal.getUnscaled() > Number(maxVelocity)) {
+            this.velocityXBasicDecimal.setint(maxVelocity);
+        }
+        if (this.velocityXBasicDecimal.getUnscaled() < Number(-maxVelocity)) {
+            this.velocityXBasicDecimal.setint(-maxVelocity);
+        }
+    }
+    
+
+    public function isOverXYMaxVelocity(maxVelocity:int):Boolean {
+        if (this.velocityXBasicDecimal.getUnscaled() > Number(maxVelocity)) {
+            return true;
+        }
+        if (this.velocityXBasicDecimal.getUnscaled() < Number(-maxVelocity)) {
+            return true;
+        }
+        if (this.velocityYBasicDecimal.getUnscaled() > Number(maxVelocity)) {
+            return true;
+        }
+        if (this.velocityYBasicDecimal.getUnscaled() < Number(-maxVelocity)) {
+            return true;
+        }
+        return false;
+    }
+    
+
+    override public function setVelocityi(magnitude:Number, angle:int, otherAngle:int):void {
+        super.setVelocityi(magnitude, angle, otherAngle);
+        this.limitXYToForwardAndReverseMaxVelocity();
+    }
+    
+
+    override public function addVelocityi(magnitude:Number, angle:int, otherAngle:int):void {
+        super.addVelocityi(magnitude, angle, otherAngle);
+        this.limitXYToForwardAndReverseMaxVelocity();
+    }
+    }
 }
 

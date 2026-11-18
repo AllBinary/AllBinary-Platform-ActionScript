@@ -1,233 +1,84 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.java.array {
+    import org.allbinary.logic.string.StringMaker;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class IntArrayUtil
-            extends Object
-         {
-        
-static toString(...args: any[]): any {
-   
-   
-    if (args.length === 1) return this.toString$overload1(args[0]);
-   
-    if (args.length === 1) return this.toString$overload2(args[0]);
-   
-    if (args.length === 1) return this.toString$overload3(args[0]);
-   
-   throw new TypeError('No matching overload: toString'); }
-  
-    public static toString$overload1(array: number[]): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
+    public class IntArrayUtil {
     
 
-
-
-
-                        for (
-    let index: number = 0;index < array.length; index++)
-        {
-stringBuffer!.appendint(array[index]!);
+    public function IntArrayUtil() {
+        super();
+    }
     
 
-                        if(index < array.length)
-                        
-                                    {
-                                    stringBuffer!.append(", ");
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
-    
-}
-
-
-    public static toString$overload2(array: number[][]): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < array.length; index++)
-        {
-stringBuffer!.append("{");
-    
-
-
-
-
-                        for (
-    let index2: number = 0;index2 < array[index]!.length; index2++)
-        {
-stringBuffer!.appendint(array[index]![index2]!);
-    
-
-                        if(index2 < array[index]!.length -1)
-                        
-                                    {
-                                    stringBuffer!.append(", ");
-    
-
-                                    }
-                                
-}
-
-stringBuffer!.append("}");
-    
-
-                        if(index < array.length -1)
-                        
-                                    {
-                                    stringBuffer!.append(", \n");
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
-    
-}
-
-
-    public static toString$overload3(array: number[][][]): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < array.length; index++)
-        {
-stringBuffer!.append("{");
-    
-
-
-
-
-                        for (
-    let index2: number = 0;index2 < array[index]!.length; index2++)
-        {
-stringBuffer!.append("{");
-    
-
-
-
-
-                        for (
-    let index3: number = 0;index3 < array[index]![index2]!.length; index3++)
-        {
-stringBuffer!.appendint(array[index]![index2]![index3]!);
-    
-
-                        if(index3 < array[index]![index2]!.length -1)
-                        
-                                    {
-                                    stringBuffer!.append(", ");
-    
-
-                                    }
-                                
-}
-
-stringBuffer!.append("}");
-    
-
-                        if(index2 < array[index]!.length -1)
-                        
-                                    {
-                                    stringBuffer!.append(", ");
-    
-
-                                    }
-                                
-}
-
-stringBuffer!.append("}");
-    
-
-                        if(index < array.length -1)
-                        
-                                    {
-                                    stringBuffer!.append(", \n");
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public static function toString1(array:Vector.<int>):String {
+        var stringBuffer:StringMaker = new StringMaker();
+        for (var index:int = 0; index < array.length; index++) {
+            stringBuffer.appendint(array[index]);
+            if (index < array.length) {
+                stringBuffer.append(", ");
+            }
         }
+        return stringBuffer.toString();
+    }
+    
 
+    public static function toString1(array:Vector.<Vector.<int>>):String {
+        var stringBuffer:StringMaker = new StringMaker();
+        for (var index:int = 0; index < array.length; index++) {
+            stringBuffer.append("{");
+            for (var index2:int = 0; index2 < array[index].length; index2++) {
+                stringBuffer.appendint(array[index][index2]);
+                if (index2 < int(array[index].length - 1)) {
+                    stringBuffer.append(", ");
+                }
+            }
+            stringBuffer.append("}");
+            if (index < int(array.length - 1)) {
+                stringBuffer.append(", \n");
+            }
+        }
+        return stringBuffer.toString();
+    }
+    
 
+    public static function toString1(array:Vector.<Vector.<Vector.<int>>>):String {
+        var stringBuffer:StringMaker = new StringMaker();
+        for (var index:int = 0; index < array.length; index++) {
+            stringBuffer.append("{");
+            for (var index2:int = 0; index2 < array[index].length; index2++) {
+                stringBuffer.append("{");
+                for (var index3:int = 0; index3 < array[index][index2].length; index3++) {
+                    stringBuffer.appendint(array[index][index2][index3]);
+                    if (index3 < int(array[index][index2].length - 1)) {
+                        stringBuffer.append(", ");
+                    }
+                }
+                stringBuffer.append("}");
+                if (index2 < int(array[index].length - 1)) {
+                    stringBuffer.append(", ");
+                }
+            }
+            stringBuffer.append("}");
+            if (index < int(array.length - 1)) {
+                stringBuffer.append(", \n");
+            }
+        }
+        return stringBuffer.toString();
+    }
+    }
 }
 

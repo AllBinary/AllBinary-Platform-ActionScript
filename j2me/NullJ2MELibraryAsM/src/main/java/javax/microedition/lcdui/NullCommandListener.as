@@ -1,46 +1,20 @@
+// Generated Code Do Not Modify
+package javax.microedition.lcdui {
 
-        /* Generated Code Do Not Modify */
+    public class NullCommandListener implements CommandListener {
+    private static var NULL_COMMAND_LISTENER_value:NullCommandListener;
+    private static var NULL_COMMAND_LISTENER_set:Boolean = false;
+    public static function get NULL_COMMAND_LISTENER():NullCommandListener {
+        if (!NullCommandListener.NULL_COMMAND_LISTENER_set) {
+            NullCommandListener.NULL_COMMAND_LISTENER_set = true;
+            NullCommandListener.NULL_COMMAND_LISTENER_value = new NullCommandListener();
+        }
+        return NullCommandListener.NULL_COMMAND_LISTENER_value;
+    }
+    
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CommandListener } from './CommandListener.js';
-//sameFolderImports - not GWT import - same folder const CommandListener
-import { Command } from './Command.js';
-//sameFolderImports - not GWT import - same folder const Command
-import { Displayable } from './Displayable.js';
-//sameFolderImports - not GWT import - same folder const Displayable
-
-export class NullCommandListener
-            extends Object
-         implements CommandListener {
-        
-
-    public static readonly NULL_COMMAND_LISTENER: NullCommandListener = new NullCommandListener();
-
-    public commandAction(c: Command, d: Displayable){
-}
-
-
+    public function commandAction(c:Command, d:Displayable):void {
+    }
+    }
 }
 

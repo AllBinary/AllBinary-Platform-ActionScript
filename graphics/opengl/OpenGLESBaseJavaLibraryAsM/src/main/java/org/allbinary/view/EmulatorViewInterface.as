@@ -1,42 +1,16 @@
+// Generated Code Do Not Modify
+package org.allbinary.view {
 
-        /* Generated Code Do Not Modify */
+    public interface EmulatorViewInterface {
+    
 
-        
+    function setMidlet(midlet:MIDlet):void;
+    
 
+    function onEmulatorInitComplete(midletActivity:Object):void;
+    
 
-import { Displayable } from '../../../javax/microedition/lcdui/Displayable.js';
-//not GWT import const Displayable
-
-import { MIDlet } from '../../../javax/microedition/midlet/MIDlet.js';
-//not GWT import const MIDlet
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export interface EmulatorViewInterface {
-        
-
-    setMidlet(midlet: MIDlet): void;
-
-    onEmulatorInitComplete(midletActivity: any): void;
-
-    onSetDisplayable(displayable: Displayable): void;
-
+    function onSetDisplayable(displayable:Displayable):void;
+    }
 }
 

@@ -1,62 +1,45 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.physics.velocity {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface VelocityInterface extends BasicVelocityInterface {
+    
 
-        
+    function getMaxForwardVelocity():int;
+    
 
+    function getMaxReverseVelocity():int;
+    
 
+    function limitMaxXYForwardVelocity():void;
+    
 
+    function limitMaxXYReverseVelocity():void;
+    
 
+    function limitXYToForwardAndReverseMaxVelocity():void;
+    
 
+    function limitMaxXYVelocity(maxVelocity:int):void;
+    
 
+    function setMaxForwardVelocity(maxForwardVelocity:int):void;
+    
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicVelocityInterface } from './BasicVelocityInterface.js';
-//sameFolderImports - not GWT import - same folder const BasicVelocityInterface
-
-export interface VelocityInterface extends BasicVelocityInterface {
-        
-
-    getMaxForwardVelocity(): number;
-
-    getMaxReverseVelocity(): number;
-
-    limitMaxXYForwardVelocity(): void;
-
-    limitMaxXYReverseVelocity(): void;
-
-    limitXYToForwardAndReverseMaxVelocity(): void;
-
-    limitMaxXYVelocity(maxVelocity: number): void;
-
-    setMaxForwardVelocity(maxForwardVelocity: number): void;
-
-    setMaxReverseVelocity(maxReverseVelocity: number): void;
-
+    function setMaxReverseVelocity(maxReverseVelocity:int):void;
+    }
 }
 

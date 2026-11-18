@@ -1,85 +1,41 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.view {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ViewPosition } from './ViewPosition.js';
-//sameFolderImports - not GWT import - same folder const ViewPosition
-
-export class StaticViewPosition extends ViewPosition {
-        
-
-public constructor (x: number, y: number, z: number){
-            super(x, y, z);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public getX(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getRawX();;
+    public class StaticViewPosition extends ViewPosition {
     
-}
 
-
-    public getY(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getRawY();;
+    public function StaticViewPosition(x:int, y:int, z:int) {
+        super(x, y, z);
+    }
     
-}
 
-
-    public getZ(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getRawZ();;
+    override public function getX():int {
+        return this.getRawX();
+    }
     
-}
 
+    override public function getY():int {
+        return this.getRawY();
+    }
+    
 
+    override public function getZ():int {
+        return this.getRawZ();
+    }
+    }
 }
 

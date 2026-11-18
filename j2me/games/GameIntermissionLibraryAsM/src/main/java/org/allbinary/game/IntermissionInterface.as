@@ -1,57 +1,34 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game {
+    import org.allbinary.time.TimeDelayHelper;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface IntermissionInterface {
+    
 
-        
+    function getTimeDelayHelper():TimeDelayHelper;
+    
 
+    function isEnabled():Boolean;
+    
 
-import { TimeDelayHelper } from '../../../org/allbinary/time/TimeDelayHelper.js';
-//not GWT import const TimeDelayHelper
+    function setEnabled(value:Boolean):void;
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { IntermissionEnableListenerInterface } from './IntermissionEnableListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const IntermissionEnableListenerInterface
-
-export interface IntermissionInterface {
-        
-
-    getTimeDelayHelper(): TimeDelayHelper;
-
-    isEnabled(): boolean;
-
-    setEnabled(value: boolean): void;
-
-    setListener(enableListener: IntermissionEnableListenerInterface): void;
-
+    function setListener(enableListener:IntermissionEnableListenerInterface):void;
+    }
 }
 

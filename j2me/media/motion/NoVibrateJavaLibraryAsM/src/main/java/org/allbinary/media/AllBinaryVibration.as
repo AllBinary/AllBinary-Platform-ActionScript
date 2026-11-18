@@ -1,92 +1,54 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media {
+    import org.allbinary.game.configuration.GameConfigurationCentral;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { GameConfigurationCentral } from '../../../org/allbinary/game/configuration/GameConfigurationCentral.js';
-//not GWT import const GameConfigurationCentral
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AllBinaryVibrationME } from './AllBinaryVibrationME.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryVibrationME
-import { AllBinaryNoVibration } from './AllBinaryNoVibration.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryNoVibration
-
-export class AllBinaryVibration extends AllBinaryVibrationME {
-        
-
-    private static VIBRATION: AllBinaryVibrationME = AllBinaryNoVibration.NO_VIBRATION;
-
-    public static getInstance(): AllBinaryVibrationME{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AllBinaryVibration.VIBRATION;
-    
-}
-
-
-    public static init(){
-
-                        if(GameConfigurationCentral.getInstance()!.VIBRATION.getValue()!.intValue() == 0)
-                        
-                                    {
-                                    AllBinaryVibration.VIBRATION= AllBinaryNoVibration.NO_VIBRATION;
-    
-
-                                    }
-                                
-                        else {
-                            AllBinaryVibration.VIBRATION= new AllBinaryVibration();
-    
-
-                        }
-                            
-}
-
-
-private constructor (){
-
-            super();
+    public class AllBinaryVibration extends AllBinaryVibrationME {
+    private static var VIBRATION_value:AllBinaryVibrationME;
+    private static var VIBRATION_set:Boolean = false;
+    private static function get VIBRATION():AllBinaryVibrationME {
+        if (!AllBinaryVibration.VIBRATION_set) {
+            AllBinaryVibration.VIBRATION_set = true;
+            AllBinaryVibration.VIBRATION_value = AllBinaryNoVibration.NO_VIBRATION;
         }
+        return AllBinaryVibration.VIBRATION_value;
+    }
+    
 
+    public function AllBinaryVibration() {
+        super();
+    }
+    
 
-    public vibrate(duration: number, type: number, volume: number){
-}
+    public static function getInstance():AllBinaryVibrationME {
+        return AllBinaryVibration.VIBRATION;
+    }
+    
 
+    public static function init():void {
+        if (GameConfigurationCentral.getInstance().VIBRATION.getValue().intValue() == 0) {
+            AllBinaryVibration.VIBRATION = AllBinaryNoVibration.NO_VIBRATION;
+        } else {
+            AllBinaryVibration.VIBRATION = new AllBinaryVibration();
+        }
+    }
+    
 
+    override public function vibrate(duration:int, type:int, volume:int):void {
+    }
+    }
 }
 

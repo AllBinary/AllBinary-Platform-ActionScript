@@ -1,74 +1,43 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.canvas {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class Processor
-            extends Object
-         {
-        
-
-    private static readonly SINGLETON: Processor = new Processor();
-
-    public static getInstance(): Processor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return Processor.SINGLETON;
+    public class Processor {
+    private static var SINGLETON_value:Processor;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():Processor {
+        if (!Processor.SINGLETON_set) {
+            Processor.SINGLETON_set = true;
+            Processor.SINGLETON_value = new Processor();
+        }
+        return Processor.SINGLETON_value;
+    }
     
-}
 
+    public static function getInstance():Processor {
+        return Processor.SINGLETON;
+    }
+    
 
-                //@Throws(Exception.constructor)
-            
-    public process(){
-}
+    public function process():void {
+    }
+    
 
-
-                //@Throws(Exception.constructor)
-            
-    public processt(timeDelta: number){
-}
-
-
+    public function processt(timeDelta:Number):void {
+    }
+    }
 }
 

@@ -1,199 +1,98 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.image {
+    import java.awt.JGraphics2D;
+    import java.awt.geom.JAffineTransform;
+    import java.awt.image.JBufferedImage;
+    import org.allbinary.image.ImageCache;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics2D } from '../../../../java/awt/Graphics2D.js';
-//not GWT import const Graphics2D
-
-import { AffineTransform } from '../../../../java/awt/geom/AffineTransform.js';
-//not GWT import const AffineTransform
-
-import { BufferedImage } from '../../../../java/awt/image/BufferedImage.js';
-//not GWT import const BufferedImage
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { ImageCache } from '../../../../org/allbinary/image/ImageCache.js';
-//not GWT import const ImageCache
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageUtil } from './ImageUtil.js';
-//sameFolderImports - not GWT import - same folder const ImageUtil
-import { ImageJ2SEUtil } from './ImageJ2SEUtil.js';
-//sameFolderImports - not GWT import - same folder const ImageJ2SEUtil
-import { ImageCreationUtil } from './ImageCreationUtil.js';
-//sameFolderImports - not GWT import - same folder const ImageCreationUtil
-
-export class ImageScaleUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: ImageScaleUtil = new ImageScaleUtil();
-
-    public static getInstance(): ImageScaleUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ImageScaleUtil.instance;
-    
-}
-
-
-    private readonly imageUtil: ImageUtil = ImageUtil.getInstance()!;
-
-    private readonly imageJ2SEUtil: ImageJ2SEUtil = ImageJ2SEUtil.getInstance()!;
-
-    private readonly imageCreationUtil: ImageCreationUtil = ImageCreationUtil.getInstance()!;
-
-private constructor (){
-
-            super();
+    public class ImageScaleUtil {
+    private static var instance_value:ImageScaleUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ImageScaleUtil {
+        if (!ImageScaleUtil.instance_set) {
+            ImageScaleUtil.instance_set = true;
+            ImageScaleUtil.instance_value = new ImageScaleUtil();
         }
+        return ImageScaleUtil.instance_value;
+    }
+        private var imageUtil:ImageUtil = null;
+        private var imageJ2SEUtil:ImageJ2SEUtil = null;
+        private var imageCreationUtil:ImageCreationUtil = null;
 
-
-                //@Throws(Exception.constructor)
-            
-    public createImage2(imageCache: ImageCache, originalImage: Image, scaleNominatorX: number, scaleDenominatorX: number, scaleNominatorY: number, scaleDenominatorY: number, cached: boolean): Image{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.createImage3(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public createImage3(imageCache: ImageCache, originalImage: Image, scaleNominatorX: number, scaleDenominatorX: number, scaleNominatorY: number, scaleDenominatorY: number, cached: boolean, mutable: boolean): Image{
-
-    let width: number = originalImage!.getWidth()!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsImageScaleUtil():void {
+    this.imageUtil = ImageUtil.getInstance();
+    this.imageJ2SEUtil = ImageJ2SEUtil.getInstance();
+    this.imageCreationUtil = ImageCreationUtil.getInstance();
+        }
     
 
-    let height: number = originalImage!.getHeight()!;;
+    public static function getInstance():ImageScaleUtil {
+        return ImageScaleUtil.instance;
+    }
     
 
-    let scaleX: number = scaleNominatorX /scaleDenominatorX;;
+    public function ImageScaleUtil() {
+        super();
+        this.initFieldsImageScaleUtil();
+    }
     
 
-    let scaleY: number = scaleNominatorY /scaleDenominatorY;;
+    public function createImage2(imageCache:ImageCache, originalImage:Image, scaleNominatorX:Number, scaleDenominatorX:Number, scaleNominatorY:Number, scaleDenominatorY:Number, cached:Boolean):Image {
+        return this.createImage3(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);
+    }
     
 
-    let image: Image;;
+    public function createImage3(imageCache:ImageCache, originalImage:Image, scaleNominatorX:Number, scaleDenominatorX:Number, scaleNominatorY:Number, scaleDenominatorY:Number, cached:Boolean, mutable:Boolean):Image {
+        var width:int = originalImage.getWidth();
+        var height:int = originalImage.getHeight();
+        var scaleX:Number = scaleNominatorX / scaleDenominatorX;
+        var scaleY:Number = scaleNominatorY / scaleDenominatorY;
+        var image:Image = null;
+        if (cached) {
+            image = imageCache.get_(JSystem.className(this), JMath.toInt32((Number(width) * scaleX)), JMath.toInt32((Number(height) * scaleY)));
+        } else {
+            image = imageCache.get_("createImage", JMath.toInt32((Number(width) * scaleX)), JMath.toInt32((Number(height) * scaleY)));
+        }
+        this.scale(originalImage, image, scaleX, scaleY, true);
+        return image;
+    }
     
 
-                        if(cached)
-                        
-                                    {
-                                    image= imageCache!.get(this.constructor.name.toString()!, globalThis.Math.trunc((width *scaleX)), globalThis.Math.trunc((height *scaleY)));
+    public function scale2(originalImage:Image, originalImageArray:Vector.<Image>, ximageToShowArray:Vector.<Image>, unused:int, scaleX:Number, scaleY:Number, maxScaleX:Number, maxScaleY:Number):void {
+        if (maxScaleX * originalImage.getWidth() > originalImageArray[0].getWidth() || maxScaleY * originalImage.getHeight() > originalImageArray[0].getHeight()) {
+            originalImageArray[0] = this.imageCreationUtil.createImage(originalImage.getWidth(), originalImage.getHeight(), maxScaleX, maxScaleY);
+        }
+        this.scale(originalImage, originalImageArray[0], scaleX, scaleY, false);
+    }
     
 
-                                    }
-                                
-                        else {
-                            image= imageCache!.get("createImage", globalThis.Math.trunc((width *scaleX)), globalThis.Math.trunc((height *scaleY)));
-    
-
-                        }
-                            
-this.scale(originalImage, image, scaleX, scaleY, true);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return image;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public scale2(originalImage: Image, originalImageArray: Image[], ximageToShowArray: Image[], unused: number, scaleX: number, scaleY: number, maxScaleX: number, maxScaleY: number){
-
-                        if(maxScaleX *originalImage!.getWidth() > originalImageArray[0]!.getWidth() || maxScaleY *originalImage!.getHeight() > originalImageArray[0]!.getHeight())
-                        
-                                    {
-                                    originalImageArray[0]= this.imageCreationUtil!.createImage(originalImage!.getWidth(), originalImage!.getHeight(), maxScaleX, maxScaleY);
-    
-
-                                    }
-                                
-this.scale(originalImage, originalImageArray[0]!, scaleX, scaleY, false);
-    
-}
-
-
-    public scale(originalImage: Image, newMaxSizeImage: Image, scaleX: number, scaleY: number, clear: boolean){
-
-    let bufferedImage: BufferedImage = this.imageUtil!.getBufferedImage(originalImage)!;;
-    
-
-    let newBufferedImage: BufferedImage = this.imageUtil!.getBufferedImage(newMaxSizeImage)!;;
-    
-
-    let at: AffineTransform = AffineTransform.getScaleInstance(scaleX, scaleY)!;;
-    
-
-    let g: Graphics2D = newBufferedImage!.createGraphics()!;;
-    
-
-                        if(clear)
-                        
-                                    {
-                                    g.setBackground(this.imageJ2SEUtil!.TRANSPARENT_COLOR);
-    
-g.clearRect(0, 0, newBufferedImage!.getWidth(), newBufferedImage!.getHeight());
-    
-
-                                    }
-                                
-g.drawRenderedImage(bufferedImage, at);
-    
-g.dispose();
-    
-}
-
-
+    public function scale(originalImage:Image, newMaxSizeImage:Image, scaleX:Number, scaleY:Number, clear:Boolean):void {
+        var bufferedImage:BufferedImage = this.imageUtil.getBufferedImage(originalImage);
+        var newBufferedImage:BufferedImage = this.imageUtil.getBufferedImage(newMaxSizeImage);
+        var at:AffineTransform = AffineTransform.getScaleInstance(scaleX, scaleY);
+        var g:Graphics2D = newBufferedImage.createGraphics();
+        if (clear) {
+            g.setBackground(this.imageJ2SEUtil.TRANSPARENT_COLOR);
+            g.clearRect(0, 0, newBufferedImage.getWidth(), newBufferedImage.getHeight());
+        }
+        g.drawRenderedImage(bufferedImage, at);
+        g.dispose();
+    }
+    }
 }
 

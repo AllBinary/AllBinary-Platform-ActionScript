@@ -1,194 +1,82 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
+    import org.allbinary.graphics.CellPositionFactory;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.paint.Paintable;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TouchButtonsMappingPaintable extends Paintable {
+        public var logUtil:LogUtil = null;
+        public var foregroundColor:int = 0;
+        private var paintableTable:Vector.<Vector.<Paintable>> = null;
+        private var touchButtonLocationHelper:TouchButtonLocationHelper = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { CellPositionFactory } from '../../../../../org/allbinary/graphics/CellPositionFactory.js';
-//not GWT import const CellPositionFactory
-
-import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { Paintable } from '../../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TouchButtonLocationHelper } from './TouchButtonLocationHelper.js';
-//sameFolderImports - not GWT import - same folder const TouchButtonLocationHelper
-import { CommonButtons } from './CommonButtons.js';
-//sameFolderImports - not GWT import - same folder const CommonButtons
-import { TouchButton } from './TouchButton.js';
-//sameFolderImports - not GWT import - same folder const TouchButton
-import { BasicTouchInputFactory } from './BasicTouchInputFactory.js';
-//sameFolderImports - not GWT import - same folder const BasicTouchInputFactory
-import { TouchButtonBlankResource } from './TouchButtonBlankResource.js';
-//sameFolderImports - not GWT import - same folder const TouchButtonBlankResource
-
-export class TouchButtonsMappingPaintable extends Paintable {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    foregroundColor: number;
-
-    private paintableTable: Paintable[][] = new Array(0).fill(null).map(() => new Array(0).fill(null))
-                                                            ;
-
-    private touchButtonLocationHelper: TouchButtonLocationHelper = new TouchButtonLocationHelper();
-
-public constructor (basicColor: BasicColor){
-
-            super();
-        this.foregroundColor= basicColor!.intValue();
+        // Java field initializers run after the base constructor
+        private function initFieldsTouchButtonsMappingPaintable():void {
+    this.logUtil = LogUtil.getInstance();
     
-this.init();
-    
-}
-
-
-    init(){
-
- try { this.paintableTable= this.createPaintableTable();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-this.logUtil!.put(commonStrings!.EXCEPTION, this, "updateRectangle", e);
+    this.paintableTable = (function():Vector.<Vector.<Paintable>> { var array:Vector.<Vector.<Paintable>> = new Vector.<Vector.<Paintable>>(0); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<Paintable>(0); } return array; })();
+    this.touchButtonLocationHelper = new TouchButtonLocationHelper();
+        }
     
 
- }
-   }
- 
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    createPaintableTable(): Paintable[][]{
-
-    let totalColumns: number = this.touchButtonLocationHelper!.getTotalColumns()!;;
+    public function TouchButtonsMappingPaintable(basicColor:BasicColor) {
+        super();
+        this.initFieldsTouchButtonsMappingPaintable();
+        this.foregroundColor = basicColor.intValue();
+        this.init();
+    }
     
 
-    let totalRows: number = this.touchButtonLocationHelper!.getTotalRows()!;;
+    private function init():void {
+        try {
+            this.paintableTable = this.createPaintableTable();
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            this.logUtil.put(commonStrings.EXCEPTION, this, "updateRectangle", e);
+        }
+    }
     
 
-    let paintableTable: Paintable[][] = new Array(totalColumns).fill(null).map(() => new Array(totalRows).fill(null))
-                                                            ;;
+    private function createPaintableTable():Vector.<Vector.<Paintable>> {
+        var totalColumns:int = this.touchButtonLocationHelper.getTotalColumns();
+        var totalRows:int = this.touchButtonLocationHelper.getTotalRows();
+        var paintableTable:Vector.<Vector.<Paintable>> = (function():Vector.<Vector.<Paintable>> { var array:Vector.<Vector.<Paintable>> = new Vector.<Vector.<Paintable>>(totalColumns); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<Paintable>(totalRows); } return array; })();
+        var cellPositionFactory:CellPositionFactory = CellPositionFactory.getInstance();
+        var commonButtons:CommonButtons = CommonButtons.getInstance();
+        for (var index:int = int(totalColumns - 1); index >= 0; index--) {
+            for (var rowIndex:int = int(totalRows - 1); rowIndex >= 0; rowIndex--) {
+                this.paintableTable[index][rowIndex] = TouchButton.createButton(BasicTouchInputFactory.getInstance().NONE, TouchButtonBlankResource.getInstance(), commonButtons.NORMAL_BUTTON, cellPositionFactory.getInstanceColRow(index, rowIndex), this.touchButtonLocationHelper.getColumnsRemainderHalf(), this.touchButtonLocationHelper.getRowsRemainderHalf());
+            }
+        }
+        return paintableTable;
+    }
     
 
-    let cellPositionFactory: CellPositionFactory = CellPositionFactory.getInstance()!;;
-    
-
-    let commonButtons: CommonButtons = CommonButtons.getInstance()!;;
-    
-
-
-
-
-                        for (
-    let index: number = totalColumns -1;index >= 0; index--)
-        {
-
-
-
-
-                        for (
-    let rowIndex: number = totalRows -1;rowIndex >= 0; rowIndex--)
-        {
-this.paintableTable[index]![rowIndex]= TouchButton.createButton(BasicTouchInputFactory.getInstance()!.NONE, TouchButtonBlankResource.getInstance(), commonButtons!.NORMAL_BUTTON, cellPositionFactory!.getInstanceColRow(index, rowIndex), this.touchButtonLocationHelper!.getColumnsRemainderHalf(), this.touchButtonLocationHelper!.getRowsRemainderHalf());
-    
-}
-
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return paintableTable;
-    
-}
-
-
-    public paint(graphics: Graphics){
-
-    let totalColumns: number = this.touchButtonLocationHelper!.getTotalColumns()!;;
-    
-
-    let totalRows: number = this.touchButtonLocationHelper!.getTotalRows()!;;
-    
-
-
-
-
-                        for (
-    let index: number = totalColumns -1;index >= 0; index--)
-        {
-
-
-
-
-                        for (
-    let rowIndex: number = totalRows -1;rowIndex >= 0; rowIndex--)
-        {
-this.paintableTable[index]![rowIndex]!.paint(graphics);
-    
-}
-
-}
-
-}
-
-
+    override public function paint(graphics:Graphics):void {
+        var totalColumns:int = this.touchButtonLocationHelper.getTotalColumns();
+        var totalRows:int = this.touchButtonLocationHelper.getTotalRows();
+        for (var index:int = int(totalColumns - 1); index >= 0; index--) {
+            for (var rowIndex:int = int(totalRows - 1); rowIndex >= 0; rowIndex--) {
+                this.paintableTable[index][rowIndex].paint(graphics);
+            }
+        }
+    }
+    }
 }
 

@@ -1,134 +1,63 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.canvas {
+    import org.allbinary.game.configuration.feature.Features;
+    import org.allbinary.game.configuration.feature.MainFeatureFactory;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { Canvas } from '../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { CommandListener } from '../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
-
-import { Features } from '../../../org/allbinary/game/configuration/feature/Features.js';
-//not GWT import const Features
-
-import { MainFeatureFactory } from '../../../org/allbinary/game/configuration/feature/MainFeatureFactory.js';
-//not GWT import const MainFeatureFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class FullScreenUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: FullScreenUtil = new FullScreenUtil();
-
-    public static getInstance(): FullScreenUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return FullScreenUtil.instance;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public initOnRun(fullScreenInterface: Canvas, commandListener: CommandListener){
-
-                        if(commandListener != 
-                                    null
-                                )
-                        
-                                    {
-                                    this.init(fullScreenInterface);
+    public class FullScreenUtil {
+    private static var instance_value:FullScreenUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():FullScreenUtil {
+        if (!FullScreenUtil.instance_set) {
+            FullScreenUtil.instance_set = true;
+            FullScreenUtil.instance_value = new FullScreenUtil();
+        }
+        return FullScreenUtil.instance_value;
+    }
     
 
-                                    }
-                                
-}
-
-
-    public init(fullScreenInterface: Canvas){
-}
-
-
-    public isScreenChange(isFullScreen: boolean): boolean{
-
-    let mainFeatureFactory: MainFeatureFactory = MainFeatureFactory.getInstance()!;;
+    public static function getInstance():FullScreenUtil {
+        return FullScreenUtil.instance;
+    }
     
 
-    let features: Features = Features.getInstance()!;;
+    public function initOnRun(fullScreenInterface:Canvas, commandListener:CommandListener):void {
+        if (commandListener != null) {
+            this.init(fullScreenInterface);
+        }
+    }
     
 
-                        if(features.isFeature(mainFeatureFactory!.FULL_SCREEN) != isFullScreen)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function init(fullScreenInterface:Canvas):void {
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function isScreenChange(isFullScreen:Boolean):Boolean {
+        var mainFeatureFactory:MainFeatureFactory = MainFeatureFactory.getInstance();
+        var features:Features = Features.getInstance();
+        if (features.isFeature(mainFeatureFactory.FULL_SCREEN) != isFullScreen) {
+            return true;
+        }
+        return false;
+    }
     
-}
 
-
-    public isScreenChangeCanvas(fullScreenInterface: Canvas): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.isScreenChange(false);;
-    
-}
-
-
+    public function isScreenChangeCanvas(fullScreenInterface:Canvas):Boolean {
+        return this.isScreenChange(false);
+    }
+    }
 }
 

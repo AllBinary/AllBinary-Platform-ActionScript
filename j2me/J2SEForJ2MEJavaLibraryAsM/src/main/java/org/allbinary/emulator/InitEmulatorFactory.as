@@ -1,78 +1,56 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.emulator {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class InitEmulatorFactory {
+    private static var instance_value:InitEmulatorFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():InitEmulatorFactory {
+        if (!InitEmulatorFactory.instance_set) {
+            InitEmulatorFactory.instance_set = true;
+            InitEmulatorFactory.instance_value = new InitEmulatorFactory();
+        }
+        return InitEmulatorFactory.instance_value;
+    }
+        private var initEmulator:Boolean = false;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsInitEmulatorFactory():void {
+    this.initEmulator = false;
+        }
 
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class InitEmulatorFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: InitEmulatorFactory = new InitEmulatorFactory();
-
-    public static getInstance(): InitEmulatorFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return InitEmulatorFactory.instance;
+        public function InitEmulatorFactory() {
+            super();
+            this.initFieldsInitEmulatorFactory();
+        }
     
-}
 
-
-    public setInitEmulator(initEmulator: boolean){
-this.initEmulator= initEmulator;
+    public static function getInstance():InitEmulatorFactory {
+        return InitEmulatorFactory.instance;
+    }
     
-}
 
-
-    public isInitEmulator(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.initEmulator;
+    public function setInitEmulator(initEmulator:Boolean):void {
+        this.initEmulator = initEmulator;
+    }
     
-}
 
-
-    private initEmulator: boolean = false;
-
+    public function isInitEmulator():Boolean {
+        return this.initEmulator;
+    }
+    }
 }
 

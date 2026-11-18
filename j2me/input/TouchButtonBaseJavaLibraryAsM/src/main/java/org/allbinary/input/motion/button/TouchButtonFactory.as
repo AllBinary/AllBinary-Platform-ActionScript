@@ -1,183 +1,96 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListUtil } 
-const BasicArrayListUtil = globalThis.org.allbinary.util.BasicArrayListUtil;
-type BasicArrayListUtil<T = any, U = any> = typeof BasicArrayListUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class TouchButtonFactory
-            extends Object
-         {
-        
-
-    private static readonly SINGLETON: TouchButtonFactory = new TouchButtonFactory();
-
-    public static getInstance(): TouchButtonFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return TouchButtonFactory.SINGLETON;
-    
-}
-
-
-    private LIST: BasicArrayList = BasicArrayListUtil.getInstance()!.getImmutableInstance()!;
-
-    private list: BasicArrayList = this.LIST;
-
-    private savedList: BasicArrayList = this.LIST;
-
-private constructor (){
-
-            super();
+    public class TouchButtonFactory {
+    private static var SINGLETON_value:TouchButtonFactory;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():TouchButtonFactory {
+        if (!TouchButtonFactory.SINGLETON_set) {
+            TouchButtonFactory.SINGLETON_set = true;
+            TouchButtonFactory.SINGLETON_value = new TouchButtonFactory();
         }
+        return TouchButtonFactory.SINGLETON_value;
+    }
+        private var LIST:BasicArrayList = null;
+        private var list:BasicArrayList = null;
+        private var savedList:BasicArrayList = null;
+        private var saved:Boolean = false;
 
-
-    public defaultList(){
-this.list= this.LIST;
-    
-this.toggle(false, this.LIST);
-    
-}
-
-
-    private saved: boolean = false;
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public toggle(save: boolean, list: BasicArrayList){
-
-                        if(list != BasicArrayListUtil.getInstance()!.getImmutableInstance())
-                        
-                                    {
-                                    this.savedList= list;
+        // Java field initializers run after the base constructor
+        private function initFieldsTouchButtonFactory():void {
+    this.LIST = BasicArrayListUtil.getInstance().getImmutableInstance();
+    this.list = this.LIST;
+    this.savedList = this.LIST;
+    this.saved = false;
+        }
     
 
-                        if(!this.saved)
-                        
-                                    {
-                                    this.list= this.savedList;
+    public static function getInstance():TouchButtonFactory {
+        return TouchButtonFactory.SINGLETON;
+    }
     
 
-                                    }
-                                
-
-                                    }
-                                
-                        else {
-                            
-                        if(save)
-                        
-                                    {
-                                    
-                        if(!this.saved)
-                        
-                                    {
-                                    this.saved= true;
-    
-this.savedList= this.list;
-    
-this.list= this.LIST;
+    public function TouchButtonFactory() {
+        super();
+        this.initFieldsTouchButtonFactory();
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-                        }
-                            
-
-                                    }
-                                
-                        else {
-                            this.list= this.savedList;
-    
-this.saved= false;
+    public function defaultList():void {
+        this.list = this.LIST;
+        this.toggle(false, this.LIST);
+    }
     
 
-                        }
-                            
-
-                        }
-                            
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public setList(list: BasicArrayList){
-
-                        if(list == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                            throw new Exception("Null List");
-                    
-
-                                    }
-                                
-this.list= list;
+    public function toggle(save:Boolean, list:BasicArrayList):void {
+        if (list != BasicArrayListUtil.getInstance().getImmutableInstance()) {
+            this.savedList = list;
+            if (!this.saved) {
+                this.list = this.savedList;
+            }
+        } else {
+            if (save) {
+                if (!this.saved) {
+                    this.saved = true;
+                    this.savedList = this.list;
+                    this.list = this.LIST;
+                } else {
+                }
+            } else {
+                this.list = this.savedList;
+                this.saved = false;
+            }
+        }
+    }
     
-}
 
-
-    getList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list;
+    public function setList(list:BasicArrayList):void {
+        if (list == null) {
+            throw new JException("Exception", "Null List");
+        }
+        this.list = list;
+    }
     
-}
 
-
+    public function getList():BasicArrayList {
+        return this.list;
+    }
+    }
 }
 

@@ -1,183 +1,97 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.combat.damage {
+    import org.allbinary.game.rand.MyRandomFactory;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorArrayIndexer;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.color.BasicColorSetUtil;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.logic.java.character.CharArrayFactory;
+    import org.allbinary.logic.math.PrimitiveLongUtil;
+    import org.allbinary.util.CircularIndexUtil;
+    import org.allbinary.view.ViewPositionBase;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PtsDamageFloaters extends DamageFloaters {
+    private static var basicColorArrayIndexer_value:BasicColorArrayIndexer;
+    private static var basicColorArrayIndexer_set:Boolean = false;
+    private static function get basicColorArrayIndexer():BasicColorArrayIndexer {
+        if (!PtsDamageFloaters.basicColorArrayIndexer_set) {
+            PtsDamageFloaters.basicColorArrayIndexer_set = true;
+            PtsDamageFloaters.basicColorArrayIndexer_value = new BasicColorArrayIndexer(new <BasicColor>[BasicColorFactory.getInstance().WHITE, BasicColorFactory.getInstance().RED, BasicColorFactory.getInstance().YELLOW, BasicColorFactory.getInstance().BLUE]);
+        }
+        return PtsDamageFloaters.basicColorArrayIndexer_value;
+    }
+        public var basicSetColorUtil:BasicColorSetUtil = null;
+        private var layerInterface:AllBinaryLayer = null;
+        private var lastDamage:Vector.<int> = null;
+        private var lastDamageString:Vector.<Vector.<int>> = null;
+        private var lastDamageStringSizeArray:Vector.<int> = null;
+        private var circularIndexUtil:CircularIndexUtil = null;
+        private var primitiveLongUtil:PrimitiveLongUtil = null;
+        private var myRandomFactory:MyRandomFactory = null;
 
-        
-
-
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-//not plain js import { MyRandomFactory } 
-const MyRandomFactory = globalThis.org.allbinary.game.rand.MyRandomFactory;
-type MyRandomFactory<T = any, U = any> = typeof MyRandomFactory extends abstract new (...args: any[]) => infer Instance ? Instance : typeof MyRandomFactory;
-
-import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorArrayIndexer } from '../../../../../org/allbinary/graphics/color/BasicColorArrayIndexer.js';
-//not GWT import const BasicColorArrayIndexer
-
-import { BasicColorFactory } from '../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { BasicColorSetUtil } from '../../../../../org/allbinary/graphics/color/BasicColorSetUtil.js';
-//not GWT import const BasicColorSetUtil
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { CharArrayFactory } from '../../../../../org/allbinary/logic/java/character/CharArrayFactory.js';
-//not GWT import const CharArrayFactory
-
-import { PrimitiveLongUtil } from '../../../../../org/allbinary/logic/math/PrimitiveLongUtil.js';
-//not GWT import const PrimitiveLongUtil
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-import { ViewPosition } from '../../../../../org/allbinary/view/ViewPosition.js';
-//not GWT import const ViewPosition
-
-import { ViewPositionBase } from '../../../../../org/allbinary/view/ViewPositionBase.js';
-//not GWT import const ViewPositionBase
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DamageFloaters } from './DamageFloaters.js';
-//sameFolderImports - not GWT import - same folder const DamageFloaters
-
-export class PtsDamageFloaters extends DamageFloaters {
-        
-
-    private static readonly basicColorArrayIndexer: BasicColorArrayIndexer = new BasicColorArrayIndexer([
-BasicColorFactory.getInstance()!.WHITE,BasicColorFactory.getInstance()!.RED,BasicColorFactory.getInstance()!.YELLOW,BasicColorFactory.getInstance()!.BLUE
-                                                ]);
-
-    readonly basicSetColorUtil: BasicColorSetUtil = BasicColorSetUtil.getInstance()!;
-
-    private layerInterface: AllBinaryLayer;
-
-    private lastDamage: number[] = new Array(5).fill(0);
-
-    private lastDamageString: string[][] = new Array(5).fill(null).map(() => new Array(0).fill(null));
-
-    private lastDamageStringSizeArray: number[] = new Array(5).fill(0);
-
-    private circularIndexUtil: CircularIndexUtil = CircularIndexUtil.createInstance(5)!;
-
-    private readonly primitiveLongUtil: PrimitiveLongUtil;
-
-public constructor (layerInterface: AllBinaryLayer){
-
-            super();
-        this.primitiveLongUtil= PrimitiveLongUtil.createPowerOfTen(100000);
+        // Java field initializers run after the base constructor
+        private function initFieldsPtsDamageFloaters():void {
+    this.basicSetColorUtil = BasicColorSetUtil.getInstance();
     
-this.layerInterface= layerInterface;
+    this.lastDamage = new Vector.<int>(5);
+    this.lastDamageString = (function():Vector.<Vector.<int>> { var array:Vector.<Vector.<int>> = new Vector.<Vector.<int>>(5); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<int>(0); } return array; })();
+    this.lastDamageStringSizeArray = new Vector.<int>(5);
+    this.circularIndexUtil = CircularIndexUtil.createInstance(5);
+    
+    this.myRandomFactory = MyRandomFactory.getInstance();
+        }
     
 
-    let CHAR_ARRAY: string[] = CharArrayFactory.getInstance()!.getZeroCharArray()!;;
+    public function PtsDamageFloaters(layerInterface:AllBinaryLayer) {
+        super();
+        this.initFieldsPtsDamageFloaters();
+        this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(100000);
+        this.layerInterface = layerInterface;
+        var CHAR_ARRAY:Vector.<int> = CharArrayFactory.getInstance().getZeroCharArray();
+        for (var index:int = int(this.lastDamageString.length - 1); index >= 0; index--) {
+            this.lastDamageString[index] = CHAR_ARRAY;
+        }
+    }
     
 
-
-
-
-                        for (
-    let index: number = this.lastDamageString!.length -1;index >= 0; index--)
-        {
-this.lastDamageString[index]= CHAR_ARRAY;
-    
-}
-
-}
-
-
-    public add(damage: number){
-
-    let index: number = this.circularIndexUtil!.getIndex()!;;
-    
-this.lastDamage[index]= damage;
-    
-this.lastDamageString[index]= this.primitiveLongUtil!.getCharArray(this.lastDamage[index]!);
-    
-this.lastDamageStringSizeArray[index]= this.primitiveLongUtil!.getCurrentTotalDigits();
-    
-this.circularIndexUtil!.next();
-    
-}
-
-
-    private readonly myRandomFactory: MyRandomFactory = MyRandomFactory.getInstance()!;
-
-    public paint(graphics: Graphics){
-
-    let viewPosition: ViewPositionBase = this.layerInterface!.getViewPosition()!;;
+    override public function add(damage:int):void {
+        var index:int = this.circularIndexUtil.getIndex();
+        this.lastDamage[index] = damage;
+        this.lastDamageString[index] = this.primitiveLongUtil.getCharArray(this.lastDamage[index]);
+        this.lastDamageStringSizeArray[index] = this.primitiveLongUtil.getCurrentTotalDigits();
+        this.circularIndexUtil.next();
+    }
     
 
-    let x: number = viewPosition!.getX()!;;
-    
-
-    let y: number = viewPosition!.getY()!;;
-    
-
-
-
-
-                        for (
-    let index: number = this.lastDamage!.length -1;index >= 0; index--)
-        {
-
-                        if(this.lastDamage[index] != 0)
-                        
-                                    {
-                                    
-    let delta: number = 10 *(index +2);;
-    
-this.basicSetColorUtil!.setBasicColorP(graphics, PtsDamageFloaters.basicColorArrayIndexer!.get());
-    
-graphics.drawChars(this.lastDamageString[index]!, 0, this.lastDamageStringSizeArray[index]!, x -this.myRandomFactory!.getNextInt(delta), y -delta, 0);
-    
-PtsDamageFloaters.basicColorArrayIndexer!.next();
-    
-
-                                    }
-                                
-this.lastDamage[index]= 0;
-    
-}
-
-}
-
-
+    override public function paint(graphics:Graphics):void {
+        var viewPosition:ViewPositionBase = this.layerInterface.getViewPosition();
+        var x:int = viewPosition.getX();
+        var y:int = viewPosition.getY();
+        for (var index:int = int(this.lastDamage.length - 1); index >= 0; index--) {
+            if (this.lastDamage[index] != 0) {
+                var delta:int = int(10 * (int(index + 2)));
+                this.basicSetColorUtil.setBasicColorP(graphics, PtsDamageFloaters.basicColorArrayIndexer.get_());
+                graphics.drawChars(this.lastDamageString[index], 0, this.lastDamageStringSizeArray[index], int(x - this.myRandomFactory.getNextInt(delta)), int(y - delta), 0);
+                PtsDamageFloaters.basicColorArrayIndexer.next();
+            }
+            this.lastDamage[index] = 0;
+        }
+    }
+    }
 }
 

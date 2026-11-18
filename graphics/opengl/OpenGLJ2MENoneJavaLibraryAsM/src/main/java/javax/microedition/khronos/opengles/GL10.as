@@ -1,32 +1,7 @@
+// Generated Code Do Not Modify
+package javax.microedition.khronos.opengles {
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GL } from './GL.js';
-//sameFolderImports - not GWT import - same folder const GL
-
-export interface GL10 extends GL {
-        
-
+    public interface GL10 extends GL {
+    }
 }
 

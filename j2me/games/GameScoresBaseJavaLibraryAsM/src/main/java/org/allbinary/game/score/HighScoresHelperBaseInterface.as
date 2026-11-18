@@ -1,54 +1,30 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface HighScoresHelperBaseInterface extends HighScoresResultsListener {
+    
 
-        
+    function setSelectedHighScores(selectedHighScores:HighScores):void;
+    
 
+    function getHighScoresArray():Vector.<HighScores>;
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { HighScoresResultsListener } from './HighScoresResultsListener.js';
-//sameFolderImports - not GWT import - same folder const HighScoresResultsListener
-import { HighScores } from './HighScores.js';
-//sameFolderImports - not GWT import - same folder const HighScores
-
-export interface HighScoresHelperBaseInterface extends HighScoresResultsListener {
-        
-
-    setSelectedHighScores(selectedHighScores: HighScores): void;
-
-    getHighScoresArray(): HighScores[];
-
-    getSelectedHighScores(): HighScores;
-
+    function getSelectedHighScores():HighScores;
+    }
 }
 

@@ -1,117 +1,61 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.game.layer.AllBinaryGameLayerManager;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class NullAllBinaryGameCanvas implements AllBinaryGameCanvasInterface {
+    private static var NULL_ALLBINARY_GAME_CANVAS_value:NullAllBinaryGameCanvas;
+    private static var NULL_ALLBINARY_GAME_CANVAS_set:Boolean = false;
+    public static function get NULL_ALLBINARY_GAME_CANVAS():NullAllBinaryGameCanvas {
+        if (!NullAllBinaryGameCanvas.NULL_ALLBINARY_GAME_CANVAS_set) {
+            NullAllBinaryGameCanvas.NULL_ALLBINARY_GAME_CANVAS_set = true;
+            NullAllBinaryGameCanvas.NULL_ALLBINARY_GAME_CANVAS_value = new NullAllBinaryGameCanvas();
+        }
+        return NullAllBinaryGameCanvas.NULL_ALLBINARY_GAME_CANVAS_value;
+    }
+    
 
-        
+    public function getLayerManager():AllBinaryGameLayerManager {
+        throw new JException("RuntimeException", "");
+    }
+    
 
+    public function addCommand(cmd:Command):void {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { RuntimeException } from '../../../../../java/lang/RuntimeException.js';
-        
-import { Command } from '../../../../../javax/microedition/lcdui/Command.js';
-//not GWT import const Command
+    public function getHeight():int {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-import { CommandListener } from '../../../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
+    public function getWidth():int {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-import { AllBinaryGameLayerManager } from '../../../../../org/allbinary/game/layer/AllBinaryGameLayerManager.js';
-//not GWT import const AllBinaryGameLayerManager
+    public function removeCommand(cmd:Command):void {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AllBinaryGameCanvasInterface } from './AllBinaryGameCanvasInterface.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryGameCanvasInterface
-
-export class NullAllBinaryGameCanvas
-            extends Object
-         implements AllBinaryGameCanvasInterface {
-        
-
-    public static readonly NULL_ALLBINARY_GAME_CANVAS: NullAllBinaryGameCanvas = new NullAllBinaryGameCanvas();
-
-    public getLayerManager(): AllBinaryGameLayerManager{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public addCommand(cmd: Command){
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public getHeight(): number{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public getWidth(): number{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public removeCommand(cmd: Command){
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public setCommandListener(l: CommandListener){
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
+    public function setCommandListener(l:CommandListener):void {
+        throw new JException("RuntimeException", "");
+    }
+    }
 }
 

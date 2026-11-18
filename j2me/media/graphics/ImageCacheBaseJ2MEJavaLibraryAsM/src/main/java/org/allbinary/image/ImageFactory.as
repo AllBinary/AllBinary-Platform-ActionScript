@@ -1,130 +1,59 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.image {
+    import java.io.JInputStream;
+    import org.allbinary.MIDPUtil;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { InputStream } from '../../../java/io/InputStream.js';
-//not GWT import const InputStream
-
-import { Image } from '../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { MIDPUtil } from '../../../org/allbinary/MIDPUtil.js';
-//not GWT import const MIDPUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //ImageCacheBaseJavaLibrary - J2ME
-export class ImageFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: ImageFactory = new ImageFactory();
-
-    public static getInstance(): ImageFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ImageFactory.instance;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public createImageUrl(url: string): Image{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return Image.createImage(url);;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public createImage(caller: string, width: number, height: number): Image{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MIDPUtil.getInstance()!.createImageWH(width, height);;
-    
-}
-
-createImageFromInputStream(...args: any[]): any {
-   
-   
-    if (args.length === 2) return this.createImageFromInputStream$overload1(args[0], args[1]);
-   
-    if (args.length === 1) return this.createImageFromInputStream$overload2(args[0]);
-   
-   throw new TypeError('No matching overload: createImageFromInputStream'); }
-  
-                //@Throws(Exception.constructor)
-            
-    public createImageFromInputStream$overload1(key: any, inputStream: InputStream): Image{
-
-    let image: Image = MIDPUtil.getInstance()!.createImageFromInputStream(inputStream)!;;
+    //ImageCacheBaseJavaLibrary - J2ME
+    public class ImageFactory {
+    private static var instance_value:ImageFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ImageFactory {
+        if (!ImageFactory.instance_set) {
+            ImageFactory.instance_set = true;
+            ImageFactory.instance_value = new ImageFactory();
+        }
+        return ImageFactory.instance_value;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return image;
+    public static function getInstance():ImageFactory {
+        return ImageFactory.instance;
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public createImageFromInputStream$overload2(inputStream: InputStream): Image{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MIDPUtil.getInstance()!.createImageFromInputStream(inputStream);;
+    public function createImageUrl(url:String):Image {
+        return Image.createImage(url);
+    }
     
-}
 
+    public function createImage(caller:String, width:int, height:int):Image {
+        return MIDPUtil.getInstance().createImageWH(width, height);
+    }
+    
 
+    public function createImageFromInputStream(key:Object, inputStream:InputStream):Image {
+        var image:Image = MIDPUtil.getInstance().createImageFromInputStream(inputStream);
+        return image;
+    }
+    
+
+    public function createImageFromInputStream(inputStream:InputStream):Image {
+        return MIDPUtil.getInstance().createImageFromInputStream(inputStream);
+    }
+    }
 }
 

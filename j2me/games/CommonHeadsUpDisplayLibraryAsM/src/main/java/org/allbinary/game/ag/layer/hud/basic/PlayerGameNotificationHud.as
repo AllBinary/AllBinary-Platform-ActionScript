@@ -1,398 +1,192 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.layer.hud.basic {
+    import org.allbinary.business.advertisement.GameAdStateFactory;
+    import org.allbinary.canvas.Processor;
+    import org.allbinary.game.GameAdState;
+    import org.allbinary.game.ag.layer.hud.basic.notification.GameNotification;
+    import org.allbinary.game.ag.layer.hud.basic.notification.GameNotificationHud;
+    import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
+    import org.allbinary.graphics.CustomGPoint;
+    import org.allbinary.graphics.GPoint;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.time.GameTickTimeDelayHelper;
+    import org.allbinary.time.GameTickTimeDelayHelperFactory;
+    import org.allbinary.time.TimeDelayHelper;
+    import org.allbinary.util.CircularIndexUtil;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PlayerGameNotificationHud extends GameNotificationHud implements UpdateMyFontInterface {
+        private var gameTickTimeDelayHelper:GameTickTimeDelayHelper = null;
+        private var EMPTY_STRING:String = null;
+        private var displayInfo:DisplayInfoSingleton = null;
+        private var timeDelayHelper:TimeDelayHelper = null;
+        private var circularIndexUtil:CircularIndexUtil = null;
+        private var gameNotification:GameNotification = null;
+        private var permanentGameNotification:GameNotification = null;
+        private var setAndRemoveProcessor:Processor = null;
+        private var nextUnremoveableProcessor:Processor = null;
+        private var processor:Processor = null;
+        private var PERMANENT_GAME_NOTIFICATION:String = null;
+        private var lastString:String = null;
+        private var string:String = null;
+        private var point:CustomGPoint = null;
+        private var width:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../../../../java/lang/Integer.js';
-        
-import { Font } from '../../../../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { GameAdStateFactory } from '../../../../../../../org/allbinary/business/advertisement/GameAdStateFactory.js';
-//not GWT import const GameAdStateFactory
-
-import { Processor } from '../../../../../../../org/allbinary/canvas/Processor.js';
-//not GWT import const Processor
-
-import { GameAdState } from '../../../../../../../org/allbinary/game/GameAdState.js';
-//not GWT import const GameAdState
-
-import { GameNotification } from '../../../../../../../org/allbinary/game/ag/layer/hud/basic/notification/GameNotification.js';
-//not GWT import const GameNotification
-
-import { GameNotificationHud } from '../../../../../../../org/allbinary/game/ag/layer/hud/basic/notification/GameNotificationHud.js';
-//not GWT import const GameNotificationHud
-
-import { GameNotificationEventHandler } from '../../../../../../../org/allbinary/game/layer/hud/event/GameNotificationEventHandler.js';
-//not GWT import const GameNotificationEventHandler
-
-import { CustomGPoint } from '../../../../../../../org/allbinary/graphics/CustomGPoint.js';
-//not GWT import const CustomGPoint
-
-import { GPoint } from '../../../../../../../org/allbinary/graphics/GPoint.js';
-//not GWT import const GPoint
-
-import { BasicColor } from '../../../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { DisplayInfoSingleton } from '../../../../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { UpdateMyFontInterface } from '../../../../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-import { GameTickTimeDelayHelper } from '../../../../../../../org/allbinary/time/GameTickTimeDelayHelper.js';
-//not GWT import const GameTickTimeDelayHelper
-
-import { GameTickTimeDelayHelperFactory } from '../../../../../../../org/allbinary/time/GameTickTimeDelayHelperFactory.js';
-//not GWT import const GameTickTimeDelayHelperFactory
-
-import { TimeDelayHelper } from '../../../../../../../org/allbinary/time/TimeDelayHelper.js';
-//not GWT import const TimeDelayHelper
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { SetAndRemoveProcessor } from './SetAndRemoveProcessor.js';
-//sameFolderImports - not GWT import - same folder const SetAndRemoveProcessor
-import { NextUnremoveableProcessor } from './NextUnremoveableProcessor.js';
-//sameFolderImports - not GWT import - same folder const NextUnremoveableProcessor
-
-export class PlayerGameNotificationHud extends GameNotificationHud implements UpdateMyFontInterface {
-        
-
-    private readonly gameTickTimeDelayHelper: GameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance()!;
-
-    private readonly EMPTY_STRING: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-    private readonly displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
-
-    private readonly timeDelayHelper: TimeDelayHelper = new TimeDelayHelper(0);
-
-    private readonly circularIndexUtil: CircularIndexUtil;
-
-    private readonly gameNotification: GameNotification = new GameNotification();
-
-    private readonly permanentGameNotification: GameNotification = new GameNotification();
-
-    private readonly setAndRemoveProcessor: Processor = new SetAndRemoveProcessor(this);
-
-    private readonly nextUnremoveableProcessor: Processor = new NextUnremoveableProcessor(this);
-
-    private processor: Processor = Processor.getInstance()!;
-
-    private readonly PERMANENT_GAME_NOTIFICATION: string = "Permanent Game Notification: ";
-
-    private lastString: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-    private string: string = this.EMPTY_STRING;
-
-    private point: CustomGPoint = CustomGPoint.NULL_CUSTOM_POINT;
-
-    private width: number= 0;
-
-public constructor (location: number, direction: number, bufferZone: number, basicColor: BasicColor){
-            super(location, direction, bufferZone, basicColor);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.circularIndexUtil= CircularIndexUtil.createInstance(0);
+        // Java field initializers run after the base constructor
+        private function initFieldsPlayerGameNotificationHud():void {
+    this.gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
+    this.EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
+    this.displayInfo = DisplayInfoSingleton.getInstance();
+    this.timeDelayHelper = new TimeDelayHelper(0);
+    
+    this.gameNotification = new GameNotification();
+    this.permanentGameNotification = new GameNotification();
+    this.setAndRemoveProcessor = new SetAndRemoveProcessor(this);
+    this.nextUnremoveableProcessor = new NextUnremoveableProcessor(this);
+    this.processor = Processor.getInstance();
+    this.PERMANENT_GAME_NOTIFICATION = "Permanent Game Notification: ";
+    this.lastString = StringUtil.getInstance().EMPTY_STRING;
+    this.string = this.EMPTY_STRING;
+    this.point = CustomGPoint.NULL_CUSTOM_POINT;
+    this.width = 0;
+        }
     
 
-    let gameNotificationEventHandler: GameNotificationEventHandler = GameNotificationEventHandler.getInstance()!;;
-    
-gameNotificationEventHandler!.removeAllListeners();
-    
-gameNotificationEventHandler!.addListenerInterface(this);
-    
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-
- try { super.updateMeasurement(graphics);
+    public function PlayerGameNotificationHud(location:int, direction:int, bufferZone:int, basicColor:BasicColor) {
+        super(location, direction, bufferZone, basicColor);
+        this.initFieldsPlayerGameNotificationHud();
+        this.circularIndexUtil = CircularIndexUtil.createInstance(0);
+        var gameNotificationEventHandler:GameNotificationEventHandler = GameNotificationEventHandler.getInstance();
+        gameNotificationEventHandler.removeAllListeners();
+        gameNotificationEventHandler.addListenerInterface(this);
+    }
     
 
-    let font: Font = graphics.getFont()!;;
-    
-this.width= font.stringWidth(this.string);
-    
-this.processor.process();
-    
-this.processor= Processor.getInstance();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let logUtil: LogUtil = LogUtil.getInstance()!;;
+    override public function updateMeasurement(graphics:Graphics):void {
+        try {
+            super.updateMeasurement(graphics);
+            var font:Font = graphics.getFont();
+            this.width = font.stringWidth(this.string);
+            this.processor.process();
+            this.processor = Processor.getInstance();
+        } catch (e:*) {
+            var logUtil:LogUtil = LogUtil.getInstance();
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            logUtil.put(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e);
+        }
+    }
     
 
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-logUtil!.put(commonStrings!.EXCEPTION, this, commonStrings!.UPDATE, e);
-    
-
- }
-   }
- 
-}
-
-
-    getPoint(x: number, y: number): GPoint{
-this.point= CustomGPoint.getInstance3(0, 0);
-    
-this.point.setX(x);
-    
-this.point.setY(y);
+    override public function getPoint(x:int, y:int):GPoint {
+        this.point = CustomGPoint.getInstance3(0, 0);
+        this.point.setX(x);
+        this.point.setY(y);
+        return this.point;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.point;
-    
-}
-
-
-    add(string: string, seconds: Integer, basicColor: BasicColor, permanent: Boolean){
-
-                        if(permanent.valueOf())
-                        
-                                    {
-                                    
-                        if(this.lastString != string)
-                        
-                                    {
-                                    this.lastString= string;
-    
-this.logUtil!.putF(new StringMaker().append(this.PERMANENT_GAME_NOTIFICATION)!.append(string)!.toString(), this, this.commonStrings!.ADD);
+    override public function add(string:String, seconds:*, basicColor:BasicColor, permanent:*):void {
+        if (permanent.booleanValue()) {
+            if (this.lastString != string) {
+                this.lastString = string;
+                this.logUtil.putF(new StringMaker().append(this.PERMANENT_GAME_NOTIFICATION).append(string).toString(), this, this.commonStrings.ADD);
+            }
+            this.permanentGameNotification.add(string, seconds, basicColor);
+            this.circularIndexUtil.setSize(this.permanentGameNotification.getSize());
+        } else {
+            this.gameNotification.add(string, seconds, basicColor);
+        }
+    }
     
 
-                                    }
-                                
-this.permanentGameNotification!.add(string, seconds, basicColor);
-    
-this.circularIndexUtil!.setSize(this.permanentGameNotification!.getSize());
-    
-
-                                    }
-                                
-                        else {
-                            this.gameNotification!.add(string, seconds, basicColor);
-    
-
-                        }
-                            
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processTick(){
-
-                        if(this.timeDelayHelper!.isTime(this.gameTickTimeDelayHelper!.startTime))
-                        
-                                    {
-                                    
-    let gameAdState: GameAdState = GameAdStateFactory.getInstance()!.getCurrentInstance()!;;
+    override public function processTick():void {
+        if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
+            var gameAdState:GameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+            if (gameAdState.isShowingAtLocation(this.getLocation())) {
+                this.offsetY = -54;
+            } else {
+                this.offsetY = 0;
+            }
+            if (this.gameNotification.getSize() > 0) {
+                this.setAndRemove();
+            } else if (this.permanentGameNotification.getSize() > 0) {
+                this.setNextUnremoveable();
+            } else {
+                this.string = this.EMPTY_STRING;
+            }
+        }
+    }
     
 
-                        if(gameAdState!.isShowingAtLocation(this.getLocation()))
-                        
-                                    {
-                                    this.offsetY=  -54;
+    private function setAndRemove():void {
+        this.string = (this.gameNotification.stringList.removeAt(0) as String);
+        this.processor = this.setAndRemoveProcessor;
+    }
     
 
-                                    }
-                                
-                        else {
-                            this.offsetY= 0;
+    public function setAndRemoveProcess():void {
+        this.setX((int(this.displayInfo.getLastWidth() - this.width)) >> 1);
+        this.point.setX(this.getX());
+        this.point.setY(this.getY());
+        var time:* = (this.gameNotification.timeList.removeAt(0) as *);
+        var iTime:int = int(time.intValue() * 1000);
+        if (iTime == 0) {
+            iTime = 500;
+        }
+        this.timeDelayHelper.delay = iTime;
+        this.setBasicColorP((this.gameNotification.colorList.removeAt(0) as BasicColor));
+    }
     
 
-                        }
-                            
-
-                        if(this.gameNotification!.getSize() > 0)
-                        
-                                    {
-                                    this.setAndRemove();
+    private function setNextUnremoveable():void {
+        var index:int = this.circularIndexUtil.getIndex();
+        this.string = (this.permanentGameNotification.stringList.objectArray[index] as String);
+        this.processor = this.nextUnremoveableProcessor;
+    }
     
 
-                                    }
-                                
-                             else 
-                        if(this.permanentGameNotification!.getSize() > 0)
-                        
-                                    {
-                                    this.setNextUnremoveable();
+    public function setNextUnremoveableProcess():void {
+        var index:int = this.circularIndexUtil.getIndex();
+        this.setX((int(this.displayInfo.getLastWidth() - this.width)) >> 1);
+        this.point.setX(this.getX());
+        this.point.setY(this.getY());
+        var time:* = (this.permanentGameNotification.timeList.objectArray[index] as *);
+        this.timeDelayHelper.delay = int(time.intValue() * 1000);
+        this.setBasicColorP((this.permanentGameNotification.colorList.objectArray[index] as BasicColor));
+        this.circularIndexUtil.next();
+    }
     
 
-                                    }
-                                
-                        else {
-                            this.string= this.EMPTY_STRING;
+    override public function clear():void {
+        this.gameNotification.clear();
+        this.permanentGameNotification.clear();
+    }
     
 
-                        }
-                            
-
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    setAndRemove(){
-this.string= this.gameNotification!.stringList!.removeAt(0) as string;
-    
-this.processor= this.setAndRemoveProcessor;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    setAndRemoveProcess(){
-this.setX((this.displayInfo!.getLastWidth() -this.width)>>1);
-    
-this.point.setX(this.getX());
-    
-this.point.setY(this.getY());
-    
-
-    let time: Integer = this.gameNotification!.timeList!.removeAt(0) as Integer;;
-    
-
-    let iTime: number = time.intValue() *1000;;
-    
-
-                        if(iTime == 0)
-                        
-                                    {
-                                    iTime= 500;
-    
-
-                                    }
-                                
-this.timeDelayHelper!.delay= iTime;
-    
-this.setBasicColorP(this.gameNotification!.colorList!.removeAt(0) as BasicColor);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    setNextUnremoveable(){
-
-    let index: number = this.circularIndexUtil!.getIndex()!;;
-    
-this.string= this.permanentGameNotification!.stringList!.objectArray[index]! as string;
-    
-this.processor= this.nextUnremoveableProcessor;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    setNextUnremoveableProcess(){
-
-    let index: number = this.circularIndexUtil!.getIndex()!;;
-    
-this.setX((this.displayInfo!.getLastWidth() -this.width)>>1);
-    
-this.point.setX(this.getX());
-    
-this.point.setY(this.getY());
-    
-
-    let time: Integer = this.permanentGameNotification!.timeList!.objectArray[index]! as Integer;;
-    
-this.timeDelayHelper!.delay= time.intValue() *1000;
-    
-this.setBasicColorP(this.permanentGameNotification!.colorList!.objectArray[index]! as BasicColor);
-    
-this.circularIndexUtil!.next();
-    
-}
-
-
-    public clear(){
-this.gameNotification!.clear();
-    
-this.permanentGameNotification!.clear();
-    
-}
-
-
-    public paint(graphics: Graphics){
-this.myFontProcessor!.process(graphics);
-    
-super.paintString(graphics, this.string);
-    
-}
-
-
+    override public function paint(graphics:Graphics):void {
+        this.myFontProcessor.process(graphics);
+        super.paintString(graphics, this.string);
+    }
+    }
 }
 

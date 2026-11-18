@@ -1,92 +1,54 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.paint {
+    import org.allbinary.graphics.paint.Paintable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class MainGameDemoStatePaintable extends Paintable {
+        private var ownershipPaintableInterface:Paintable = null;
+        private var menuPaintableInterface:Paintable = null;
 
-        
-
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Paintable } from '../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class MainGameDemoStatePaintable extends Paintable {
-        
-
-    private readonly ownershipPaintableInterface: Paintable;
-
-    private readonly menuPaintableInterface: Paintable;
-
-public constructor (ownershipPaintableInterface: Paintable, menuPaintableInterface: Paintable){
-
-            super();
-        this.ownershipPaintableInterface= ownershipPaintableInterface;
+        // Java field initializers run after the base constructor
+        private function initFieldsMainGameDemoStatePaintable():void {
     
-this.menuPaintableInterface= menuPaintableInterface;
     
-}
-
-
-    public paint(graphics: Graphics){
-this.menuPaintableInterface!.paint(graphics);
+        }
     
-this.ownershipPaintableInterface!.paint(graphics);
+
+    public function MainGameDemoStatePaintable(ownershipPaintableInterface:Paintable, menuPaintableInterface:Paintable) {
+        super();
+        this.initFieldsMainGameDemoStatePaintable();
+        this.ownershipPaintableInterface = ownershipPaintableInterface;
+        this.menuPaintableInterface = menuPaintableInterface;
+    }
     
-}
 
-
-    public getOwnershipPaintableInterface(): Paintable{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.ownershipPaintableInterface;
+    override public function paint(graphics:Graphics):void {
+        this.menuPaintableInterface.paint(graphics);
+        this.ownershipPaintableInterface.paint(graphics);
+    }
     
-}
 
-
-    public getMenuPaintableInterface(): Paintable{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.menuPaintableInterface;
+    public function getOwnershipPaintableInterface():Paintable {
+        return this.ownershipPaintableInterface;
+    }
     
-}
 
-
+    public function getMenuPaintableInterface():Paintable {
+        return this.menuPaintableInterface;
+    }
+    }
 }
 

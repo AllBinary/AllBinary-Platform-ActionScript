@@ -1,68 +1,40 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form {
+    import org.allbinary.graphics.paint.Paintable;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class MultipleScrollSelectionFormRectPaintable extends Paintable {
+        private var multipleScrollSelectionForm:MultipleScrollSelectionHorizontalForm = null;
 
-        
-
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Paintable } from '../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { MultipleScrollSelectionHorizontalForm } from './MultipleScrollSelectionHorizontalForm.js';
-//sameFolderImports - not GWT import - same folder const MultipleScrollSelectionHorizontalForm
-
-export class MultipleScrollSelectionFormRectPaintable extends Paintable {
-        
-
-    private readonly multipleScrollSelectionForm: MultipleScrollSelectionHorizontalForm;
-
- constructor (multipleScrollSelectionForm: MultipleScrollSelectionHorizontalForm){
-
-            super();
-        this.multipleScrollSelectionForm= multipleScrollSelectionForm;
+        // Java field initializers run after the base constructor
+        private function initFieldsMultipleScrollSelectionFormRectPaintable():void {
     
-}
-
-
-    public paint(graphics: Graphics){
-this.multipleScrollSelectionForm!.fillRect(graphics);
+        }
     
-}
 
+    public function MultipleScrollSelectionFormRectPaintable(multipleScrollSelectionForm:MultipleScrollSelectionHorizontalForm) {
+        super();
+        this.initFieldsMultipleScrollSelectionFormRectPaintable();
+        this.multipleScrollSelectionForm = multipleScrollSelectionForm;
+    }
+    
 
+    override public function paint(graphics:Graphics):void {
+        this.multipleScrollSelectionForm.fillRect(graphics);
+    }
+    }
 }
 

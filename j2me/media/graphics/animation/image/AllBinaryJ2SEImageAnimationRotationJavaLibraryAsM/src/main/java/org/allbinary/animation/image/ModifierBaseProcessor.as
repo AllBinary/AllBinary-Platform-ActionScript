@@ -1,77 +1,45 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.media.image.ImageModifierUtil;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { ImageModifierUtil } from '../../../../org/allbinary/media/image/ImageModifierUtil.js';
-//not GWT import const ImageModifierUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ModifierBaseProcessor
-            extends Object
-         {
-        
-
-    private static readonly instance: ModifierBaseProcessor = new ModifierBaseProcessor();
-
-    public static getInstance(): ModifierBaseProcessor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ModifierBaseProcessor.instance;
+    public class ModifierBaseProcessor {
+    private static var instance_value:ModifierBaseProcessor;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ModifierBaseProcessor {
+        if (!ModifierBaseProcessor.instance_set) {
+            ModifierBaseProcessor.instance_set = true;
+            ModifierBaseProcessor.instance_value = new ModifierBaseProcessor();
+        }
+        return ModifierBaseProcessor.instance_value;
+    }
     
-}
 
+    public static function getInstance():ModifierBaseProcessor {
+        return ModifierBaseProcessor.instance;
+    }
+    
 
-    public updateColor(imageModifierUtil: ImageModifierUtil, originalImage: Image, imageToShow: Image, index: number, basicColor: BasicColor){
-}
+    public function updateColor(imageModifierUtil:ImageModifierUtil, originalImage:Image, imageToShow:Image, index:int, basicColor:BasicColor):void {
+    }
+    
 
-
-    public updateAlpha(imageModifierUtil: ImageModifierUtil, originalImage: Image, imageToShow: Image, index: number, alpha: number){
-}
-
-
+    public function updateAlpha(imageModifierUtil:ImageModifierUtil, originalImage:Image, imageToShow:Image, index:int, alpha:int):void {
+    }
+    }
 }
 

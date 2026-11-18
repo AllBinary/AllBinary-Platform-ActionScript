@@ -1,217 +1,128 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ai {
+    import org.allbinary.ai.ArtificialIntelligence;
+    import org.allbinary.game.displayable.canvas.CanvasUtil;
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.game.input.GameKeyEventSourceInterface;
+    import org.allbinary.game.input.event.GameKeyEventFactory;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.string.CommonSeps;
+    import org.allbinary.string.CommonStrings;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicAI extends ArtificialIntelligence implements GameKeyEventSourceInterface {
+    private static var AI_VISITOR_value:*;
+    private static var AI_VISITOR_set:Boolean = false;
+    public static function get AI_VISITOR():* {
+        if (!BasicAI.AI_VISITOR_set) {
+            BasicAI.AI_VISITOR_set = true;
+            BasicAI.AI_VISITOR_value = SmallIntegerSingletonFactory.getInstance().getAt(2);
+        }
+        return BasicAI.AI_VISITOR_value;
+    }
+    private static var ID_value:*;
+    private static var ID_set:Boolean = false;
+    public static function get ID():* {
+        if (!BasicAI.ID_set) {
+            BasicAI.ID_set = true;
+            BasicAI.ID_value = SmallIntegerSingletonFactory.getInstance().getAt(1);
+        }
+        return BasicAI.ID_value;
+    }
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        public var gameKeyEventFactory:GameKeyEventFactory = null;
+        private var ownerLayerInterface:AllBinaryLayer = null;
+        private var gameInput:GameInput = null;
+        private var lastKey:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../java/lang/Integer.js';
-        
-import { ArtificialIntelligence } from '../../../../org/allbinary/ai/ArtificialIntelligence.js';
-//not GWT import const ArtificialIntelligence
-
-import { CanvasUtil } from '../../../../org/allbinary/game/displayable/canvas/CanvasUtil.js';
-//not GWT import const CanvasUtil
-
-import { GameInput } from '../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-import { GameKeyEventSourceInterface } from '../../../../org/allbinary/game/input/GameKeyEventSourceInterface.js';
-//not GWT import const GameKeyEventSourceInterface
-
-import { GameKeyEventFactory } from '../../../../org/allbinary/game/input/event/GameKeyEventFactory.js';
-//not GWT import const GameKeyEventFactory
-
-import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { SmallIntegerSingletonFactory } from '../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
-//not GWT import const SmallIntegerSingletonFactory
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { CommonSeps } 
-const CommonSeps = globalThis.org.allbinary.string.CommonSeps;
-type CommonSeps<T = any, U = any> = typeof CommonSeps extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonSeps;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class BasicAI extends ArtificialIntelligence implements GameKeyEventSourceInterface {
-        
-
-    public static readonly AI_VISITOR: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(2)!;
-
-    public static readonly ID: Integer = SmallIntegerSingletonFactory.getInstance()!.getAt(1)!;
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    readonly gameKeyEventFactory: GameKeyEventFactory = GameKeyEventFactory.getInstance()!;
-
-    private readonly ownerLayerInterface: AllBinaryLayer;
-
-    private readonly gameInput: GameInput;
-
-    private lastKey: number =  -1;
-
-public constructor (ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
-
-            super();
-        this.ownerLayerInterface= ownerLayerInterface;
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicAI():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
-this.gameInput= gameInput;
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
-
-
-
-                            throw new Exception(this.commonStrings!.NOT_IMPLEMENTED);
-                    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processKeyAI(key: number){
-
-                        if(key !=  -1)
-                        
-                                    {
-                                    this.gameInput!.add(this.gameKeyEventFactory!.getInstanceForKey(this, key));
+    this.lastKey = -1;
+        }
     
 
-                                    }
-                                
-}
-
-
-    public setLastKey(lastKey: number){
-this.lastKey= lastKey;
-    
-}
-
-
-    public getLastKey(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.lastKey;
-    
-}
-
-
-    public getOwnerLayerInterface(): AllBinaryLayer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.ownerLayerInterface;
-    
-}
-
-
-    public getGameInput(): GameInput{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gameInput;
-    
-}
-
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.constructor.name.toString()!;;
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append(CommonSeps.getInstance()!.NEW_LINE);
-    
-stringBuffer!.append(this.getName());
-    
-stringBuffer!.append(" LastKey: ");
-    
-stringBuffer!.append(CanvasUtil.getKeyName(this.getLastKey()));
+    public function BasicAI(ownerLayerInterface:AllBinaryLayer, gameInput:GameInput) {
+        super();
+        this.initFieldsBasicAI();
+        this.ownerLayerInterface = ownerLayerInterface;
+        this.gameInput = gameInput;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    override public function processAI(allBinaryLayerManager:AllBinaryLayerManager):void {
+        throw new JException("Exception", this.commonStrings.NOT_IMPLEMENTED);
+    }
     
-}
 
-
-    public getSourceId(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 1;
+    public function processKeyAI(key:int):void {
+        if (key != -1) {
+            this.gameInput.add(this.gameKeyEventFactory.getInstanceForKey(this, key));
+        }
+    }
     
-}
 
+    public function setLastKey(lastKey:int):void {
+        this.lastKey = lastKey;
+    }
+    
 
+    public function getLastKey():int {
+        return this.lastKey;
+    }
+    
+
+    public function getOwnerLayerInterface():AllBinaryLayer {
+        return this.ownerLayerInterface;
+    }
+    
+
+    public function getGameInput():GameInput {
+        return this.gameInput;
+    }
+    
+
+    public function getName():String {
+        return JSystem.className(this);
+    }
+    
+
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+        stringBuffer.append(this.getName());
+        stringBuffer.append(" LastKey: ");
+        stringBuffer.append(CanvasUtil.getKeyName(this.getLastKey()));
+        return stringBuffer.toString();
+    }
+    
+
+    public function getSourceId():int {
+        return 1;
+    }
+    }
 }
 

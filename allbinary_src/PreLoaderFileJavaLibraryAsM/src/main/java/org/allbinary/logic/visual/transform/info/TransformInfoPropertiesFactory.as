@@ -1,192 +1,82 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.visual.transform.info {
+    import org.allbinary.data.tree.dom.DomNodeHelper;
+    import org.allbinary.data.tree.dom.DomSearchHelper;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonLabels;
+    import org.w3c.dom.Attr;
+    import org.w3c.dom.NamedNodeMap;
+    import org.w3c.dom.Node;
+    import org.w3c.dom.NodeList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { DomNodeHelper } from '../../../../../../org/allbinary/data/tree/dom/DomNodeHelper.js';
-//not GWT import const DomNodeHelper
-
-import { DomSearchHelper } from '../../../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
-//not GWT import const DomSearchHelper
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonLabels } 
-const CommonLabels = globalThis.org.allbinary.string.CommonLabels;
-type CommonLabels<T = any, U = any> = typeof CommonLabels extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonLabels;
-
-import { Attr } from '../../../../../../org/w3c/dom/Attr.js';
-//not GWT import const Attr
-
-import { NamedNodeMap } from '../../../../../../org/w3c/dom/NamedNodeMap.js';
-//not GWT import const NamedNodeMap
-
-import { Node } from '../../../../../../org/w3c/dom/Node.js';
-//not GWT import const Node
-
-import { NodeList } from '../../../../../../org/w3c/dom/NodeList.js';
-//not GWT import const NodeList
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TransformInfoData } from './TransformInfoData.js';
-//sameFolderImports - not GWT import - same folder const TransformInfoData
-import { TransformInfoProperties } from './TransformInfoProperties.js';
-//sameFolderImports - not GWT import - same folder const TransformInfoProperties
-
-export class TransformInfoPropertiesFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: TransformInfoPropertiesFactory = new TransformInfoPropertiesFactory();
-static getInstance(...args: any[]): any {
-   
-   
-    if (args.length === 0) return this.getInstance$overload1();
-   
-   throw new TypeError('No matching overload: getInstance'); }
-  
-    public static getInstance$overload1(): TransformInfoPropertiesFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return TransformInfoPropertiesFactory.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-private constructor (){
-
-            super();
+    public class TransformInfoPropertiesFactory {
+    private static var instance_value:TransformInfoPropertiesFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():TransformInfoPropertiesFactory {
+        if (!TransformInfoPropertiesFactory.instance_set) {
+            TransformInfoPropertiesFactory.instance_set = true;
+            TransformInfoPropertiesFactory.instance_value = new TransformInfoPropertiesFactory();
         }
+        return TransformInfoPropertiesFactory.instance_value;
+    }
+        public var logUtil:LogUtil = null;
 
-getInstance(...args: any[]): any {
-   
-   
-    if (args.length === 1) return this.getInstance$overload2(args[0]);
-   
-   throw new TypeError('No matching overload: getInstance'); }
-  
-                //@Throws(Exception.constructor)
-            
-    public getInstance$overload2(node: Node): TransformInfoProperties{
-
-    let transformInfoChildNodeList: NodeList = node.getChildNodes()!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsTransformInfoPropertiesFactory():void {
+    this.logUtil = LogUtil.getInstance();
+        }
     
 
-    let transformInfoData: TransformInfoData = TransformInfoData.getInstance()!;;
+    public static function getInstance():TransformInfoPropertiesFactory {
+        return TransformInfoPropertiesFactory.instance;
+    }
     
 
-    let attributes: NamedNodeMap = node.getAttributes()!;;
+    public function TransformInfoPropertiesFactory() {
+        super();
+        this.initFieldsTransformInfoPropertiesFactory();
+    }
     
 
-    let attrNode: Attr = attributes.getNamedItem(transformInfoData!.NAME) as Attr;;
-    
-
-    let name: string = attrNode!.getValue()!;;
-    
-
-                        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance()!.VIEW))
-                        
-                                    {
-                                    this.logUtil!.putF(CommonLabels.getInstance()!.NEXT +" View Name: " +name, this, "toTransformInfoPropertiesHashMap()");
-    
-
-                                    }
-                                
-
-    let labelNode: Node = DomSearchHelper.getNodeNoThrow(transformInfoData!.LABEL, transformInfoChildNodeList)!;;
-    
-
-    let label: string = DomNodeHelper.getTextNodesValue(labelNode)!;;
-    
-
-                        if(label == 
-                                    null
-                                )
-                        
-                                    {
-                                    label= name;
-    
-
-                                    }
-                                
-
-    let descriptionNode: Node = DomSearchHelper.getNode(transformInfoData!.DESCRIPTION, transformInfoChildNodeList)!;;
-    
-
-    let description: string = DomNodeHelper.getTextNodesValue(descriptionNode)!;;
-    
-
-    let objectFileNode: Node = DomSearchHelper.getNode(transformInfoData!.OBJECTFILENAME, transformInfoChildNodeList)!;;
-    
-
-    let objectFileName: string = DomNodeHelper.getTextNodeValue(objectFileNode)!;;
-    
-
-    let objectConfigFileNode: Node = DomSearchHelper.getNode(transformInfoData!.OBJECTCONFIGFILENAME, transformInfoChildNodeList)!;;
-    
-
-    let objectConfigFileName: string = DomNodeHelper.getTextNodeValue(objectConfigFileNode)!;;
-    
-
-    let templateFileNode: Node = DomSearchHelper.getNode(transformInfoData!.TEMPLATEFILENAME, transformInfoChildNodeList)!;;
-    
-
-    let templateFileName: string = DomNodeHelper.getTextNodeValue(templateFileNode)!;;
-    
-
-    let transformInfoProperties: TransformInfoProperties = new TransformInfoProperties(name, label, description, objectFileName, objectConfigFileName, templateFileName);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return transformInfoProperties;
-    
-}
-
-
+    public function getInstance1(node:Node):TransformInfoProperties {
+        var transformInfoChildNodeList:NodeList = node.getChildNodes();
+        var transformInfoData:TransformInfoData = TransformInfoData.getInstance();
+        var attributes:NamedNodeMap = node.getAttributes();
+        var attrNode:Attr = (attributes.getNamedItem(transformInfoData.NAME) as Attr);
+        var name:String = attrNode.getValue();
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+            this.logUtil.putF(CommonLabels.getInstance().NEXT + " View Name: " + name, this, "toTransformInfoPropertiesHashMap()");
+        }
+        var labelNode:Node = DomSearchHelper.getNodeNoThrow(transformInfoData.LABEL, transformInfoChildNodeList);
+        var label:String = DomNodeHelper.getTextNodesValue(labelNode);
+        if (label == null) {
+            label = name;
+        }
+        var descriptionNode:Node = DomSearchHelper.getNode(transformInfoData.DESCRIPTION, transformInfoChildNodeList);
+        var description:String = DomNodeHelper.getTextNodesValue(descriptionNode);
+        var objectFileNode:Node = DomSearchHelper.getNode(transformInfoData.OBJECTFILENAME, transformInfoChildNodeList);
+        var objectFileName:String = DomNodeHelper.getTextNodeValue(objectFileNode);
+        var objectConfigFileNode:Node = DomSearchHelper.getNode(transformInfoData.OBJECTCONFIGFILENAME, transformInfoChildNodeList);
+        var objectConfigFileName:String = DomNodeHelper.getTextNodeValue(objectConfigFileNode);
+        var templateFileNode:Node = DomSearchHelper.getNode(transformInfoData.TEMPLATEFILENAME, transformInfoChildNodeList);
+        var templateFileName:String = DomNodeHelper.getTextNodeValue(templateFileNode);
+        var transformInfoProperties:TransformInfoProperties = new TransformInfoProperties(name, label, description, objectFileName, objectConfigFileName, templateFileName);
+        return transformInfoProperties;
+    }
+    }
 }
 

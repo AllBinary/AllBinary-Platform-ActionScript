@@ -1,162 +1,75 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.compound {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationBehaviorFactory;
+    import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+    import org.allbinary.animation.NullAnimationFactory;
+    import org.allbinary.media.ScaleProperties;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CompoundAnimationInterfaceFactory implements AnimationInterfaceFactoryInterface {
+        public var basicAnimationInterfaceFactoryInterfaceArrayP:Vector.<AnimationInterfaceFactoryInterface> = null;
+        public var animationBehaviorFactory:AnimationBehaviorFactory = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationBehaviorFactory } from '../../../../org/allbinary/animation/AnimationBehaviorFactory.js';
-//not GWT import const AnimationBehaviorFactory
-
-import { AnimationInterfaceFactoryInterface } from '../../../../org/allbinary/animation/AnimationInterfaceFactoryInterface.js';
-//not GWT import const AnimationInterfaceFactoryInterface
-
-import { NullAnimationFactory } from '../../../../org/allbinary/animation/NullAnimationFactory.js';
-//not GWT import const NullAnimationFactory
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-import { ScaleProperties } from '../../../../org/allbinary/media/ScaleProperties.js';
-//not GWT import const ScaleProperties
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class CompoundAnimationInterfaceFactory
-            extends Object
-         implements AnimationInterfaceFactoryInterface {
-        
-
-    readonly basicAnimationInterfaceFactoryInterfaceArrayP: AnimationInterfaceFactoryInterface[];
-
-    readonly animationBehaviorFactory: AnimationBehaviorFactory;
-
-public constructor (basicAnimationInterfaceFactoryInterfaceArray: AnimationInterfaceFactoryInterface[], animationBehaviorFactory: AnimationBehaviorFactory){
-
-            super();
-        this.basicAnimationInterfaceFactoryInterfaceArrayP= basicAnimationInterfaceFactoryInterfaceArray;
+        // Java field initializers run after the base constructor
+        private function initFieldsCompoundAnimationInterfaceFactory():void {
     
-this.animationBehaviorFactory= animationBehaviorFactory;
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstance(instanceId: number): Animation{
-
-    let size: number = this.basicAnimationInterfaceFactoryInterfaceArrayP!.length
-                ;;
+        }
     
 
-    let animationInterfaceArray: Animation[] = this.createArray(size)!;;
+    public function CompoundAnimationInterfaceFactory(basicAnimationInterfaceFactoryInterfaceArray:Vector.<AnimationInterfaceFactoryInterface>, animationBehaviorFactory:AnimationBehaviorFactory) {
+        super();
+        this.initFieldsCompoundAnimationInterfaceFactory();
+        this.basicAnimationInterfaceFactoryInterfaceArrayP = basicAnimationInterfaceFactoryInterfaceArray;
+        this.animationBehaviorFactory = animationBehaviorFactory;
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-animationInterfaceArray[index]= this.basicAnimationInterfaceFactoryInterfaceArrayP[index]!.getInstance(instanceId);
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.createAnimation(animationInterfaceArray);;
-    
-}
-
-
-    createArray(size: number): Animation[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullAnimationFactory.getFactoryInstance()!.EMPTY_ARRAY;
-    
-}
-
-
-    createAnimation(animationInterfaceArray: Animation[]): Animation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullAnimationFactory.getFactoryInstance()!.getInstance(0);;
-    
-}
-
-
-    public getBasicAnimationInterfaceFactoryInterfaceArray(): AnimationInterfaceFactoryInterface[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicAnimationInterfaceFactoryInterfaceArrayP;
-    
-}
-
-
-    public setInitialScale(scaleProperties: ScaleProperties){
-
-    let size: number = this.basicAnimationInterfaceFactoryInterfaceArrayP!.length
-                ;;
+    public function getInstance1(instanceId:int):Animation {
+        var size:int = this.basicAnimationInterfaceFactoryInterfaceArrayP.length;
+        var animationInterfaceArray:Vector.<Animation> = this.createArray(size);
+        for (var index:int = 0; index < size; index++) {
+            animationInterfaceArray[index] = this.basicAnimationInterfaceFactoryInterfaceArrayP[index].getInstance1(instanceId);
+        }
+        return this.createAnimation(animationInterfaceArray);
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-this.basicAnimationInterfaceFactoryInterfaceArrayP[index]!.setInitialScale(scaleProperties);
+    public function createArray(size:int):Vector.<Animation> {
+        return NullAnimationFactory.getFactoryInstance().EMPTY_ARRAY;
+    }
     
-}
 
-}
+    public function createAnimation(animationInterfaceArray:Vector.<Animation>):Animation {
+        return NullAnimationFactory.getFactoryInstance().getInstance1(0);
+    }
+    
 
+    public function getBasicAnimationInterfaceFactoryInterfaceArray():Vector.<AnimationInterfaceFactoryInterface> {
+        return this.basicAnimationInterfaceFactoryInterfaceArrayP;
+    }
+    
 
+    public function setInitialScale(scaleProperties:ScaleProperties):void {
+        var size:int = this.basicAnimationInterfaceFactoryInterfaceArrayP.length;
+        for (var index:int = 0; index < size; index++) {
+            this.basicAnimationInterfaceFactoryInterfaceArrayP[index].setInitialScale(scaleProperties);
+        }
+    }
+    }
 }
 

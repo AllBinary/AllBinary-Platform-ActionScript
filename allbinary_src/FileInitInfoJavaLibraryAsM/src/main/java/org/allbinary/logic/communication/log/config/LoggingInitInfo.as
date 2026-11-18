@@ -1,433 +1,169 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { DomSearchHelper } from '../../../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
-//not GWT import const DomSearchHelper
-
-import { DomDocumentHelper } from '../../../../../../org/allbinary/data/tree/dom/document/DomDocumentHelper.js';
-//not GWT import const DomDocumentHelper
-
-import { XmlDocumentHelper } from '../../../../../../org/allbinary/data/tree/dom/document/XmlDocumentHelper.js';
-//not GWT import const XmlDocumentHelper
-
-import { PATH_GLOBALS } from '../../../../../../org/allbinary/globals/PATH_GLOBALS.js';
-//not GWT import const PATH_GLOBALS
-
-import { URLGLOBALS } from '../../../../../../org/allbinary/globals/URLGLOBALS.js';
-//not GWT import const URLGLOBALS
-
-import { AbFileLocalInputStream } from '../../../../../../org/allbinary/logic/io/AbFileLocalInputStream.js';
-//not GWT import const AbFileLocalInputStream
-
-import { AbFile } from '../../../../../../org/allbinary/logic/io/file/AbFile.js';
-//not GWT import const AbFile
-
-import { AbPath } from '../../../../../../org/allbinary/logic/io/path/AbPath.js';
-//not GWT import const AbPath
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-import { Document } from '../../../../../../org/w3c/dom/Document.js';
-//not GWT import const Document
-
-import { Node } from '../../../../../../org/w3c/dom/Node.js';
-//not GWT import const Node
-
-import { NodeList } from '../../../../../../org/w3c/dom/NodeList.js';
-//not GWT import const NodeList
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LogConfigsData } from './LogConfigsData.js';
-//sameFolderImports - not GWT import - same folder const LogConfigsData
-import { LogConfigData } from './LogConfigData.js';
-//sameFolderImports - not GWT import - same folder const LogConfigData
-import { LogConfig } from './LogConfig.js';
-//sameFolderImports - not GWT import - same folder const LogConfig
-
-export class LoggingInitInfo
-            extends Object
-         {
-        
-
-    private static readonly INITFILENAME: string = "logConfig.xml";
-
-    private static readonly PACKAGE: string = PATH_GLOBALS.getInstance()!.INIT_PATH;
-
-    private static logConfigInfoList: BasicArrayList = 
-                null
-            ;
-
-    private static hasRead: boolean = false;
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public static getDoc(): Document{
-
-    let path: string = URLGLOBALS.getWebappPath() +LoggingInitInfo.PACKAGE;;
-    
-
-    let FILEABPATH: AbPath = new AbPath(path, INITFILENAME);;
-    
-
-    let file: AbFile = AbFile.createAbFileFromAbPath(FILEABPATH)!;;
-    
-
-    let document: Document = DomDocumentHelper.create(new AbFileLocalInputStream(file))!;;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return document;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public static write(){
-
- try { LoggingInitInfo.hasRead= false;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-
-
-                            throw e;
-                    
-
- }
-   }
- 
-}
-
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    static read(){
-
- try { 
-    let document: Document = LoggingInitInfo.getDoc()!;;
-    
-
-    let logConfigsNodeList: NodeList = document.getElementsByTagName(LogConfigsData.getInstance()!.NAME)!;;
-    
-
-    let logConfigsNode: Node = logConfigsNodeList!.item(0)!;;
-    
-
-    let logConfigNodeVector: BasicArrayList = DomSearchHelper.getAllNodes(LogConfigData.getInstance()!.NAME, logConfigsNode!.getChildNodes())!;;
-    
-LoggingInitInfo.logConfigInfoList= new BasicArrayListD();
-    
-
-    let size: number = logConfigNodeVector!.size()!;;
-    
-
-
-
-
-                        for (
-    let i: number = 0;i < size; i++)
-        {
-
-    let node: Node = logConfigNodeVector!.get(i) as Node;;
-    
-
-    let logConfigInfo: LogConfig = new LogConfig(node);;
-    
-LoggingInitInfo.logConfigInfoList!.add(logConfigInfo);
-    
-}
-
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-
-
-                            throw e;
-                    
-
- }
-   }
- 
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public static setHasRead(value: boolean){
-LoggingInitInfo.hasRead= value;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    static updateIfNeeded(){
-
-                        if(!LoggingInitInfo.hasRead)
-                        
-                                    {
-                                    LoggingInitInfo.read();
-    
-LoggingInitInfo.hasRead= true;
-    
-
-                        if(LoggingInitInfo.logConfigInfoList == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                            throw new Exception("Read Failed");
-                    
-
-                                    }
-                                
-
-                                    }
-                                
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public static set(logConfigInfoVector: BasicArrayList){
-LoggingInitInfo.logConfigInfoList= logConfigInfoVector;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public static get(): BasicArrayList{
-LoggingInitInfo.updateIfNeeded();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LoggingInitInfo.logConfigInfoList;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public static getTypeNameList(): BasicArrayList{
-LoggingInitInfo.updateIfNeeded();
-    
-
-    let allLogTypeVector: BasicArrayList = new BasicArrayListD();;
-    
-
-    let size: number = LoggingInitInfo.logConfigInfoList!.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let logConfigInfo: LogConfig = LoggingInitInfo.logConfigInfoList!.objectArray[index]! as LogConfig;;
-    
-
-    let logTypeVector: BasicArrayList = logConfigInfo!.getTypeVector()!;;
-    
-
-                        if(logConfigInfo!.isEnabled())
-                        
-                                    {
-                                    allLogTypeVector!.addAllList(logTypeVector);
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return allLogTypeVector;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public static getTypeList(): BasicArrayList{
-LoggingInitInfo.updateIfNeeded();
-    
-
-    let allLogTypeVector: BasicArrayList = new BasicArrayListD();;
-    
-
-    let size: number = LoggingInitInfo.logConfigInfoList!.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let logConfigInfo: LogConfig = LoggingInitInfo.logConfigInfoList!.objectArray[index]! as LogConfig;;
-    
-
-    let logTypeVector: BasicArrayList = logConfigInfo!.getTypeVector()!;;
-    
-
-                        if(logConfigInfo!.isEnabled())
-                        
-                                    {
-                                    allLogTypeVector!.addAllList(logTypeVector);
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return allLogTypeVector;
-    
-}
-
-
-public constructor (){
-
-            super();
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.communication.log.config {
+    import org.allbinary.data.tree.dom.DomSearchHelper;
+    import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+    import org.allbinary.data.tree.dom.document.XmlDocumentHelper;
+    import org.allbinary.globals.PATH_GLOBALS;
+    import org.allbinary.globals.URLGLOBALS;
+    import org.allbinary.logic.io.AbFileLocalInputStream;
+    import org.allbinary.logic.io.file.AbFile;
+    import org.allbinary.logic.io.path.AbPath;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import org.w3c.dom.Document;
+    import org.w3c.dom.Node;
+    import org.w3c.dom.NodeList;
+
+    public class LoggingInitInfo {
+    private static const INITFILENAME:String = "logConfig.xml";
+    private static var PACKAGE_value:String;
+    private static var PACKAGE_set:Boolean = false;
+    private static function get PACKAGE():String {
+        if (!LoggingInitInfo.PACKAGE_set) {
+            LoggingInitInfo.PACKAGE_set = true;
+            LoggingInitInfo.PACKAGE_value = PATH_GLOBALS.getInstance().INIT_PATH;
         }
-
-
-    public isValid(): boolean{
-
- try { 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+        return LoggingInitInfo.PACKAGE_value;
+    }
+    private static var logConfigInfoList:BasicArrayList = null;
+    private static var hasRead:Boolean = false;
     
 
- }
-   }
- 
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getNumberOfLogConfigs(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LoggingInitInfo.logConfigInfoList!.size();;
-    
-}
-
-
-    public toString(): string{
-
- try { 
-    let document: Document = LoggingInitInfo.getDoc()!;;
+    public function LoggingInitInfo() {
+        super();
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return XmlDocumentHelper.toString(document);;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return "Error";
+    public static function getDoc():Document {
+        var path:String = URLGLOBALS.getWebappPath() + LoggingInitInfo.PACKAGE;
+        var FILEABPATH:AbPath = new AbPath(path, LoggingInitInfo.INITFILENAME);
+        var file:AbFile = AbFile.createAbFileFromAbPath(FILEABPATH);
+        var document:Document = DomDocumentHelper.create(new AbFileLocalInputStream(file));
+        return document;
+    }
     
 
- }
-   }
- 
-}
+    public static function write():void {
+        try {
+            LoggingInitInfo.hasRead = false;
+        } catch (e:*) {
+            throw e;
+        }
+    }
+    
 
+    private static function read():void {
+        try {
+            var document:Document = LoggingInitInfo.getDoc();
+            var logConfigsNodeList:NodeList = document.getElementsByTagName(LogConfigsData.getInstance().NAME);
+            var logConfigsNode:Node = logConfigsNodeList.item(0);
+            var logConfigNodeVector:BasicArrayList = DomSearchHelper.getAllNodes(LogConfigData.getInstance().NAME, logConfigsNode.getChildNodes());
+            LoggingInitInfo.logConfigInfoList = new BasicArrayListD();
+            var size:int = logConfigNodeVector.size();
+            for (var i:int = 0; i < size; i++) {
+                var node:Node = (logConfigNodeVector.get_(i) as Node);
+                var logConfigInfo:LogConfig = new LogConfig(node);
+                LoggingInitInfo.logConfigInfoList.add(logConfigInfo);
+            }
+        } catch (e:*) {
+            throw e;
+        }
+    }
+    
 
+    public static function setHasRead(value:Boolean):void {
+        LoggingInitInfo.hasRead = value;
+    }
+    
+
+    private static function updateIfNeeded():void {
+        if (!LoggingInitInfo.hasRead) {
+            LoggingInitInfo.read();
+            LoggingInitInfo.hasRead = true;
+            if (LoggingInitInfo.logConfigInfoList == null) {
+                throw new JException("Exception", "Read Failed");
+            }
+        }
+    }
+    
+
+    public function isValid():Boolean {
+        try {
+            return true;
+        } catch (e:*) {
+            return false;
+        }
+    }
+    
+
+    public static function set_(logConfigInfoVector:BasicArrayList):void {
+        LoggingInitInfo.logConfigInfoList = logConfigInfoVector;
+    }
+    
+
+    public static function get_():BasicArrayList {
+        LoggingInitInfo.updateIfNeeded();
+        return LoggingInitInfo.logConfigInfoList;
+    }
+    
+
+    public static function getTypeNameList():BasicArrayList {
+        LoggingInitInfo.updateIfNeeded();
+        var allLogTypeVector:BasicArrayList = new BasicArrayListD();
+        var size:int = LoggingInitInfo.logConfigInfoList.size();
+        for (var index:int = 0; index < size; index++) {
+            var logConfigInfo:LogConfig = (LoggingInitInfo.logConfigInfoList.objectArray[index] as LogConfig);
+            var logTypeVector:BasicArrayList = logConfigInfo.getTypeVector();
+            if (logConfigInfo.isEnabled()) {
+                allLogTypeVector.addAllList(logTypeVector);
+            }
+        }
+        return allLogTypeVector;
+    }
+    
+
+    public static function getTypeList():BasicArrayList {
+        LoggingInitInfo.updateIfNeeded();
+        var allLogTypeVector:BasicArrayList = new BasicArrayListD();
+        var size:int = LoggingInitInfo.logConfigInfoList.size();
+        for (var index:int = 0; index < size; index++) {
+            var logConfigInfo:LogConfig = (LoggingInitInfo.logConfigInfoList.objectArray[index] as LogConfig);
+            var logTypeVector:BasicArrayList = logConfigInfo.getTypeVector();
+            if (logConfigInfo.isEnabled()) {
+                allLogTypeVector.addAllList(logTypeVector);
+            }
+        }
+        return allLogTypeVector;
+    }
+    
+
+    public function getNumberOfLogConfigs():int {
+        return LoggingInitInfo.logConfigInfoList.size();
+    }
+    
+
+    public function toString():String {
+        try {
+            var document:Document = LoggingInitInfo.getDoc();
+            return XmlDocumentHelper.toString1(document);
+        } catch (e:*) {
+            return "Error";
+        }
+    }
+    }
 }
 

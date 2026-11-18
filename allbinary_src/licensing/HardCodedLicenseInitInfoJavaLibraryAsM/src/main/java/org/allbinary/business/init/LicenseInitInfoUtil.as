@@ -1,123 +1,74 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.init {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LicenseInitInfo } from './LicenseInitInfo.js';
-//sameFolderImports - not GWT import - same folder const LicenseInitInfo
-
-export class LicenseInitInfoUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: LicenseInitInfoUtil = new LicenseInitInfoUtil();
-
-    public static getInstance(): LicenseInitInfoUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LicenseInitInfoUtil.instance;
-    
-}
-
-
-    public readonly INITFILENAME: string = "licenseinitdata.dat";
-
-    public readonly ABOUT: string = "about";
-
-    public readonly PRIVACY_POLICY: string = "privacy_policy";
-
-    private readonly OFFICIAL_ALLBINARY_SERVICES_SERVER: string = "https://services.allbinary.com/LicServ/serverssl.php";
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public setFilePath(filePath: string){
-}
-
-
-private constructor (){
-
-            super();
+    public class LicenseInitInfoUtil {
+    private static var instance_value:LicenseInitInfoUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():LicenseInitInfoUtil {
+        if (!LicenseInitInfoUtil.instance_set) {
+            LicenseInitInfoUtil.instance_set = true;
+            LicenseInitInfoUtil.instance_value = new LicenseInitInfoUtil();
         }
+        return LicenseInitInfoUtil.instance_value;
+    }
+        public var INITFILENAME:String = null;
+        public var ABOUT:String = null;
+        public var PRIVACY_POLICY:String = null;
+        private var OFFICIAL_ALLBINARY_SERVICES_SERVER:String = null;
 
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public write(initData: LicenseInitInfo){
-}
-
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public read(): LicenseInitInfo{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.readAgain(0);;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public readAgain(initializeCounter: number): LicenseInitInfo{
-
-    let licenseInitInfo: LicenseInitInfo = new LicenseInitInfo();;
-    
-licenseInitInfo!.clearServers();
-    
-licenseInitInfo!.addServer(this.OFFICIAL_ALLBINARY_SERVICES_SERVER);
+        // Java field initializers run after the base constructor
+        private function initFieldsLicenseInitInfoUtil():void {
+    this.INITFILENAME = "licenseinitdata.dat";
+    this.ABOUT = "about";
+    this.PRIVACY_POLICY = "privacy_policy";
+    this.OFFICIAL_ALLBINARY_SERVICES_SERVER = "https://services.allbinary.com/LicServ/serverssl.php";
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return licenseInitInfo;
+    public static function getInstance():LicenseInitInfoUtil {
+        return LicenseInitInfoUtil.instance;
+    }
     
-}
 
+    public function setFilePath(filePath:String):void {
+    }
+    
 
+    public function LicenseInitInfoUtil() {
+        super();
+        this.initFieldsLicenseInitInfoUtil();
+    }
+    
+
+    public function write(initData:LicenseInitInfo):void {
+    }
+    
+
+    public function read():LicenseInitInfo {
+        return this.readAgain(0);
+    }
+    
+
+    public function readAgain(initializeCounter:int):LicenseInitInfo {
+        var licenseInitInfo:LicenseInitInfo = new LicenseInitInfo();
+        licenseInitInfo.clearServers();
+        licenseInitInfo.addServer(this.OFFICIAL_ALLBINARY_SERVICES_SERVER);
+        return licenseInitInfo;
+    }
+    }
 }
 

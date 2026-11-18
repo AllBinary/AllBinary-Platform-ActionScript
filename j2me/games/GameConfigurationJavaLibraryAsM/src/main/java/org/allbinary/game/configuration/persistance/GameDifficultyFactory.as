@@ -1,78 +1,56 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.persistance {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameDifficultyFactory {
+    private static var instance_value:GameDifficultyFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GameDifficultyFactory {
+        if (!GameDifficultyFactory.instance_set) {
+            GameDifficultyFactory.instance_set = true;
+            GameDifficultyFactory.instance_value = new GameDifficultyFactory();
+        }
+        return GameDifficultyFactory.instance_value;
+    }
+        private var level:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGameDifficultyFactory():void {
+    this.level = 0;
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GameDifficultyFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: GameDifficultyFactory = new GameDifficultyFactory();
-
-    public static getInstance(): GameDifficultyFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameDifficultyFactory.instance;
+        public function GameDifficultyFactory() {
+            super();
+            this.initFieldsGameDifficultyFactory();
+        }
     
-}
 
-
-    private level: number = 0;
-
-    public setLevel(level: number){
-this.level= level;
+    public static function getInstance():GameDifficultyFactory {
+        return GameDifficultyFactory.instance;
+    }
     
-}
 
-
-    public getLevel(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.level;
+    public function setLevel(level:int):void {
+        this.level = level;
+    }
     
-}
 
-
+    public function getLevel():int {
+        return this.level;
+    }
+    }
 }
 

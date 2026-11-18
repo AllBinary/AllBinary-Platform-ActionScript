@@ -1,66 +1,46 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.platform.opengles {
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class PlatformTextureBaseFactory {
+    private static var NULL_PLATFORM_TEXTURE_BASE_FACTORY_value:PlatformTextureBaseFactory;
+    private static var NULL_PLATFORM_TEXTURE_BASE_FACTORY_set:Boolean = false;
+    public static function get NULL_PLATFORM_TEXTURE_BASE_FACTORY():PlatformTextureBaseFactory {
+        if (!PlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY_set) {
+            PlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY_set = true;
+            PlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY_value = new PlatformTextureBaseFactory();
+        }
+        return PlatformTextureBaseFactory.NULL_PLATFORM_TEXTURE_BASE_FACTORY_value;
+    }
+        public var commonStrings:CommonStrings = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsPlatformTextureBaseFactory():void {
+    this.commonStrings = CommonStrings.getInstance();
+        }
 
+        public function PlatformTextureBaseFactory() {
+            super();
+            this.initFieldsPlatformTextureBaseFactory();
+        }
+    
 
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { GL10 } from '../../../../javax/microedition/khronos/opengles/GL10.js';
-//not GWT import const GL10
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class PlatformTextureBaseFactory
-            extends Object
-         {
-        
-
-    public static readonly NULL_PLATFORM_TEXTURE_BASE_FACTORY: PlatformTextureBaseFactory = new PlatformTextureBaseFactory();
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    public load(gl: GL10, target: number, level: number, image: Image, border: number, flip: boolean){
-}
-
-
+    public function load(gl:GL10, target:int, level:int, image:Image, border:int, flip:Boolean):void {
+    }
+    }
 }
 

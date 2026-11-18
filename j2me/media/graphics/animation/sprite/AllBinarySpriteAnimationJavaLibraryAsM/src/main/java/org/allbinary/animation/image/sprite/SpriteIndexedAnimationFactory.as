@@ -1,200 +1,86 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image.sprite {
+    import org.allbinary.AndroidUtil;
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationBehaviorFactory;
+    import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
+    import org.allbinary.animation.image.BaseImageAnimationFactory;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorUtil;
+    import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class SpriteIndexedAnimationFactory extends BaseImageAnimationFactory implements ProceduralAnimationInterfaceFactoryInterface {
+        private var animationFactorySpriteScaleUtil:AnimationFactorySpriteScaleUtil = null;
+        private var basicColorArray:Vector.<BasicColor> = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Image } from '../../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { Sprite } from '../../../../../javax/microedition/lcdui/game/Sprite.js';
-//not GWT import const Sprite
-
-import { AndroidUtil } from '../../../../../org/allbinary/AndroidUtil.js';
-//not GWT import const AndroidUtil
-
-import { Animation } from '../../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationBehaviorFactory } from '../../../../../org/allbinary/animation/AnimationBehaviorFactory.js';
-//not GWT import const AnimationBehaviorFactory
-
-import { ProceduralAnimationInterfaceFactoryInterface } from '../../../../../org/allbinary/animation/ProceduralAnimationInterfaceFactoryInterface.js';
-//not GWT import const ProceduralAnimationInterfaceFactoryInterface
-
-import { BaseImageAnimationFactory } from '../../../../../org/allbinary/animation/image/BaseImageAnimationFactory.js';
-//not GWT import const BaseImageAnimationFactory
-
-import { BasicColor } from '../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorUtil } from '../../../../../org/allbinary/graphics/color/BasicColorUtil.js';
-//not GWT import const BasicColorUtil
-
-import { AnimationFactorySpriteScaleUtil } from '../../../../../org/allbinary/image/sprite/AnimationFactorySpriteScaleUtil.js';
-//not GWT import const AnimationFactorySpriteScaleUtil
-
-import { PrimitiveIntUtil } from '../../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { SpriteIndexedAnimation } from './SpriteIndexedAnimation.js';
-//sameFolderImports - not GWT import - same folder const SpriteIndexedAnimation
-import { AdjustedSpriteIndexedAnimation } from './AdjustedSpriteIndexedAnimation.js';
-//sameFolderImports - not GWT import - same folder const AdjustedSpriteIndexedAnimation
-
-export class SpriteIndexedAnimationFactory extends BaseImageAnimationFactory implements ProceduralAnimationInterfaceFactoryInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public static createCWHDXY(image: Image, basicColorArray: BasicColor[], width: number, height: number, dx: number, dy: number, animationBehaviorFactory: AnimationBehaviorFactory): SpriteIndexedAnimationFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new SpriteIndexedAnimationFactory(image, basicColorArray, PrimitiveIntUtil.getArrayInstance(), width, height, dx, dy, animationBehaviorFactory);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public static createCWH(image: Image, basicColorArray: BasicColor[], width: number, height: number, animationBehaviorFactory: AnimationBehaviorFactory): SpriteIndexedAnimationFactory{
-
-    let spriteIndexedAnimationFactory: SpriteIndexedAnimationFactory = new SpriteIndexedAnimationFactory(image, basicColorArray, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory);;
-    
-spriteIndexedAnimationFactory!.initHWH();
+        // Java field initializers run after the base constructor
+        private function initFieldsSpriteIndexedAnimationFactory():void {
+    this.animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
+    this.basicColorArray = BasicColorUtil.getInstance().ZERO_ARRAY;
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return spriteIndexedAnimationFactory;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public static createWH(image: Image, width: number, height: number, animationBehaviorFactory: AnimationBehaviorFactory): SpriteIndexedAnimationFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new SpriteIndexedAnimationFactory(image, BasicColorUtil.getInstance()!.ZERO_ARRAY, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory);
-    
-}
-
-
-    private readonly animationFactorySpriteScaleUtil: AnimationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance()!;
-
-    private basicColorArray: BasicColor[] = BasicColorUtil.getInstance()!.ZERO_ARRAY;
-
-private constructor (image: Image, basicColorArray: BasicColor[], sequenceArray: number[], width: number, height: number, dx: number, dy: number, animationBehaviorFactory: AnimationBehaviorFactory){
-            super(image, sequenceArray, width, height, dx, dy, animationBehaviorFactory);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.basicColorArray= basicColorArray;
-    
-}
-
-
-    initHWH(){
-this.animationFactoryInitializationVisitor!.dx=  -(this.animationFactoryInitializationVisitor!.width>>2);
-    
-this.animationFactoryInitializationVisitor!.dy=  -(this.animationFactoryInitializationVisitor!.height>>2);
+    public static function createCWHDXY(image:Image, basicColorArray:Vector.<BasicColor>, width:int, height:int, dx:int, dy:int, animationBehaviorFactory:AnimationBehaviorFactory):SpriteIndexedAnimationFactory {
+        return new SpriteIndexedAnimationFactory(image, basicColorArray, PrimitiveIntUtil.getArrayInstance(), width, height, dx, dy, animationBehaviorFactory);
+    }
     
 
-                        if(AndroidUtil.isAndroid())
-                        
-                                    {
-                                    this.animationFactoryInitializationVisitor!.dx += 3;
+    public static function createCWH(image:Image, basicColorArray:Vector.<BasicColor>, width:int, height:int, animationBehaviorFactory:AnimationBehaviorFactory):SpriteIndexedAnimationFactory {
+        var spriteIndexedAnimationFactory:SpriteIndexedAnimationFactory = new SpriteIndexedAnimationFactory(image, basicColorArray, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory);
+        spriteIndexedAnimationFactory.initHWH();
+        return spriteIndexedAnimationFactory;
+    }
     
 
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstance(instanceId: number): Animation{
-
-    let sprite: Sprite = this.animationFactorySpriteScaleUtil!.createImage(this.getImage(), this.animationFactoryInitializationVisitor!.width, this.animationFactoryInitializationVisitor!.height, this.scaleProperties!.scaleWidth, this.scaleProperties!.scaleHeight)!;;
+    public static function createWH(image:Image, width:int, height:int, animationBehaviorFactory:AnimationBehaviorFactory):SpriteIndexedAnimationFactory {
+        return new SpriteIndexedAnimationFactory(image, BasicColorUtil.getInstance().ZERO_ARRAY, PrimitiveIntUtil.getArrayInstance(), width, height, 0, 0, animationBehaviorFactory);
+    }
     
 
-                        if(this.animationFactoryInitializationVisitor!.dx != 0 || this.animationFactoryInitializationVisitor!.dy != 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AdjustedSpriteIndexedAnimation(sprite, this.getImage(), this.basicColorArray, this.animationFactoryInitializationVisitor!.dx, this.animationFactoryInitializationVisitor!.dy, this.animationBehaviorFactory!.getOrCreateInstance());
+    public function SpriteIndexedAnimationFactory(image:Image, basicColorArray:Vector.<BasicColor>, sequenceArray:Vector.<int>, width:int, height:int, dx:int, dy:int, animationBehaviorFactory:AnimationBehaviorFactory) {
+        super(image, sequenceArray, width, height, dx, dy, animationBehaviorFactory);
+        this.initFieldsSpriteIndexedAnimationFactory();
+        this.basicColorArray = basicColorArray;
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new SpriteIndexedAnimation(sprite, this.getImage(), this.basicColorArray, this.animationBehaviorFactory!.getOrCreateInstance());
+    private function initHWH():void {
+        this.animationFactoryInitializationVisitor.dx = -(this.animationFactoryInitializationVisitor.width >> 2);
+        this.animationFactoryInitializationVisitor.dy = -(this.animationFactoryInitializationVisitor.height >> 2);
+        if (AndroidUtil.isAndroid()) {
+            this.animationFactoryInitializationVisitor.dx += 3;
+        }
+    }
     
 
-                        }
-                            
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceAnimation(animationInterface: Animation): Animation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getInstance(0);;
+    override public function getInstance1(instanceId:int):Animation {
+        var sprite:Sprite = this.animationFactorySpriteScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
+            return new AdjustedSpriteIndexedAnimation(sprite, this.getImage(), this.basicColorArray, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
+        } else {
+            return new SpriteIndexedAnimation(sprite, this.getImage(), this.basicColorArray, this.animationBehaviorFactory.getOrCreateInstance());
+        }
+    }
     
-}
 
-
+    public function getInstanceAnimation(animationInterface:Animation):Animation {
+        return this.getInstance1(0);
+    }
+    }
 }
 

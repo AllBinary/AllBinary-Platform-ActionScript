@@ -1,185 +1,79 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.security.crypt.jcehelper {
+    import org.allbinary.TsUtil;
+    import org.allbinary.init.crypt.jcehelper.CryptInterface;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.communication.log.PreLogUtil;
+    import org.allbinary.logic.java.byteutil.ByteUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicCrypt implements CryptInterface {
+        private var byteUtil:ByteUtil = null;
+        private var key:Vector.<int> = null;
 
-        
-
-
-            import { Object } from '../../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../../java/lang/Exception.js';
-        
-import { TsUtil } from '../../../../../../../org/allbinary/TsUtil.js';
-//not GWT import const TsUtil
-
-import { CryptInterface } from '../../../../../../../org/allbinary/init/crypt/jcehelper/CryptInterface.js';
-//not GWT import const CryptInterface
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-import { ByteUtil } from '../../../../../../../org/allbinary/logic/java/byteutil/ByteUtil.js';
-//not GWT import const ByteUtil
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class BasicCrypt
-            extends Object
-         implements CryptInterface {
-        
-
-    private readonly byteUtil: ByteUtil = ByteUtil.getInstance()!;
-
-    private readonly key: number[];
-
-public constructor (keyAsString: string){
-
-            super();
-        
-    let key: number[] = NullUtil.getInstance()!.NULL_BYTE_ARRAY;;
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicCrypt():void {
+    this.byteUtil = ByteUtil.getInstance();
+    
+        }
     
 
- try { key= TsUtil.getInstance()!.getByteArray(keyAsString);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-    let commonStrings: CommonStrings = CommonStrings.getInstance()!;;
-    
-PreLogUtil.putOE(commonStrings!.EXCEPTION, this, "AbCrypt(alg,key)", e);
-    
-
- }
-   }
- 
-this.key= key;
-    
-}
-
-
-    public encrypt(array: number[]): number[]{
-
- try { 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.mutilate(array);;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-PreLogUtil.putOE("Encrypt Failed", this, "encrypt", e);
+    public function BasicCrypt(keyAsString:String) {
+        super();
+        this.initFieldsBasicCrypt();
+        var key:Vector.<int> = NullUtil.getInstance().NULL_BYTE_ARRAY;
+        try {
+            key = TsUtil.getInstance().getByteArray(keyAsString);
+        } catch (e:*) {
+            var commonStrings:CommonStrings = CommonStrings.getInstance();
+            PreLogUtil.putOE(commonStrings.EXCEPTION, this, "AbCrypt(alg,key)", e);
+        }
+        this.key = key;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullUtil.getInstance()!.NULL_BYTE_ARRAY;
+    public function encrypt(array:Vector.<int>):Vector.<int> {
+        try {
+            return this.mutilate(array);
+        } catch (e:*) {
+            PreLogUtil.putOE("Encrypt Failed", this, "encrypt", e);
+            return NullUtil.getInstance().NULL_BYTE_ARRAY;
+        }
+    }
     
 
- }
-   }
- 
-}
-
-
-    public decrypt(array: number[]): number[]{
-
- try { 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.mutilate(array);;
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-PreLogUtil.putOE("decrypt Failed", this, "decrypt", e);
+    public function decrypt(array:Vector.<int>):Vector.<int> {
+        try {
+            return this.mutilate(array);
+        } catch (e:*) {
+            PreLogUtil.putOE("decrypt Failed", this, "decrypt", e);
+            return NullUtil.getInstance().NULL_BYTE_ARRAY;
+        }
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullUtil.getInstance()!.NULL_BYTE_ARRAY;
-    
-
- }
-   }
- 
-}
-
-
-    public mutilate(array: number[]): number[]{
-
-    let value: number;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < this.key.length; index++)
-        {
-value= this.key[index]!;
-    
-array= this.byteUtil!.xor(array, value);
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return array;
-    
-}
-
-
+    public function mutilate(array:Vector.<int>):Vector.<int> {
+        var value:int = 0;
+        for (var index:int = 0; index < this.key.length; index++) {
+            value = this.key[index];
+            array = this.byteUtil.xor(array, value);
+        }
+        return array;
+    }
+    }
 }
 

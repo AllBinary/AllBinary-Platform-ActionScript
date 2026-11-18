@@ -1,82 +1,42 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.layer {
+    import org.allbinary.graphics.Rectangle;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.view.ViewPosition;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AllBinaryLayerFactory implements AllBinaryLayerFactoryInterface {
+        private var rectangle:Rectangle = null;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-import { Rectangle } from '../../../org/allbinary/graphics/Rectangle.js';
-//not GWT import const Rectangle
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { ViewPosition } from '../../../org/allbinary/view/ViewPosition.js';
-//not GWT import const ViewPosition
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AllBinaryLayerFactoryInterface } from './AllBinaryLayerFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryLayerFactoryInterface
-import { AllBinaryLayer } from './AllBinaryLayer.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryLayer
-
-export class AllBinaryLayerFactory
-            extends Object
-         implements AllBinaryLayerFactoryInterface {
-        
-
-    private readonly rectangle: Rectangle;
-
-public constructor (rectangle: Rectangle){
-
-            super();
-        this.rectangle= rectangle;
+        // Java field initializers run after the base constructor
+        private function initFieldsAllBinaryLayerFactory():void {
     
-}
-
-
-    public getInstance(): AllBinaryLayer{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AllBinaryLayer(StringUtil.getInstance()!.EMPTY_STRING, this.rectangle, ViewPosition.getInstanceD());
+        }
     
-}
 
+    public function AllBinaryLayerFactory(rectangle:Rectangle) {
+        super();
+        this.initFieldsAllBinaryLayerFactory();
+        this.rectangle = rectangle;
+    }
+    
 
+    public function getInstance():AllBinaryLayer {
+        return new AllBinaryLayer(StringUtil.getInstance().EMPTY_STRING, this.rectangle, ViewPosition.getInstanceD());
+    }
+    }
 }
 

@@ -1,87 +1,47 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.gyro.action {
+    import org.allbinary.game.input.PlatformInputMappingFactory;
+    import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEvent;
+    import org.allbinary.input.gyro.OrientationMotionGestureFactory;
+    import org.allbinary.logic.NullUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { PlatformInputMappingFactory } from '../../../../../../org/allbinary/game/input/PlatformInputMappingFactory.js';
-//not GWT import const PlatformInputMappingFactory
-
-import { GameKeyCompleteMotionGestureInputEvent } from '../../../../../../org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.js';
-//not GWT import const GameKeyCompleteMotionGestureInputEvent
-
-import { OrientationMotionGestureFactory } from '../../../../../../org/allbinary/input/gyro/OrientationMotionGestureFactory.js';
-//not GWT import const OrientationMotionGestureFactory
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class RightOrientationInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): GameKeyCompleteMotionGestureInputEvent{
-
-                        if(RightOrientationInputToGameKeyEventAction.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    RightOrientationInputToGameKeyEventAction.instance= new RightOrientationInputToGameKeyEventAction();
+    public class RightOrientationInputToGameKeyEventAction extends GameKeyCompleteMotionGestureInputEvent {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!RightOrientationInputToGameKeyEventAction.instance_set) {
+            RightOrientationInputToGameKeyEventAction.instance_set = true;
+            RightOrientationInputToGameKeyEventAction.instance_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return RightOrientationInputToGameKeyEventAction.instance_value;
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return RightOrientationInputToGameKeyEventAction.instance as GameKeyCompleteMotionGestureInputEvent;
+    public static function getInstance():GameKeyCompleteMotionGestureInputEvent {
+        if (RightOrientationInputToGameKeyEventAction.instance == NullUtil.getInstance().NULL_OBJECT) {
+            RightOrientationInputToGameKeyEventAction.instance = new RightOrientationInputToGameKeyEventAction();
+        }
+        return (RightOrientationInputToGameKeyEventAction.instance as GameKeyCompleteMotionGestureInputEvent);
+    }
     
-}
 
-
-private constructor (){
-            super("Right Action", OrientationMotionGestureFactory.getInstance()!.RIGHT, PlatformInputMappingFactory.getInstance()!.getPersistentInputMappingInstance()!.getInputMapping());
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
+    public function RightOrientationInputToGameKeyEventAction() {
+        super("Right Action", OrientationMotionGestureFactory.getInstance().RIGHT, PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
+    }
+    }
 }
 

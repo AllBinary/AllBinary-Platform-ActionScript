@@ -1,76 +1,55 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game {
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameTypeFactory {
+    private static var instance_value:GameTypeFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GameTypeFactory {
+        if (!GameTypeFactory.instance_set) {
+            GameTypeFactory.instance_set = true;
+            GameTypeFactory.instance_value = new GameTypeFactory();
+        }
+        return GameTypeFactory.instance_value;
+    }
+        public var NULL_GAME_TYPE_ARRAY:Vector.<GameType> = null;
+        public var NONE:GameType = null;
+        public var SINGLE_PLAYER:GameType = null;
+        public var MULTI_PLAYER:GameType = null;
+        public var BOT:GameType = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGameTypeFactory():void {
+    this.NULL_GAME_TYPE_ARRAY = new Vector.<GameType>(0);
+    this.NONE = new GameType(StringUtil.getInstance().NULL_STRING);
+    this.SINGLE_PLAYER = new GameType("Single Player");
+    this.MULTI_PLAYER = new GameType("Multi Player");
+    this.BOT = new GameType("Artificial Player");
+        }
 
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameType } from './GameType.js';
-//sameFolderImports - not GWT import - same folder const GameType
-
-export class GameTypeFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: GameTypeFactory = new GameTypeFactory();
-
-    public static getInstance(): GameTypeFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GameTypeFactory.instance;
+        public function GameTypeFactory() {
+            super();
+            this.initFieldsGameTypeFactory();
+        }
     
-}
 
-
-    public NULL_GAME_TYPE_ARRAY: GameType[] = [];
-
-    public NONE: GameType = new GameType(StringUtil.getInstance()!.NULL_STRING);
-
-    public SINGLE_PLAYER: GameType = new GameType("Single Player");
-
-    public MULTI_PLAYER: GameType = new GameType("Multi Player");
-
-    public BOT: GameType = new GameType("Artificial Player");
-
+    public static function getInstance():GameTypeFactory {
+        return GameTypeFactory.instance;
+    }
+    }
 }
 

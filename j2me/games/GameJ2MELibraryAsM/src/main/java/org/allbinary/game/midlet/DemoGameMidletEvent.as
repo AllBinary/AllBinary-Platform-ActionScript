@@ -1,84 +1,50 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.midlet {
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class DemoGameMidletEvent extends AllBinaryEventObject {
+        private var demoGameMidletState:DemoGameMidletState = null;
 
-        
-
-
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DemoGameMidletState } from './DemoGameMidletState.js';
-//sameFolderImports - not GWT import - same folder const DemoGameMidletState
-
-export class DemoGameMidletEvent extends AllBinaryEventObject {
-        
-
-    private demoGameMidletState: DemoGameMidletState;
-
-public constructor (anyType: any, demoGameMidletState: DemoGameMidletState){
-            super(anyType);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.demoGameMidletState= demoGameMidletState;
+        // Java field initializers run after the base constructor
+        private function initFieldsDemoGameMidletEvent():void {
     
-}
-
-
-    public init(anyType: any){
-this.setSource(anyType);
+        }
     
-}
 
-
-    public setDemoGameMidletState(demoGameMidletState: DemoGameMidletState){
-this.demoGameMidletState= demoGameMidletState;
+    public function DemoGameMidletEvent(anyType:Object, demoGameMidletState:DemoGameMidletState) {
+        super(anyType);
+        this.initFieldsDemoGameMidletEvent();
+        this.demoGameMidletState = demoGameMidletState;
+    }
     
-}
 
-
-    public getDemoGameMidletState(): DemoGameMidletState{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.demoGameMidletState;
+    public function init(anyType:Object):void {
+        this.setSource(anyType);
+    }
     
-}
 
+    public function setDemoGameMidletState(demoGameMidletState:DemoGameMidletState):void {
+        this.demoGameMidletState = demoGameMidletState;
+    }
+    
 
+    public function getDemoGameMidletState():DemoGameMidletState {
+        return this.demoGameMidletState;
+    }
+    }
 }
 

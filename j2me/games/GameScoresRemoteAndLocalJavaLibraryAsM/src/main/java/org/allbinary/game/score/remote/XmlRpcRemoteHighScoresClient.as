@@ -1,226 +1,89 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score.remote {
+    import org.allbinary.logic.string.StringUtil;
+    import java.io.JIOException;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import org.allbinary.init.crypt.jcehelper.CryptInterface;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
+    import org.allbinary.logic.java.exception.ExceptionUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+    import org.allbinary.util.ABHashtable;
+    import org.apache.xmlrpc.XmlRpcClient;
+    import org.apache.xmlrpc.XmlRpcException;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient {
+        public var logUtil:LogUtil = null;
+        private var page:String = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { IOException } from '../../../../../java/io/IOException.js';
-//not GWT import const IOException
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-import { CryptInterface } from '../../../../../org/allbinary/init/crypt/jcehelper/CryptInterface.js';
-//not GWT import const CryptInterface
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { XmlRpcAbeClient } from '../../../../../org/allbinary/logic/communication/xmlrpc/XmlRpcAbeClient.js';
-//not GWT import const XmlRpcAbeClient
-
-//not plain js import { ExceptionUtil } 
-const ExceptionUtil = globalThis.org.allbinary.logic.java.exception.ExceptionUtil;
-type ExceptionUtil<T = any, U = any> = typeof ExceptionUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ExceptionUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { AbeClientInformationInterface } from '../../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-import { XmlRpcClient } from '../../../../../org/apache/xmlrpc/XmlRpcClient.js';
-//not GWT import const XmlRpcClient
-
-import { XmlRpcException } from '../../../../../org/apache/xmlrpc/XmlRpcException.js';
-//not GWT import const XmlRpcException
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private page: string;
-
-public constructor (clientInfo: AbeClientInformationInterface, page: string, remoteMethod: string){
-            super(clientInfo, remoteMethod);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.page= page;
+        // Java field initializers run after the base constructor
+        private function initFieldsXmlRpcRemoteHighScoresClient():void {
+    this.logUtil = LogUtil.getInstance();
     
-this.setServer(0);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public get(anyType: any, cryptInterface: CryptInterface): any{
-
- try { 
-    let param: BasicArrayList = new BasicArrayListD();;
+        }
     
 
-    let serverUrl: string = getClientInfo()!.getLicenseServer(this.getServer())!;;
+    public function XmlRpcRemoteHighScoresClient(clientInfo:AbeClientInformationInterface, page:String, remoteMethod:String) {
+        super(clientInfo, remoteMethod);
+        this.initFieldsXmlRpcRemoteHighScoresClient();
+        this.page = page;
+        this.setServer(0);
+    }
     
 
-    let index: number = serverUrl!.lastIndexOf('/')!;;
-    
-serverUrl= serverUrl!.substring(0, index +1) +this.page;
-    
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append(TRYING);
-    
-stringBuffer!.appendint(this.getServer());
-    
-stringBuffer!.append(SEP);
-    
-stringBuffer!.append(serverUrl);
-    
-this.logUtil!.putF(stringBuffer!.toString(), this, this.commonStrings!.GET);
-    
-
-    let xmlRpcClient: XmlRpcClient = new XmlRpcClient(serverUrl);;
-    
-this.setClient(xmlRpcClient);
-    
-xmlRpcClient!.setBasicAuthentication(StringUtil.getInstance()!.EMPTY_STRING, StringUtil.getInstance()!.EMPTY_STRING);
-    
-
-    let hashtable: ABHashtable<any, any> = anyType as ABHashtable<any, any>;;
-    
-this.logUtil!.putF(CLIENT_INFO +hashtable.toString(), this, this.commonStrings!.GET);
-    
-param.add(hashtable);
-    
-
-    let result: any = xmlRpcClient!.executeWithCrypt(this.getRemoteMethod(), param, cryptInterface)!;;
-    
-this.logUtil!.putF(RESULT +result.toString(), this, this.commonStrings!.GET);
-    
-isOnline= true;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return result;
-    
- }
- catch (caught: any) {
- if (caught instanceof IOException) {
-  const e = caught;
-  
-this.logUtil!.put(TRYING_OTHER_SERVERS +ExceptionUtil.getInstance()!.getStackTrace(e), this, this.commonStrings!.GET, e);
-    
-
-                        if(!e.getMessage()!.startsWith(HOST_NOT_RESOLVED))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.tryAnother(anyType);;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw new Exception(HOST_NOT_RESOLVED_MSG);
-                    
-
-                        }
-                            
-
- }
-  else if (caught instanceof XmlRpcException) {
-  const e = caught;
-  
-this.logUtil!.put(SERVER_REPORTED_ERROR, this, this.commonStrings!.GET, e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.tryAnother(anyType);;
-    
-
- }
-  else {
-  const e = caught;
-  
-this.logUtil!.put(UNKNOWN_ERROR, this, this.commonStrings!.GET, e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.tryAnother(anyType);;
-    
-
- }
-   }
- 
-}
-
-
+    public function get_(anyType:Object, cryptInterface:CryptInterface):Object {
+        try {
+            var param:BasicArrayList = new BasicArrayListD();
+            var serverUrl:String = this.getClientInfo().getLicenseServer(this.getServer());
+            var index:int = JString.lastIndexOf(serverUrl, "/".charCodeAt(0));
+            serverUrl = serverUrl.substring(0, int(index + 1)) + this.page;
+            var stringBuffer:StringMaker = new StringMaker();
+            stringBuffer.append(XmlRpcAbeClient.TRYING);
+            stringBuffer.appendint(this.getServer());
+            stringBuffer.append(SEP);
+            stringBuffer.append(serverUrl);
+            this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.GET);
+            var xmlRpcClient:XmlRpcClient = new XmlRpcClient(serverUrl);
+            this.setClient(xmlRpcClient);
+            xmlRpcClient.setBasicAuthentication(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING);
+            var hashtable:ABHashtable = (anyType as ABHashtable);
+            this.logUtil.putF(String(XmlRpcAbeClient.CLIENT_INFO) + hashtable.toString(), this, this.commonStrings.GET);
+            param.add(hashtable);
+            var result:Object = xmlRpcClient.executeWithCrypt(this.getRemoteMethod(), param, cryptInterface);
+            this.logUtil.putF(String(XmlRpcAbeClient.RESULT) + result.toString(), this, this.commonStrings.GET);
+            this.isOnline = true;
+            return result;
+        } catch (e:*) {
+            this.logUtil.put(String(XmlRpcAbeClient.TRYING_OTHER_SERVERS) + ExceptionUtil.getInstance().getStackTrace(e), this, this.commonStrings.GET, e);
+            if (!e.getMessage().startsWith(XmlRpcAbeClient.HOST_NOT_RESOLVED)) {
+                return this.tryAnother(anyType);
+            } else {
+                throw new JException("Exception", XmlRpcAbeClient.HOST_NOT_RESOLVED_MSG);
+            }
+        } catch (e:*) {
+            this.logUtil.put(XmlRpcAbeClient.SERVER_REPORTED_ERROR, this, this.commonStrings.GET, e);
+            return this.tryAnother(anyType);
+        } catch (e:*) {
+            this.logUtil.put(XmlRpcAbeClient.UNKNOWN_ERROR, this, this.commonStrings.GET, e);
+            return this.tryAnother(anyType);
+        }
+    }
+    }
 }
 

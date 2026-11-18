@@ -1,105 +1,64 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.vector {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.ColorCompositeInterface;
+    import org.allbinary.math.AngleFactory;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CircleAnimation extends Animation implements ColorCompositeInterface {
+        public var TOTAL_ANGLE:int = 0;
+        public var width:int = 0;
+        public var height:int = 0;
 
-        
-
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { ColorCompositeInterface } from '../../../../org/allbinary/graphics/color/ColorCompositeInterface.js';
-//not GWT import const ColorCompositeInterface
-
-import { AngleFactory } from '../../../../org/allbinary/math/AngleFactory.js';
-//not GWT import const AngleFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class CircleAnimation extends Animation implements ColorCompositeInterface {
-        
-
-    readonly TOTAL_ANGLE: number = globalThis.Math.trunc(AngleFactory.getInstance()!.TOTAL_ANGLE);
-
-    width: number;
-
-    height: number;
-
-public constructor (width: number, height: number, basicColor: BasicColor){
-
-            super();
-        this.width= width;
+        // Java field initializers run after the base constructor
+        private function initFieldsCircleAnimation():void {
+    this.TOTAL_ANGLE = AngleFactory.getInstance().TOTAL_ANGLE;
     
-this.height= height;
     
-this.setBasicColorP(basicColor);
+        }
     
-}
 
-
-    public nextFrame(){
-}
-
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-this.basicSetColorUtil!.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
+    public function CircleAnimation(width:int, height:int, basicColor:BasicColor) {
+        super();
+        this.initFieldsCircleAnimation();
+        this.width = width;
+        this.height = height;
+        this.setBasicColorP(basicColor);
+    }
     
-graphics.drawArc(x, y, this.width, this.height, 0, this.TOTAL_ANGLE);
+
+    override public function nextFrame():void {
+    }
     
-}
 
-
-    public getBasicColorP(): BasicColor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getBasicColorP();;
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        this.basicSetColorUtil.setBasicColorP3(graphics, this.getBasicColorP(), this.getColor());
+        graphics.drawArc(x, y, this.width, this.height, 0, this.TOTAL_ANGLE);
+    }
     
-}
 
-
-    public setBasicColorP(basicColor: BasicColor){
-super.setBasicColorP(basicColor);
+    override public function getBasicColorP():BasicColor {
+        return super.getBasicColorP();
+    }
     
-}
 
-
+    override public function setBasicColorP(basicColor:BasicColor):void {
+        super.setBasicColorP(basicColor);
+    }
+    }
 }
 

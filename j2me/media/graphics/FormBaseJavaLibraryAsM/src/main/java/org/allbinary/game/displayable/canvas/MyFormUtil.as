@@ -1,154 +1,81 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.game.configuration.feature.Features;
+    import org.allbinary.graphics.PointFactory;
+    import org.allbinary.graphics.Rectangle;
+    import org.allbinary.graphics.RectangleFactory;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
+    import org.allbinary.graphics.threed.SWTJOGLProcessor;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class MyFormUtil {
+    private static var instance_value:MyFormUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():MyFormUtil {
+        if (!MyFormUtil.instance_set) {
+            MyFormUtil.instance_set = true;
+            MyFormUtil.instance_value = new MyFormUtil();
+        }
+        return MyFormUtil.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var commonStrings:CommonStrings = null;
+        private var popupMenuRectangle:Rectangle = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsMyFormUtil():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.popupMenuRectangle = RectangleFactory.SINGLETON;
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { Font } from '../../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Features } from '../../../../../org/allbinary/game/configuration/feature/Features.js';
-//not GWT import const Features
-
-import { PointFactory } from '../../../../../org/allbinary/graphics/PointFactory.js';
-//not GWT import const PointFactory
-
-import { Rectangle } from '../../../../../org/allbinary/graphics/Rectangle.js';
-//not GWT import const Rectangle
-
-import { RectangleFactory } from '../../../../../org/allbinary/graphics/RectangleFactory.js';
-//not GWT import const RectangleFactory
-
-import { DisplayInfoSingleton } from '../../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { MyFontProcessor } from '../../../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { OpenGLFeatureFactory } from '../../../../../org/allbinary/graphics/opengles/OpenGLFeatureFactory.js';
-//not GWT import const OpenGLFeatureFactory
-
-import { SWTJOGLProcessor } from '../../../../../org/allbinary/graphics/threed/SWTJOGLProcessor.js';
-//not GWT import const SWTJOGLProcessor
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class MyFormUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: MyFormUtil = new MyFormUtil();
-
-    public static getInstance(): MyFormUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MyFormUtil.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private popupMenuRectangle: Rectangle = RectangleFactory.SINGLETON;
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
+        public function MyFormUtil() {
+            super();
+            this.initFieldsMyFormUtil();
+        }
     
 
-    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
+    public static function getInstance():MyFormUtil {
+        return MyFormUtil.instance;
+    }
     
 
-    let features: Features = Features.getInstance()!;;
+    public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        var displayInfo:DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
+        var features:Features = Features.getInstance();
+        var isOpenGL:Boolean = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
+        var TOTAL_CHAR_WIDTH:int = (SWTJOGLProcessor.getInstance().isJOGL() && isOpenGL ? 2 : 3);
+        var width:int = MyFontProcessor.defaultStringWidth(font, TOTAL_CHAR_WIDTH);
+        var pointFactory:PointFactory = PointFactory.getInstance();
+        if (displayInfo.getLastHeight() < 320) {
+            this.popupMenuRectangle = new Rectangle(pointFactory.createXY(0, 25), width, int((int(font.getHeight() * 4)) + 2));
+        } else {
+            this.popupMenuRectangle = new Rectangle(pointFactory.createXY(0, int(displayInfo.getLastHalfHeight() - 70)), width, (int(font.getHeight() * 5)));
+        }
+    }
     
 
-    let isOpenGL: boolean = features.isDefault(OpenGLFeatureFactory.getInstance()!.OPENGL)!;;
-    
-
-    let TOTAL_CHAR_WIDTH: number = (SWTJOGLProcessor.getInstance()!.isJOGL() && isOpenGL ? 2 : 3);;
-    
-
-    let width: number = MyFontProcessor.defaultStringWidth(font, TOTAL_CHAR_WIDTH)!;;
-    
-
-    let pointFactory: PointFactory = PointFactory.getInstance()!;;
-    
-
-                        if(displayInfo!.getLastHeight() < 320)
-                        
-                                    {
-                                    this.popupMenuRectangle= new Rectangle(pointFactory!.createXY(0, 25), width, (font.getHeight() *4) +2);
-    
-
-                                    }
-                                
-                        else {
-                            this.popupMenuRectangle= new Rectangle(pointFactory!.createXY(0, displayInfo!.getLastHalfHeight() -70), width, (font.getHeight() *5));
-    
-
-                        }
-                            
-}
-
-
-    public getPopupMenuRectangle(): Rectangle{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.popupMenuRectangle;
-    
-}
-
-
+    public function getPopupMenuRectangle():Rectangle {
+        return this.popupMenuRectangle;
+    }
+    }
 }
 

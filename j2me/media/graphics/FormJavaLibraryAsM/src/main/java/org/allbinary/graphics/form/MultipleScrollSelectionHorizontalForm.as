@@ -1,324 +1,126 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form {
+    import org.allbinary.J2MEUtil;
+    import org.allbinary.graphics.Rectangle;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.font.UpdateMyFontProcessor;
+    import org.allbinary.graphics.form.item.ABCustomItem;
+    import org.allbinary.graphics.paint.NullPaintable;
+    import org.allbinary.graphics.paint.Paintable;
+    import org.allbinary.logic.communication.log.PreLogUtil;
+    import org.allbinary.logic.string.StringMaker;
 
-        /* Generated Code Do Not Modify */
+    public class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm implements UpdateMyFontInterface {
+        private var rectPaintable:Paintable = null;
+        private var multipleScrollSelectionHorizontalFormTypeItemIndexPaintable:ItemIndexPaintable = null;
+        private var backgroundColor:int = 0;
+        private var myFontProcessor:MyFontProcessor = null;
+        private var logged:Boolean = false;
+        private var fontHeight:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Font } from '../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { J2MEUtil } from '../../../../org/allbinary/J2MEUtil.js';
-//not GWT import const J2MEUtil
-
-import { Rectangle } from '../../../../org/allbinary/graphics/Rectangle.js';
-//not GWT import const Rectangle
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { MyFontProcessor } from '../../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { UpdateMyFontInterface } from '../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { UpdateMyFontProcessor } from '../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
-//not GWT import const UpdateMyFontProcessor
-
-import { ABCustomItem } from '../../../../org/allbinary/graphics/form/item/ABCustomItem.js';
-//not GWT import const ABCustomItem
-
-import { NullPaintable } from '../../../../org/allbinary/graphics/paint/NullPaintable.js';
-//not GWT import const NullPaintable
-
-import { Paintable } from '../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ScrollSelectionForm } from './ScrollSelectionForm.js';
-//sameFolderImports - not GWT import - same folder const ScrollSelectionForm
-import { ItemPaintableFactory } from './ItemPaintableFactory.js';
-//sameFolderImports - not GWT import - same folder const ItemPaintableFactory
-import { FormType } from './FormType.js';
-//sameFolderImports - not GWT import - same folder const FormType
-import { ItemIndexPaintable } from './ItemIndexPaintable.js';
-//sameFolderImports - not GWT import - same folder const ItemIndexPaintable
-import { MultipleScrollSelectionFormRectPaintable } from './MultipleScrollSelectionFormRectPaintable.js';
-//sameFolderImports - not GWT import - same folder const MultipleScrollSelectionFormRectPaintable
-import { FormTypeFactory } from './FormTypeFactory.js';
-//sameFolderImports - not GWT import - same folder const FormTypeFactory
-import { MultipleScrollSelectionFormVerticalPaintable } from './MultipleScrollSelectionFormVerticalPaintable.js';
-//sameFolderImports - not GWT import - same folder const MultipleScrollSelectionFormVerticalPaintable
-import { MultipleScrollSelectionFormHorizontalPaintable } from './MultipleScrollSelectionFormHorizontalPaintable.js';
-//sameFolderImports - not GWT import - same folder const MultipleScrollSelectionFormHorizontalPaintable
-
-export class MultipleScrollSelectionHorizontalForm extends ScrollSelectionForm implements UpdateMyFontInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public static createForm(title: string, items: ABCustomItem[], rectangle: Rectangle, formType: FormType, border: number, backgroundBasicColor: BasicColor, foregroundBasicColor: BasicColor): ScrollSelectionForm{
-
-    let scrollSelectionForm: ScrollSelectionForm = new MultipleScrollSelectionHorizontalForm(title, items, ItemPaintableFactory.getInstance(), border, backgroundBasicColor, foregroundBasicColor);;
-    
-scrollSelectionForm!.init(rectangle, formType);
+        // Java field initializers run after the base constructor
+        private function initFieldsMultipleScrollSelectionHorizontalForm():void {
+    this.rectPaintable = NullPaintable.getInstance();
+    this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = ItemIndexPaintable.getInstance();
+    this.backgroundColor = BasicColorFactory.getInstance().TRANSPARENT_GREY.intValue();
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
+    this.logged = false;
+    this.fontHeight = 0;
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return scrollSelectionForm;
-    
-}
-
-
-    private rectPaintable: Paintable = NullPaintable.getInstance()!;
-
-    private multipleScrollSelectionHorizontalFormTypeItemIndexPaintable: ItemIndexPaintable = ItemIndexPaintable.getInstance()!;
-
-    private readonly backgroundColor: number = BasicColorFactory.getInstance()!.TRANSPARENT_GREY.intValue()!;
-
-    private myFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
-
-    private logged: boolean = false;
-
-    private fontHeight: number = 0;
-
-public constructor (title: string, items: ABCustomItem[], formPaintableFactory: ItemPaintableFactory, border: number, backgroundBasicColor: BasicColor, foregroundBasicColor: BasicColor){
-            super(title, items, formPaintableFactory, border, 3, backgroundBasicColor, foregroundBasicColor);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-
-                        if(J2MEUtil.isJ2ME() || J2MEUtil.isHTML())
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            this.rectPaintable= new MultipleScrollSelectionFormRectPaintable(this);
+    public static function createForm(title:String, items:Vector.<ABCustomItem>, rectangle:Rectangle, formType:FormType, border:int, backgroundBasicColor:BasicColor, foregroundBasicColor:BasicColor):ScrollSelectionForm {
+        var scrollSelectionForm:ScrollSelectionForm = new MultipleScrollSelectionHorizontalForm(title, items, ItemPaintableFactory.getInstance(), border, backgroundBasicColor, foregroundBasicColor);
+        scrollSelectionForm.init(rectangle, formType);
+        return scrollSelectionForm;
+    }
     
 
-                        }
-                            
-}
-
-
-    fillRect(graphics: Graphics){
-graphics.setColor(this.backgroundColor);
-    
-graphics.fillRect(this.x, this.y, this.rectangle.getWidth(), this.rectangle.getHeight());
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public init(rectangle: Rectangle, formType: FormType){
-super.init(rectangle, formType);
+    public function MultipleScrollSelectionHorizontalForm(title:String, items:Vector.<ABCustomItem>, formPaintableFactory:ItemPaintableFactory, border:int, backgroundBasicColor:BasicColor, foregroundBasicColor:BasicColor) {
+        super(title, items, formPaintableFactory, border, 3, backgroundBasicColor, foregroundBasicColor);
+        this.initFieldsMultipleScrollSelectionHorizontalForm();
+        if (J2MEUtil.isJ2ME() || J2MEUtil.isHTML()) {
+        } else {
+            this.rectPaintable = new MultipleScrollSelectionFormRectPaintable(this);
+        }
+    }
     
 
-    let formTypeFactory: FormTypeFactory = FormTypeFactory.getInstance()!;;
+    public function fillRect(graphics:Graphics):void {
+        graphics.setColor(this.backgroundColor);
+        graphics.fillRect(this.x, this.y, this.rectangle.getWidth(), this.rectangle.getHeight());
+    }
     
 
-                        if(formType == formTypeFactory!.HORIZONTAL_FORM)
-                        
-                                    {
-                                    this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable= new MultipleScrollSelectionFormHorizontalPaintable(this);
+    override public function init(rectangle:Rectangle, formType:FormType):void {
+        super.init(rectangle, formType);
+        var formTypeFactory:FormTypeFactory = FormTypeFactory.getInstance();
+        if (formType == formTypeFactory.HORIZONTAL_FORM) {
+            this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = new MultipleScrollSelectionFormHorizontalPaintable(this);
+        } else if (formType == formTypeFactory.VERTICAL_CENTER_FORM) {
+            this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = new MultipleScrollSelectionFormVerticalPaintable(this);
+        } else if (formType == formTypeFactory.NULL_FORM_TYPE) {
+        } else {
+            throw new JException("Exception", formTypeFactory.UNK);
+        }
+    }
     
 
-                                    }
-                                
-                             else 
-                        if(formType == formTypeFactory!.VERTICAL_CENTER_FORM)
-                        
-                                    {
-                                    this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable= new MultipleScrollSelectionFormVerticalPaintable(this);
+    public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        this.fontHeight = font.getHeight();
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
     
 
-                                    }
-                                
-                             else 
-                        if(formType == formTypeFactory!.NULL_FORM_TYPE)
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw new Exception(formTypeFactory!.UNK);
-                    
-
-                        }
-                            
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
-    
-this.fontHeight= font.getHeight();
-    
-this.myFontProcessor= MyFontProcessor.getInstance();
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    paintHorizontal(graphics: Graphics, index: number, item: ABCustomItem, dx: number, dy: number): number{
-
-    let dx2: number = this.paintItem(graphics, index, item, dx, dy) +this.border;;
-    
-this.paintable.paint(graphics, index, dx, dy);
-    
-dx= dx2;
+    public function paintHorizontal(graphics:Graphics, index:int, item:ABCustomItem, dx:int, dy:int):int {
+        var dx2:int = this.paintItem(graphics, index, item, dx, dy) + this.border;
+        this.paintable.paint(graphics, index, dx, dy);
+        dx = dx2;
+        return dx;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return dx;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    paintVertical(graphics: Graphics, index: number, item: ABCustomItem, dx: number, dy: number): number{
-this.paintItem(graphics, index, item, dx, dy);
-    
-this.paintable.paint(graphics, index, dx, dy);
+    public function paintVertical(graphics:Graphics, index:int, item:ABCustomItem, dx:int, dy:int):int {
+        this.paintItem(graphics, index, item, dx, dy);
+        this.paintable.paint(graphics, index, dx, dy);
+        return dx;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return dx;
-    
-}
-
-
-    public getStartIndex(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getSelectedIndex();;
-    
-}
-
-
-    public paint(graphics: Graphics){
-
- try { this.myFontProcessor!.process(graphics);
+    override public function getStartIndex():int {
+        return this.getSelectedIndex();
+    }
     
 
-    let start: number = this.getStartIndex()!;;
-    
-
-    let size: number = this.size()!;;
-    
-
-    let dx: number = this.x;;
-    
-
-    let dy: number = this.y;;
-    
-this.rectPaintable!.paint(graphics);
-    
-graphics.drawString(this.getTitle(), this.x, this.y -this.fontHeight, 0);
-    
-
-    let item: ABCustomItem;;
-    
-
-
-
-
-                        for (
-    let index: number = start;index < size; index++)
-        {
-item= this.get(index);
-    
-
-                        if(dx >= this.rectangle.getMaxX())
-                        
-                                    {
-                                    
-                        if(this.logged)
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            this.logged= true;
-    
-PreLogUtil.put(new StringMaker().append("painting beyond maxx: ")!.appendint(this.rectangle.getMaxX())!.toString(), this, this.canvasStrings!.PAINT);
-    
-
-                        }
-                            
-
-                                    }
-                                
-dx= this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable!.paint(graphics, index, item, dx, dy);
-    
-}
-
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-PreLogUtil.put(this.commonStrings!.EXCEPTION, this, this.canvasStrings!.PAINT);
-    
-
- }
-   }
- 
-}
-
-
+    override public function paint(graphics:Graphics):void {
+        try {
+            this.myFontProcessor.process(graphics);
+            var start:int = this.getStartIndex();
+            var size:int = this.size();
+            var dx:int = this.x;
+            var dy:int = this.y;
+            this.rectPaintable.paint(graphics);
+            graphics.drawString(this.getTitle(), this.x, this.y - this.fontHeight, 0);
+            var item:ABCustomItem = null;
+            for (var index:int = start; index < size; index++) {
+                item = this.get_(index);
+                if (dx >= this.rectangle.getMaxX()) {
+                    if (this.logged) {
+                    } else {
+                        this.logged = true;
+                        PreLogUtil.put(new StringMaker().append("painting beyond maxx: ").appendint(this.rectangle.getMaxX()).toString(), this, this.canvasStrings.PAINT);
+                    }
+                }
+                dx = this.multipleScrollSelectionHorizontalFormTypeItemIndexPaintable.paint(graphics, index, item, dx, dy);
+            }
+        } catch (e:*) {
+            PreLogUtil.put(this.commonStrings.EXCEPTION, this, this.canvasStrings.PAINT);
+        }
+    }
+    }
 }
 

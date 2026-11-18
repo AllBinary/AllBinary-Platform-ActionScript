@@ -1,127 +1,78 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer.drop {
+    import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import org.allbinary.util.BasicArrayListUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-import { PickedUpLayerInterfaceFactoryInterface } from '../../../../../org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.js';
-//not GWT import const PickedUpLayerInterfaceFactoryInterface
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-//not plain js import { BasicArrayListUtil } 
-const BasicArrayListUtil = globalThis.org.allbinary.util.BasicArrayListUtil;
-type BasicArrayListUtil<T = any, U = any> = typeof BasicArrayListUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class DropLayerFactory
-            extends Object
-         {
-        
-
-    private static readonly DROP_LAYER_FACTORY: DropLayerFactory = new DropLayerFactory();
-
-    public static getInstance(): DropLayerFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DropLayerFactory.DROP_LAYER_FACTORY;
-    
-}
-
-
-    private readonly list: BasicArrayList = new BasicArrayListD();
-
-private constructor (){
-
-            super();
+    public class DropLayerFactory {
+    private static var DROP_LAYER_FACTORY_value:DropLayerFactory;
+    private static var DROP_LAYER_FACTORY_set:Boolean = false;
+    private static function get DROP_LAYER_FACTORY():DropLayerFactory {
+        if (!DropLayerFactory.DROP_LAYER_FACTORY_set) {
+            DropLayerFactory.DROP_LAYER_FACTORY_set = true;
+            DropLayerFactory.DROP_LAYER_FACTORY_value = new DropLayerFactory();
         }
+        return DropLayerFactory.DROP_LAYER_FACTORY_value;
+    }
+        private var list:BasicArrayList = null;
+        private var basicArrayListUtil:BasicArrayListUtil = null;
 
-
-    public clear(){
-this.list.clear();
+        // Java field initializers run after the base constructor
+        private function initFieldsDropLayerFactory():void {
+    this.list = new BasicArrayListD();
+    this.basicArrayListUtil = BasicArrayListUtil.getInstance();
+        }
     
-}
 
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list.size();;
+    public function DropLayerFactory() {
+        super();
+        this.initFieldsDropLayerFactory();
+    }
     
-}
 
-
-    private readonly basicArrayListUtil: BasicArrayListUtil = BasicArrayListUtil.getInstance()!;
-
-    public getRandomInstance(): PickedUpLayerInterfaceFactoryInterface{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicArrayListUtil!.getRandom(this.list) as PickedUpLayerInterfaceFactoryInterface;
+    public function clear():void {
+        this.list.clear();
+    }
     
-}
 
-
-    public add(layerInterfaceFactoryInterface: PickedUpLayerInterfaceFactoryInterface){
-this.list.add(layerInterfaceFactoryInterface);
+    public static function getInstance():DropLayerFactory {
+        return DropLayerFactory.DROP_LAYER_FACTORY;
+    }
     
-}
 
-
-    public getList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list;
+    public function getSize():int {
+        return this.list.size();
+    }
     
-}
 
+    public function getRandomInstance():PickedUpLayerInterfaceFactoryInterface {
+        return (this.basicArrayListUtil.getRandom(this.list) as PickedUpLayerInterfaceFactoryInterface);
+    }
+    
 
+    public function add(layerInterfaceFactoryInterface:PickedUpLayerInterfaceFactoryInterface):void {
+        this.list.add(layerInterfaceFactoryInterface);
+    }
+    
+
+    public function getList():BasicArrayList {
+        return this.list;
+    }
+    }
 }
 

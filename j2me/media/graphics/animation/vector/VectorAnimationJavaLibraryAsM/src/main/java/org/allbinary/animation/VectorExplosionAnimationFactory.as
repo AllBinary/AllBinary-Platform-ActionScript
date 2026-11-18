@@ -1,124 +1,60 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class VectorExplosionAnimationFactory implements ProceduralAnimationInterfaceFactoryInterface {
+        private var vectorExplosionGenerator:VectorExplosionGenerator = null;
+        private var basicColor:BasicColor = null;
+        public var animationBehaviorFactory:AnimationBehaviorFactory = null;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { BasicColor } from '../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ProceduralAnimationInterfaceFactoryInterface } from './ProceduralAnimationInterfaceFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const ProceduralAnimationInterfaceFactoryInterface
-import { VectorExplosionGenerator } from './VectorExplosionGenerator.js';
-//sameFolderImports - not GWT import - same folder const VectorExplosionGenerator
-import { AnimationBehaviorFactory } from './AnimationBehaviorFactory.js';
-//sameFolderImports - not GWT import - same folder const AnimationBehaviorFactory
-import { VectorAnimationInterface } from './VectorAnimationInterface.js';
-//sameFolderImports - not GWT import - same folder const VectorAnimationInterface
-import { VectorRotationAnimation } from './VectorRotationAnimation.js';
-//sameFolderImports - not GWT import - same folder const VectorRotationAnimation
-import { Animation } from './Animation.js';
-//sameFolderImports - not GWT import - same folder const Animation
-
-export class VectorExplosionAnimationFactory
-            extends Object
-         implements ProceduralAnimationInterfaceFactoryInterface {
-        
-
-    private readonly vectorExplosionGenerator: VectorExplosionGenerator = VectorExplosionGenerator.getInstance()!;
-
-    private basicColor: BasicColor = BasicColorFactory.getInstance()!.WHITE;
-
-    readonly animationBehaviorFactory: AnimationBehaviorFactory;
-
-public constructor (basicColor: BasicColor, animationBehaviorFactory: AnimationBehaviorFactory){
-
-            super();
-        this.animationBehaviorFactory= animationBehaviorFactory;
+        // Java field initializers run after the base constructor
+        private function initFieldsVectorExplosionAnimationFactory():void {
+    this.vectorExplosionGenerator = VectorExplosionGenerator.getInstance();
+    this.basicColor = BasicColorFactory.getInstance().WHITE;
     
-this.setBasicColorP(basicColor);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceAnimation(animationInterface: Animation): Animation{
-
-    let vectorRotationAnimationInterface: VectorAnimationInterface = animationInterface as unknown as VectorAnimationInterface;;
+        }
     
 
-    let frame: number = vectorRotationAnimationInterface!.getFrame()!;;
+    public function VectorExplosionAnimationFactory(basicColor:BasicColor, animationBehaviorFactory:AnimationBehaviorFactory) {
+        super();
+        this.initFieldsVectorExplosionAnimationFactory();
+        this.animationBehaviorFactory = animationBehaviorFactory;
+        this.setBasicColorP(basicColor);
+    }
     
 
-    let framePoints: number[][] = vectorRotationAnimationInterface!.getPoints(frame)!;;
+    public function getInstanceAnimation(animationInterface:Animation):Animation {
+        var vectorRotationAnimationInterface:VectorAnimationInterface = (animationInterface as VectorAnimationInterface);
+        var frame:int = vectorRotationAnimationInterface.getFrame();
+        var framePoints:Vector.<Vector.<int>> = vectorRotationAnimationInterface.getPoints(frame);
+        var points:Vector.<Vector.<Vector.<int>>> = this.vectorExplosionGenerator.getInstance3(framePoints, 6, this.vectorExplosionGenerator.ROTATION);
+        return new VectorRotationAnimation(points, this.getBasicColorP(), this.animationBehaviorFactory.getOrCreateInstance());
+    }
     
 
-    let points: number[][][] = this.vectorExplosionGenerator!.getInstance(framePoints, 6, this.vectorExplosionGenerator!.ROTATION)!;;
+    private function setBasicColorP(basicColor:BasicColor):void {
+        this.basicColor = basicColor;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new VectorRotationAnimation(points, this.getBasicColorP(), this.animationBehaviorFactory!.getOrCreateInstance());
-    
-}
-
-
-    setBasicColorP(basicColor: BasicColor){
-this.basicColor= basicColor;
-    
-}
-
-
-    getBasicColorP(): BasicColor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicColor;
-    
-}
-
-
+    private function getBasicColorP():BasicColor {
+        return this.basicColor;
+    }
+    }
 }
 

@@ -1,483 +1,214 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { FREEBLISKET_PATH_GLOBALS } from '../../../../../org/allbinary/globals/FREEBLISKET_PATH_GLOBALS.js';
-//not GWT import const FREEBLISKET_PATH_GLOBALS
-
-import { URLGLOBALS } from '../../../../../org/allbinary/globals/URLGLOBALS.js';
-//not GWT import const URLGLOBALS
-
-//not plain js import { HttpData } 
-const HttpData = globalThis.org.allbinary.logic.communication.http.HttpData;
-type HttpData<T = any, U = any> = typeof HttpData extends abstract new (...args: any[]) => infer Instance ? Instance : typeof HttpData;
-
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-import { LogConfigTypeFactory } from '../../../../../org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.js';
-//not GWT import const LogConfigTypeFactory
-
-import { LogConfigTypes } from '../../../../../org/allbinary/logic/communication/log/config/type/LogConfigTypes.js';
-//not GWT import const LogConfigTypes
-
-import { AbDataInputStream } from '../../../../../org/allbinary/logic/io/AbDataInputStream.js';
-//not GWT import const AbDataInputStream
-
-import { AbDataOutputStream } from '../../../../../org/allbinary/logic/io/AbDataOutputStream.js';
-//not GWT import const AbDataOutputStream
-
-import { AbFileInputStream } from '../../../../../org/allbinary/logic/io/AbFileInputStream.js';
-//not GWT import const AbFileInputStream
-
-import { DataOutputStreamFactory } from '../../../../../org/allbinary/logic/io/DataOutputStreamFactory.js';
-//not GWT import const DataOutputStreamFactory
-
-import { StreamUtil } from '../../../../../org/allbinary/logic/io/StreamUtil.js';
-//not GWT import const StreamUtil
-
-import { AbFile } from '../../../../../org/allbinary/logic/io/file/AbFile.js';
-//not GWT import const AbFile
-
-import { Directory } from '../../../../../org/allbinary/logic/io/file/directory/Directory.js';
-//not GWT import const Directory
-
-import { AbPath } from '../../../../../org/allbinary/logic/io/path/AbPath.js';
-//not GWT import const AbPath
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { DatabaseEncoder } from '../../../../../org/allbinary/logic/system/security/crypt/DatabaseEncoder.js';
-//not GWT import const DatabaseEncoder
-
-import { WeakCrypt } from '../../../../../org/allbinary/logic/system/security/crypt/WeakCrypt.js';
-//not GWT import const WeakCrypt
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DbConnectionInfo } from './DbConnectionInfo.js';
-//sameFolderImports - not GWT import - same folder const DbConnectionInfo
-
-export class DbInitInfo extends DbConnectionInfo {
-        
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly directory: Directory = Directory.getInstance()!;
-
-    private readonly httpData: HttpData = HttpData.getInstance()!;
-
-    private readonly GET_URL: string = "getUrl";
-
-    private readonly PACKAGE: string = FREEBLISKET_PATH_GLOBALS.getInstance()!.DBINITPATH;
-
-    private initFileName: string;
-
-    private hasRead: boolean = false;
-
-public constructor (initFileName: string, read: boolean){
-            super();
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.initFileName= initFileName;
-    
-
-                        if(read)
-                        
-                                    {
-                                    this.updateIfNeeded();
-    
-
-                                    }
-                                
-                        else {
-                            this.setHasRead(true);
-    
-
-                        }
-                            
-}
-
-
-    public getUrl(): string{
-
-    let url: string = super.getUrl()!;;
-    
-
-                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADER))
-                        
-                                    {
-                                    PreLogUtil.put(this.httpData!.URL_LABEL +url, this, this.GET_URL);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return url;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public write(){
-
-    let PATH: AbPath = new AbPath(URLGLOBALS.getWebappPath() +this.PACKAGE, StringUtil.getInstance()!.EMPTY_STRING);;
-    
-this.directory.create(PATH);
-    
-
-    let FILEABPATH: AbPath = new AbPath(URLGLOBALS.getWebappPath() +this.PACKAGE, this.initFileName);;
-    
-
- try { 
-    let newFile: AbFile = AbFile.createAbFileFromAbPath(FILEABPATH)!;;
-    
-newFile!.createNewFile();
-    
-
-    let dataOutputStream: AbDataOutputStream = DataOutputStreamFactory.getInstance()!.getInstanceForAbFile(newFile)!;;
-    
-
- try { 
-    let cryptedJdbcDriver: number[] = Array.from(new TextEncoder().encode(new WeakCrypt(1).encrypt(this.getJdbcDriver())!), byte => (byte << 24) >> 24)!;;
-    
-
-    let cryptedName: number[] = Array.from(new TextEncoder().encode(new WeakCrypt(2).encrypt(this.getName())!), byte => (byte << 24) >> 24)!;;
-    
-
-    let cryptedUserName: number[] = Array.from(new TextEncoder().encode(new WeakCrypt(3).encrypt(this.getUserName())!), byte => (byte << 24) >> 24)!;;
-    
-
-    let cryptedPassword: number[] = Array.from(new TextEncoder().encode(new WeakCrypt(4).encrypt(this.getPassword())!), byte => (byte << 24) >> 24)!;;
-    
-
-    let cryptedSchema: number[] = Array.from(new TextEncoder().encode(new WeakCrypt(5).encrypt(this.getSchema())!), byte => (byte << 24) >> 24)!;;
-    
-
-    let cryptedServer: number[] = Array.from(new TextEncoder().encode(new WeakCrypt(6).encrypt(this.getServer())!), byte => (byte << 24) >> 24)!;;
-    
-
-    let cryptedPort: number[] = Array.from(new TextEncoder().encode(new WeakCrypt(7).encrypt(this.getPort())!), byte => (byte << 24) >> 24)!;;
-    
-dataOutputStream!.writeUTF(DatabaseEncoder.encode(cryptedJdbcDriver));
-    
-dataOutputStream!.writeUTF(DatabaseEncoder.encode(cryptedName));
-    
-dataOutputStream!.writeUTF(DatabaseEncoder.encode(cryptedUserName));
-    
-dataOutputStream!.writeUTF(DatabaseEncoder.encode(cryptedPassword));
-    
-dataOutputStream!.writeUTF(DatabaseEncoder.encode(cryptedSchema));
-    
-dataOutputStream!.writeUTF(DatabaseEncoder.encode(cryptedServer));
-    
-dataOutputStream!.writeUTF(DatabaseEncoder.encode(cryptedPort));
-    
-this.hasRead= false;
-    
- }
- finally { StreamUtil.getInstance()!.close(dataOutputStream);
-    
- }
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADERERROR))
-                        
-                                    {
-                                    PreLogUtil.putOE("Failed Write: " +FILEABPATH.toString(), this, "write", e);
-    
-
-                                    }
-                                
-
- }
-   }
- 
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    load(){
-
-    let FILEABPATH: AbPath = new AbPath(URLGLOBALS.getWebappPath() +this.PACKAGE, this.initFileName);;
-    
-
- try { 
-    let file: AbFile = AbFile.createAbFileFromAbPath(FILEABPATH)!;;
-    
-
-                        if(file.isFile())
-                        
-                                    {
-                                    
-    let iFile: AbFileInputStream = AbFileInputStream.createFromAbFile(file)!;;
-    
-
-    let iData: AbDataInputStream = new AbDataInputStream(iFile);;
-    
-
- try { 
-    let decryptedJdbcDriver: string = decode.toCharArray();;
-    
-
-    let decryptedName: string = decode.toCharArray();;
-    
-
-    let decryptedUserName: string = decode.toCharArray();;
-    
-
-    let decryptedPassword: string = decode.toCharArray();;
-    
-
-    let decryptedSchema: string = decode.toCharArray();;
-    
-
-    let decryptedServer: string = decode.toCharArray();;
-    
-
-    let decryptedPort: string = decode.toCharArray();;
-    
-this.setJdbcDriver(new WeakCrypt(1).decrypt(decryptedJdbcDriver));
-    
-this.setName(new WeakCrypt(2).decrypt(decryptedName));
-    
-this.setUserName(new WeakCrypt(3).decrypt(decryptedUserName));
-    
-this.setPassword(new WeakCrypt(4).decrypt(decryptedPassword));
-    
-this.setSchema(new WeakCrypt(5).decrypt(decryptedSchema));
-    
-this.setServer(new WeakCrypt(6).decrypt(decryptedServer));
-    
-this.setPort(new WeakCrypt(7).decrypt(decryptedPort));
-    
-
-    let stringUtil: StringUtil = StringUtil.getInstance()!;;
-    
- }
- finally { StreamUtil.getInstance()!.close(iData);
-    
- }
-
-                                    }
-                                
-                        else {
-                            this.hasRead= false;
-    
-
-                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADER))
-                        
-                                    {
-                                    PreLogUtil.put("Not a File - Failed Loading: " +FILEABPATH.toString(), this, this.commonStrings!.LOAD);
-    
-
-                                    }
-                                
-
-                        }
-                            
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADERERROR))
-                        
-                                    {
-                                    PreLogUtil.putOE("Failed Loading: " +FILEABPATH.toString(), this, this.commonStrings!.LOAD, e);
-    
-
-                                    }
-                                
-
- }
-   }
- 
-}
-
-
-    public setHasRead(value: boolean){
-this.hasRead= value;
-    
-}
-
-
-    updateIfNeeded(){
-
- try { 
-                        if(!this.hasRead)
-                        
-                                    {
-                                    this.hasRead= true;
-    
-this.load();
-    
-
-                                    }
-                                
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADERERROR))
-                        
-                                    {
-                                    PreLogUtil.putOE(this.commonStrings!.EXCEPTION, this, "updateIfNeeded", e);
-    
-
-                                    }
-                                
-
- }
-   }
- 
-}
-
-
-    public getName(): string{
-this.updateIfNeeded();
-    
-
-                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADER))
-                        
-                                    {
-                                    PreLogUtil.put("Name: " +super.getName(), this, "getName");
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getName();;
-    
-}
-
-
-    public getUserName(): string{
-this.updateIfNeeded();
-    
-
-                        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance()!.PRELOADER))
-                        
-                                    {
-                                    PreLogUtil.put("Name: " +super.getUserName(), this, "getUserName");
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getUserName();;
-    
-}
-
-
-    public getPassword(): string{
-this.updateIfNeeded();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getPassword();;
-    
-}
-
-
-    public getSchema(): string{
-this.updateIfNeeded();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getSchema();;
-    
-}
-
-
-    public getServer(): string{
-this.updateIfNeeded();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getServer();;
-    
-}
-
-
-    public getPort(): string{
-this.updateIfNeeded();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return super.getPort();;
-    
-}
-
-
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.init.db {
+    import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+    import org.allbinary.globals.URLGLOBALS;
+    import org.allbinary.logic.communication.http.HttpData;
+    import org.allbinary.logic.communication.log.PreLogUtil;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+    import org.allbinary.logic.io.AbDataInputStream;
+    import org.allbinary.logic.io.AbDataOutputStream;
+    import org.allbinary.logic.io.AbFileInputStream;
+    import org.allbinary.logic.io.DataOutputStreamFactory;
+    import org.allbinary.logic.io.StreamUtil;
+    import org.allbinary.logic.io.file.AbFile;
+    import org.allbinary.logic.io.file.directory.Directory;
+    import org.allbinary.logic.io.path.AbPath;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.logic.system.security.crypt.DatabaseEncoder;
+    import org.allbinary.logic.system.security.crypt.WeakCrypt;
+    import org.allbinary.string.CommonStrings;
+
+    public class DbInitInfo extends DbConnectionInfo {
+        private var commonStrings:CommonStrings = null;
+        private var directory:Directory = null;
+        private var httpData:HttpData = null;
+        private var GET_URL:String = null;
+        private var PACKAGE:String = null;
+        private var initFileName:String = null;
+        private var hasRead:Boolean = false;
+
+        // Java field initializers run after the base constructor
+        private function initFieldsDbInitInfo():void {
+    this.commonStrings = CommonStrings.getInstance();
+    this.directory = Directory.getInstance();
+    this.httpData = HttpData.getInstance();
+    this.GET_URL = "getUrl";
+    this.PACKAGE = FREEBLISKET_PATH_GLOBALS.getInstance().DBINITPATH;
+    
+    this.hasRead = false;
+        }
+    
+
+    public function DbInitInfo(initFileName:String, read:Boolean) {
+        super();
+        this.initFieldsDbInitInfo();
+        this.initFileName = initFileName;
+        if (read) {
+            this.updateIfNeeded();
+        } else {
+            this.setHasRead(true);
+        }
+    }
+    
+
+    override public function getUrl():String {
+        var url:String = super.getUrl();
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER)) {
+            PreLogUtil.put(this.httpData.URL_LABEL + url, this, this.GET_URL);
+        }
+        return url;
+    }
+    
+
+    public function write():void {
+        var PATH:AbPath = new AbPath(URLGLOBALS.getWebappPath() + this.PACKAGE, StringUtil.getInstance().EMPTY_STRING);
+        this.directory.create(PATH);
+        var FILEABPATH:AbPath = new AbPath(URLGLOBALS.getWebappPath() + this.PACKAGE, this.initFileName);
+        try {
+            var newFile:AbFile = AbFile.createAbFileFromAbPath(FILEABPATH);
+            newFile.createNewFile();
+            var dataOutputStream:AbDataOutputStream = DataOutputStreamFactory.getInstance().getInstanceForAbFile(newFile);
+            try {
+                var cryptedJdbcDriver:Vector.<int> = new WeakCrypt(1).encrypt(this.getJdbcDriver()).getBytes();
+                var cryptedName:Vector.<int> = new WeakCrypt(2).encrypt(this.getName()).getBytes();
+                var cryptedUserName:Vector.<int> = new WeakCrypt(3).encrypt(this.getUserName()).getBytes();
+                var cryptedPassword:Vector.<int> = new WeakCrypt(4).encrypt(this.getPassword()).getBytes();
+                var cryptedSchema:Vector.<int> = new WeakCrypt(5).encrypt(this.getSchema()).getBytes();
+                var cryptedServer:Vector.<int> = new WeakCrypt(6).encrypt(this.getServer()).getBytes();
+                var cryptedPort:Vector.<int> = new WeakCrypt(7).encrypt(this.getPort()).getBytes();
+                dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedJdbcDriver));
+                dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedName));
+                dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedUserName));
+                dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedPassword));
+                dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedSchema));
+                dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedServer));
+                dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedPort));
+                this.hasRead = false;
+            } finally {
+                StreamUtil.getInstance().close(dataOutputStream);
+            }
+        } catch (e:*) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+                PreLogUtil.putOE("Failed Write: " + FILEABPATH.toString(), this, "write", e);
+            }
+        }
+    }
+    
+
+    private function load():void {
+        var FILEABPATH:AbPath = new AbPath(URLGLOBALS.getWebappPath() + this.PACKAGE, this.initFileName);
+        try {
+            var file:AbFile = AbFile.createAbFileFromAbPath(FILEABPATH);
+            if (file.isFile()) {
+                var iFile:AbFileInputStream = AbFileInputStream.createFromAbFile(file);
+                var iData:AbDataInputStream = new AbDataInputStream(iFile);
+                try {
+                    var decryptedJdbcDriver:String = DatabaseEncoder.decode(iData.readUTF());
+                    var decryptedName:String = DatabaseEncoder.decode(iData.readUTF());
+                    var decryptedUserName:String = DatabaseEncoder.decode(iData.readUTF());
+                    var decryptedPassword:String = DatabaseEncoder.decode(iData.readUTF());
+                    var decryptedSchema:String = DatabaseEncoder.decode(iData.readUTF());
+                    var decryptedServer:String = DatabaseEncoder.decode(iData.readUTF());
+                    var decryptedPort:String = DatabaseEncoder.decode(iData.readUTF());
+                    this.setJdbcDriver(new WeakCrypt(1).decrypt(decryptedJdbcDriver));
+                    this.setName(new WeakCrypt(2).decrypt(decryptedName));
+                    this.setUserName(new WeakCrypt(3).decrypt(decryptedUserName));
+                    this.setPassword(new WeakCrypt(4).decrypt(decryptedPassword));
+                    this.setSchema(new WeakCrypt(5).decrypt(decryptedSchema));
+                    this.setServer(new WeakCrypt(6).decrypt(decryptedServer));
+                    this.setPort(new WeakCrypt(7).decrypt(decryptedPort));
+                    var stringUtil:StringUtil = StringUtil.getInstance();
+                } finally {
+                    StreamUtil.getInstance().close(iData);
+                }
+            } else {
+                this.hasRead = false;
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER)) {
+                    PreLogUtil.put("Not a File - Failed Loading: " + FILEABPATH.toString(), this, this.commonStrings.LOAD);
+                }
+            }
+        } catch (e:*) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+                PreLogUtil.putOE("Failed Loading: " + FILEABPATH.toString(), this, this.commonStrings.LOAD, e);
+            }
+        }
+    }
+    
+
+    public function setHasRead(value:Boolean):void {
+        this.hasRead = value;
+    }
+    
+
+    private function updateIfNeeded():void {
+        try {
+            if (!this.hasRead) {
+                this.hasRead = true;
+                this.load();
+            }
+        } catch (e:*) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+                PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, "updateIfNeeded", e);
+            }
+        }
+    }
+    
+
+    override public function getName():String {
+        this.updateIfNeeded();
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER)) {
+            PreLogUtil.put("Name: " + super.getName(), this, "getName");
+        }
+        return super.getName();
+    }
+    
+
+    override public function getUserName():String {
+        this.updateIfNeeded();
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER)) {
+            PreLogUtil.put("Name: " + String(super.getUserName()), this, "getUserName");
+        }
+        return super.getUserName();
+    }
+    
+
+    override public function getPassword():String {
+        this.updateIfNeeded();
+        return super.getPassword();
+    }
+    
+
+    override public function getSchema():String {
+        this.updateIfNeeded();
+        return super.getSchema();
+    }
+    
+
+    override public function getServer():String {
+        this.updateIfNeeded();
+        return super.getServer();
+    }
+    
+
+    override public function getPort():String {
+        this.updateIfNeeded();
+        return super.getPort();
+    }
+    }
 }
 

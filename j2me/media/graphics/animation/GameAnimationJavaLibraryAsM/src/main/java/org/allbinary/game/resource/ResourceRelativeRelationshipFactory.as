@@ -1,177 +1,86 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.resource {
+    import org.allbinary.graphics.RelativeRelationship;
+    import org.allbinary.logic.StdUtil;
+    import org.allbinary.util.ABHashtable;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import org.allbinary.util.BasicArrayListUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ResourceRelativeRelationshipFactory implements ResourceRelativeRelationshipFactoryInterface {
+        private var basicArrayListUtil:BasicArrayListUtil = null;
+        private var hashtable:ABHashtable = null;
+        private var initialized:Boolean = false;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsResourceRelativeRelationshipFactory():void {
+    this.basicArrayListUtil = BasicArrayListUtil.getInstance();
+    this.hashtable = StdUtil.getInstance().createHashtable();
+    this.initialized = false;
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { RelativeRelationship } from '../../../../org/allbinary/graphics/RelativeRelationship.js';
-//not GWT import const RelativeRelationship
-
-//not plain js import { StdUtil } 
-const StdUtil = globalThis.org.allbinary.logic.StdUtil;
-type StdUtil<T = any, U = any> = typeof StdUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StdUtil;
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-//not plain js import { BasicArrayListUtil } 
-const BasicArrayListUtil = globalThis.org.allbinary.util.BasicArrayListUtil;
-type BasicArrayListUtil<T = any, U = any> = typeof BasicArrayListUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ResourceRelativeRelationshipFactoryInterface } from './ResourceRelativeRelationshipFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const ResourceRelativeRelationshipFactoryInterface
-
-export class ResourceRelativeRelationshipFactory
-            extends Object
-         implements ResourceRelativeRelationshipFactoryInterface {
-        
-
-    private readonly basicArrayListUtil: BasicArrayListUtil = BasicArrayListUtil.getInstance()!;
-
-    private readonly hashtable: ABHashtable<any, any> = StdUtil.getInstance()!.createHashtable()!;
-
-    private initialized: boolean= false;
-
-                //@Throws(Exception.constructor)
-            
-    public init(level: number){
-this.setInitialized(true);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getResourceRelativeRelationshipList(resource: string): BasicArrayList{
-
-    let listCanBeNull: any = this.hashtable.get(resource);;
+        public function ResourceRelativeRelationshipFactory() {
+            super();
+            this.initFieldsResourceRelativeRelationshipFactory();
+        }
     
 
-                        if(listCanBeNull == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicArrayListUtil!.getImmutableInstance();;
+    public function init(level:int):void {
+        this.setInitialized(true);
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return listCanBeNull as BasicArrayList;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public addResourceRelativeRelationship(resource: string, hardPoint: RelativeRelationship){
-
-    let list: BasicArrayList = this.getResourceRelativeRelationshipList(resource)!;;
+    public function getResourceRelativeRelationshipList(resource:String):BasicArrayList {
+        var listCanBeNull:Object = this.hashtable.get_(resource);
+        if (listCanBeNull == null) {
+            return this.basicArrayListUtil.getImmutableInstance();
+        }
+        return (listCanBeNull as BasicArrayList);
+    }
     
 
-                        if(list == this.basicArrayListUtil!.getImmutableInstance())
-                        
-                                    {
-                                    list= new BasicArrayListD();
+    public function addResourceRelativeRelationship(resource:String, hardPoint:RelativeRelationship):void {
+        var list:BasicArrayList = this.getResourceRelativeRelationshipList(resource);
+        if (list == this.basicArrayListUtil.getImmutableInstance()) {
+            list = new BasicArrayListD();
+        }
+        list.add(hardPoint);
+        this.hashtable.put(resource, list);
+    }
     
 
-                                    }
-                                
-list.add(hardPoint);
+    public function isLoadingLevel(level:int):Boolean {
+        return false;
+    }
     
-this.hashtable.put(resource, list);
+
+    public function isFeature():Boolean {
+        return false;
+    }
     
-}
 
-
-    public isLoadingLevel(level: number): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function setInitialized(initialized:Boolean):void {
+        this.initialized = initialized;
+    }
     
-}
 
-
-    public isFeature(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public setInitialized(initialized: boolean){
-this.initialized= initialized;
-    
-}
-
-
-    public isInitialized(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.initialized;
-    
-}
-
-
+    public function isInitialized():Boolean {
+        return this.initialized;
+    }
+    }
 }
 

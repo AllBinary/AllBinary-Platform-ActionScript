@@ -1,60 +1,39 @@
+// Generated Code Do Not Modify
+package org.allbinary.logic.util.cache {
+    import org.allbinary.logic.string.StringUtil;
 
-        /* Generated Code Do Not Modify */
+    public class CacheTypeFactory {
+    private static var instance_value:CacheTypeFactory;
+    private static var instance_set:Boolean = false;
+    private static function get instance():CacheTypeFactory {
+        if (!CacheTypeFactory.instance_set) {
+            CacheTypeFactory.instance_set = true;
+            CacheTypeFactory.instance_value = new CacheTypeFactory();
+        }
+        return CacheTypeFactory.instance_value;
+    }
+        public var NO_CACHE:CacheType = null;
+        public var CACHE:CacheType = null;
+        public var SET:CacheType = null;
+        public var CACHE_VECTOR:CacheType = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsCacheTypeFactory():void {
+    this.NO_CACHE = new CacheType(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING);
+    this.CACHE = new CacheType(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING);
+    this.SET = new CacheType(StringUtil.getInstance().EMPTY_STRING, "Set");
+    this.CACHE_VECTOR = new CacheType(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING);
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CacheType } from './CacheType.js';
-//sameFolderImports - not GWT import - same folder const CacheType
-
-export class CacheTypeFactory
-            extends Object
-         {
-        
-
-    private static readonly instance: CacheTypeFactory = new CacheTypeFactory();
-
-    public static getInstance(): CacheTypeFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return CacheTypeFactory.instance;
+        public function CacheTypeFactory() {
+            super();
+            this.initFieldsCacheTypeFactory();
+        }
     
-}
 
-
-    public NO_CACHE: CacheType = new CacheType(StringUtil.getInstance()!.EMPTY_STRING, StringUtil.getInstance()!.EMPTY_STRING);
-
-    public CACHE: CacheType = new CacheType(StringUtil.getInstance()!.EMPTY_STRING, StringUtil.getInstance()!.EMPTY_STRING);
-
-    public SET: CacheType = new CacheType(StringUtil.getInstance()!.EMPTY_STRING, "Set");
-
-    public CACHE_VECTOR: CacheType = new CacheType(StringUtil.getInstance()!.EMPTY_STRING, StringUtil.getInstance()!.EMPTY_STRING);
-
+    public static function getInstance():CacheTypeFactory {
+        return CacheTypeFactory.instance;
+    }
+    }
 }
 

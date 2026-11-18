@@ -1,127 +1,48 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationBehaviorFactory;
+    import org.allbinary.graphics.opengles.OpenGLUtil;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationBehaviorFactory } from '../../../../org/allbinary/animation/AnimationBehaviorFactory.js';
-//not GWT import const AnimationBehaviorFactory
-
-import { OpenGLUtil } from '../../../../org/allbinary/graphics/opengles/OpenGLUtil.js';
-//not GWT import const OpenGLUtil
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BaseImageAnimationFactory } from './BaseImageAnimationFactory.js';
-//sameFolderImports - not GWT import - same folder const BaseImageAnimationFactory
-import { ImageAnimation } from './ImageAnimation.js';
-//sameFolderImports - not GWT import - same folder const ImageAnimation
-import { AdjustedImageAnimation } from './AdjustedImageAnimation.js';
-//sameFolderImports - not GWT import - same folder const AdjustedImageAnimation
-
-export class ImageAnimationFactory extends BaseImageAnimationFactory {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public static createFactory(image: Image): ImageAnimationFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new ImageAnimationFactory(image, image.getWidth(), image.getHeight(), 0, 0, AnimationBehaviorFactory.getInstance());
-    
-}
-
-
-public constructor (image: Image, width: number, height: number, dx: number, dy: number, animationBehaviorFactory: AnimationBehaviorFactory){
-            super(image, PrimitiveIntUtil.getArrayInstance(), width, height, dx, dy, animationBehaviorFactory);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstance(instanceId: number): Animation{
-
-    let scaledImage: Image = this.animationFactoryImageScaleUtil!.createImage(this.getImage(), this.animationFactoryInitializationVisitor!.width, this.animationFactoryInitializationVisitor!.height, this.scaleProperties!.scaleWidth, this.scaleProperties!.scaleHeight)!;;
+    public class ImageAnimationFactory extends BaseImageAnimationFactory {
     
 
-    let openGLUtil: OpenGLUtil = OpenGLUtil.getInstance()!;;
-    
-scaledImage= openGLUtil!.addImage(scaledImage);
-    
-
-                        if(this.animationFactoryInitializationVisitor!.dx != 0 || this.animationFactoryInitializationVisitor!.dy != 0)
-                        
-                                    {
-                                    this.animationFactoryImageScaleUtil!.processAdjust(this);
+    public static function createFactory(image:Image):ImageAnimationFactory {
+        return new ImageAnimationFactory(image, image.getWidth(), image.getHeight(), 0, 0, AnimationBehaviorFactory.getInstance());
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new AdjustedImageAnimation(scaledImage, this.animationFactoryInitializationVisitor!.dx, this.animationFactoryInitializationVisitor!.dy, this.animationBehaviorFactory!.getOrCreateInstance());
+    public function ImageAnimationFactory(image:Image, width:int, height:int, dx:int, dy:int, animationBehaviorFactory:AnimationBehaviorFactory) {
+        super(image, PrimitiveIntUtil.getArrayInstance(), width, height, dx, dy, animationBehaviorFactory);
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new ImageAnimation(scaledImage, this.animationBehaviorFactory!.getOrCreateInstance());
-    
-
-                        }
-                            
-}
-
-
+    override public function getInstance1(instanceId:int):Animation {
+        var scaledImage:Image = this.animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        var openGLUtil:OpenGLUtil = OpenGLUtil.getInstance();
+        scaledImage = openGLUtil.addImage(scaledImage);
+        if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
+            this.animationFactoryImageScaleUtil.processAdjust(this);
+            return new AdjustedImageAnimation(scaledImage, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
+        } else {
+            return new ImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
+        }
+    }
+    }
 }
 

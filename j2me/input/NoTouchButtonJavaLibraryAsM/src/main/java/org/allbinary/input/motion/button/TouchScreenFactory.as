@@ -1,110 +1,70 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.button {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TouchScreenTypesFactory } from './TouchScreenTypesFactory.js';
-//sameFolderImports - not GWT import - same folder const TouchScreenTypesFactory
-import { TouchScreenType } from './TouchScreenType.js';
-//sameFolderImports - not GWT import - same folder const TouchScreenType
-
-export class TouchScreenFactory
-            extends Object
-         {
-        
-
-    private static readonly SINGLETON: TouchScreenFactory = new TouchScreenFactory();
-
-    public static getInstance(): TouchScreenFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return TouchScreenFactory.SINGLETON;
-    
-}
-
-
-    private multiTouch: boolean= false;
-
-    private touch: boolean= false;
-
-    private touchScreenType: TouchScreenType = TouchScreenTypesFactory.getInstance()!.NOTOUCH;
-
-private constructor (){
-
-            super();
+    public class TouchScreenFactory {
+    private static var SINGLETON_value:TouchScreenFactory;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():TouchScreenFactory {
+        if (!TouchScreenFactory.SINGLETON_set) {
+            TouchScreenFactory.SINGLETON_set = true;
+            TouchScreenFactory.SINGLETON_value = new TouchScreenFactory();
         }
+        return TouchScreenFactory.SINGLETON_value;
+    }
+        private var multiTouch:Boolean = false;
+        private var touch:Boolean = false;
+        private var touchScreenType:TouchScreenType = null;
 
-
-    public isMultiTouch(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.multiTouch;
+        // Java field initializers run after the base constructor
+        private function initFieldsTouchScreenFactory():void {
+    this.multiTouch = false;
+    this.touch = false;
+    this.touchScreenType = TouchScreenTypesFactory.getInstance().NOTOUCH;
+        }
     
-}
 
-
-    public setTouch(touch: boolean){
-}
-
-
-    public isTouch(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.touch;
+    public function TouchScreenFactory() {
+        super();
+        this.initFieldsTouchScreenFactory();
+    }
     
-}
 
-
-    public getTouchScreenType(): TouchScreenType{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.touchScreenType;
+    public static function getInstance():TouchScreenFactory {
+        return TouchScreenFactory.SINGLETON;
+    }
     
-}
 
+    public function isMultiTouch():Boolean {
+        return this.multiTouch;
+    }
+    
 
+    public function setTouch(touch:Boolean):void {
+    }
+    
+
+    public function isTouch():Boolean {
+        return this.touch;
+    }
+    
+
+    public function getTouchScreenType():TouchScreenType {
+        return this.touchScreenType;
+    }
+    }
 }
 

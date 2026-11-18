@@ -1,108 +1,56 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.animation.special.SpecialAnimation;
+    import org.allbinary.media.ScaleProperties;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { SpecialAnimation } from '../../../org/allbinary/animation/special/SpecialAnimation.js';
-//not GWT import const SpecialAnimation
-
-import { ScaleProperties } from '../../../org/allbinary/media/ScaleProperties.js';
-//not GWT import const ScaleProperties
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AnimationInterfaceFactoryInterface } from './AnimationInterfaceFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const AnimationInterfaceFactoryInterface
-import { ProceduralAnimationInterfaceFactoryInterface } from './ProceduralAnimationInterfaceFactoryInterface.js';
-//sameFolderImports - not GWT import - same folder const ProceduralAnimationInterfaceFactoryInterface
-import { Animation } from './Animation.js';
-//sameFolderImports - not GWT import - same folder const Animation
-
-export class NullSpecialAnimationFactory
-            extends Object
-         implements AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface {
-        
-
-    private static NULL_SPECIAL_ANIMATION_FACTORY: NullSpecialAnimationFactory = new NullSpecialAnimationFactory();
-
-    public static getFactoryInstance(): NullSpecialAnimationFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullSpecialAnimationFactory.NULL_SPECIAL_ANIMATION_FACTORY;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class NullSpecialAnimationFactory implements AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface {
+    private static var NULL_SPECIAL_ANIMATION_FACTORY_value:NullSpecialAnimationFactory;
+    private static var NULL_SPECIAL_ANIMATION_FACTORY_set:Boolean = false;
+    private static function get NULL_SPECIAL_ANIMATION_FACTORY():NullSpecialAnimationFactory {
+        if (!NullSpecialAnimationFactory.NULL_SPECIAL_ANIMATION_FACTORY_set) {
+            NullSpecialAnimationFactory.NULL_SPECIAL_ANIMATION_FACTORY_set = true;
+            NullSpecialAnimationFactory.NULL_SPECIAL_ANIMATION_FACTORY_value = new NullSpecialAnimationFactory();
         }
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstance(instanceId: number): Animation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return SpecialAnimation.getInstance();;
+        return NullSpecialAnimationFactory.NULL_SPECIAL_ANIMATION_FACTORY_value;
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceAnimation(animationInterface: Animation): Animation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return SpecialAnimation.getInstance();;
+    public function NullSpecialAnimationFactory() {
+        super();
+    }
     
-}
 
+    public static function getFactoryInstance():NullSpecialAnimationFactory {
+        return NullSpecialAnimationFactory.NULL_SPECIAL_ANIMATION_FACTORY;
+    }
+    
 
-    public setInitialScale(scaleProperties: ScaleProperties){
-}
+    public function getInstance1(instanceId:int):Animation {
+        return SpecialAnimation.getInstance();
+    }
+    
 
+    public function getInstanceAnimation(animationInterface:Animation):Animation {
+        return SpecialAnimation.getInstance();
+    }
+    
 
+    public function setInitialScale(scaleProperties:ScaleProperties):void {
+    }
+    }
 }
 

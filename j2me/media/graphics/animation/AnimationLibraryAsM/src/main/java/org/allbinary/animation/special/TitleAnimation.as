@@ -1,339 +1,175 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.special {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.IndexedAnimation;
+    import org.allbinary.animation.IndexedAnimationBehavior;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.logic.ABSystemWrapper;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TitleAnimation extends SpecialAnimation {
+        public var systemWrapper:ABSystemWrapper = null;
+        public var deltaX:Number = 0.0;
+        public var deltaY:Number = 0.0;
+        public var deltaZ:Number = 0.0;
+        public var basicColorArray:Vector.<BasicColor> = null;
+        public var dxArray:Vector.<int> = null;
+        public var dyArray:Vector.<int> = null;
+        public var widthP:int = 0;
+        public var animationInterfaceArray:Vector.<IndexedAnimation> = null;
+        public var sizeP:int = 0;
+        public var y:int = 0;
+        private var lastFrameStartTime:Number = 0;
+        private var displayInfoSingleton:DisplayInfoSingleton = null;
+        public var CLEAR_COLOR:BasicColor = null;
 
-        
-
-
-            import { Integer } from '../../../../java/lang/Integer.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { IndexedAnimation } from '../../../../org/allbinary/animation/IndexedAnimation.js';
-//not GWT import const IndexedAnimation
-
-import { IndexedAnimationBehavior } from '../../../../org/allbinary/animation/IndexedAnimationBehavior.js';
-//not GWT import const IndexedAnimationBehavior
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-//not plain js import { ABSystemWrapper } 
-const ABSystemWrapper = globalThis.org.allbinary.logic.ABSystemWrapper;
-type ABSystemWrapper<T = any, U = any> = typeof ABSystemWrapper extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABSystemWrapper;
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { SpecialAnimation } from './SpecialAnimation.js';
-//sameFolderImports - not GWT import - same folder const SpecialAnimation
-
-export class TitleAnimation extends SpecialAnimation {
-        
-
-    public static createAnimation(animationInterfaceArray: IndexedAnimation[], basicColorArray: BasicColor[], dxArray: number[], dyArray: number[], y: number, width: number): TitleAnimation{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new TitleAnimation(animationInterfaceArray, basicColorArray, dxArray, dyArray, y, width, new IndexedAnimationBehavior(1, 250));
+        // Java field initializers run after the base constructor
+        private function initFieldsTitleAnimation():void {
+    this.systemWrapper = ABSystemWrapper.getInstance();
+    this.deltaX = 0.0;
+    this.deltaY = 0.0;
+    this.deltaZ = 0.0;
     
-}
-
-
-    readonly systemWrapper: ABSystemWrapper = ABSystemWrapper.getInstance()!;
-
-    public deltaX: number= 0.0;
-
-    public deltaY: number= 0.0;
-
-    public deltaZ: number= 0.0;
-
-    readonly basicColorArray: BasicColor[];
-
-    readonly dxArray: number[];
-
-    readonly dyArray: number[];
-
-    readonly widthP: number;
-
-    readonly animationInterfaceArray: IndexedAnimation[];
-
-    readonly sizeP: number;
-
-    readonly y: number;
-
-    private lastFrameStartTime: number;
-
-    private readonly displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
-
-public constructor (animationInterfaceArray: IndexedAnimation[], basicColorArray: BasicColor[], dxArray: number[], dyArray: number[], y: number, width: number, animationBehavior: AnimationBehavior){
-            super(animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.lastFrameStartTime= this.systemWrapper!.currentTimeMillis();
     
-this.animationInterfaceArray= animationInterfaceArray;
     
-this.sizeP= this.animationInterfaceArray!.length;
     
-this.basicColorArray= basicColorArray;
     
-this.dxArray= dxArray;
     
-this.dyArray= dyArray;
     
-this.y= y;
     
-this.widthP= width;
-    
-this.reset();
-    
-}
-
-
-    public nextFrame(){
-
-    let currentTime: number = this.systemWrapper!.currentTimeMillis()!;;
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.CLEAR_COLOR = BasicColorFactory.getInstance().CLEAR_COLOR;
+        }
     
 
-    let totalTimeElapsed: number = currentTime -this.lastFrameStartTime;;
+    public static function createAnimation(animationInterfaceArray:Vector.<IndexedAnimation>, basicColorArray:Vector.<BasicColor>, dxArray:Vector.<int>, dyArray:Vector.<int>, y:int, width:int):TitleAnimation {
+        return new TitleAnimation(animationInterfaceArray, basicColorArray, dxArray, dyArray, y, width, new IndexedAnimationBehavior(1, 250));
+    }
     
 
-    let indexedAnimationBehavior: IndexedAnimationBehavior = this.getAnimationBehavior() as IndexedAnimationBehavior;;
+    public function TitleAnimation(animationInterfaceArray:Vector.<IndexedAnimation>, basicColorArray:Vector.<BasicColor>, dxArray:Vector.<int>, dyArray:Vector.<int>, y:int, width:int, animationBehavior:AnimationBehavior) {
+        super(animationBehavior);
+        this.initFieldsTitleAnimation();
+        this.lastFrameStartTime = this.systemWrapper.currentTimeMillis();
+        this.animationInterfaceArray = animationInterfaceArray;
+        this.sizeP = this.animationInterfaceArray.length;
+        this.basicColorArray = basicColorArray;
+        this.dxArray = dxArray;
+        this.dyArray = dyArray;
+        this.y = y;
+        this.widthP = width;
+        this.reset();
+    }
     
 
-                        if(totalTimeElapsed > indexedAnimationBehavior!.frameDelayTime)
-                        
-                                    {
-                                    this.previousFrame();
-    
-this.lastFrameStartTime= currentTime;
-    
-
-                                    }
-                                
-
-                        if(this.animationInterfaceArray[0]!.getFrame() == 0)
-                        
-                                    {
-                                    indexedAnimationBehavior!.loopIndex++;
+    override public function nextFrame():void {
+        var currentTime:Number = this.systemWrapper.currentTimeMillis();
+        var totalTimeElapsed:Number = currentTime - this.lastFrameStartTime;
+        var indexedAnimationBehavior:IndexedAnimationBehavior = (this.getAnimationBehavior() as IndexedAnimationBehavior);
+        if (totalTimeElapsed > indexedAnimationBehavior.frameDelayTime) {
+            this.previousFrame();
+            this.lastFrameStartTime = currentTime;
+        }
+        if (this.animationInterfaceArray[0].getFrame() == 0) {
+            indexedAnimationBehavior.loopIndex++;
+        }
+    }
     
 
-                                    }
-                                
-}
-
-
-    public isComplete(): boolean{
-
-    let indexedAnimationBehavior: IndexedAnimationBehavior = this.getAnimationBehavior() as IndexedAnimationBehavior;;
+    override public function isComplete():Boolean {
+        var indexedAnimationBehavior:IndexedAnimationBehavior = (this.getAnimationBehavior() as IndexedAnimationBehavior);
+        if (indexedAnimationBehavior.loopTotal == -1 || indexedAnimationBehavior.loopIndex < indexedAnimationBehavior.loopTotal || this.getFrame() != 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
     
 
-                        if(indexedAnimationBehavior!.loopTotal ==  -1 || indexedAnimationBehavior!.loopIndex < indexedAnimationBehavior!.loopTotal || this.getFrame() != 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    override public function setSequence(sequence:Vector.<int>):void {
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    override public function getSequence():Vector.<int> {
+        return PrimitiveIntUtil.getArrayInstance();
+    }
     
 
-                        }
-                            
-}
-
-
-    public setSequence(sequence: number[]){
-}
-
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PrimitiveIntUtil.getArrayInstance();;
-    
-}
-
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.animationInterfaceArray[0]!.getSize();;
-    
-}
-
-
-    public getFrame(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.animationInterfaceArray[0]!.getFrame();;
-    
-}
-
-
-    public setFrame(frame: number){
-
-
-
-
-                        for (
-    let index: number = 0;index < this.sizeP; index++)
-        {
-this.animationInterfaceArray[index]!.setFrame(frame);
-    
-}
-
-}
-
-
-    public setLastFrame(){
-this.setFrame(this.getSize() -1);
-    
-}
-
-
-    public reset(){
-this.setLastFrame();
+    override public function getSize():int {
+        return this.animationInterfaceArray[0].getSize();
+    }
     
 
-    let indexedAnimationBehavior: IndexedAnimationBehavior = (this.getAnimationBehavior() as IndexedAnimationBehavior);;
-    
-indexedAnimationBehavior!.reset();
-    
-}
-
-
-    public previousFrame(){
-
-
-
-
-                        for (
-    let index: number = 0;index < this.sizeP; index++)
-        {
-this.animationInterfaceArray[index]!.previousFrame();
-    
-}
-
-}
-
-
-    public paintFrameXY(graphics: Graphics, frame: number, x: number, y: number){
-this.setFrame(frame);
-    
-this.paintXY(graphics, x, y);
-    
-}
-
-
-    readonly CLEAR_COLOR: BasicColor = BasicColorFactory.getInstance()!.CLEAR_COLOR;
-
-    public paintXY(graphics: Graphics, ax: number, ay: number){
-
-    let x: number = 0;;
+    override public function getFrame():int {
+        return this.animationInterfaceArray[0].getFrame();
+    }
     
 
-                        if(this.widthP != Integer.MIN_VALUE)
-                        
-                                    {
-                                    x= ((this.displayInfoSingleton!.getLastWidth() -this.widthP) /2);
+    override public function setFrame(frame:int):void {
+        for (var index:int = 0; index < this.sizeP; index++) {
+            this.animationInterfaceArray[index].setFrame(frame);
+        }
+    }
     
 
-                                    }
-                                
-
-    let deltaX: number= 0;;
+    override public function setLastFrame():void {
+        this.setFrame(int(this.getSize() - 1));
+    }
     
 
-    let deltaY: number= 0;;
+    override public function reset():void {
+        this.setLastFrame();
+        var indexedAnimationBehavior:IndexedAnimationBehavior = ((this.getAnimationBehavior() as IndexedAnimationBehavior));
+        indexedAnimationBehavior.reset();
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < this.sizeP; index++)
-        {
-deltaX= this.dxArray[index] +x;
-    
-deltaY= this.dyArray[index] +this.y;
+    override public function previousFrame():void {
+        for (var index:int = 0; index < this.sizeP; index++) {
+            this.animationInterfaceArray[index].previousFrame();
+        }
+    }
     
 
-                        if(this.basicColorArray[index] != this.CLEAR_COLOR)
-                        
-                                    {
-                                    this.basicSetColorUtil!.setBasicColorP(graphics, this.basicColorArray[index]!);
+    public function paintFrameXY(graphics:Graphics, frame:int, x:int, y:int):void {
+        this.setFrame(frame);
+        this.paintXY(graphics, x, y);
+    }
     
 
-                                    }
-                                
-this.animationInterfaceArray[index]!.paintXY(graphics, deltaX, deltaY);
-    
-}
-
-}
-
-
+    override public function paintXY(graphics:Graphics, ax:int, ay:int):void {
+        var x:int = 0;
+        if (this.widthP != JInteger.MIN_VALUE) {
+            x = (int((int(this.displayInfoSingleton.getLastWidth() - this.widthP)) / 2));
+        }
+        var deltaX:int = 0;
+        var deltaY:int = 0;
+        for (var index:int = 0; index < this.sizeP; index++) {
+            deltaX = int(this.dxArray[index] + x);
+            deltaY = int(this.dyArray[index] + this.y);
+            if (this.basicColorArray[index] !== this.CLEAR_COLOR) {
+                this.basicSetColorUtil.setBasicColorP(graphics, this.basicColorArray[index]);
+            }
+            this.animationInterfaceArray[index].paintXY(graphics, deltaX, deltaY);
+        }
+    }
+    }
 }
 

@@ -1,203 +1,89 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.graphics.GPoint;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-import { GPoint } from '../../../org/allbinary/graphics/GPoint.js';
-//not GWT import const GPoint
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class VectorAnimationUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: VectorAnimationUtil = new VectorAnimationUtil();
-
-    public static getInstance(): VectorAnimationUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return VectorAnimationUtil.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class VectorAnimationUtil {
+    private static var instance_value:VectorAnimationUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():VectorAnimationUtil {
+        if (!VectorAnimationUtil.instance_set) {
+            VectorAnimationUtil.instance_set = true;
+            VectorAnimationUtil.instance_value = new VectorAnimationUtil();
         }
-
-
-    public toAnimationArrayFromListOfPointListWithPointsPerFrame(vector: BasicArrayList, pointsPerFrame: number): number[][][]{
-
-    let size: number = vector.size()!;;
+        return VectorAnimationUtil.instance_value;
+    }
     
 
-    let points: number[][][] = Array.from({ length: size }, () => Array.from({ length: pointsPerFrame }, () => new Array(0).fill(2)));;
+    public static function getInstance():VectorAnimationUtil {
+        return VectorAnimationUtil.instance;
+    }
     
 
-    let nextBasicArrayList: BasicArrayList;;
+    public function VectorAnimationUtil() {
+        super();
+    }
     
 
-    let framePoints: number[][];;
+    public function toAnimationArrayFromListOfPointListWithPointsPerFrame(vector:BasicArrayList, pointsPerFrame:int):Vector.<Vector.<Vector.<int>>> {
+        var size:int = vector.size();
+        var points:Vector.<Vector.<Vector.<int>>> = (function():Vector.<Vector.<Vector.<int>>> { var array:Vector.<Vector.<Vector.<int>>> = new Vector.<Vector.<Vector.<int>>>(size); for (var index:int = 0; index < array.length; index++) { array[index] = (function():Vector.<Vector.<int>> { var array:Vector.<Vector.<int>> = new Vector.<Vector.<int>>(pointsPerFrame); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<int>(2); } return array; })(); } return array; })();
+        var nextBasicArrayList:BasicArrayList = null;
+        var framePoints:Vector.<Vector.<int>> = null;
+        for (var index:int = 0; index < size; index++) {
+            nextBasicArrayList = (vector.objectArray[index] as BasicArrayList);
+            framePoints = this.toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
+            for (var pointIndex:int = 0; pointIndex < framePoints.length; pointIndex++) {
+                points[index][pointIndex][0] = framePoints[pointIndex][0];
+                points[index][pointIndex][1] = framePoints[pointIndex][1];
+            }
+        }
+        return points;
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-nextBasicArrayList= vector.objectArray[index]! as BasicArrayList;
-    
-framePoints= this.toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
-    
-
-
-
-
-                        for (
-    let pointIndex: number = 0;pointIndex < framePoints!.length; pointIndex++)
-        {
-points[index]![pointIndex]![0]= framePoints[pointIndex]![0]!;
-    
-points[index]![pointIndex]![1]= framePoints[pointIndex]![1]!;
-    
-}
-
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return points;
-    
-}
-
-
-    public toAnimationArrayFromListOfPointList(vector: BasicArrayList): number[][][]{
-
-    let size: number = vector.size()!;;
+    public function toAnimationArrayFromListOfPointList(vector:BasicArrayList):Vector.<Vector.<Vector.<int>>> {
+        var size:int = vector.size();
+        var points:Vector.<Vector.<Vector.<int>>> = (function():Vector.<Vector.<Vector.<int>>> { var array:Vector.<Vector.<Vector.<int>>> = new Vector.<Vector.<Vector.<int>>>(size); for (var index:int = 0; index < array.length; index++) { array[index] = (function():Vector.<Vector.<int>> { var array:Vector.<Vector.<int>> = new Vector.<Vector.<int>>(0); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<int>(0); } return array; })(); } return array; })();
+        var nextBasicArrayList:BasicArrayList = null;
+        var framePoints:Vector.<Vector.<int>> = null;
+        for (var index:int = 0; index < size; index++) {
+            nextBasicArrayList = (vector.objectArray[index] as BasicArrayList);
+            framePoints = this.toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
+            points[index] = (function():Vector.<Vector.<int>> { var array:Vector.<Vector.<int>> = new Vector.<Vector.<int>>(framePoints.length); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<int>(2); } return array; })();
+            for (var pointIndex:int = 0; pointIndex < framePoints.length; pointIndex++) {
+                points[index][pointIndex][0] = framePoints[pointIndex][0];
+                points[index][pointIndex][1] = framePoints[pointIndex][1];
+            }
+        }
+        return points;
+    }
     
 
-    let points: number[][][] = Array.from({ length: size }, () => Array.from({ length: 0 }, () => new Array(0).fill(0)));;
-    
-
-    let nextBasicArrayList: BasicArrayList;;
-    
-
-    let framePoints: number[][];;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-nextBasicArrayList= vector.objectArray[index]! as BasicArrayList;
-    
-framePoints= this.toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
-    
-points[index]= new Array(framePoints!.length).fill(null).map(() => new Array(2).fill(0));
-    
-
-
-
-
-                        for (
-    let pointIndex: number = 0;pointIndex < framePoints!.length; pointIndex++)
-        {
-points[index]![pointIndex]![0]= framePoints[pointIndex]![0]!;
-    
-points[index]![pointIndex]![1]= framePoints[pointIndex]![1]!;
-    
-}
-
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return points;
-    
-}
-
-
-    public toFrameArrayFromPointBasicArrayList(list: BasicArrayList): number[][]{
-
-    let points: number[][] = new Array(list.size()).fill(null).map(() => new Array(2).fill(0));;
-    
-
-    let size: number = list.size()!;;
-    
-
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let nextPoint: GPoint = list.objectArray[index]! as GPoint;;
-    
-points[index]![0]= nextPoint!.getX();
-    
-points[index]![1]= nextPoint!.getY();
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return points;
-    
-}
-
-
+    public function toFrameArrayFromPointBasicArrayList(list:BasicArrayList):Vector.<Vector.<int>> {
+        var points:Vector.<Vector.<int>> = (function():Vector.<Vector.<int>> { var array:Vector.<Vector.<int>> = new Vector.<Vector.<int>>(list.size()); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<int>(2); } return array; })();
+        var size:int = list.size();
+        for (var index:int = 0; index < size; index++) {
+            var nextPoint:GPoint = (list.objectArray[index] as GPoint);
+            points[index][0] = nextPoint.getX();
+            points[index][1] = nextPoint.getY();
+        }
+        return points;
+    }
+    }
 }
 

@@ -1,62 +1,46 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.communication.log.config {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LogConfigsData {
+    private static var instance_value:LogConfigsData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():LogConfigsData {
+        if (!LogConfigsData.instance_set) {
+            LogConfigsData.instance_set = true;
+            LogConfigsData.instance_value = new LogConfigsData();
+        }
+        return LogConfigsData.instance_value;
+    }
+        public var NAME:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsLogConfigsData():void {
+    this.NAME = "LOG_CONFIGS_NAME";
+        }
 
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class LogConfigsData
-            extends Object
-         {
-        
-
-    private static readonly instance: LogConfigsData = new LogConfigsData();
-
-    public static getInstance(): LogConfigsData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return LogConfigsData.instance;
+        public function LogConfigsData() {
+            super();
+            this.initFieldsLogConfigsData();
+        }
     
-}
 
-
-    public readonly NAME: string = "LOG_CONFIGS_NAME";
-
+    public static function getInstance():LogConfigsData {
+        return LogConfigsData.instance;
+    }
+    }
 }
 

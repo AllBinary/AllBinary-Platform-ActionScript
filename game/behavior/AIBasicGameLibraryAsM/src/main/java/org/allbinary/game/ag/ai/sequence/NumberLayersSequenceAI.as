@@ -1,97 +1,48 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai.sequence {
+    import org.allbinary.ai.ArtificialIntelligenceInterface;
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class NumberLayersSequenceAI extends SequenceAI {
+        private var numberOfLayersLeft:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { ArtificialIntelligenceInterface } from '../../../../../../org/allbinary/ai/ArtificialIntelligenceInterface.js';
-//not GWT import const ArtificialIntelligenceInterface
-
-import { GameInput } from '../../../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-import { AllBinaryLayer } from '../../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { SequenceAI } from './SequenceAI.js';
-//sameFolderImports - not GWT import - same folder const SequenceAI
-
-export class NumberLayersSequenceAI extends SequenceAI {
-        
-
-    private numberOfLayersLeft: number;
-
-public constructor (numberOfEnemiesLeft: number, artificialIntelligenceInterface: ArtificialIntelligenceInterface[], ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
-            super(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.numberOfLayersLeft= numberOfEnemiesLeft;
+        // Java field initializers run after the base constructor
+        private function initFieldsNumberLayersSequenceAI():void {
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
-
-                        if(this.getIndex() == 0)
-                        
-                                    {
-                                    
-                        if(allBinaryLayerManager!.getSize() < this.numberOfLayersLeft)
-                        
-                                    {
-                                    this.setIndex(1);
+        }
     
 
-                                    }
-                                
-
-                                    }
-                                
-super.processAI(allBinaryLayerManager);
+    public function NumberLayersSequenceAI(numberOfEnemiesLeft:int, artificialIntelligenceInterface:Vector.<ArtificialIntelligenceInterface>, ownerLayerInterface:AllBinaryLayer, gameInput:GameInput) {
+        super(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
+        this.initFieldsNumberLayersSequenceAI();
+        this.numberOfLayersLeft = numberOfEnemiesLeft;
+    }
     
-}
 
-
+    override public function processAI(allBinaryLayerManager:AllBinaryLayerManager):void {
+        if (this.getIndex() == 0) {
+            if (allBinaryLayerManager.getSize() < this.numberOfLayersLeft) {
+                this.setIndex(1);
+            }
+        }
+        super.processAI(allBinaryLayerManager);
+    }
+    }
 }
 

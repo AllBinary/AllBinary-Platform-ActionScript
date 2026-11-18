@@ -1,76 +1,39 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LockableFormPaintableFactory extends ItemPaintableFactory {
+        private var lockedIndex:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ItemPaintableFactory } from './ItemPaintableFactory.js';
-//sameFolderImports - not GWT import - same folder const ItemPaintableFactory
-import { LockablePaintable } from './LockablePaintable.js';
-//sameFolderImports - not GWT import - same folder const LockablePaintable
-import { ItemPaintable } from './ItemPaintable.js';
-//sameFolderImports - not GWT import - same folder const ItemPaintable
-import { PaintableForm } from './PaintableForm.js';
-//sameFolderImports - not GWT import - same folder const PaintableForm
-
-export class LockableFormPaintableFactory extends ItemPaintableFactory {
-        
-
-    private readonly lockedIndex: number;
-
-public constructor (lockedIndex: number){
-
-            super();
-        this.lockedIndex= lockedIndex;
+        // Java field initializers run after the base constructor
+        private function initFieldsLockableFormPaintableFactory():void {
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getInstanceItemPaintable(paintableForm: PaintableForm): ItemPaintable{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new LockablePaintable(this.lockedIndex);
+        }
     
-}
 
+    public function LockableFormPaintableFactory(lockedIndex:int) {
+        super();
+        this.initFieldsLockableFormPaintableFactory();
+        this.lockedIndex = lockedIndex;
+    }
+    
 
+    override public function getInstanceItemPaintable(paintableForm:PaintableForm):ItemPaintable {
+        return new LockablePaintable(this.lockedIndex);
+    }
+    }
 }
 

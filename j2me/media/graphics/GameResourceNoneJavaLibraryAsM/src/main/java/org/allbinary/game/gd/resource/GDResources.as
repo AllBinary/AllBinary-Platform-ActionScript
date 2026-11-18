@@ -1,67 +1,48 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.gd.resource {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GDResources {
+    private static var instance_value:GDResources;
+    private static var instance_set:Boolean = false;
+    private static function get instance():GDResources {
+        if (!GDResources.instance_set) {
+            GDResources.instance_set = true;
+            GDResources.instance_value = new GDResources();
+        }
+        return GDResources.instance_value;
+    }
+        public var resourceStringArray:Vector.<String> = null;
+        public var currentLayoutRequiredTotal:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsGDResources():void {
+    this.resourceStringArray = new <String>[];
+    this.currentLayoutRequiredTotal = 0;
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GDResources
-            extends Object
-         {
-        
-
-    private static readonly instance: GDResources = new GDResources();
-
-    public static getInstance(): GDResources{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return GDResources.instance;
+        public function GDResources() {
+            super();
+            this.initFieldsGDResources();
+        }
     
-}
 
-
-    public readonly resourceStringArray: string[] = 
-                                                        [
-                                                            
-                                                        ];
-
-    public currentLayoutRequiredTotal: number= 0;
-
+    public static function getInstance():GDResources {
+        return GDResources.instance;
+    }
+    }
 }
 

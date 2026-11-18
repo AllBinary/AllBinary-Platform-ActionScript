@@ -1,111 +1,60 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.terrain {
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class TerrainEvent extends AllBinaryEventObject {
+        private var basicTerrainInfo:BasicTerrainInfo = null;
 
-        
-
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicTerrainInfo } from './BasicTerrainInfo.js';
-//sameFolderImports - not GWT import - same folder const BasicTerrainInfo
-
-export class TerrainEvent extends AllBinaryEventObject {
-        
-
-    private basicTerrainInfo: BasicTerrainInfo = BasicTerrainInfo.NULL_BASIC_TERRAIN_INFO;
-
-public constructor (basicTerrainInfo: any){
-            super(basicTerrainInfo);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.setBasicTerrainInfo(this.basicTerrainInfo);
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append("TerrainEvent: \n");
-    
-stringBuffer!.append("LayerInterface: ");
-    
-stringBuffer!.append(this.basicTerrainInfo!.toString());
+        // Java field initializers run after the base constructor
+        private function initFieldsTerrainEvent():void {
+    this.basicTerrainInfo = BasicTerrainInfo.NULL_BASIC_TERRAIN_INFO;
+        }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
+    public function TerrainEvent(basicTerrainInfo:Object) {
+        super(basicTerrainInfo);
+        this.initFieldsTerrainEvent();
+        this.setBasicTerrainInfo(this.basicTerrainInfo);
+    }
     
-}
 
-
-    public getBasicTerrainInfo(): BasicTerrainInfo{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.basicTerrainInfo;
+    public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append("TerrainEvent: \n");
+        stringBuffer.append("LayerInterface: ");
+        stringBuffer.append(this.basicTerrainInfo.toString());
+        return stringBuffer.toString();
+    }
     
-}
 
-
-    public setBasicTerrainInfo(basicTerrainInfo: BasicTerrainInfo){
-this.basicTerrainInfo= basicTerrainInfo;
+    public function getBasicTerrainInfo():BasicTerrainInfo {
+        return this.basicTerrainInfo;
+    }
     
-}
 
-
-    public setBasicTerrainInfoForCircularStaticPool(basicTerrainInfo: BasicTerrainInfo){
-this.basicTerrainInfo= basicTerrainInfo;
+    public function setBasicTerrainInfo(basicTerrainInfo:BasicTerrainInfo):void {
+        this.basicTerrainInfo = basicTerrainInfo;
+    }
     
-}
 
-
+    public function setBasicTerrainInfoForCircularStaticPool(basicTerrainInfo:BasicTerrainInfo):void {
+        this.basicTerrainInfo = basicTerrainInfo;
+    }
+    }
 }
 

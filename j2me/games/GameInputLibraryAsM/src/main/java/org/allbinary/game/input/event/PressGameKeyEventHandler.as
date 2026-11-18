@@ -1,171 +1,92 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input.event {
+    import org.allbinary.game.input.PlayerGameInput;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventListenerInterface;
+    import org.allbinary.logic.util.event.EventStrings;
+    import org.allbinary.logic.util.event.handler.BasicEventHandler;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { PlayerGameInput } from '../../../../../org/allbinary/game/input/PlayerGameInput.js';
-//not GWT import const PlayerGameInput
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { AllBinaryEventObject } from '../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventListenerInterface } from '../../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
-//not GWT import const EventListenerInterface
-
-import { EventStrings } from '../../../../../org/allbinary/logic/util/event/EventStrings.js';
-//not GWT import const EventStrings
-
-import { BasicEventHandler } from '../../../../../org/allbinary/logic/util/event/handler/BasicEventHandler.js';
-//not GWT import const BasicEventHandler
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameKeyEvent } from './GameKeyEvent.js';
-//sameFolderImports - not GWT import - same folder const GameKeyEvent
-import { PressGameKeyEventListenerInterface } from './PressGameKeyEventListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const PressGameKeyEventListenerInterface
-
-export class PressGameKeyEventHandler extends BasicEventHandler {
-        
-
-    private static readonly instance: PressGameKeyEventHandler = new PressGameKeyEventHandler();
-
-    public static getInstance(): PressGameKeyEventHandler{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PressGameKeyEventHandler.instance;
-    
-}
-
-
-    private readonly list: BasicArrayList = new BasicArrayListD();
-
-private constructor (){
-
-            super();
+    public class PressGameKeyEventHandler extends BasicEventHandler {
+    private static var instance_value:PressGameKeyEventHandler;
+    private static var instance_set:Boolean = false;
+    private static function get instance():PressGameKeyEventHandler {
+        if (!PressGameKeyEventHandler.instance_set) {
+            PressGameKeyEventHandler.instance_set = true;
+            PressGameKeyEventHandler.instance_value = new PressGameKeyEventHandler();
         }
+        return PressGameKeyEventHandler.instance_value;
+    }
+        private var list:BasicArrayList = null;
 
-
-    public addListener(playerGameInput: PlayerGameInput){
-
-                        if(!this.list.contains(playerGameInput))
-                        
-                                    {
-                                    this.list.add(playerGameInput);
+        // Java field initializers run after the base constructor
+        private function initFieldsPressGameKeyEventHandler():void {
+    this.list = new BasicArrayListD();
+        }
     
 
-                                    }
-                                
-}
-
-
-    public removeAllListeners(){
-this.list.clear();
-    
-super.removeAllListeners();
-    
-}
-
-
-    public removeListener(eventListenerInterface: EventListenerInterface){
-this.list.remove(eventListenerInterface);
-    
-super.removeListener(eventListenerInterface);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public fireEvent(eventObject: AllBinaryEventObject){
-
-
-
-
-                        for (
-    let index: number = this.list.size()!;--index >= 0; )
-        {
-
- try { 
-    let playerGameInput: PlayerGameInput = this.list.objectArray[index]! as PlayerGameInput;;
-    
-playerGameInput!.onPressGameKeyEvent(eventObject as GameKeyEvent);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, EventStrings.getInstance()!.FIRE_EVENT, e);
+    public static function getInstance():PressGameKeyEventHandler {
+        return PressGameKeyEventHandler.instance;
+    }
     
 
- }
-   }
- 
-}
-
-super.fireEvent(eventObject);
+    public function PressGameKeyEventHandler() {
+        super();
+        this.initFieldsPressGameKeyEventHandler();
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    process(eventObject: AllBinaryEventObject, eventListenerInterface: EventListenerInterface){
-
-    let pressGameKeyEventListenerInterface: PressGameKeyEventListenerInterface = (eventListenerInterface as PressGameKeyEventListenerInterface);;
+    public function addListener(playerGameInput:PlayerGameInput):void {
+        if (!this.list.contains(playerGameInput)) {
+            this.list.add(playerGameInput);
+        }
+    }
     
-pressGameKeyEventListenerInterface!.onPressGameKeyEvent(eventObject as GameKeyEvent);
+
+    override public function removeAllListeners():void {
+        this.list.clear();
+        super.removeAllListeners();
+    }
     
-}
 
+    override public function removeListener(eventListenerInterface:EventListenerInterface):void {
+        this.list.remove(eventListenerInterface);
+        super.removeListener(eventListenerInterface);
+    }
+    
 
+    override public function fireEvent(eventObject:AllBinaryEventObject):void {
+        for (var index:int = this.list.size(); --index >= 0; ) {
+            try {
+                var playerGameInput:PlayerGameInput = (this.list.objectArray[index] as PlayerGameInput);
+                playerGameInput.onPressGameKeyEvent((eventObject as GameKeyEvent));
+            } catch (e:*) {
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+            }
+        }
+        super.fireEvent(eventObject);
+    }
+    
+
+    override public function process(eventObject:AllBinaryEventObject, eventListenerInterface:EventListenerInterface):void {
+        var pressGameKeyEventListenerInterface:PressGameKeyEventListenerInterface = ((eventListenerInterface as PressGameKeyEventListenerInterface));
+        pressGameKeyEventListenerInterface.onPressGameKeyEvent((eventObject as GameKeyEvent));
+    }
+    }
 }
 

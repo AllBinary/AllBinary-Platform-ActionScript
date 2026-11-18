@@ -1,76 +1,43 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.image.opengles {
+    import org.allbinary.image.ImageCache;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { ImageCache } from '../../../../org/allbinary/image/ImageCache.js';
-//not GWT import const ImageCache
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //OpenGLNoneOtherJavaLibrary
-export class OpenGLImageCacheFactory
-            extends Object
-         {
-        
-
-    private static IMAGE_CACHE: ImageCache = ImageCache.NULL_IMAGE_CACHE;
-
-    public static getInstance(): ImageCache{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return OpenGLImageCacheFactory.IMAGE_CACHE;
+    //OpenGLNoneOtherJavaLibrary
+    public class OpenGLImageCacheFactory {
+    private static var IMAGE_CACHE_value:ImageCache;
+    private static var IMAGE_CACHE_set:Boolean = false;
+    private static function get IMAGE_CACHE():ImageCache {
+        if (!OpenGLImageCacheFactory.IMAGE_CACHE_set) {
+            OpenGLImageCacheFactory.IMAGE_CACHE_set = true;
+            OpenGLImageCacheFactory.IMAGE_CACHE_value = ImageCache.NULL_IMAGE_CACHE;
+        }
+        return OpenGLImageCacheFactory.IMAGE_CACHE_value;
+    }
     
-}
 
+    public static function getInstance():ImageCache {
+        return OpenGLImageCacheFactory.IMAGE_CACHE;
+    }
+    
 
-    public static init(){
-
-                        if(OpenGLImageCacheFactory.IMAGE_CACHE == 
-                                    null
-                                )
-                        
-                                    {
-                                    
-                                    }
-                                
-}
-
-
+    public static function init():void {
+        if (OpenGLImageCacheFactory.IMAGE_CACHE == null) {
+        }
+    }
+    }
 }
 

@@ -1,130 +1,53 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai {
+    import org.allbinary.game.ai.BasicAI;
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { BasicAI } from '../../../../../org/allbinary/game/ai/BasicAI.js';
-//not GWT import const BasicAI
-
-import { GameInput } from '../../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-import { DisplayInfoSingleton } from '../../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ScrollOverAtHalfAI extends BasicAI {
-        
-
-public constructor (ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
-            super(ownerLayerInterface, gameInput);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
-
-    let ownerLayerInterface: AllBinaryLayer = this.getOwnerLayerInterface()!;;
+    public class ScrollOverAtHalfAI extends BasicAI {
     
 
-    let x: number = ownerLayerInterface!.getXP()!;;
+    public function ScrollOverAtHalfAI(ownerLayerInterface:AllBinaryLayer, gameInput:GameInput) {
+        super(ownerLayerInterface, gameInput);
+    }
     
 
-    let y: number = ownerLayerInterface!.getYP()!;;
-    
-
-    let halfWidth: number = ownerLayerInterface!.getHalfWidth()!;;
-    
-
-    let halfHeight: number = ownerLayerInterface!.getHalfHeight()!;;
-    
-
-    let displayInfo: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;;
-    
-
-                        if(x > displayInfo!.getLastWidth() -halfWidth)
-                        
-                                    {
-                                    ownerLayerInterface!.setPosition(halfWidth +1, y, ownerLayerInterface!.getZP());
-    
-
-                                    }
-                                
-
-                        if(y > displayInfo!.getLastHeight() -halfHeight)
-                        
-                                    {
-                                    ownerLayerInterface!.setPosition(x, halfHeight +1, ownerLayerInterface!.getZP());
-    
-
-                                    }
-                                
-
-                        if(x <  -halfWidth)
-                        
-                                    {
-                                    ownerLayerInterface!.setPosition(displayInfo!.getLastWidth() -halfWidth, y, ownerLayerInterface!.getZP());
-    
-
-                                    }
-                                
-
-                        if(y <  -halfHeight)
-                        
-                                    {
-                                    ownerLayerInterface!.setPosition(x, displayInfo!.getLastHeight() -halfHeight, ownerLayerInterface!.getZP());
-    
-
-                                    }
-                                
-}
-
-
+    override public function processAI(allBinaryLayerManager:AllBinaryLayerManager):void {
+        var ownerLayerInterface:AllBinaryLayer = this.getOwnerLayerInterface();
+        var x:int = ownerLayerInterface.getXP();
+        var y:int = ownerLayerInterface.getYP();
+        var halfWidth:int = ownerLayerInterface.getHalfWidth();
+        var halfHeight:int = ownerLayerInterface.getHalfHeight();
+        var displayInfo:DisplayInfoSingleton = DisplayInfoSingleton.getInstance();
+        if (x > int(displayInfo.getLastWidth() - halfWidth)) {
+            ownerLayerInterface.setPosition(int(halfWidth + 1), y, ownerLayerInterface.getZP());
+        }
+        if (y > int(displayInfo.getLastHeight() - halfHeight)) {
+            ownerLayerInterface.setPosition(x, int(halfHeight + 1), ownerLayerInterface.getZP());
+        }
+        if (x < -halfWidth) {
+            ownerLayerInterface.setPosition(int(displayInfo.getLastWidth() - halfWidth), y, ownerLayerInterface.getZP());
+        }
+        if (y < -halfHeight) {
+            ownerLayerInterface.setPosition(x, int(displayInfo.getLastHeight() - halfHeight), ownerLayerInterface.getZP());
+        }
+    }
+    }
 }
 

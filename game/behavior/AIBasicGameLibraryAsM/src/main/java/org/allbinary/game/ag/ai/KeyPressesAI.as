@@ -1,178 +1,86 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai {
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
+    import org.allbinary.util.HashtableUtil;
+    import org.allbinary.game.ai.BasicAI;
+    import org.allbinary.util.ABHashtable;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class KeyPressesAI extends BasicAI {
+        private var on:Boolean = false;
+        public var keys:Vector.<*> = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../../java/lang/Integer.js';
-        
-import { GameInput } from '../../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-//not plain js import { HashtableUtil } 
-const HashtableUtil = globalThis.org.allbinary.util.HashtableUtil;
-type HashtableUtil<T = any, U = any> = typeof HashtableUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof HashtableUtil;
-
-import { BasicAI } from '../../../../../org/allbinary/game/ai/BasicAI.js';
-//not GWT import const BasicAI
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class KeyPressesAI extends BasicAI {
-        
-
-    private on: boolean = true;
-
-    keys: Integer[];
-
-public constructor (hashtable: ABHashtable<any, any>, ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
-            super(ownerLayerInterface, gameInput);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.keys= new Array(hashtable.size());
+        // Java field initializers run after the base constructor
+        private function initFieldsKeyPressesAI():void {
+    this.on = true;
+    
+        }
     
 
-    let objectArray: any[] = HashtableUtil.getInstance()!.getKeysAsArray(hashtable)!;;
+    public function KeyPressesAI(hashtable:ABHashtable, ownerLayerInterface:AllBinaryLayer, gameInput:GameInput) {
+        super(ownerLayerInterface, gameInput);
+        this.initFieldsKeyPressesAI();
+        this.keys = new Vector.<*>(hashtable.size());
+        var objectArray:Vector.<Object> = HashtableUtil.getInstance().getKeysAsArray(hashtable);
+        var size:int = objectArray.length;
+        for (var index:int = 0; index < size; index++) {
+            this.keys[index] = (hashtable.get_((objectArray[index] as Object)) as *);
+        }
+    }
     
 
-    let size: number = objectArray!.length
-                ;;
+    override public function processAI(allBinaryLayerManager:AllBinaryLayerManager):void {
+        if (this.on) {
+            for (var index:int = 0; index < this.keys.length; index++) {
+                super.processKeyAI(this.keys[index].intValue());
+            }
+        }
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-this.keys[index]= hashtable.get(objectArray[index]!) as Integer;
-    
-}
-
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
-
-                        if(this.on)
-                        
-                                    {
-                                    
-
-
-
-                        for (
-    let index: number = 0;index < this.keys.length; index++)
-        {
-super.processKeyAI(this.keys[index]!.intValue());
-    
-}
-
-
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public toggle(){
-
-                        if(this.isOn())
-                        
-                                    {
-                                    this.setOn(false);
+    public function toggle():void {
+        if (this.isOn()) {
+            this.setOn(false);
+        } else {
+            this.setOn(true);
+        }
+    }
     
 
-                                    }
-                                
-                        else {
-                            this.setOn(true);
+    public function disable():void {
+        this.setOn(false);
+    }
     
 
-                        }
-                            
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public disable(){
-this.setOn(false);
+    public function enable():void {
+        this.setOn(true);
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public enable(){
-this.setOn(true);
+    private function setOn(on:Boolean):void {
+        this.on = on;
+    }
     
-}
 
-
-    setOn(on: boolean){
-this.on= on;
-    
-}
-
-
-    isOn(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.on;
-    
-}
-
-
+    public function isOn():Boolean {
+        return this.on;
+    }
+    }
 }
 

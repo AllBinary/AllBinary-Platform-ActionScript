@@ -1,133 +1,65 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.collision.layer {
+    import org.allbinary.game.collision.CollidableBaseBehavior;
+    import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
+    import org.allbinary.game.layer.CollidableCompositeLayer;
+    import org.allbinary.layer.LayerManager;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { CollidableBaseBehavior } from '../../../../../org/allbinary/game/collision/CollidableBaseBehavior.js';
-//not GWT import const CollidableBaseBehavior
-
-import { CollidableInterfaceCompositeInterface } from '../../../../../org/allbinary/game/collision/CollidableInterfaceCompositeInterface.js';
-//not GWT import const CollidableInterfaceCompositeInterface
-
-import { CollidableCompositeLayer } from '../../../../../org/allbinary/game/layer/CollidableCompositeLayer.js';
-//not GWT import const CollidableCompositeLayer
-
-import { LayerManager } from '../../../../../org/allbinary/layer/LayerManager.js';
-//not GWT import const LayerManager
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AllBinaryCollisionManager
-            extends Object
-         {
-        
-
-    private static allBinaryCollisionManager: AllBinaryCollisionManager = new AllBinaryCollisionManager();
-
-    public static getInstance(): AllBinaryCollisionManager{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AllBinaryCollisionManager.allBinaryCollisionManager;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class AllBinaryCollisionManager {
+    private static var allBinaryCollisionManager_value:AllBinaryCollisionManager;
+    private static var allBinaryCollisionManager_set:Boolean = false;
+    private static function get allBinaryCollisionManager():AllBinaryCollisionManager {
+        if (!AllBinaryCollisionManager.allBinaryCollisionManager_set) {
+            AllBinaryCollisionManager.allBinaryCollisionManager_set = true;
+            AllBinaryCollisionManager.allBinaryCollisionManager_value = new AllBinaryCollisionManager();
         }
-
-
-                //@Throws(Exception.constructor)
-            
-    public process(layerManager: LayerManager, collidableInterfaceCompositeInterface: CollidableInterfaceCompositeInterface, startIndex: number){
-
-    let size: number = layerManager!.getSize()!;;
+        return AllBinaryCollisionManager.allBinaryCollisionManager_value;
+    }
     
 
-
-
-
-                        for (
-    let index: number = startIndex +1;index < size; index++)
-        {
-
-    let collidableInterfaceCompositeInterface2: CollidableInterfaceCompositeInterface = layerManager!.getLayerAt(index) as CollidableInterfaceCompositeInterface;;
-    
-this.collide(layerManager, collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2);
-    
-}
-
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    collide(layerManager: LayerManager, collidableInterfaceCompositeInterface: CollidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2: CollidableInterfaceCompositeInterface){
-
-    let collidableBase2: CollidableBaseBehavior = collidableInterfaceCompositeInterface2!.getCollidableInferface()!;;
+    public function AllBinaryCollisionManager() {
+        super();
+    }
     
 
-    let collidableBase: CollidableBaseBehavior = collidableInterfaceCompositeInterface!.getCollidableInferface()!;;
+    public static function getInstance():AllBinaryCollisionManager {
+        return AllBinaryCollisionManager.allBinaryCollisionManager;
+    }
     
 
-                        if(collidableBase2!.isCollidable(collidableInterfaceCompositeInterface as CollidableCompositeLayer))
-                        
-                                    {
-                                    
-                        if(collidableBase!.isCollisionInterface(collidableInterfaceCompositeInterface as CollidableCompositeLayer, collidableInterfaceCompositeInterface2))
-                        
-                                    {
-                                    collidableBase!.collideInterface(collidableInterfaceCompositeInterface as CollidableCompositeLayer, collidableInterfaceCompositeInterface2);
-    
-collidableBase2!.collideInterface(collidableInterfaceCompositeInterface as CollidableCompositeLayer, collidableInterfaceCompositeInterface);
+    public function process(layerManager:LayerManager, collidableInterfaceCompositeInterface:CollidableInterfaceCompositeInterface, startIndex:int):void {
+        var size:int = layerManager.getSize();
+        for (var index:int = int(startIndex + 1); index < size; index++) {
+            var collidableInterfaceCompositeInterface2:CollidableInterfaceCompositeInterface = (layerManager.getLayerAt(index) as CollidableInterfaceCompositeInterface);
+            this.collide(layerManager, collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2);
+        }
+    }
     
 
-                                    }
-                                
-
-                                    }
-                                
-}
-
-
+    private function collide(layerManager:LayerManager, collidableInterfaceCompositeInterface:CollidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2:CollidableInterfaceCompositeInterface):void {
+        var collidableBase2:CollidableBaseBehavior = collidableInterfaceCompositeInterface2.getCollidableInferface();
+        var collidableBase:CollidableBaseBehavior = collidableInterfaceCompositeInterface.getCollidableInferface();
+        if (collidableBase2.isCollidable((collidableInterfaceCompositeInterface as CollidableCompositeLayer))) {
+            if (collidableBase.isCollisionInterface((collidableInterfaceCompositeInterface as CollidableCompositeLayer), collidableInterfaceCompositeInterface2)) {
+                collidableBase.collideInterface((collidableInterfaceCompositeInterface as CollidableCompositeLayer), collidableInterfaceCompositeInterface2);
+                collidableBase2.collideInterface((collidableInterfaceCompositeInterface as CollidableCompositeLayer), collidableInterfaceCompositeInterface);
+            }
+        }
+    }
+    }
 }
 

@@ -1,90 +1,49 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.font {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Font } from '../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class MyFontProcessor
-            extends Object
-         {
-        
-
-    public static defaultCharWidth(font: Font): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return font.charWidth('C');;
+    public class MyFontProcessor {
+    private static var instance_value:MyFontProcessor;
+    private static var instance_set:Boolean = false;
+    private static function get instance():MyFontProcessor {
+        if (!MyFontProcessor.instance_set) {
+            MyFontProcessor.instance_set = true;
+            MyFontProcessor.instance_value = new MyFontProcessor();
+        }
+        return MyFontProcessor.instance_value;
+    }
     
-}
 
-
-    public static defaultStringWidth(font: Font, size: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MyFontProcessor.defaultCharWidth(font) *size;
+    public static function defaultCharWidth(font:Font):int {
+        return font.charWidth("C".charCodeAt(0));
+    }
     
-}
 
-
-    private static readonly instance: MyFontProcessor = new MyFontProcessor();
-
-    public static getInstance(): MyFontProcessor{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MyFontProcessor.instance;
+    public static function defaultStringWidth(font:Font, size:int):int {
+        return MyFontProcessor.defaultCharWidth(font) * size;
+    }
     
-}
 
+    public static function getInstance():MyFontProcessor {
+        return MyFontProcessor.instance;
+    }
+    
 
-    public process(graphics: Graphics){
-}
-
-
+    public function process(graphics:Graphics):void {
+    }
+    }
 }
 

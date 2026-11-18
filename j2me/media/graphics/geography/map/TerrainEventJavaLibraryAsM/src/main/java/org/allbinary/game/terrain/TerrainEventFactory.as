@@ -1,76 +1,34 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.terrain {
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.AllBinaryEventObjectFactoryInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { AllBinaryEventObjectFactoryInterface } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObjectFactoryInterface.js';
-//not GWT import const AllBinaryEventObjectFactoryInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { TerrainEvent } from './TerrainEvent.js';
-//sameFolderImports - not GWT import - same folder const TerrainEvent
-
-export class TerrainEventFactory
-            extends Object
-         implements AllBinaryEventObjectFactoryInterface {
-        
-
-public constructor (){
-
-            super();
-        }
-
-
-    public getInstance(): AllBinaryEventObject{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new TerrainEvent(NullUtil.getInstance()!.NULL_OBJECT);
+    public class TerrainEventFactory implements AllBinaryEventObjectFactoryInterface {
     
-}
 
+    public function TerrainEventFactory() {
+        super();
+    }
+    
 
+    public function getInstance():AllBinaryEventObject {
+        return new TerrainEvent(NullUtil.getInstance().NULL_OBJECT);
+    }
+    }
 }
 

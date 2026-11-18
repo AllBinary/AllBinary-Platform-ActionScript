@@ -1,72 +1,51 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.visual.transform.template.customizer.bodies {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class BodyData
-            extends Object
-         {
-        
-
-    private static readonly instance: BodyData = new BodyData();
-
-    public static getInstance(): BodyData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return BodyData.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class BodyData {
+    private static var instance_value:BodyData;
+    private static var instance_set:Boolean = false;
+    private static function get instance():BodyData {
+        if (!BodyData.instance_set) {
+            BodyData.instance_set = true;
+            BodyData.instance_value = new BodyData();
         }
+        return BodyData.instance_value;
+    }
+        public var NAME:String = null;
+        public var VIEWNAMEKEY:String = null;
+        public var MIN:int = 0;
 
+        // Java field initializers run after the base constructor
+        private function initFieldsBodyData():void {
+    this.NAME = "BODY_NAME";
+    this.VIEWNAMEKEY = "Body";
+    this.MIN = 0;
+        }
+    
 
-    public readonly NAME: string = "BODY_NAME";
+    public function BodyData() {
+        super();
+        this.initFieldsBodyData();
+    }
+    
 
-    public readonly VIEWNAMEKEY: string = "Body";
-
-    public readonly MIN: number = 0;
-
+    public static function getInstance():BodyData {
+        return BodyData.instance;
+    }
+    }
 }
 

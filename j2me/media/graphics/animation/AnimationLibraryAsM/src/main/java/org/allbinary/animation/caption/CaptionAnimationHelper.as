@@ -1,150 +1,77 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.caption {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.NullAnimationFactory;
+    import org.allbinary.animation.text.TextAnimation;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.time.GameTickTimeDelayHelperFactory;
+    import org.allbinary.time.TimeDelayHelper;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CaptionAnimationHelper extends CaptionAnimationHelperBase {
+        private var timeHelper:TimeDelayHelper = null;
+        private var textAnimation:TextAnimation = null;
+        private var captionAnimation:Animation = null;
+        private var animation:Animation = null;
 
-        
-
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Animation } from '../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { NullAnimationFactory } from '../../../../org/allbinary/animation/NullAnimationFactory.js';
-//not GWT import const NullAnimationFactory
-
-import { TextAnimation } from '../../../../org/allbinary/animation/text/TextAnimation.js';
-//not GWT import const TextAnimation
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { GameTickTimeDelayHelperFactory } from '../../../../org/allbinary/time/GameTickTimeDelayHelperFactory.js';
-//not GWT import const GameTickTimeDelayHelperFactory
-
-import { TimeDelayHelper } from '../../../../org/allbinary/time/TimeDelayHelper.js';
-//not GWT import const TimeDelayHelper
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CaptionAnimationHelperBase } from './CaptionAnimationHelperBase.js';
-//sameFolderImports - not GWT import - same folder const CaptionAnimationHelperBase
-import { CaptionAnimation } from './CaptionAnimation.js';
-//sameFolderImports - not GWT import - same folder const CaptionAnimation
-
-export class CaptionAnimationHelper extends CaptionAnimationHelperBase {
-        
-
-    private readonly timeHelper: TimeDelayHelper = new TimeDelayHelper(620);
-
-    private readonly textAnimation: TextAnimation = new TextAnimation(StringUtil.getInstance()!.EMPTY_STRING, AnimationBehavior.getInstance());
-
-    private readonly captionAnimation: Animation;
-
-    private animation: Animation = NullAnimationFactory.getFactoryInstance()!.getInstance(0)!;
-
-public constructor (captionAnimation: Animation, captionDx: number, captionDy: number, dx: number, dy: number){
-
-            super();
-        this.captionAnimation= new CaptionAnimation(captionAnimation, this.textAnimation, captionDx, captionDy, dx, dy);
+        // Java field initializers run after the base constructor
+        private function initFieldsCaptionAnimationHelper():void {
+    this.timeHelper = new TimeDelayHelper(620);
+    this.textAnimation = new TextAnimation(StringUtil.getInstance().EMPTY_STRING, AnimationBehavior.getInstance());
     
-}
-
-
-    public isShowing(): boolean{
-
-                        if(this.animation == this.captionAnimation)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    this.animation = NullAnimationFactory.getFactoryInstance().getInstance1(0);
+        }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function CaptionAnimationHelper(captionAnimation:Animation, captionDx:int, captionDy:int, dx:int, dy:int) {
+        super();
+        this.initFieldsCaptionAnimationHelper();
+        this.captionAnimation = new CaptionAnimation(captionAnimation, this.textAnimation, captionDx, captionDy, dx, dy);
+    }
     
 
-                        }
-                            
-}
-
-
-    public tick(){
-
-                        if(this.timeHelper!.isTime(GameTickTimeDelayHelperFactory.getInstance()!.startTime))
-                        
-                                    {
-                                    this.animation= NullAnimationFactory.getFactoryInstance()!.getInstance(0);
+    override public function isShowing():Boolean {
+        if (this.animation === this.captionAnimation) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 
-                                    }
-                                
-}
-
-
-    public update(message: string, basicColor: BasicColor){
-this.textAnimation!.setBasicColorP(basicColor);
+    override public function tick():void {
+        if (this.timeHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
+            this.animation = NullAnimationFactory.getFactoryInstance().getInstance1(0);
+        }
+    }
     
-this.textAnimation!.setText(message);
-    
-this.animation= this.captionAnimation;
-    
-this.timeHelper!.setStartTimeTNT();
-    
-}
 
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-this.animation.paintXY(graphics, x, y);
+    override public function update(message:String, basicColor:BasicColor):void {
+        this.textAnimation.setBasicColorP(basicColor);
+        this.textAnimation.setText(message);
+        this.animation = this.captionAnimation;
+        this.timeHelper.setStartTimeTNT();
+    }
     
-}
 
-
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        this.animation.paintXY(graphics, x, y);
+    }
+    }
 }
 

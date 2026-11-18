@@ -1,77 +1,37 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.midlet {
+    import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
+    import org.allbinary.logic.system.security.licensing.LicenseServerInitFileUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-import { ClientInformationFactory } from '../../../../org/allbinary/logic/system/security/licensing/ClientInformationFactory.js';
-//not GWT import const ClientInformationFactory
-
-import { LicenseServerInitFileUtil } from '../../../../org/allbinary/logic/system/security/licensing/LicenseServerInitFileUtil.js';
-//not GWT import const LicenseServerInitFileUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DemoGameMidlet } from './DemoGameMidlet.js';
-//sameFolderImports - not GWT import - same folder const DemoGameMidlet
-import { LicenseLoadingType } from './LicenseLoadingType.js';
-//sameFolderImports - not GWT import - same folder const LicenseLoadingType
-import { LicensedDemoSetupFactory } from './LicensedDemoSetupFactory.js';
-//sameFolderImports - not GWT import - same folder const LicensedDemoSetupFactory
-import { LicenseCheckRunnableFactory } from './LicenseCheckRunnableFactory.js';
-//sameFolderImports - not GWT import - same folder const LicenseCheckRunnableFactory
-
-export class SpecialDemoGameMidlet extends DemoGameMidlet {
-        
-
-public constructor (clientInformationFactory: ClientInformationFactory, licenseLoadingType: LicenseLoadingType, demoSetupFactory: LicensedDemoSetupFactory, licenseCheckRunnableFactory: LicenseCheckRunnableFactory){
-            super(clientInformationFactory);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public initView(){
-}
-
-
-    public preInit(){
-new LicenseServerInitFileUtil().init();
+    public class SpecialDemoGameMidlet extends DemoGameMidlet {
     
-}
 
+    public function SpecialDemoGameMidlet(clientInformationFactory:ClientInformationFactory, licenseLoadingType:LicenseLoadingType, demoSetupFactory:LicensedDemoSetupFactory, licenseCheckRunnableFactory:LicenseCheckRunnableFactory) {
+        super(clientInformationFactory);
+    }
+    
 
+    public function initView():void {
+    }
+    
+
+    override public function preInit():void {
+        new LicenseServerInitFileUtil().init();
+    }
+    }
 }
 

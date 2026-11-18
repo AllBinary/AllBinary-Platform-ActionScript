@@ -1,70 +1,54 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.opengles.renderer {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class RendererStrings {
+    private static var instance_value:RendererStrings;
+    private static var instance_set:Boolean = false;
+    private static function get instance():RendererStrings {
+        if (!RendererStrings.instance_set) {
+            RendererStrings.instance_set = true;
+            RendererStrings.instance_value = new RendererStrings();
+        }
+        return RendererStrings.instance_value;
+    }
+        public var ON_SURFACE_CREATED:String = null;
+        public var ON_SURFACE_CHANGED:String = null;
+        public var ON_DRAW_FRAME:String = null;
+        public var ON_DRAW_FRAME_THREED:String = null;
+        public var ON_DRAW_FRAME_2D:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsRendererStrings():void {
+    this.ON_SURFACE_CREATED = "onSurfaceCreated";
+    this.ON_SURFACE_CHANGED = "onSurfaceChanged";
+    this.ON_DRAW_FRAME = "onDrawFrame";
+    this.ON_DRAW_FRAME_THREED = "onDrawFrameThreed";
+    this.ON_DRAW_FRAME_2D = "onDrawFrame2d";
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class RendererStrings
-            extends Object
-         {
-        
-
-    private static readonly instance: RendererStrings = new RendererStrings();
-
-    public static getInstance(): RendererStrings{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return RendererStrings.instance;
+        public function RendererStrings() {
+            super();
+            this.initFieldsRendererStrings();
+        }
     
-}
 
-
-    public readonly ON_SURFACE_CREATED: string = "onSurfaceCreated";
-
-    public readonly ON_SURFACE_CHANGED: string = "onSurfaceChanged";
-
-    public readonly ON_DRAW_FRAME: string = "onDrawFrame";
-
-    public readonly ON_DRAW_FRAME_THREED: string = "onDrawFrameThreed";
-
-    public readonly ON_DRAW_FRAME_2D: string = "onDrawFrame2d";
-
+    public static function getInstance():RendererStrings {
+        return RendererStrings.instance;
+    }
+    }
 }
 

@@ -1,170 +1,92 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.combat.destroy.event {
+    import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventListenerInterface;
+    import org.allbinary.logic.util.event.EventStrings;
+    import org.allbinary.logic.util.event.handler.BasicEventHandler;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { CollidableDestroyableDamageableLayer } from '../../../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.js';
-//not GWT import const CollidableDestroyableDamageableLayer
-
-import { AllBinaryEventObject } from '../../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventListenerInterface } from '../../../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
-//not GWT import const EventListenerInterface
-
-import { EventStrings } from '../../../../../../org/allbinary/logic/util/event/EventStrings.js';
-//not GWT import const EventStrings
-
-import { BasicEventHandler } from '../../../../../../org/allbinary/logic/util/event/handler/BasicEventHandler.js';
-//not GWT import const BasicEventHandler
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DestroyedEvent } from './DestroyedEvent.js';
-//sameFolderImports - not GWT import - same folder const DestroyedEvent
-import { DestroyedEventListenerInterface } from './DestroyedEventListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const DestroyedEventListenerInterface
-
-export class DestroyedEventHandler extends BasicEventHandler {
-        
-
-    private static readonly instance: DestroyedEventHandler = new DestroyedEventHandler();
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public static getInstance(): DestroyedEventHandler{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DestroyedEventHandler.instance;
-    
-}
-
-
-    private readonly list: BasicArrayList = new BasicArrayListD();
-
-private constructor (){
-
-            super();
+    public class DestroyedEventHandler extends BasicEventHandler {
+    private static var instance_value:DestroyedEventHandler;
+    private static var instance_set:Boolean = false;
+    private static function get instance():DestroyedEventHandler {
+        if (!DestroyedEventHandler.instance_set) {
+            DestroyedEventHandler.instance_set = true;
+            DestroyedEventHandler.instance_value = new DestroyedEventHandler();
         }
+        return DestroyedEventHandler.instance_value;
+    }
+        private var list:BasicArrayList = null;
 
-
-    public addListener(collidableDestroyableDamageableLayer: CollidableDestroyableDamageableLayer){
-
-                        if(!this.list.contains(collidableDestroyableDamageableLayer))
-                        
-                                    {
-                                    this.list.add(collidableDestroyableDamageableLayer);
+        // Java field initializers run after the base constructor
+        private function initFieldsDestroyedEventHandler():void {
+    this.list = new BasicArrayListD();
+        }
     
 
-                                    }
-                                
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public removeAllListeners(){
-this.list.clear();
-    
-super.removeAllListeners();
-    
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public removeListener(eventListenerInterface: EventListenerInterface){
-this.list.remove(eventListenerInterface);
-    
-super.removeListener(eventListenerInterface);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public fireEvent(eventObject: AllBinaryEventObject){
-
-
-
-
-                        for (
-    let index: number = this.list.size()!;--index >= 0; )
-        {
-
- try { 
-    let collidableDestroyableDamageableLayer: CollidableDestroyableDamageableLayer = this.list.objectArray[index]! as CollidableDestroyableDamageableLayer;;
-    
-collidableDestroyableDamageableLayer!.onDestroyed(eventObject as DestroyedEvent);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, EventStrings.getInstance()!.FIRE_EVENT, e);
+    public static function getInstance():DestroyedEventHandler {
+        return DestroyedEventHandler.instance;
+    }
     
 
- }
-   }
- 
-}
-
-super.fireEvent(eventObject);
+    public function DestroyedEventHandler() {
+        super();
+        this.initFieldsDestroyedEventHandler();
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    process(eventObject: AllBinaryEventObject, eventListenerInterface: EventListenerInterface){
-
-    let destroyedEventListenerInterface: DestroyedEventListenerInterface = eventListenerInterface as DestroyedEventListenerInterface;;
+    public function addListener(collidableDestroyableDamageableLayer:CollidableDestroyableDamageableLayer):void {
+        if (!this.list.contains(collidableDestroyableDamageableLayer)) {
+            this.list.add(collidableDestroyableDamageableLayer);
+        }
+    }
     
-destroyedEventListenerInterface!.onDestroyed(eventObject as DestroyedEvent);
+
+    override public function removeAllListeners():void {
+        this.list.clear();
+        super.removeAllListeners();
+    }
     
-}
 
+    override public function removeListener(eventListenerInterface:EventListenerInterface):void {
+        this.list.remove(eventListenerInterface);
+        super.removeListener(eventListenerInterface);
+    }
+    
 
+    override public function fireEvent(eventObject:AllBinaryEventObject):void {
+        for (var index:int = this.list.size(); --index >= 0; ) {
+            try {
+                var collidableDestroyableDamageableLayer:CollidableDestroyableDamageableLayer = (this.list.objectArray[index] as CollidableDestroyableDamageableLayer);
+                collidableDestroyableDamageableLayer.onDestroyed((eventObject as DestroyedEvent));
+            } catch (e:*) {
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+            }
+        }
+        super.fireEvent(eventObject);
+    }
+    
+
+    override public function process(eventObject:AllBinaryEventObject, eventListenerInterface:EventListenerInterface):void {
+        var destroyedEventListenerInterface:DestroyedEventListenerInterface = (eventListenerInterface as DestroyedEventListenerInterface);
+        destroyedEventListenerInterface.onDestroyed((eventObject as DestroyedEvent));
+    }
+    }
 }
 

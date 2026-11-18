@@ -1,77 +1,43 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.graphics.color.BasicColor;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AdjustedVectorAnimation extends VectorAnimation {
+        private var dx:int = 0;
+        private var dy:int = 0;
 
-        
-
-
-import { Graphics } from '../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { BasicColor } from '../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { VectorAnimation } from './VectorAnimation.js';
-//sameFolderImports - not GWT import - same folder const VectorAnimation
-import { AnimationBehavior } from './AnimationBehavior.js';
-//sameFolderImports - not GWT import - same folder const AnimationBehavior
-
-export class AdjustedVectorAnimation extends VectorAnimation {
-        
-
-    private dx: number;
-
-    private dy: number;
-
-public constructor (currentPoints: number[][][], basicColor: BasicColor, dx: number, dy: number, animationBehavior: AnimationBehavior){
-            super(currentPoints, basicColor, animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.dx= dx;
+        // Java field initializers run after the base constructor
+        private function initFieldsAdjustedVectorAnimation():void {
     
-this.dy= dy;
     
-}
-
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-super.paintXY(graphics, x +this.dx, y +this.dy);
+        }
     
-}
 
+    public function AdjustedVectorAnimation(currentPoints:Vector.<Vector.<Vector.<int>>>, basicColor:BasicColor, dx:int, dy:int, animationBehavior:AnimationBehavior) {
+        super(currentPoints, basicColor, animationBehavior);
+        this.initFieldsAdjustedVectorAnimation();
+        this.dx = dx;
+        this.dy = dy;
+    }
+    
 
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        super.paintXY(graphics, int(x + this.dx), int(y + this.dy));
+    }
+    }
 }
 

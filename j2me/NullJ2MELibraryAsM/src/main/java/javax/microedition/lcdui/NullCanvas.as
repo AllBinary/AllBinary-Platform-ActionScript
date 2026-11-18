@@ -1,161 +1,107 @@
+// Generated Code Do Not Modify
+package javax.microedition.lcdui {
+    import java.util.JStack;
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-            import { RuntimeException } from '../../../java/lang/RuntimeException.js';
-        
-//not plain js import { Stack } 
-const Stack = (globalThis.java?.util?.Stack ?? class {}) as typeof globalThis.java.util.Stack;
-type Stack<T = any, U = any> = typeof Stack extends abstract new (...args: any[]) => infer Instance ? Instance : typeof Stack;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Canvas } from './Canvas.js';
-//sameFolderImports - not GWT import - same folder const Canvas
-import { Command } from './Command.js';
-//sameFolderImports - not GWT import - same folder const Command
-import { CommandListener } from './CommandListener.js';
-//sameFolderImports - not GWT import - same folder const CommandListener
-import { Graphics } from './Graphics.js';
-//sameFolderImports - not GWT import - same folder const Graphics
-
-export class NullCanvas extends Canvas {
-        
-
-    public static readonly NULL_CANVAS: NullCanvas = new NullCanvas();
-
-public constructor (){
-
-            super();
+    public class NullCanvas extends Canvas {
+    private static var NULL_CANVAS_value:NullCanvas;
+    private static var NULL_CANVAS_set:Boolean = false;
+    public static function get NULL_CANVAS():NullCanvas {
+        if (!NullCanvas.NULL_CANVAS_set) {
+            NullCanvas.NULL_CANVAS_set = true;
+            NullCanvas.NULL_CANVAS_value = new NullCanvas();
         }
+        return NullCanvas.NULL_CANVAS_value;
+    }
+    
 
+    public function NullCanvas() {
+        super();
+    }
+    
 
-    public setFullScreenMode(mode: boolean){
-}
+    override public function setFullScreenMode(mode:Boolean):void {
+    }
+    
 
+    override public function sizeChanged(w:int, h:int):void {
+    }
+    
 
-    sizeChanged(w: number, h: number){
-}
+    public function getCommandStack():JStack {
+        throw new JException("RuntimeException", "");
+    }
+    
 
+    public function isCommand(command:Command):Boolean {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-    public getCommandStack(): Stack<any>{
+    override public function addCommand(command:Command):void {
+    }
+    
 
+    override public function removeCommand(command:Command):void {
+    }
+    
 
+    public function removeAllCommands():void {
+    }
+    
 
-                            throw new RuntimeException();
-                    
-}
+    override public function setCommandListener(l:CommandListener):void {
+    }
+    
 
+    public function getCustomCommandListener():CommandListener {
+        throw new JException("RuntimeException", "");
+    }
+    
 
-    public isCommand(command: Command): boolean{
+    public function isPaused():Boolean {
+        throw new JException("RuntimeException", "");
+    }
+    
 
+    public function removePauseCommand():void {
+    }
+    
 
+    public function pause():void {
+    }
+    
 
-                            throw new RuntimeException();
-                    
-}
+    public function unPause():void {
+    }
+    
 
+    public function process():void {
+    }
+    
 
-    public addCommand(command: Command){
-}
+    override public function paint(graphics:Graphics):void {
+    }
+    
 
+    public function destroy():void {
+    }
+    
 
-    public removeCommand(command: Command){
-}
+    public function setPaused(isPaused:Boolean):void {
+        throw new JException("RuntimeException", "");
+    }
+    
 
+    override public function pointerDragged(x:int, y:int):void {
+    }
+    
 
-    public removeAllCommands(){
-}
+    override public function pointerPressed(x:int, y:int):void {
+    }
+    
 
-
-    public setCommandListener(l: CommandListener){
-}
-
-
-    public getCustomCommandListener(): CommandListener{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public isPaused(): boolean{
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    public removePauseCommand(){
-}
-
-
-    public pause(){
-}
-
-
-    public unPause(){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    process(){
-}
-
-
-    paint(graphics: Graphics){
-}
-
-
-    public destroy(){
-}
-
-
-    setPaused(isPaused: boolean){
-
-
-
-                            throw new RuntimeException();
-                    
-}
-
-
-    pointerDragged(x: number, y: number){
-}
-
-
-    pointerPressed(x: number, y: number){
-}
-
-
-    pointerReleased(x: number, y: number){
-}
-
-
+    override public function pointerReleased(x:int, y:int):void {
+    }
+    }
 }
 

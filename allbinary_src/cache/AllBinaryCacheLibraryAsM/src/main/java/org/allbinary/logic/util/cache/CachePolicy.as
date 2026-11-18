@@ -1,108 +1,65 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.util.cache {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class CachePolicy {
+        private var name:String = null;
+        private var maxTime:Number = 0;
+        private var maxSize:Number = 0;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class CachePolicy
-            extends Object
-         {
-        
-
-    private readonly name: string;
-
-    private maxTime: number= 0;
-
-    private maxSize: number= 0;
-
-public constructor (name: string, maxTime: number, maxSize: number){
-
-            super();
-        this.name= name;
+        // Java field initializers run after the base constructor
+        private function initFieldsCachePolicy():void {
     
-this.setMaxTime(maxTime);
+    this.maxTime = 0;
+    this.maxSize = 0;
+        }
     
-this.setMaxSize(maxSize);
+
+    public function CachePolicy(name:String, maxTime:Number, maxSize:Number) {
+        super();
+        this.initFieldsCachePolicy();
+        this.name = name;
+        this.setMaxTime(maxTime);
+        this.setMaxSize(maxSize);
+    }
     
-}
 
-
-    public getMaxTime(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.maxTime;
+    public function getMaxTime():Number {
+        return this.maxTime;
+    }
     
-}
 
-
-    public setMaxTime(maxTime: number){
-this.maxTime= maxTime;
+    public function setMaxTime(maxTime:Number):void {
+        this.maxTime = maxTime;
+    }
     
-}
 
-
-    public getMaxSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.maxSize;
+    public function getMaxSize():Number {
+        return this.maxSize;
+    }
     
-}
 
-
-    public setMaxSize(maxSize: number){
-this.maxSize= maxSize;
+    public function setMaxSize(maxSize:Number):void {
+        this.maxSize = maxSize;
+    }
     
-}
 
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.name;
-    
-}
-
-
+    public function getName():String {
+        return this.name;
+    }
+    }
 }
 

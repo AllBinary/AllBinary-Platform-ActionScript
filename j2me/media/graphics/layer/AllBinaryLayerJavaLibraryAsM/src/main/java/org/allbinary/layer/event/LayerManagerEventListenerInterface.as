@@ -1,59 +1,28 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.layer.event {
+    import org.allbinary.logic.util.event.EventListenerInterface;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface LayerManagerEventListenerInterface extends EventListenerInterface {
+    
 
-        
+    function onCreateLayerManagerEvent(layerManagerEvent:LayerManagerEvent):void;
+    
 
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { EventListenerInterface } from '../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
-//not GWT import const EventListenerInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LayerManagerEvent } from './LayerManagerEvent.js';
-//sameFolderImports - not GWT import - same folder const LayerManagerEvent
-
-export interface LayerManagerEventListenerInterface extends EventListenerInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    onCreateLayerManagerEvent(layerManagerEvent: LayerManagerEvent): void;
-
-                //@Throws(Exception.constructor)
-            
-    onDeleteLayerManagerEvent(layerManagerEvent: LayerManagerEvent): void;
-
+    function onDeleteLayerManagerEvent(layerManagerEvent:LayerManagerEvent):void;
+    }
 }
 

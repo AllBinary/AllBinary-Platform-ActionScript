@@ -1,225 +1,108 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.configuration.persistance {
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.communication.log.PreLogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+    import org.allbinary.persistance.PlatformRecordIdUtil;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicPersitance {
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        public var persistanceStrings:PersistanceStrings = null;
+        private var platformRecordIdUtil:PlatformRecordIdUtil = null;
+        private var recordId:String = null;
+        public var valueList:BasicArrayList = null;
+        public var idList:BasicArrayList = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../../java/lang/Integer.js';
-        
-import { RecordStore } from '../../../../../javax/microedition/rms/RecordStore.js';
-//not GWT import const RecordStore
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { AbeClientInformationInterface } from '../../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-import { PlatformRecordIdUtil } from '../../../../../org/allbinary/persistance/PlatformRecordIdUtil.js';
-//not GWT import const PlatformRecordIdUtil
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PersistanceStrings } from './PersistanceStrings.js';
-//sameFolderImports - not GWT import - same folder const PersistanceStrings
-import { NullRecordStore } from './NullRecordStore.js';
-//sameFolderImports - not GWT import - same folder const NullRecordStore
-
-export class BasicPersitance
-            extends Object
-         {
-        
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    readonly persistanceStrings: PersistanceStrings = PersistanceStrings.getInstance()!;
-
-    private readonly platformRecordIdUtil: PlatformRecordIdUtil = PlatformRecordIdUtil.getInstance()!;
-
-    private readonly recordId: string;
-
-    readonly valueList: BasicArrayList = new BasicArrayListD();
-
-    readonly idList: BasicArrayList = new BasicArrayListD();
-
-protected constructor (recordId: string){
-
-            super();
-        this.recordId= recordId;
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicPersitance():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.persistanceStrings = PersistanceStrings.getInstance();
+    this.platformRecordIdUtil = PlatformRecordIdUtil.getInstance();
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public deleteRecoreStore(abeClientInformation: AbeClientInformationInterface){
-RecordStore.deleteRecordStore(this.getRecordId(abeClientInformation));
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public deleteAll(abeClientInformation: AbeClientInformationInterface){
-
-    let size: number = this.idList!.size()!;;
+    this.valueList = new BasicArrayListD();
+    this.idList = new BasicArrayListD();
+        }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let integer: Integer = this.idList!.objectArray[index]! as Integer;;
-    
-this.delete(abeClientInformation, integer.intValue());
-    
-}
-
-this.clear();
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public delete(abeClientInformation: AbeClientInformationInterface, deleteId: number){
-
-    let recordStore: RecordStore = NullRecordStore.NULL_RECORD_STORE;;
+    public function BasicPersitance(recordId:String) {
+        super();
+        this.initFieldsBasicPersitance();
+        this.recordId = recordId;
+    }
     
 
- try { this.logUtil!.putF(new StringMaker().append(this.persistanceStrings!.DELETING_WITH_ID)!.appendint(deleteId)!.toString(), this, this.commonStrings!.delete);
-    
-recordStore= RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
-    
-recordStore!.deleteRecord(deleteId);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-
-
-
-                            throw e;
-                    
-
- }
-   }
- finally { 
-                        if(recordStore != 
-                                    null
-                                )
-                        
-                                    {
-                                    PreLogUtil.put(this.persistanceStrings!.CLOSING_RECORDSTORE, this, this.commonStrings!.delete);
-    
-recordStore!.closeRecordStore();
+    public function deleteRecoreStore(abeClientInformation:AbeClientInformationInterface):void {
+        RecordStore.deleteRecordStore(this.getRecordId(abeClientInformation));
+    }
     
 
-                                    }
-                                
- }
-}
-
-
-    public getRecordId(abeClientInformation: AbeClientInformationInterface): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.platformRecordIdUtil!.getRecordId(abeClientInformation, this.recordId);;
+    public function deleteAll(abeClientInformation:AbeClientInformationInterface):void {
+        var size:int = this.idList.size();
+        for (var index:int = 0; index < size; index++) {
+            var integer:* = (this.idList.objectArray[index] as *);
+            this.delete_(abeClientInformation, integer.intValue());
+        }
+        this.clear();
+    }
     
-}
 
-
-    public getList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.valueList;
+    public function delete_(abeClientInformation:AbeClientInformationInterface, deleteId:int):void {
+        var recordStore:RecordStore = NullRecordStore.NULL_RECORD_STORE;
+        try {
+            this.logUtil.putF(new StringMaker().append(this.persistanceStrings.DELETING_WITH_ID).appendint(deleteId).toString(), this, this.commonStrings.delete_);
+            recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+            recordStore.deleteRecord(deleteId);
+        } catch (e:*) {
+            throw e;
+        } finally {
+            if (recordStore != null) {
+                PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.commonStrings.delete_);
+                recordStore.closeRecordStore();
+            }
+        }
+    }
     
-}
 
-
-    public getIds(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.idList;
+    public function getRecordId(abeClientInformation:AbeClientInformationInterface):String {
+        return this.platformRecordIdUtil.getRecordId(abeClientInformation, this.recordId);
+    }
     
-}
 
-
-    public clear(){
-this.valueList!.clear();
+    public function getList():BasicArrayList {
+        return this.valueList;
+    }
     
-this.idList!.clear();
+
+    public function getIds():BasicArrayList {
+        return this.idList;
+    }
     
-}
 
-
+    public function clear():void {
+        this.valueList.clear();
+        this.idList.clear();
+    }
+    }
 }
 

@@ -1,142 +1,70 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score {
+    import org.allbinary.util.CircularIndexUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class HighScoresHelper extends HighScoresHelperBase {
+        private var circularIndexUtil:CircularIndexUtil = null;
+        public var lastIndex:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsHighScoresHelper():void {
+    this.circularIndexUtil = CircularIndexUtil.createInstanceAt(0, 0);
+    this.lastIndex = -1;
+        }
 
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { HighScoresHelperBase } from './HighScoresHelperBase.js';
-//sameFolderImports - not GWT import - same folder const HighScoresHelperBase
-import { HighScores } from './HighScores.js';
-//sameFolderImports - not GWT import - same folder const HighScores
-
-export class HighScoresHelper extends HighScoresHelperBase {
-        
-
-    private readonly circularIndexUtil: CircularIndexUtil = CircularIndexUtil.createInstanceAt(0, 0)!;
-
-    public setHighScoresArray(highScoresArrayP: HighScores[]){
-super.setHighScoresArray(highScoresArrayP);
-    
-this.circularIndexUtil!.setSize(this.highScoresArrayP!.length);
-    
-}
-
-
-    lastIndex: number =  -1;
-
-    public getNextHighScores(): HighScores{
-
-    let highScores: HighScores = this.highScoresArrayP[this.circularIndexUtil!.getIndex()]!;;
+        public function HighScoresHelper() {
+            super();
+            this.initFieldsHighScoresHelper();
+        }
     
 
-    let index: number = 0;;
+    override public function setHighScoresArray(highScoresArrayP:Vector.<HighScores>):void {
+        super.setHighScoresArray(highScoresArrayP);
+        this.circularIndexUtil.setSize(this.highScoresArrayP.length);
+    }
     
 
-        while((highScores!.getTotal() < 1 || this.lastIndex == this.circularIndexUtil!.getIndex()) && index < this.highScoresArrayP!.length)
-        {
-this.circularIndexUtil!.next();
-    
-highScores= this.highScoresArrayP[this.circularIndexUtil!.getIndex()]!;
-    
-index++;
-    
-}
-
-this.lastIndex= this.circularIndexUtil!.getIndex();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return highScores;
-    
-}
-
-
-    public isAnyHighScores(): boolean{
-
-                        if(this.highScoresArrayP!.length < 1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    override public function getNextHighScores():HighScores {
+        var highScores:HighScores = this.highScoresArrayP[this.circularIndexUtil.getIndex()];
+        var index:int = 0;
+        while ((highScores.getTotal() < 1 || this.lastIndex == this.circularIndexUtil.getIndex()) && index < this.highScoresArrayP.length) {
+            this.circularIndexUtil.next();
+            highScores = this.highScoresArrayP[this.circularIndexUtil.getIndex()];
+            index++;
+        }
+        this.lastIndex = this.circularIndexUtil.getIndex();
+        return highScores;
+    }
     
 
-                                    }
-                                
-
-    let anyScores: boolean = false;;
-    
-
-    let highScores: HighScores;;
-    
-
-
-
-
-                        for (
-    let index: number = this.highScoresArrayP!.length -1;index >= 0; index--)
-        {
-highScores= this.highScoresArrayP[index]!;
-    
-
-                        if(highScores!.getTotal() > 0)
-                        
-                                    {
-                                    anyScores= true;
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return anyScores;
-    
-}
-
-
+    override public function isAnyHighScores():Boolean {
+        if (this.highScoresArrayP.length < 1) {
+            return false;
+        }
+        var anyScores:Boolean = false;
+        var highScores:HighScores = null;
+        for (var index:int = int(this.highScoresArrayP.length - 1); index >= 0; index--) {
+            highScores = this.highScoresArrayP[index];
+            if (highScores.getTotal() > 0) {
+                anyScores = true;
+            }
+        }
+        return anyScores;
+    }
+    }
 }
 

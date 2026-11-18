@@ -1,54 +1,38 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form {
 
-        /* Generated Code Do Not Modify */
+    public class ScreenInfo {
+    private static var instance_value:ScreenInfo;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ScreenInfo {
+        if (!ScreenInfo.instance_set) {
+            ScreenInfo.instance_set = true;
+            ScreenInfo.instance_value = new ScreenInfo();
+        }
+        return ScreenInfo.instance_value;
+    }
+        public var SMALL_WIDTH:int = 0;
+        public var SMALL_HEIGHT:int = 0;
+        public var MEDIUM_WIDTH:int = 0;
+        public var MEDIUM_HEIGHT:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsScreenInfo():void {
+    this.SMALL_WIDTH = 320;
+    this.SMALL_HEIGHT = 240;
+    this.MEDIUM_WIDTH = 800;
+    this.MEDIUM_HEIGHT = 600;
+        }
 
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ScreenInfo
-            extends Object
-         {
-        
-
-    private static readonly instance: ScreenInfo = new ScreenInfo();
-
-    public static getInstance(): ScreenInfo{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ScreenInfo.instance;
+        public function ScreenInfo() {
+            super();
+            this.initFieldsScreenInfo();
+        }
     
-}
 
-
-    public readonly SMALL_WIDTH: number = 320;
-
-    public readonly SMALL_HEIGHT: number = 240;
-
-    public readonly MEDIUM_WIDTH: number = 800;
-
-    public readonly MEDIUM_HEIGHT: number = 600;
-
+    public static function getInstance():ScreenInfo {
+        return ScreenInfo.instance;
+    }
+    }
 }
 

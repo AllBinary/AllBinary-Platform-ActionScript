@@ -1,216 +1,130 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.util.CircularIndexUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ImageSegmentAnimation extends ImageAnimation {
+        private var startX:int = 0;
+        private var startY:int = 0;
+        private var drawWidth:int = 0;
+        private var drawHeight:int = 0;
+        private var circularIndexUtil:CircularIndexUtil = null;
+        private var sequenceArray:Vector.<int> = null;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageAnimation } from './ImageAnimation.js';
-//sameFolderImports - not GWT import - same folder const ImageAnimation
-
-export class ImageSegmentAnimation extends ImageAnimation {
-        
-
-    private startX: number;
-
-    private startY: number;
-
-    private drawWidth: number;
-
-    private drawHeight: number;
-
-    private circularIndexUtil: CircularIndexUtil;
-
-    private sequenceArray: number[];
-
-protected constructor (image: Image, sequenceArray: number[], animationBehavior: AnimationBehavior){
-            super(image, animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.startX= 0;
+        // Java field initializers run after the base constructor
+        private function initFieldsImageSegmentAnimation():void {
     
-this.startY= 0;
     
-this.drawWidth= this.getImage()!.getWidth();
     
-this.drawHeight= this.getImage()!.getHeight();
     
-this.circularIndexUtil= CircularIndexUtil.createInstance(this.drawHeight);
     
-this.sequenceArray= sequenceArray;
     
-}
-
-
-    public nextFrame(){
-this.circularIndexUtil!.next();
+        }
     
-}
 
-
-    public previousFrame(){
-this.circularIndexUtil!.previous();
+    public function ImageSegmentAnimation(image:Image, sequenceArray:Vector.<int>, animationBehavior:AnimationBehavior) {
+        super(image, animationBehavior);
+        this.initFieldsImageSegmentAnimation();
+        this.startX = 0;
+        this.startY = 0;
+        this.drawWidth = this.getImage().getWidth();
+        this.drawHeight = this.getImage().getHeight();
+        this.circularIndexUtil = CircularIndexUtil.createInstance(this.drawHeight);
+        this.sequenceArray = sequenceArray;
+    }
     
-}
 
-
-    public setFrame(index: number){
-this.circularIndexUtil!.setIndex(index);
+    override public function nextFrame():void {
+        this.circularIndexUtil.next();
+    }
     
-}
 
-
-    public getFrame(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.circularIndexUtil!.getIndex();;
+    override public function previousFrame():void {
+        this.circularIndexUtil.previous();
+    }
     
-}
 
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.circularIndexUtil!.getSize();;
+    override public function setFrame(index:int):void {
+        this.circularIndexUtil.setIndex(index);
+    }
     
-}
 
-
-    public setSequence(sequenceArray: number[]){
-this.sequenceArray= sequenceArray;
+    override public function getFrame():int {
+        return this.circularIndexUtil.getIndex();
+    }
     
-}
 
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.sequenceArray;
+    override public function getSize():int {
+        return this.circularIndexUtil.getSize();
+    }
     
-}
 
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-}
-
-
-    public getStartX(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.startX;
+    override public function setSequence(sequenceArray:Vector.<int>):void {
+        this.sequenceArray = sequenceArray;
+    }
     
-}
 
-
-    public setStartX(startX: number){
-this.startX= startX;
+    override public function getSequence():Vector.<int> {
+        return this.sequenceArray;
+    }
     
-}
 
-
-    public getStartY(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.startY;
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+    }
     
-}
 
-
-    public setStartY(startY: number){
-this.startY= startY;
+    public function getStartX():int {
+        return this.startX;
+    }
     
-}
 
-
-    public getDrawWidth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.drawWidth;
+    public function setStartX(startX:int):void {
+        this.startX = startX;
+    }
     
-}
 
-
-    public setDrawWidth(drawWidth: number){
-this.drawWidth= drawWidth;
+    public function getStartY():int {
+        return this.startY;
+    }
     
-}
 
-
-    public getDrawHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.drawHeight;
+    public function setStartY(startY:int):void {
+        this.startY = startY;
+    }
     
-}
 
-
-    public setDrawHeight(drawHeight: number){
-this.drawHeight= drawHeight;
+    public function getDrawWidth():int {
+        return this.drawWidth;
+    }
     
-}
 
+    public function setDrawWidth(drawWidth:int):void {
+        this.drawWidth = drawWidth;
+    }
+    
 
+    public function getDrawHeight():int {
+        return this.drawHeight;
+    }
+    
+
+    public function setDrawHeight(drawHeight:int):void {
+        this.drawHeight = drawHeight;
+    }
+    }
 }
 

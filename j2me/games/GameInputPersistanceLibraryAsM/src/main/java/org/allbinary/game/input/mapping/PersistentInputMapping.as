@@ -1,360 +1,178 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input.mapping {
+    import java.util.JEnumeration;
+    import org.allbinary.game.configuration.persistance.GamePersistanceStrings;
+    import org.allbinary.game.input.Input;
+    import org.allbinary.game.input.InputPersistance;
+    import org.allbinary.game.input.mapping.event.InputMappingEvent;
+    import org.allbinary.game.input.mapping.event.InputMappingEventListenerInterface;
+    import org.allbinary.game.input.mapping.event.NullInputMappingEventListener;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.communication.log.PreLogUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.ABHashtable;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.EnumerationUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    //GameInputPersistanceLibrary
+    public class PersistentInputMapping {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    public static function get instance():Object {
+        if (!PersistentInputMapping.instance_set) {
+            PersistentInputMapping.instance_set = true;
+            PersistentInputMapping.instance_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return PersistentInputMapping.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        public var commonStrings:CommonStrings = null;
+        private var enumerationUtil:EnumerationUtil = null;
+        private var inputMapping:InputToGameKeyMapping = null;
+        private var inputMappingEventListenerInterface:InputMappingEventListenerInterface = null;
+        private var inputPersistance:InputPersistance = null;
+        private var inputMappingEvent:InputMappingEvent = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Enumeration } from '../../../../../java/util/Enumeration.js';
-//not GWT import const Enumeration
-
-import { GamePersistanceStrings } from '../../../../../org/allbinary/game/configuration/persistance/GamePersistanceStrings.js';
-//not GWT import const GamePersistanceStrings
-
-import { Input } from '../../../../../org/allbinary/game/input/Input.js';
-//not GWT import const Input
-
-import { InputPersistance } from '../../../../../org/allbinary/game/input/InputPersistance.js';
-//not GWT import const InputPersistance
-
-import { InputMappingEvent } from '../../../../../org/allbinary/game/input/mapping/event/InputMappingEvent.js';
-//not GWT import const InputMappingEvent
-
-import { InputMappingEventListenerInterface } from '../../../../../org/allbinary/game/input/mapping/event/InputMappingEventListenerInterface.js';
-//not GWT import const InputMappingEventListenerInterface
-
-import { NullInputMappingEventListener } from '../../../../../org/allbinary/game/input/mapping/event/NullInputMappingEventListener.js';
-//not GWT import const NullInputMappingEventListener
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { AbeClientInformationInterface } from '../../../../../org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.js';
-//not GWT import const AbeClientInformationInterface
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { ABHashtable } 
-const ABHashtable = globalThis.org.allbinary.util.ABHashtable;
-type ABHashtable<T = any, U = any> = typeof ABHashtable extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ABHashtable;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { EnumerationUtil } 
-const EnumerationUtil = globalThis.org.allbinary.util.EnumerationUtil;
-type EnumerationUtil<T = any, U = any> = typeof EnumerationUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof EnumerationUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { InputToGameKeyMapping } from './InputToGameKeyMapping.js';
-//sameFolderImports - not GWT import - same folder const InputToGameKeyMapping
-//GameInputPersistanceLibrary
-export class PersistentInputMapping
-            extends Object
-         {
-        
-
-    public static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getNullInstance(): PersistentInputMapping{
-
-                        if(PersistentInputMapping.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    PersistentInputMapping.instance= new PersistentInputMapping(GamePersistanceStrings.getInstance()!.SAVED_INPUT_CONFIGURATION_RECORD_ID);
+        // Java field initializers run after the base constructor
+        private function initFieldsPersistentInputMapping():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.enumerationUtil = EnumerationUtil.getInstance();
+    this.inputMapping = new InputToGameKeyMapping();
+    this.inputMappingEventListenerInterface = NullInputMappingEventListener.NULL_INPUT_MAPPING_EVENT_LISTENER;
+    
+    this.inputMappingEvent = new InputMappingEvent(this);
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PersistentInputMapping.instance as PersistentInputMapping;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private readonly enumerationUtil: EnumerationUtil = EnumerationUtil.getInstance()!;
-
-    private readonly inputMapping: InputToGameKeyMapping = new InputToGameKeyMapping();
-
-    private inputMappingEventListenerInterface: InputMappingEventListenerInterface = NullInputMappingEventListener.NULL_INPUT_MAPPING_EVENT_LISTENER;
-
-    private readonly inputPersistance: InputPersistance;
-
-protected constructor (name: string){
-
-            super();
-        this.inputPersistance= new InputPersistance(name);
-    
-}
-
-
-    public getTotalMapped(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getInputMapping()!.getHashtable()!.size();;
-    
-}
-
-
-    isDefaultNew(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    getDefault(): InputToGameKeyMapping{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return InputToGameKeyMapping.getNullInstance();;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public setDefault(abeClientInformation: AbeClientInformationInterface){
-this.getInputMapping()!.removeAll();
-    
-this.getInputMapping()!.addMapping(this.getDefault());
-    
-this.save(abeClientInformation);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public update(abeClientInformation: AbeClientInformationInterface){
-this.inputPersistance!.deleteAll(abeClientInformation);
-    
-this.save(abeClientInformation);
-    
-}
-
-
-    private inputMappingEvent: InputMappingEvent = new InputMappingEvent(this);
-
-                //@Throws(Exception.constructor)
-            
-    public save(abeClientInformation: AbeClientInformationInterface){
-this.inputPersistance!.save(abeClientInformation, this.getInputMapping()!.getHashtable());
-    
-this.inputMappingEvent!.setInputToGameKeyMapping(this.getInputMapping());
+    public static function getNullInstance():PersistentInputMapping {
+        if (PersistentInputMapping.instance == NullUtil.getInstance().NULL_OBJECT) {
+            PersistentInputMapping.instance = new PersistentInputMapping(GamePersistanceStrings.getInstance().SAVED_INPUT_CONFIGURATION_RECORD_ID);
+        }
+        return (PersistentInputMapping.instance as PersistentInputMapping);
+    }
     
 
-                        if(this.getInputMappingEventListenerInterface() != 
-                                    null
-                                )
-                        
-                                    {
-                                    this.getInputMappingEventListenerInterface()!.onInputMappingEvent(this.inputMappingEvent);
+    public function PersistentInputMapping(name:String) {
+        super();
+        this.initFieldsPersistentInputMapping();
+        this.inputPersistance = new InputPersistance(name);
+    }
     
 
-                                    }
-                                
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public init(abeClientInformation: AbeClientInformationInterface){
-this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.INIT);
+    public function getTotalMapped():int {
+        return this.getInputMapping().getHashtable().size();
+    }
     
 
- try { this.inputPersistance!.loadAll(abeClientInformation);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-PreLogUtil.putOE(this.commonStrings!.EXCEPTION, this, this.commonStrings!.INIT, e);
-    
-this.inputPersistance!.deleteRecoreStore(abeClientInformation);
-    
-this.setDefault(abeClientInformation);
-    
-this.inputPersistance!.loadAll(abeClientInformation);
+    public function isDefaultNew():Boolean {
+        return false;
+    }
     
 
- }
-   }
- 
-
-    let list: BasicArrayList = this.inputPersistance!.getList()!;;
+    public function getDefault():InputToGameKeyMapping {
+        return InputToGameKeyMapping.getNullInstance();
+    }
     
 
-    let totalMappedTo: number = 0;;
+    public function setDefault(abeClientInformation:AbeClientInformationInterface):void {
+        this.getInputMapping().removeAll();
+        this.getInputMapping().addMapping(this.getDefault());
+        this.save(abeClientInformation);
+    }
     
 
-    let size: number = list.size()!;;
+    public function update(abeClientInformation:AbeClientInformationInterface):void {
+        this.inputPersistance.deleteAll(abeClientInformation);
+        this.save(abeClientInformation);
+    }
     
 
-    let hashtable: ABHashtable<any, any>;;
+    public function save(abeClientInformation:AbeClientInformationInterface):void {
+        this.inputPersistance.save(abeClientInformation, this.getInputMapping().getHashtable());
+        this.inputMappingEvent.setInputToGameKeyMapping(this.getInputMapping());
+        if (this.getInputMappingEventListenerInterface() != null) {
+            this.getInputMappingEventListenerInterface().onInputMappingEvent(this.inputMappingEvent);
+        }
+    }
     
 
-    let enumeration: Enumeration<any>;;
+    public function init(abeClientInformation:AbeClientInformationInterface):void {
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
+        try {
+            this.inputPersistance.loadAll(abeClientInformation);
+        } catch (e:*) {
+            PreLogUtil.putOE(this.commonStrings.EXCEPTION, this, this.commonStrings.INIT, e);
+            this.inputPersistance.deleteRecoreStore(abeClientInformation);
+            this.setDefault(abeClientInformation);
+            this.inputPersistance.loadAll(abeClientInformation);
+        }
+        var list:BasicArrayList = this.inputPersistance.getList();
+        var totalMappedTo:int = 0;
+        var size:int = list.size();
+        var hashtable:ABHashtable = null;
+        var enumeration:JEnumeration = null;
+        var mappedToInput:Input = null;
+        var gameActionInput:Input = null;
+        for (var index:int = 0; index < size; index++) {
+            hashtable = (list.objectArray[index] as ABHashtable);
+            enumeration = hashtable.keys();
+            while (this.enumerationUtil.hasMoreElements(enumeration)) {
+                mappedToInput = (this.enumerationUtil.nextElement(enumeration) as Input);
+                gameActionInput = (hashtable.get_(mappedToInput) as Input);
+                totalMappedTo++;
+                this.getInputMapping().add(gameActionInput, mappedToInput);
+            }
+        }
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append("End - Total Loaded Keys Mapped: ");
+        stringBuffer.appendint(this.getTotalMapped());
+        stringBuffer.append(" to: ");
+        stringBuffer.appendint(totalMappedTo);
+        this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.INIT);
+    }
     
 
-    let mappedToInput: Input;;
+    public function setInputMappingEventListenerInterface(inputMappingEventListenerInterface:InputMappingEventListenerInterface):void {
+        this.inputMappingEventListenerInterface = inputMappingEventListenerInterface;
+    }
     
 
-    let gameActionInput: Input;;
+    private function getInputMappingEventListenerInterface():InputMappingEventListenerInterface {
+        return this.inputMappingEventListenerInterface;
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-hashtable= list.objectArray[index]! as ABHashtable<any, any>;
-    
-enumeration= hashtable.keys();
+    public function getInputMapping():InputToGameKeyMapping {
+        return this.inputMapping;
+    }
     
 
-        while(this.enumerationUtil!.hasMoreElements(enumeration))
-        {
-mappedToInput= this.enumerationUtil!.nextElement(enumeration)! as Input;
+    public function isDelete(input:Input):Boolean {
+        throw new JException("Exception", this.commonStrings.NOT_IMPLEMENTED);
+    }
     
-gameActionInput= hashtable.get(mappedToInput) as Input;
-    
-totalMappedTo++;
-    
-this.getInputMapping()!.add(gameActionInput, mappedToInput);
-    
-}
 
-}
-
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append("End - Total Loaded Keys Mapped: ");
-    
-stringBuffer!.appendint(this.getTotalMapped());
-    
-stringBuffer!.append(" to: ");
-    
-stringBuffer!.appendint(totalMappedTo);
-    
-this.logUtil!.putF(stringBuffer!.toString(), this, this.commonStrings!.INIT);
-    
-}
-
-
-    public setInputMappingEventListenerInterface(inputMappingEventListenerInterface: InputMappingEventListenerInterface){
-this.inputMappingEventListenerInterface= inputMappingEventListenerInterface;
-    
-}
-
-
-    getInputMappingEventListenerInterface(): InputMappingEventListenerInterface{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.inputMappingEventListenerInterface;
-    
-}
-
-
-    public getInputMapping(): InputToGameKeyMapping{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.inputMapping;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public isDelete(input: Input): boolean{
-
-
-
-                            throw new Exception(this.commonStrings!.NOT_IMPLEMENTED);
-                    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public isSystemInput(input: Input): boolean{
-
-
-
-                            throw new Exception(this.commonStrings!.NOT_IMPLEMENTED);
-                    
-}
-
-
+    public function isSystemInput(input:Input):Boolean {
+        throw new JException("Exception", this.commonStrings.NOT_IMPLEMENTED);
+    }
+    }
 }
 

@@ -1,279 +1,136 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.layer {
+    import org.allbinary.graphics.Rectangle;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.color.BasicColorSetUtil;
+    import org.allbinary.graphics.paint.NullPaintable;
+    import org.allbinary.graphics.paint.Paintable;
+    import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
+    import org.allbinary.logic.communication.log.ForcedLogUtil;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventStrings;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import org.allbinary.view.ViewPositionBase;
+    import org.allbinary.view.event.ViewPositionEvent;
+    import org.allbinary.view.event.ViewPositionEventListenerInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AllBinaryGameLayer extends AllBinaryLayer implements ViewPositionEventListenerInterface, OpenGLSurfaceChangedInterface {
+        public var commonStrings:CommonStrings = null;
+        public var basicSetColorUtil:BasicColorSetUtil = null;
+        public var RED:BasicColor = null;
+        private var paintable:Paintable = null;
+        private var gameKeyEventList:BasicArrayList = null;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { GL } from '../../../../javax/microedition/khronos/opengles/GL.js';
-//not GWT import const GL
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Rectangle } from '../../../../org/allbinary/graphics/Rectangle.js';
-//not GWT import const Rectangle
-
-import { BasicColor } from '../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { BasicColorSetUtil } from '../../../../org/allbinary/graphics/color/BasicColorSetUtil.js';
-//not GWT import const BasicColorSetUtil
-
-import { NullPaintable } from '../../../../org/allbinary/graphics/paint/NullPaintable.js';
-//not GWT import const NullPaintable
-
-import { Paintable } from '../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-import { OpenGLSurfaceChangedInterface } from '../../../../org/allbinary/image/opengles/OpenGLSurfaceChangedInterface.js';
-//not GWT import const OpenGLSurfaceChangedInterface
-
-import { AllBinaryLayer } from '../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventStrings } from '../../../../org/allbinary/logic/util/event/EventStrings.js';
-//not GWT import const EventStrings
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-import { ViewPositionBase } from '../../../../org/allbinary/view/ViewPositionBase.js';
-//not GWT import const ViewPositionBase
-
-import { ViewPositionEvent } from '../../../../org/allbinary/view/event/ViewPositionEvent.js';
-//not GWT import const ViewPositionEvent
-
-import { ViewPositionEventListenerInterface } from '../../../../org/allbinary/view/event/ViewPositionEventListenerInterface.js';
-//not GWT import const ViewPositionEventListenerInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { SWTUtil } from './SWTUtil.js';
-//sameFolderImports - not GWT import - same folder const SWTUtil
-import { SWTBlackPaintable } from './SWTBlackPaintable.js';
-//sameFolderImports - not GWT import - same folder const SWTBlackPaintable
-import { GameLayerUtil } from './GameLayerUtil.js';
-//sameFolderImports - not GWT import - same folder const GameLayerUtil
-
-export class AllBinaryGameLayer extends AllBinaryLayer implements ViewPositionEventListenerInterface, OpenGLSurfaceChangedInterface {
-        
-
-    static createPaintable(): Paintable{
-
-                        if(SWTUtil.isSWT)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new SWTBlackPaintable();
+        // Java field initializers run after the base constructor
+        private function initFieldsAllBinaryGameLayer():void {
+    this.commonStrings = CommonStrings.getInstance();
+    this.basicSetColorUtil = BasicColorSetUtil.getInstance();
+    this.RED = BasicColorFactory.getInstance().RED;
+    this.paintable = AllBinaryGameLayer.createPaintable();
+    this.gameKeyEventList = new BasicArrayListD();
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NullPaintable.getInstance();;
-    
-}
-
-
-    readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    readonly basicSetColorUtil: BasicColorSetUtil = BasicColorSetUtil.getInstance()!;
-
-    readonly RED: BasicColor = BasicColorFactory.getInstance()!.RED;
-
-    private readonly paintable: Paintable = createPaintable()!;
-
-    private readonly gameKeyEventList: BasicArrayList = new BasicArrayListD();
-
-public constructor (name: string, layerInfo: Rectangle, viewPosition: ViewPositionBase){
-            super(name, layerInfo, viewPosition);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public set(gl: GL){
-
-
-
-                            throw new Exception(this.commonStrings!.NOT_IMPLEMENTED);
-                    
-}
-
-
-    public move(){
-}
-
-
-    public getGameKeyEventList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.gameKeyEventList;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processInput(allBinaryLayerManager: AllBinaryLayerManager){
-
-
-
-                            throw new Exception(this.commonStrings!.NOT_IMPLEMENTED);
-                    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processTick(allBinaryLayerManager: AllBinaryLayerManager){
-
-
-
-                            throw new Exception(this.commonStrings!.NOT_IMPLEMENTED);
-                    
-}
-
-
-    public onEvent(eventObject: AllBinaryEventObject){
-ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public onViewPositionChangeEvent(){
-this.onChangeEvent(this.viewPositionEvent);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public onChangeEvent(layerManagerEvent: ViewPositionEvent){
-
-                        if(GameLayerUtil.isOnScreen(this))
-                        
-                                    {
-                                    this.setVisible(true);
+    private static function createPaintable():Paintable {
+        if (SWTUtil.isSWT) {
+            return new SWTBlackPaintable();
+        }
+        return NullPaintable.getInstance();
+    }
     
 
-                                    }
-                                
-                        else {
-                            this.setVisible(false);
+    public function AllBinaryGameLayer(name:String, layerInfo:Rectangle, viewPosition:ViewPositionBase) {
+        super(name, layerInfo, viewPosition);
+        this.initFieldsAllBinaryGameLayer();
+    }
     
 
-                        }
-                            
-}
-
-
-    public paintFirst(graphics: Graphics){
-this.paintable.paint(graphics);
-    
-}
-
-
-    public paintDebug(graphics: Graphics){
-
-    let viewPosition: ViewPositionBase = this.getViewPosition()!;;
+    public function set_(gl:GL):void {
+        throw new JException("Exception", this.commonStrings.NOT_IMPLEMENTED);
+    }
     
 
-    let viewX: number = viewPosition!.getX()!;;
+    public function move():void {
+    }
     
 
-    let viewY: number = viewPosition!.getY()!;;
+    public function getGameKeyEventList():BasicArrayList {
+        return this.gameKeyEventList;
+    }
     
-this.basicSetColorUtil!.setBasicColorP(graphics, this.RED);
-    
-graphics.drawRect(viewX, viewY, this.getWidth(), this.getHeight());
-    
-}
 
-
-    public setWidth(width: number){
-super.setLayerWidth(width);
+    public function processInput(allBinaryLayerManager:AllBinaryLayerManager):void {
+        throw new JException("Exception", this.commonStrings.NOT_IMPLEMENTED);
+    }
     
-this.setHalfWidth(width>>1);
+
+    public function processTick(allBinaryLayerManager:AllBinaryLayerManager):void {
+        throw new JException("Exception", this.commonStrings.NOT_IMPLEMENTED);
+    }
     
-}
 
-
-    public setHeight(height: number){
-super.setLayerHeight(height);
+    public function onEvent(eventObject:AllBinaryEventObject):void {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    }
     
-this.setHalfHeight(height>>1);
+
+    public function onViewPositionChangeEvent():void {
+        this.onChangeEvent(this.viewPositionEvent);
+    }
     
-}
 
+    override public function onChangeEvent(layerManagerEvent:ViewPositionEvent):void {
+        if (GameLayerUtil.isOnScreen(this)) {
+            this.setVisible(true);
+        } else {
+            this.setVisible(false);
+        }
+    }
+    
 
+    public function paintFirst(graphics:Graphics):void {
+        this.paintable.paint(graphics);
+    }
+    
+
+    public function paintDebug(graphics:Graphics):void {
+        var viewPosition:ViewPositionBase = this.getViewPosition();
+        var viewX:int = viewPosition.getX();
+        var viewY:int = viewPosition.getY();
+        this.basicSetColorUtil.setBasicColorP(graphics, this.RED);
+        graphics.drawRect(viewX, viewY, this.getWidth(), this.getHeight());
+    }
+    
+
+    public function setWidth(width:int):void {
+        super.setLayerWidth(width);
+        this.setHalfWidth(width >> 1);
+    }
+    
+
+    public function setHeight(height:int):void {
+        super.setLayerHeight(height);
+        this.setHalfHeight(height >> 1);
+    }
+    }
 }
 

@@ -1,147 +1,84 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input {
+    import org.allbinary.input.accelerometer.AccelerometerSensorFactory;
+    import org.allbinary.input.gyro.GyroSensorFactory;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.string.CommonStrings;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AllBinarySensorManager {
+    private static var instance_value:Object;
+    private static var instance_set:Boolean = false;
+    private static function get instance():Object {
+        if (!AllBinarySensorManager.instance_set) {
+            AllBinarySensorManager.instance_set = true;
+            AllBinarySensorManager.instance_value = NullUtil.getInstance().NULL_OBJECT;
+        }
+        return AllBinarySensorManager.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var commonStrings:CommonStrings = null;
+        public var ORIENTATION_SENSOR_INPUT:String = null;
+        public var ORIENTATION_TYPE:String = null;
+        private var list:BasicArrayList = null;
 
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../java/lang/Exception.js';
-        
-import { AccelerometerSensorFactory } from '../../../org/allbinary/input/accelerometer/AccelerometerSensorFactory.js';
-//not GWT import const AccelerometerSensorFactory
-
-import { GyroSensorFactory } from '../../../org/allbinary/input/gyro/GyroSensorFactory.js';
-//not GWT import const GyroSensorFactory
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class AllBinarySensorManager
-            extends Object
-         {
-        
-
-    private static instance: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): AllBinarySensorManager{
-
-                        if(AllBinarySensorManager.instance == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    AllBinarySensorManager.instance= new AllBinarySensorManager();
+        // Java field initializers run after the base constructor
+        private function initFieldsAllBinarySensorManager():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
+    this.ORIENTATION_TYPE = "Orientation Type";
+    this.list = new BasicArrayListD();
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AllBinarySensorManager.instance as AllBinarySensorManager;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    public readonly ORIENTATION_SENSOR_INPUT: string = "Orientation Sensor Input";
-
-    public readonly ORIENTATION_TYPE: string = "Orientation Type";
-
-private constructor (){
-
-            super();
-        
- try { GyroSensorFactory.init();
-    
-AccelerometerSensorFactory.init();
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.CONSTRUCTOR, e);
+    public static function getInstance():AllBinarySensorManager {
+        if (AllBinarySensorManager.instance == NullUtil.getInstance().NULL_OBJECT) {
+            AllBinarySensorManager.instance = new AllBinarySensorManager();
+        }
+        return (AllBinarySensorManager.instance as AllBinarySensorManager);
+    }
     
 
- }
-   }
- 
-}
-
-
-    public init(){
-}
-
-
-    private readonly list: BasicArrayList = new BasicArrayListD();
-
-    public getSensorNamesList(): BasicArrayList{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.list;
+    public function AllBinarySensorManager() {
+        super();
+        this.initFieldsAllBinarySensorManager();
+        try {
+            GyroSensorFactory.init();
+            AccelerometerSensorFactory.init();
+        } catch (e:*) {
+            this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e);
+        }
+    }
     
-}
 
+    public function init():void {
+    }
+    
 
-    public shutdown(){
-}
+    public function getSensorNamesList():BasicArrayList {
+        return this.list;
+    }
+    
 
-
+    public function shutdown():void {
+    }
+    }
 }
 

@@ -1,39 +1,10 @@
+// Generated Code Do Not Modify
+package org.allbinary.image.opengles {
 
-        /* Generated Code Do Not Modify */
+    public interface OpenGLSurfaceChangedInterface {
+    
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { GL } from '../../../../javax/microedition/khronos/opengles/GL.js';
-//not GWT import const GL
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export interface OpenGLSurfaceChangedInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    set(gl: GL): void;
-
+    function set_(gl:GL):void;
+    }
 }
 

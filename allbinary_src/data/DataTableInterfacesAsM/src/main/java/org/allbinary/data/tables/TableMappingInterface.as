@@ -1,65 +1,32 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.data.tables {
+    import java.util.JHashMap;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface TableMappingInterface {
+    
 
-        
+    function getKey():Object;
+    
 
+    function toVector():BasicArrayList;
+    
 
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { HashMap } from '../../../../java/util/HashMap.js';
-//not GWT import const HashMap
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export interface TableMappingInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    getKey(): any;
-
-                //@Throws(Exception.constructor)
-            
-    toVector(): BasicArrayList;
-
-                //@Throws(Exception.constructor)
-            
-    toHashMap(): HashMap<any, any>;
-
+    function toHashMap():JHashMap;
+    }
 }
 

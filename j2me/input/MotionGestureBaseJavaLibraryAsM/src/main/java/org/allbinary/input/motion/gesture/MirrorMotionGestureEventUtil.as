@@ -1,148 +1,77 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input.motion.gesture {
+    import org.allbinary.graphics.GPoint;
+    import org.allbinary.graphics.PointFactory;
+    import org.allbinary.input.motion.gesture.observer.MotionEventCircularPool;
+    import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class MirrorMotionGestureEventUtil {
+    private static var instance_value:MirrorMotionGestureEventUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():MirrorMotionGestureEventUtil {
+        if (!MirrorMotionGestureEventUtil.instance_set) {
+            MirrorMotionGestureEventUtil.instance_set = true;
+            MirrorMotionGestureEventUtil.instance_value = new MirrorMotionGestureEventUtil();
+        }
+        return MirrorMotionGestureEventUtil.instance_value;
+    }
+        private var motionEventCircularPool:MotionEventCircularPool = null;
 
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../../java/lang/Integer.js';
-        
-import { GPoint } from '../../../../../org/allbinary/graphics/GPoint.js';
-//not GWT import const GPoint
-
-import { PointFactory } from '../../../../../org/allbinary/graphics/PointFactory.js';
-//not GWT import const PointFactory
-
-import { MotionEventCircularPool } from '../../../../../org/allbinary/input/motion/gesture/observer/MotionEventCircularPool.js';
-//not GWT import const MotionEventCircularPool
-
-import { MotionGestureEvent } from '../../../../../org/allbinary/input/motion/gesture/observer/MotionGestureEvent.js';
-//not GWT import const MotionGestureEvent
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class MirrorMotionGestureEventUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: MirrorMotionGestureEventUtil = new MirrorMotionGestureEventUtil();
-
-    public static getInstance(): MirrorMotionGestureEventUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return MirrorMotionGestureEventUtil.instance;
+        // Java field initializers run after the base constructor
+        private function initFieldsMirrorMotionGestureEventUtil():void {
     
-}
-
-
-    private readonly motionEventCircularPool: MotionEventCircularPool;
-
-private constructor (){
-
-            super();
-        this.motionEventCircularPool= MotionEventCircularPool.createPool(Integer.MAX_VALUE);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public mirrorVerticle(motionGestureEvent: MotionGestureEvent, halfWidth: number): MotionGestureEvent{
-
-    let event: MotionGestureEvent = this.motionEventCircularPool!.getInstance(motionGestureEvent!.getMotionGesture())!;;
+        }
     
 
-    let previousNewX: number = this.getNewX(motionGestureEvent!.getPreviousPoint()!.getX(), halfWidth)!;;
+    public function MirrorMotionGestureEventUtil() {
+        super();
+        this.initFieldsMirrorMotionGestureEventUtil();
+        this.motionEventCircularPool = MotionEventCircularPool.createPool(JInteger.MAX_VALUE);
+    }
     
 
-    let currentNewX: number = this.getNewX(motionGestureEvent!.getCurrentPoint()!.getX(), halfWidth)!;;
+    public function mirrorVerticle(motionGestureEvent:MotionGestureEvent, halfWidth:int):MotionGestureEvent {
+        var event:MotionGestureEvent = this.motionEventCircularPool.getInstance1(motionGestureEvent.getMotionGesture());
+        var previousNewX:int = this.getNewX(motionGestureEvent.getPreviousPoint().getX(), halfWidth);
+        var currentNewX:int = this.getNewX(motionGestureEvent.getCurrentPoint().getX(), halfWidth);
+        var pointFactory:PointFactory = PointFactory.getInstance();
+        var mirroredPreviousPoint:GPoint = pointFactory.createXY(previousNewX, motionGestureEvent.getPreviousPoint().getY());
+        var mirroredCurrentPoint:GPoint = pointFactory.createXY(currentNewX, motionGestureEvent.getCurrentPoint().getY());
+        event.setPreviousPoint(mirroredPreviousPoint);
+        event.setCurrentPoint(mirroredCurrentPoint);
+        return event;
+    }
     
 
-    let pointFactory: PointFactory = PointFactory.getInstance()!;;
+    public function getNewX(x:int, halfWidth:int):int {
+        var newX:int = 0;
+        if (x > halfWidth) {
+            newX = int(halfWidth - (int(x - halfWidth)));
+        } else {
+            newX = int(halfWidth + (int(halfWidth - x)));
+        }
+        return newX;
+    }
     
 
-    let mirroredPreviousPoint: GPoint = pointFactory!.createXY(previousNewX, motionGestureEvent!.getPreviousPoint()!.getY())!;;
-    
-
-    let mirroredCurrentPoint: GPoint = pointFactory!.createXY(currentNewX, motionGestureEvent!.getCurrentPoint()!.getY())!;;
-    
-event.setPreviousPoint(mirroredPreviousPoint);
-    
-event.setCurrentPoint(mirroredCurrentPoint);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return event;
-    
-}
-
-
-    public getNewX(x: number, halfWidth: number): number{
-
-    let newX: number= 0;;
-    
-
-                        if(x > halfWidth)
-                        
-                                    {
-                                    newX= halfWidth -(x -halfWidth);
-    
-
-                                    }
-                                
-                        else {
-                            newX= halfWidth +(halfWidth -x);
-    
-
-                        }
-                            
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return newX;
-    
-}
-
-
+    public static function getInstance():MirrorMotionGestureEventUtil {
+        return MirrorMotionGestureEventUtil.instance;
+    }
+    }
 }
 

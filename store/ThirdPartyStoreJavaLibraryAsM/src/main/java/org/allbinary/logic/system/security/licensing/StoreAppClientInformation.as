@@ -1,72 +1,40 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.security.licensing {
+    import org.allbinary.thirdparty.store.LongArrayIdentifierInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class StoreAppClientInformation extends AbeClientInformation implements LongArrayIdentifierInterface {
+        private var longArrayIdentifier:Vector.<Number> = null;
 
-        
-
-
-import { LongArrayIdentifierInterface } from '../../../../../../org/allbinary/thirdparty/store/LongArrayIdentifierInterface.js';
-//not GWT import const LongArrayIdentifierInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AbeClientInformation } from './AbeClientInformation.js';
-//sameFolderImports - not GWT import - same folder const AbeClientInformation
-
-export class StoreAppClientInformation extends AbeClientInformation implements LongArrayIdentifierInterface {
-        
-
-    private readonly longArrayIdentifier: number[];
-
-public constructor (name: string, version: string, specialName: string, shortName: string, longArrayIdentifier: number[]){
-            super(name, version, specialName, shortName);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.longArrayIdentifier= longArrayIdentifier;
+        // Java field initializers run after the base constructor
+        private function initFieldsStoreAppClientInformation():void {
     
-}
-
-
-    public getLongArrayIdentifier(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.longArrayIdentifier;
+        }
     
-}
 
+    public function StoreAppClientInformation(name:String, version:String, specialName:String, shortName:String, longArrayIdentifier:Vector.<Number>) {
+        super(name, version, specialName, shortName);
+        this.initFieldsStoreAppClientInformation();
+        this.longArrayIdentifier = longArrayIdentifier;
+    }
+    
 
+    public function getLongArrayIdentifier():Vector.<Number> {
+        return this.longArrayIdentifier;
+    }
+    }
 }
 

@@ -1,162 +1,87 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.layer.hud.basic.life {
+    import org.allbinary.animation.Animation;
+    import org.allbinary.game.ag.life.Life;
+    import org.allbinary.game.graphics.hud.BasicHud;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
+    import org.allbinary.graphics.paint.PaintableInterface;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LivesHudWidget extends BasicHud implements PaintableInterface {
+        private var lifeInterface:Life = null;
+        private var xArray:Vector.<int> = null;
+        private var animationInterface:Animation = null;
 
-        
-
-
-            import { Exception } from '../../../../../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Animation } from '../../../../../../../../org/allbinary/animation/Animation.js';
-//not GWT import const Animation
-
-import { Life } from '../../../../../../../../org/allbinary/game/ag/life/Life.js';
-//not GWT import const Life
-
-import { BasicHud } from '../../../../../../../../org/allbinary/game/graphics/hud/BasicHud.js';
-//not GWT import const BasicHud
-
-import { BasicColorFactory } from '../../../../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { DisplayChangeEvent } from '../../../../../../../../org/allbinary/graphics/displayable/event/DisplayChangeEvent.js';
-//not GWT import const DisplayChangeEvent
-
-import { PaintableInterface } from '../../../../../../../../org/allbinary/graphics/paint/PaintableInterface.js';
-//not GWT import const PaintableInterface
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class LivesHudWidget extends BasicHud implements PaintableInterface {
-        
-
-    private readonly lifeInterface: Life;
-
-    private readonly xArray: number[];
-
-    private readonly animationInterface: Animation;
-
-public constructor (animationInterface: Animation, lifeInterface: Life, location: number, direction: number){
-            super(location, direction, 2, BasicColorFactory.getInstance()!.WHITE);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.lifeInterface= lifeInterface;
+        // Java field initializers run after the base constructor
+        private function initFieldsLivesHudWidget():void {
+    
+    
+    
+        }
     
 
-    let size: number = globalThis.Math.trunc(this.getLifeInterface()!.getMaxlives());;
-    
-this.xArray= new Array(size).fill(0);
-    
-this.animationInterface= animationInterface;
-    
-this.updateMaxWidth= this.lifeInterface!.getMaxlives() *16;
-    
-this.updateMaxHeight= 16;
-    
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-super.updateMeasurement(graphics);
+    public function LivesHudWidget(animationInterface:Animation, lifeInterface:Life, location:int, direction:int) {
+        super(location, direction, 2, BasicColorFactory.getInstance().WHITE);
+        this.initFieldsLivesHudWidget();
+        this.lifeInterface = lifeInterface;
+        var size:int = this.getLifeInterface().getMaxlives();
+        this.xArray = new Vector.<int>(size);
+        this.animationInterface = animationInterface;
+        this.updateMaxWidth = int(this.lifeInterface.getMaxlives() * 16);
+        this.updateMaxHeight = 16;
+    }
     
 
-    let maxLives: number = globalThis.Math.trunc(this.getLifeInterface()!.getMaxlives());;
+    override public function updateMeasurement(graphics:Graphics):void {
+        super.updateMeasurement(graphics);
+        var maxLives:int = this.getLifeInterface().getMaxlives();
+        for (var index:int = 0; index < maxLives; index++) {
+            this.xArray[index] = this.getX() + (int(index * 16));
+        }
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < maxLives; index++)
-        {
-this.xArray[index]= this.getX() +(index *16);
-    
-}
-
-}
-
-
-    public onDisplayChangeEvent(displayChangeEvent: DisplayChangeEvent){
-super.onDisplayChangeEvent(displayChangeEvent);
-    
-this.myFontProcessor= this.updateMyFontProcessor;
-    
-}
-
-
-    public setX(x: number){
-super.setX(x);
-    
-this.myFontProcessor= this.updateMyFontProcessor;
-    
-}
-
-
-    public paint(graphics: Graphics){
-this.myFontProcessor!.process(graphics);
+    override public function onDisplayChangeEvent(displayChangeEvent:DisplayChangeEvent):void {
+        super.onDisplayChangeEvent(displayChangeEvent);
+        this.myFontProcessor = this.updateMyFontProcessor;
+    }
     
 
-
-
-
-                        for (
-    let index: number = globalThis.Math.trunc(this.getLifeInterface()!.get());--index >= 0; )
-        {
-this.animationInterface!.paintXY(graphics, this.xArray[index]!, this.getY());
+    override public function setX(x:int):void {
+        super.setX(x);
+        this.myFontProcessor = this.updateMyFontProcessor;
+    }
     
-}
 
-}
-
-
-    public paintThreed(graphics: Graphics){
-}
-
-
-    public getLifeInterface(): Life{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.lifeInterface;
+    public function paint(graphics:Graphics):void {
+        this.myFontProcessor.process(graphics);
+        for (var index:int = this.getLifeInterface().get_(); --index >= 0; ) {
+            this.animationInterface.paintXY(graphics, this.xArray[index], this.getY());
+        }
+    }
     
-}
 
+    public function paintThreed(graphics:Graphics):void {
+    }
+    
 
+    public function getLifeInterface():Life {
+        return this.lifeInterface;
+    }
+    }
 }
 

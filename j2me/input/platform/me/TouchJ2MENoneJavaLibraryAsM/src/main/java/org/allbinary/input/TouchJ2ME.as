@@ -1,66 +1,39 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.input {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    //TouchJ2MENone
+    public class TouchJ2ME {
+    
 
-        
+    public function TouchJ2ME() {
+        super();
+    }
+    
 
+    public function pointerDragged(x:int, y:int):void {
+    }
+    
 
-            import { Object } from '../../../java/lang/Object.js';
-        
+    public function pointerPressed(x:int, y:int):void {
+    }
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //TouchJ2MENone
-export class TouchJ2ME
-            extends Object
-         {
-        
-
-public constructor (){
-
-            super();
-        }
-
-
-    public pointerDragged(x: number, y: number){
-}
-
-
-    public pointerPressed(x: number, y: number){
-}
-
-
-    public pointerReleased(x: number, y: number){
-}
-
-
+    public function pointerReleased(x:int, y:int):void {
+    }
+    }
 }
 

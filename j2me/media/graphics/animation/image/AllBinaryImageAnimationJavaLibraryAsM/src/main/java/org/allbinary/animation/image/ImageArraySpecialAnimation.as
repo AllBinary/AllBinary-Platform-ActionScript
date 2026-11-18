@@ -1,176 +1,87 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.special.SpecialAnimationInterface;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.time.GameTickTimeDelayHelperFactory;
+    import org.allbinary.time.TimeDelayHelper;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ImageArraySpecialAnimation extends ImageArrayAnimation implements SpecialAnimationInterface {
+        private var timeDelayHelper:TimeDelayHelper = null;
+        private var loopCount:int = 0;
+        private var loopCountTotal:int = 0;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { SpecialAnimationInterface } from '../../../../org/allbinary/animation/special/SpecialAnimationInterface.js';
-//not GWT import const SpecialAnimationInterface
-
-import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { GameTickTimeDelayHelperFactory } from '../../../../org/allbinary/time/GameTickTimeDelayHelperFactory.js';
-//not GWT import const GameTickTimeDelayHelperFactory
-
-import { TimeDelayHelper } from '../../../../org/allbinary/time/TimeDelayHelper.js';
-//not GWT import const TimeDelayHelper
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageArrayAnimation } from './ImageArrayAnimation.js';
-//sameFolderImports - not GWT import - same folder const ImageArrayAnimation
-
-export class ImageArraySpecialAnimation extends ImageArrayAnimation implements SpecialAnimationInterface {
-        
-
-    private readonly timeDelayHelper: TimeDelayHelper = new TimeDelayHelper(270);
-
-public constructor (imageArray: Image[], animationBehavior: AnimationBehavior){
-            super(imageArray, animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.reset();
-    
-}
-
-
-    private loopCount: number = 0;
-
-    public getLoopCount(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.loopCount;
-    
-}
-
-
-    public setLastFrame(){
-this.circularIndexUtil!.setIndex(this.circularIndexUtil!.getSize() -1);
-    
-}
-
-
-    public reset(){
-this.setFrame(this.getSize() -1);
-    
-this.loopCount= 0;
-    
-}
-
-
-    public nextFrame(){
-
-                        if(this.getFrame() > 0)
-                        
-                                    {
-                                    
-                        if(this.timeDelayHelper!.isTime(GameTickTimeDelayHelperFactory.getInstance()!.startTime))
-                        
-                                    {
-                                    this.previousFrame();
+        // Java field initializers run after the base constructor
+        private function initFieldsImageArraySpecialAnimation():void {
+    this.timeDelayHelper = new TimeDelayHelper(270);
+    this.loopCount = 0;
+    this.loopCountTotal = 1;
+        }
     
 
-                        if(this.getFrame() == 0)
-                        
-                                    {
-                                    this.loopCount++;
+    public function ImageArraySpecialAnimation(imageArray:Vector.<Image>, animationBehavior:AnimationBehavior) {
+        super(imageArray, animationBehavior);
+        this.initFieldsImageArraySpecialAnimation();
+        this.reset();
+    }
     
 
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-}
-
-
-    private readonly loopCountTotal: number = 1;
-
-    public isComplete(): boolean{
-
-                        if(this.loopCount < this.loopCountTotal || this.getFrame() != 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function getLoopCount():int {
+        return this.loopCount;
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    public function setLastFrame():void {
+        this.circularIndexUtil.setIndex(int(this.circularIndexUtil.getSize() - 1));
+    }
     
 
-                        }
-                            
-}
-
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-x= DisplayInfoSingleton.getInstance()!.getLastHalfWidth() -(this.getImage(this.circularIndexUtil!.getIndex())!.getWidth()>>1);
+    override public function reset():void {
+        this.setFrame(this.getSize() - 1);
+        this.loopCount = 0;
+    }
     
-y= 5;
-    
-super.paintXY(graphics, x, y);
-    
-}
 
+    override public function nextFrame():void {
+        if (this.getFrame() > 0) {
+            if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
+                this.previousFrame();
+                if (this.getFrame() == 0) {
+                    this.loopCount++;
+                }
+            }
+        }
+    }
+    
 
+    public function isComplete():Boolean {
+        if (this.loopCount < this.loopCountTotal || this.getFrame() != 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        x = int(DisplayInfoSingleton.getInstance().getLastHalfWidth() - (this.getImage(this.circularIndexUtil.getIndex()).getWidth() >> 1));
+        y = 5;
+        super.paintXY(graphics, x, y);
+    }
+    }
 }
 

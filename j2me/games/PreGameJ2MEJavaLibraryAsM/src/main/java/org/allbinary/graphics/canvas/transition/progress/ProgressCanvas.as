@@ -1,446 +1,261 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.canvas.transition.progress {
+    import org.allbinary.canvas.Processor;
+    import org.allbinary.canvas.RunnableCanvas;
+    import org.allbinary.game.commands.GameCommandsFactory;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.displayable.CanvasStrings;
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.font.UpdateMyFontProcessor;
+    import org.allbinary.graphics.form.item.ABCustomGaugeItem;
+    import org.allbinary.graphics.paint.NullPaintable;
+    import org.allbinary.graphics.paint.Paintable;
+    import org.allbinary.graphics.paint.PaintableInterface;
+    import org.allbinary.logic.communication.log.PreLogUtil;
+    import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.string.StringUtil;
+    import org.allbinary.midlet.AllBinaryMidlet;
+    import org.allbinary.thread.PathFindingThreadPool;
+    import org.allbinary.thread.ThreadPool;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ProgressCanvas extends RunnableCanvas implements PaintableInterface, UpdateMyFontInterface {
+        public var hasPainted:Boolean = false;
+        private var backgroundBasicColor:BasicColor = null;
+        public var GAUGE_PAINTABLE:Paintable = null;
+        private var maxValue:Number = 0.0;
+        public var gauge:ABCustomGaugeItem = null;
+        private var TEXT:String = null;
+        private var updateMyFontProcessor:MyFontProcessor = null;
+        private var myFontProcessor:MyFontProcessor = null;
+        public var allbinaryMidlet:AllBinaryMidlet = null;
+        private var value:Number = 0.0;
+        private var text:String = null;
+        private var background:Boolean = false;
+        public var paintable:PaintableInterface = null;
+        public var inProgress:Boolean = false;
+        private var IN_GAME_PROCESSOR:Processor = null;
+        public var inGameProcessor:Processor = null;
+        public var progressEndListener:ProgressEndListener = null;
+        private var backgroundLabel:String = null;
+        private var START_BACKGROUND:String = null;
+        public var ADD_PORTION:String = null;
+        public var ADD_EARLY_PORTION:String = null;
 
-        
-
-
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { CommandListener } from '../../../../../../javax/microedition/lcdui/CommandListener.js';
-//not GWT import const CommandListener
-
-import { Font } from '../../../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { NullCanvas } from '../../../../../../javax/microedition/lcdui/NullCanvas.js';
-//not GWT import const NullCanvas
-
-import { NullCommandListener } from '../../../../../../javax/microedition/lcdui/NullCommandListener.js';
-//not GWT import const NullCommandListener
-
-import { Processor } from '../../../../../../org/allbinary/canvas/Processor.js';
-//not GWT import const Processor
-
-import { RunnableCanvas } from '../../../../../../org/allbinary/canvas/RunnableCanvas.js';
-//not GWT import const RunnableCanvas
-
-import { GameCommandsFactory } from '../../../../../../org/allbinary/game/commands/GameCommandsFactory.js';
-//not GWT import const GameCommandsFactory
-
-import { BasicColor } from '../../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { CanvasStrings } from '../../../../../../org/allbinary/graphics/displayable/CanvasStrings.js';
-//not GWT import const CanvasStrings
-
-import { MyFontProcessor } from '../../../../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { UpdateMyFontInterface } from '../../../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { UpdateMyFontProcessor } from '../../../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
-//not GWT import const UpdateMyFontProcessor
-
-import { ABCustomGaugeItem } from '../../../../../../org/allbinary/graphics/form/item/ABCustomGaugeItem.js';
-//not GWT import const ABCustomGaugeItem
-
-import { NullPaintable } from '../../../../../../org/allbinary/graphics/paint/NullPaintable.js';
-//not GWT import const NullPaintable
-
-import { Paintable } from '../../../../../../org/allbinary/graphics/paint/Paintable.js';
-//not GWT import const Paintable
-
-import { PaintableInterface } from '../../../../../../org/allbinary/graphics/paint/PaintableInterface.js';
-//not GWT import const PaintableInterface
-
-//not plain js import { PreLogUtil } 
-const PreLogUtil = globalThis.org.allbinary.logic.communication.log.PreLogUtil;
-type PreLogUtil<T = any, U = any> = typeof PreLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof PreLogUtil;
-
-import { SmallIntegerSingletonFactory } from '../../../../../../org/allbinary/logic/math/SmallIntegerSingletonFactory.js';
-//not GWT import const SmallIntegerSingletonFactory
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-import { AllBinaryMidlet } from '../../../../../../org/allbinary/midlet/AllBinaryMidlet.js';
-//not GWT import const AllBinaryMidlet
-
-import { PathFindingThreadPool } from '../../../../../../org/allbinary/thread/PathFindingThreadPool.js';
-//not GWT import const PathFindingThreadPool
-
-import { ThreadPool } from '../../../../../../org/allbinary/thread/ThreadPool.js';
-//not GWT import const ThreadPool
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ProgressPaintable } from './ProgressPaintable.js';
-//sameFolderImports - not GWT import - same folder const ProgressPaintable
-import { ProgressEndListener } from './ProgressEndListener.js';
-//sameFolderImports - not GWT import - same folder const ProgressEndListener
-
-export class ProgressCanvas extends RunnableCanvas implements PaintableInterface, UpdateMyFontInterface {
+        // Java field initializers run after the base constructor
+        private function initFieldsProgressCanvas():void {
+    this.hasPainted = false;
+    
+    this.GAUGE_PAINTABLE = new ProgressPaintable(this);
+    this.maxValue = 100.0;
+    
+    this.TEXT = this.commonStrings.LOADING;
+    this.updateMyFontProcessor = new UpdateMyFontProcessor(this);
+    this.myFontProcessor = this.updateMyFontProcessor;
+    this.allbinaryMidlet = AllBinaryMidlet.getNullInstance();
+    this.value = 0.0;
+    this.text = this.TEXT;
+    this.background = true;
+    this.paintable = this.GAUGE_PAINTABLE;
+    this.inProgress = false;
+    this.IN_GAME_PROCESSOR = new Processor() /* Java anonymous class body: implement it as a named subclass
+        this.pathFindingThreadPool = PathFindingThreadPool.getInstance();
         
 
-    hasPainted: boolean= false;
-
-    private readonly backgroundBasicColor: BasicColor;
-
-    public readonly GAUGE_PAINTABLE: Paintable = new ProgressPaintable(this);
-
-    private readonly maxValue: number = 100.0;
-
-    readonly gauge: ABCustomGaugeItem;
-
-    private readonly TEXT: string = this.commonStrings!.LOADING;
-
-    private readonly updateMyFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
-
-    private myFontProcessor: MyFontProcessor = this.updateMyFontProcessor;
-
-    allbinaryMidlet: AllBinaryMidlet = AllBinaryMidlet.getNullInstance()!;
-
-    private value: number= 0.0;
-
-    private text: string = this.TEXT;
-
-    private background: boolean = true;
-
-    paintable: PaintableInterface = this.GAUGE_PAINTABLE;
-
-    public inProgress: boolean = false;
-
-    private readonly IN_GAME_PROCESSOR: Processor = new class extends Processor
-                                {
-                                
-    private readonly pathFindingThreadPool: ThreadPool = PathFindingThreadPool.getInstance()!;
-                //@Throws(Exception.constructor)
-            
-    public process(){
-this.pathFindingThreadPool!.runAPriorityTask();
-    
-}
-
-                                }();
-
-    public inGameProcessor: Processor = Processor.getInstance()!;
-
-    public progressEndListener: ProgressEndListener = ProgressEndListener.instance;
-
- constructor (title: string, backgroundBasicColor: BasicColor, foregroundBasicColor: BasicColor){
-            super(NullCommandListener.NULL_COMMAND_LISTENER, CanvasStrings.getInstance()!.EMPTY_CHILD_NAME_LIST, false);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.backgroundBasicColor= backgroundBasicColor;
-    
-this.gauge= new ABCustomGaugeItem(StringUtil.getInstance()!.EMPTY_STRING, globalThis.Math.trunc(this.maxValue), 0, backgroundBasicColor, foregroundBasicColor);
-    
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
-    
-this.gauge.setHeight(font.getHeight() +2);
-    
-this.myFontProcessor= MyFontProcessor.getInstance();
-    
-}
-
-
-    public init(gameMidlet: AllBinaryMidlet){
-this.allbinaryMidlet= gameMidlet;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public update(graphics: Graphics){
-}
-
-
-    public initCommands(cmdListener: CommandListener){
-}
-
-
-    getMaxValue(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.maxValue;
-    
-}
-
-
-    public start(){
-this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.START_METHOD_NAME);
-    
-this.setBackground(true);
-    
-this.gauge.setHeight(30);
-    
-this.gauge.setLabel(this.commonStrings!.PLEASE_WAIT);
-    
-this.setText(this.TEXT);
-    
-this.setValue(0);
-    
-this.inGameProcessor= Processor.getInstance();
-    
-this.paintable= this.GAUGE_PAINTABLE;
-    
-this.inProgress= true;
-    
-}
-
-
-    private readonly backgroundLabel: string = "Background AI Game Loading...";
-
-    private readonly START_BACKGROUND: string = "startBackground";
-
-    public startBackground(background: boolean){
-this.logUtil!.putF(this.commonStrings!.START, this, this.START_BACKGROUND);
-    
-this.setBackground(background);
-    
-this.myFontProcessor= this.updateMyFontProcessor;
-    
-this.gauge.setLabel(this.backgroundLabel);
-    
-this.setText(this.TEXT);
-    
-this.setValue(0);
-    
-this.inGameProcessor= Processor.getInstance();
-    
-this.paintable= this.GAUGE_PAINTABLE;
-    
-}
-
-
-    public endActual(){
-this.allbinaryMidlet!.commandAction(GameCommandsFactory.getInstance()!.SHOW_GAME_CANVAS, NullCanvas.NULL_CANVAS);
-    
-this.inProgress= false;
-    
-this.inGame();
-    
-}
-
-
-    public inGame(){
-this.progressEndListener!.onEndEvent();
-    
-this.inGameProcessor= this.IN_GAME_PROCESSOR;
-    
-}
-
-
-    public end(){
-this.logUtil!.putF(this.commonStrings!.START, this, this.commonStrings!.END_METHOD_NAME);
-    
-this.gauge.setValue(this.getMaxValue());
-    
-this.endActual();
-    
-this.paintable= NullPaintable.getInstance();
-    
-}
-
-
-    public endFromInitialLazyLoadingComplete(){
-this.progressEndListener!.onEndEvent();
-    
-this.gauge.setValue(this.getMaxValue());
-    
-this.inGameProcessor= this.IN_GAME_PROCESSOR;
-    
-}
-
-
-    public isInGame(): boolean{
-
-                        if(this.inGameProcessor == this.IN_GAME_PROCESSOR)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+        override public function process():void {
+            this.pathFindingThreadPool.runAPriorityTask();
+        } */;
+    this.inGameProcessor = Processor.getInstance();
+    this.progressEndListener = ProgressEndListener.instance;
+    this.backgroundLabel = "Background AI Game Loading...";
+    this.START_BACKGROUND = "startBackground";
+    this.ADD_PORTION = "addPortion";
+    this.ADD_EARLY_PORTION = "addEarlyPortion";
+        }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-}
-
-
-    public endIfPaintedSinceStart(){
-}
-
-
-    readonly ADD_PORTION: string = "addPortion";
-
-    readonly ADD_EARLY_PORTION: string = "addEarlyPortion";
-
-    public addEarlyPortion(value: number, text: string, index: number){
-this.setText(new StringMaker().append(text)!.append(SmallIntegerSingletonFactory.getInstance()!.getAt(index)!.toString())!.toString());
-    
-this.gauge.setValue(this.gauge.getValue() +this.getMaxValue() /value);
-    
-}
-
-
-    public addPortion(value: number, text: string, index: number){
-this.setText(new StringMaker().append(text)!.append(SmallIntegerSingletonFactory.getInstance()!.getAt(index)!.toString())!.toString());
-    
-PreLogUtil.put(this.text, this, this.ADD_PORTION);
-    
-this.gauge.setValue(this.gauge.getValue() +this.getMaxValue() /value);
-    
-}
-
-
-    public addNormalPortion(value: number, text: string){
-
-                        if(this.text != text)
-                        
-                                    {
-                                    PreLogUtil.put(text, this, this.ADD_PORTION);
+    public function ProgressCanvas(title:String, backgroundBasicColor:BasicColor, foregroundBasicColor:BasicColor) {
+        super(NullCommandListener.NULL_COMMAND_LISTENER, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, false);
+        this.initFieldsProgressCanvas();
+        this.backgroundBasicColor = backgroundBasicColor;
+        this.gauge = new ABCustomGaugeItem(StringUtil.getInstance().EMPTY_STRING, JMath.toInt32(this.maxValue), 0, backgroundBasicColor, foregroundBasicColor);
+    }
     
 
-                                    }
-                                
-this.setText(text);
+    override public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        this.gauge.setHeight(int(font.getHeight() + 2));
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
     
-this.gauge.setValue(this.gauge.getValue() +this.getMaxValue() /value);
+
+    public function init(gameMidlet:AllBinaryMidlet):void {
+        this.allbinaryMidlet = gameMidlet;
+    }
     
-}
 
-
-    setValue(value: number){
-this.value= value;
+    public function update(graphics:Graphics):void {
+    }
     
-this.gauge.setValue(value);
+
+    override public function initCommands(cmdListener:CommandListener):void {
+    }
     
-}
 
-
-    public paint(graphics: Graphics){
-this.paintable.paint(graphics);
+    public function getMaxValue():Number {
+        return this.maxValue;
+    }
     
-}
 
-
-    public paint2(graphics: Graphics){
-this.myFontProcessor!.process(graphics);
+    public function start():void {
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.START_METHOD_NAME);
+        this.setBackground(true);
+        this.gauge.setHeight(30);
+        this.gauge.setLabel(this.commonStrings.PLEASE_WAIT);
+        this.setText(this.TEXT);
+        this.setValue(0);
+        this.inGameProcessor = Processor.getInstance();
+        this.paintable = this.GAUGE_PAINTABLE;
+        this.inProgress = true;
+    }
     
-graphics.setColor(this.backgroundBasicColor!.intValue());
+
+    public function startBackground(background:Boolean):void {
+        this.logUtil.putF(this.commonStrings.START, this, this.START_BACKGROUND);
+        this.setBackground(background);
+        this.myFontProcessor = this.updateMyFontProcessor;
+        this.gauge.setLabel(this.backgroundLabel);
+        this.setText(this.TEXT);
+        this.setValue(0);
+        this.inGameProcessor = Processor.getInstance();
+        this.paintable = this.GAUGE_PAINTABLE;
+    }
     
-graphics.fillRect(0, 0, this.displayInfo!.getLastWidth(), this.displayInfo!.getLastHeight());
+
+    public function endActual():void {
+        this.allbinaryMidlet.commandAction(GameCommandsFactory.getInstance().SHOW_GAME_CANVAS, NullCanvas.NULL_CANVAS);
+        this.inProgress = false;
+        this.inGame();
+    }
     
-this.gauge.paintXY(graphics, 0, 0);
+
+    public function inGame():void {
+        this.progressEndListener.onEndEvent();
+        this.inGameProcessor = this.IN_GAME_PROCESSOR;
+    }
     
-this.hasPainted= true;
+
+    public function end():void {
+        this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.END_METHOD_NAME);
+        this.gauge.setValue(this.getMaxValue());
+        this.endActual();
+        this.paintable = NullPaintable.getInstance();
+    }
     
-}
 
-
-    public paintThreed(graphics: Graphics){
-}
-
-
-    getValue(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.value;
+    public function endFromInitialLazyLoadingComplete():void {
+        this.progressEndListener.onEndEvent();
+        this.gauge.setValue(this.getMaxValue());
+        this.inGameProcessor = this.IN_GAME_PROCESSOR;
+    }
     
-}
 
-
-    public setText(text: string){
-this.text= text;
+    public function isInGame():Boolean {
+        if (this.inGameProcessor === this.IN_GAME_PROCESSOR) {
+            return true;
+        }
+        return false;
+    }
     
-}
 
-
-    public getText(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.text;
+    public function endIfPaintedSinceStart():void {
+    }
     
-}
 
-
-    setBackground(background: boolean){
-this.background= background;
+    public function addEarlyPortion(value:int, text:String, index:int):void {
+        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getAt(index).toString()).toString());
+        this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / Number(value));
+    }
     
-}
 
-
-    isBackground(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.background;
+    public function addPortion(value:int, text:String, index:int):void {
+        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getAt(index).toString()).toString());
+        PreLogUtil.put(this.text, this, this.ADD_PORTION);
+        this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / Number(value));
+    }
     
-}
 
+    public function addNormalPortion(value:int, text:String):void {
+        if (this.text != text) {
+            PreLogUtil.put(text, this, this.ADD_PORTION);
+        }
+        this.setText(text);
+        this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / Number(value));
+    }
+    
 
+    public function setValue(value:int):void {
+        this.value = Number(value);
+        this.gauge.setValue(Number(value));
+    }
+    
+
+    override public function paint(graphics:Graphics):void {
+        this.paintable.paint(graphics);
+    }
+    
+
+    public function paint2(graphics:Graphics):void {
+        this.myFontProcessor.process(graphics);
+        graphics.setColor(this.backgroundBasicColor.intValue());
+        graphics.fillRect(0, 0, this.displayInfo.getLastWidth(), this.displayInfo.getLastHeight());
+        this.gauge.paintXY(graphics, 0, 0);
+        this.hasPainted = true;
+    }
+    
+
+    override public function paintThreed(graphics:Graphics):void {
+    }
+    
+
+    public function getValue():Number {
+        return this.value;
+    }
+    
+
+    public function setText(text:String):void {
+        this.text = text;
+    }
+    
+
+    public function getText():String {
+        return this.text;
+    }
+    
+
+    public function setBackground(background:Boolean):void {
+        this.background = background;
+    }
+    
+
+    public function isBackground():Boolean {
+        return this.background;
+    }
+    }
 }
 

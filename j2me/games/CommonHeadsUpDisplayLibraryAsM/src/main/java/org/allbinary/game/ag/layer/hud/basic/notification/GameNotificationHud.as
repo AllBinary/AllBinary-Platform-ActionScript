@@ -1,139 +1,84 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.layer.hud.basic.notification {
+    import org.allbinary.game.graphics.hud.BasicHud;
+    import org.allbinary.game.graphics.hud.BasicHudFactory;
+    import org.allbinary.game.layer.hud.event.GameNotificationEvent;
+    import org.allbinary.game.layer.hud.event.GameNotificationListenerInterface;
+    import org.allbinary.graphics.color.BasicColor;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.logic.communication.log.ForcedLogUtil;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventStrings;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameNotificationHud extends BasicHud implements GameNotificationListenerInterface {
+    private static var NULL_GAME_NOTIFICATION_value:GameNotificationHud;
+    private static var NULL_GAME_NOTIFICATION_set:Boolean = false;
+    public static function get NULL_GAME_NOTIFICATION():GameNotificationHud {
+        if (!GameNotificationHud.NULL_GAME_NOTIFICATION_set) {
+            GameNotificationHud.NULL_GAME_NOTIFICATION_set = true;
+            GameNotificationHud.NULL_GAME_NOTIFICATION_value = new GameNotificationHud(BasicHudFactory.getInstance().TOPCENTER, BasicHudFactory.getInstance().HORIZONTAL, 0, BasicColorFactory.getInstance().RED);
+        }
+        return GameNotificationHud.NULL_GAME_NOTIFICATION_value;
+    }
+        private var METHOD_NAME:String = null;
+        private var lastGameNotificationEvent:GameNotificationEvent = null;
 
-        
-
-
-            import { Exception } from '../../../../../../../../java/lang/Exception.js';
-        
-            import { Integer } from '../../../../../../../../java/lang/Integer.js';
-        
-import { Graphics } from '../../../../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { BasicHud } from '../../../../../../../../org/allbinary/game/graphics/hud/BasicHud.js';
-//not GWT import const BasicHud
-
-import { BasicHudFactory } from '../../../../../../../../org/allbinary/game/graphics/hud/BasicHudFactory.js';
-//not GWT import const BasicHudFactory
-
-import { GameNotificationEvent } from '../../../../../../../../org/allbinary/game/layer/hud/event/GameNotificationEvent.js';
-//not GWT import const GameNotificationEvent
-
-import { GameNotificationListenerInterface } from '../../../../../../../../org/allbinary/game/layer/hud/event/GameNotificationListenerInterface.js';
-//not GWT import const GameNotificationListenerInterface
-
-import { BasicColor } from '../../../../../../../../org/allbinary/graphics/color/BasicColor.js';
-//not GWT import const BasicColor
-
-import { BasicColorFactory } from '../../../../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-import { AllBinaryEventObject } from '../../../../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventStrings } from '../../../../../../../../org/allbinary/logic/util/event/EventStrings.js';
-//not GWT import const EventStrings
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameNotification } from './GameNotification.js';
-//sameFolderImports - not GWT import - same folder const GameNotification
-
-export class GameNotificationHud extends BasicHud implements GameNotificationListenerInterface {
-        
-
-    public static readonly NULL_GAME_NOTIFICATION: GameNotificationHud = new GameNotificationHud(BasicHudFactory.getInstance()!.TOPCENTER, BasicHudFactory.getInstance()!.HORIZONTAL, 0, BasicColorFactory.getInstance()!.RED);
-
-public constructor (location: number, direction: number, bufferZone: number, basicColor: BasicColor){
-            super(location, direction, bufferZone, basicColor);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public onEvent(eventObject: AllBinaryEventObject){
-ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
-    
-}
-
-
-    private readonly METHOD_NAME: string = "onGameNotificationEvent";
-
-    private lastGameNotificationEvent: GameNotificationEvent = GameNotification.NULL_GAME_NOTIFICATION_EVENT;
-
-                //@Throws(Exception.constructor)
-            
-    public onGameNotificationEvent(gameNotificationEvent: GameNotificationEvent){
-
-                        if(this.lastGameNotificationEvent != gameNotificationEvent)
-                        
-                                    {
-                                    this.lastGameNotificationEvent= gameNotificationEvent;
-    
-this.logUtil!.putF(gameNotificationEvent!.getString(), this, this.METHOD_NAME);
+        // Java field initializers run after the base constructor
+        private function initFieldsGameNotificationHud():void {
+    this.METHOD_NAME = "onGameNotificationEvent";
+    this.lastGameNotificationEvent = GameNotification.NULL_GAME_NOTIFICATION_EVENT;
+        }
     
 
-                                    }
-                                
-this.add(gameNotificationEvent!.getString(), gameNotificationEvent!.getSeconds(), gameNotificationEvent!.getBasicColorP(), gameNotificationEvent!.getPermanent());
+    public function GameNotificationHud(location:int, direction:int, bufferZone:int, basicColor:BasicColor) {
+        super(location, direction, bufferZone, basicColor);
+        this.initFieldsGameNotificationHud();
+    }
     
-}
 
+    override public function onEvent(eventObject:AllBinaryEventObject):void {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    }
+    
 
-    add(string: string, seconds: Integer, basicColor: BasicColor, permanent: Boolean){
-}
+    public function onGameNotificationEvent(gameNotificationEvent:GameNotificationEvent):void {
+        if (this.lastGameNotificationEvent !== gameNotificationEvent) {
+            this.lastGameNotificationEvent = gameNotificationEvent;
+            this.logUtil.putF(gameNotificationEvent.getString(), this, this.METHOD_NAME);
+        }
+        this.add(gameNotificationEvent.getString(), gameNotificationEvent.getSeconds(), gameNotificationEvent.getBasicColorP(), gameNotificationEvent.getPermanent());
+    }
+    
 
+    public function add(string:String, seconds:*, basicColor:BasicColor, permanent:*):void {
+    }
+    
 
-                //@Throws(Exception.constructor)
-            
-    public processTick(){
-}
+    public function processTick():void {
+    }
+    
 
+    public function paint(graphics:Graphics):void {
+    }
+    
 
-    public paint(graphics: Graphics){
-}
-
-
-    public clear(){
-}
-
-
+    public function clear():void {
+    }
+    }
 }
 

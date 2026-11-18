@@ -1,69 +1,35 @@
+// Generated Code Do Not Modify
+package org.allbinary.graphics.opengles {
+    import java.lang.JRunnable;
 
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Runnable } from '../../../../java/lang/Runnable.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class OpenGLUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: OpenGLUtil = new OpenGLUtil();
-
-    public static getInstance(): OpenGLUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return OpenGLUtil.instance;
+    public class OpenGLUtil {
+    private static var instance_value:OpenGLUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():OpenGLUtil {
+        if (!OpenGLUtil.instance_set) {
+            OpenGLUtil.instance_set = true;
+            OpenGLUtil.instance_value = new OpenGLUtil();
+        }
+        return OpenGLUtil.instance_value;
+    }
     
-}
 
-
-    public addImage(image: Image): Image{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return image;
+    public static function getInstance():OpenGLUtil {
+        return OpenGLUtil.instance;
+    }
     
-}
 
+    public function addImage(image:Image):Image {
+        return image;
+    }
+    
 
-    public clear(){
-}
+    public function clear():void {
+    }
+    
 
-
-    public addRunnable(runnable: Runnable){
-}
-
-
+    public function addRunnable(runnable:JRunnable):void {
+    }
+    }
 }
 

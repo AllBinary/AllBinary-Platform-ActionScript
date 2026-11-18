@@ -1,62 +1,33 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.physics.velocity {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class VelocityBehaviorBase {
+    
 
-        
+    public function reduce(velocityProperties:BasicVelocityProperties, nominator:int, denominator:int):void {
+    }
+    
 
+    public function reduceX(velocityProperties:BasicVelocityProperties, nominator:int, denominator:int):void {
+    }
+    
 
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { BasicVelocityProperties } from './BasicVelocityProperties.js';
-//sameFolderImports - not GWT import - same folder const BasicVelocityProperties
-
-export class VelocityBehaviorBase
-            extends Object
-         {
-        
-
-    public reduce(velocityProperties: BasicVelocityProperties, nominator: number, denominator: number){
-}
-
-
-    public reduceX(velocityProperties: BasicVelocityProperties, nominator: number, denominator: number){
-}
-
-
-    public reduceY(velocityProperties: BasicVelocityProperties, nominator: number, denominator: number){
-}
-
-
+    public function reduceY(velocityProperties:BasicVelocityProperties, nominator:int, denominator:int):void {
+    }
+    }
 }
 

@@ -1,167 +1,87 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.image {
+    import org.allbinary.DisposalUtil;
+    import org.allbinary.animation.AnimationBehavior;
+    import org.allbinary.animation.RotationAnimation;
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.logic.math.PrimitiveIntUtil;
+    import org.allbinary.math.AngleInfo;
+    import org.allbinary.util.CircularIndexUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ImageBaseRotationAnimation extends RotationAnimation {
+        private var image:Image = null;
+        public var anchor:int = 0;
 
-        
-
-
-            import { Throwable } from '../../../../java/lang/Throwable.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-import { DisposalUtil } from '../../../../org/allbinary/DisposalUtil.js';
-//not GWT import const DisposalUtil
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-import { RotationAnimation } from '../../../../org/allbinary/animation/RotationAnimation.js';
-//not GWT import const RotationAnimation
-
-import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { PrimitiveIntUtil } from '../../../../org/allbinary/logic/math/PrimitiveIntUtil.js';
-//not GWT import const PrimitiveIntUtil
-
-import { AngleInfo } from '../../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ImageBaseRotationAnimation extends RotationAnimation {
-        
-
-    private readonly image: Image;
-
-public constructor (image: Image, angleInfo: AngleInfo, totalAngle: number, animationBehavior: AnimationBehavior){
-            super(angleInfo, CircularIndexUtil.createInstance(totalAngle /angleInfo!.getAngleIncrementInfo()!.getAngleIncrement()), animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.image= image;
+        // Java field initializers run after the base constructor
+        private function initFieldsImageBaseRotationAnimation():void {
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getAnimationSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.getSize();;
+    this.anchor = Anchor.TOP_LEFT;
+        }
     
-}
 
-
-    public setSequence(sequence: number[]){
-}
-
-
-    public getSequence(): number[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return PrimitiveIntUtil.getArrayInstance();;
+    public function ImageBaseRotationAnimation(image:Image, angleInfo:AngleInfo, totalAngle:int, animationBehavior:AnimationBehavior) {
+        super(angleInfo, CircularIndexUtil.createInstance(int(totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement())), animationBehavior);
+        this.initFieldsImageBaseRotationAnimation();
+        this.image = image;
+    }
     
-}
 
-
-    anchor: number = Anchor.TOP_LEFT;
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-graphics.drawImage(this.image, x, y, this.anchor);
+    override public function getAnimationSize():int {
+        return this.getSize();
+    }
     
-}
 
-
-    getImage(): Image{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.image;
+    override public function setSequence(sequence:Vector.<int>):void {
+    }
     
-}
 
-
-    public getWidth(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.image.getWidth();;
+    override public function getSequence():Vector.<int> {
+        return PrimitiveIntUtil.getArrayInstance();
+    }
     
-}
 
-
-    public getHeight(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.image.getHeight();;
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        graphics.drawImage(this.image, x, y, this.anchor);
+    }
     
-}
 
-
-    public close(){
-DisposalUtil.getInstance()!.disposeImage(this.image);
+    public function getImage():Image {
+        return this.image;
+    }
     
-}
 
-
-                //@Throws(Throwable.constructor)
-            
-    finalize(){
-DisposalUtil.getInstance()!.disposeImage(this.image);
+    override public function getWidth():int {
+        return this.image.getWidth();
+    }
     
-}
 
+    override public function getHeight():int {
+        return this.image.getHeight();
+    }
+    
 
+    public function close():void {
+        DisposalUtil.getInstance().disposeImage(this.image);
+    }
+    
+
+    public function finalize():void {
+        DisposalUtil.getInstance().disposeImage(this.image);
+    }
+    }
 }
 

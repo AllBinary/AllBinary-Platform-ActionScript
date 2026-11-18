@@ -1,209 +1,115 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.layer.hud.basic.level {
+    import org.allbinary.game.graphics.hud.BasicHud;
+    import org.allbinary.graphics.color.BasicColorFactory;
+    import org.allbinary.graphics.paint.PaintableInterface;
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.math.PrimitiveLongUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LevelHudWidget extends BasicHud implements PaintableInterface {
+        private var level:int = 0;
+        private var maxlevel:int = 0;
+        private var levelString:Vector.<int> = null;
+        private var levelNumberCharArray:Vector.<int> = null;
+        private var levelNumberTotalDigits:int = 0;
+        private var offset:int = 0;
+        private var primitiveLongUtil:PrimitiveLongUtil = null;
 
-        
-
-
-            import { Exception } from '../../../../../../../../java/lang/Exception.js';
-        
-import { Font } from '../../../../../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { BasicHud } from '../../../../../../../../org/allbinary/game/graphics/hud/BasicHud.js';
-//not GWT import const BasicHud
-
-import { BasicColorFactory } from '../../../../../../../../org/allbinary/graphics/color/BasicColorFactory.js';
-//not GWT import const BasicColorFactory
-
-import { PaintableInterface } from '../../../../../../../../org/allbinary/graphics/paint/PaintableInterface.js';
-//not GWT import const PaintableInterface
-
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-import { PrimitiveLongUtil } from '../../../../../../../../org/allbinary/logic/math/PrimitiveLongUtil.js';
-//not GWT import const PrimitiveLongUtil
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class LevelHudWidget extends BasicHud implements PaintableInterface {
-        
-
-                //@Throws(Exception.constructor)
-            
-    public static createHud(maxlevel: number, location: number, direction: number): LevelHudWidget{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new LevelHudWidget(maxlevel, location, direction);
+        // Java field initializers run after the base constructor
+        private function initFieldsLevelHudWidget():void {
     
-}
-
-
-    private level: number;
-
-    private maxlevel: number;
-
-    private readonly levelString: string[];
-
-    private levelNumberCharArray: string[] = NullUtil.getInstance()!.NULL_CHAR_ARRAY;
-
-    private levelNumberTotalDigits: number= 0;
-
-    private offset: number= 0;
-
-    private readonly primitiveLongUtil: PrimitiveLongUtil;
-
-public constructor (maxlevel: number, location: number, direction: number){
-            super(location, direction, 2, BasicColorFactory.getInstance()!.GREY);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.primitiveLongUtil= PrimitiveLongUtil.createPowerOfTen(1000);
+    
+    
+    this.levelNumberCharArray = NullUtil.getInstance().NULL_CHAR_ARRAY;
+    this.levelNumberTotalDigits = 0;
+    this.offset = 0;
+    
+        }
     
 
-    let LEVEL: string = "Lv ";;
-    
-this.levelString= LEVEL.split('');
-    
-this.maxlevel= maxlevel;
-    
-this.level= maxlevel;
-    
-this.update();
-    
-this.updateMaxHeight= 14;
-    
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
-    
-this.updateMaxWidth= font.getSize() *4;
-    
-this.offset= font.charsWidth(this.levelString, 0, this.levelString!.length) +font.getSize();
-    
-super.updateMeasurement(graphics);
-    
-}
-
-
-    update(){
-this.levelNumberCharArray= this.primitiveLongUtil!.getCharArray(this.level);
-    
-this.levelNumberTotalDigits= this.primitiveLongUtil!.getCurrentTotalDigits();
-    
-}
-
-
-    public setLevel(level: number){
-this.level= level;
-    
-this.update();
-    
-}
-
-
-    public nextLevel(){
-this.level++;
-    
-this.update();
-    
-}
-
-
-    public previousLevel(){
-this.level--;
+    public static function createHud(maxlevel:int, location:int, direction:int):LevelHudWidget {
+        return new LevelHudWidget(maxlevel, location, direction);
+    }
     
 
-                        if(this.level < 0)
-                        
-                                    {
-                                    this.level= 0;
+    public function LevelHudWidget(maxlevel:int, location:int, direction:int) {
+        super(location, direction, 2, BasicColorFactory.getInstance().GREY);
+        this.initFieldsLevelHudWidget();
+        this.primitiveLongUtil = PrimitiveLongUtil.createPowerOfTen(1000);
+        var LEVEL:String = "Lv ";
+        this.levelString = JString.toCharArray(LEVEL);
+        this.maxlevel = maxlevel;
+        this.level = maxlevel;
+        this.update();
+        this.updateMaxHeight = 14;
+    }
     
 
-                                    }
-                                
-this.update();
-    
-}
-
-
-    public isComplete(): boolean{
-
-                        if(this.level <= this.maxlevel)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    override public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        this.updateMaxWidth = font.getSize() * 4;
+        this.offset = font.charsWidth(this.levelString, 0, this.levelString.length) + font.getSize();
+        super.updateMeasurement(graphics);
+    }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
+    private function update():void {
+        this.levelNumberCharArray = this.primitiveLongUtil.getCharArray(this.level);
+        this.levelNumberTotalDigits = this.primitiveLongUtil.getCurrentTotalDigits();
+    }
     
 
-                        }
-                            
-}
-
-
-    public paint(graphics: Graphics){
-super.paintDX(graphics, this.levelString, 0, this.levelString!.length, this.levelNumberCharArray, 0, this.levelNumberTotalDigits, this.offset);
+    public function setLevel(level:int):void {
+        this.level = level;
+        this.update();
+    }
     
-}
 
+    public function nextLevel():void {
+        this.level++;
+        this.update();
+    }
+    
 
-    public paintThreed(graphics: Graphics){
-}
+    public function previousLevel():void {
+        this.level--;
+        if (this.level < 0) {
+            this.level = 0;
+        }
+        this.update();
+    }
+    
 
+    public function isComplete():Boolean {
+        if (this.level <= this.maxlevel) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
 
+    public function paint(graphics:Graphics):void {
+        super.paintDX(graphics, this.levelString, 0, this.levelString.length, this.levelNumberCharArray, 0, this.levelNumberTotalDigits, this.offset);
+    }
+    
+
+    public function paintThreed(graphics:Graphics):void {
+    }
+    }
 }
 

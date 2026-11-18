@@ -1,330 +1,167 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.communication.log.config {
+    import org.allbinary.business.entry.EntryData;
+    import org.allbinary.data.tree.dom.DomNodeHelper;
+    import org.allbinary.data.tree.dom.DomSearchHelper;
+    import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+    import org.allbinary.globals.PATH_GLOBALS;
+    import org.allbinary.globals.URLGLOBALS;
+    import org.allbinary.logic.communication.log.config.type.LogConfigType;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypeData;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypesData;
+    import org.allbinary.logic.io.AbFileLocalInputStream;
+    import org.allbinary.logic.io.file.AbFile;
+    import org.allbinary.logic.java.bool.BooleanUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
+    import org.w3c.dom.Document;
+    import org.w3c.dom.Node;
+    import org.w3c.dom.NodeList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class LogConfig {
+        private var isEnabled:Boolean = false;
+        private var name:String = null;
+        private var description:String = null;
+        private var path:String = null;
+        private var fileName:String = null;
 
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { EntryData } from '../../../../../../org/allbinary/business/entry/EntryData.js';
-//not GWT import const EntryData
-
-import { DomNodeHelper } from '../../../../../../org/allbinary/data/tree/dom/DomNodeHelper.js';
-//not GWT import const DomNodeHelper
-
-import { DomSearchHelper } from '../../../../../../org/allbinary/data/tree/dom/DomSearchHelper.js';
-//not GWT import const DomSearchHelper
-
-import { DomDocumentHelper } from '../../../../../../org/allbinary/data/tree/dom/document/DomDocumentHelper.js';
-//not GWT import const DomDocumentHelper
-
-import { PATH_GLOBALS } from '../../../../../../org/allbinary/globals/PATH_GLOBALS.js';
-//not GWT import const PATH_GLOBALS
-
-import { URLGLOBALS } from '../../../../../../org/allbinary/globals/URLGLOBALS.js';
-//not GWT import const URLGLOBALS
-
-import { LogConfigType } from '../../../../../../org/allbinary/logic/communication/log/config/type/LogConfigType.js';
-//not GWT import const LogConfigType
-
-import { LogConfigTypeData } from '../../../../../../org/allbinary/logic/communication/log/config/type/LogConfigTypeData.js';
-//not GWT import const LogConfigTypeData
-
-import { LogConfigTypes } from '../../../../../../org/allbinary/logic/communication/log/config/type/LogConfigTypes.js';
-//not GWT import const LogConfigTypes
-
-import { LogConfigTypesData } from '../../../../../../org/allbinary/logic/communication/log/config/type/LogConfigTypesData.js';
-//not GWT import const LogConfigTypesData
-
-import { AbFileLocalInputStream } from '../../../../../../org/allbinary/logic/io/AbFileLocalInputStream.js';
-//not GWT import const AbFileLocalInputStream
-
-import { AbFile } from '../../../../../../org/allbinary/logic/io/file/AbFile.js';
-//not GWT import const AbFile
-
-import { BooleanUtil } from '../../../../../../org/allbinary/logic/java/bool/BooleanUtil.js';
-//not GWT import const BooleanUtil
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-import { Document } from '../../../../../../org/w3c/dom/Document.js';
-//not GWT import const Document
-
-import { Node } from '../../../../../../org/w3c/dom/Node.js';
-//not GWT import const Node
-
-import { NodeList } from '../../../../../../org/w3c/dom/NodeList.js';
-//not GWT import const NodeList
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { LogConfigData } from './LogConfigData.js';
-//sameFolderImports - not GWT import - same folder const LogConfigData
-
-export class LogConfig
-            extends Object
-         {
-        
-
-    private isEnabled: boolean;
-
-    private name: string;
-
-    private description: string;
-
-    private path: string;
-
-    private fileName: string;
-
-    public constructor(...args: any[]) {
-        super();if(args.length === 4) {
-            
-            this.constructor$0(args[0], args[1], args[2], args[3]);
-            
+        // Java field initializers run after the base constructor
+        private function initFieldsLogConfig():void {
+    
+    
+    
+    
+    
         }
-        else if(args.length === 1) {
-            
-            this.constructor$1(args[0]);
-            
+    
+
+    public function LogConfig(...args) {
+        super();
+        this.initFieldsLogConfig();
+        this.jconstruct(args);
+    }
+
+    private function jconstruct(args:Array):void {
+        if (args.length == 4) {
+            (function(aName:String, aDescription:String, aPath:String, aFileName:String):void {
+        this.isEnabled = false;
+        this.name = aName;
+        this.description = aDescription;
+        this.path = aPath;
+        this.fileName = aFileName;
+            }).apply(this, args);
+            return;
         }
-        
+        if (args.length == 1) {
+            (function(node:Node):void {
+        var enabledValueNode:Node = DomSearchHelper.getNode(EntryData.getInstance().ENABLE, node.getChildNodes());
+        var isEnabledString:String = DomNodeHelper.getTextNodeValue(enabledValueNode);
+        this.isEnabled = BooleanUtil.getInstance().getFromString(isEnabledString);
+        var logConfigData:LogConfigData = LogConfigData.getInstance();
+        var nameValueNode:Node = DomSearchHelper.getNode(logConfigData.NAME, node.getChildNodes());
+        this.name = DomNodeHelper.getTextNodeValue(nameValueNode);
+        var descriptionValueNode:Node = DomSearchHelper.getNode(logConfigData.DESCRIPTION, node.getChildNodes());
+        this.description = DomNodeHelper.getTextNodeValue(descriptionValueNode);
+        var fileValueNode:Node = DomSearchHelper.getNode(logConfigData.FILE, node.getChildNodes());
+        this.fileName = DomNodeHelper.getTextNodeValue(fileValueNode);
+            }).apply(this, args);
+            return;
+        }
     }
     
-    private constructor$0(aName: string, aDescription: string, aPath: string, aFileName: string): void {
-        this.isEnabled= false;
-    
-this.name= aName;
-    
-this.description= aDescription;
-    
-this.path= aPath;
-    
-this.fileName= aFileName;
     
 
+    public function getName():String {
+        return this.name;
     }
     
-    private constructor$1(node: Node): void {
-        
-    let enabledValueNode: Node = DomSearchHelper.getNode(EntryData.getInstance()!.ENABLE, node.getChildNodes())!;;
-    
 
-    let isEnabledString: string = DomNodeHelper.getTextNodeValue(enabledValueNode)!;;
-    
-this.isEnabled= BooleanUtil.getInstance()!.getFromString(isEnabledString);
-    
-
-    let logConfigData: LogConfigData = LogConfigData.getInstance()!;;
-    
-
-    let nameValueNode: Node = DomSearchHelper.getNode(logConfigData!.NAME, node.getChildNodes())!;;
-    
-this.name= DomNodeHelper.getTextNodeValue(nameValueNode);
-    
-
-    let descriptionValueNode: Node = DomSearchHelper.getNode(logConfigData!.DESCRIPTION, node.getChildNodes())!;;
-    
-this.description= DomNodeHelper.getTextNodeValue(descriptionValueNode);
-    
-
-    let fileValueNode: Node = DomSearchHelper.getNode(logConfigData!.FILE, node.getChildNodes())!;;
-    
-this.fileName= DomNodeHelper.getTextNodeValue(fileValueNode);
-    
-
+    public function isEnabled():Boolean {
+        return this.isEnabled;
     }
     
-    public getName(): string{
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.name;
-    
-}
-
-
-    public isEnabled(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.isEnabled;
-    
-}
-
-
-    public enable(){
-this.isEnabled= true;
-    
-}
-
-
-    public disable(){
-this.isEnabled= false;
-    
-}
-
-
-    public getDescription(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.description;
-    
-}
-
-
-    public getFileName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.fileName;
-    
-}
-
-
-    public setName(value: string){
-this.name= value;
-    
-}
-
-
-    public setDescription(value: string){
-this.description= value;
-    
-}
-
-
-    public setPath(value: string){
-this.path= value;
-    
-}
-
-
-    public setFileName(value: string){
-this.fileName= value;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    getDoc(): Document{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append(URLGLOBALS.getWebappPath());
-    
-stringBuffer!.append(PATH_GLOBALS.getInstance()!.INIT_PATH);
-    
-stringBuffer!.append(this.getFileName());
+    public function enable():void {
+        this.isEnabled = true;
+    }
     
 
-    let file: AbFile = AbFile.createAbFile(stringBuffer!.toString())!;;
+    public function disable():void {
+        this.isEnabled = false;
+    }
     
 
-    let document: Document = DomDocumentHelper.create(new AbFileLocalInputStream(file))!;;
+    public function getDescription():String {
+        return this.description;
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return document;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getTypeVector(): BasicArrayList{
-
-    let logKeyVector: BasicArrayList = new BasicArrayListD();;
+    public function getFileName():String {
+        return this.fileName;
+    }
     
 
-    let document: Document = this.getDoc()!;;
+    public function setName(value:String):void {
+        this.name = value;
+    }
     
 
-    let logConfigTypesNodeList: NodeList = document.getElementsByTagName(LogConfigTypesData.getInstance()!.NAME)!;;
+    public function setDescription(value:String):void {
+        this.description = value;
+    }
     
 
-    let logConfigTypesNode: Node = logConfigTypesNodeList!.item(0)!;;
+    public function setPath(value:String):void {
+        this.path = value;
+    }
     
 
-    let logConfigTypeNodeVector: BasicArrayList = DomSearchHelper.getAllNodes(LogConfigTypeData.getInstance()!.NAME, logConfigTypesNode!.getChildNodes())!;;
+    public function setFileName(value:String):void {
+        this.fileName = value;
+    }
     
 
-    let size: number = logConfigTypeNodeVector!.size()!;;
+    private function getDoc():Document {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append(URLGLOBALS.getWebappPath());
+        stringBuffer.append(PATH_GLOBALS.getInstance().INIT_PATH);
+        stringBuffer.append(this.getFileName());
+        var file:AbFile = AbFile.createAbFile(stringBuffer.toString());
+        var document:Document = DomDocumentHelper.create(new AbFileLocalInputStream(file));
+        return document;
+    }
     
 
-
-
-
-                        for (
-    let i: number = 0;i < size; i++)
-        {
-
-    let node: Node = logConfigTypeNodeVector!.get(i) as Node;;
-    
-
-    let logType: LogConfigType = LogConfigTypes.getInstance(node)!;;
-    
-logKeyVector!.add(logType);
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return logKeyVector;
-    
-}
-
-
+    public function getTypeVector():BasicArrayList {
+        var logKeyVector:BasicArrayList = new BasicArrayListD();
+        var document:Document = this.getDoc();
+        var logConfigTypesNodeList:NodeList = document.getElementsByTagName(LogConfigTypesData.getInstance().NAME);
+        var logConfigTypesNode:Node = logConfigTypesNodeList.item(0);
+        var logConfigTypeNodeVector:BasicArrayList = DomSearchHelper.getAllNodes(LogConfigTypeData.getInstance().NAME, logConfigTypesNode.getChildNodes());
+        var size:int = logConfigTypeNodeVector.size();
+        for (var i:int = 0; i < size; i++) {
+            var node:Node = (logConfigTypeNodeVector.get_(i) as Node);
+            var logType:LogConfigType = LogConfigTypes.getInstance1(node);
+            logKeyVector.add(logType);
+        }
+        return logKeyVector;
+    }
+    }
 }
 

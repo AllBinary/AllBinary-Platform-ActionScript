@@ -1,57 +1,34 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.direction {
+    import org.allbinary.math.Angle;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public interface DirectionalInterface {
+    
 
-        
+    function setFrameByDirection(direction:Direction):void;
+    
 
+    function setFrameToAngle(angle:Angle):void;
+    
 
-import { Angle } from '../../../org/allbinary/math/Angle.js';
-//not GWT import const Angle
+    function adjustFrameToAngle(newAngle:Angle):void;
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { Direction } from './Direction.js';
-//sameFolderImports - not GWT import - same folder const Direction
-
-export interface DirectionalInterface {
-        
-
-    setFrameByDirection(direction: Direction): void;
-
-    setFrameToAngle(angle: Angle): void;
-
-    adjustFrameToAngle(newAngle: Angle): void;
-
-    adjustFrame(angle: number): void;
-
+    function adjustFrame(angle:int):void;
+    }
 }
 

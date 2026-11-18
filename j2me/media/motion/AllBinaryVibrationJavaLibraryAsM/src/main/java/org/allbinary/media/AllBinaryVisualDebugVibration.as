@@ -1,118 +1,70 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media {
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.font.UpdateMyFontProcessor;
+    import org.allbinary.time.TimeDelayHelper;
+    import java.lang.JInteger;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AllBinaryVisualDebugVibration extends AllBinaryVibrationME implements UpdateMyFontInterface {
+        private var displayInfoSingleton:DisplayInfoSingleton = null;
+        private var timeDelayHelper:TimeDelayHelper = null;
+        private var VIBRATING:String = null;
+        private var myFontProcessor:MyFontProcessor = null;
+        private var anchor:int = 0;
+        private var width:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsAllBinaryVisualDebugVibration():void {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.timeDelayHelper = new TimeDelayHelper(JInteger.MAX_VALUE);
+    this.VIBRATING = "Vibrating";
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
+    this.anchor = Anchor.TOP_LEFT;
+    this.width = 0;
+        }
 
-
-            import { Integer } from '../../../java/lang/Integer.js';
-        
-import { Font } from '../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { Anchor } from '../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { DisplayInfoSingleton } from '../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { MyFontProcessor } from '../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { UpdateMyFontInterface } from '../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { UpdateMyFontProcessor } from '../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
-//not GWT import const UpdateMyFontProcessor
-
-import { TimeDelayHelper } from '../../../org/allbinary/time/TimeDelayHelper.js';
-//not GWT import const TimeDelayHelper
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AllBinaryVibrationME } from './AllBinaryVibrationME.js';
-//sameFolderImports - not GWT import - same folder const AllBinaryVibrationME
-
-export class AllBinaryVisualDebugVibration extends AllBinaryVibrationME implements UpdateMyFontInterface {
-        
-
-    private readonly displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
-
-    private readonly timeDelayHelper: TimeDelayHelper = new TimeDelayHelper(Integer.MAX_VALUE);
-
-    private readonly VIBRATING: string = "Vibrating";
-
-    private myFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
-
-    private anchor: number = Anchor.TOP_LEFT;
-
-    private width: number= 0;
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
-    
-this.width= font.stringWidth(this.VIBRATING);
-    
-this.myFontProcessor= MyFontProcessor.getInstance();
-    
-}
-
-
-    public vibrate(duration: number, type: number, volume: number){
-this.timeDelayHelper!.delay= duration;
-    
-}
-
-
-    public paint(graphics: Graphics){
-
-                        if(this.timeDelayHelper!.isTimeTNT())
-                        
-                                    {
-                                    this.timeDelayHelper!.delay= Integer.MAX_VALUE;
-    
-this.myFontProcessor!.process(graphics);
-    
-graphics.drawString(this.VIBRATING, this.displayInfoSingleton!.getLastHalfWidth() -(this.width>>1), 0, this.anchor);
+        public function AllBinaryVisualDebugVibration() {
+            super();
+            this.initFieldsAllBinaryVisualDebugVibration();
+        }
     
 
-                                    }
-                                
-}
+    public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        this.width = font.stringWidth(this.VIBRATING);
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
+    
 
+    override public function vibrate(duration:int, type:int, volume:int):void {
+        this.timeDelayHelper.delay = duration;
+    }
+    
 
+    public function paint(graphics:Graphics):void {
+        if (this.timeDelayHelper.isTimeTNT()) {
+            this.timeDelayHelper.delay = JInteger.MAX_VALUE;
+            this.myFontProcessor.process(graphics);
+            graphics.drawString(this.VIBRATING, int(this.displayInfoSingleton.getLastHalfWidth() - (this.width >> 1)), 0, this.anchor);
+        }
+    }
+    }
 }
 

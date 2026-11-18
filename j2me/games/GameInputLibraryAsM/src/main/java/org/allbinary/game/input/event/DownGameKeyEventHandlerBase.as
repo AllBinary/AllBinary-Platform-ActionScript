@@ -1,225 +1,109 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input.event {
+    import org.allbinary.game.input.PlayerGameInput;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventListenerInterface;
+    import org.allbinary.logic.util.event.EventStrings;
+    import org.allbinary.logic.util.event.handler.BasicEventHandler;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class DownGameKeyEventHandlerBase extends BasicEventHandler {
+    private static const TOTAL_LISTENERS:String = " Total PlayerGameInput Listeners: ";
+    private static const LISTENER_LABEL:String = " PlayerGameInput Listener: ";
+        private var list:BasicArrayList = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { PlayerGameInput } from '../../../../../org/allbinary/game/input/PlayerGameInput.js';
-//not GWT import const PlayerGameInput
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { AllBinaryEventObject } from '../../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventListenerInterface } from '../../../../../org/allbinary/logic/util/event/EventListenerInterface.js';
-//not GWT import const EventListenerInterface
-
-import { EventStrings } from '../../../../../org/allbinary/logic/util/event/EventStrings.js';
-//not GWT import const EventStrings
-
-import { BasicEventHandler } from '../../../../../org/allbinary/logic/util/event/handler/BasicEventHandler.js';
-//not GWT import const BasicEventHandler
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { GameKeyEvent } from './GameKeyEvent.js';
-//sameFolderImports - not GWT import - same folder const GameKeyEvent
-import { DownGameKeyEventListenerInterface } from './DownGameKeyEventListenerInterface.js';
-//sameFolderImports - not GWT import - same folder const DownGameKeyEventListenerInterface
-
-export class DownGameKeyEventHandlerBase extends BasicEventHandler {
-        
-
-    private static readonly TOTAL_LISTENERS: string = " Total PlayerGameInput Listeners: ";
-
-    private static readonly LISTENER_LABEL: string = " PlayerGameInput Listener: ";
-
-    private readonly list: BasicArrayList = new BasicArrayListD();
-
- constructor (){
-
-            super();
+        // Java field initializers run after the base constructor
+        private function initFieldsDownGameKeyEventHandlerBase():void {
+    this.list = new BasicArrayListD();
         }
-
-
-    public addListener(playerGameInput: PlayerGameInput){
-
-                        if(!this.list.contains(playerGameInput))
-                        
-                                    {
-                                    this.list.add(playerGameInput);
     
 
-                                    }
-                                
-}
-
-
-    public removeAllListeners(){
-this.list.clear();
-    
-super.removeAllListeners();
-    
-}
-
-
-    public removeListenerSingleThreaded(eventListenerInterface: EventListenerInterface){
-this.list.remove(eventListenerInterface);
-    
-super.removeListenerSingleThreaded(eventListenerInterface);
-    
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public removeListener(eventListenerInterface: EventListenerInterface){
-this.list.remove(eventListenerInterface);
-    
-super.removeListener(eventListenerInterface);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public fireEvent(eventObject: AllBinaryEventObject){
-
-
-
-
-                        for (
-    let index: number = this.list.size()!;--index >= 0; )
-        {
-
- try { 
-    let playerGameInput: PlayerGameInput = this.list.objectArray[index]! as PlayerGameInput;;
-    
-playerGameInput!.onDownGameKeyEvent(eventObject as GameKeyEvent);
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, EventStrings.getInstance()!.FIRE_EVENT, e);
+    public function DownGameKeyEventHandlerBase() {
+        super();
+        this.initFieldsDownGameKeyEventHandlerBase();
+    }
     
 
- }
-   }
- 
-}
-
-super.fireEvent(eventObject);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    process(eventObject: AllBinaryEventObject, eventListenerInterface: EventListenerInterface){
-
-    let downGameKeyEventListenerInterface: DownGameKeyEventListenerInterface = eventListenerInterface as DownGameKeyEventListenerInterface;;
-    
-downGameKeyEventListenerInterface!.onDownGameKeyEvent(eventObject as GameKeyEvent);
-    
-}
-
-
-    public toString(): string{
-
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append(super.toString());
-    
-stringBuffer!.append(DownGameKeyEventHandlerBase.TOTAL_LISTENERS);
-    
-stringBuffer!.appendint(this.list.size());
+    public function addListener(playerGameInput:PlayerGameInput):void {
+        if (!this.list.contains(playerGameInput)) {
+            this.list.add(playerGameInput);
+        }
+    }
     
 
-    let eventListenerInterface: EventListenerInterface;;
+    override public function removeAllListeners():void {
+        this.list.clear();
+        super.removeAllListeners();
+    }
     
 
-    let size: number = this.list.size()!;;
+    override public function removeListenerSingleThreaded(eventListenerInterface:EventListenerInterface):void {
+        this.list.remove(eventListenerInterface);
+        super.removeListenerSingleThreaded(eventListenerInterface);
+    }
     
 
-    let index: number = 0;;
+    override public function removeListener(eventListenerInterface:EventListenerInterface):void {
+        this.list.remove(eventListenerInterface);
+        super.removeListener(eventListenerInterface);
+    }
     
 
-        while(index < size)
-        {
-
- try { eventListenerInterface= this.list.get(index) as EventListenerInterface;
-    
-stringBuffer!.append(DownGameKeyEventHandlerBase.LISTENER_LABEL);
-    
-stringBuffer!.append(eventListenerInterface!.toString());
-    
- }
- catch (caught: any) {
- {
-  const e = caught;
-  
-this.logUtil!.put(this.commonStrings!.EXCEPTION, this, this.commonStrings!.TOSTRING, e);
+    override public function fireEvent(eventObject:AllBinaryEventObject):void {
+        for (var index:int = this.list.size(); --index >= 0; ) {
+            try {
+                var playerGameInput:PlayerGameInput = (this.list.objectArray[index] as PlayerGameInput);
+                playerGameInput.onDownGameKeyEvent((eventObject as GameKeyEvent));
+            } catch (e:*) {
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e);
+            }
+        }
+        super.fireEvent(eventObject);
+    }
     
 
- }
-   }
- 
-index++;
+    override public function process(eventObject:AllBinaryEventObject, eventListenerInterface:EventListenerInterface):void {
+        var downGameKeyEventListenerInterface:DownGameKeyEventListenerInterface = (eventListenerInterface as DownGameKeyEventListenerInterface);
+        downGameKeyEventListenerInterface.onDownGameKeyEvent((eventObject as GameKeyEvent));
+    }
     
-}
 
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return stringBuffer!.toString();;
-    
-}
-
-
+    override public function toString():String {
+        var stringBuffer:StringMaker = new StringMaker();
+        stringBuffer.append(super.toString());
+        stringBuffer.append(DownGameKeyEventHandlerBase.TOTAL_LISTENERS);
+        stringBuffer.appendint(this.list.size());
+        var eventListenerInterface:EventListenerInterface = null;
+        var size:int = this.list.size();
+        var index:int = 0;
+        while (index < size) {
+            try {
+                eventListenerInterface = (this.list.get_(index) as EventListenerInterface);
+                stringBuffer.append(DownGameKeyEventHandlerBase.LISTENER_LABEL);
+                stringBuffer.append(eventListenerInterface.toString());
+            } catch (e:*) {
+                this.logUtil.put(this.commonStrings.EXCEPTION, this, this.commonStrings.TOSTRING, e);
+            }
+            index++;
+        }
+        return stringBuffer.toString();
+    }
+    }
 }
 

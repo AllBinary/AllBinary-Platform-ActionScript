@@ -1,66 +1,39 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package dynamic {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class NativeLibraryHelper {
+        private var library:String = null;
 
-        
-
-
-            import { Object } from '../java/lang/Object.js';
-        
-            import { System } from '../java/lang/System.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class NativeLibraryHelper
-            extends Object
-         {
-        
-
-    private library: string;
-
-public constructor (library: string){
-
-            super();
-        this.library= library;
+        // Java field initializers run after the base constructor
+        private function initFieldsNativeLibraryHelper():void {
     
-}
-
-
-    public load(){
-System.loadLibrary(this.library);
+        }
     
-}
 
+    public function NativeLibraryHelper(library:String) {
+        super();
+        this.initFieldsNativeLibraryHelper();
+        this.library = library;
+    }
+    
 
+    public function load():void {
+        JSystem.loadLibrary(this.library);
+    }
+    }
 }
 

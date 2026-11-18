@@ -1,256 +1,114 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.system.security.licensing {
+    import java.io.JIOException;
+    import java.util.JCalendar;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.system.security.licensing.client.AbeLicenseClient;
+    import org.allbinary.string.CommonStrings;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../../java/lang/Exception.js';
-        
-import { IOException } from '../../../../../../java/io/IOException.js';
-//not GWT import const IOException
-
-import { Calendar } from '../../../../../../java/util/Calendar.js';
-//not GWT import const Calendar
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-import { AbeLicenseClient } from '../../../../../../org/allbinary/logic/system/security/licensing/client/AbeLicenseClient.js';
-//not GWT import const AbeLicenseClient
-
-//not plain js import { CommonStrings } 
-const CommonStrings = globalThis.org.allbinary.string.CommonStrings;
-type CommonStrings<T = any, U = any> = typeof CommonStrings extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AbeLicenseInterface } from './AbeLicenseInterface.js';
-//sameFolderImports - not GWT import - same folder const AbeLicenseInterface
-import { AbeClientInformationInterface } from './AbeClientInformationInterface.js';
-//sameFolderImports - not GWT import - same folder const AbeClientInformationInterface
-import { AbeNoLicense } from './AbeNoLicense.js';
-//sameFolderImports - not GWT import - same folder const AbeNoLicense
-import { AbeClientInformationData } from './AbeClientInformationData.js';
-//sameFolderImports - not GWT import - same folder const AbeClientInformationData
-import { LicensingException } from './LicensingException.js';
-//sameFolderImports - not GWT import - same folder const LicensingException
-
-export class AbeLicenseInterfaceFactory
-            extends Object
-         {
-        
-
-    private static readonly SINGLETON: AbeLicenseInterfaceFactory = new AbeLicenseInterfaceFactory();
-
-    public static getInstance(): AbeLicenseInterfaceFactory{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AbeLicenseInterfaceFactory.SINGLETON;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    private readonly commonStrings: CommonStrings = CommonStrings.getInstance()!;
-
-    private time: number = 0;
-
-    private check: boolean = false;
-
-    private checkPeriod: number = 36000000;
-
-    private abeLicenseInterface: AbeLicenseInterface = 
-                null
-            ;
-
-private constructor (){
-
-            super();
+    public class AbeLicenseInterfaceFactory {
+    private static var SINGLETON_value:AbeLicenseInterfaceFactory;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():AbeLicenseInterfaceFactory {
+        if (!AbeLicenseInterfaceFactory.SINGLETON_set) {
+            AbeLicenseInterfaceFactory.SINGLETON_set = true;
+            AbeLicenseInterfaceFactory.SINGLETON_value = new AbeLicenseInterfaceFactory();
         }
+        return AbeLicenseInterfaceFactory.SINGLETON_value;
+    }
+        public var logUtil:LogUtil = null;
+        private var commonStrings:CommonStrings = null;
+        private var time:Number = 0;
+        private var check:Boolean = false;
+        private var checkPeriod:int = 0;
+        private var abeLicenseInterface:AbeLicenseInterface = null;
 
-
-                //@Throws(LicensingException.constructor)
-            
-    public getLicenseInstance(abeClientInformation: AbeClientInformationInterface): AbeLicenseInterface{
-
-                        if(isTimeToGetKey())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.get(abeClientInformation);;
+        // Java field initializers run after the base constructor
+        private function initFieldsAbeLicenseInterfaceFactory():void {
+    this.logUtil = LogUtil.getInstance();
+    this.commonStrings = CommonStrings.getInstance();
+    this.time = 0;
+    this.check = false;
+    this.checkPeriod = 36000000;
+    this.abeLicenseInterface = null;
+        }
     
 
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.abeLicenseInterface;
+    public static function getInstance():AbeLicenseInterfaceFactory {
+        return AbeLicenseInterfaceFactory.SINGLETON;
+    }
     
 
-                        }
-                            
-}
-
-
-                //@Throws(LicensingException.constructor)
-            
-    get(abeClientInformation: AbeClientInformationInterface): AbeLicenseInterface{
-
- try { this.logUtil!.putF("Getting Keys", this, this.commonStrings!.GET);
-    
-this.abeLicenseInterface= AbeNoLicense.getInstance();
+    public function AbeLicenseInterfaceFactory() {
+        super();
+        this.initFieldsAbeLicenseInterfaceFactory();
+    }
     
 
-    let licenseClient: AbeLicenseClient = new AbeLicenseClient();;
-    
-this.abeLicenseInterface= licenseClient!.get(abeClientInformation);
-    
-
-                        if(this.abeLicenseInterface != 
-                                    null
-                                )
-                        
-                                    {
-                                    this.logUtil!.putF("Default Key: " +this.abeLicenseInterface!.getKey(AbeClientInformationData.getInstance()!.KEY), this, this.commonStrings!.GET);
+    public function getLicenseInstance(abeClientInformation:AbeClientInformationInterface):AbeLicenseInterface {
+        if (this.isTimeToGetKey()) {
+            return this.get_(abeClientInformation);
+        } else {
+            return this.abeLicenseInterface;
+        }
+    }
     
 
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.abeLicenseInterface;
-    
- }
- catch (caught: any) {
- if (caught instanceof IOException) {
-  const e = caught;
-  
-this.logUtil!.put("Licensing IO Error", this, this.commonStrings!.GET, e);
-    
-
-
-
-                            throw new LicensingException("License Server Connection Error");
-                    
-
- }
-  else {
-  const e = caught;
-  
-this.logUtil!.put("Licensing Failure", this, this.commonStrings!.GET, e);
+    private function get_(abeClientInformation:AbeClientInformationInterface):AbeLicenseInterface {
+        try {
+            this.logUtil.putF("Getting Keys", this, this.commonStrings.GET);
+            this.abeLicenseInterface = AbeNoLicense.getInstance();
+            var licenseClient:AbeLicenseClient = new AbeLicenseClient();
+            this.abeLicenseInterface = licenseClient.get_(abeClientInformation);
+            if (this.abeLicenseInterface != null) {
+                this.logUtil.putF("Default Key: " + this.abeLicenseInterface.getKey(AbeClientInformationData.getInstance().KEY), this, this.commonStrings.GET);
+            }
+            return this.abeLicenseInterface;
+        } catch (e:*) {
+            this.logUtil.put("Licensing IO Error", this, this.commonStrings.GET, e);
+            throw new LicensingException("License Server Connection Error");
+        } catch (e:*) {
+            this.logUtil.put("Licensing Failure", this, this.commonStrings.GET, e);
+            throw new LicensingException("Unknown License Failure: " + JSystem.className(this));
+        }
+    }
     
 
-
-
-                            throw new LicensingException("Unknown License Failure: " +this.constructor.name.toString()!);
-                    
-
- }
-   }
- 
-}
-
-
-    isTimeToGetKey(): boolean{
-
-    let calendar: Calendar = Calendar.getInstance()!;;
+    private function isTimeToGetKey():Boolean {
+        var calendar:JCalendar = JCalendar.getInstance();
+        var currentTime:Number = calendar.getTimeInMillis();
+        if (this.abeLicenseInterface == null || this.abeLicenseInterface == AbeNoLicense.getInstance() || !this.abeLicenseInterface.hasKey() || this.isCheck() || currentTime - Number(this.checkPeriod) > this.time) {
+            this.abeLicenseInterface = null;
+            this.time = currentTime;
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 
-    let currentTime: number = calendar.getTimeInMillis()!;;
+    public function setCheck(check:Boolean):void {
+        this.check = check;
+    }
     
 
-                        if(this.abeLicenseInterface == 
-                                    null
-                                 || this.abeLicenseInterface == AbeNoLicense.getInstance() || !this.abeLicenseInterface!.hasKey() || isCheck() || currentTime -this.checkPeriod > this.time)
-                        
-                                    {
-                                    this.abeLicenseInterface= 
-                                        null
-                                    ;
-    
-this.time= currentTime;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
-    
-
-                        }
-                            
-}
-
-
-    public setCheck(check: boolean){
-this.check= check;
-    
-}
-
-
-    isCheck(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.check;
-    
-}
-
-
+    private function isCheck():Boolean {
+        return this.check;
+    }
+    }
 }
 

@@ -1,111 +1,66 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.draw {
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.font.UpdateMyFontProcessor;
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class KeyValueDrawString implements UpdateMyFontInterface {
+        private var myFontProcessor:MyFontProcessor = null;
+        private var LABEL:String = null;
+        private var labelX:int = 0;
+        private var valueX:int = 0;
+        private var value:String = null;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { MyFontProcessor } from '../../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { UpdateMyFontInterface } from '../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { UpdateMyFontProcessor } from '../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
-//not GWT import const UpdateMyFontProcessor
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class KeyValueDrawString
-            extends Object
-         implements UpdateMyFontInterface {
-        
-
-    private myFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
-
-    private readonly LABEL: string;
-
-    private readonly labelX: number;
-
-    private valueX: number= 0;
-
-    private value: string = StringUtil.getInstance()!.EMPTY_STRING;
-
-public constructor (label: string, x: number){
-
-            super();
-        this.LABEL= label;
+        // Java field initializers run after the base constructor
+        private function initFieldsKeyValueDrawString():void {
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
     
-this.labelX= x;
     
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-
-    let labelWidth: number = graphics.getFont()!.stringWidth(this.LABEL) -this.LABEL.length;;
+    this.valueX = 0;
+    this.value = StringUtil.getInstance().EMPTY_STRING;
+        }
     
-this.valueX= labelWidth +this.labelX;
-    
-this.myFontProcessor= MyFontProcessor.getInstance();
-    
-}
 
-
-    public paint(graphics: Graphics, y: number){
-this.myFontProcessor!.process(graphics);
+    public function KeyValueDrawString(label:String, x:int) {
+        super();
+        this.initFieldsKeyValueDrawString();
+        this.LABEL = label;
+        this.labelX = x;
+    }
     
-graphics.drawString(this.LABEL, this.labelX, y, 0);
+
+    public function updateMeasurement(graphics:Graphics):void {
+        var labelWidth:int = graphics.getFont().stringWidth(this.LABEL) - this.LABEL.length;
+        this.valueX = int(labelWidth + this.labelX);
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
     
-graphics.drawString(this.value, this.valueX, y, 0);
+
+    public function paint(graphics:Graphics, y:int):void {
+        this.myFontProcessor.process(graphics);
+        graphics.drawString(this.LABEL, this.labelX, y, 0);
+        graphics.drawString(this.value, this.valueX, y, 0);
+    }
     
-}
 
-
-    public update(value: string){
-this.value= value;
-    
-}
-
-
+    public function update(value:String):void {
+        this.value = value;
+    }
+    }
 }
 

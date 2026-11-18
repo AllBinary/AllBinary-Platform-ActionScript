@@ -1,72 +1,56 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score.remote {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class RemoteHighScoresData {
+    private static var SINGLETON_value:RemoteHighScoresData;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():RemoteHighScoresData {
+        if (!RemoteHighScoresData.SINGLETON_set) {
+            RemoteHighScoresData.SINGLETON_set = true;
+            RemoteHighScoresData.SINGLETON_value = new RemoteHighScoresData();
+        }
+        return RemoteHighScoresData.SINGLETON_value;
+    }
+        public var HIGH_SCORES:String = null;
+        public var CUSTOMER_USER_NAME:String = null;
+        public var DISPLAY_NAME:String = null;
+        public var SCORE:String = null;
+        public var GAME_INFO:String = null;
+        public var GAME_CONFIGURATION:String = null;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsRemoteHighScoresData():void {
+    this.HIGH_SCORES = "HIGH_SCORES";
+    this.CUSTOMER_USER_NAME = "CUSTOMER_USER_NAME";
+    this.DISPLAY_NAME = "DISPLAY_NAME";
+    this.SCORE = "SCORE";
+    this.GAME_INFO = "GAME_INFO";
+    this.GAME_CONFIGURATION = "GAME_CONFIGURATION";
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class RemoteHighScoresData
-            extends Object
-         {
-        
-
-    private static readonly SINGLETON: RemoteHighScoresData = new RemoteHighScoresData();
-
-    public static getInstance(): RemoteHighScoresData{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return RemoteHighScoresData.SINGLETON;
+        public function RemoteHighScoresData() {
+            super();
+            this.initFieldsRemoteHighScoresData();
+        }
     
-}
 
-
-    public readonly HIGH_SCORES: string = "HIGH_SCORES";
-
-    public CUSTOMER_USER_NAME: string = "CUSTOMER_USER_NAME";
-
-    public DISPLAY_NAME: string = "DISPLAY_NAME";
-
-    public SCORE: string = "SCORE";
-
-    public GAME_INFO: string = "GAME_INFO";
-
-    public GAME_CONFIGURATION: string = "GAME_CONFIGURATION";
-
+    public static function getInstance():RemoteHighScoresData {
+        return RemoteHighScoresData.SINGLETON;
+    }
+    }
 }
 

@@ -1,125 +1,66 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.displayable.canvas {
+    import org.allbinary.game.input.PlayerGameInput;
+    import org.allbinary.graphics.displayable.MyCanvas;
+    import org.allbinary.input.motion.gesture.observer.BaseMotionGestureEventListener;
+    import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+    import org.allbinary.util.BasicArrayList;
+    import org.allbinary.util.BasicArrayListD;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class BasicMenuInputProcessor extends PlayerGameInput implements BaseMotionGestureEventListener {
+        public var motionGestureEventList:BasicArrayList = null;
+        private var canvas:Canvas = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { Canvas } from '../../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { NullCanvas } from '../../../../../javax/microedition/lcdui/NullCanvas.js';
-//not GWT import const NullCanvas
-
-import { PlayerGameInput } from '../../../../../org/allbinary/game/input/PlayerGameInput.js';
-//not GWT import const PlayerGameInput
-
-import { MyCanvas } from '../../../../../org/allbinary/graphics/displayable/MyCanvas.js';
-//not GWT import const MyCanvas
-
-import { BaseMotionGestureEventListener } from '../../../../../org/allbinary/input/motion/gesture/observer/BaseMotionGestureEventListener.js';
-//not GWT import const BaseMotionGestureEventListener
-
-import { MotionGestureEvent } from '../../../../../org/allbinary/input/motion/gesture/observer/MotionGestureEvent.js';
-//not GWT import const MotionGestureEvent
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-//not plain js import { BasicArrayListD } 
-const BasicArrayListD = globalThis.org.allbinary.util.BasicArrayListD;
-type BasicArrayListD<T = any, U = any> = typeof BasicArrayListD extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class BasicMenuInputProcessor extends PlayerGameInput implements BaseMotionGestureEventListener {
-        
-
-    public readonly motionGestureEventList: BasicArrayList = new BasicArrayListD();
-
-    private canvas: Canvas = NullCanvas.NULL_CANVAS;
-
-protected constructor (gameKeyEventList: BasicArrayList, playerInputId: number, gameCanvas: Canvas){
-            super(gameKeyEventList, new BasicArrayListD(), playerInputId);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.canvas= gameCanvas;
+        // Java field initializers run after the base constructor
+        private function initFieldsBasicMenuInputProcessor():void {
+    this.motionGestureEventList = new BasicArrayListD();
+    this.canvas = NullCanvas.NULL_CANVAS;
+        }
     
-}
 
-
-    public onMotionGestureEvent(motionGestureEvent: MotionGestureEvent){
-this.motionGestureEventList!.add(motionGestureEvent);
+    public function BasicMenuInputProcessor(gameKeyEventList:BasicArrayList, playerInputId:int, gameCanvas:Canvas) {
+        super(gameKeyEventList, new BasicArrayListD(), playerInputId);
+        this.initFieldsBasicMenuInputProcessor();
+        this.canvas = gameCanvas;
+    }
     
-}
 
-
-    public onScrolledMotionGestureEvent(motionGestureEvent: MotionGestureEvent){
-}
-
-
-    setCanvas(canvas: MyCanvas){
-this.canvas= canvas;
+    public function onMotionGestureEvent(motionGestureEvent:MotionGestureEvent):void {
+        this.motionGestureEventList.add(motionGestureEvent);
+    }
     
-}
 
-
-    getCanvas(): MyCanvas{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.canvas as MyCanvas;
+    public function onScrolledMotionGestureEvent(motionGestureEvent:MotionGestureEvent):void {
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public processInputList(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return  -1;
+    private function setCanvas(canvas:MyCanvas):void {
+        this.canvas = canvas;
+    }
     
-}
 
+    public function getCanvas():MyCanvas {
+        return (this.canvas as MyCanvas);
+    }
+    
 
+    public function processInputList():int {
+        return -1;
+    }
+    }
 }
 

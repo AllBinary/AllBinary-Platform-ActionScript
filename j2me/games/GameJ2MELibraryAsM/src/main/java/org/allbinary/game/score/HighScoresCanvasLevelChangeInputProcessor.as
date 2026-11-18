@@ -1,187 +1,92 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.score {
+    import org.allbinary.game.input.event.GameKeyEventHandler;
+    import org.allbinary.game.input.event.GameKeyEventUtil;
+    import org.allbinary.game.score.displayable.HighScoresCanvas;
+    import org.allbinary.graphics.Anchor;
+    import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+    import org.allbinary.graphics.font.MyFontProcessor;
+    import org.allbinary.graphics.font.UpdateMyFontInterface;
+    import org.allbinary.graphics.font.UpdateMyFontProcessor;
+    import org.allbinary.util.BasicArrayList;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class HighScoresCanvasLevelChangeInputProcessor extends HighScoresCanvasInputProcessor implements UpdateMyFontInterface {
+        private var displayInfoSingleton:DisplayInfoSingleton = null;
+        private var INSTRUCTIONS:String = null;
+        private var myFontProcessor:MyFontProcessor = null;
+        private var anchor:int = 0;
+        private var fontHeight:int = 0;
 
-        
-
-
-import { Canvas } from '../../../../javax/microedition/lcdui/Canvas.js';
-//not GWT import const Canvas
-
-import { Font } from '../../../../javax/microedition/lcdui/Font.js';
-//not GWT import const Font
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { GameKeyEventHandler } from '../../../../org/allbinary/game/input/event/GameKeyEventHandler.js';
-//not GWT import const GameKeyEventHandler
-
-import { GameKeyEventUtil } from '../../../../org/allbinary/game/input/event/GameKeyEventUtil.js';
-//not GWT import const GameKeyEventUtil
-
-import { HighScoresCanvas } from '../../../../org/allbinary/game/score/displayable/HighScoresCanvas.js';
-//not GWT import const HighScoresCanvas
-
-import { Anchor } from '../../../../org/allbinary/graphics/Anchor.js';
-//not GWT import const Anchor
-
-import { DisplayInfoSingleton } from '../../../../org/allbinary/graphics/displayable/DisplayInfoSingleton.js';
-//not GWT import const DisplayInfoSingleton
-
-import { MyFontProcessor } from '../../../../org/allbinary/graphics/font/MyFontProcessor.js';
-//not GWT import const MyFontProcessor
-
-import { UpdateMyFontInterface } from '../../../../org/allbinary/graphics/font/UpdateMyFontInterface.js';
-//not GWT import const UpdateMyFontInterface
-
-import { UpdateMyFontProcessor } from '../../../../org/allbinary/graphics/font/UpdateMyFontProcessor.js';
-//not GWT import const UpdateMyFontProcessor
-
-//not plain js import { BasicArrayList } 
-const BasicArrayList = globalThis.org.allbinary.util.BasicArrayList;
-type BasicArrayList<T = any, U = any> = typeof BasicArrayList extends abstract new (...args: any[]) => infer Instance ? Instance : typeof BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { HighScoresCanvasInputProcessor } from './HighScoresCanvasInputProcessor.js';
-//sameFolderImports - not GWT import - same folder const HighScoresCanvasInputProcessor
-
-export class HighScoresCanvasLevelChangeInputProcessor extends HighScoresCanvasInputProcessor implements UpdateMyFontInterface {
-        
-
-    private readonly displayInfoSingleton: DisplayInfoSingleton = DisplayInfoSingleton.getInstance()!;
-
-    private readonly INSTRUCTIONS: string = "(Right = Next Track, Left = Previous Track)";
-
-    private myFontProcessor: MyFontProcessor = new UpdateMyFontProcessor(this);
-
-    private anchor: number = Anchor.TOP_LEFT;
-
-    private fontHeight: number = 0;
-
-public constructor (highScoresCanvas: HighScoresCanvas){
-            super(highScoresCanvas);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-}
-
-
-    public updateMeasurement(graphics: Graphics){
-
-    let font: Font = graphics.getFont()!;;
-    
-this.fontHeight= font.getHeight();
-    
-this.myFontProcessor= MyFontProcessor.getInstance();
-    
-}
-
-
-    public open(){
-GameKeyEventHandler.getInstance()!.addListener(this);
-    
-}
-
-
-    public close(){
-GameKeyEventHandler.getInstance()!.removeListener(this);
-    
-}
-
-//@Synchronized //TWB - This is not allowed for TypeScript native. Instead use Coroutine logic instead.
-
-    public update(){
-
-    let list: BasicArrayList = this.getGameKeyEventList()!;;
+        // Java field initializers run after the base constructor
+        private function initFieldsHighScoresCanvasLevelChangeInputProcessor():void {
+    this.displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    this.INSTRUCTIONS = "(Right = Next Track, Left = Previous Track)";
+    this.myFontProcessor = new UpdateMyFontProcessor(this);
+    this.anchor = Anchor.TOP_LEFT;
+    this.fontHeight = 0;
+        }
     
 
-    let size: number = list.size()!;;
+    public function HighScoresCanvasLevelChangeInputProcessor(highScoresCanvas:HighScoresCanvas) {
+        super(highScoresCanvas);
+        this.initFieldsHighScoresCanvasLevelChangeInputProcessor();
+    }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-
-    let anyType: any = list.objectArray[index]!;;
+    public function updateMeasurement(graphics:Graphics):void {
+        var font:Font = graphics.getFont();
+        this.fontHeight = font.getHeight();
+        this.myFontProcessor = MyFontProcessor.getInstance();
+    }
     
 
-    let key: number = GameKeyEventUtil.getKey(anyType)!;;
+    override public function open():void {
+        GameKeyEventHandler.getInstance().addListener(this);
+    }
     
 
-                        if(key == Canvas.RIGHT)
-                        
-                                    {
-                                    this.getHighScoresCanvas()!.getGameInfo()!.nextGameLevel();
+    override public function close():void {
+        GameKeyEventHandler.getInstance().removeListener(this);
+    }
     
 
-                                    }
-                                
-                             else 
-                        if(key == Canvas.LEFT)
-                        
-                                    {
-                                    this.getHighScoresCanvas()!.getGameInfo()!.previousGameLevel();
+    override public function update():void {
+        var list:BasicArrayList = this.getGameKeyEventList();
+        var size:int = list.size();
+        for (var index:int = 0; index < size; index++) {
+            var anyType:Object = list.objectArray[index];
+            var key:int = GameKeyEventUtil.getKey(anyType);
+            if (key == Canvas.RIGHT) {
+                this.getHighScoresCanvas().getGameInfo().nextGameLevel();
+            } else if (key == Canvas.LEFT) {
+                this.getHighScoresCanvas().getGameInfo().previousGameLevel();
+            }
+            this.getHighScoresCanvas().executeUpdate();
+        }
+        list.clear();
+    }
     
 
-                                    }
-                                
-this.getHighScoresCanvas()!.executeUpdate();
-    
-}
-
-list.clear();
-    
-}
-
-
-    public paint(graphics: Graphics){
-this.myFontProcessor!.process(graphics);
-    
-
-    let width: number = this.displayInfoSingleton!.getLastWidth()!;;
-    
-
-    let topScoresWidth: number = (graphics.getFont()!.stringWidth(this.INSTRUCTIONS)>>1);;
-    
-graphics.drawString(this.INSTRUCTIONS, (width>>1) -topScoresWidth, this.fontHeight *2, this.anchor);
-    
-}
-
-
+    override public function paint(graphics:Graphics):void {
+        this.myFontProcessor.process(graphics);
+        var width:int = this.displayInfoSingleton.getLastWidth();
+        var topScoresWidth:int = (graphics.getFont().stringWidth(this.INSTRUCTIONS) >> 1);
+        graphics.drawString(this.INSTRUCTIONS, int((width >> 1) - topScoresWidth), int(this.fontHeight * 2), this.anchor);
+    }
+    }
 }
 

@@ -1,100 +1,58 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.debug {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DebugInterface } from './DebugInterface.js';
-//sameFolderImports - not GWT import - same folder const DebugInterface
-
-export class NoDebug
-            extends Object
-         implements DebugInterface {
-        
-
-    private static SINGLETON: DebugInterface = new NoDebug();
-
-    public static getInstance(): DebugInterface{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NoDebug.SINGLETON;
+    public class NoDebug implements DebugInterface {
+    private static var SINGLETON_value:DebugInterface;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():DebugInterface {
+        if (!NoDebug.SINGLETON_set) {
+            NoDebug.SINGLETON_set = true;
+            NoDebug.SINGLETON_value = new NoDebug();
+        }
+        return NoDebug.SINGLETON_value;
+    }
     
-}
 
-
-    public start(){
-}
-
-
-    public stop(){
-}
-
-
-    public getMaxTime(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 10000;
+    public static function getInstance():DebugInterface {
+        return NoDebug.SINGLETON;
+    }
     
-}
 
-
-    public getStartTime(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return 0;
+    public function start():void {
+    }
     
-}
 
-
-    public isRunning(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function stop():void {
+    }
     
-}
 
+    public function getMaxTime():Number {
+        return 10000;
+    }
+    
 
+    public function getStartTime():Number {
+        return 0;
+    }
+    
+
+    public function isRunning():Boolean {
+        return false;
+    }
+    }
 }
 

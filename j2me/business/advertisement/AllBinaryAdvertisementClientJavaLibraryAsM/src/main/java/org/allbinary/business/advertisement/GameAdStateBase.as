@@ -1,228 +1,138 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.business.advertisement {
+    import org.allbinary.game.GameType;
+    import org.allbinary.game.state.GameState;
+    import org.allbinary.logic.communication.log.ForcedLogUtil;
+    import org.allbinary.logic.util.event.AllBinaryEventObject;
+    import org.allbinary.logic.util.event.EventStrings;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GameAdStateBase {
+        public var adConfigurationP:AdConfiguration = null;
+        public var advertisementsP:Advertisements = null;
+        public var okayToShowAdsP:Boolean = false;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { GameType } from '../../../../org/allbinary/game/GameType.js';
-//not GWT import const GameType
-
-import { GameState } from '../../../../org/allbinary/game/state/GameState.js';
-//not GWT import const GameState
-
-//not plain js import { ForcedLogUtil } 
-const ForcedLogUtil = globalThis.org.allbinary.logic.communication.log.ForcedLogUtil;
-type ForcedLogUtil<T = any, U = any> = typeof ForcedLogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof ForcedLogUtil;
-
-import { AllBinaryEventObject } from '../../../../org/allbinary/logic/util/event/AllBinaryEventObject.js';
-//not GWT import const AllBinaryEventObject
-
-import { EventStrings } from '../../../../org/allbinary/logic/util/event/EventStrings.js';
-//not GWT import const EventStrings
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AdConfiguration } from './AdConfiguration.js';
-//sameFolderImports - not GWT import - same folder const AdConfiguration
-import { Advertisements } from './Advertisements.js';
-//sameFolderImports - not GWT import - same folder const Advertisements
-
-export class GameAdStateBase
-            extends Object
-         {
-        
-
-    readonly adConfigurationP: AdConfiguration;
-
-    readonly advertisementsP: Advertisements = new Advertisements();
-
-    okayToShowAdsP: boolean= false;
-
-public constructor (adConfiguration: AdConfiguration){
-
-            super();
-        this.adConfigurationP= adConfiguration;
+        // Java field initializers run after the base constructor
+        private function initFieldsGameAdStateBase():void {
     
-}
-
-
-    public initViewArray(viewArray: any[]){
-}
-
-
-    public onStart(anyType: any){
-this.init();
+    this.advertisementsP = new Advertisements();
+    this.okayToShowAdsP = false;
+        }
     
-}
 
-
-    public init(){
-}
-
-
-    public isShowingAtLocation(location: number): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function GameAdStateBase(adConfiguration:AdConfiguration) {
+        super();
+        this.initFieldsGameAdStateBase();
+        this.adConfigurationP = adConfiguration;
+    }
     
-}
 
-
-    public isShowingAt(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function initViewArray(viewArray:Vector.<Object>):void {
+    }
     
-}
 
-
-    public show(){
-}
-
-
-    public hide(){
-}
-
-
-    public onEvent(eventObject: AllBinaryEventObject){
-ForcedLogUtil.log(EventStrings.getInstance()!.PERFORMANCE_MESSAGE, this);
+    public function onStart(anyType:Object):void {
+        this.init();
+    }
     
-}
 
-
-    public processAdState(gameState: GameState, gameType: GameType){
-}
-
-
-    public processPageAdState(){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public playingAdState(){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public playingAdStateWH(width: number, height: number){
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public notPlayingAdState(){
-}
-
-
-    public setGameIsReady(gameIsReady: boolean){
-}
-
-
-    public isGameIsReady(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function init():void {
+    }
     
-}
 
-
-    public getAdvertisements(): Advertisements{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.advertisementsP;
+    public function isShowingAtLocation(location:int):Boolean {
+        return false;
+    }
     
-}
 
-
-    public getAdConfiguration(): AdConfiguration{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.adConfigurationP;
+    public function isShowingAt():Boolean {
+        return false;
+    }
     
-}
 
-
-    public isOkayToShowPageAd(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function show():void {
+    }
     
-}
 
-
-    public setOkayToShowAds(okayToShowAds: boolean){
-this.okayToShowAdsP= okayToShowAds;
+    public function hide():void {
+    }
     
-}
 
-
-    public isOkayToShowAds(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.okayToShowAdsP;
+    public function onEvent(eventObject:AllBinaryEventObject):void {
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
+    }
     
-}
 
-
-    public isEnabled(): boolean{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return false;
+    public function processAdState(gameState:GameState, gameType:GameType):void {
+    }
     
-}
 
+    public function processPageAdState():void {
+    }
+    
 
+    public function playingAdState():void {
+    }
+    
+
+    public function playingAdStateWH(width:int, height:int):void {
+    }
+    
+
+    public function notPlayingAdState():void {
+    }
+    
+
+    public function setGameIsReady(gameIsReady:Boolean):void {
+    }
+    
+
+    public function isGameIsReady():Boolean {
+        return false;
+    }
+    
+
+    public function getAdvertisements():Advertisements {
+        return this.advertisementsP;
+    }
+    
+
+    public function getAdConfiguration():AdConfiguration {
+        return this.adConfigurationP;
+    }
+    
+
+    public function isOkayToShowPageAd():Boolean {
+        return false;
+    }
+    
+
+    public function setOkayToShowAds(okayToShowAds:Boolean):void {
+        this.okayToShowAdsP = okayToShowAds;
+    }
+    
+
+    public function isOkayToShowAds():Boolean {
+        return this.okayToShowAdsP;
+    }
+    
+
+    public function isEnabled():Boolean {
+        return false;
+    }
+    }
 }
 

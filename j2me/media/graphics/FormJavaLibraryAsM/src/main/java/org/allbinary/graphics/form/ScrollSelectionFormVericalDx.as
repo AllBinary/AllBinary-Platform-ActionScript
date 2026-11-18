@@ -1,75 +1,40 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.form {
+    import org.allbinary.graphics.form.item.ABCustomItem;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ScrollSelectionFormVericalDx extends ItemIndexDx {
+        private var scrollSelectionForm:ScrollSelectionForm = null;
 
-        
-
-
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { ABCustomItem } from '../../../../org/allbinary/graphics/form/item/ABCustomItem.js';
-//not GWT import const ABCustomItem
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ItemIndexDx } from './ItemIndexDx.js';
-//sameFolderImports - not GWT import - same folder const ItemIndexDx
-import { ScrollSelectionForm } from './ScrollSelectionForm.js';
-//sameFolderImports - not GWT import - same folder const ScrollSelectionForm
-
-export class ScrollSelectionFormVericalDx extends ItemIndexDx {
-        
-
-    private readonly scrollSelectionForm: ScrollSelectionForm;
-
-public constructor (scrollSelectionForm: ScrollSelectionForm){
-
-            super();
-        this.scrollSelectionForm= scrollSelectionForm;
+        // Java field initializers run after the base constructor
+        private function initFieldsScrollSelectionFormVericalDx():void {
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getDx(index: number, item: ABCustomItem, dx: number, dy: number): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.scrollSelectionForm!.getSelectedIndexForPointVerticalDx(index, item, dx, dy);;
+        }
     
-}
 
+    public function ScrollSelectionFormVericalDx(scrollSelectionForm:ScrollSelectionForm) {
+        super();
+        this.initFieldsScrollSelectionFormVericalDx();
+        this.scrollSelectionForm = scrollSelectionForm;
+    }
+    
 
+    override public function getDx(index:int, item:ABCustomItem, dx:int, dy:int):int {
+        return this.scrollSelectionForm.getSelectedIndexForPointVerticalDx(index, item, dx, dy);
+    }
+    }
 }
 

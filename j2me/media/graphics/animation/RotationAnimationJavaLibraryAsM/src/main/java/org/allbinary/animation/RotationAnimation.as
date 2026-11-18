@@ -1,200 +1,122 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation {
+    import org.allbinary.direction.Direction;
+    import org.allbinary.direction.DirectionUtil;
+    import org.allbinary.logic.string.StringMaker;
+    import org.allbinary.math.Angle;
+    import org.allbinary.math.AngleInfo;
+    import org.allbinary.math.FrameUtil;
+    import org.allbinary.util.CircularIndexUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class RotationAnimation extends IndexedAnimation implements RotationAnimationInterface {
+        public var frameUtil:FrameUtil = null;
+        public var directionUtil:DirectionUtil = null;
+        public var angleInfo:AngleInfo = null;
+        public var circularIndexUtil:CircularIndexUtil = null;
 
-        
-
-
-import { Direction } from '../../../org/allbinary/direction/Direction.js';
-//not GWT import const Direction
-
-import { DirectionUtil } from '../../../org/allbinary/direction/DirectionUtil.js';
-//not GWT import const DirectionUtil
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-import { Angle } from '../../../org/allbinary/math/Angle.js';
-//not GWT import const Angle
-
-import { AngleInfo } from '../../../org/allbinary/math/AngleInfo.js';
-//not GWT import const AngleInfo
-
-import { FrameUtil } from '../../../org/allbinary/math/FrameUtil.js';
-//not GWT import const FrameUtil
-
-//not plain js import { CircularIndexUtil } 
-const CircularIndexUtil = globalThis.org.allbinary.util.CircularIndexUtil;
-type CircularIndexUtil<T = any, U = any> = typeof CircularIndexUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof CircularIndexUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { IndexedAnimation } from './IndexedAnimation.js';
-//sameFolderImports - not GWT import - same folder const IndexedAnimation
-import { RotationAnimationInterface } from './RotationAnimationInterface.js';
-//sameFolderImports - not GWT import - same folder const RotationAnimationInterface
-import { AnimationBehavior } from './AnimationBehavior.js';
-//sameFolderImports - not GWT import - same folder const AnimationBehavior
-
-export class RotationAnimation extends IndexedAnimation implements RotationAnimationInterface {
-        
-
-    readonly frameUtil: FrameUtil = FrameUtil.getInstance()!;
-
-    readonly directionUtil: DirectionUtil = DirectionUtil.getInstance()!;
-
-    readonly angleInfo: AngleInfo;
-
-    circularIndexUtil: CircularIndexUtil;
-
-protected constructor (angleInfo: AngleInfo, circularIndexUtil: CircularIndexUtil, animationBehavior: AnimationBehavior){
-            super(animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.angleInfo= angleInfo;
+        // Java field initializers run after the base constructor
+        private function initFieldsRotationAnimation():void {
+    this.frameUtil = FrameUtil.getInstance();
+    this.directionUtil = DirectionUtil.getInstance();
     
-this.circularIndexUtil= circularIndexUtil;
     
-}
-
-
-    public nextRotationX(){
-}
-
-
-    public previousRotationX(){
-}
-
-
-    public nextRotation(){
-this.angleInfo!.adjustAngle(this.circularIndexUtil!.next());
-    
-}
-
-
-    public previousRotation(){
-this.angleInfo!.adjustAngle(this.circularIndexUtil!.previous());
-    
-}
-
-
-    public nextRotationZ(){
-}
-
-
-    public previousRotationZ(){
-}
-
-
-    public setFrame(index: number){
-this.circularIndexUtil!.setIndex(index);
+        }
     
 
-    let newFrame: number = this.circularIndexUtil!.getIndex()!;;
+    public function RotationAnimation(angleInfo:AngleInfo, circularIndexUtil:CircularIndexUtil, animationBehavior:AnimationBehavior) {
+        super(animationBehavior);
+        this.initFieldsRotationAnimation();
+        this.angleInfo = angleInfo;
+        this.circularIndexUtil = circularIndexUtil;
+    }
     
-this.angleInfo!.adjustAngle(newFrame);
+
+    public function nextRotationX():void {
+    }
     
-}
 
-
-    public setFrameByDirection(direction: Direction){
-
-    let angle: Angle = this.directionUtil!.getFrameAngle(direction)!;;
+    public function previousRotationX():void {
+    }
     
-this.adjustFrameToAngle(angle);
+
+    public function nextRotation():void {
+        this.angleInfo.adjustAngle(this.circularIndexUtil.next());
+    }
     
-}
 
-
-    public setFrameToAngle(angle: Angle){
-this.adjustFrameToAngle(angle);
+    public function previousRotation():void {
+        this.angleInfo.adjustAngle(this.circularIndexUtil.previous());
+    }
     
-}
 
-
-    public adjustFrameToAngle(angle: Angle){
-this.adjustFrame(angle.getValue());
+    public function nextRotationZ():void {
+    }
     
-}
 
-
-    public adjustFrame(angle: number){
-this.setFrame(this.frameUtil!.getFrameForAngle(angle, globalThis.Math.trunc(this.angleInfo!.getAngleIncrementInfo()!.getAngleIncrement())));
+    public function previousRotationZ():void {
+    }
     
-}
 
-
-    public getFrame(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.circularIndexUtil!.getIndex();;
+    override public function setFrame(index:int):void {
+        this.circularIndexUtil.setIndex(index);
+        var newFrame:int = this.circularIndexUtil.getIndex();
+        this.angleInfo.adjustAngle(newFrame);
+    }
     
-}
 
-
-    public getSize(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.circularIndexUtil!.getSize();;
+    public function setFrameByDirection(direction:Direction):void {
+        var angle:Angle = this.directionUtil.getFrameAngle(direction);
+        this.adjustFrameToAngle(angle);
+    }
     
-}
 
-
-    public getAngleInfoP(): AngleInfo{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.angleInfo;
+    public function setFrameToAngle(angle:Angle):void {
+        this.adjustFrameToAngle(angle);
+    }
     
-}
 
-
-    public toString(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return new StringMaker().append(super.toString())!.append("circularIndexUtil: ")!.append(this.circularIndexUtil!.toString())!.append("angleInfo: ")!.append(this.angleInfo!.toString())!.toString();;
+    public function adjustFrameToAngle(angle:Angle):void {
+        this.adjustFrame(angle.getValue());
+    }
     
-}
 
+    public function adjustFrame(angle:int):void {
+        this.setFrame(this.frameUtil.getFrameForAngle(angle, this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
+    }
+    
 
+    override public function getFrame():int {
+        return this.circularIndexUtil.getIndex();
+    }
+    
+
+    override public function getSize():int {
+        return this.circularIndexUtil.getSize();
+    }
+    
+
+    public function getAngleInfoP():AngleInfo {
+        return this.angleInfo;
+    }
+    
+
+    public function toString():String {
+        return new StringMaker().append(super.toString()).append("circularIndexUtil: ").append(this.circularIndexUtil.toString()).append("angleInfo: ").append(this.angleInfo.toString()).toString();
+    }
+    }
 }
 

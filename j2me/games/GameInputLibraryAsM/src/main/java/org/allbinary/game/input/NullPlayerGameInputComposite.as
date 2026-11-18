@@ -1,95 +1,50 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.input {
+    import org.allbinary.layer.AllBinaryLayerManager;
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { AllBinaryLayerManager } from '../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { PlayerGameInputCompositeInterface } from './PlayerGameInputCompositeInterface.js';
-//sameFolderImports - not GWT import - same folder const PlayerGameInputCompositeInterface
-import { NoPlayerGameInput } from './NoPlayerGameInput.js';
-//sameFolderImports - not GWT import - same folder const NoPlayerGameInput
-import { PlayerGameInput } from './PlayerGameInput.js';
-//sameFolderImports - not GWT import - same folder const PlayerGameInput
-
-export class NullPlayerGameInputComposite
-            extends Object
-         implements PlayerGameInputCompositeInterface {
-        
-
-    public static readonly NULL_PLAYER_GAME_INPUT_COMPOSITE: NullPlayerGameInputComposite = new NullPlayerGameInputComposite();
-
-    public getName(): string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return StringUtil.getInstance()!.EMPTY_STRING;
+    public class NullPlayerGameInputComposite implements PlayerGameInputCompositeInterface {
+    private static var NULL_PLAYER_GAME_INPUT_COMPOSITE_value:NullPlayerGameInputComposite;
+    private static var NULL_PLAYER_GAME_INPUT_COMPOSITE_set:Boolean = false;
+    public static function get NULL_PLAYER_GAME_INPUT_COMPOSITE():NullPlayerGameInputComposite {
+        if (!NullPlayerGameInputComposite.NULL_PLAYER_GAME_INPUT_COMPOSITE_set) {
+            NullPlayerGameInputComposite.NULL_PLAYER_GAME_INPUT_COMPOSITE_set = true;
+            NullPlayerGameInputComposite.NULL_PLAYER_GAME_INPUT_COMPOSITE_value = new NullPlayerGameInputComposite();
+        }
+        return NullPlayerGameInputComposite.NULL_PLAYER_GAME_INPUT_COMPOSITE_value;
+    }
     
-}
 
-
-                //@Throws(Exception.constructor)
-            
-    public processInput(layerManager: AllBinaryLayerManager){
-}
-
-
-    public initInputProcessors(){
-}
-
-
-    public getPlayerGameInput(): PlayerGameInput{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return NoPlayerGameInput.getInstance();;
+    public function getName():String {
+        return StringUtil.getInstance().EMPTY_STRING;
+    }
     
-}
 
+    public function processInput(layerManager:AllBinaryLayerManager):void {
+    }
+    
 
+    public function initInputProcessors():void {
+    }
+    
+
+    public function getPlayerGameInput():PlayerGameInput {
+        return NoPlayerGameInput.getInstance();
+    }
+    }
 }
 

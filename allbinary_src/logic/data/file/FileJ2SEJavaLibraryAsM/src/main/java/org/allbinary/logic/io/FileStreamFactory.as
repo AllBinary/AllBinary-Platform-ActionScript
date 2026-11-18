@@ -1,152 +1,71 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.logic.io {
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.io.file.AbFile;
+    import org.allbinary.logic.io.path.AbPath;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-import { AbFile } from '../../../../org/allbinary/logic/io/file/AbFile.js';
-//not GWT import const AbFile
-
-import { AbPath } from '../../../../org/allbinary/logic/io/path/AbPath.js';
-//not GWT import const AbPath
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { AbFileInputStream } from './AbFileInputStream.js';
-//sameFolderImports - not GWT import - same folder const AbFileInputStream
-import { AbFileOutputStream } from './AbFileOutputStream.js';
-//sameFolderImports - not GWT import - same folder const AbFileOutputStream
-
-export class FileStreamFactory
-            extends Object
-         {
-        
-
-    private static SINGLETON: any = NullUtil.getInstance()!.NULL_OBJECT;
-
-    public static getInstance(): FileStreamFactory{
-
-                        if(FileStreamFactory.SINGLETON == NullUtil.getInstance()!.NULL_OBJECT)
-                        
-                                    {
-                                    FileStreamFactory.SINGLETON= new FileStreamFactory();
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return FileStreamFactory.SINGLETON as FileStreamFactory;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class FileStreamFactory {
+    private static var SINGLETON_value:Object;
+    private static var SINGLETON_set:Boolean = false;
+    private static function get SINGLETON():Object {
+        if (!FileStreamFactory.SINGLETON_set) {
+            FileStreamFactory.SINGLETON_set = true;
+            FileStreamFactory.SINGLETON_value = NullUtil.getInstance().NULL_OBJECT;
         }
-
-
-                //@Throws(Exception.constructor)
-            
-    public getFileInputStreamInstance(path: string, fileName: string): AbFileInputStream{
-
-    let FILEABPATH: AbPath = new AbPath(path, fileName);;
+        return FileStreamFactory.SINGLETON_value;
+    }
     
 
-    let file: AbFile = AbFile.createAbFileFromAbPath(FILEABPATH)!;;
+    public static function getInstance():FileStreamFactory {
+        if (FileStreamFactory.SINGLETON == NullUtil.getInstance().NULL_OBJECT) {
+            FileStreamFactory.SINGLETON = new FileStreamFactory();
+        }
+        return (FileStreamFactory.SINGLETON as FileStreamFactory);
+    }
     
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AbFileInputStream.createFromAbFile(file);;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public getFileOutputStreamInstance(path: string, fileName: string): AbFileOutputStream{
-
-    let FILEABPATH: AbPath = new AbPath(path, fileName);;
+    public function FileStreamFactory() {
+        super();
+    }
     
 
-    let file: AbFile = AbFile.createAbFileFromAbPath(FILEABPATH)!;;
+    public function getFileInputStreamInstance(path:String, fileName:String):AbFileInputStream {
+        var FILEABPATH:AbPath = new AbPath(path, fileName);
+        var file:AbFile = AbFile.createAbFileFromAbPath(FILEABPATH);
+        return AbFileInputStream.createFromAbFile(file);
+    }
     
 
-                        if(file.exists())
-                        
-                                    {
-                                    file.delete();
-    
-file.createNewFile();
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return AbFileOutputStream.createFromAbFile(file);;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public delete(path: string, fileName: string){
-
-    let FILEABPATH: AbPath = new AbPath(path, fileName);;
+    public function getFileOutputStreamInstance(path:String, fileName:String):AbFileOutputStream {
+        var FILEABPATH:AbPath = new AbPath(path, fileName);
+        var file:AbFile = AbFile.createAbFileFromAbPath(FILEABPATH);
+        if (file.exists()) {
+            file.delete_();
+            file.createNewFile();
+        }
+        return AbFileOutputStream.createFromAbFile(file);
+    }
     
 
-    let file: AbFile = AbFile.createAbFileFromAbPath(FILEABPATH)!;;
-    
-file.delete();
-    
-}
-
-
+    public function delete_(path:String, fileName:String):void {
+        var FILEABPATH:AbPath = new AbPath(path, fileName);
+        var file:AbFile = AbFile.createAbFileFromAbPath(FILEABPATH);
+        file.delete_();
+    }
+    }
 }
 

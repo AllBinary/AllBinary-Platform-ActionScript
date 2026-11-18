@@ -1,132 +1,74 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.combat.damage {
+    import org.allbinary.game.layer.CollidableCompositeLayer;
+    import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
+    import org.allbinary.logic.communication.log.LogUtil;
+    import org.allbinary.logic.string.StringMaker;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { CollidableCompositeLayer } from '../../../../../org/allbinary/game/layer/CollidableCompositeLayer.js';
-//not GWT import const CollidableCompositeLayer
-
-import { CollidableDestroyableDamageableLayer } from '../../../../../org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.js';
-//not GWT import const CollidableDestroyableDamageableLayer
-
-//not plain js import { LogUtil } 
-const LogUtil = globalThis.org.allbinary.logic.communication.log.LogUtil;
-type LogUtil<T = any, U = any> = typeof LogUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof LogUtil;
-
-//not plain js import { StringMaker } 
-const StringMaker = globalThis.org.allbinary.logic.string.StringMaker;
-type StringMaker<T = any, U = any> = typeof StringMaker extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringMaker;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { DamageableInterface } from './DamageableInterface.js';
-//sameFolderImports - not GWT import - same folder const DamageableInterface
-
-export class DamageUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: DamageUtil = new DamageUtil();
-
-    public static getInstance(): DamageUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return DamageUtil.instance;
-    
-}
-
-
-    readonly logUtil: LogUtil = LogUtil.getInstance()!;
-
-    public readonly COLLIDE: string = "collide";
-
-private constructor (){
-
-            super();
+    public class DamageUtil {
+    private static var instance_value:DamageUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():DamageUtil {
+        if (!DamageUtil.instance_set) {
+            DamageUtil.instance_set = true;
+            DamageUtil.instance_value = new DamageUtil();
         }
+        return DamageUtil.instance_value;
+    }
+        public var logUtil:LogUtil = null;
+        public var COLLIDE:String = null;
 
-
-                //@Throws(Exception.constructor)
-            
-    public process(damageableInterface: DamageableInterface, damageableInterface2: DamageableInterface){
-damageableInterface!.damage(damageableInterface2!.getDamage(0), 0);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public debugDamage(collidableInterfaceCompositeInterface1: CollidableCompositeLayer, collidableInterfaceCompositeInterface: CollidableCompositeLayer){
-
-    let collidableDestroyableDamageableLayer: CollidableDestroyableDamageableLayer = collidableInterfaceCompositeInterface as CollidableDestroyableDamageableLayer;;
+        // Java field initializers run after the base constructor
+        private function initFieldsDamageUtil():void {
+    this.logUtil = LogUtil.getInstance();
+    this.COLLIDE = "collide";
+        }
     
 
-    let damage: number = collidableDestroyableDamageableLayer!.getDamage(0)!;;
+    public static function getInstance():DamageUtil {
+        return DamageUtil.instance;
+    }
     
 
-                        if(damage > 20000)
-                        
-                                    {
-                                    
-    let stringBuffer: StringMaker = new StringMaker();;
-    
-stringBuffer!.append("Collision ");
-    
-stringBuffer!.append(collidableInterfaceCompositeInterface1!.toString());
-    
-stringBuffer!.append(" with: ");
-    
-stringBuffer!.append(collidableInterfaceCompositeInterface!.toString());
-    
-stringBuffer!.append(" damage: ");
-    
-stringBuffer!.appendint(damage);
-    
-this.logUtil!.putF(stringBuffer!.toString(), collidableInterfaceCompositeInterface1, this.COLLIDE);
+    public function DamageUtil() {
+        super();
+        this.initFieldsDamageUtil();
+    }
     
 
-                                    }
-                                
-}
+    public function process(damageableInterface:DamageableInterface, damageableInterface2:DamageableInterface):void {
+        damageableInterface.damage(damageableInterface2.getDamage(0), 0);
+    }
+    
 
-
+    public function debugDamage(collidableInterfaceCompositeInterface1:CollidableCompositeLayer, collidableInterfaceCompositeInterface:CollidableCompositeLayer):void {
+        var collidableDestroyableDamageableLayer:CollidableDestroyableDamageableLayer = (collidableInterfaceCompositeInterface as CollidableDestroyableDamageableLayer);
+        var damage:int = collidableDestroyableDamageableLayer.getDamage(0);
+        if (damage > 20000) {
+            var stringBuffer:StringMaker = new StringMaker();
+            stringBuffer.append("Collision ");
+            stringBuffer.append(collidableInterfaceCompositeInterface1.toString());
+            stringBuffer.append(" with: ");
+            stringBuffer.append(collidableInterfaceCompositeInterface.toString());
+            stringBuffer.append(" damage: ");
+            stringBuffer.appendint(damage);
+            this.logUtil.putF(stringBuffer.toString(), collidableInterfaceCompositeInterface1, this.COLLIDE);
+        }
+    }
+    }
 }
 

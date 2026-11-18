@@ -1,68 +1,45 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.graphics.threed {
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class GLHolder {
+        public var isCreated:Boolean = false;
 
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class GLHolder
-            extends Object
-         {
-        
-
-    public isCreated: boolean = true;
-
-public constructor (){
-
-            super();
+        // Java field initializers run after the base constructor
+        private function initFieldsGLHolder():void {
+    this.isCreated = true;
         }
+    
 
+    public function GLHolder() {
+        super();
+        this.initFieldsGLHolder();
+    }
+    
 
-    public runOnSurfaceCreated(renderer: any){
-}
+    public function runOnSurfaceCreated(renderer:Object):void {
+    }
+    
 
+    public function runOnSurfaceChanged(renderer:Object, width:int, height:int):void {
+    }
+    
 
-    public runOnSurfaceChanged(renderer: any, width: number, height: number){
-}
-
-
-    public run(renderer: any){
-}
-
-
+    public function run(renderer:Object):void {
+    }
+    }
 }
 

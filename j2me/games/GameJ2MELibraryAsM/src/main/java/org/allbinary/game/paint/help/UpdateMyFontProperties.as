@@ -1,70 +1,46 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.paint.help {
+    import org.allbinary.logic.NullUtil;
+    import org.allbinary.logic.string.StringUtil;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class UpdateMyFontProperties {
+        public var actionStringArray:Vector.<String> = null;
+        public var keymappingBeginWidthArray:Vector.<int> = null;
+        public var actionStringDeltaXArray:Vector.<int> = null;
+        public var inputDeltaXArray:Vector.<Vector.<int>> = null;
+        public var sepArray:Vector.<Vector.<String>> = null;
+        public var sepWidthArray:Vector.<Vector.<int>> = null;
+        public var charHeight:int = 0;
 
-        
+        // Java field initializers run after the base constructor
+        private function initFieldsUpdateMyFontProperties():void {
+    this.actionStringArray = StringUtil.getInstance().getArrayInstance();
+    this.keymappingBeginWidthArray = NullUtil.getInstance().NULL_INT_ARRAY;
+    this.actionStringDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY;
+    this.inputDeltaXArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
+    this.sepArray = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY_OF_ARRAYS;
+    this.sepWidthArray = NullUtil.getInstance().NULL_INT_ARRAY_ARRAY;
+    this.charHeight = 0;
+        }
 
-
-            import { Object } from '../../../../../java/lang/Object.js';
-        
-//not plain js import { NullUtil } 
-const NullUtil = globalThis.org.allbinary.logic.NullUtil;
-type NullUtil<T = any, U = any> = typeof NullUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof NullUtil;
-
-//not plain js import { StringUtil } 
-const StringUtil = globalThis.org.allbinary.logic.string.StringUtil;
-type StringUtil<T = any, U = any> = typeof StringUtil extends abstract new (...args: any[]) => infer Instance ? Instance : typeof StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class UpdateMyFontProperties
-            extends Object
-         {
-        
-
-    actionStringArray: string[] = StringUtil.getInstance()!.getArrayInstance()!;
-
-    keymappingBeginWidthArray: number[] = NullUtil.getInstance()!.NULL_INT_ARRAY;
-
-    actionStringDeltaXArray: number[] = NullUtil.getInstance()!.NULL_INT_ARRAY;
-
-    inputDeltaXArray: number[][] = NullUtil.getInstance()!.NULL_INT_ARRAY_ARRAY;
-
-    sepArray: string[][] = StringUtil.getInstance()!.ONE_EMPTY_STRING_ARRAY_OF_ARRAYS;
-
-    sepWidthArray: number[][] = NullUtil.getInstance()!.NULL_INT_ARRAY_ARRAY;
-
-    charHeight: number= 0;
-
+        public function UpdateMyFontProperties() {
+            super();
+            this.initFieldsUpdateMyFontProperties();
+        }
+    }
 }
 

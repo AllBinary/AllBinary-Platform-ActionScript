@@ -1,107 +1,52 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.media.image {
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-
-        
-
-
-            import { Object } from '../../../../java/lang/Object.js';
-        
-            import { Exception } from '../../../../java/lang/Exception.js';
-        
-import { Image } from '../../../../javax/microedition/lcdui/Image.js';
-//not GWT import const Image
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { ImageRotationUtil } from './ImageRotationUtil.js';
-//sameFolderImports - not GWT import - same folder const ImageRotationUtil
-
-export class ImageToRotationImageArrayUtil
-            extends Object
-         {
-        
-
-    private static readonly instance: ImageToRotationImageArrayUtil = new ImageToRotationImageArrayUtil();
-
-    public static getInstance(): ImageToRotationImageArrayUtil{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return ImageToRotationImageArrayUtil.instance;
-    
-}
-
-
-private constructor (){
-
-            super();
+    public class ImageToRotationImageArrayUtil {
+    private static var instance_value:ImageToRotationImageArrayUtil;
+    private static var instance_set:Boolean = false;
+    private static function get instance():ImageToRotationImageArrayUtil {
+        if (!ImageToRotationImageArrayUtil.instance_set) {
+            ImageToRotationImageArrayUtil.instance_set = true;
+            ImageToRotationImageArrayUtil.instance_value = new ImageToRotationImageArrayUtil();
         }
-
-
-                //@Throws(Exception.constructor)
-            
-    public generate(image: Image, angleIncrement: number, totalAngle: number): Image[]{
-
-    let imageRotationUtil: ImageRotationUtil = ImageRotationUtil.getInstance()!;;
+        return ImageToRotationImageArrayUtil.instance_value;
+    }
     
 
-    let totalFrames: number = globalThis.Math.trunc(totalAngle /angleIncrement);;
+    public static function getInstance():ImageToRotationImageArrayUtil {
+        return ImageToRotationImageArrayUtil.instance;
+    }
     
 
-    let imageArray: Image[] = new Array(totalFrames);;
+    public function ImageToRotationImageArrayUtil() {
+        super();
+    }
     
-imageArray[0]= image;
-    
 
-
-
-
-                        for (
-    let index: number = 1;index < totalFrames; index++)
-        {
-imageArray[index]= imageRotationUtil!.createRotatedImage(image, index *angleIncrement);
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return imageArray;
-    
-}
-
-
+    public function generate(image:Image, angleIncrement:int, totalAngle:int):Vector.<Image> {
+        var imageRotationUtil:ImageRotationUtil = ImageRotationUtil.getInstance();
+        var totalFrames:int = int(totalAngle / angleIncrement);
+        var imageArray:Vector.<Image> = new Vector.<Image>(totalFrames);
+        imageArray[0] = image;
+        for (var index:int = 1; index < totalFrames; index++) {
+            imageArray[index] = imageRotationUtil.createRotatedImage(image, int(index * angleIncrement));
+        }
+        return imageArray;
+    }
+    }
 }
 

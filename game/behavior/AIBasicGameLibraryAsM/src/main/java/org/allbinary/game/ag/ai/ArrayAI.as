@@ -1,105 +1,52 @@
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+package org.allbinary.game.ag.ai {
+    import org.allbinary.ai.ArtificialIntelligenceInterface;
+    import org.allbinary.game.input.GameInput;
+    import org.allbinary.layer.AllBinaryLayer;
+    import org.allbinary.layer.AllBinaryLayerManager;
+    import org.allbinary.game.ai.BasicAI;
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class ArrayAI extends BasicAI {
+        private var artificialIntelligenceInterfaceArray:Vector.<ArtificialIntelligenceInterface> = null;
 
-        
-
-
-            import { Exception } from '../../../../../java/lang/Exception.js';
-        
-import { ArtificialIntelligenceInterface } from '../../../../../org/allbinary/ai/ArtificialIntelligenceInterface.js';
-//not GWT import const ArtificialIntelligenceInterface
-
-import { GameInput } from '../../../../../org/allbinary/game/input/GameInput.js';
-//not GWT import const GameInput
-
-import { AllBinaryLayer } from '../../../../../org/allbinary/layer/AllBinaryLayer.js';
-//not GWT import const AllBinaryLayer
-
-import { AllBinaryLayerManager } from '../../../../../org/allbinary/layer/AllBinaryLayerManager.js';
-//not GWT import const AllBinaryLayerManager
-
-import { BasicAI } from '../../../../../org/allbinary/game/ai/BasicAI.js';
-//not GWT import const BasicAI
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-export class ArrayAI extends BasicAI {
-        
-
-    private readonly artificialIntelligenceInterfaceArray: ArtificialIntelligenceInterface[];
-
-public constructor (artificialIntelligenceInterface: ArtificialIntelligenceInterface[], ownerLayerInterface: AllBinaryLayer, gameInput: GameInput){
-            super(ownerLayerInterface, gameInput);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.artificialIntelligenceInterfaceArray= artificialIntelligenceInterface;
+        // Java field initializers run after the base constructor
+        private function initFieldsArrayAI():void {
     
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    public processAI(allBinaryLayerManager: AllBinaryLayerManager){
-
-    let size: number = this.artificialIntelligenceInterfaceArray!.length
-                ;;
+        }
     
 
-
-
-
-                        for (
-    let index: number = 0;index < size; index++)
-        {
-this.artificialIntelligenceInterfaceArray[index]!.processAI(allBinaryLayerManager);
+    public function ArrayAI(artificialIntelligenceInterface:Vector.<ArtificialIntelligenceInterface>, ownerLayerInterface:AllBinaryLayer, gameInput:GameInput) {
+        super(ownerLayerInterface, gameInput);
+        this.initFieldsArrayAI();
+        this.artificialIntelligenceInterfaceArray = artificialIntelligenceInterface;
+    }
     
-}
 
-}
-
-
-    public getArtificialIntelligenceInterface(): ArtificialIntelligenceInterface[]{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.artificialIntelligenceInterfaceArray;
+    override public function processAI(allBinaryLayerManager:AllBinaryLayerManager):void {
+        var size:int = this.artificialIntelligenceInterfaceArray.length;
+        for (var index:int = 0; index < size; index++) {
+            this.artificialIntelligenceInterfaceArray[index].processAI(allBinaryLayerManager);
+        }
+    }
     
-}
 
-
+    public function getArtificialIntelligenceInterface():Vector.<ArtificialIntelligenceInterface> {
+        return this.artificialIntelligenceInterfaceArray;
+    }
+    }
 }
 

@@ -1,107 +1,63 @@
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+package org.allbinary.animation.text {
+    import org.allbinary.animation.AnimationBehavior;
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
+    public class AdjustCustomTextAnimation extends CustomTextAnimation {
+        private var dx:int = 0;
+        private var dy:int = 0;
 
-        
-
-
-import { Graphics } from '../../../../javax/microedition/lcdui/Graphics.js';
-//not GWT import const Graphics
-
-import { AnimationBehavior } from '../../../../org/allbinary/animation/AnimationBehavior.js';
-//not GWT import const AnimationBehavior
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        import { CustomTextAnimation } from './CustomTextAnimation.js';
-//sameFolderImports - not GWT import - same folder const CustomTextAnimation
-
-export class AdjustCustomTextAnimation extends CustomTextAnimation {
-        
-
-    private dx: number;
-
-    private dy: number;
-
-public constructor (text: string, fontSize: number, dx: number, dy: number, animationBehavior: AnimationBehavior){
-            super(text, fontSize, animationBehavior);
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this.dx= dx;
+        // Java field initializers run after the base constructor
+        private function initFieldsAdjustCustomTextAnimation():void {
     
-this.dy= dy;
     
-}
-
-
-    public getDx(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.dx;
+        }
     
-}
 
-
-    public setDx(dx: number){
-this.dx= dx;
+    public function AdjustCustomTextAnimation(text:String, fontSize:int, dx:int, dy:int, animationBehavior:AnimationBehavior) {
+        super(text, fontSize, animationBehavior);
+        this.initFieldsAdjustCustomTextAnimation();
+        this.dx = dx;
+        this.dy = dy;
+    }
     
-}
 
-
-    public getDy(): number{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        return this.dy;
+    override public function getDx():int {
+        return this.dx;
+    }
     
-}
 
-
-    public setDy(dy: number){
-this.dy= dy;
+    override public function setDx(dx:int):void {
+        this.dx = dx;
+    }
     
-}
 
-
-    public paintXY(graphics: Graphics, x: number, y: number){
-super.paintXY(graphics, x +this.dx, y +this.dy);
+    override public function getDy():int {
+        return this.dy;
+    }
     
-}
 
+    override public function setDy(dy:int):void {
+        this.dy = dy;
+    }
+    
 
+    override public function paintXY(graphics:Graphics, x:int, y:int):void {
+        super.paintXY(graphics, int(x + this.dx), int(y + this.dy));
+    }
+    }
 }
 
