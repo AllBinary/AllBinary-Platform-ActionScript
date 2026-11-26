@@ -23,7 +23,7 @@ package org.allbinary.logic.communication.log.config {
     import org.w3c.dom.Node;
 
     public class LogConfig {
-        private var isEnabled:Boolean = false;
+        private var isEnabledField:Boolean = false;
         private var name:String = null;
         private var description:String = null;
         private var path:String = null;
@@ -40,27 +40,56 @@ package org.allbinary.logic.communication.log.config {
     
 
     public function LogConfig(...args) {
+        if (args.length == 2 && args[0] === JSuperArgs.ARGS) {
+            args = args[1];
+        }
+        var jsuper:Array = LogConfig.jsuperArgs(args);
         super();
         this.initFieldsLogConfig();
         this.jconstruct(args);
     }
 
+    private static function jsuperArgs(args:Array):Array {
+        if (args.length == 4) {
+            return LogConfig.jsuper_1(args[0], args[1], args[2], args[3]);
+        }
+        if (args.length == 1) {
+            return LogConfig.jsuper_2(args[0]);
+        }
+        return [];
+    }
+
+    private static function jsuper_1(aName:String, aDescription:String, aPath:String, aFileName:String):Array {
+        return [];
+    }
+
+    private static function jsuper_2(node:Node):Array {
+        return [];
+    }
+
     private function jconstruct(args:Array):void {
         if (args.length == 4) {
-            (function(aName:String, aDescription:String, aPath:String, aFileName:String):void {
-        this.isEnabled = false;
+            this.jconstruct_1(args[0], args[1], args[2], args[3]);
+            return;
+        }
+        if (args.length == 1) {
+            this.jconstruct_2(args[0]);
+            return;
+        }
+    }
+
+    private function jconstruct_1(aName:String, aDescription:String, aPath:String, aFileName:String):void {
+        this.isEnabledField = false;
         this.name = aName;
         this.description = aDescription;
         this.path = aPath;
         this.fileName = aFileName;
-            }).apply(this, args);
-            return;
-        }
-        if (args.length == 1) {
-            (function(node:Node):void {
+    }
+
+    private function jconstruct_2(node:Node):void {
         var enabledValueNode:Node = DomSearchHelper.getNode(EntryData.getInstance().ENABLE, node.getChildNodes());
         var isEnabledString:String = DomNodeHelper.getTextNodeValue(enabledValueNode);
-        this.isEnabled = BooleanUtil.getInstance().getFromString(isEnabledString);
+        this.isEnabledField = BooleanUtil.getInstance().getFromString(isEnabledString);
         var logConfigData:LogConfigData = LogConfigData.getInstance();
         var nameValueNode:Node = DomSearchHelper.getNode(logConfigData.NAME, node.getChildNodes());
         this.name = DomNodeHelper.getTextNodeValue(nameValueNode);
@@ -68,9 +97,6 @@ package org.allbinary.logic.communication.log.config {
         this.description = DomNodeHelper.getTextNodeValue(descriptionValueNode);
         var fileValueNode:Node = DomSearchHelper.getNode(logConfigData.FILE, node.getChildNodes());
         this.fileName = DomNodeHelper.getTextNodeValue(fileValueNode);
-            }).apply(this, args);
-            return;
-        }
     }
     
     
@@ -81,17 +107,17 @@ package org.allbinary.logic.communication.log.config {
     
 
     public function isEnabled():Boolean {
-        return this.isEnabled;
+        return this.isEnabledField;
     }
     
 
     public function enable():void {
-        this.isEnabled = true;
+        this.isEnabledField = true;
     }
     
 
     public function disable():void {
-        this.isEnabled = false;
+        this.isEnabledField = false;
     }
     
 

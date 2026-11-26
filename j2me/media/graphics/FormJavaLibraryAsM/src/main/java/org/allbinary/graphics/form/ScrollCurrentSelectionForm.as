@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.canvas.Processor;
     import org.allbinary.graphics.Rectangle;
     import org.allbinary.graphics.color.BasicColor;
@@ -52,7 +53,15 @@ package org.allbinary.graphics.form {
     }
     
 
-    override public function init(rectangle:Rectangle, formType:FormType):void {
+    override public function init(...args):void {
+        if (args.length == 2) {
+            this.init_jo2(args[0], args[1]);
+            return;
+        }
+        super.init.apply(this, args);
+    }
+
+    private function init_jo2(rectangle:Rectangle, formType:FormType):void {
         super.init(rectangle, formType);
         var formTypeFactory:FormTypeFactory = FormTypeFactory.getInstance();
         if (formType == formTypeFactory.TEMP_HORIZONTAL_FORM) {
@@ -158,7 +167,15 @@ package org.allbinary.graphics.form {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         try {
             this.processor.process();
             var delta:int = 0;

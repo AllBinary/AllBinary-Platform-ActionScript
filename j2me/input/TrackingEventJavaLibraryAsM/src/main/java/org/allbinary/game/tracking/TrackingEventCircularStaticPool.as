@@ -27,6 +27,10 @@ package org.allbinary.game.tracking {
         }
         return TrackingEventCircularStaticPool.instance_value;
     }
+    private static function set instance(value:TrackingEventCircularStaticPool):void {
+        TrackingEventCircularStaticPool.instance_set = true;
+        TrackingEventCircularStaticPool.instance_value = value;
+    }
         private var EVENT_POOL:AllBinaryEventCircularPool = null;
 
         // Java field initializers run after the base constructor

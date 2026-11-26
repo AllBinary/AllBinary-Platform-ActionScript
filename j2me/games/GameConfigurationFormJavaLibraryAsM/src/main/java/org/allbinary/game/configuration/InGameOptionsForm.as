@@ -14,6 +14,10 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration {
+    import javax.microedition.lcdui.Choice;
+    import javax.microedition.lcdui.ChoiceConstants;
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.CommandListener;
     import org.allbinary.game.commands.GameCommandsFactory;
     import org.allbinary.game.configuration.feature.GameFeatureFormUtil;
     import org.allbinary.game.configuration.feature.InGameFeatureChoiceGroups;
@@ -55,8 +59,8 @@ package org.allbinary.game.configuration {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         var gameFeatureFormUtil:GameFeatureFormUtil = GameFeatureFormUtil.getInstance();
-        gameFeatureFormUtil.addChoiceGroup(this, InGameFeatureChoiceGroups.getExclusiveInstance().get_(), Choice.EXCLUSIVE);
-        gameFeatureFormUtil.addChoiceGroup(this, InGameFeatureChoiceGroups.getMultipleInstance().get_(), Choice.MULTIPLE);
+        gameFeatureFormUtil.addChoiceGroup(this, InGameFeatureChoiceGroups.getExclusiveInstance().get_(), ChoiceConstants.EXCLUSIVE);
+        gameFeatureFormUtil.addChoiceGroup(this, InGameFeatureChoiceGroups.getMultipleInstance().get_(), ChoiceConstants.MULTIPLE);
         this.initCommands(commandListener);
     }
     

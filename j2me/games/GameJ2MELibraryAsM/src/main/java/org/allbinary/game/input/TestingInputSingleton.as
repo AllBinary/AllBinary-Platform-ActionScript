@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.input {
+    import javax.microedition.lcdui.Canvas;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.input.event.GameKeyEvent;
     import org.allbinary.game.layer.AllBinaryGameLayer;
     import org.allbinary.graphics.RectangleFactory;
@@ -63,47 +65,24 @@ package org.allbinary.game.input {
     public function initInputProcessorsForTestInput(aTestInputInterface:TestInputInterface):void {
         var testInputInterface:TestInputInterface = aTestInputInterface;
         this.testInputPaintable = testInputInterface;
-        this.inputProcessorArray[Canvas.UP] = new GameInputProcessor() /* Java anonymous class body: implement it as a named subclass
-            
-
-            public function processEvent(allbinaryLayerManager:AllBinaryLayerManager, gameKeyEvent:GameKeyEvent):void {
-                testInputInterface.up();
-            } */;
-        this.inputProcessorArray[Canvas.DOWN] = new GameInputProcessor() /* Java anonymous class body: implement it as a named subclass
-            
-
-            public function processEvent(allbinaryLayerManager:AllBinaryLayerManager, gameKeyEvent:GameKeyEvent):void {
-                testInputInterface.down();
-            } */;
-        this.inputProcessorArray[Canvas.LEFT] = new GameInputProcessor() /* Java anonymous class body: implement it as a named subclass
-            
-
-            public function processEvent(allbinaryLayerManager:AllBinaryLayerManager, gameKeyEvent:GameKeyEvent):void {
-                testInputInterface.left();
-            } */;
-        this.inputProcessorArray[Canvas.RIGHT] = new GameInputProcessor() /* Java anonymous class body: implement it as a named subclass
-            
-
-            public function processEvent(allbinaryLayerManager:AllBinaryLayerManager, gameKeyEvent:GameKeyEvent):void {
-                testInputInterface.right();
-            } */;
-        this.inputProcessorArray[Canvas.KEY_NUM7] = new GameInputProcessor() /* Java anonymous class body: implement it as a named subclass
-            
-
-            public function processEvent(allbinaryLayerManager:AllBinaryLayerManager, gameKeyEvent:GameKeyEvent):void {
-                testInputInterface.strafeLeft();
-            } */;
-        this.inputProcessorArray[Canvas.KEY_NUM9] = new GameInputProcessor() /* Java anonymous class body: implement it as a named subclass
-            
-
-            public function processEvent(allbinaryLayerManager:AllBinaryLayerManager, gameKeyEvent:GameKeyEvent):void {
-                testInputInterface.strafeRight();
-            } */;
+        this.inputProcessorArray[Canvas.UP] = new TestingInputSingleton_1(this, testInputInterface);
+        this.inputProcessorArray[Canvas.DOWN] = new TestingInputSingleton_2(this, testInputInterface);
+        this.inputProcessorArray[Canvas.LEFT] = new TestingInputSingleton_3(this, testInputInterface);
+        this.inputProcessorArray[Canvas.RIGHT] = new TestingInputSingleton_4(this, testInputInterface);
+        this.inputProcessorArray[Canvas.KEY_NUM7] = new TestingInputSingleton_5(this, testInputInterface);
+        this.inputProcessorArray[Canvas.KEY_NUM9] = new TestingInputSingleton_6(this, testInputInterface);
         GameInputProcessorUtil.init(this.inputProcessorArray);
     }
     
 
-    public function processInputList(allbinaryLayerManager:AllBinaryLayerManager, list:BasicArrayList):void {
+    public function processInputList(...args):* {
+        if (args.length == 2) {
+            return this.processInputList_jo2(args[0], args[1]);
+        }
+        throw new JException("IllegalArgumentException", "processInputList");
+    }
+
+    private function processInputList_jo2(allbinaryLayerManager:AllBinaryLayerManager, list:BasicArrayList):void {
         var key:int = 0;
         var gameKeyEvent:GameKeyEvent = null;
         var size:int = list.size();
@@ -121,7 +100,15 @@ package org.allbinary.game.input {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.testInputPaintable.paint(graphics);
     }
     

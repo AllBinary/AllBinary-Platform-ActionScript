@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.media.audio {
+    import javax.microedition.media.Player;
     import org.allbinary.logic.communication.log.PreLogUtil;
     import org.allbinary.string.CommonStrings;
     import java.lang.JRunnable;
@@ -51,7 +52,15 @@ package org.allbinary.media.audio {
     }
     
 
-    public function init():void {
+    public function init(...args):void {
+        if (args.length == 0) {
+            this.init_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo0():void {
     }
     
 

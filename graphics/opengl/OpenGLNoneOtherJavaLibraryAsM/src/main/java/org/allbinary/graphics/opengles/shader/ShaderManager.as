@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.opengles.shader {
+    import javax.microedition.khronos.opengles.GL10;
     import org.allbinary.string.CommonStrings;
     import org.allbinary.util.BasicArrayList;
 

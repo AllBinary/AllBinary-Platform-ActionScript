@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.text {
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Font;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.form.item.CustomTextBox;
 

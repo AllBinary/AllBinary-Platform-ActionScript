@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.ai {
+    import javax.microedition.lcdui.Canvas;
     import org.allbinary.logic.math.SmallIntegerSingletonFactory;
     import org.allbinary.time.NoTimeDelayHelper;
     import org.allbinary.util.ABHashtable;
@@ -23,7 +24,7 @@ package org.allbinary.game.ag.ai {
     
 
     public function getInstance():ABHashtable {
-        var likelyhoodIntegerArray:Vector.<Vector.<*>> = (function():Vector.<Vector.<*>> { var array:Vector.<Vector.<*>> = new Vector.<Vector.<*>>(Canvas.KEY_NUM9 + 1); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<*>(2); } return array; })();
+        var likelyhoodIntegerArray:Vector.<Vector.<*>> = (function():Vector.<Vector.<*>> { var array:Vector.<Vector.<*>> = new Vector.<Vector.<*>>(int(Canvas.KEY_NUM9 + 1)); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<*>(2); } return array; })();
         var smallIntegerSingletonFactory:SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         likelyhoodIntegerArray[Canvas.UP][0] = smallIntegerSingletonFactory.getAt(0);
         likelyhoodIntegerArray[Canvas.UP][1] = smallIntegerSingletonFactory.getAt(10);
@@ -39,7 +40,7 @@ package org.allbinary.game.ag.ai {
         likelyhoodIntegerArray[Canvas.KEY_NUM9][1] = smallIntegerSingletonFactory.getAt(30);
         likelyhoodIntegerArray[Canvas.KEY_NUM1][0] = smallIntegerSingletonFactory.getAt(30);
         likelyhoodIntegerArray[Canvas.KEY_NUM1][1] = smallIntegerSingletonFactory.getAt(40);
-        var repeatLikelyhoodIntegerArray:Vector.<*> = new Vector.<*>(Canvas.KEY_NUM9 + 1);
+        var repeatLikelyhoodIntegerArray:Vector.<*> = new Vector.<*>(int(Canvas.KEY_NUM9 + 1));
         repeatLikelyhoodIntegerArray[Canvas.UP] = smallIntegerSingletonFactory.getAt(0);
         repeatLikelyhoodIntegerArray[Canvas.DOWN] = smallIntegerSingletonFactory.getAt(0);
         repeatLikelyhoodIntegerArray[Canvas.LEFT] = smallIntegerSingletonFactory.getAt(0);

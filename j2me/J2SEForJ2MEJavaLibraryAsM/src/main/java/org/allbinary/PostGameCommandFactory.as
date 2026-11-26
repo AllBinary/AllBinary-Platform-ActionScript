@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary {
+    import javax.microedition.lcdui.Canvas;
     import org.allbinary.game.configuration.feature.MultiPlayerGameFeatureFactory;
 
     public class PostGameCommandFactory {

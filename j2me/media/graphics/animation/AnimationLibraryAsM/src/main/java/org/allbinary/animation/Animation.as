@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation {
+    import javax.microedition.khronos.opengles.GL;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.color.BasicColorFactory;
     import org.allbinary.graphics.color.BasicColorSetUtil;
@@ -111,7 +113,14 @@ package org.allbinary.animation {
     }
     
 
-    public function set_(gl:GL):void {
+    public function set_(...args):* {
+        if (args.length == 1) {
+            return this.set__jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "set");
+    }
+
+    private function set__jo1(gl:GL):void {
     }
     
 

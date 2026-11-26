@@ -28,6 +28,10 @@ package org.allbinary.logic.io {
         }
         return FileStreamFactory.SINGLETON_value;
     }
+    private static function set SINGLETON(value:Object):void {
+        FileStreamFactory.SINGLETON_set = true;
+        FileStreamFactory.SINGLETON_value = value;
+    }
     
 
     public static function getInstance():FileStreamFactory {

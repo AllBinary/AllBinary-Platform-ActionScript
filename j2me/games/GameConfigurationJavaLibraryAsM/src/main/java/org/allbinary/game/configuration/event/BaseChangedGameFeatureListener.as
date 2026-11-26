@@ -58,7 +58,14 @@ package org.allbinary.game.configuration.event {
     }
     
 
-    public function add(gameFeature:Feature):void {
+    public function add(...args):* {
+        if (args.length == 1) {
+            return this.add_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "add");
+    }
+
+    private function add_jo1(gameFeature:Feature):void {
         this.list.add(gameFeature);
     }
     

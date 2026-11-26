@@ -14,6 +14,10 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.image.opengles {
+    import javax.microedition.khronos.opengles.GL;
+    import javax.microedition.khronos.opengles.GL10;
+    import javax.microedition.lcdui.Image;
+    import javax.microedition.lcdui.NullImage;
     import org.allbinary.platform.graphics.PlatformBitmapBase;
     import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
     import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
@@ -68,7 +72,14 @@ package org.allbinary.image.opengles {
     }
     
 
-    override public function set_(gl:GL):void {
+    public function set_(...args):* {
+        if (args.length == 1) {
+            return this.set__jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "set");
+    }
+
+    private function set__jo1(gl:GL):void {
         throw new JException("Exception", this.commonStrings.NOT_IMPLEMENTED);
     }
     
@@ -82,11 +93,19 @@ package org.allbinary.image.opengles {
     }
     
 
-    public function draw(gl:GL10, x:int, y:int, z:int):void {
+    public function draw(...args):void {
+        if (args.length == 4) {
+            this.draw_jo4(args[0], args[1], args[2], args[3]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "draw");
+    }
+
+    private function draw_jo4(gl:GL10, x:int, y:int, z:int):void {
     }
     
 
-    public function getType():int {
+    override public function getType():int {
         return OpenGLESImage.TYPE;
     }
     }

@@ -15,6 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.image {
     import java.awt.image.JBufferedImage;
+    import javax.microedition.lcdui.Image;
     import org.allbinary.logic.communication.log.PreLogUtil;
     import org.microemu.device.j2se.J2SEImmutableImage;
     import org.microemu.device.j2se.J2SEMutableImage;
@@ -51,13 +52,13 @@ package org.allbinary.media.image {
     public function rotateImage(originalImage:Image, image:Image, totalAngle:int):void {
         if (image.isMutable()) {
             var j2seImage:J2SEMutableImage = (image as J2SEMutableImage);
-            var newBufferedImage:BufferedImage = (j2seImage.getImage() as BufferedImage);
+            var newBufferedImage:JBufferedImage = (j2seImage.getImage() as JBufferedImage);
             var originalAwtImage:Image = null;
             if (originalImage.isMutable()) {
                 originalJ2SEImage = (originalImage as J2SEMutableImage);
                 originalAwtImage = (originalJ2SEImage.getImage() as Image);
             } else {
-                var originalJ2SEImage:J2SEImmutableImage = (originalImage as J2SEImmutableImage);
+                var originalJ2SEImage:* = (originalImage as J2SEImmutableImage);
                 originalAwtImage = (originalJ2SEImage.getImage() as Image);
             }
             this.imageJ2SERotationUtil.rotateImage(originalAwtImage, newBufferedImage, totalAngle);
@@ -75,12 +76,12 @@ package org.allbinary.media.image {
                 originalJ2SEImage = (originalImage as J2SEMutableImage);
                 originalAwtImage = (originalJ2SEImage.getImage() as Image);
             } else {
-                var originalJ2SEImage:J2SEImmutableImage = (originalImage as J2SEImmutableImage);
+                var originalJ2SEImage:* = (originalImage as J2SEImmutableImage);
                 originalAwtImage = (originalJ2SEImage.getImage() as Image);
             }
             var j2seImage:J2SEMutableImage = (image as J2SEMutableImage);
-            var newBufferedImage:BufferedImage = (j2seImage.getImage() as BufferedImage);
-            var bufferedImage:BufferedImage = this.imageJ2SERotationUtil.createRotatedImage(originalAwtImage, newBufferedImage, rotationInDegrees);
+            var newBufferedImage:JBufferedImage = (j2seImage.getImage() as JBufferedImage);
+            var bufferedImage:JBufferedImage = this.imageJ2SERotationUtil.createRotatedImage(originalAwtImage, newBufferedImage, rotationInDegrees);
             return image;
         } else {
             throw new JException("Exception", "Not Mutable");

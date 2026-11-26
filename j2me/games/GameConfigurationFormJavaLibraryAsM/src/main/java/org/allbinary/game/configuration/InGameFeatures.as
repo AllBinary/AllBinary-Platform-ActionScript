@@ -27,7 +27,15 @@ package org.allbinary.game.configuration {
     public class InGameFeatures extends Init {
     
 
-    override public function init():void {
+    override public function init(...args):void {
+        if (args.length == 0) {
+            this.init_jo0();
+            return;
+        }
+        super.init.apply(this, args);
+    }
+
+    private function init_jo0():void {
         var LABEL:String = "Screen Buttons";
         var orientationData:OrientationData = OrientationData.getInstance();
         var exclusiveOrientationSensorVector:BasicArrayList = (GameFeatureChoiceGroups.getExclusiveInstance().get_().get_((orientationData.ORIENTATION_SENSOR_INPUT as Object)) as BasicArrayList);

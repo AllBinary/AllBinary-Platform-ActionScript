@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.midlet {
+    import javax.microedition.lcdui.NullCanvas;
     import org.allbinary.canvas.Processor;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.string.CommonStrings;

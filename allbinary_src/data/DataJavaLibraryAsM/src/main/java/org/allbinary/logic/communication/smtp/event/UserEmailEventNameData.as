@@ -28,6 +28,10 @@ package org.allbinary.logic.communication.smtp.event {
         }
         return UserEmailEventNameData.userNameEvenNameHashMap_value;
     }
+    private static function set userNameEvenNameHashMap(value:JHashMap):void {
+        UserEmailEventNameData.userNameEvenNameHashMap_set = true;
+        UserEmailEventNameData.userNameEvenNameHashMap_value = value;
+    }
     private static var nextId:int = 0;
     private static var INSTALLER_value:UserEmailEventNameData;
     private static var INSTALLER_set:Boolean = false;

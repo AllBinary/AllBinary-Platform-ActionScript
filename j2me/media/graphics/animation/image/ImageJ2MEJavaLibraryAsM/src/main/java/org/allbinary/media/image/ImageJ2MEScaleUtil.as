@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.media.image {
+    import javax.microedition.lcdui.Image;
 
     public class ImageJ2MEScaleUtil {
     private static var instance_value:ImageJ2MEScaleUtil;
@@ -49,7 +50,7 @@ package org.allbinary.media.image {
     public function scale(image:Image, width:int, height:int):Image {
         var sourceWidth:int = image.getWidth();
         var sourceHeight:int = image.getHeight();
-        var originalData:Vector.<int> = new Vector.<int>(image.getWidth() * image.getHeight());
+        var originalData:Vector.<int> = new Vector.<int>(int(image.getWidth() * image.getHeight()));
         image.getRGB(originalData, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
         var scaledData:Vector.<int> = new Vector.<int>(int(width * height));
         var heightRatioFactor:int = int((int(8 * sourceHeight)) / height);

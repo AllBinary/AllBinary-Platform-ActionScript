@@ -29,6 +29,10 @@ package org.allbinary.input.motion.gyro.action {
         }
         return RightOrientationInputToGameKeyEventAction.instance_value;
     }
+    private static function set instance(value:Object):void {
+        RightOrientationInputToGameKeyEventAction.instance_set = true;
+        RightOrientationInputToGameKeyEventAction.instance_value = value;
+    }
     
 
     public static function getInstance():GameKeyCompleteMotionGestureInputEvent {

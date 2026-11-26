@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.paint {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.Anchor;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.color.BasicColorFactory;
@@ -63,7 +65,7 @@ package org.allbinary.game.paint {
 
     public function updateMeasurement(graphics:Graphics):void {
         var font:Font = graphics.getFont();
-        this.COPYRIGHT_Y = 2 * font.getHeight();
+        this.COPYRIGHT_Y = int(2 * font.getHeight());
         this.beginWidth = (font.stringWidth(this.COPYRIGHT) >> 1);
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
@@ -80,7 +82,15 @@ package org.allbinary.game.paint {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
         graphics.setColor(this.color);
         var halfWidth:int = this.displayInfo.getLastHalfWidth();

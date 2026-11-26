@@ -47,8 +47,8 @@ package org.allbinary.globals {
     this.TEMPLATEPATH = "template" + AbPathData.getInstance().SEPARATOR;
     this.STYLEPATH = this.TEMPLATEPATH + "style" + AbPathData.getInstance().SEPARATOR;
     this.THEMEPATH = this.STYLEPATH + "theme" + AbPathData.getInstance().SEPARATOR;
-    this.DBINITPATH = .PATH_GLOBALS.getInstance().INIT_PATH + "db" + AbPathData.getInstance().SEPARATOR;
-    this.LINEDATAPATH = .PATH_GLOBALS.getInstance().INIT_PATH + "lineData" + AbPathData.getInstance().SEPARATOR;
+    this.DBINITPATH = PATH_GLOBALS.getInstance().INIT_PATH + "db" + AbPathData.getInstance().SEPARATOR;
+    this.LINEDATAPATH = PATH_GLOBALS.getInstance().INIT_PATH + "lineData" + AbPathData.getInstance().SEPARATOR;
     
     
     
@@ -70,7 +70,7 @@ package org.allbinary.globals {
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
         this.INSTALLPATH = stringBuffer.toString();
         stringBuffer.delete_(0, stringBuffer.length());
-        stringBuffer.append(.PATH_GLOBALS.getInstance().INIT_PATH);
+        stringBuffer.append(PATH_GLOBALS.getInstance().INIT_PATH);
         stringBuffer.append("views");
         stringBuffer.append(AbPathData.getInstance().SEPARATOR);
         this.XSLPATH = stringBuffer.toString();

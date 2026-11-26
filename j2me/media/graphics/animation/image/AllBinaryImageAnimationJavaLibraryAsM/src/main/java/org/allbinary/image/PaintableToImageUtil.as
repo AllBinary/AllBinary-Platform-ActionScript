@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.image {
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Image;
     import org.allbinary.graphics.paint.PaintableInterface;
 
     public class PaintableToImageUtil {

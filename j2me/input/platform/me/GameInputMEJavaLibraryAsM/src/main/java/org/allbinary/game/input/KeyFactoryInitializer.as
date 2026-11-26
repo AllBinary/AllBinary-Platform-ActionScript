@@ -31,7 +31,15 @@ package org.allbinary.game.input {
         }
     
 
-    override public function init():void {
+    override public function init(...args):void {
+        if (args.length == 0) {
+            this.init_jo0();
+            return;
+        }
+        super.init.apply(this, args);
+    }
+
+    private function init_jo0():void {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.INIT);
     }
     }

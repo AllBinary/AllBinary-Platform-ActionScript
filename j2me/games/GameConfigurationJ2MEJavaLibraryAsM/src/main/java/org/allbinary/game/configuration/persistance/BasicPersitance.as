@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.persistance {
+    import javax.microedition.rms.RecordStore;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.logic.communication.log.PreLogUtil;
     import org.allbinary.logic.string.StringMaker;
@@ -61,7 +62,7 @@ package org.allbinary.game.configuration.persistance {
         var size:int = this.idList.size();
         for (var index:int = 0; index < size; index++) {
             var integer:* = (this.idList.objectArray[index] as *);
-            this.delete_(abeClientInformation, integer.intValue());
+            this.delete_(abeClientInformation, int(integer));
         }
         this.clear();
     }

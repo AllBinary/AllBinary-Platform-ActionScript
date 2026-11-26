@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image {
+    import javax.microedition.lcdui.Image;
 
     public class ScaleBaseProcessor {
     private static var instance_value:ScaleBaseProcessor;

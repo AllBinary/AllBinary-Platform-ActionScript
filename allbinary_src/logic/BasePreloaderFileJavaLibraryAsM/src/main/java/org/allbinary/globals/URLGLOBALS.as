@@ -25,6 +25,10 @@ package org.allbinary.globals {
         }
         return URLGLOBALS.urlGlobalsInterface_value;
     }
+    private static function set urlGlobalsInterface(value:UrlGlobalsInterface):void {
+        URLGLOBALS.urlGlobalsInterface_set = true;
+        URLGLOBALS.urlGlobalsInterface_value = value;
+    }
     
 
     public static function init(urlGlobalsInterface:UrlGlobalsInterface):void {

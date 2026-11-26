@@ -33,7 +33,14 @@ package org.allbinary.game.combat.damage {
     }
     
 
-    public function add(damage:int):void {
+    public function add(...args):* {
+        if (args.length == 1) {
+            return this.add_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "add");
+    }
+
+    private function add_jo1(damage:int):void {
     }
     }
 }

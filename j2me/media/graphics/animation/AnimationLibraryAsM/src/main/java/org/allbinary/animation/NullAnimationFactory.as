@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.media.ScaleProperties;
 
     public class NullAnimationFactory implements AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface {
@@ -26,6 +27,10 @@ package org.allbinary.animation {
         }
         return NullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY_value;
     }
+    public static function set NULL_NOT_FOR_USE_ANIMATION_FACTORY(value:NullAnimationFactory):void {
+        NullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY_set = true;
+        NullAnimationFactory.NULL_NOT_FOR_USE_ANIMATION_FACTORY_value = value;
+    }
     private static var NULL_ANIMATION_FACTORY_value:NullAnimationFactory;
     private static var NULL_ANIMATION_FACTORY_set:Boolean = false;
     private static function get NULL_ANIMATION_FACTORY():NullAnimationFactory {
@@ -35,16 +40,16 @@ package org.allbinary.animation {
         }
         return NullAnimationFactory.NULL_ANIMATION_FACTORY_value;
     }
+    private static function set NULL_ANIMATION_FACTORY(value:NullAnimationFactory):void {
+        NullAnimationFactory.NULL_ANIMATION_FACTORY_set = true;
+        NullAnimationFactory.NULL_ANIMATION_FACTORY_value = value;
+    }
         private var NULL_ANIMATION:Animation = null;
         public var EMPTY_ARRAY:Vector.<Animation> = null;
 
         // Java field initializers run after the base constructor
         private function initFieldsNullAnimationFactory():void {
-    this.NULL_ANIMATION = new Animation() /* Java anonymous class body: implement it as a named subclass
-        
-
-        public function paintXY(graphics:Graphics, x:int, y:int):void {
-        } */;
+    this.NULL_ANIMATION = new NullAnimationFactory_1(this);
     this.EMPTY_ARRAY = new Vector.<Animation>(0);
         }
     

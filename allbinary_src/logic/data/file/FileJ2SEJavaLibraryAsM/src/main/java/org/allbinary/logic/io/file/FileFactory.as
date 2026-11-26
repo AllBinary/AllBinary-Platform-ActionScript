@@ -32,12 +32,26 @@ package org.allbinary.logic.io.file {
     }
     
 
-    public function getInstance1(filePath:String):AbFile {
+    public function getInstance1(...args):AbFile {
+        if (args.length == 1) {
+            return this.getInstance_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "getInstance");
+    }
+
+    private function getInstance_jo1(filePath:String):AbFile {
         return AbFile.createAbFileFromRawPath(filePath);
     }
     
 
-    public function getInstance2(file:AbFile, childFilePath:String):AbFile {
+    public function getInstance2(...args):AbFile {
+        if (args.length == 2) {
+            return this.getInstance_jo2(args[0], args[1]);
+        }
+        throw new JException("IllegalArgumentException", "getInstance");
+    }
+
+    private function getInstance_jo2(file:AbFile, childFilePath:String):AbFile {
         return AbFile.createAbFileWithChild(file, childFilePath);
     }
     

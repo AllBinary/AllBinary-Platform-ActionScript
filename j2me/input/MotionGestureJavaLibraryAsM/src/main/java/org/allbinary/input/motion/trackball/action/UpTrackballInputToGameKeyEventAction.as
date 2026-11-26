@@ -29,6 +29,10 @@ package org.allbinary.input.motion.trackball.action {
         }
         return UpTrackballInputToGameKeyEventAction.instance_value;
     }
+    private static function set instance(value:Object):void {
+        UpTrackballInputToGameKeyEventAction.instance_set = true;
+        UpTrackballInputToGameKeyEventAction.instance_value = value;
+    }
     
 
     public static function getInstance():GameKeyCompleteMotionGestureInputEvent {

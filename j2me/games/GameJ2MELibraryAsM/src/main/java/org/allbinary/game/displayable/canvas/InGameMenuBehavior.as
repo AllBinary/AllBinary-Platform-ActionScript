@@ -28,7 +28,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public static function getInstance():InGameMenuBehavior {
+    public static function getInstance():InGameMenuBehavior {
         return InGameMenuBehavior.instanceC;
     }
     

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.hud.basic.health {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.animation.Animation;
     import org.allbinary.game.graphics.hud.BasicHud;
     import org.allbinary.game.health.Health;
@@ -70,7 +71,7 @@ package org.allbinary.game.ag.layer.hud.basic.health {
     private function update():void {
         if (this.xArray != null) {
             for (var index:int = 0; index < this.xArray.length; index++) {
-                this.xArray[index] = this.getX() + (int(index * 16));
+                this.xArray[index] = int(this.getX() + (int(index * 16)));
             }
         }
     }
@@ -82,7 +83,15 @@ package org.allbinary.game.ag.layer.hud.basic.health {
     }
     
 
-    public function onHealthChange():void {
+    public function onHealthChange(...args):void {
+        if (args.length == 0) {
+            this.onHealthChange_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "onHealthChange");
+    }
+
+    private function onHealthChange_jo0():void {
         this.max = (int(this.healthInterface.getHealth() / this.healthScale));
         this.timeDelayHelper = NoTimeDelayHelper.SINGLETON;
         if (this.max <= 1 && this.healthInterface.isAlive()) {
@@ -98,7 +107,15 @@ package org.allbinary.game.ag.layer.hud.basic.health {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
         for (var index:int = 0; index < this.max; index++) {
             if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.midlet {
+    import javax.microedition.midlet.MIDlet;
 
     public class MidletFactoryInterface {
     

@@ -58,7 +58,19 @@ package org.allbinary.logic.io {
     }
     
 
-    public function overwrite(path:String, data:String):void {
+    public function overwrite(...args):void {
+        if (args.length == 2 && args[0] is String && args[1] is String) {
+            this.overwrite_jo2_1(args[0], args[1]);
+            return;
+        }
+        if (args.length == 2) {
+            this.overwrite_jo2_2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "overwrite");
+    }
+
+    private function overwrite_jo2_1(path:String, data:String):void {
         var abFile:AbFile = AbFile.createAbFile(path);
         if (abFile.exists()) {
             this.logUtil.putF(this.REMOVING_OLD + path, this, this.commonStrings.CREATE);
@@ -77,9 +89,8 @@ package org.allbinary.logic.io {
         }
         this.write(abFile, data);
     }
-    
 
-    public function overwrite(abFile:AbFile, data:String):void {
+    private function overwrite_jo2_2(abFile:AbFile, data:String):void {
         if (abFile.exists()) {
             this.logUtil.putF(this.REMOVING_OLD + abFile.getPath(), this, this.commonStrings.CREATE);
             abFile.delete_();
@@ -98,9 +109,10 @@ package org.allbinary.logic.io {
         this.write(abFile, data);
     }
     
+    
 
     public function write(abFile:AbFile, data:String):void {
-        var fileOut:BufferedWriter = new BufferedWriter(new FileWriter(AbFileNativeUtil.get_(abFile)));
+        var fileOut:JBufferedWriter = new JBufferedWriter(new JFileWriter(AbFileNativeUtil.get_(abFile)));
         fileOut.write(data, 0, data.length);
         fileOut.newLine();
         fileOut.flush();

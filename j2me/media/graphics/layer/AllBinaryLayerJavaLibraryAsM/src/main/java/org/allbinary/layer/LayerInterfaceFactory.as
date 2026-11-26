@@ -65,7 +65,7 @@ package org.allbinary.layer {
         var commonStrings:CommonStrings = CommonStrings.getInstance();
         this.logUtil.putF(new StringMaker().append(this.HASHTABLE_LABEL).append(StringUtil.getInstance().toString1(hashtable)).toString(), this, commonStrings.GET_INSTANCE);
         var typeInteger:* = (hashtable.get_((Layer.ID as Object)) as *);
-        var layerInterfaceFactoryInterface:LayerInterfaceFactoryInterface = (this.list.objectArray[typeInteger.intValue() - 1] as LayerInterfaceFactoryInterface);
+        var layerInterfaceFactoryInterface:LayerInterfaceFactoryInterface = (this.list.objectArray[int(typeInteger) - 1] as LayerInterfaceFactoryInterface);
         return layerInterfaceFactoryInterface.getNextInstance(hashtable, x, y, z);
     }
     

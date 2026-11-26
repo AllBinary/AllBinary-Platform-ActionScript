@@ -27,6 +27,8 @@ package org.allbinary.business.installer {
     import org.allbinary.logic.string.StringMaker;
     import org.allbinary.logic.string.StringValidationUtil;
     import org.allbinary.string.CommonStrings;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
     public class Initializer {
     private static const MAXDB:int = 30;
@@ -111,17 +113,54 @@ package org.allbinary.business.installer {
         }
     
 
-    public function Initializer(map:Map) {
+    public function Initializer(...args) {
+        if (args.length == 2 && args[0] === JSuperArgs.ARGS) {
+            args = args[1];
+        }
+        var jsuper:Array = Initializer.jsuperArgs(args);
         super();
         this.initFieldsInitializer();
+        this.jconstruct(args);
+    }
+
+    private static function jsuperArgs(args:Array):Array {
+        if (args.length == 1 && args[0] is JMap) {
+            return Initializer.jsuper_1(args[0]);
+        }
+        if (args.length == 1) {
+            return Initializer.jsuper_2(args[0]);
+        }
+        return [];
+    }
+
+    private static function jsuper_1(map:JMap):Array {
+        return [];
+    }
+
+    private static function jsuper_2(initHashMap:JHashMap):Array {
+        return [];
+    }
+
+    private function jconstruct(args:Array):void {
+        if (args.length == 1 && args[0] is JMap) {
+            this.jconstruct_1(args[0]);
+            return;
+        }
+        if (args.length == 1) {
+            this.jconstruct_2(args[0]);
+            return;
+        }
+    }
+
+    private function jconstruct_1(map:JMap):void {
         var stringBuffer:StringMaker = new StringMaker();
         var hashMap:JHashMap = StdUtil.getInstance().createHashMap();
-        var keys:Set = map.keySet();
+        var keys:JSet = map.keySet();
         var keyArray:Vector.<Object> = keys.toArray();
         var size:int = keyArray.length;
         for (var index:int = 0; index < size; index++) {
             var key:String = (keyArray[index] as String);
-            var values:Vector.<String> = (map.get_(key) as Vector.<String>);
+            var values:Vector.<String> = (JVectors.castVector(map.get_(key), Vector.<String>) as Vector.<String>);
             hashMap.put(key, values[0]);
             stringBuffer.delete_(0, stringBuffer.length());
             stringBuffer.append("key: ");
@@ -132,15 +171,11 @@ package org.allbinary.business.installer {
         }
         this.getFormData(hashMap);
     }
-    
 
-    /* Java constructor: ActionScript classes have one constructor
-    public function Initializer(initHashMap:JHashMap) {
-        super();
-        this.initFieldsInitializer();
+    private function jconstruct_2(initHashMap:JHashMap):void {
         this.getFormData(initHashMap);
     }
-    */
+    
     
 
     public function getFormData(hashMap:JHashMap):void {
@@ -189,10 +224,10 @@ package org.allbinary.business.installer {
 
     private function isJdbcDriverValid(jdbcDriverClassPathString:String):Boolean {
         try {
-            Class.forName(jdbcDriverClassPathString).newInstance();
+            JClass.newInstance(JClass.forName(jdbcDriverClassPathString));
             return true;
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
                 var commonStrings:CommonStrings = CommonStrings.getInstance();
                 this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.IS_VALID, e);
             }

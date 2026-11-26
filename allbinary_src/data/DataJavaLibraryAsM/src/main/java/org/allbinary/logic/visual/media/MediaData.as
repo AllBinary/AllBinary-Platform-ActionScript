@@ -27,6 +27,10 @@ package org.allbinary.logic.visual.media {
         }
         return MediaData.hashMap_value;
     }
+    private static function set hashMap(value:JHashMap):void {
+        MediaData.hashMap_set = true;
+        MediaData.hashMap_value = value;
+    }
         private var name:String = null;
         private var type:String = null;
         private var extension:String = null;

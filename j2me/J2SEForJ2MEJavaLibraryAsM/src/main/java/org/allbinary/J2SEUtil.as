@@ -42,13 +42,13 @@ package org.allbinary {
     }
     
 
-    public function getMapAsArray(map:Map):Vector.<Object> {
+    public function getMapAsArray(map:JMap):Vector.<Object> {
         var objectArray:Vector.<Object> = map.keySet().toArray();
         return objectArray;
     }
     
 
-    public function getSetAsArray(set_:Set):Vector.<Object> {
+    public function getSetAsArray(set_:JSet):Vector.<Object> {
         var objectArray:Vector.<Object> = set_.toArray();
         return objectArray;
     }

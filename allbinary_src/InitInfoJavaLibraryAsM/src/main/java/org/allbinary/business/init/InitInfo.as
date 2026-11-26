@@ -64,7 +64,19 @@ package org.allbinary.business.init {
     }
     
 
-    public function set_():void {
+    public function set_(...args):void {
+        if (args.length == 0) {
+            this.set__jo0();
+            return;
+        }
+        if (args.length == 1) {
+            this.set__jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "set");
+    }
+
+    private function set__jo0():void {
         try {
             var initInfoEntity:InitInfoEntity = new InitInfoEntity();
             if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER)) {
@@ -88,9 +100,8 @@ package org.allbinary.business.init {
             }
         }
     }
-    
 
-    public function set_(hashMap:JHashMap):void {
+    private function set__jo1(hashMap:JHashMap):void {
         try {
             this.testing = (hashMap.get_(this.TESTING) as String);
             this.mainPath = new AbPath((hashMap.get_(this.MAINPATH) as String), StringUtil.getInstance().EMPTY_STRING);
@@ -101,6 +112,7 @@ package org.allbinary.business.init {
             }
         }
     }
+    
     
 
     private function get_():void {

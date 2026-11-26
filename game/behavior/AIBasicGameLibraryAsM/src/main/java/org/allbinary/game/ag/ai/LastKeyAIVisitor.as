@@ -37,7 +37,14 @@ package org.allbinary.game.ag.ai {
     }
     
 
-    override public function visit(anyType:Object):Object {
+    override public function visit(...args):* {
+        if (args.length == 1) {
+            return this.visit_jo1(args[0]);
+        }
+        return super.visit.apply(this, args);
+    }
+
+    private function visit_jo1(anyType:Object):Object {
         try {
             var basicAI:BasicAI = (anyType as BasicAI);
             var key:int = basicAI.getLastKey();

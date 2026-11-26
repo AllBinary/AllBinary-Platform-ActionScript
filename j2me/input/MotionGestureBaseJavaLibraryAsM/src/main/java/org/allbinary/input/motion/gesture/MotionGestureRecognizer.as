@@ -121,14 +121,14 @@ package org.allbinary.input.motion.gesture {
             diagonalToleranceHigher = Number((int(90 - conf.getDiagonalTolerance())));
             diagonalToleranceLower = Number(conf.getDiagonalTolerance());
         }
-        if (absGradient > Math.tan(Math.toRadians(diagonalToleranceHigher))) {
+        if (absGradient > Math.tan(((diagonalToleranceHigher) * Math.PI / 180))) {
             if (this.line.getDeltaY() > 0.0) {
                 newMotionGesture = touchMotionGestureFactory.UP;
             } else {
                 newMotionGesture = touchMotionGestureFactory.DOWN;
             }
         } else {
-            if (absGradient < Math.tan(Math.toRadians(diagonalToleranceLower))) {
+            if (absGradient < Math.tan(((diagonalToleranceLower) * Math.PI / 180))) {
                 if (this.line.getDeltaX() > 0.0) {
                     newMotionGesture = touchMotionGestureFactory.LEFT;
                 } else {

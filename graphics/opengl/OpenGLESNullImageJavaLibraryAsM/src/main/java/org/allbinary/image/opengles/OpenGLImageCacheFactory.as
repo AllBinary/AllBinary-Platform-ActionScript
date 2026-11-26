@@ -27,6 +27,10 @@ package org.allbinary.image.opengles {
         }
         return OpenGLImageCacheFactory.IMAGE_CACHE_value;
     }
+    private static function set IMAGE_CACHE(value:ImageCache):void {
+        OpenGLImageCacheFactory.IMAGE_CACHE_set = true;
+        OpenGLImageCacheFactory.IMAGE_CACHE_value = value;
+    }
     
 
     public static function getInstance():ImageCache {

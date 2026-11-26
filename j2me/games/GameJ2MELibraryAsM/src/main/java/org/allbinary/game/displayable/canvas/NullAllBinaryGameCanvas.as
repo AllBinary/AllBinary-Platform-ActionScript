@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.CommandListener;
     import org.allbinary.game.layer.AllBinaryGameLayerManager;
 
     public class NullAllBinaryGameCanvas implements AllBinaryGameCanvasInterface {

@@ -14,6 +14,10 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.displayable.screen {
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Form;
+    import javax.microedition.lcdui.NullCommandListener;
     import org.allbinary.canvas.Processor;
     import org.allbinary.game.displayable.canvas.MenuListener;
     import org.allbinary.graphics.color.BasicColor;
@@ -35,6 +39,10 @@ package org.allbinary.graphics.displayable.screen {
             CommandForm.NULL_COMMAND_FORM_value = NullUtil.getInstance().NULL_OBJECT;
         }
         return CommandForm.NULL_COMMAND_FORM_value;
+    }
+    private static function set NULL_COMMAND_FORM(value:Object):void {
+        CommandForm.NULL_COMMAND_FORM_set = true;
+        CommandForm.NULL_COMMAND_FORM_value = value;
     }
         public var logUtil:LogUtil = null;
         public var commonStrings:CommonStrings = null;
@@ -74,22 +82,30 @@ package org.allbinary.graphics.displayable.screen {
     }
     
 
-    override public function open():void {
+    public function open():void {
         this.logUtil.putF(this.commonStrings.START, this, "open");
     }
     
 
-    override public function close():void {
+    public function close():void {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CLOSE);
     }
     
 
-    public function update():void {
+    public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo0():void {
         this.repaintProcessor.process();
     }
     
 
-    override public function getSourceId():int {
+    public function getSourceId():int {
         return 0;
     }
     
@@ -100,7 +116,7 @@ package org.allbinary.graphics.displayable.screen {
     }
     
 
-    override public function removeAllCommands():void {
+    public function removeAllCommands():void {
         var size:int = this.commandStack.size();
         for (var index:int = 0; index < size; index++) {
             super.removeCommand((this.commandStack.pop() as Command));

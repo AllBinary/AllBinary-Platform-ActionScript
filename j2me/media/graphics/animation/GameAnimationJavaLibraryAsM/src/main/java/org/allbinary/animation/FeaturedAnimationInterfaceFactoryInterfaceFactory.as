@@ -36,6 +36,10 @@ package org.allbinary.animation {
         }
         return FeaturedAnimationInterfaceFactoryInterfaceFactory.INSTANCE_value;
     }
+    private static function set INSTANCE(value:FeaturedAnimationInterfaceFactoryInterfaceFactory):void {
+        FeaturedAnimationInterfaceFactoryInterfaceFactory.INSTANCE_set = true;
+        FeaturedAnimationInterfaceFactoryInterfaceFactory.INSTANCE_value = value;
+    }
     
 
     public function FeaturedAnimationInterfaceFactoryInterfaceFactory() {

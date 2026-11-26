@@ -20,7 +20,7 @@ package org.allbinary.game.tick {
     public interface TickableInterface extends NamedInterface {
     
 
-    function processTick(allBinaryLayerManager:AllBinaryLayerManager):void;
+    function processTick(...args):void;
     }
 }
 

@@ -45,8 +45,6 @@ package org.allbinary.logic.system.os {
 
     function isAutoHide():Boolean;
     
-
-    function toString():String;
     }
 }
 

@@ -16,6 +16,9 @@
 package org.allbinary.graphics.displayable.screen {
     import java.awt.JDesktop;
     import java.net.JURI;
+    import javax.microedition.lcdui.Canvas;
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.CommandListener;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.string.CommonStrings;
     import org.allbinary.util.BasicArrayList;
@@ -55,8 +58,8 @@ package org.allbinary.graphics.displayable.screen {
 
     public function process(midletCommandListener:CommandListener, command:Command, canvas:Canvas):void {
         try {
-            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                Desktop.getDesktop().browse(new URI((this.list.removeAt(0) as String)));
+            if (JDesktop.isDesktopSupported() && JDesktop.getDesktop().isSupported(JDesktop.Action.BROWSE)) {
+                JDesktop.getDesktop().browse(new JURI((this.list.removeAt(0) as String)));
             }
         } catch (e:*) {
             var commonStrings:CommonStrings = CommonStrings.getInstance();

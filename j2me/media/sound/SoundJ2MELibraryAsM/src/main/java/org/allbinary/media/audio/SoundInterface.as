@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.media.audio {
+    import javax.microedition.media.Player;
 
     public interface SoundInterface {
     
@@ -24,7 +25,7 @@ package org.allbinary.media.audio {
     function getPlayerP():Player;
     
 
-    function init():void;
+    function init(...args):void;
     }
 }
 

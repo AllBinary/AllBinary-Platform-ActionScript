@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form {
+    import javax.microedition.lcdui.Canvas;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.GPoint;
     import org.allbinary.graphics.Rectangle;
     import org.allbinary.graphics.color.BasicColor;
@@ -38,6 +40,10 @@ package org.allbinary.graphics.form {
         }
         return ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM_value;
     }
+    private static function set NULL_SCROLL_SELECTION_FORM(value:Object):void {
+        ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM_set = true;
+        ScrollSelectionForm.NULL_SCROLL_SELECTION_FORM_value = value;
+    }
     private static var NULL_SCROLL_SELECTION_HORIZONTAL_FORM_value:Object;
     private static var NULL_SCROLL_SELECTION_HORIZONTAL_FORM_set:Boolean = false;
     private static function get NULL_SCROLL_SELECTION_HORIZONTAL_FORM():Object {
@@ -46,6 +52,10 @@ package org.allbinary.graphics.form {
             ScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM_value = NullUtil.getInstance().NULL_OBJECT;
         }
         return ScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM_value;
+    }
+    private static function set NULL_SCROLL_SELECTION_HORIZONTAL_FORM(value:Object):void {
+        ScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM_set = true;
+        ScrollSelectionForm.NULL_SCROLL_SELECTION_HORIZONTAL_FORM_value = value;
     }
     private static const INSIDE_FORM:String = " inside form";
     private static const IS_IN_FORM:String = "isInForm";
@@ -118,7 +128,15 @@ package org.allbinary.graphics.form {
     }
     
 
-    override public function init(rectangle:Rectangle, formType:FormType):void {
+    override public function init(...args):void {
+        if (args.length == 2) {
+            this.init_jo2(args[0], args[1]);
+            return;
+        }
+        super.init.apply(this, args);
+    }
+
+    private function init_jo2(rectangle:Rectangle, formType:FormType):void {
         super.init(rectangle, formType);
         var formTypeFactory:FormTypeFactory = FormTypeFactory.getInstance();
         if (formType == formTypeFactory.HORIZONTAL_FORM) {
@@ -169,7 +187,14 @@ package org.allbinary.graphics.form {
     }
     
 
-    override public function append(item:ABCustomItem):int {
+    override public function append(...args):int {
+        if (args.length == 1) {
+            return this.append_jo1(args[0]);
+        }
+        return super.append.apply(this, args);
+    }
+
+    private function append_jo1(item:ABCustomItem):int {
         return super.append(item);
     }
     
@@ -297,7 +322,14 @@ package org.allbinary.graphics.form {
     }
     
 
-    public function paintItem(graphics:Graphics, index:int, item:ABCustomItem, x:int, y:int):int {
+    public function paintItem(...args):int {
+        if (args.length == 5) {
+            return this.paintItem_jo5(args[0], args[1], args[2], args[3], args[4]);
+        }
+        throw new JException("IllegalArgumentException", "paintItem");
+    }
+
+    private function paintItem_jo5(graphics:Graphics, index:int, item:ABCustomItem, x:int, y:int):int {
         item.paintXY(graphics, x, y);
         var width:int = item.getMinimumWidth();
         var height:int = item.getMinimumHeight();

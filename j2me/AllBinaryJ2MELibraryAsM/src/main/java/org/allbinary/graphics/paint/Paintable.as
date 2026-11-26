@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.paint {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.color.BasicColor;
 
     public class Paintable implements PaintableInterface {
@@ -23,7 +24,15 @@ package org.allbinary.graphics.paint {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
     }
     
 

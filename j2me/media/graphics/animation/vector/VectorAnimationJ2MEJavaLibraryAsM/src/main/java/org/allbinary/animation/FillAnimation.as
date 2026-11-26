@@ -1,5 +1,6 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.color.BasicColor;
 
     public class FillAnimation extends IndexedAnimation {
@@ -72,7 +73,15 @@ package org.allbinary.animation {
     }
     
 
-    public function paint(g:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(g:Graphics):void {
         g.drawRGB(this.pixelBuffer, 0, this.width, 0, 0, this.width, this.height, true);
     }
     }

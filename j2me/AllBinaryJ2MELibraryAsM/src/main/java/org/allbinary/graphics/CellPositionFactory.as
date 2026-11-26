@@ -28,6 +28,10 @@ package org.allbinary.graphics {
         }
         return CellPositionFactory.SINGLETON_value;
     }
+    private static function set SINGLETON(value:CellPositionFactory):void {
+        CellPositionFactory.SINGLETON_set = true;
+        CellPositionFactory.SINGLETON_value = value;
+    }
         public var logUtil:LogUtil = null;
         public var NONE:CellPosition = null;
         private var cellPositionArray:Vector.<Vector.<CellPosition>> = null;

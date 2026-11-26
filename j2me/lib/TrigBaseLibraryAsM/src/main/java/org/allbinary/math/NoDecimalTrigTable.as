@@ -57,9 +57,9 @@ package org.allbinary.math {
         this.initFieldsNoDecimalTrigTable();
         var TOTAL_ANGLE:int = AngleFactory.getInstance().TOTAL_ANGLE;
         var MAX_VALUE:Number = (Number(JInteger.MAX_VALUE));
-        this.noDecimalSin = JArrays.numbers(TOTAL_ANGLE);
-        this.noDecimalCos = JArrays.numbers(TOTAL_ANGLE);
-        this.noDecimalTan = JArrays.numbers(int(TOTAL_ANGLE + 1));
+        this.noDecimalSin = JVectors.numbers(TOTAL_ANGLE);
+        this.noDecimalCos = JVectors.numbers(TOTAL_ANGLE);
+        this.noDecimalTan = JVectors.numbers(int(TOTAL_ANGLE + 1));
         this.noDecimalSin[0] = 0;
         this.noDecimalSin[1] = 174;
         this.noDecimalSin[2] = 348;

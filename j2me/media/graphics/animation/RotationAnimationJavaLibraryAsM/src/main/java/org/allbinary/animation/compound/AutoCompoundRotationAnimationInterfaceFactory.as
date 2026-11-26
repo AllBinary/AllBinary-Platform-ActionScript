@@ -28,12 +28,12 @@ package org.allbinary.animation.compound {
     
 
     override public function createArray(size:int):Vector.<Animation> {
-        return new Vector.<RotationAnimation>(size);
+        return new Vector.<Animation>(size);
     }
     
 
     override public function createAnimation(animationInterfaceArray:Vector.<Animation>):Animation {
-        return new AutoCompoundRotationAnimation((animationInterfaceArray as Vector.<RotationAnimation>), this.animationBehaviorFactory.getOrCreateInstance());
+        return new AutoCompoundRotationAnimation((JVectors.castVector(animationInterfaceArray, Vector.<RotationAnimation>) as Vector.<RotationAnimation>), this.animationBehaviorFactory.getOrCreateInstance());
     }
     }
 }

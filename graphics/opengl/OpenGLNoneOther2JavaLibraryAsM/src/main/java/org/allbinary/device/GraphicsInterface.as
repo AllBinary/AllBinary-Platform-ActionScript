@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.device {
+    import javax.microedition.lcdui.Font;
     import org.allbinary.graphics.font.FontDebugBase;
 
     public interface GraphicsInterface {

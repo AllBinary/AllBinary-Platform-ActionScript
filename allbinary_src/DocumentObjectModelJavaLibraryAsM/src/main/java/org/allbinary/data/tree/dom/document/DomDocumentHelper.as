@@ -16,6 +16,8 @@
 package org.allbinary.data.tree.dom.document {
     import java.io.JInputStream;
     import java.io.JStringBufferInputStream;
+    import javax.xml.parsers.DocumentBuilder;
+    import javax.xml.parsers.DocumentBuilderFactory;
     import org.allbinary.string.CommonPhoneStrings;
     import org.w3c.dom.Document;
 
@@ -38,7 +40,20 @@ package org.allbinary.data.tree.dom.document {
     }
     
 
-    public static function create():Document {
+    public static function create(...args):Document {
+        if (args.length == 0) {
+            return DomDocumentHelper.create_jo0();
+        }
+        if (args.length == 1 && args[0] is JInputStream) {
+            return DomDocumentHelper.create_jo1_1(args[0]);
+        }
+        if (args.length == 1) {
+            return DomDocumentHelper.create_jo1_2(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "create");
+    }
+
+    private static function create_jo0():Document {
         try {
             var factory:DocumentBuilderFactory = DocumentBuilderFactory.newInstance();
             var builder:DocumentBuilder = factory.newDocumentBuilder();
@@ -48,9 +63,8 @@ package org.allbinary.data.tree.dom.document {
             return null;
         }
     }
-    
 
-    public static function create(inputStream:InputStream):Document {
+    private static function create_jo1_1(inputStream:JInputStream):Document {
         try {
             var factory:DocumentBuilderFactory = DocumentBuilderFactory.newInstance();
             var builder:DocumentBuilder = factory.newDocumentBuilder();
@@ -60,18 +74,19 @@ package org.allbinary.data.tree.dom.document {
             throw e;
         }
     }
-    
 
-    public static function create(xmlString:String):Document {
+    private static function create_jo1_2(xmlString:String):Document {
         try {
             var factory:DocumentBuilderFactory = DocumentBuilderFactory.newInstance();
             var builder:DocumentBuilder = factory.newDocumentBuilder();
-            var document:Document = builder.parse(new StringBufferInputStream(xmlString));
+            var document:Document = builder.parse(new JStringBufferInputStream(xmlString));
             return document;
         } catch (e:*) {
             throw e;
         }
     }
+    
+    
     }
 }
 

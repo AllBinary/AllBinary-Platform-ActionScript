@@ -15,6 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.image {
     import java.io.JInputStream;
+    import javax.microedition.lcdui.Image;
+    import javax.microedition.lcdui.NullImage;
     import org.allbinary.J2MEUtil;
     import org.allbinary.TsUtil;
     import org.allbinary.data.resource.ResourceUtil;
@@ -60,7 +62,7 @@ package org.allbinary.image {
         var resourceStringArray:Vector.<String> = gdResources.resourceStringArray;
         var size:int = resourceStringArray.length;
         for (var index:int = 0; index < size; index++) {
-            if (resourceStringArray[index] === key) {
+            if (resourceStringArray[index] == key) {
                 return index;
             }
         }
@@ -98,7 +100,7 @@ package org.allbinary.image {
         var image:Image = this.getImage(key);
         if (image == NullImage.NULL_IMAGE) {
             var resourceUtil:ResourceUtil = ResourceUtil.getInstance();
-            var resourceInputStream:InputStream = resourceUtil.getResourceAsStream((key as String));
+            var resourceInputStream:JInputStream = resourceUtil.getResourceAsStream((key as String));
             if (resourceInputStream == null) {
                 throw new JException("RuntimeException", new StringMaker().append("Image resource is not available for key: ").append(StringUtil.getInstance().toString1(key)).toString());
             }

@@ -50,7 +50,7 @@ package org.allbinary.game.ag.layer.weapon.mine {
     
 
     override public function damage(damage:int, damageType:int):void {
-        this.totalDamage = this.getInitDamage() + 1;
+        this.totalDamage = int(this.getInitDamage() + 1);
     }
     
 

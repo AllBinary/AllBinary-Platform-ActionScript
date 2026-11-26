@@ -28,14 +28,14 @@ package org.allbinary.game.score {
 
     public class BasicHighScoresFactory extends HighScoresBase {
         public var logUtil:LogUtil = null;
-        private var abeClientInformation:AbeClientInformationInterface = null;
-        private var softwareInformation:SoftwareInformation = null;
-        private var highScoresArray:Vector.<HighScores> = null;
-        private var TOP:String = null;
-        private var SCORES:String = null;
-        private var PERSONAL_HIGH_SCORES:String = null;
-        private var WORLD_TOP_SCORES:String = null;
-        private var FETCH:String = null;
+        public var abeClientInformation:AbeClientInformationInterface = null;
+        public var softwareInformation:SoftwareInformation = null;
+        public var highScoresArray:Vector.<HighScores> = null;
+        public var TOP:String = null;
+        public var SCORES:String = null;
+        public var PERSONAL_HIGH_SCORES:String = null;
+        public var WORLD_TOP_SCORES:String = null;
+        public var FETCH:String = null;
 
         // Java field initializers run after the base constructor
         private function initFieldsBasicHighScoresFactory():void {
@@ -66,30 +66,7 @@ package org.allbinary.game.score {
     
 
     override public function fetchHighScoresPreload(gameInfo:GameInfo, highScoresResultsListener:HighScoresResultsListener, preload:Boolean):void {
-        SecondaryThreadPool.getInstance().runTask(new ARunnable() /* Java anonymous class body: implement it as a named subclass
-            
-
-            public function run():void {
-                var logUtil:LogUtil = LogUtil.getInstance();
-                try {
-                    logUtil.putF(this.commonStrings.START, this, this.FETCH);
-                    this.highScoresArray[0] = RecordStoreHighScores.getInstance6(this.abeClientInformation, gameInfo, this.TOP, this.PERSONAL_HIGH_SCORES, this.SCORES, new ScoreComparator(true));
-                    var gameType:GameType = gameInfo.getGameType();
-                    var gameTypeFactory:GameTypeFactory = GameTypeFactory.getInstance();
-                    var gameInfo2:GameInfo = gameInfo;
-                    if (gameType == gameTypeFactory.SINGLE_PLAYER || gameType == gameTypeFactory.BOT) {
-                        gameInfo2 = BasicHighScoresGameInfoFactory.getInstance().SINGLE_PLAYER_SERVER;
-                    } else if (gameType == gameTypeFactory.MULTI_PLAYER) {
-                        gameInfo2 = BasicHighScoresGameInfoFactory.getInstance().MULTI_PLAYER_SERVER;
-                    }
-                    this.highScoresArray[1] = RemoteHighScores.getInstancePreload(this.abeClientInformation, this.softwareInformation, gameInfo2, this.WORLD_TOP_SCORES, this.SCORES, BooleanFactory.getInstance().FALSE, preload);
-                    logUtil.putF(this.commonStrings.END, this, this.FETCH);
-                    LastFetchHighScoresFactory.getInstance().highScoresArray = this.highScoresArray;
-                    highScoresResultsListener.setHighScoresArray(this.highScoresArray);
-                } catch (e:*) {
-                    logUtil.put(this.commonStrings.EXCEPTION, this, this.FETCH, e);
-                }
-            } */);
+        SecondaryThreadPool.getInstance().runTask(new BasicHighScoresFactory_1(this, gameInfo, preload, highScoresResultsListener));
     }
     
 

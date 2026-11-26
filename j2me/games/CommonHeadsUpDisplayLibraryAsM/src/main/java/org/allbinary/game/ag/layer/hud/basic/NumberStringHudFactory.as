@@ -31,6 +31,10 @@ package org.allbinary.game.ag.layer.hud.basic {
         }
         return NumberStringHudFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        NumberStringHudFactory.instance_set = true;
+        NumberStringHudFactory.instance_value = value;
+    }
         public var NULL_NUMBER_STRING_HUD:NumberStringHud = null;
 
         // Java field initializers run after the base constructor

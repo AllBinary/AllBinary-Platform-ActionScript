@@ -39,8 +39,6 @@ package org.allbinary.logic.system.security.licensing {
 
     function isValid():Boolean;
     
-
-    function toString():String;
     }
 }
 

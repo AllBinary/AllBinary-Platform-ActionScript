@@ -20,7 +20,7 @@ package org.allbinary.util {
     
 
     public function ABHashtable(...args) {
-        if (args.length == 2 && args[0] === JConstructor.ARGS) {
+        if (args.length == 2 && args[0] === JSuperArgs.ARGS) {
             args = args[1];
         }
         var jsuper:Array = ABHashtable.jsuperArgs(args);

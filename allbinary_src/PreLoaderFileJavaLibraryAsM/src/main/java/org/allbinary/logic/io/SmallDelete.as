@@ -19,6 +19,8 @@ package org.allbinary.logic.io {
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.logic.io.file.AbFileSystem;
     import org.allbinary.string.CommonStrings;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
     public class SmallDelete {
         public var logUtil:LogUtil = null;
@@ -51,14 +53,14 @@ package org.allbinary.logic.io {
             endIndex = JString.indexOf(this.string, end);
             if (endIndex > beginIndex && beginIndex >= 0 && endIndex >= 0 && beginIndex < 10 && endIndex < 525) {
                 var text:String = this.string.substring(endIndex, this.string.length);
-                var idFile:FileOutputStream = new FileOutputStream(this.fileName);
-                var idOutData:DataOutputStream = new DataOutputStream(idFile);
+                var idFile:JFileOutputStream = new JFileOutputStream(this.fileName);
+                var idOutData:JDataOutputStream = new JDataOutputStream(idFile);
                 idOutData.writeBytes(text);
                 return true;
             }
             return false;
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().IDLOGGING)) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "deleteAtStart", e);
             }
             return false;
@@ -75,14 +77,14 @@ package org.allbinary.logic.io {
             if (endIndex > beginIndex && beginIndex >= 0 && endIndex >= 0 && beginIndex < 50 && endIndex < 425) {
                 var newStart:String = this.string.substring(0, beginIndex);
                 var text:String = this.string.substring(int(endIndex + end.length), this.string.length);
-                var idFile:FileOutputStream = new FileOutputStream(this.fileName);
-                var idOutData:DataOutputStream = new DataOutputStream(idFile);
+                var idFile:JFileOutputStream = new JFileOutputStream(this.fileName);
+                var idOutData:JDataOutputStream = new JDataOutputStream(idFile);
                 idOutData.writeBytes(newStart + newText + text);
                 return true;
             }
             return false;
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().IDLOGGING)) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "deleteAtStart", e);
             }
             return false;

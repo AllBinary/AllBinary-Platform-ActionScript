@@ -47,7 +47,15 @@ package org.allbinary.game.ag.ai.scroller {
     }
     
 
-    override public function update():void {
+    override public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        super.update.apply(this, args);
+    }
+
+    private function update_jo0():void {
         super.update();
         this.changeDirectionIfCliffReached();
     }

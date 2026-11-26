@@ -30,6 +30,10 @@ package org.allbinary.game.ai {
         }
         return ArtificialIntelligenceInterfaceFactoryInterfaceFactory.SINGLETON_value;
     }
+    private static function set SINGLETON(value:ArtificialIntelligenceInterfaceFactoryInterfaceFactory):void {
+        ArtificialIntelligenceInterfaceFactoryInterfaceFactory.SINGLETON_set = true;
+        ArtificialIntelligenceInterfaceFactoryInterfaceFactory.SINGLETON_value = value;
+    }
         private var list:BasicArrayList = null;
 
         // Java field initializers run after the base constructor
@@ -55,7 +59,7 @@ package org.allbinary.game.ai {
 
     public function getInstanceFromCollection(hashtable:ABHashtable):ArtificialIntelligenceInterfaceFactoryInterface {
         var typeInteger:* = (hashtable.get_((BasicAI.ID as Object)) as *);
-        var type:int = typeInteger.intValue();
+        var type:int = int(typeInteger);
         var artificialIntelligenceInterfaceFactoryInterface:ArtificialIntelligenceInterfaceFactoryInterface = (this.list.objectArray[int(type - 1)] as ArtificialIntelligenceInterfaceFactoryInterface);
         return artificialIntelligenceInterfaceFactoryInterface;
     }

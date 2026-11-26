@@ -32,6 +32,10 @@ package org.allbinary.view.event {
         }
         return ViewPositionEventHandler.SINGLETON_value;
     }
+    private static function set SINGLETON(value:ViewPositionEventHandler):void {
+        ViewPositionEventHandler.SINGLETON_set = true;
+        ViewPositionEventHandler.SINGLETON_value = value;
+    }
         private var list:BasicArrayList = null;
 
         // Java field initializers run after the base constructor

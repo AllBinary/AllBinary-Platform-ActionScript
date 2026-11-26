@@ -26,6 +26,10 @@ package org.allbinary.game.state {
         }
         return GameStateFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        GameStateFactory.instance_set = true;
+        GameStateFactory.instance_value = value;
+    }
         private var index:int = 0;
         public var NO_GAME_STATE:GameState = null;
         public var PLAYING_GAME_STATE:GameState = null;

@@ -25,6 +25,10 @@ package org.allbinary.media.audio {
         }
         return ErrorSound.soundInterface_value;
     }
+    private static function set soundInterface(value:Sound):void {
+        ErrorSound.soundInterface_set = true;
+        ErrorSound.soundInterface_value = value;
+    }
     
 
     public function ErrorSound() {

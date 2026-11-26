@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.Canvas;
     import org.allbinary.string.CommonPhoneStrings;
 
     public class CanvasUtil {

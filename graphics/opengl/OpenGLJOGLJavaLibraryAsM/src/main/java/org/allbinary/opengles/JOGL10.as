@@ -15,6 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.opengles {
     import com.jogamp.opengl.glu.GLU;
+    import com.jogamp.opengl.GL;
+    import com.jogamp.opengl.GL2;
+    import java.nio.JBuffer;
+    import java.nio.JFloatBuffer;
+    import java.nio.JIntBuffer;
+    import javax.microedition.khronos.opengles.GL10;
 
     //JOGLEToKhronosGL10
     public class JOGL10 implements GL10 {
@@ -59,8 +65,8 @@ package org.allbinary.opengles {
         this.initFieldsJOGL10();
         this.gl10 = gl2;
         this.glu = GLU.createGLU(this.gl10);
-        this.GL_LINE = com.jogamp.opengl.GL2.GL_LINE;
-        this.GL_QUAD_STRIP = com.jogamp.opengl.GL2.GL_QUAD_STRIP;
+        this.GL_LINE = GL2.GL_LINE;
+        this.GL_QUAD_STRIP = GL2.GL_QUAD_STRIP;
     }
     
 
@@ -124,17 +130,17 @@ package org.allbinary.opengles {
     }
     
 
-    public function glColorPointer(size:int, type:int, stride:int, pointer:Buffer):void {
+    public function glColorPointer(size:int, type:int, stride:int, pointer:JBuffer):void {
         this.gl10.glColorPointer(size, type, stride, pointer);
     }
     
 
-    public function glCompressedTexImage2D(target:int, level:int, internalformat:int, width:int, height:int, border:int, imageSize:int, data:Buffer):void {
+    public function glCompressedTexImage2D(target:int, level:int, internalformat:int, width:int, height:int, border:int, imageSize:int, data:JBuffer):void {
         this.gl10.glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
     }
     
 
-    public function glCompressedTexSubImage2D(target:int, level:int, xoffset:int, yoffset:int, width:int, height:int, format:int, imageSize:int, data:Buffer):void {
+    public function glCompressedTexSubImage2D(target:int, level:int, xoffset:int, yoffset:int, width:int, height:int, format:int, imageSize:int, data:JBuffer):void {
         this.gl10.glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
     }
     
@@ -154,14 +160,26 @@ package org.allbinary.opengles {
     }
     
 
-    public function glDeleteTextures(n:int, textures:Vector.<int>, offset:int):void {
+    public function glDeleteTextures(...args):void {
+        if (args.length == 3) {
+            this.glDeleteTextures_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        if (args.length == 2) {
+            this.glDeleteTextures_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "glDeleteTextures");
+    }
+
+    protected function glDeleteTextures_jo3(n:int, textures:Vector.<int>, offset:int):void {
         this.gl10.glDeleteTextures(n, textures, offset);
     }
-    
 
-    public function glDeleteTextures(n:int, textures:IntBuffer):void {
+    protected function glDeleteTextures_jo2(n:int, textures:JIntBuffer):void {
         this.gl10.glDeleteTextures(n, textures);
     }
+    
     
 
     public function glDepthFunc(func:int):void {
@@ -194,7 +212,7 @@ package org.allbinary.opengles {
     }
     
 
-    public function glDrawElements(mode:int, count:int, type:int, indices:Buffer):void {
+    public function glDrawElements(mode:int, count:int, type:int, indices:JBuffer):void {
         this.gl10.glDrawElements(mode, count, type, indices);
     }
     
@@ -224,14 +242,26 @@ package org.allbinary.opengles {
     }
     
 
-    public function glFogfv(pname:int, params:Vector.<Number>, offset:int):void {
+    public function glFogfv(...args):void {
+        if (args.length == 3) {
+            this.glFogfv_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        if (args.length == 2) {
+            this.glFogfv_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "glFogfv");
+    }
+
+    protected function glFogfv_jo3(pname:int, params:Vector.<Number>, offset:int):void {
         this.gl10.glFogfv(pname, params, offset);
     }
-    
 
-    public function glFogfv(pname:int, params:FloatBuffer):void {
+    protected function glFogfv_jo2(pname:int, params:JFloatBuffer):void {
         this.gl10.glFogfv(pname, params);
     }
+    
     
 
     public function glFrontFace(mode:int):void {
@@ -244,14 +274,26 @@ package org.allbinary.opengles {
     }
     
 
-    public function glGenTextures(n:int, textures:Vector.<int>, offset:int):void {
+    public function glGenTextures(...args):void {
+        if (args.length == 3) {
+            this.glGenTextures_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        if (args.length == 2) {
+            this.glGenTextures_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "glGenTextures");
+    }
+
+    protected function glGenTextures_jo3(n:int, textures:Vector.<int>, offset:int):void {
         this.gl10.glGenTextures(n, textures, offset);
     }
-    
 
-    public function glGenTextures(n:int, textures:IntBuffer):void {
+    protected function glGenTextures_jo2(n:int, textures:JIntBuffer):void {
         this.gl10.glGenTextures(n, textures);
     }
+    
     
 
     public function glGetError():int {
@@ -259,14 +301,26 @@ package org.allbinary.opengles {
     }
     
 
-    public function glGetIntegerv(pname:int, params:Vector.<int>, offset:int):void {
+    public function glGetIntegerv(...args):void {
+        if (args.length == 3) {
+            this.glGetIntegerv_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        if (args.length == 2) {
+            this.glGetIntegerv_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "glGetIntegerv");
+    }
+
+    protected function glGetIntegerv_jo3(pname:int, params:Vector.<int>, offset:int):void {
         this.gl10.glGetIntegerv(pname, params, offset);
     }
-    
 
-    public function glGetIntegerv(pname:int, params:IntBuffer):void {
+    protected function glGetIntegerv_jo2(pname:int, params:JIntBuffer):void {
         this.gl10.glGetIntegerv(pname, params);
     }
+    
     
 
     public function glGetString(name:int):String {
@@ -284,14 +338,26 @@ package org.allbinary.opengles {
     }
     
 
-    public function glLightModelfv(pname:int, params:Vector.<Number>, offset:int):void {
+    public function glLightModelfv(...args):void {
+        if (args.length == 3) {
+            this.glLightModelfv_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        if (args.length == 2) {
+            this.glLightModelfv_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "glLightModelfv");
+    }
+
+    protected function glLightModelfv_jo3(pname:int, params:Vector.<Number>, offset:int):void {
         this.gl10.glLightModelfv(pname, params, offset);
     }
-    
 
-    public function glLightModelfv(pname:int, params:FloatBuffer):void {
+    protected function glLightModelfv_jo2(pname:int, params:JFloatBuffer):void {
         this.gl10.glLightModelfv(pname, params);
     }
+    
     
 
     public function glLightf(light:int, pname:int, param:Number):void {
@@ -299,14 +365,26 @@ package org.allbinary.opengles {
     }
     
 
-    public function glLightfv(light:int, pname:int, params:Vector.<Number>, offset:int):void {
+    public function glLightfv(...args):void {
+        if (args.length == 4) {
+            this.glLightfv_jo4(args[0], args[1], args[2], args[3]);
+            return;
+        }
+        if (args.length == 3) {
+            this.glLightfv_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "glLightfv");
+    }
+
+    protected function glLightfv_jo4(light:int, pname:int, params:Vector.<Number>, offset:int):void {
         this.gl10.glLightfv(light, pname, params, offset);
     }
-    
 
-    public function glLightfv(light:int, pname:int, params:FloatBuffer):void {
+    protected function glLightfv_jo3(light:int, pname:int, params:JFloatBuffer):void {
         this.gl10.glLightfv(light, pname, params);
     }
+    
     
 
     public function glLineWidth(width:Number):void {
@@ -319,14 +397,26 @@ package org.allbinary.opengles {
     }
     
 
-    public function glLoadMatrixf(m:Vector.<Number>, offset:int):void {
+    public function glLoadMatrixf(...args):void {
+        if (args.length == 2) {
+            this.glLoadMatrixf_jo2(args[0], args[1]);
+            return;
+        }
+        if (args.length == 1) {
+            this.glLoadMatrixf_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "glLoadMatrixf");
+    }
+
+    protected function glLoadMatrixf_jo2(m:Vector.<Number>, offset:int):void {
         this.gl10.glLoadMatrixf(m, offset);
     }
-    
 
-    public function glLoadMatrixf(m:FloatBuffer):void {
+    protected function glLoadMatrixf_jo1(m:JFloatBuffer):void {
         this.gl10.glLoadMatrixf(m);
     }
+    
     
 
     public function glLogicOp(opcode:int):void {
@@ -339,14 +429,26 @@ package org.allbinary.opengles {
     }
     
 
-    public function glMaterialfv(face:int, pname:int, params:Vector.<Number>, offset:int):void {
+    public function glMaterialfv(...args):void {
+        if (args.length == 4) {
+            this.glMaterialfv_jo4(args[0], args[1], args[2], args[3]);
+            return;
+        }
+        if (args.length == 3) {
+            this.glMaterialfv_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "glMaterialfv");
+    }
+
+    protected function glMaterialfv_jo4(face:int, pname:int, params:Vector.<Number>, offset:int):void {
         this.gl10.glMaterialfv(face, pname, params, offset);
     }
-    
 
-    public function glMaterialfv(face:int, pname:int, params:FloatBuffer):void {
+    protected function glMaterialfv_jo3(face:int, pname:int, params:JFloatBuffer):void {
         this.gl10.glMaterialfv(face, pname, params);
     }
+    
     
 
     public function glMatrixMode(mode:int):void {
@@ -354,14 +456,26 @@ package org.allbinary.opengles {
     }
     
 
-    public function glMultMatrixf(m:Vector.<Number>, offset:int):void {
+    public function glMultMatrixf(...args):void {
+        if (args.length == 2) {
+            this.glMultMatrixf_jo2(args[0], args[1]);
+            return;
+        }
+        if (args.length == 1) {
+            this.glMultMatrixf_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "glMultMatrixf");
+    }
+
+    protected function glMultMatrixf_jo2(m:Vector.<Number>, offset:int):void {
         this.gl10.glMultMatrixf(m, offset);
     }
-    
 
-    public function glMultMatrixf(m:FloatBuffer):void {
+    protected function glMultMatrixf_jo1(m:JFloatBuffer):void {
         this.gl10.glMultMatrixf(m);
     }
+    
     
 
     public function glMultiTexCoord4f(target:int, s:Number, t:Number, r:Number, q:Number):void {
@@ -374,7 +488,7 @@ package org.allbinary.opengles {
     }
     
 
-    public function glNormalPointer(type:int, stride:int, pointer:Buffer):void {
+    public function glNormalPointer(type:int, stride:int, pointer:JBuffer):void {
         this.gl10.glNormalPointer(type, stride, pointer);
     }
     
@@ -409,7 +523,7 @@ package org.allbinary.opengles {
     }
     
 
-    public function glReadPixels(x:int, y:int, width:int, height:int, format:int, type:int, pixels:Buffer):void {
+    public function glReadPixels(x:int, y:int, width:int, height:int, format:int, type:int, pixels:JBuffer):void {
         this.gl10.glReadPixels(x, y, width, height, format, type, pixels);
     }
     
@@ -464,7 +578,7 @@ package org.allbinary.opengles {
     }
     
 
-    public function glTexCoordPointer(size:int, type:int, stride:int, pointer:Buffer):void {
+    public function glTexCoordPointer(size:int, type:int, stride:int, pointer:JBuffer):void {
         this.gl10.glTexCoordPointer(size, type, stride, pointer);
     }
     
@@ -474,17 +588,29 @@ package org.allbinary.opengles {
     }
     
 
-    public function glTexEnvfv(target:int, pname:int, params:Vector.<Number>, offset:int):void {
+    public function glTexEnvfv(...args):void {
+        if (args.length == 4) {
+            this.glTexEnvfv_jo4(args[0], args[1], args[2], args[3]);
+            return;
+        }
+        if (args.length == 3) {
+            this.glTexEnvfv_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "glTexEnvfv");
+    }
+
+    protected function glTexEnvfv_jo4(target:int, pname:int, params:Vector.<Number>, offset:int):void {
         this.gl10.glTexEnvfv(target, pname, params, offset);
     }
-    
 
-    public function glTexEnvfv(target:int, pname:int, params:FloatBuffer):void {
+    protected function glTexEnvfv_jo3(target:int, pname:int, params:JFloatBuffer):void {
         this.gl10.glTexEnvfv(target, pname, params);
     }
     
+    
 
-    public function glTexImage2D(target:int, level:int, internalformat:int, width:int, height:int, border:int, format:int, type:int, pixels:Buffer):void {
+    public function glTexImage2D(target:int, level:int, internalformat:int, width:int, height:int, border:int, format:int, type:int, pixels:JBuffer):void {
         this.gl10.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
     }
     
@@ -499,7 +625,7 @@ package org.allbinary.opengles {
     }
     
 
-    public function glTexSubImage2D(target:int, level:int, xoffset:int, yoffset:int, width:int, height:int, format:int, type:int, pixels:Buffer):void {
+    public function glTexSubImage2D(target:int, level:int, xoffset:int, yoffset:int, width:int, height:int, format:int, type:int, pixels:JBuffer):void {
         this.gl10.glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
     }
     
@@ -509,7 +635,7 @@ package org.allbinary.opengles {
     }
     
 
-    public function glVertexPointer(size:int, type:int, stride:int, pointer:Buffer):void {
+    public function glVertexPointer(size:int, type:int, stride:int, pointer:JBuffer):void {
         this.gl10.glVertexPointer(size, type, stride, pointer);
     }
     

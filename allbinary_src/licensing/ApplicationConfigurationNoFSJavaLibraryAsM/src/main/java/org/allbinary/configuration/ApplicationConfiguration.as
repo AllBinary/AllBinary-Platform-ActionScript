@@ -18,6 +18,10 @@ package org.allbinary.configuration {
         }
         return ApplicationConfiguration.instance_value;
     }
+    private static function set instance(value:Object):void {
+        ApplicationConfiguration.instance_set = true;
+        ApplicationConfiguration.instance_value = value;
+    }
         public var logUtil:LogUtil = null;
         private var fullscreen:Boolean = false;
         private var showTitleBar:Boolean = false;

@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.layer.pickup {
+    import javax.microedition.khronos.opengles.GL;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.animation.Animation;
     import org.allbinary.animation.NullAnimationFactory;
     import org.allbinary.game.collision.CollidableAlwaysPickupNeverCollideBehaviorFactory;
@@ -48,7 +50,15 @@ package org.allbinary.game.layer.pickup {
     }
     
 
-    public function init(pickedUpLayerInterfaceFactoryInterface:PickedUpLayerInterfaceFactoryInterface, animationInterface:Animation):void {
+    public function init(...args):void {
+        if (args.length == 2) {
+            this.init_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo2(pickedUpLayerInterfaceFactoryInterface:PickedUpLayerInterfaceFactoryInterface, animationInterface:Animation):void {
         this.pickedUpLayerInterfaceFactoryInterface = pickedUpLayerInterfaceFactoryInterface;
         this.animationInterface = animationInterface;
         this.setDestroyed(false);
@@ -60,7 +70,15 @@ package org.allbinary.game.layer.pickup {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         var viewPosition:ViewPositionBase = this.getViewPosition();
         var viewX:int = viewPosition.getX();
         var viewY:int = viewPosition.getY();
@@ -108,7 +126,14 @@ package org.allbinary.game.layer.pickup {
     }
     
 
-    override public function set_(gl:GL):void {
+    override public function set_(...args):* {
+        if (args.length == 1) {
+            return this.set__jo1(args[0]);
+        }
+        return super.set_.apply(this, args);
+    }
+
+    private function set__jo1(gl:GL):void {
         var openGLSurfaceChangedInterface:OpenGLSurfaceChangedInterface = (this.animationInterface as OpenGLSurfaceChangedInterface);
         openGLSurfaceChangedInterface.set_(gl);
     }

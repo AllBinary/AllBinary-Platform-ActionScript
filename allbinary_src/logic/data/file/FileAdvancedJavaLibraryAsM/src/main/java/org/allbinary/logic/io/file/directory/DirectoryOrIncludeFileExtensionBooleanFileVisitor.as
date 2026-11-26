@@ -27,27 +27,69 @@ package org.allbinary.logic.io.file.directory {
         }
     
 
-    public function DirectoryOrIncludeFileExtensionBooleanFileVisitor(filterStringBasicArrayList:BasicArrayList) {
-        super(filterStringBasicArrayList);
+    public function DirectoryOrIncludeFileExtensionBooleanFileVisitor(...args) {
+        if (args.length == 2 && args[0] === JSuperArgs.ARGS) {
+            args = args[1];
+        }
+        var jsuper:Array = DirectoryOrIncludeFileExtensionBooleanFileVisitor.jsuperArgs(args);
+        super(jsuper[0]);
         this.initFieldsDirectoryOrIncludeFileExtensionBooleanFileVisitor();
+        this.jconstruct(args);
+    }
+
+    private static function jsuperArgs(args:Array):Array {
+        if (args.length == 1) {
+            return DirectoryOrIncludeFileExtensionBooleanFileVisitor.jsuper_1(args[0]);
+        }
+        if (args.length == 2) {
+            return DirectoryOrIncludeFileExtensionBooleanFileVisitor.jsuper_2(args[0], args[1]);
+        }
+        return [];
+    }
+
+    private static function jsuper_1(filterStringBasicArrayList:BasicArrayList):Array {
+        return [filterStringBasicArrayList];
+    }
+
+    private static function jsuper_2(filterStringBasicArrayList:BasicArrayList, includesString:String):Array {
+        return [filterStringBasicArrayList];
+    }
+
+    private function jconstruct(args:Array):void {
+        if (args.length == 1) {
+            this.jconstruct_1(args[0]);
+            return;
+        }
+        if (args.length == 2) {
+            this.jconstruct_2(args[0], args[1]);
+            return;
+        }
+    }
+
+    private function jconstruct_1(filterStringBasicArrayList:BasicArrayList):void {
+        
         this.includesString = null;
     }
-    
 
-    /* Java constructor: ActionScript classes have one constructor
-    public function DirectoryOrIncludeFileExtensionBooleanFileVisitor(filterStringBasicArrayList:BasicArrayList, includesString:String = null) {
-        super(filterStringBasicArrayList);
-        this.initFieldsDirectoryOrIncludeFileExtensionBooleanFileVisitor();
+    private function jconstruct_2(filterStringBasicArrayList:BasicArrayList, includesString:String):void {
+        
         this.includesString = includesString;
     }
-    */
+    
     
 
-    override public function visit(file:AbFile):* {
+    override public function visit(...args):* {
+        if (args.length == 1) {
+            return this.visit_jo1(args[0]);
+        }
+        return super.visit.apply(this, args);
+    }
+
+    private function visit_jo1(file:AbFile):* {
         if (file.isDirectory()) {
             return true;
         }
-        if (this.includesString == null || file.getAbsolutePath().indexOf(this.includesString) >= 0) {
+        if (this.includesString == null || JString.indexOf(file.getAbsolutePath(), this.includesString) >= 0) {
             return super.visit(file);
         } else {
             return false;

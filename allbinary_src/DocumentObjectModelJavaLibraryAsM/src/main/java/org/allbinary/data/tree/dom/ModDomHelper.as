@@ -17,7 +17,7 @@ package org.allbinary.data.tree.dom {
     import java.util.JHashMap;
     import java.util.JSet;
     import org.allbinary.util.BasicArrayList;
-    import org.allbinary.logic.java.anyType.clazz.ClassUtil;
+    import org.allbinary.logic.java.object.clazz.ClassUtil;
     import org.allbinary.logic.string.StringUtil;
     import org.allbinary.string.CommonSeps;
     import org.w3c.dom.Document;
@@ -55,36 +55,45 @@ package org.allbinary.data.tree.dom {
     }
     
 
-    public static function createNameValueNodes(document:Document, elementName:String, nameText:String, valueText:String):Node {
+    public static function createNameValueNodes(...args):Node {
+        if (args.length == 4 && args[0] is Document && args[1] is String && args[2] is String && args[3] is String) {
+            return ModDomHelper.createNameValueNodes_jo4_1(args[0], args[1], args[2], args[3]);
+        }
+        if (args.length == 3 && args[0] is Document && args[1] is String && args[2] is String) {
+            return ModDomHelper.createNameValueNodes_jo3_1(args[0], args[1], args[2]);
+        }
+        if (args.length == 3 && args[0] is Document && args[1] is String && args[2] is JHashMap) {
+            return ModDomHelper.createNameValueNodes_jo3_2(args[0], args[1], args[2]);
+        }
+        if (args.length == 3) {
+            return ModDomHelper.createNameValueNodes_jo3_3(args[0], args[1], args[2]);
+        }
+        if (args.length == 4) {
+            return ModDomHelper.createNameValueNodes_jo4_2(args[0], args[1], args[2], args[3]);
+        }
+        throw new JException("IllegalArgumentException", "createNameValueNodes");
+    }
+
+    private static function createNameValueNodes_jo4_1(document:Document, elementName:String, nameText:String, valueText:String):Node {
         var newNode:Node = document.createElement(elementName);
         newNode.appendChild(ModDomHelper.createNameNode(document, nameText));
         newNode.appendChild(ModDomHelper.createValueNode(document, valueText));
         return newNode;
     }
-    
 
-    public static function createNameValueNodes(document:Document, elementNameAndNameText:String, valueText:String):Node {
+    private static function createNameValueNodes_jo3_1(document:Document, elementNameAndNameText:String, valueText:String):Node {
         var newNode:Node = ModDomHelper.createNameValueNodes(document, elementNameAndNameText, elementNameAndNameText, valueText);
         return newNode;
     }
-    
 
-    public static function createNameValueIndexNodes(document:Document, elementNameAndNameText:String, index:int, valueText:String):Node {
-        var newNode:Node = ModDomHelper.createNameValueNodes(document, elementNameAndNameText, valueText);
-        newNode.appendChild(ModDomHelper.createIndexNode(document, index));
-        return newNode;
-    }
-    
-
-    public static function createNameValueNodes(document:Document, rootNode:String, hashMap:JHashMap):Node {
+    private static function createNameValueNodes_jo3_2(document:Document, rootNode:String, hashMap:JHashMap):Node {
         var node:Node = document.createElement(rootNode);
         return ModDomHelper.createNameValueNodes(document, node, hashMap);
     }
-    
 
-    public static function createNameValueNodes(document:Document, node:Node, hashMap:JHashMap):Node {
+    private static function createNameValueNodes_jo3_3(document:Document, node:Node, hashMap:JHashMap):Node {
         var stringUtil:StringUtil = StringUtil.getInstance();
-        var keySet:Set = hashMap.keySet();
+        var keySet:JSet = hashMap.keySet();
         var keyArray:Vector.<Object> = keySet.toArray();
         var size:int = keyArray.length;
         for (var i:int = 0; i < size; i++) {
@@ -105,9 +114,8 @@ package org.allbinary.data.tree.dom {
         }
         return node;
     }
-    
 
-    public static function createNameValueNodes(document:Document, rootNodeName:String, duplicateNodeName:String, valueVector:BasicArrayList):Node {
+    private static function createNameValueNodes_jo4_2(document:Document, rootNodeName:String, duplicateNodeName:String, valueVector:BasicArrayList):Node {
         var stringUtil:StringUtil = StringUtil.getInstance();
         var node:Node = document.createElement(rootNodeName);
         var size:int = valueVector.size();
@@ -118,8 +126,25 @@ package org.allbinary.data.tree.dom {
         return node;
     }
     
+    
 
-    public static function createNameValueIndexNodes(document:Document, rootNodeName:String, duplicateNodeName:String, valueVector:BasicArrayList):Node {
+    public static function createNameValueIndexNodes(...args):Node {
+        if (args.length == 4 && args[0] is Document && args[1] is String && args[2] is int && args[3] is String) {
+            return ModDomHelper.createNameValueIndexNodes_jo4_1(args[0], args[1], args[2], args[3]);
+        }
+        if (args.length == 4) {
+            return ModDomHelper.createNameValueIndexNodes_jo4_2(args[0], args[1], args[2], args[3]);
+        }
+        throw new JException("IllegalArgumentException", "createNameValueIndexNodes");
+    }
+
+    private static function createNameValueIndexNodes_jo4_1(document:Document, elementNameAndNameText:String, index:int, valueText:String):Node {
+        var newNode:Node = ModDomHelper.createNameValueNodes(document, elementNameAndNameText, valueText);
+        newNode.appendChild(ModDomHelper.createIndexNode(document, index));
+        return newNode;
+    }
+
+    private static function createNameValueIndexNodes_jo4_2(document:Document, rootNodeName:String, duplicateNodeName:String, valueVector:BasicArrayList):Node {
         var stringUtil:StringUtil = StringUtil.getInstance();
         var node:Node = document.createElement(rootNodeName);
         var size:int = valueVector.size();
@@ -130,16 +155,29 @@ package org.allbinary.data.tree.dom {
         return node;
     }
     
+    
+    
+    
+    
 
-    public static function createNodeWithValueNodes(document:Document, rootNode:String, hashMap:JHashMap):Node {
+    public static function createNodeWithValueNodes(...args):Node {
+        if (args.length == 3 && args[0] is Document && args[1] is String && args[2] is JHashMap) {
+            return ModDomHelper.createNodeWithValueNodes_jo3_1(args[0], args[1], args[2]);
+        }
+        if (args.length == 3) {
+            return ModDomHelper.createNodeWithValueNodes_jo3_2(args[0], args[1], args[2]);
+        }
+        throw new JException("IllegalArgumentException", "createNodeWithValueNodes");
+    }
+
+    private static function createNodeWithValueNodes_jo3_1(document:Document, rootNode:String, hashMap:JHashMap):Node {
         var node:Node = document.createElement(rootNode);
         return ModDomHelper.createNodeWithValueNodes(document, node, hashMap);
     }
-    
 
-    public static function createNodeWithValueNodes(document:Document, node:Node, hashMap:JHashMap):Node {
+    private static function createNodeWithValueNodes_jo3_2(document:Document, node:Node, hashMap:JHashMap):Node {
         var stringUtil:StringUtil = StringUtil.getInstance();
-        var keySet:Set = hashMap.keySet();
+        var keySet:JSet = hashMap.keySet();
         var keyArray:Vector.<Object> = keySet.toArray();
         var size:int = keyArray.length;
         for (var i:int = 0; i < size; i++) {
@@ -150,6 +188,7 @@ package org.allbinary.data.tree.dom {
         }
         return node;
     }
+    
     }
 }
 

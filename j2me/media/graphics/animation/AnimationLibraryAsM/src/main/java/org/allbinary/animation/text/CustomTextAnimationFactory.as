@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.text {
+    import javax.microedition.lcdui.Font;
     import org.allbinary.animation.Animation;
     import org.allbinary.animation.AnimationBehaviorFactory;
     import org.allbinary.animation.AnimationInterfaceFactoryInterface;

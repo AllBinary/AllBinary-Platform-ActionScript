@@ -50,7 +50,7 @@ package org.allbinary.logic.io {
     }
     
 
-    public function get_(inputStream:InputStream, outputStream:OutputStream, buffer:Vector.<int>):OutputStream {
+    public function get_(inputStream:JInputStream, outputStream:JOutputStream, buffer:Vector.<int>):JOutputStream {
         var len:int = 0;
         while (true) {
             len = inputStream.read(buffer, 0, buffer.length);
@@ -64,7 +64,7 @@ package org.allbinary.logic.io {
     }
     
 
-    public function getByteArray(inputStream:InputStream, outputStream2:JByteArrayOutputStream, byteArray:Vector.<int>):Vector.<int> {
+    public function getByteArray(inputStream:JInputStream, outputStream2:JByteArrayOutputStream, byteArray:Vector.<int>):Vector.<int> {
         var outputStream:JByteArrayOutputStream = outputStream2;
         try {
             this.get_(inputStream, outputStream, byteArray);
@@ -74,10 +74,11 @@ package org.allbinary.logic.io {
         } finally {
             this.close(outputStream);
         }
+        throw new JException("IllegalStateException", "unreachable end of method");
     }
     
 
-    public function close(closeable:Closeable):Boolean {
+    public function close(closeable:JCloseable):Boolean {
         try {
             if (closeable != null) {
                 closeable.close();

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.layer {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.color.BasicColorFactory;
     import org.allbinary.graphics.color.BasicColorSetUtil;
@@ -35,7 +36,15 @@ package org.allbinary.game.layer {
         }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.basicSetColorUtil.setBasicColorP(graphics, this.BLACK);
     }
     }

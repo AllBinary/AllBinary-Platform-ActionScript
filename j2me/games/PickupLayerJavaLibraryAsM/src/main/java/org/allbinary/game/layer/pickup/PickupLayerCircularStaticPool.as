@@ -26,6 +26,10 @@ package org.allbinary.game.layer.pickup {
         }
         return PickupLayerCircularStaticPool.SINGLETON_value;
     }
+    private static function set SINGLETON(value:PickupLayerCircularStaticPool):void {
+        PickupLayerCircularStaticPool.SINGLETON_set = true;
+        PickupLayerCircularStaticPool.SINGLETON_value = value;
+    }
     
 
     public function PickupLayerCircularStaticPool() {

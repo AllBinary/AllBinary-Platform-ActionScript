@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.NullCommandListener;
     import org.allbinary.game.init.BasicBuildGameInitializerFactory;
     import org.allbinary.game.layer.AllBinaryGameLayerManager;
     import org.allbinary.game.score.NoHighScoresFactory;
@@ -30,6 +33,10 @@ package org.allbinary.game.displayable.canvas {
             NullGameCanvas.instance_value = NullUtil.getInstance().NULL_OBJECT;
         }
         return NullGameCanvas.instance_value;
+    }
+    private static function set instance(value:Object):void {
+        NullGameCanvas.instance_set = true;
+        NullGameCanvas.instance_value = value;
     }
     public static const NO_GAME:String = "No Background Game";
     public static const TYPE:int = 1;
@@ -109,7 +116,15 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function draw(graphics:Graphics):void {
+    override public function draw(...args):void {
+        if (args.length == 1) {
+            this.draw_jo1(args[0]);
+            return;
+        }
+        super.draw.apply(this, args);
+    }
+
+    private function draw_jo1(graphics:Graphics):void {
     }
     
 

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.displayable {
+    import javax.microedition.lcdui.Displayable;
     import org.allbinary.AndroidUtil;
     import org.allbinary.game.configuration.feature.Features;
     import org.allbinary.graphics.displayable.event.DisplayChangeEvent;

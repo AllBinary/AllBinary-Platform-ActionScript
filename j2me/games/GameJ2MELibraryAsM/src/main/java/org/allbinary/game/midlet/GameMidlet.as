@@ -15,6 +15,12 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.midlet {
     import java.util.JEnumeration;
+    import javax.microedition.lcdui.Canvas;
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Displayable;
+    import javax.microedition.lcdui.NullCanvas;
+    import javax.microedition.midlet.MIDletStateChangeException;
     import org.allbinary.J2MEUtil;
     import org.allbinary.TsUtil;
     import org.allbinary.business.advertisement.GameAdStateFactory;
@@ -433,7 +439,7 @@ package org.allbinary.game.midlet {
                 inGameOptionsForm.setItemStateListener(allbinaryGameCanvasRunnableInterface);
                 this.commandAction(gameCommandsFactory.SET_MENU_DISPLAYABLE, inGameOptionsForm);
             } else if (command == InGameOptionsForm.DEFAULT) {
-                var inGameOptionsForm:InGameOptionsForm = (InGameOptionsFormFactory.getInstance().get_() as InGameOptionsForm);
+                var inGameOptionsForm:* = (InGameOptionsFormFactory.getInstance().get_() as InGameOptionsForm);
                 GameFeatureFormUtil.getInstance().setDefault(inGameOptionsForm);
             } else if (command == gameCommandsFactory.DISPLAY_OPTIONS) {
                 AllBinaryMediaManager.setMuted(true);

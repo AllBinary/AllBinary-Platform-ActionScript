@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration {
+    import javax.microedition.lcdui.Gauge;
 
     public class GameConfigurationGauge extends Gauge {
     

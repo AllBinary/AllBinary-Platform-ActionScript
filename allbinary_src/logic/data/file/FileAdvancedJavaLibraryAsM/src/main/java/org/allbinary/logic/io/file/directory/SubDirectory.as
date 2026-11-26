@@ -49,24 +49,40 @@ package org.allbinary.logic.io.file.directory {
     }
     
 
-    public function search(fileFilter:FileFilter, file:AbFile):BasicArrayList {
+    public function search(...args):BasicArrayList {
+        if (args.length == 2 && args[0] is JFileFilter && args[1] is AbFile) {
+            return this.search_jo2_1(args[0], args[1]);
+        }
+        if (args.length == 1) {
+            return this.search_jo1(args[0]);
+        }
+        if (args.length == 2 && args[0] is String && args[1] is AbFile) {
+            return this.search_jo2_2(args[0], args[1]);
+        }
+        if (args.length == 2) {
+            return this.search_jo2_3(args[0], args[1]);
+        }
+        throw new JException("IllegalArgumentException", "search");
+    }
+
+    private function search_jo2_1(fileFilter:JFileFilter, file:AbFile):BasicArrayList {
         return this.directory.search(fileFilter, file, true);
     }
-    
 
-    public function search(file:AbFile):BasicArrayList {
+    private function search_jo1(file:AbFile):BasicArrayList {
         return this.directory.search(file, true);
     }
-    
 
-    public function search(searchValue:String, file:AbFile):BasicArrayList {
+    private function search_jo2_2(searchValue:String, file:AbFile):BasicArrayList {
         return this.directory.search(searchValue, file, true);
     }
-    
 
-    public function search(level:int, file:AbFile):BasicArrayList {
+    private function search_jo2_3(level:int, file:AbFile):BasicArrayList {
         return this.directory.search(level, file, true);
     }
+    
+    
+    
     
 
     public static function toString1(files:BasicArrayList):String {

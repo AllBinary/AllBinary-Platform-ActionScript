@@ -27,7 +27,7 @@ package org.allbinary.image.opengles {
     }
     
 
-    override public static function getInstance():ModifierOpenGLESImageProcessor {
+    public static function getInstance():ModifierOpenGLESImageProcessor {
         return ModifierOpenGLESImageProcessor.instanceC;
     }
     }

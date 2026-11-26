@@ -1,5 +1,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.Canvas;
+    import javax.microedition.lcdui.Graphics;
 
     //Temp should not be in any build
     public class NullDisplayable extends Canvas {
@@ -24,7 +26,15 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
     }
     }
 }

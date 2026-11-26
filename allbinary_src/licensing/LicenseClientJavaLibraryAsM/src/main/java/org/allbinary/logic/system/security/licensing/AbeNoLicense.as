@@ -28,6 +28,10 @@ package org.allbinary.logic.system.security.licensing {
         }
         return AbeNoLicense.abeNoLicense_value;
     }
+    private static function set abeNoLicense(value:AbeNoLicense):void {
+        AbeNoLicense.abeNoLicense_set = true;
+        AbeNoLicense.abeNoLicense_value = value;
+    }
         public var serverVector:BasicArrayList = null;
 
         // Java field initializers run after the base constructor

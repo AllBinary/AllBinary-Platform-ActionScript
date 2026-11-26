@@ -27,7 +27,7 @@ package org.allbinary.graphics.paint {
     }
     
 
-    override public static function getInstance():NullLocationPaintable {
+    public static function getInstance():NullLocationPaintable {
         return NullLocationPaintable.instanceC;
     }
     }

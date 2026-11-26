@@ -40,16 +40,16 @@ package org.allbinary.media {
     
 
     public function getPrimaryScreenSize():Rectangle {
-        var dimension:Dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        var dimension:JDimension = JToolkit.getDefaultToolkit().getScreenSize();
         return new Rectangle(PointFactory.getInstance().ZERO_ZERO, dimension.width, dimension.height);
     }
     
 
     public function getScreenSizesAsRectangleArray():Vector.<Rectangle> {
-        var graphicsEnvironment:GraphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        var graphicsDeviceArray:Vector.<GraphicsDevice> = graphicsEnvironment.getScreenDevices();
-        var graphicsDevice:GraphicsDevice = null;
-        var displayMode:DisplayMode = null;
+        var graphicsEnvironment:JGraphicsEnvironment = JGraphicsEnvironment.getLocalGraphicsEnvironment();
+        var graphicsDeviceArray:Vector.<JGraphicsDevice> = graphicsEnvironment.getScreenDevices();
+        var graphicsDevice:JGraphicsDevice = null;
+        var displayMode:JDisplayMode = null;
         var rectangle:Rectangle = null;
         var size:int = graphicsDeviceArray.length;
         var rectangleArray:Vector.<Rectangle> = new Vector.<Rectangle>(size);

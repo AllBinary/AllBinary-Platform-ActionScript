@@ -34,9 +34,9 @@ package org.allbinary.logic.system {
     }
     
 
-    public function getResourceAsStream(resource:String):InputStream {
+    public function getResourceAsStream(resource:String):JInputStream {
         var resourceUtil:ResourceUtil = ResourceUtil.getInstance();
-        var inputStream:InputStream = resourceUtil.getResourceAsStream(resource);
+        var inputStream:JInputStream = resourceUtil.getResourceAsStream(resource);
         return inputStream;
     }
     }

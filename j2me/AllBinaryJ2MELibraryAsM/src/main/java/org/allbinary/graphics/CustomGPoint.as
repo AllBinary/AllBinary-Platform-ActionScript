@@ -37,7 +37,7 @@ package org.allbinary.graphics {
         }
     
 
-    override public static function getInstance1(point:GPoint):CustomGPoint {
+    public static function getInstance1(point:GPoint):CustomGPoint {
         return new CustomGPoint(point.getX(), point.getY(), point.getZ());
     }
     

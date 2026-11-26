@@ -45,9 +45,9 @@
         <module>./j2me/media/graphics/animation/image/AllBinaryHTMLImageAnimationRotationJavaLibraryAsM</module>
         <module>./j2me/media/graphics/animation/image/AllBinaryHTML2ImageAnimationRotationJavaLibraryAsM</module>
         -->
-        <module>./j2me/media/graphics/animation/image/AllBinaryJ2SEImageAnimationRotationJavaLibraryAsM</module>
+        <!-- web language: no AWT/ImageIO <module>./j2me/media/graphics/animation/image/AllBinaryJ2SEImageAnimationRotationJavaLibraryAsM</module>-->
         <module>./j2me/games/Resources/sounds/release/GameSoundsJ2SEOggResourcesJavaLibraryAsM</module>
-        <module>./graphics/opengl/AllBinaryJOGLResourcesJavaLibraryAsM</module>
+        <!-- web language: no JOGL <module>./graphics/opengl/AllBinaryJOGLResourcesJavaLibraryAsM</module>-->
 
     </modules>
 

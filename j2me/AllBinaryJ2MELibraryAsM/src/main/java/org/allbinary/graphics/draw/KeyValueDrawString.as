@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.draw {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.font.MyFontProcessor;
     import org.allbinary.graphics.font.UpdateMyFontInterface;
     import org.allbinary.graphics.font.UpdateMyFontProcessor;
@@ -45,20 +46,36 @@ package org.allbinary.graphics.draw {
     
 
     public function updateMeasurement(graphics:Graphics):void {
-        var labelWidth:int = graphics.getFont().stringWidth(this.LABEL) - this.LABEL.length;
+        var labelWidth:int = int(graphics.getFont().stringWidth(this.LABEL) - this.LABEL.length);
         this.valueX = int(labelWidth + this.labelX);
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
     
 
-    public function paint(graphics:Graphics, y:int):void {
+    public function paint(...args):void {
+        if (args.length == 2) {
+            this.paint_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo2(graphics:Graphics, y:int):void {
         this.myFontProcessor.process(graphics);
         graphics.drawString(this.LABEL, this.labelX, y, 0);
         graphics.drawString(this.value, this.valueX, y, 0);
     }
     
 
-    public function update(value:String):void {
+    public function update(...args):void {
+        if (args.length == 1) {
+            this.update_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo1(value:String):void {
         this.value = value;
     }
     }

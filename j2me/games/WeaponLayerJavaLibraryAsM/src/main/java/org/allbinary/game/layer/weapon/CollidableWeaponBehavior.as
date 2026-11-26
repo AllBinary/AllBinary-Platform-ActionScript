@@ -35,6 +35,10 @@ package org.allbinary.game.layer.weapon {
         }
         return CollidableWeaponBehavior.NULL_COLLIDABLE_WEAPON_BEHAVIOR_value;
     }
+    private static function set NULL_COLLIDABLE_WEAPON_BEHAVIOR(value:Object):void {
+        CollidableWeaponBehavior.NULL_COLLIDABLE_WEAPON_BEHAVIOR_set = true;
+        CollidableWeaponBehavior.NULL_COLLIDABLE_WEAPON_BEHAVIOR_value = value;
+    }
         private var collided:Boolean = false;
         public var collisionHelper:CollisionHelper = null;
 
@@ -62,7 +66,15 @@ package org.allbinary.game.layer.weapon {
     }
     
 
-    public function init(sourceLayerInterface:AllBinaryLayer):void {
+    public function init(...args):void {
+        if (args.length == 1) {
+            this.init_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo1(sourceLayerInterface:AllBinaryLayer):void {
         this.setCollided(false);
         this.collisionHelper.setOwnerLayerInterface(sourceLayerInterface);
     }

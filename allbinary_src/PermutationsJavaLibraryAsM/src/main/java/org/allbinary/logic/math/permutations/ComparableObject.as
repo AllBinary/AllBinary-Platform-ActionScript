@@ -15,8 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.math.permutations {
     import org.allbinary.TsUtil;
+    import java.lang.JComparable;
 
-    public class ComparableObject implements Comparable {
+    public class ComparableObject implements JComparable {
     
 
     public function compareTo(anyType:Object):int {

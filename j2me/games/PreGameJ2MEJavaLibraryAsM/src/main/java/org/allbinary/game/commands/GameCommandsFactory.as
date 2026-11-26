@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.commands {
+    import javax.microedition.lcdui.Command;
     import org.allbinary.graphics.displayable.CanvasStrings;
     import org.allbinary.logic.NullUtil;
     import org.allbinary.logic.string.StringUtil;
@@ -28,6 +29,10 @@ package org.allbinary.game.commands {
             GameCommandsFactory.instance_value = NullUtil.getInstance().NULL_OBJECT;
         }
         return GameCommandsFactory.instance_value;
+    }
+    private static function set instance(value:Object):void {
+        GameCommandsFactory.instance_set = true;
+        GameCommandsFactory.instance_value = value;
     }
         public var TOGGLE_FULLSCREEN:Command = null;
         public var TOGGLE_KEYBOARD:Command = null;

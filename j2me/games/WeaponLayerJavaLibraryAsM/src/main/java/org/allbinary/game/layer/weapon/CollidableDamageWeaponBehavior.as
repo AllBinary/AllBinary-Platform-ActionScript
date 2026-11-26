@@ -44,7 +44,15 @@ package org.allbinary.game.layer.weapon {
     }
     
 
-    public function init(sourceLayerInterface:AllBinaryLayer):void {
+    public function init(...args):void {
+        if (args.length == 1) {
+            this.init_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo1(sourceLayerInterface:AllBinaryLayer):void {
         this.setCollided(false);
         this.collisionHelper.setOwnerLayerInterface(sourceLayerInterface);
     }

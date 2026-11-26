@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image.sprite {
+    import javax.microedition.lcdui.Image;
+    import javax.microedition.lcdui.game.Sprite;
     import org.allbinary.animation.AnimationBehavior;
     import org.allbinary.direction.Direction;
     import org.allbinary.math.Angle;
@@ -24,7 +26,7 @@ package org.allbinary.animation.image.sprite {
     
 
     public function AllBinarySpriteRotationAnimation(sprite:Sprite, image:Image, animationBehavior:AnimationBehavior) {
-        super(sprite, image, AngleInfo.getInstance1(((int((AngleFactory.getInstance().TOTAL_ANGLE / sprite.getRawFrameCount())) << 16) >> 16)), animationBehavior);
+        super(sprite, image, AngleInfo.getInstance1(((int((int(AngleFactory.getInstance().TOTAL_ANGLE / sprite.getRawFrameCount()))) << 16) >> 16)), animationBehavior);
         this.angleInfo.adjustAngle(this.sprite.getFrame());
     }
     

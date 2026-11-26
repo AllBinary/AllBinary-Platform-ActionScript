@@ -25,6 +25,10 @@ package org.allbinary.ag.game.vector {
         }
         return HealthVectorData.points_value;
     }
+    public static function set points(value:Vector.<Vector.<Vector.<int>>>):void {
+        HealthVectorData.points_set = true;
+        HealthVectorData.points_value = value;
+    }
     }
 }
 

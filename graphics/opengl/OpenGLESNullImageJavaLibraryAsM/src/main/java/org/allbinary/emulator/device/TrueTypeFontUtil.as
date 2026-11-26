@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.emulator.device {
+    import javax.microedition.khronos.opengles.GL10;
+    import javax.microedition.lcdui.Image;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.image.opengles.OpenGLESImage;
 

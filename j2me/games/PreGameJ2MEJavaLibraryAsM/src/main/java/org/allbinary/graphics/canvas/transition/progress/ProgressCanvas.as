@@ -14,6 +14,11 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.canvas.transition.progress {
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.NullCanvas;
+    import javax.microedition.lcdui.NullCommandListener;
     import org.allbinary.canvas.Processor;
     import org.allbinary.canvas.RunnableCanvas;
     import org.allbinary.game.commands.GameCommandsFactory;
@@ -73,13 +78,7 @@ package org.allbinary.graphics.canvas.transition.progress {
     this.background = true;
     this.paintable = this.GAUGE_PAINTABLE;
     this.inProgress = false;
-    this.IN_GAME_PROCESSOR = new Processor() /* Java anonymous class body: implement it as a named subclass
-        this.pathFindingThreadPool = PathFindingThreadPool.getInstance();
-        
-
-        override public function process():void {
-            this.pathFindingThreadPool.runAPriorityTask();
-        } */;
+    this.IN_GAME_PROCESSOR = new ProgressCanvas_1(this);
     this.inGameProcessor = Processor.getInstance();
     this.progressEndListener = ProgressEndListener.instance;
     this.backgroundLabel = "Background AI Game Loading...";
@@ -97,19 +96,35 @@ package org.allbinary.graphics.canvas.transition.progress {
     }
     
 
-    override public function updateMeasurement(graphics:Graphics):void {
+    public function updateMeasurement(graphics:Graphics):void {
         var font:Font = graphics.getFont();
         this.gauge.setHeight(int(font.getHeight() + 2));
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
     
 
-    public function init(gameMidlet:AllBinaryMidlet):void {
+    public function init(...args):void {
+        if (args.length == 1) {
+            this.init_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo1(gameMidlet:AllBinaryMidlet):void {
         this.allbinaryMidlet = gameMidlet;
     }
     
 
-    public function update(graphics:Graphics):void {
+    public function update(...args):void {
+        if (args.length == 1) {
+            this.update_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo1(graphics:Graphics):void {
     }
     
 
@@ -215,7 +230,15 @@ package org.allbinary.graphics.canvas.transition.progress {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.paintable.paint(graphics);
     }
     
@@ -229,7 +252,7 @@ package org.allbinary.graphics.canvas.transition.progress {
     }
     
 
-    override public function paintThreed(graphics:Graphics):void {
+    public function paintThreed(graphics:Graphics):void {
     }
     
 

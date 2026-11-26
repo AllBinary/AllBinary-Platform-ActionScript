@@ -22,6 +22,7 @@ package org.allbinary.data.resource {
     import org.allbinary.string.CommonStrings;
     import java.lang.JInteger;
     import java.lang.JThread;
+    import java.lang.JClassLoader;
 
     //J2SE - J2ME
     public class ResourceUtil {
@@ -33,6 +34,10 @@ package org.allbinary.data.resource {
             ResourceUtil.classLoader_value = NullUtil.getInstance().NULL_OBJECT;
         }
         return ResourceUtil.classLoader_value;
+    }
+    private static function set classLoader(value:Object):void {
+        ResourceUtil.classLoader_set = true;
+        ResourceUtil.classLoader_value = value;
     }
     private static var instance_value:ResourceUtil;
     private static var instance_set:Boolean = false;
@@ -67,14 +72,14 @@ package org.allbinary.data.resource {
     }
     
 
-    public function setClassLoader(classLoader:ClassLoader):void {
+    public function setClassLoader(classLoader:JClassLoader):void {
         this.logUtil.putF(new StringMaker().append("Resource Loader: ").append(JSystem.className(classLoader)).toString(), this, "setClassLoader");
         ResourceUtil.classLoader = classLoader;
     }
     
 
-    public function getResourceAsStream(resource:String):InputStream {
-        var inputStream:InputStream = this.getResourceAsStreamAtStart(resource, 2);
+    public function getResourceAsStream(resource:String):JInputStream {
+        var inputStream:JInputStream = this.getResourceAsStreamAtStart(resource, 2);
         if (inputStream == null) {
             inputStream = this.getResourceAsStreamAtStart(resource, 1);
             if (inputStream == null) {
@@ -85,15 +90,15 @@ package org.allbinary.data.resource {
     }
     
 
-    private function getResourceAsStreamAtStart(resource:String, startIndex:int):InputStream {
+    private function getResourceAsStreamAtStart(resource:String, startIndex:int):JInputStream {
         var commonSeps:CommonSeps = CommonSeps.getInstance();
         var index:int = JString.indexOf(resource, commonSeps.COLON);
         var resourcePath:String = resource.substring(int(index + startIndex));
-        var inputStream:InputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+        var inputStream:JInputStream = JClass.getResourceAsStream(JSystem.className(resource), resourcePath);
         if (inputStream != null) {
             return inputStream;
         }
-        var classLoader:ClassLoader = (ResourceUtil.classLoader as ClassLoader);
+        var classLoader:JClassLoader = (ResourceUtil.classLoader as JClassLoader);
         inputStream = classLoader.getResourceAsStream(resourcePath);
         if (inputStream != null) {
             return inputStream;

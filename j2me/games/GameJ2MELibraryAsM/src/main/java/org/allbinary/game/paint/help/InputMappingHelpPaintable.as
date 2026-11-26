@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.paint.help {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.input.GameKey;
     import org.allbinary.game.input.GameKeyFactory;
     import org.allbinary.game.input.Input;
@@ -136,7 +138,15 @@ package org.allbinary.game.paint.help {
     }
     
 
-    public function update(selectedGameKey:GameKey, selectedInput:Input):void {
+    public function update(...args):void {
+        if (args.length == 2) {
+            this.update_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo2(selectedGameKey:GameKey, selectedInput:Input):void {
         var stringMaker:StringMaker = new StringMaker();
         this.logUtil.putF(stringMaker.append(CommonLabels.getInstance().START_LABEL).append("selected GameKey: ").append(this.stringUtil.toString1(selectedGameKey)).append(" Input: ").append(this.stringUtil.toString1(selectedInput)).toString(), this, this.commonStrings.UPDATE);
         var gameKeyMapping:PersistentInputMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
@@ -204,7 +214,15 @@ package org.allbinary.game.paint.help {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
         var halfWidth:int = this.displayInfo.getLastHalfWidth();
         graphics.setColor(this.basicColor.intValue());

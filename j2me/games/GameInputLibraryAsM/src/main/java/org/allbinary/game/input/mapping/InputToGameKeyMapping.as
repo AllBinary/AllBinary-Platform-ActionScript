@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.input.mapping {
+    import javax.microedition.lcdui.Canvas;
     import org.allbinary.game.input.GameKey;
     import org.allbinary.game.input.GameKeyFactory;
     import org.allbinary.game.input.Input;
@@ -36,6 +37,10 @@ package org.allbinary.game.input.mapping {
             InputToGameKeyMapping.instance_value = NullUtil.getInstance().NULL_OBJECT;
         }
         return InputToGameKeyMapping.instance_value;
+    }
+    private static function set instance(value:Object):void {
+        InputToGameKeyMapping.instance_set = true;
+        InputToGameKeyMapping.instance_value = value;
     }
         private var gameKeyFactory:GameKeyFactory = null;
         private var mappedGameKeys:Vector.<GameKey> = null;

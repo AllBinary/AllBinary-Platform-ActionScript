@@ -15,6 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.image {
     import java.awt.image.JBufferedImage;
+    import javax.microedition.lcdui.Image;
     import org.allbinary.graphics.Anchor;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.microemu.device.j2se.J2SEImmutableImage;
@@ -71,8 +72,8 @@ package org.allbinary.media.image {
     
 
     public function createImageScale(originalImage:Image, canvasScale:Number, resize:Boolean):Image {
-        var newWidth:int = (originalImage.getWidth() * canvasScale);
-        var newHeight:int = (originalImage.getHeight() * canvasScale);
+        var newWidth:int = JMath.toInt32((Number(originalImage.getWidth()) * canvasScale));
+        var newHeight:int = JMath.toInt32((Number(originalImage.getHeight()) * canvasScale));
         if (resize) {
             if (newWidth < newHeight) {
                 newWidth = newHeight;
@@ -81,8 +82,8 @@ package org.allbinary.media.image {
                 newHeight = newWidth;
             }
         }
-        var originalBufferedImage:BufferedImage = this.imageUtil.getBufferedImage(originalImage);
-        var bufferedImage:BufferedImage = this.imageUtil.createBufferedImageWithLargerCanvas(originalBufferedImage, newWidth, newHeight);
+        var originalBufferedImage:JBufferedImage = this.imageUtil.getBufferedImage(originalImage);
+        var bufferedImage:JBufferedImage = this.imageUtil.createBufferedImageWithLargerCanvas(originalBufferedImage, newWidth, newHeight);
         var image:J2SEImmutableImage = new J2SEImmutableImage(bufferedImage);
         return image;
     }

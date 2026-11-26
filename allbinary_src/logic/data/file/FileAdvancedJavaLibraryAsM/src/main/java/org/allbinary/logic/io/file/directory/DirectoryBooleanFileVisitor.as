@@ -25,17 +25,27 @@ package org.allbinary.logic.io.file.directory {
     }
     
 
-    public function visit(anyType:Object):Object {
+    public function visit(...args):* {
+        if (args.length == 1 && args[0] is Object) {
+            return this.visit_jo1_1(args[0]);
+        }
+        if (args.length == 1) {
+            return this.visit_jo1_2(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "visit");
+    }
+
+    private function visit_jo1_1(anyType:Object):Object {
         return (this.visit((anyType as AbFile)) as Object);
     }
-    
 
-    public function visit(file:AbFile):* {
+    private function visit_jo1_2(file:AbFile):* {
         if (file.isDirectory()) {
             return true;
         }
         return false;
     }
+    
     }
 }
 

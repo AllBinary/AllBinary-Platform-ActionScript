@@ -23,20 +23,38 @@ package org.allbinary.logic.math.permutations {
     }
     
 
-    override public function visit(anyType:Object):Object {
+    override public function visit(...args):* {
+        if (args.length == 1) {
+            return this.visit_jo1(args[0]);
+        }
+        return super.visit.apply(this, args);
+    }
+
+    private function visit_jo1(anyType:Object):Object {
         this.stringBuilder.delete_(0, this.stringBuilder.length());
         this.print(this.data, this.stringBuilder);
         return NullUtil.getInstance().NULL_OBJECT;
     }
     
 
-    public function print(data:Vector.<int>):void {
+    public function print(...args):void {
+        if (args.length == 1) {
+            this.print_jo1(args[0]);
+            return;
+        }
+        if (args.length == 2) {
+            this.print_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "print");
+    }
+
+    private function print_jo1(data:Vector.<int>):void {
         var stringBuilder:StringMaker = new StringMaker();
         this.print(data, stringBuilder);
     }
-    
 
-    public function print(data:Vector.<int>, stringBuilder:StringMaker):void {
+    private function print_jo2(data:Vector.<int>, stringBuilder:StringMaker):void {
         var commonSeps:CommonSeps = CommonSeps.getInstance();
         var size:int = data.length;
         for (var i:int = 0; i < size; i++) {
@@ -45,6 +63,7 @@ package org.allbinary.logic.math.permutations {
         }
         trace(stringBuilder.toString());
     }
+    
     }
 }
 

@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.hud.basic.score {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.ag.layer.hud.basic.NumberStringHud;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.color.BasicColorFactory;
@@ -34,7 +36,7 @@ package org.allbinary.game.ag.layer.hud.basic.score {
 
     override public function updateMeasurement(graphics:Graphics):void {
         var font:Font = graphics.getFont();
-        this.updateMaxWidth = font.getSize() * 5;
+        this.updateMaxWidth = int(font.getSize() * 5);
         super.updateMeasurement(graphics);
     }
     }

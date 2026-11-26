@@ -42,7 +42,17 @@ package org.allbinary.data.tree.dom {
     }
     
 
-    public static function getTextNodeValue(node:Node):String {
+    public static function getTextNodeValue(...args):String {
+        if (args.length == 1) {
+            return DomNodeHelper.getTextNodeValue_jo1(args[0]);
+        }
+        if (args.length == 2) {
+            return DomNodeHelper.getTextNodeValue_jo2(args[0], args[1]);
+        }
+        throw new JException("IllegalArgumentException", "getTextNodeValue");
+    }
+
+    private static function getTextNodeValue_jo1(node:Node):String {
         var nodeTextNode:Node = node.getFirstChild();
         if (nodeTextNode != null) {
             return nodeTextNode.getNodeValue();
@@ -50,12 +60,12 @@ package org.allbinary.data.tree.dom {
             return StringUtil.getInstance().EMPTY_STRING;
         }
     }
-    
 
-    public static function getTextNodeValue(nodeName:String, nodeList:NodeList):String {
+    private static function getTextNodeValue_jo2(nodeName:String, nodeList:NodeList):String {
         var node:Node = DomSearchHelper.getNode(nodeName, nodeList);
         return DomNodeHelper.getTextNodeValue(node);
     }
+    
     
 
     public static function getTextNodesValue(node:Node):String {

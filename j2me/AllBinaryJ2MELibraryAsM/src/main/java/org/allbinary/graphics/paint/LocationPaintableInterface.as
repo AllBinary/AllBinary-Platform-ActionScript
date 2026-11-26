@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.paint {
+    import javax.microedition.lcdui.Graphics;
 
     public interface LocationPaintableInterface {
     

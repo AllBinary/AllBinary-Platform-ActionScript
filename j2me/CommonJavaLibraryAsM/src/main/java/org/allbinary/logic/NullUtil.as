@@ -48,7 +48,7 @@ package org.allbinary.logic {
     this.NULL_INT_ARRAY = new Vector.<int>(0);
     this.NULL_INT_ARRAY_ARRAY = (function():Vector.<Vector.<int>> { var array:Vector.<Vector.<int>> = new Vector.<Vector.<int>>(0); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<int>(0); } return array; })();
     this.NULL_INT_ARRAY_ARRAY_ARRAY = (function():Vector.<Vector.<Vector.<int>>> { var array:Vector.<Vector.<Vector.<int>>> = new Vector.<Vector.<Vector.<int>>>(0); for (var index:int = 0; index < array.length; index++) { array[index] = (function():Vector.<Vector.<int>> { var array:Vector.<Vector.<int>> = new Vector.<Vector.<int>>(0); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<int>(0); } return array; })(); } return array; })();
-    this.NULL_FLOAT_ARRAY = JArrays.numbers(0);
+    this.NULL_FLOAT_ARRAY = JVectors.numbers(0);
         }
 
         public function NullUtil() {

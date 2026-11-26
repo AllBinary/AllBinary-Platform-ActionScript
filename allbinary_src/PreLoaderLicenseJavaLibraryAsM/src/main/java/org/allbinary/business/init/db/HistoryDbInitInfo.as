@@ -19,16 +19,52 @@ package org.allbinary.business.init.db {
     private static const INITFILE:String = "historydbinitdata.dat";
     
 
-    public function HistoryDbInitInfo() {
-        super(HistoryDbInitInfo.INITFILE, true);
+    public function HistoryDbInitInfo(...args) {
+        if (args.length == 2 && args[0] === JSuperArgs.ARGS) {
+            args = args[1];
+        }
+        var jsuper:Array = HistoryDbInitInfo.jsuperArgs(args);
+        super(jsuper[0], jsuper[1]);
+        this.jconstruct(args);
+    }
+
+    private static function jsuperArgs(args:Array):Array {
+        if (args.length == 0) {
+            return HistoryDbInitInfo.jsuper_1();
+        }
+        if (args.length == 1) {
+            return HistoryDbInitInfo.jsuper_2(args[0]);
+        }
+        return [];
+    }
+
+    private static function jsuper_1():Array {
+        return [HistoryDbInitInfo.INITFILE, true];
+    }
+
+    private static function jsuper_2(read:Boolean):Array {
+        return [HistoryDbInitInfo.INITFILE, read];
+    }
+
+    private function jconstruct(args:Array):void {
+        if (args.length == 0) {
+            this.jconstruct_1();
+            return;
+        }
+        if (args.length == 1) {
+            this.jconstruct_2(args[0]);
+            return;
+        }
+    }
+
+    private function jconstruct_1():void {
+        
+    }
+
+    private function jconstruct_2(read:Boolean):void {
+        
     }
     
-
-    /* Java constructor: ActionScript classes have one constructor
-    public function HistoryDbInitInfo(read:Boolean = false) {
-        super(HistoryDbInitInfo.INITFILE, read);
-    }
-    */
     }
 }
 

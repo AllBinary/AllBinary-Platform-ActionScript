@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.score {
+    import javax.microedition.lcdui.Canvas;
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.input.event.GameKeyEventHandler;
     import org.allbinary.game.input.event.GameKeyEventUtil;
     import org.allbinary.game.score.displayable.HighScoresCanvas;
@@ -64,7 +67,15 @@ package org.allbinary.game.score {
     }
     
 
-    override public function update():void {
+    override public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        super.update.apply(this, args);
+    }
+
+    private function update_jo0():void {
         var list:BasicArrayList = this.getGameKeyEventList();
         var size:int = list.size();
         for (var index:int = 0; index < size; index++) {
@@ -81,7 +92,15 @@ package org.allbinary.game.score {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
         var width:int = this.displayInfoSingleton.getLastWidth();
         var topScoresWidth:int = (graphics.getFont().stringWidth(this.INSTRUCTIONS) >> 1);

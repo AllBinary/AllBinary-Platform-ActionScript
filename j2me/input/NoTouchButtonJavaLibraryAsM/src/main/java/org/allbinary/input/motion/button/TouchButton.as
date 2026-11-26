@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.input.motion.button {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.animation.Animation;
     import org.allbinary.animation.AnimationInterface;
     import org.allbinary.graphics.CellPosition;
@@ -70,7 +71,15 @@ package org.allbinary.input.motion.button {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.animationInterface.paintXY(graphics, this.animationX, this.animationY);
     }
     

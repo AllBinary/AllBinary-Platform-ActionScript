@@ -14,6 +14,11 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.displayable {
+    import javax.microedition.lcdui.Canvas;
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.NullCommandListener;
     import org.allbinary.graphics.displayable.command.MyCommandInterface;
     import org.allbinary.graphics.displayable.command.MyCommandsFactory;
     import org.allbinary.input.TouchJ2ME;
@@ -110,7 +115,7 @@ package org.allbinary.graphics.displayable {
     }
     
 
-    override public function removeAllCommands():void {
+    public function removeAllCommands():void {
         var size:int = this.commandStack.size();
         for (var index:int = 0; index < size; index++) {
             super.removeCommand((this.commandStack.pop() as Command));
@@ -155,16 +160,40 @@ package org.allbinary.graphics.displayable {
     }
     
 
-    public function process():void {
+    public function process(...args):void {
+        if (args.length == 0) {
+            this.process_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "process");
+    }
+
+    private function process_jo0():void {
         this.displayInfo.process();
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
     }
     
 
-    public function draw(graphics:Graphics):void {
+    public function draw(...args):void {
+        if (args.length == 1) {
+            this.draw_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "draw");
+    }
+
+    private function draw_jo1(graphics:Graphics):void {
     }
     
 

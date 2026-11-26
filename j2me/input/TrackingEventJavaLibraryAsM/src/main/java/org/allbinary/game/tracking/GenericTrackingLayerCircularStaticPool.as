@@ -26,6 +26,10 @@ package org.allbinary.game.tracking {
         }
         return GenericTrackingLayerCircularStaticPool.SINGLETON_value;
     }
+    private static function set SINGLETON(value:GenericTrackingLayerCircularStaticPool):void {
+        GenericTrackingLayerCircularStaticPool.SINGLETON_set = true;
+        GenericTrackingLayerCircularStaticPool.SINGLETON_value = value;
+    }
     
 
     public function GenericTrackingLayerCircularStaticPool() {

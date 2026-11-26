@@ -2,6 +2,7 @@
 package org.allbinary.graphics {
     import java.io.JIOException;
     import java.io.JInputStream;
+    import javax.microedition.lcdui.Image;
     import org.allbinary.logic.NullUtil;
     import org.allbinary.platform.graphics.PlatformBitmapBase;
     import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
@@ -34,19 +35,29 @@ package org.allbinary.graphics {
     }
     
 
-    public function createBitmap(width:int, height:int, config:OpenGLBitmapConfig):OpenGLBitmap {
+    override public function createBitmap(...args):* {
+        if (args.length == 3) {
+            return this.createBitmap_jo3(args[0], args[1], args[2]);
+        }
+        if (args.length == 1) {
+            return this.createBitmap_jo1(args[0]);
+        }
+        return super.createBitmap.apply(this, args);
+    }
+
+    private function createBitmap_jo3(width:int, height:int, config:OpenGLBitmapConfig):OpenGLBitmap {
+        return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
+    }
+
+    private function createBitmap_jo1(image:Image):PlatformBitmapBase {
         return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
     }
     
 
-    public function decodeStream(inputStream:InputStream):OpenGLBitmap {
+    public function decodeStream(inputStream:JInputStream):OpenGLBitmap {
         return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
     }
     
-
-    override public function createBitmap(image:Image):PlatformBitmapBase {
-        return new OpenGLBitmap(NullUtil.getInstance().NULL_OBJECT);
-    }
     }
 }
 

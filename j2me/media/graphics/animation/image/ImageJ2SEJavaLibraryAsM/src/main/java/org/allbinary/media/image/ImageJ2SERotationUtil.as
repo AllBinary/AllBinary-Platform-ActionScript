@@ -51,18 +51,18 @@ package org.allbinary.media.image {
     }
     
 
-    public function getRotatedImage(bufferedImage:Image, totalAngle:int):BufferedImage {
+    public function getRotatedImage(bufferedImage:JImage, totalAngle:int):JBufferedImage {
         return this.getRotatedImageRadians(bufferedImage, this.TWO_PIE * Number(totalAngle) / 360.0);
     }
     
 
-    public function getRotatedImageRadians(bufferedImage:Image, radians:Number):BufferedImage {
-        var newBufferedImage:BufferedImage = this.imageUtil.create(bufferedImage.getWidth(null), bufferedImage.getHeight(null));
+    public function getRotatedImageRadians(bufferedImage:JImage, radians:Number):JBufferedImage {
+        var newBufferedImage:JBufferedImage = this.imageUtil.create(bufferedImage.getWidth(null), bufferedImage.getHeight(null));
         return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, newBufferedImage.createGraphics(), radians);
     }
     
 
-    private function drawRotatedImageRadians(bufferedImage:Image, newBufferedImage:BufferedImage, g:Graphics2D, radians:Number):BufferedImage {
+    private function drawRotatedImageRadians(bufferedImage:JImage, newBufferedImage:JBufferedImage, g:JGraphics2D, radians:Number):JBufferedImage {
         g.rotate(radians, newBufferedImage.getWidth(null) / 2, newBufferedImage.getHeight(null) / 2);
         g.drawImage(bufferedImage, 0, 0, bufferedImage.getWidth(null), bufferedImage.getHeight(null), null);
         g.dispose();
@@ -70,22 +70,22 @@ package org.allbinary.media.image {
     }
     
 
-    public function rotateImage(bufferedImage:Image, newBufferedImage:BufferedImage, totalAngle:int):BufferedImage {
-        var g:Graphics2D = newBufferedImage.createGraphics();
+    public function rotateImage(bufferedImage:JImage, newBufferedImage:JBufferedImage, totalAngle:int):JBufferedImage {
+        var g:JGraphics2D = newBufferedImage.createGraphics();
         g.setBackground(this.imageJ2SEUtil.TRANSPARENT_COLOR);
         g.clearRect(0, 0, newBufferedImage.getWidth(), newBufferedImage.getHeight());
         return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, g, this.TWO_PIE * Number(totalAngle) / 360.0);
     }
     
 
-    public function createRotatedImage(bufferedImage:Image, newBufferedImage:BufferedImage, totalAngle:int):BufferedImage {
-        var g:Graphics2D = newBufferedImage.createGraphics();
+    public function createRotatedImage(bufferedImage:JImage, newBufferedImage:JBufferedImage, totalAngle:int):JBufferedImage {
+        var g:JGraphics2D = newBufferedImage.createGraphics();
         return this.drawRotatedImageRadians(bufferedImage, newBufferedImage, g, this.TWO_PIE * Number(totalAngle) / 360.0);
     }
     
 
-    public function getRotatedImages(bufferedImage:Image, numberOfFrames:int, totalAngle:int):Vector.<BufferedImage> {
-        var bufferedImageArray:Vector.<BufferedImage> = new Vector.<BufferedImage>(numberOfFrames);
+    public function getRotatedImages(bufferedImage:JImage, numberOfFrames:int, totalAngle:int):Vector.<JBufferedImage> {
+        var bufferedImageArray:Vector.<JBufferedImage> = new Vector.<JBufferedImage>(numberOfFrames);
         var arc:Number = (this.TWO_PIE) * Number(totalAngle) / 360.0;
         var size:int = bufferedImageArray.length;
         for (var index:int = 0; index < size; index++) {
@@ -96,7 +96,7 @@ package org.allbinary.media.image {
     }
     
 
-    public function createSpriteImage(bufferedImageArray:Vector.<BufferedImage>):BufferedImage {
+    public function createSpriteImage(bufferedImageArray:Vector.<JBufferedImage>):JBufferedImage {
         var columns:int = 9;
         var rows:int = 0;
         var size:int = bufferedImageArray.length;
@@ -107,12 +107,12 @@ package org.allbinary.media.image {
         if (size % columns != 0) {
             rows++;
         }
-        var firstBufferedImage:BufferedImage = bufferedImageArray[0];
-        var bufferedImage:BufferedImage = this.imageUtil.create(firstBufferedImage.getWidth(null) * columns, firstBufferedImage.getHeight(null) * rows);
-        var g:Graphics2D = bufferedImage.createGraphics();
+        var firstBufferedImage:JBufferedImage = bufferedImageArray[0];
+        var bufferedImage:JBufferedImage = this.imageUtil.create(firstBufferedImage.getWidth(null) * columns, firstBufferedImage.getHeight(null) * rows);
+        var g:JGraphics2D = bufferedImage.createGraphics();
         var columnIndex:int = 0;
         var rowIndex:int = 0;
-        var nextBufferedImage:BufferedImage = null;
+        var nextBufferedImage:JBufferedImage = null;
         for (var index:int = 0; index < size; index++) {
             if (int(index / 9) != 0 && index % 9 == 0) {
                 rowIndex++;

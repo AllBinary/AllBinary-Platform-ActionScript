@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.media.audio {
+    import javax.microedition.media.Player;
     import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
     import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
     import org.allbinary.logic.communication.log.LogUtil;

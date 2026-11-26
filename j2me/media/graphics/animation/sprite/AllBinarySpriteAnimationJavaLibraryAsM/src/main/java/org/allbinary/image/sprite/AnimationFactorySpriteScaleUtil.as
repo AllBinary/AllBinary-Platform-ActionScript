@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.image.sprite {
+    import javax.microedition.lcdui.Image;
+    import javax.microedition.lcdui.game.Sprite;
     import org.allbinary.game.layer.SpriteFactory;
     import org.allbinary.graphics.opengles.OpenGLUtil;
     import org.allbinary.image.ImageCache;

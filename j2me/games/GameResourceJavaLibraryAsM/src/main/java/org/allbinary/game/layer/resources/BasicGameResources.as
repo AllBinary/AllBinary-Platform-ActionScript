@@ -66,12 +66,12 @@ package org.allbinary.game.layer.resources {
     public function append(ROOT:String, sizeString:String):void {
         var DESTROY:String = "_destroy";
         var string:String = this.getString();
-        BasicGameResources.stringBuffer.delete_(0, BasicGameResources.stringBuffer.length());
+        BasicGameResources.stringBuffer.delete_(0, JString.lengthOf(BasicGameResources.stringBuffer));
         BasicGameResources.stringBuffer.append(ROOT);
         BasicGameResources.stringBuffer.append(string);
         BasicGameResources.stringBuffer.append(sizeString);
         this.RESOURCE = BasicGameResources.stringBuffer.toString();
-        BasicGameResources.stringBuffer.delete_(0, BasicGameResources.stringBuffer.length());
+        BasicGameResources.stringBuffer.delete_(0, JString.lengthOf(BasicGameResources.stringBuffer));
         BasicGameResources.stringBuffer.append(ROOT);
         BasicGameResources.stringBuffer.append(DESTROY);
         BasicGameResources.stringBuffer.append(string);

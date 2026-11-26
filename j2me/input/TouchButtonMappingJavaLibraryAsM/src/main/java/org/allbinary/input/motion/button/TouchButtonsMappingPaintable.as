@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.input.motion.button {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.CellPositionFactory;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.paint.Paintable;
@@ -68,7 +69,15 @@ package org.allbinary.input.motion.button {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         var totalColumns:int = this.touchButtonLocationHelper.getTotalColumns();
         var totalRows:int = this.touchButtonLocationHelper.getTotalRows();
         for (var index:int = int(totalColumns - 1); index >= 0; index--) {

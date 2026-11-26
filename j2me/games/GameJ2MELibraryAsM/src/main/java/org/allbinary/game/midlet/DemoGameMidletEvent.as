@@ -32,7 +32,15 @@ package org.allbinary.game.midlet {
     }
     
 
-    public function init(anyType:Object):void {
+    public function init(...args):void {
+        if (args.length == 1) {
+            this.init_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo1(anyType:Object):void {
         this.setSource(anyType);
     }
     

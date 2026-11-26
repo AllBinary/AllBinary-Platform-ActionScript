@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.layer {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.input.PlayerGameInput;
     import org.allbinary.game.input.PlayerGameInputCompositeInterface;
     import org.allbinary.graphics.PointFactory;
@@ -55,7 +56,15 @@ package org.allbinary.game.layer {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
     }
     }
 }

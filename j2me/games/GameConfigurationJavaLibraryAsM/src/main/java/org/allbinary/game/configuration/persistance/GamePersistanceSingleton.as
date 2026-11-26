@@ -25,6 +25,10 @@ package org.allbinary.game.configuration.persistance {
         }
         return GamePersistanceSingleton.GAME_PERSISTANCE_value;
     }
+    private static function set GAME_PERSISTANCE(value:GamePersistanceSingleton):void {
+        GamePersistanceSingleton.GAME_PERSISTANCE_set = true;
+        GamePersistanceSingleton.GAME_PERSISTANCE_value = value;
+    }
     
 
     public static function getInstance():GamePersistanceSingleton {

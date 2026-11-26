@@ -27,11 +27,11 @@ package org.allbinary.logic.io.file.filter {
     }
     
 
-    public static function getInstance1(extension:String):FileFilter {
+    public static function getInstance1(extension:String):JFileFilter {
         var vector:BasicArrayList = new BasicArrayListD();
         vector.add(extension);
         var includeFileExtensionsBooleanFileVisitor:IncludeFileExtensionsBooleanFileVisitor = new IncludeFileExtensionsBooleanFileVisitor(vector);
-        return (new VisitorFileFilter(includeFileExtensionsBooleanFileVisitor) as FileFilter);
+        return (new VisitorFileFilter(includeFileExtensionsBooleanFileVisitor) as JFileFilter);
     }
     }
 }

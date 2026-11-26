@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.text {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.animation.AnimationBehavior;
     import org.allbinary.animation.IndexedAnimation;
     import org.allbinary.game.input.event.RawKeyEventListener;

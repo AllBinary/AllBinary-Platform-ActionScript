@@ -37,6 +37,10 @@ package org.allbinary.game.configuration {
         }
         return GameConfigurationCentral.SINGLETON_value;
     }
+    private static function set SINGLETON(value:Object):void {
+        GameConfigurationCentral.SINGLETON_set = true;
+        GameConfigurationCentral.SINGLETON_value = value;
+    }
         public var logUtil:LogUtil = null;
         public var SCALE:GameConfiguration = null;
         public var ORIENTATION:GameConfiguration = null;
@@ -119,7 +123,7 @@ package org.allbinary.game.configuration {
                 var hashtable:ABHashtable = keyValuePersistance.get_(0);
                 var anyType:Object = (this.SCALE.getName() as Object);
                 var value:String = (hashtable.get_(anyType) as String);
-                this.SCALE.setValue(smallIntegerSingletonFactory.getAt(value.intValue()));
+                this.SCALE.setValue(smallIntegerSingletonFactory.getAt(int(int(parseInt(value)))));
             } else {
                 this.logUtil.putF("No Game Configuration To Load", this, commonStrings.LOAD);
             }

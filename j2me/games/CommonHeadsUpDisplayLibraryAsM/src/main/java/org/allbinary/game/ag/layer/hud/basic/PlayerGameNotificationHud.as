@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.hud.basic {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.business.advertisement.GameAdStateFactory;
     import org.allbinary.canvas.Processor;
     import org.allbinary.game.GameAdState;
@@ -105,8 +107,15 @@ package org.allbinary.game.ag.layer.hud.basic {
     }
     
 
-    override public function add(string:String, seconds:*, basicColor:BasicColor, permanent:*):void {
-        if (permanent.booleanValue()) {
+    override public function add(...args):* {
+        if (args.length == 4) {
+            return this.add_jo4(args[0], args[1], args[2], args[3]);
+        }
+        return super.add.apply(this, args);
+    }
+
+    private function add_jo4(string:String, seconds:*, basicColor:BasicColor, permanent:*):void {
+        if (Boolean(permanent)) {
             if (this.lastString != string) {
                 this.lastString = string;
                 this.logUtil.putF(new StringMaker().append(this.PERMANENT_GAME_NOTIFICATION).append(string).toString(), this, this.commonStrings.ADD);
@@ -119,7 +128,15 @@ package org.allbinary.game.ag.layer.hud.basic {
     }
     
 
-    override public function processTick():void {
+    override public function processTick(...args):void {
+        if (args.length == 0) {
+            this.processTick_jo0();
+            return;
+        }
+        super.processTick.apply(this, args);
+    }
+
+    private function processTick_jo0():void {
         if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime)) {
             var gameAdState:GameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
             if (gameAdState.isShowingAtLocation(this.getLocation())) {
@@ -149,7 +166,7 @@ package org.allbinary.game.ag.layer.hud.basic {
         this.point.setX(this.getX());
         this.point.setY(this.getY());
         var time:* = (this.gameNotification.timeList.removeAt(0) as *);
-        var iTime:int = int(time.intValue() * 1000);
+        var iTime:int = int(int(time) * 1000);
         if (iTime == 0) {
             iTime = 500;
         }
@@ -171,19 +188,35 @@ package org.allbinary.game.ag.layer.hud.basic {
         this.point.setX(this.getX());
         this.point.setY(this.getY());
         var time:* = (this.permanentGameNotification.timeList.objectArray[index] as *);
-        this.timeDelayHelper.delay = int(time.intValue() * 1000);
+        this.timeDelayHelper.delay = int(int(time) * 1000);
         this.setBasicColorP((this.permanentGameNotification.colorList.objectArray[index] as BasicColor));
         this.circularIndexUtil.next();
     }
     
 
-    override public function clear():void {
+    override public function clear(...args):void {
+        if (args.length == 0) {
+            this.clear_jo0();
+            return;
+        }
+        super.clear.apply(this, args);
+    }
+
+    private function clear_jo0():void {
         this.gameNotification.clear();
         this.permanentGameNotification.clear();
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
         super.paintString(graphics, this.string);
     }

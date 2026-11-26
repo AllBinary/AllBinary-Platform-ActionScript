@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.image {
+    import javax.microedition.khronos.opengles.GL;
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Image;
 
     public class PreResourceImageUtil {
     private static var instance_value:PreResourceImageUtil;

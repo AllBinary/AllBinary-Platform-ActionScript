@@ -29,6 +29,10 @@ package org.allbinary.input.motion.touch.action {
         }
         return DiagonalUpLeftTouchInputToGameKeyEventAction.instance_value;
     }
+    private static function set instance(value:Object):void {
+        DiagonalUpLeftTouchInputToGameKeyEventAction.instance_set = true;
+        DiagonalUpLeftTouchInputToGameKeyEventAction.instance_value = value;
+    }
     
 
     public static function getInstance():GameKeyCompleteMotionGestureInputEvent {

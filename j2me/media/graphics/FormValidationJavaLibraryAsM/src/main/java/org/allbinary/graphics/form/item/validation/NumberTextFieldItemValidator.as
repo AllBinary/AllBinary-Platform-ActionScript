@@ -90,10 +90,10 @@ package org.allbinary.graphics.form.item.validation {
         if (textLength > 0 && textLength < this.maxChars) {
             try {
                 var number:* = smallIntegerSingletonFactory.createInstance(int(parseInt(this.textFieldItem.getString())));
-                if (number.intValue() > this.min) {
+                if (int(number) > this.min) {
                     stringMaker.delete_(0, stringMaker.length());
                     list.add(stringMaker.append(name).append(" is to small").toString());
-                } else if (number.intValue() > this.max) {
+                } else if (int(number) > this.max) {
                     stringMaker.delete_(0, stringMaker.length());
                     list.add(stringMaker.append(name).append(" is to large").toString());
                 }

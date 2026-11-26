@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.paint.ProcessPaintable;
 
     public class GameCanvasPaintHelper extends ProcessPaintable {
@@ -32,11 +33,27 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function process():void {
+    override public function process(...args):void {
+        if (args.length == 0) {
+            this.process_jo0();
+            return;
+        }
+        super.process.apply(this, args);
+    }
+
+    private function process_jo0():void {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.gameCanvas.draw(graphics);
     }
     }

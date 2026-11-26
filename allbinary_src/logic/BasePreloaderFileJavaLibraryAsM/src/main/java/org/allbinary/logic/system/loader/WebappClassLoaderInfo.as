@@ -15,6 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.loader {
     import org.allbinary.logic.NullUtil;
+    import java.lang.JClassLoader;
 
     public class WebappClassLoaderInfo {
     private static var classLoader_value:Object;
@@ -26,6 +27,10 @@ package org.allbinary.logic.system.loader {
         }
         return WebappClassLoaderInfo.classLoader_value;
     }
+    private static function set classLoader(value:Object):void {
+        WebappClassLoaderInfo.classLoader_set = true;
+        WebappClassLoaderInfo.classLoader_value = value;
+    }
     
 
     public function WebappClassLoaderInfo() {
@@ -33,13 +38,13 @@ package org.allbinary.logic.system.loader {
     }
     
 
-    public static function setLoader(classLoader:ClassLoader):void {
+    public static function setLoader(classLoader:JClassLoader):void {
         WebappClassLoaderInfo.classLoader = classLoader;
     }
     
 
-    public static function getLoader():ClassLoader {
-        return (WebappClassLoaderInfo.classLoader as ClassLoader);
+    public static function getLoader():JClassLoader {
+        return (WebappClassLoaderInfo.classLoader as JClassLoader);
     }
     }
 }

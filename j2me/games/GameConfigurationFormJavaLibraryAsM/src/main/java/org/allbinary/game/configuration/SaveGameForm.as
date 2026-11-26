@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration {
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.TextField;
     import org.allbinary.MIDPUtil;
     import org.allbinary.game.commands.GameCommandsFactory;
     import org.allbinary.graphics.color.BasicColor;
@@ -30,6 +32,10 @@ package org.allbinary.game.configuration {
             SaveGameForm.FORM_value = CommandForm.getNullCommandForm();
         }
         return SaveGameForm.FORM_value;
+    }
+    private static function set FORM(value:CommandForm):void {
+        SaveGameForm.FORM_set = true;
+        SaveGameForm.FORM_value = value;
     }
         private var meUtil:MIDPUtil = null;
 

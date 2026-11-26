@@ -30,6 +30,10 @@ package org.allbinary.graphics.canvas.transition.progress {
         }
         return ProgressCanvasFactory.PROGRESS_FORM_SCREEN_value;
     }
+    private static function set PROGRESS_FORM_SCREEN(value:Object):void {
+        ProgressCanvasFactory.PROGRESS_FORM_SCREEN_set = true;
+        ProgressCanvasFactory.PROGRESS_FORM_SCREEN_value = value;
+    }
     
 
     public static function getInstance():ProgressCanvas {

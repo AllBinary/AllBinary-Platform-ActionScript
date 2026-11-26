@@ -20,6 +20,7 @@ package org.allbinary.globals {
     import org.allbinary.logic.system.loader.WebappClassLoaderInfo;
     import org.allbinary.string.CommonSeps;
     import org.allbinary.string.CommonStrings;
+    import java.lang.JClassLoader;
 
     public class Globals {
     private static var instance_value:Globals;
@@ -50,11 +51,11 @@ package org.allbinary.globals {
     }
     
 
-    public function init(classLoader:ClassLoader, pathString:String):void {
+    public function init(classLoader:JClassLoader, pathString:String):void {
         var commonStrings:CommonStrings = CommonStrings.getInstance();
         var appUrlGlobals:AppUrlGlobals = new AppUrlGlobals();
         appUrlGlobals.setWebappPath(pathString);
-        .URLGLOBALS.init(appUrlGlobals);
+        URLGLOBALS.init(appUrlGlobals);
         WebappClassLoaderInfo.setLoader(classLoader);
         var stringBuffer:StringMaker = new StringMaker();
         stringBuffer.append("Setting Up AllBinary System Configuration Args: ");
@@ -70,12 +71,12 @@ package org.allbinary.globals {
             stringBuffer.append(CommonSeps.getInstance().SPACE);
             stringBuffer.append(CommonSeps.getInstance().EQUALS);
             stringBuffer.append(CommonSeps.getInstance().SPACE);
-            stringBuffer.append(.URLGLOBALS.getWebappPath());
+            stringBuffer.append(URLGLOBALS.getWebappPath());
             this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
         }
         stringBuffer.delete_(0, stringBuffer.length());
         stringBuffer.append("Webapp Path Set To: ");
-        stringBuffer.append(.URLGLOBALS.getWebappPath());
+        stringBuffer.append(URLGLOBALS.getWebappPath());
         this.logUtil.putF(stringBuffer.toString(), this, commonStrings.INIT);
     }
     }

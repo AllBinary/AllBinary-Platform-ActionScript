@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary {
+    import javax.microedition.lcdui.Canvas;
 
     public class PostGameCommandFactory {
     private static var instance_value:PostGameCommandFactory;

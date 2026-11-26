@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.paint {
+    import javax.microedition.lcdui.Graphics;
 
     public class StringLocationPaintable extends LocationPaintable {
         private var value:String = null;

@@ -18,7 +18,7 @@ package org.allbinary.layer {
     public interface PositionInterface {
     
 
-    function setPosition(x:int, y:int, z:int):void;
+    function setPosition(...args):void;
     }
 }
 

@@ -41,8 +41,8 @@ package org.allbinary.logic.io.file {
         return SimpleFileUtil.instance_value;
     }
         public var logUtil:LogUtil = null;
-        public var NULL_WRITER:Writer = null;
-        public var NULL_READER:Reader = null;
+        public var NULL_WRITER:JWriter = null;
+        public var NULL_READER:JReader = null;
         private var commonStrings:CommonStrings = null;
         private var nullUtil:NullUtil = null;
         private var streamUtil:StreamUtil = null;
@@ -68,27 +68,27 @@ package org.allbinary.logic.io.file {
     }
     
 
-    public static function nullOutputStream():OutputStream {
+    public static function nullOutputStream():JOutputStream {
         return NullOutputStream.NULL_OUTPUT_STREAM;
     }
     
 
-    public static function nullWriter():Writer {
+    public static function nullWriter():JWriter {
         return NullWriter.NULL_WRITER;
     }
     
 
-    public static function nullReader():Reader {
+    public static function nullReader():JReader {
         return NullReader.NULL_READER;
     }
     
 
-    public function loadFileAsList(inputStream:InputStream, max:int, byteArray1:Vector.<int>):BasicArrayList {
+    public function loadFileAsList(inputStream:JInputStream, max:int, byteArray1:Vector.<int>):BasicArrayList {
         return this.loadFileAsListReturnLine(inputStream, max, byteArray1, 0);
     }
     
 
-    public function loadFileAsListReturnLine(inputStream:InputStream, max:int, byteArray1:Vector.<int>, includeReturnLine:int):BasicArrayList {
+    public function loadFileAsListReturnLine(inputStream:JInputStream, max:int, byteArray1:Vector.<int>, includeReturnLine:int):BasicArrayList {
         var stringList:BasicArrayList = new BasicArrayListD();
         if (inputStream == null) {
             return stringList;
@@ -121,7 +121,7 @@ package org.allbinary.logic.io.file {
                     returnLine = 0;
                 }
             }
-            var s:String = JString.fromChars(byteArray, startIndex, (int(int(int(index + includeReturnLine) - returnLine) - startIndex)));
+            var s:String = JString.ofBytes(byteArray, startIndex, (int(int(int(index + includeReturnLine) - returnLine) - startIndex)));
             stringList.add(s);
             index++;
         }

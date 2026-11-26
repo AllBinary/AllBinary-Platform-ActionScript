@@ -28,6 +28,10 @@ package org.allbinary.game.configuration.feature {
         }
         return Feature.hashtable_value;
     }
+    private static function set hashtable(value:ABHashtable):void {
+        Feature.hashtable_set = true;
+        Feature.hashtable_value = value;
+    }
         private var name:String = null;
 
         // Java field initializers run after the base constructor

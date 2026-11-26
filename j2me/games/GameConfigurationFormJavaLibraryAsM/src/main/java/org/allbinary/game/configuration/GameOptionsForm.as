@@ -14,6 +14,12 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration {
+    import javax.microedition.lcdui.Choice;
+    import javax.microedition.lcdui.ChoiceConstants;
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Item;
+    import javax.microedition.lcdui.TextField;
     import org.allbinary.MIDPUtil;
     import org.allbinary.game.commands.GameCommandsFactory;
     import org.allbinary.game.configuration.feature.GameFeatureChoiceGroups;
@@ -50,8 +56,8 @@ package org.allbinary.game.configuration {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR);
         this.addConfiguration();
         var gameFeatureFormUtil:GameFeatureFormUtil = GameFeatureFormUtil.getInstance();
-        gameFeatureFormUtil.addChoiceGroup(this, GameFeatureChoiceGroups.getExclusiveInstance().get_(), Choice.EXCLUSIVE);
-        gameFeatureFormUtil.addChoiceGroup(this, GameFeatureChoiceGroups.getMultipleInstance().get_(), Choice.MULTIPLE);
+        gameFeatureFormUtil.addChoiceGroup(this, GameFeatureChoiceGroups.getExclusiveInstance().get_(), ChoiceConstants.EXCLUSIVE);
+        gameFeatureFormUtil.addChoiceGroup(this, GameFeatureChoiceGroups.getMultipleInstance().get_(), ChoiceConstants.MULTIPLE);
         this.initCommands(commandListener);
         this.setItemStateListener(new GameFeatureItemStateListener(this));
         this.addTextFieldsIfSimulated();
@@ -123,7 +129,15 @@ package org.allbinary.game.configuration {
     }
     
 
-    public function save(abeClientInformation:AbeClientInformationInterface):void {
+    public function save(...args):void {
+        if (args.length == 1) {
+            this.save_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "save");
+    }
+
+    private function save_jo1(abeClientInformation:AbeClientInformationInterface):void {
         var size:int = this.size();
         var item:Item = null;
         for (var index:int = 0; index < size; index++) {
@@ -147,7 +161,7 @@ package org.allbinary.game.configuration {
         var integer:* = null;
         for (index = 0; index < size2; index++) {
             integer = (list.objectArray[index] as *);
-            keyValuePersistance.delete_(abeClientInformation, integer.intValue());
+            keyValuePersistance.delete_(abeClientInformation, int(integer));
         }
     }
     }

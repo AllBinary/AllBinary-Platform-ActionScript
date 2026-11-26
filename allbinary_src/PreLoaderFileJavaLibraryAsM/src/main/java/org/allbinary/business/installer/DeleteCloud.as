@@ -70,7 +70,7 @@ package org.allbinary.business.installer {
                 for (var index:int = start; index < end; index++) {
                     nextFile = (fileBasicArrayList.get_(index) as AbFile);
                     try {
-                        if (nextFile.getPath().indexOf(FileUploadData.getInstance().FILE) < 0) {
+                        if (JString.indexOf(nextFile.getPath(), FileUploadData.getInstance().FILE) < 0) {
                             nextFile.delete_();
                         }
                     } catch (e:*) {

@@ -107,7 +107,7 @@ package org.allbinary.logic.math.permutations {
         for (var i:int = 0; i < TOTAL; i++) {
             data[i] = new ComparableObject();
         }
-        Arrays.sort(data);
+        JArrays.sort(data);
         var permutationVisitor:ObjectPermutationVisitor = new ObjectPermutationVisitor(data);
         var ORIGINAL_DATA_LABEL:String = "Original Data: ";
         trace(ORIGINAL_DATA_LABEL);

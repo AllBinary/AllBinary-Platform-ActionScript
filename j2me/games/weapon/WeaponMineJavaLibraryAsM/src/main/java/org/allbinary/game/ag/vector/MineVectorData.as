@@ -25,6 +25,10 @@ package org.allbinary.game.ag.vector {
         }
         return MineVectorData.points_value;
     }
+    public static function set points(value:Vector.<Vector.<Vector.<int>>>):void {
+        MineVectorData.points_set = true;
+        MineVectorData.points_value = value;
+    }
     
 
     public function MineVectorData() {

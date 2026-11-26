@@ -18,6 +18,9 @@ package org.allbinary.game.score {
     import java.io.JByteArrayOutputStream;
     import java.io.JDataInputStream;
     import java.io.JDataOutputStream;
+    import javax.microedition.rms.RecordEnumeration;
+    import javax.microedition.rms.RecordStore;
+    import javax.microedition.rms.RecordStoreException;
     import org.allbinary.TsUtil;
     import org.allbinary.game.GameInfo;
     import org.allbinary.game.configuration.persistance.NullRecordComparator;
@@ -45,6 +48,10 @@ package org.allbinary.game.score {
             HighScoreNamePersistanceSingleton.SINGLETON_value = new HighScoreNamePersistanceSingleton();
         }
         return HighScoreNamePersistanceSingleton.SINGLETON_value;
+    }
+    private static function set SINGLETON(value:HighScoreNamePersistanceSingleton):void {
+        HighScoreNamePersistanceSingleton.SINGLETON_set = true;
+        HighScoreNamePersistanceSingleton.SINGLETON_value = value;
     }
         public var logUtil:LogUtil = null;
         private var tsUtil:TsUtil = null;
@@ -85,7 +92,7 @@ package org.allbinary.game.score {
         var size:int = this.nameBasicArrayList.size();
         for (var index:int = 0; index < size; index++) {
             var integer:* = (this.nameBasicArrayList.objectArray[index] as *);
-            this.delete_(abeClientInformation, gameInfo, integer.intValue());
+            this.delete_(abeClientInformation, gameInfo, int(integer));
         }
         this.clear();
     }
@@ -127,14 +134,14 @@ package org.allbinary.game.score {
                 var recordEnum:RecordEnumeration = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
                 var smallIntegerSingletonFactory:SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
                 var recordAsBytes:Vector.<int> = null;
-                var byteArrayInputStream:ByteArrayInputStream = null;
-                var inputStream:DataInputStream = null;
+                var byteArrayInputStream:JByteArrayInputStream = null;
+                var inputStream:JDataInputStream = null;
                 while (recordEnum.hasNextElement()) {
                     var id:int = recordEnum.nextRecordId();
                     this.logUtil.putF(new StringMaker().append(LOADING_ID).appendint(id).toString(), this, this.commonStrings.LOAD);
                     recordAsBytes = this.tsUtil.getRecord(recordStore, id);
-                    byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
-                    inputStream = new DataInputStream(byteArrayInputStream);
+                    byteArrayInputStream = new JByteArrayInputStream(recordAsBytes);
+                    inputStream = new JDataInputStream(byteArrayInputStream);
                     while (inputStream.available() > 0) {
                         this.name = inputStream.readUTF();
                     }
@@ -164,7 +171,7 @@ package org.allbinary.game.score {
             this.logUtil.putF(new StringMaker().append("Saving: ").append(name).toString(), this, this.commonStrings.SAVE);
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
             var byteArrayOutputStream:JByteArrayOutputStream = new JByteArrayOutputStream();
-            var outputStream:DataOutputStream = new DataOutputStream(byteArrayOutputStream);
+            var outputStream:JDataOutputStream = new JDataOutputStream(byteArrayOutputStream);
             outputStream.writeUTF(name);
             var savedGameBytes:Vector.<int> = byteArrayOutputStream.toByteArray();
             recordStore.addRecord(savedGameBytes, 0, savedGameBytes.length);

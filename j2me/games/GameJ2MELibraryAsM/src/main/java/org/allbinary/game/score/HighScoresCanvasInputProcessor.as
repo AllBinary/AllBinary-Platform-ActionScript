@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.score {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.input.PlayerGameInput;
     import org.allbinary.game.input.event.GameKeyEvent;
     import org.allbinary.game.score.displayable.HighScoresCanvas;
@@ -61,7 +62,15 @@ package org.allbinary.game.score {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
     }
     
 

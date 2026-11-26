@@ -13,7 +13,8 @@
  *  
  */
 // Generated Code Do Not Modify
-package org.allbinary.logic.java.anyType.clazz.loader {
+package org.allbinary.logic.java.object.clazz.loader {
+    import java.lang.JClassLoader;
 
     public class ClassLoaderUtil {
     
@@ -24,7 +25,7 @@ package org.allbinary.logic.java.anyType.clazz.loader {
     
 
     public static function getName(anyType:Object):String {
-        var classLoader:ClassLoader = JSystem.className(anyType).getClassLoader();
+        var classLoader:JClassLoader = JClass.getClassLoader(JSystem.className(anyType));
         if (classLoader != null) {
             return "ClassLoader: " + JSystem.className(classLoader);
         }

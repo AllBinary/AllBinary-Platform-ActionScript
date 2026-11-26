@@ -26,6 +26,10 @@ package org.allbinary.media.audio {
         }
         return GameYouLoseSound.soundInterface_value;
     }
+    private static function set soundInterface(value:Sound):void {
+        GameYouLoseSound.soundInterface_set = true;
+        GameYouLoseSound.soundInterface_value = value;
+    }
     
 
     public function GameYouLoseSound() {

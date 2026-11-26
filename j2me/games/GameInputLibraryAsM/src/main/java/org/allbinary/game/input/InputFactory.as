@@ -30,6 +30,10 @@ package org.allbinary.game.input {
         }
         return InputFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        InputFactory.instance_set = true;
+        InputFactory.instance_value = value;
+    }
         public var logUtil:LogUtil = null;
         private var commonStrings:CommonStrings = null;
         public var KEY_CODE_LABEL:String = null;

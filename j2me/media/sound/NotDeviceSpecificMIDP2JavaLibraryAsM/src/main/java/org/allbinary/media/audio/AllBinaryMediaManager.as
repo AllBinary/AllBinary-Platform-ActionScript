@@ -15,6 +15,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.audio {
     import java.io.JInputStream;
+    import javax.microedition.media.Manager;
+    import javax.microedition.media.MediaException;
+    import javax.microedition.media.Player;
     import org.allbinary.MIDPUtil;
     import org.allbinary.TsUtil;
     import org.allbinary.audio.AudioContentTypeDataFactory;
@@ -70,7 +73,7 @@ package org.allbinary.media.audio {
             if (TsUtil.getInstance().compareTo(resource, Manager.TONE_DEVICE_LOCATOR) == 0) {
                 return Manager.createPlayer(resource);
             } else {
-                var inputStream:InputStream = ResourceUtil.getInstance().getResourceAsStream(resource);
+                var inputStream:JInputStream = ResourceUtil.getInstance().getResourceAsStream(resource);
                 return MIDPUtil.getInstance().createPlayerFromInputStream(inputStream, AudioContentTypeDataFactory.getInstance().MIME_AUDIO_WAV.getName());
             }
         } else {

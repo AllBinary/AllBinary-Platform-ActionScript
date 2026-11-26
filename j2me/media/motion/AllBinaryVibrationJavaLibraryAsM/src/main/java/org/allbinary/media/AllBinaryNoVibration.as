@@ -25,6 +25,10 @@ package org.allbinary.media {
         }
         return AllBinaryNoVibration.NO_VIBRATION_value;
     }
+    public static function set NO_VIBRATION(value:AllBinaryVibrationME):void {
+        AllBinaryNoVibration.NO_VIBRATION_set = true;
+        AllBinaryNoVibration.NO_VIBRATION_value = value;
+    }
     
 
     override public function vibrate(duration:int, type:int, volume:int):void {

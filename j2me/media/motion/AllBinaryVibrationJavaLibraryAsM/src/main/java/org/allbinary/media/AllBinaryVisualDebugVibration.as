@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.media {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.Anchor;
     import org.allbinary.graphics.displayable.DisplayInfoSingleton;
     import org.allbinary.graphics.font.MyFontProcessor;
@@ -58,7 +60,15 @@ package org.allbinary.media {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         if (this.timeDelayHelper.isTimeTNT()) {
             this.timeDelayHelper.delay = JInteger.MAX_VALUE;
             this.myFontProcessor.process(graphics);

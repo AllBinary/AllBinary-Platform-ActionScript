@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.draw {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.AndroidUtil;
     import org.allbinary.J2MEUtil;
     import org.allbinary.graphics.Anchor;
@@ -79,7 +81,7 @@ package org.allbinary.graphics.draw {
         for (var index:int = int(size - 1); index >= 0; index--) {
             aChar = string.charCodeAt(index);
             if (openGLFeatureUtil.isAnyThreed()) {
-                offsetXArray[index] = font.charWidth(aChar) / 2;
+                offsetXArray[index] = int(font.charWidth(aChar) / 2);
             }
         }
         this.offsetXArray = offsetXArray;
@@ -125,7 +127,7 @@ package org.allbinary.graphics.draw {
                         currentLength = int(size - offset);
                     }
                     if (int(offset + currentLength) != size) {
-                        while (currentLength > 0 && stringArray[index].charAt(int(offset + currentLength)) != " ".charCodeAt(0)) {
+                        while (currentLength > 0 && stringArray[index].charCodeAt(int(offset + currentLength)) != " ".charCodeAt(0)) {
                             currentLength--;
                         }
                         if (currentLength <= 4) {

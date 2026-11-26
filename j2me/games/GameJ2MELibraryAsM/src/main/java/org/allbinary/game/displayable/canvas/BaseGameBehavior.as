@@ -33,7 +33,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public static function getInstance():DemoGameBehavior {
+    public static function getInstance():DemoGameBehavior {
         return BaseGameBehavior.instanceC;
     }
     

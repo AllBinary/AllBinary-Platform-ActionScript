@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.part.weapon {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.animation.Animation;
     import org.allbinary.animation.NullAnimationFactory;
     import org.allbinary.game.combat.weapon.WeaponProperties;
@@ -65,7 +66,15 @@ package org.allbinary.game.part.weapon {
     }
     
 
-    public function init(sourceLayerInterface:AllBinaryLayer, weaponProperties:WeaponProperties, scoreableInterface:ScoreableInterface, relativeRelationship:RelativeRelationship):void {
+    public function init(...args):void {
+        if (args.length == 4) {
+            this.init_jo4(args[0], args[1], args[2], args[3]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo4(sourceLayerInterface:AllBinaryLayer, weaponProperties:WeaponProperties, scoreableInterface:ScoreableInterface, relativeRelationship:RelativeRelationship):void {
         this.setOwnerLayerInterface(sourceLayerInterface);
         this.setWeaponProperties(weaponProperties);
         this.scoreableInterface = scoreableInterface;
@@ -73,7 +82,15 @@ package org.allbinary.game.part.weapon {
     }
     
 
-    public function process(allbinaryLayerManager:AllBinaryLayerManager, angle:int, otherAngle:int):void {
+    public function process(...args):void {
+        if (args.length == 3) {
+            this.process_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "process");
+    }
+
+    private function process_jo3(allbinaryLayerManager:AllBinaryLayerManager, angle:int, otherAngle:int):void {
         this.processScore(allbinaryLayerManager, angle, otherAngle, this.getWeaponProperties(), this.scoreableInterface);
     }
     
@@ -103,7 +120,15 @@ package org.allbinary.game.part.weapon {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         var viewPosition:ViewPositionBase = this.getOwnerLayerInterface().getViewPosition();
         var viewX:int = viewPosition.getX();
         var viewY:int = viewPosition.getY();

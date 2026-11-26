@@ -141,7 +141,14 @@ package org.allbinary.business.init {
     }
     
 
-    public function createTable():String {
+    override public function createTable(...args):* {
+        if (args.length == 0) {
+            return this.createTable_jo0();
+        }
+        return super.createTable.apply(this, args);
+    }
+
+    private function createTable_jo0():String {
         if (super.createTable(this.tableData)) {
             return this.tableName + this.CREATED_SUCCESS;
         } else {

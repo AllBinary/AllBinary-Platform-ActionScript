@@ -26,6 +26,10 @@ package org.allbinary.logic.math {
         }
         return Orientation.NONE_value;
     }
+    public static function set NONE(value:Orientation):void {
+        Orientation.NONE_set = true;
+        Orientation.NONE_value = value;
+    }
     private static var SINGLETON_value:Orientation;
     private static var SINGLETON_set:Boolean = false;
     private static function get SINGLETON():Orientation {
@@ -34,6 +38,10 @@ package org.allbinary.logic.math {
             Orientation.SINGLETON_value = new Orientation(0, 0, 0);
         }
         return Orientation.SINGLETON_value;
+    }
+    private static function set SINGLETON(value:Orientation):void {
+        Orientation.SINGLETON_set = true;
+        Orientation.SINGLETON_value = value;
     }
         public var yaw:BasicDecimal = null;
         public var pitch:BasicDecimal = null;

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.input {
+    import javax.microedition.lcdui.Canvas;
 
     public class InputProcessor {
         public var gameInputStrings:GameInputStrings = null;

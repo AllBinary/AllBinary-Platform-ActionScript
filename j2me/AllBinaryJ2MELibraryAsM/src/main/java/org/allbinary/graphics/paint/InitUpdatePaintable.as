@@ -23,11 +23,27 @@ package org.allbinary.graphics.paint {
     }
     
 
-    public function init():void {
+    public function init(...args):void {
+        if (args.length == 0) {
+            this.init_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo0():void {
     }
     
 
-    public function update():void {
+    public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo0():void {
     }
     }
 }

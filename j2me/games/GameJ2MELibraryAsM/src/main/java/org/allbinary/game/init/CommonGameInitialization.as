@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.init {
+    import javax.microedition.lcdui.CommandListener;
     import org.allbinary.game.resource.ResourceInitialization;
     import org.allbinary.game.resource.ResourceLoadingLevelFactory;
     import org.allbinary.graphics.PointFactory;

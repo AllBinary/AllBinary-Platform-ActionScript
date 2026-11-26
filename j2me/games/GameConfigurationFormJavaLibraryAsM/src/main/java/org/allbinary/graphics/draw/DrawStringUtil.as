@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.draw {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.Anchor;
     import org.allbinary.logic.communication.log.PreLogUtil;
     import org.allbinary.logic.string.StringMaker;
@@ -78,7 +79,7 @@ package org.allbinary.graphics.draw {
                         currentLength = int(size - offset);
                     }
                     if (int(offset + currentLength) != size) {
-                        while (currentLength > 0 && stringArray[index].charAt(int(offset + currentLength)) != " ".charCodeAt(0)) {
+                        while (currentLength > 0 && stringArray[index].charCodeAt(int(offset + currentLength)) != " ".charCodeAt(0)) {
                             currentLength--;
                         }
                         if (currentLength <= 4) {

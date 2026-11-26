@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.draw {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.font.MyFontProcessor;
     import org.allbinary.graphics.font.UpdateMyFontInterface;
     import org.allbinary.graphics.font.UpdateMyFontProcessor;
@@ -59,7 +61,15 @@ package org.allbinary.graphics.draw {
     }
     
 
-    public function paint(graphics:Graphics, string:String, line:int):void {
+    public function paint(...args):void {
+        if (args.length == 3) {
+            this.paint_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo3(graphics:Graphics, string:String, line:int):void {
         this.myFontProcessor.process(graphics);
         this.drawStringUtil.drawCenterString(graphics, string, 0, string.length, this.x, int(this.y + (int(line * this.fontHeight))));
     }

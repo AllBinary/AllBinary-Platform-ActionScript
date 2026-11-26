@@ -29,6 +29,10 @@ package org.allbinary.game.configuration {
         }
         return GameConfigurationSingleton.SINGLETON_value;
     }
+    private static function set SINGLETON(value:GameConfigurationSingleton):void {
+        GameConfigurationSingleton.SINGLETON_set = true;
+        GameConfigurationSingleton.SINGLETON_value = value;
+    }
         private var list:BasicArrayList = null;
         private var hashtable:ABHashtable = null;
 

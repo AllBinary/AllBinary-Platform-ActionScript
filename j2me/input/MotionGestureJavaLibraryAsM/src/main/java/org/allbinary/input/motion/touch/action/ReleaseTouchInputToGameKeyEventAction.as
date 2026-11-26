@@ -33,6 +33,10 @@ package org.allbinary.input.motion.touch.action {
         }
         return ReleaseTouchInputToGameKeyEventAction.instance_value;
     }
+    private static function set instance(value:Object):void {
+        ReleaseTouchInputToGameKeyEventAction.instance_set = true;
+        ReleaseTouchInputToGameKeyEventAction.instance_value = value;
+    }
         private var NONE:GameKey = null;
 
         // Java field initializers run after the base constructor
@@ -62,7 +66,15 @@ package org.allbinary.input.motion.touch.action {
     }
     
 
-    override public function update():void {
+    override public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        super.update.apply(this, args);
+    }
+
+    private function update_jo0():void {
     }
     }
 }

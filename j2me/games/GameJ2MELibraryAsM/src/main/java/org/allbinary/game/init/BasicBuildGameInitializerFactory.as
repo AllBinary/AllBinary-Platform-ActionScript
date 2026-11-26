@@ -25,6 +25,10 @@ package org.allbinary.game.init {
         }
         return BasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY_value;
     }
+    public static function set NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY(value:BasicBuildGameInitializerFactory):void {
+        BasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY_set = true;
+        BasicBuildGameInitializerFactory.NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY_value = value;
+    }
     
 
     public function getInstance():GameInitializationInterface {

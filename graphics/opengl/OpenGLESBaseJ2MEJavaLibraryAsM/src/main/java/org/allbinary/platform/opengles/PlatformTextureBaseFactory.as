@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.platform.opengles {
+    import javax.microedition.khronos.opengles.GL10;
+    import javax.microedition.lcdui.Image;
     import org.allbinary.string.CommonStrings;
 
     public class PlatformTextureBaseFactory {

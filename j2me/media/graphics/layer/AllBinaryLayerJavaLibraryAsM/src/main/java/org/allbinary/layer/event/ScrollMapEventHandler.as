@@ -28,6 +28,10 @@ package org.allbinary.layer.event {
         }
         return ScrollMapEventHandler.SINGLETON_value;
     }
+    private static function set SINGLETON(value:ScrollMapEventHandler):void {
+        ScrollMapEventHandler.SINGLETON_set = true;
+        ScrollMapEventHandler.SINGLETON_value = value;
+    }
     
 
     public function ScrollMapEventHandler() {

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.opengles {
+    import javax.microedition.lcdui.Displayable;
     import org.allbinary.J2MEUtil;
     import org.allbinary.game.configuration.feature.Features;
     import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;

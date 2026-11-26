@@ -25,6 +25,10 @@ package org.allbinary.input.gyro {
         }
         return GyroSensorFactory.allBinaryGyroSensor_value;
     }
+    private static function set allBinaryGyroSensor(value:AllBinaryOrientationSensor):void {
+        GyroSensorFactory.allBinaryGyroSensor_set = true;
+        GyroSensorFactory.allBinaryGyroSensor_value = value;
+    }
     
 
     public static function init():void {

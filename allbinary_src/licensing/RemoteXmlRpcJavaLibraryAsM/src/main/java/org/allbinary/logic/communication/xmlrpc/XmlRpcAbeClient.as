@@ -102,7 +102,14 @@ package org.allbinary.logic.communication.xmlrpc {
     }
     
 
-    public function get_(anyType:Object):Object {
+    public function get_(...args):Object {
+        if (args.length == 1) {
+            return this.get__jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "get");
+    }
+
+    private function get__jo1(anyType:Object):Object {
         ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
         return NullUtil.getInstance().NULL_OBJECT;
     }

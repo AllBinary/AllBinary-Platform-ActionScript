@@ -31,7 +31,7 @@ package org.allbinary.time {
 
     private function visitBool(visitorInterface:Visitor):Boolean {
         var result:* = (visitorInterface.visit(this.nullUtil.NULL_OBJECT) as *);
-        var result2:Boolean = result.booleanValue();
+        var result2:Boolean = Boolean(result);
         return result2;
     }
     

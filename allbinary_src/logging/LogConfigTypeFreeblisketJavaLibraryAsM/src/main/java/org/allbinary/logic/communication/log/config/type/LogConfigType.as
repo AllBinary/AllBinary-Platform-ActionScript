@@ -28,6 +28,10 @@ package org.allbinary.logic.communication.log.config.type {
         }
         return LogConfigType.availableLogConfigTypes_value;
     }
+    public static function set availableLogConfigTypes(value:BasicArrayList):void {
+        LogConfigType.availableLogConfigTypes_set = true;
+        LogConfigType.availableLogConfigTypes_value = value;
+    }
         public var logUtil:LogUtil = null;
         private var name:String = null;
         private var description:String = null;

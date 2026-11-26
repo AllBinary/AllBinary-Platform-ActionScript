@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable {
+    import javax.microedition.lcdui.Canvas;
     import org.allbinary.graphics.displayable.DisplayInfoSingleton;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.string.CommonStrings;

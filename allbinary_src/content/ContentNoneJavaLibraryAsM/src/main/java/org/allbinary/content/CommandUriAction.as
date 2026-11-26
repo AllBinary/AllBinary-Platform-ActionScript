@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.content {
+    import javax.microedition.lcdui.Command;
     import org.allbinary.logic.communication.log.LogUtil;
 
     public class CommandUriAction {

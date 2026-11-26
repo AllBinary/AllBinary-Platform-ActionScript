@@ -1,5 +1,6 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.feature {
+    import javax.microedition.lcdui.Canvas;
     import org.allbinary.game.commands.GameCommandsFactory;
 
     public class MultiPlayerGameFeatureFactory {

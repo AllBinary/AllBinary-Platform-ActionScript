@@ -15,19 +15,54 @@
 // Generated Code Do Not Modify
 package org.allbinary.business.init {
 
-    public class InitException extends Exception {
+    public class InitException extends JException {
     
 
-    public function InitException() {
-        super();
+    public function InitException(...args) {
+        if (args.length == 2 && args[0] === JSuperArgs.ARGS) {
+            args = args[1];
+        }
+        var jsuper:Array = InitException.jsuperArgs(args);
+        super("InitException", jsuper.length > 0 ? jsuper[0] : "");
+        this.jconstruct(args);
+    }
+
+    private static function jsuperArgs(args:Array):Array {
+        if (args.length == 0) {
+            return InitException.jsuper_1();
+        }
+        if (args.length == 1) {
+            return InitException.jsuper_2(args[0]);
+        }
+        return [];
+    }
+
+    private static function jsuper_1():Array {
+        return [];
+    }
+
+    private static function jsuper_2(msg:String):Array {
+        return [msg];
+    }
+
+    private function jconstruct(args:Array):void {
+        if (args.length == 0) {
+            this.jconstruct_1();
+            return;
+        }
+        if (args.length == 1) {
+            this.jconstruct_2(args[0]);
+            return;
+        }
+    }
+
+    private function jconstruct_1():void {
+    }
+
+    private function jconstruct_2(msg:String):void {
+        
     }
     
-
-    /* Java constructor: ActionScript classes have one constructor
-    public function InitException(msg:String = null) {
-        super(msg);
-    }
-    */
     }
 }
 

@@ -31,6 +31,10 @@ package org.allbinary.logic.system.security.crypt {
         }
         return WeakCrypt.keys_value;
     }
+    private static function set keys(value:Vector.<String>):void {
+        WeakCrypt.keys_set = true;
+        WeakCrypt.keys_value = value;
+    }
     private static var KEYMAX_value:int;
     private static var KEYMAX_set:Boolean = false;
     public static function get KEYMAX():int {
@@ -39,6 +43,10 @@ package org.allbinary.logic.system.security.crypt {
             WeakCrypt.KEYMAX_value = WeakCrypt.keys.length;
         }
         return WeakCrypt.KEYMAX_value;
+    }
+    public static function set KEYMAX(value:int):void {
+        WeakCrypt.KEYMAX_set = true;
+        WeakCrypt.KEYMAX_value = value;
     }
         private var tsUtil:TsUtil = null;
         private var abCrypt:AbCrypt = null;
@@ -76,7 +84,7 @@ package org.allbinary.logic.system.security.crypt {
     public function decrypt(value:String):String {
         try {
             var decrypted:Vector.<int> = this.abCrypt.decrypt(DatabaseEncoder.decode(value));
-            return decrypted;
+            return JString.ofConstructorArgument(decrypted);
         } catch (e:*) {
             PreLogUtil.putOE("decrypt Failed", this, "decrypt", e);
             return StringUtil.getInstance().EMPTY_STRING;

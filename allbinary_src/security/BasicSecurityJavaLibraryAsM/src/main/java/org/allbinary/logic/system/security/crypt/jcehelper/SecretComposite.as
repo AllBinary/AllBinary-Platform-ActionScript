@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.security.crypt.jcehelper {
+    import javax.crypto.Cipher;
+    import javax.crypto.SecretKey;
     import org.allbinary.logic.java.byteutil.ByteUtil;
 
     public class SecretComposite extends BaseSecretComposite {

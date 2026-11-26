@@ -1,5 +1,6 @@
 // Generated Code Do Not Modify
 package org.allbinary.animation.vector {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.color.BasicColorFactory;
 
     public class ARectangleFilledAnimation extends RectangleFilledAnimation {

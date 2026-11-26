@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.part {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.animation.Animation;
     import org.allbinary.animation.NullAnimationFactory;
     import org.allbinary.game.layer.pickup.CountedPickedUpLayerInterfaceFactory;
@@ -67,7 +69,7 @@ package org.allbinary.game.part {
 
     public function updateMeasurement(graphics:Graphics):void {
         var font:Font = graphics.getFont();
-        this.setXOffset(font.charsWidth(this.totalString, 0, this.primitiveLongUtil.getCurrentTotalDigits()) + (font.getSize() >> 1));
+        this.setXOffset(int(font.charsWidth(this.totalString, 0, this.primitiveLongUtil.getCurrentTotalDigits()) + (font.getSize() >> 1)));
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
     
@@ -100,7 +102,15 @@ package org.allbinary.game.part {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
     }
     

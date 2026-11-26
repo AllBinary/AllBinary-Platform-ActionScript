@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.combat.damage {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.animation.IndexedAnimation;
     import org.allbinary.graphics.displayable.CanvasStrings;
     import org.allbinary.layer.AllBinaryLayer;
@@ -55,14 +56,29 @@ package org.allbinary.game.combat.damage {
     }
     
 
-    override public function add(damage:int):void {
+    override public function add(...args):* {
+        if (args.length == 1) {
+            return this.add_jo1(args[0]);
+        }
+        return super.add.apply(this, args);
+    }
+
+    private function add_jo1(damage:int):void {
         var i:int = this.circularIndexUtil.getIndex();
         this.animationInterfaceArray[i].setFrame(0);
         this.circularIndexUtil.next();
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         try {
             var viewPosition:ViewPositionBase = this.layerInterface.getViewPosition();
             var x:int = viewPosition.getX();

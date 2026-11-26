@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.image.opengles {
+    import javax.microedition.lcdui.Image;
     import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
     import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 

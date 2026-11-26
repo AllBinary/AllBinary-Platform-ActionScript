@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.input.motion.button {
+    import javax.microedition.lcdui.Image;
     import org.allbinary.animation.AnimationBehaviorFactory;
     import org.allbinary.animation.NullAnimationFactory;
     import org.allbinary.animation.image.sprite.OneRowSpriteIndexedAnimationFactory;

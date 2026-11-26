@@ -14,6 +14,11 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration {
+    import javax.microedition.lcdui.Choice;
+    import javax.microedition.lcdui.ChoiceConstants;
+    import javax.microedition.lcdui.ChoiceGroup;
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.NullImage;
     import org.allbinary.MIDPUtil;
     import org.allbinary.game.commands.GameCommandsFactory;
     import org.allbinary.game.configuration.persistance.GameDifficultyFactory;
@@ -58,7 +63,15 @@ package org.allbinary.game.configuration {
     }
     
 
-    public function save():void {
+    public function save(...args):void {
+        if (args.length == 0) {
+            this.save_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "save");
+    }
+
+    private function save_jo0():void {
         var gameDifficultyFactory:GameDifficultyFactory = GameDifficultyFactory.getInstance();
         gameDifficultyFactory.setLevel(this.getSelectedId());
     }
@@ -72,9 +85,17 @@ package org.allbinary.game.configuration {
     }
     
 
-    override public function update():void {
+    override public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        super.update.apply(this, args);
+    }
+
+    private function update_jo0():void {
         this.deleteAll();
-        this.add(this.list, "Difficulty", Choice.EXCLUSIVE);
+        this.add(this.list, "Difficulty", ChoiceConstants.EXCLUSIVE);
         super.update();
     }
     
@@ -117,7 +138,7 @@ package org.allbinary.game.configuration {
 
     public function getSelectedText():int {
         var choiceGroup:ChoiceGroup = (this.get_(0) as ChoiceGroup);
-        var value:int = String(choiceGroup.getString(choiceGroup.getSelectedIndex())).intValue();
+        var value:int = int(int(parseInt(choiceGroup.getString(choiceGroup.getSelectedIndex()))));
         return value;
     }
     }

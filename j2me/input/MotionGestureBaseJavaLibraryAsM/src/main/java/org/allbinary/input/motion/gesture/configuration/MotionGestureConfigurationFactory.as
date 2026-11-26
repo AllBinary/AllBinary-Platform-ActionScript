@@ -25,6 +25,10 @@ package org.allbinary.input.motion.gesture.configuration {
         }
         return MotionGestureConfigurationFactory.config_value;
     }
+    private static function set config(value:MotionGestureConfiguration):void {
+        MotionGestureConfigurationFactory.config_set = true;
+        MotionGestureConfigurationFactory.config_value = value;
+    }
     
 
     public function MotionGestureConfigurationFactory() {

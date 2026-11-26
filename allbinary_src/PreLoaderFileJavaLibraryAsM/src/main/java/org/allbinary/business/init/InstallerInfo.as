@@ -26,6 +26,8 @@ package org.allbinary.business.init {
     import org.allbinary.logic.string.StringUtil;
     import org.allbinary.logic.system.security.crypt.DatabaseEncoder;
     import org.allbinary.logic.system.security.crypt.WeakCrypt;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
     public class InstallerInfo {
     private static var instance_value:InstallerInfo;
@@ -56,6 +58,10 @@ package org.allbinary.business.init {
         }
         return InstallerInfo.userName_value;
     }
+    private static function set userName(value:String):void {
+        InstallerInfo.userName_set = true;
+        InstallerInfo.userName_value = value;
+    }
     private static var password_value:String;
     private static var password_set:Boolean = false;
     private static function get password():String {
@@ -64,6 +70,10 @@ package org.allbinary.business.init {
             InstallerInfo.password_value = StringUtil.getInstance().EMPTY_STRING;
         }
         return InstallerInfo.password_value;
+    }
+    private static function set password(value:String):void {
+        InstallerInfo.password_set = true;
+        InstallerInfo.password_value = value;
     }
     private static var hasRead:Boolean = false;
         public var logUtil:LogUtil = null;
@@ -86,13 +96,13 @@ package org.allbinary.business.init {
             var newFile:AbFile = AbFile.createAbFileFromAbPath(FILEABPATH);
             newFile.createNewFile();
             var dataOutputStream:AbDataOutputStream = DataOutputStreamFactory.getInstance().getInstanceForAbFile(newFile);
-            var cryptedUserName:Vector.<int> = new WeakCrypt(1).encrypt(this.getUserName()).getBytes();
-            var cryptedPassword:Vector.<int> = new WeakCrypt(2).encrypt(this.getPassword()).getBytes();
+            var cryptedUserName:Vector.<int> = JString.getBytesOf(new WeakCrypt(1).encrypt(this.getUserName()));
+            var cryptedPassword:Vector.<int> = JString.getBytesOf(new WeakCrypt(2).encrypt(this.getPassword()));
             dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedUserName));
             dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedPassword));
             InstallerInfo.hasRead = false;
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
                 this.logUtil.putF("Failed", this, "write");
             }
             throw e;
@@ -107,17 +117,17 @@ package org.allbinary.business.init {
             if (file.isFile()) {
                 var iFile:AbFileLocalInputStream = new AbFileLocalInputStream(file);
                 var iData:AbDataInputStream = new AbDataInputStream(iFile);
-                var decryptedUserName:String = DatabaseEncoder.decode(iData.readUTF());
-                var decryptedPassword:String = DatabaseEncoder.decode(iData.readUTF());
+                var decryptedUserName:String = JString.ofConstructorArgument(DatabaseEncoder.decode(iData.readUTF()));
+                var decryptedPassword:String = JString.ofConstructorArgument(DatabaseEncoder.decode(iData.readUTF()));
                 this.setUserName(new WeakCrypt(1).decrypt(decryptedUserName));
                 this.setPassword(new WeakCrypt(2).decrypt(decryptedPassword));
             } else {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER)) {
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER)) {
                     this.logUtil.putF("Not a File - Failed Loading: " + FILEABPATH.toString(), this, "read");
                 }
             }
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
                 this.logUtil.putF("Failed", this, "read");
             }
         }
@@ -144,7 +154,7 @@ package org.allbinary.business.init {
             InstallerInfo.hasRead = true;
             this.read();
             if (InstallerInfo.userName == null || InstallerInfo.password == null) {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER)) {
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER)) {
                     this.logUtil.putF("Failed", this, "updateIfNeeded");
                 }
             }

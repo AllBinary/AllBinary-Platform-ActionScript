@@ -25,6 +25,10 @@ package org.allbinary.logic.system.security.licensing {
         }
         return LicenseInterfaceSingleton.licenseInterface_value;
     }
+    private static function set licenseInterface(value:AbeLicenseInterface):void {
+        LicenseInterfaceSingleton.licenseInterface_set = true;
+        LicenseInterfaceSingleton.licenseInterface_value = value;
+    }
     
 
     public static function getInstance():AbeLicenseInterface {

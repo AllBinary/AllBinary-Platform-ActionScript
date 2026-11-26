@@ -17,9 +17,13 @@ package org.allbinary.logic.system.security.crypt.jcehelper {
     import java.security.JProvider;
     import java.security.JSecurity;
     import java.security.spec.JKeySpec;
+    import javax.crypto.Cipher;
+    import javax.crypto.SecretKey;
+    import javax.crypto.SecretKeyFactory;
     import org.allbinary.init.crypt.jcehelper.CryptInterface;
     import org.allbinary.logic.communication.log.PreLogUtil;
     import org.allbinary.string.CommonStrings;
+    import com.sun.crypto.provider.SunJCE;
 
     public class AbBasicCrypt implements CryptInterface {
         private var cipher:Cipher = null;
@@ -52,9 +56,9 @@ package org.allbinary.logic.system.security.crypt.jcehelper {
 
     private function init():void {
         try {
-            var sunJce:Provider = new SunJCE();
-            Security.addProvider(sunJce);
-            var keySpec:KeySpec = KeySpecFactory.getInstance().getInstance2(this.algorithm, this.key);
+            var sunJce:JProvider = new SunJCE();
+            JSecurity.addProvider(sunJce);
+            var keySpec:JKeySpec = KeySpecFactory.getInstance().getInstance2(this.algorithm, this.key);
             var keyFactory:SecretKeyFactory = SecretKeyFactory.getInstance1(this.algorithm);
             this.secretKey = keyFactory.generateSecret(keySpec);
             this.cipher = Cipher.getInstance1(this.algorithm);

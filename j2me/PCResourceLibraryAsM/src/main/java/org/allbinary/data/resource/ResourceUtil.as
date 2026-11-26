@@ -23,6 +23,7 @@ package org.allbinary.data.resource {
     import org.allbinary.logic.string.StringMaker;
     import org.allbinary.logic.string.StringUtil;
     import java.lang.JInteger;
+    import java.lang.JClassLoader;
 
     //J2SE - PC
     public class ResourceUtil {
@@ -64,12 +65,12 @@ package org.allbinary.data.resource {
     }
     
 
-    public function setClassLoader(classLoader:ClassLoader):void {
+    public function setClassLoader(classLoader:JClassLoader):void {
     }
     
 
-    public function getResourceAsStream(resource:String):InputStream {
-        var inputStream:InputStream = this.getResourceAsStreamAtStart(resource, 2);
+    public function getResourceAsStream(resource:String):JInputStream {
+        var inputStream:JInputStream = this.getResourceAsStreamAtStart(resource, 2);
         if (inputStream == null) {
             inputStream = this.getResourceAsStreamAtStart(resource, 1);
             if (inputStream == null) {
@@ -80,12 +81,12 @@ package org.allbinary.data.resource {
     }
     
 
-    private function getResourceAsStreamAtStart(resource:String, startIndex:int):InputStream {
-        var inputStream:InputStream = new FileInputStream(new StringMaker().append(this.path).append(resource).append(this.ext).toString());
+    private function getResourceAsStreamAtStart(resource:String, startIndex:int):JInputStream {
+        var inputStream:JInputStream = new JFileInputStream(new StringMaker().append(this.path).append(resource).append(this.ext).toString());
         if (inputStream != null) {
             var byteArray:Vector.<int> = new Vector.<int>(inputStream.available());
             StreamUtil.getInstance().getByteArray(inputStream, new JByteArrayOutputStream(), byteArray);
-            return new ByteArrayInputStream(byteArray);
+            return new JByteArrayInputStream(byteArray);
         }
         return inputStream;
     }

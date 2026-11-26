@@ -28,6 +28,10 @@ package org.allbinary.input.gyro {
         }
         return OrientationMotionGestureFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        OrientationMotionGestureFactory.instance_set = true;
+        OrientationMotionGestureFactory.instance_value = value;
+    }
         public var LEFT:MotionGestureInput = null;
         public var RIGHT:MotionGestureInput = null;
         public var UP:MotionGestureInput = null;

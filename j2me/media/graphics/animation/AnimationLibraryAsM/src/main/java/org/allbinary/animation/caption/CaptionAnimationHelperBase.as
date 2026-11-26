@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.caption {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.animation.Animation;
     import org.allbinary.graphics.color.BasicColor;
 
@@ -38,7 +39,15 @@ package org.allbinary.animation.caption {
     }
     
 
-    public function update(message:String, basicColor:BasicColor):void {
+    public function update(...args):void {
+        if (args.length == 2) {
+            this.update_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo2(message:String, basicColor:BasicColor):void {
     }
     
 

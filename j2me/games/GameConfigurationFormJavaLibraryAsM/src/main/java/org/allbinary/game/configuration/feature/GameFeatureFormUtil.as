@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.feature {
+    import javax.microedition.lcdui.ChoiceGroup;
+    import javax.microedition.lcdui.Item;
+    import javax.microedition.lcdui.NullImage;
     import org.allbinary.MIDPUtil;
     import org.allbinary.game.configuration.GameConfigurationGauge;
     import org.allbinary.game.configuration.GameConfigurationUtil;

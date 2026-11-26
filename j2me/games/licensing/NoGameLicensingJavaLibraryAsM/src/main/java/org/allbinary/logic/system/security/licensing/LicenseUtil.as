@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.security.licensing {
+    import javax.microedition.lcdui.CommandListener;
 
     public class LicenseUtil {
     private static var instance_value:LicenseUtil;

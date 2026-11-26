@@ -31,6 +31,10 @@ package org.allbinary.layer.event {
         }
         return LayerManagerEventHandler.instance_value;
     }
+    private static function set instance(value:LayerManagerEventHandler):void {
+        LayerManagerEventHandler.instance_set = true;
+        LayerManagerEventHandler.instance_value = value;
+    }
         private var list:BasicArrayList = null;
         public var CREATE:String = null;
         public var DELETE:String = null;

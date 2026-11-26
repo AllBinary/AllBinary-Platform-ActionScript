@@ -53,7 +53,7 @@
         <!--
         <module>../../../graphics/opengl/OpenGLESJavaLibraryAsM</module>
         -->
-        <module>../../../graphics/opengl/OpenGLJOGLJavaLibraryAsM</module>
+        <!-- desktop OpenGL (JOGL), not a web module <module>../../../graphics/opengl/OpenGLJOGLJavaLibraryAsM</module>-->
         <module>../../../graphics/opengl/OpenGLESBaseJavaLibraryAsM</module>
 
         <!-- Not used in Platform Libraries -->

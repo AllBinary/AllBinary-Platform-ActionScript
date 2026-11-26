@@ -18,7 +18,15 @@ package org.allbinary.graphics.paint {
     public class ProcessPaintable extends Paintable {
     
 
-    public function process():void {
+    public function process(...args):void {
+        if (args.length == 0) {
+            this.process_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "process");
+    }
+
+    private function process_jo0():void {
     }
     }
 }

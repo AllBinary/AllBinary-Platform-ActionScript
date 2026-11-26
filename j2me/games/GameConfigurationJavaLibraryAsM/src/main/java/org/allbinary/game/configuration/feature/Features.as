@@ -37,6 +37,10 @@ package org.allbinary.game.configuration.feature {
         }
         return Features.SINGLETON_value;
     }
+    private static function set SINGLETON(value:Object):void {
+        Features.SINGLETON_set = true;
+        Features.SINGLETON_value = value;
+    }
         public var logUtil:LogUtil = null;
         private var commonStrings:CommonStrings = null;
         private var list:BasicArrayList = null;

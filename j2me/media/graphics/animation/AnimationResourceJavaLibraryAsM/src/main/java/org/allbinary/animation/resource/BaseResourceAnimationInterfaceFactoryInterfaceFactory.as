@@ -107,7 +107,7 @@ package org.allbinary.animation.resource {
     public function getRectangleArrayOfArrays(resource:String):Vector.<Vector.<Rectangle>> {
         var valueCanBeNull:Object = this.rectangleArrayOfArraysHashtable.get_(resource);
         if (valueCanBeNull != null) {
-            var rectangleArrayOfArrays:Vector.<Vector.<Rectangle>> = (valueCanBeNull as Vector.<Vector.<Rectangle>>);
+            var rectangleArrayOfArrays:Vector.<Vector.<Rectangle>> = (JVectors.castVector(valueCanBeNull, Vector.<Vector.<Rectangle>>) as Vector.<Vector.<Rectangle>>);
             return rectangleArrayOfArrays;
         } else {
             return RectangleFactory.ARRAY_OF_ARRAYS;

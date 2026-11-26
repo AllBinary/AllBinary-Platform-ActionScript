@@ -27,6 +27,10 @@ package org.allbinary.animation {
         }
         return NullSpecialAnimationFactory.NULL_SPECIAL_ANIMATION_FACTORY_value;
     }
+    private static function set NULL_SPECIAL_ANIMATION_FACTORY(value:NullSpecialAnimationFactory):void {
+        NullSpecialAnimationFactory.NULL_SPECIAL_ANIMATION_FACTORY_set = true;
+        NullSpecialAnimationFactory.NULL_SPECIAL_ANIMATION_FACTORY_value = value;
+    }
     
 
     public function NullSpecialAnimationFactory() {

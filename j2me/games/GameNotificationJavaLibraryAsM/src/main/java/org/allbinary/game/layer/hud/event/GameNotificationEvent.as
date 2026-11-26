@@ -45,7 +45,14 @@ package org.allbinary.game.layer.hud.event {
     }
     
 
-    public function getString():String {
+    public function getString(...args):String {
+        if (args.length == 0) {
+            return this.getString_jo0();
+        }
+        throw new JException("IllegalArgumentException", "getString");
+    }
+
+    private function getString_jo0():String {
         return this.string;
     }
     

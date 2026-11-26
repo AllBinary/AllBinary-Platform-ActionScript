@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.health {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.layer.AllBinaryLayer;
 
     public class HealthBarTwodAnimation extends HealthBarAnimation {
@@ -27,7 +28,7 @@ package org.allbinary.game.health {
     override public function paintXY(graphics:Graphics, x:int, y:int):void {
         var ax:int = this.allbinaryLayer.getViewPosition().getX();
         this.basicSetColorUtil.setBasicColorP3(graphics, this.basicColor, this.colorP);
-        graphics.fillRect(ax, this.getY() - 1, this.x2, this.thickness);
+        graphics.fillRect(ax, int(this.getY() - 1), this.x2, this.thickness);
     }
     }
 }

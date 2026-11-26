@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.collision {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.layer.CollidableCompositeLayer;
     import org.allbinary.layer.AllBinaryLayer;
     import org.allbinary.logic.communication.log.LogUtil;
@@ -43,7 +44,15 @@ package org.allbinary.game.collision {
     }
     
 
-    public function update():void {
+    public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo0():void {
     }
     
 
@@ -82,7 +91,15 @@ package org.allbinary.game.collision {
     }
     
 
-    public function paint(ownerLayer:CollidableCompositeLayer, graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 2) {
+            this.paint_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo2(ownerLayer:CollidableCompositeLayer, graphics:Graphics):void {
     }
     
 

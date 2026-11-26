@@ -55,7 +55,7 @@ package org.allbinary.graphics.color {
     public function getAndOrCreate(integer:*):BasicColor {
         var basicColor:BasicColor = (this.hashtable.get_(integer) as BasicColor);
         if (basicColor == null) {
-            basicColor = BasicColorFactory.getInstance().createInstance(integer.intValue());
+            basicColor = BasicColorFactory.getInstance().createInstance(int(integer));
             this.hashtable.put(integer, basicColor);
         }
         return basicColor;

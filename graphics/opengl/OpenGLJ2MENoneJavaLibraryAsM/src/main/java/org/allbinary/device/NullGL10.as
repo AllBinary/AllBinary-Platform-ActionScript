@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.device {
+    import javax.microedition.khronos.opengles.GL10;
 
     public class NullGL10 implements GL10 {
     private static var NULL_GL10_value:NullGL10;

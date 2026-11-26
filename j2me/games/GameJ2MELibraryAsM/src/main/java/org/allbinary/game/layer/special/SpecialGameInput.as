@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.layer.special {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.input.event.GameKeyEvent;
     import org.allbinary.layer.AllBinaryLayerManager;
 
@@ -68,7 +69,15 @@ package org.allbinary.game.layer.special {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
     }
     
 

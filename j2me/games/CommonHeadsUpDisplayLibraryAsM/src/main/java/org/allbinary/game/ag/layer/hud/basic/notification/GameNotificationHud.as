@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.hud.basic.notification {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.graphics.hud.BasicHud;
     import org.allbinary.game.graphics.hud.BasicHudFactory;
     import org.allbinary.game.layer.hud.event.GameNotificationEvent;
@@ -65,19 +66,50 @@ package org.allbinary.game.ag.layer.hud.basic.notification {
     }
     
 
-    public function add(string:String, seconds:*, basicColor:BasicColor, permanent:*):void {
+    public function add(...args):* {
+        if (args.length == 4) {
+            return this.add_jo4(args[0], args[1], args[2], args[3]);
+        }
+        throw new JException("IllegalArgumentException", "add");
+    }
+
+    private function add_jo4(string:String, seconds:*, basicColor:BasicColor, permanent:*):void {
     }
     
 
-    public function processTick():void {
+    public function processTick(...args):void {
+        if (args.length == 0) {
+            this.processTick_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "processTick");
+    }
+
+    private function processTick_jo0():void {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
     }
     
 
-    public function clear():void {
+    public function clear(...args):void {
+        if (args.length == 0) {
+            this.clear_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "clear");
+    }
+
+    private function clear_jo0():void {
     }
     }
 }

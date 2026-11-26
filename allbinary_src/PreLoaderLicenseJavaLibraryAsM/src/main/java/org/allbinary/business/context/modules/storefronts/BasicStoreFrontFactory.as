@@ -16,6 +16,8 @@
 package org.allbinary.business.context.modules.storefronts {
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.string.CommonStrings;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
     public class BasicStoreFrontFactory {
     private static var instance_value:BasicStoreFrontFactory;
@@ -51,7 +53,7 @@ package org.allbinary.business.context.modules.storefronts {
             var storeFronts:BasicStoreFrontsEntity = new BasicStoreFrontsEntity();
             return storeFronts.getStoreFrontInterface(storeName);
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR)) {
                 var commonStrings:CommonStrings = CommonStrings.getInstance();
                 this.logUtil.put(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e);
             }

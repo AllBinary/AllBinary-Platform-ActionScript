@@ -52,12 +52,21 @@ package org.allbinary.vector {
     }
     
 
-    public function adjust(points:Vector.<Vector.<int>>, both:int):Vector.<Vector.<int>> {
+    public function adjust(...args):Vector.<Vector.<int>> {
+        if (args.length == 2) {
+            return this.adjust_jo2(args[0], args[1]);
+        }
+        if (args.length == 3) {
+            return this.adjust_jo3(args[0], args[1], args[2]);
+        }
+        throw new JException("IllegalArgumentException", "adjust");
+    }
+
+    private function adjust_jo2(points:Vector.<Vector.<int>>, both:int):Vector.<Vector.<int>> {
         return this.adjust(points, both, both);
     }
-    
 
-    public function adjust(points:Vector.<Vector.<int>>, x:int, y:int):Vector.<Vector.<int>> {
+    private function adjust_jo3(points:Vector.<Vector.<int>>, x:int, y:int):Vector.<Vector.<int>> {
         var newPoints:Vector.<Vector.<int>> = (function():Vector.<Vector.<int>> { var array:Vector.<Vector.<int>> = new Vector.<Vector.<int>>(points.length); for (var index:int = 0; index < array.length; index++) { array[index] = new Vector.<int>(2); } return array; })();
         for (var index2:int = 0; index2 < points.length; index2++) {
             if (points[index2][0] != 1000) {
@@ -70,6 +79,7 @@ package org.allbinary.vector {
         }
         return newPoints;
     }
+    
     }
 }
 

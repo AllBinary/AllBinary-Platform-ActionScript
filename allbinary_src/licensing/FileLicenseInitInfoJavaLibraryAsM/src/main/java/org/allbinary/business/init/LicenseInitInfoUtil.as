@@ -114,14 +114,14 @@ package org.allbinary.business.init {
                 var iData:AbDataInputStream = new AbDataInputStream(iFile);
                 var initInfo:LicenseInitInfo = new LicenseInitInfo();
                 var decodedByteArray:Vector.<int> = DatabaseEncoder.decode(iData.readUTF());
-                var licenseIdDecoded:String = decodedByteArray;
+                var licenseIdDecoded:String = JString.ofConstructorArgument(decodedByteArray);
                 initInfo.setLicenseId(new WeakCrypt(1).decrypt(licenseIdDecoded));
                 var numberOfLicenseServers:int = iData.readInt();
                 var NEXT_FILE:String = new StringMaker().append(CommonLabels.getInstance().NEXT).append(" License Server From File: ").toString();
                 var licenseServerDecoded:String = null;
                 for (var index:int = 0; index < numberOfLicenseServers; index++) {
                     decodedByteArray = DatabaseEncoder.decode(iData.readUTF());
-                    licenseServerDecoded = decodedByteArray;
+                    licenseServerDecoded = JString.ofConstructorArgument(decodedByteArray);
                     initInfo.setServer(new WeakCrypt(3).decrypt(licenseServerDecoded), index);
                     this.logUtil.putF(NEXT_FILE + initInfo.getServer(index), this, METHOD_NAME);
                 }

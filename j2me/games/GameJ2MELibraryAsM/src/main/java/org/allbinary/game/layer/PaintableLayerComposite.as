@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.layer {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.paint.Paintable;
     import org.allbinary.graphics.paint.PaintableInterface;
     import org.allbinary.layer.Layer;
@@ -34,7 +35,15 @@ package org.allbinary.game.layer {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         for (var index:int = this.paintableArray.length; --index >= 0; ) {
             this.paintableArray[index].paint(graphics);
         }

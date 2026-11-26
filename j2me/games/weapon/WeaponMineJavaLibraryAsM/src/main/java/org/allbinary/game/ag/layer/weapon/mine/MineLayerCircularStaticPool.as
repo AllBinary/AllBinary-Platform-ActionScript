@@ -27,6 +27,10 @@ package org.allbinary.game.ag.layer.weapon.mine {
         }
         return MineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL_value;
     }
+    private static function set WEAPON_LAYER_CIRCULAR_STATIC_POOL(value:WeaponLayerCircularPool):void {
+        MineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL_set = true;
+        MineLayerCircularStaticPool.WEAPON_LAYER_CIRCULAR_STATIC_POOL_value = value;
+    }
     
 
     public static function init(viewPositionFactoryInterface:ViewPositionFactoryInterface):void {

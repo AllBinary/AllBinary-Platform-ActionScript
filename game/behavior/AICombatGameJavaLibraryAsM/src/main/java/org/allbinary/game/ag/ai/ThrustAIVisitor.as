@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.ai {
+    import javax.microedition.lcdui.Canvas;
     import org.allbinary.game.ai.BasicAI;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.logic.java.bool.BooleanFactory;
@@ -37,7 +38,14 @@ package org.allbinary.game.ag.ai {
     }
     
 
-    override public function visit(anyType:Object):Object {
+    override public function visit(...args):* {
+        if (args.length == 1) {
+            return this.visit_jo1(args[0]);
+        }
+        return super.visit.apply(this, args);
+    }
+
+    private function visit_jo1(anyType:Object):Object {
         try {
             var basicAI:BasicAI = (anyType as BasicAI);
             basicAI.processKeyAI(Canvas.UP);

@@ -54,8 +54,8 @@ package org.allbinary.logic.system.security.licensing {
     public function get_():String {
         try {
             var resourceUtil:ResourceUtil = ResourceUtil.getInstance();
-            var inputStream:InputStream = resourceUtil.getResourceAsStream(this.FILE_NAME);
-            var inputStreamReader:InputStreamReader = new InputStreamReader(inputStream);
+            var inputStream:JInputStream = resourceUtil.getResourceAsStream(this.FILE_NAME);
+            var inputStreamReader:JInputStreamReader = new JInputStreamReader(inputStream);
             var chars:Vector.<int> = new Vector.<int>(30);
             var size:int = inputStreamReader.read(chars);
             var partnerString:String = StringUtil.getInstance().EMPTY_STRING;

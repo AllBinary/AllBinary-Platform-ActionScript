@@ -42,6 +42,10 @@ package org.allbinary.game.input.mapping {
         }
         return PersistentInputMapping.instance_value;
     }
+    public static function set instance(value:Object):void {
+        PersistentInputMapping.instance_set = true;
+        PersistentInputMapping.instance_value = value;
+    }
         public var logUtil:LogUtil = null;
         public var commonStrings:CommonStrings = null;
         private var enumerationUtil:EnumerationUtil = null;

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.health {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.paint.Paintable;
     import org.allbinary.layer.AllBinaryLayer;
 
@@ -41,12 +42,28 @@ package org.allbinary.game.health {
     }
     
 
-    public function onHealthChange():void {
+    public function onHealthChange(...args):void {
+        if (args.length == 0) {
+            this.onHealthChange_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "onHealthChange");
+    }
+
+    private function onHealthChange_jo0():void {
         this.animationInterface.onHealthChange(int(int(this.healthInterface.getHealth() * this.allbinaryLayer.getWidth()) / this.healthInterface.getMaxHealth()));
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.animationInterface.paintXY(graphics, 0, 0);
     }
     

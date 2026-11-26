@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.paint {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.animation.Animation;
 
     public class AnimationCompositePaintable extends InitUpdatePaintable {
@@ -32,7 +33,15 @@ package org.allbinary.graphics.paint {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.animationInterface.paintXY(graphics, 0, 0);
     }
     

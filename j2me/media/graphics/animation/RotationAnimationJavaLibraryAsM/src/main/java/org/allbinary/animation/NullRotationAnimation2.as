@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.math.AngleFactory;
     import org.allbinary.math.AngleInfo;
     import org.allbinary.util.CircularIndexUtil;

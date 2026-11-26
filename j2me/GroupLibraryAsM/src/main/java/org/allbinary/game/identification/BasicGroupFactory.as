@@ -26,6 +26,10 @@ package org.allbinary.game.identification {
         }
         return BasicGroupFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        BasicGroupFactory.instance_set = true;
+        BasicGroupFactory.instance_value = value;
+    }
         public var NAME:String = null;
         public var NO_SUCH_GROUP:String = null;
         public var GOOD:Group = null;

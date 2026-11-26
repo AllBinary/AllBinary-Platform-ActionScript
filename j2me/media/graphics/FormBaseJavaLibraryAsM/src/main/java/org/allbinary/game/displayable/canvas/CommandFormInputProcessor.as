@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.Canvas;
+    import javax.microedition.lcdui.Command;
     import org.allbinary.game.commands.GameCommandsFactory;
     import org.allbinary.game.configuration.feature.Features;
     import org.allbinary.game.configuration.feature.InputFeatureFactory;
@@ -102,7 +104,14 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function processInputList():int {
+    override public function processInputList(...args):* {
+        if (args.length == 0) {
+            return this.processInputList_jo0();
+        }
+        return super.processInputList.apply(this, args);
+    }
+
+    private function processInputList_jo0():int {
         try {
             var motionInputsIndex:int = this.processMotionInputs();
             var list:BasicArrayList = this.getGameKeyEventList();
@@ -178,7 +187,7 @@ package org.allbinary.game.displayable.canvas {
     
 
     public function toString():String {
-        return new StringMaker().append(super.toString()).append(this.NAME_LABEL).append(this.form.toString()).toString();
+        return new StringMaker().append(JSystem.objectToString(this)).append(this.NAME_LABEL).append(this.form.toString()).toString();
     }
     }
 }

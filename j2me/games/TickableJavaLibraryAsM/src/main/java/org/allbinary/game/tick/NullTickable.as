@@ -44,7 +44,15 @@ package org.allbinary.game.tick {
     }
     
 
-    public function processTick(allBinaryLayerManager:AllBinaryLayerManager):void {
+    public function processTick(...args):void {
+        if (args.length == 1) {
+            this.processTick_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "processTick");
+    }
+
+    private function processTick_jo1(allBinaryLayerManager:AllBinaryLayerManager):void {
     }
     
 

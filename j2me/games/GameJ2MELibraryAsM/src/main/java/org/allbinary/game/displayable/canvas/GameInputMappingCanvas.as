@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.commands.GameCommandsFactory;
     import org.allbinary.game.input.GameKey;
     import org.allbinary.game.input.GameKeyFactory;
@@ -144,7 +147,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function processInputMapping(gameKey:GameKey, input:Input):void {
+    public function processInputMapping(gameKey:GameKey, input:Input):void {
         var stringBuffer:StringMaker = new StringMaker();
         stringBuffer.append("Start Passed GameKey: ");
         stringBuffer.append(this.stringUtil.toString1(gameKey));
@@ -242,14 +245,30 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function update():void {
+    override public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        super.update.apply(this, args);
+    }
+
+    private function update_jo0():void {
         this.inputMapping.update(this.abeClientInformation);
         this.helpPaintable.update(this.selectedGameKey, this.selectedInput);
         this.repaintBehavior.onChangeRepaint(this);
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.colorFillPaintable.paint(graphics);
         this.helpPaintable.paint(graphics);
         this.paintable.paint(graphics);

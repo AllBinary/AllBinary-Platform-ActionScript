@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.opengles.shader {
+    import javax.microedition.khronos.opengles.GL10;
 
     public class UniformTextureOpenGLProcessor extends OpenGLObject3dProcessor {
     
@@ -23,7 +24,15 @@ package org.allbinary.graphics.opengles.shader {
     }
     
 
-    override public function process(gl:GL10, unused:Object, index:int):void {
+    override public function process(...args):void {
+        if (args.length == 3) {
+            this.process_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        super.process.apply(this, args);
+    }
+
+    private function process_jo3(gl:GL10, unused:Object, index:int):void {
     }
     }
 }

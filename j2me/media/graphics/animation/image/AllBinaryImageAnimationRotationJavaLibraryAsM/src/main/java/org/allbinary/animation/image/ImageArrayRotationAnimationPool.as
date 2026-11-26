@@ -29,6 +29,10 @@ package org.allbinary.animation.image {
         }
         return ImageArrayRotationAnimationPool.IMAGE_ROTATION_ANIMATION_POOL_value;
     }
+    private static function set IMAGE_ROTATION_ANIMATION_POOL(value:PoolInterface):void {
+        ImageArrayRotationAnimationPool.IMAGE_ROTATION_ANIMATION_POOL_set = true;
+        ImageArrayRotationAnimationPool.IMAGE_ROTATION_ANIMATION_POOL_value = value;
+    }
     
 
     public function ImageArrayRotationAnimationPool(cacheableInterfaceFactoryInterface:CacheableInterfaceFactoryInterface) {

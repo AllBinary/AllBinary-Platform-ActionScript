@@ -28,6 +28,10 @@ package org.allbinary.input.accelerometer {
         }
         return AccelerometerSensorFactory.allBinaryAccelerometerSensor_value;
     }
+    private static function set allBinaryAccelerometerSensor(value:AllBinaryOrientationSensor):void {
+        AccelerometerSensorFactory.allBinaryAccelerometerSensor_set = true;
+        AccelerometerSensorFactory.allBinaryAccelerometerSensor_value = value;
+    }
     
 
     public static function init():void {

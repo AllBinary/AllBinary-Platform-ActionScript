@@ -27,6 +27,10 @@ package org.allbinary.game.score {
         }
         return Scoreable.ID_value;
     }
+    public static function set ID(value:*):void {
+        Scoreable.ID_set = true;
+        Scoreable.ID_value = value;
+    }
         private var points:int = 0;
 
         // Java field initializers run after the base constructor

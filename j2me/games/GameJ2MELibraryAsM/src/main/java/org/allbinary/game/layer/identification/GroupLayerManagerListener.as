@@ -40,6 +40,10 @@ package org.allbinary.game.layer.identification {
         }
         return GroupLayerManagerListener.SINGLETON_value;
     }
+    private static function set SINGLETON(value:GroupLayerManagerListener):void {
+        GroupLayerManagerListener.SINGLETON_set = true;
+        GroupLayerManagerListener.SINGLETON_value = value;
+    }
         public var logUtil:LogUtil = null;
         private var list:BasicArrayList = null;
 
@@ -62,7 +66,15 @@ package org.allbinary.game.layer.identification {
     }
     
 
-    public function clear():void {
+    public function clear(...args):void {
+        if (args.length == 0) {
+            this.clear_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "clear");
+    }
+
+    private function clear_jo0():void {
         var groupList:BasicArrayList = null;
         var size:int = this.list.size();
         for (var index:int = int(size - 1); index >= 0; index--) {
@@ -84,7 +96,14 @@ package org.allbinary.game.layer.identification {
     }
     
 
-    public function getList(groupInterface:Group):BasicArrayList {
+    public function getList(...args):BasicArrayList {
+        if (args.length == 1) {
+            return this.getList_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "getList");
+    }
+
+    private function getList_jo1(groupInterface:Group):BasicArrayList {
         var id:int = groupInterface.getGroupId();
         return this.getListById(id);
     }
@@ -125,7 +144,7 @@ package org.allbinary.game.layer.identification {
         var groupInterface:Group = null;
         var groupId:int = 0;
         for (var index:int = int(size - 1); index >= 0; index--) {
-            groupInterfaceArray = (excludeGroupList.objectArray[index] as Vector.<Group>);
+            groupInterfaceArray = (JVectors.castVector(excludeGroupList.objectArray[index], Vector.<Group>) as Vector.<Group>);
             var size2:int = groupInterfaceArray.length;
             for (var index2:int = 0; index2 < size2; index2++) {
                 groupInterface = groupInterfaceArray[index2];
@@ -153,7 +172,15 @@ package org.allbinary.game.layer.identification {
     }
     
 
-    public function init(total:int):void {
+    public function init(...args):void {
+        if (args.length == 1) {
+            this.init_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo1(total:int):void {
         while (this.list.size() <= int(total + 1)) {
             this.list.add(new BasicArrayListD());
         }

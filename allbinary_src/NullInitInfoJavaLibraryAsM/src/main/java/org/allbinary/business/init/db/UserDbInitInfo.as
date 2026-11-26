@@ -18,16 +18,52 @@ package org.allbinary.business.init.db {
     public class UserDbInitInfo extends DbInitInfo {
     
 
-    public function UserDbInitInfo() {
-        super(null, false);
+    public function UserDbInitInfo(...args) {
+        if (args.length == 2 && args[0] === JSuperArgs.ARGS) {
+            args = args[1];
+        }
+        var jsuper:Array = UserDbInitInfo.jsuperArgs(args);
+        super(jsuper[0], jsuper[1]);
+        this.jconstruct(args);
+    }
+
+    private static function jsuperArgs(args:Array):Array {
+        if (args.length == 0) {
+            return UserDbInitInfo.jsuper_1();
+        }
+        if (args.length == 1) {
+            return UserDbInitInfo.jsuper_2(args[0]);
+        }
+        return [];
+    }
+
+    private static function jsuper_1():Array {
+        return [null, false];
+    }
+
+    private static function jsuper_2(read:Boolean):Array {
+        return [null, false];
+    }
+
+    private function jconstruct(args:Array):void {
+        if (args.length == 0) {
+            this.jconstruct_1();
+            return;
+        }
+        if (args.length == 1) {
+            this.jconstruct_2(args[0]);
+            return;
+        }
+    }
+
+    private function jconstruct_1():void {
+        
+    }
+
+    private function jconstruct_2(read:Boolean):void {
+        
     }
     
-
-    /* Java constructor: ActionScript classes have one constructor
-    public function UserDbInitInfo(read:Boolean = false) {
-        super(null, false);
-    }
-    */
     }
 }
 

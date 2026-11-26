@@ -55,7 +55,14 @@ package org.allbinary.game.ag.ai.sequence {
     }
     
 
-    public function getIndex():int {
+    public function getIndex(...args):int {
+        if (args.length == 0) {
+            return this.getIndex_jo0();
+        }
+        throw new JException("IllegalArgumentException", "getIndex");
+    }
+
+    private function getIndex_jo0():int {
         return this.index;
     }
     

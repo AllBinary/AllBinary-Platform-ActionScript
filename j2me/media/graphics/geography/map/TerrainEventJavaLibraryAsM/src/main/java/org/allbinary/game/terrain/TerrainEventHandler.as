@@ -33,6 +33,10 @@ package org.allbinary.game.terrain {
         }
         return TerrainEventHandler.hashtable_value;
     }
+    private static function set hashtable(value:ABHashtable):void {
+        TerrainEventHandler.hashtable_set = true;
+        TerrainEventHandler.hashtable_value = value;
+    }
         private var list:BasicArrayList = null;
 
         // Java field initializers run after the base constructor

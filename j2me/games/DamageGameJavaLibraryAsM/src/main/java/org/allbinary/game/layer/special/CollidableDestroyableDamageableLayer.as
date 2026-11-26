@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.layer.special {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
     import org.allbinary.game.combat.damage.DamageableInterface;
     import org.allbinary.game.combat.destroy.DestroyableInterface;
@@ -48,6 +49,10 @@ package org.allbinary.game.layer.special {
         }
         return CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER_value;
     }
+    private static function set NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER(value:Object):void {
+        CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER_set = true;
+        CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER_value = value;
+    }
     private static const READYFOREXPLOSION:String = "ReadyForExplosion: ";
         private var groupInterface:Vector.<Group> = null;
         private var readyForExplosion:Boolean = false;
@@ -81,7 +86,7 @@ package org.allbinary.game.layer.special {
         }
     
 
-    override public static function getNullInstance():CollidableDestroyableDamageableLayer {
+    public static function getNullInstance():CollidableDestroyableDamageableLayer {
         if (CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER == NullUtil.getInstance().NULL_OBJECT) {
             CollidableDestroyableDamageableLayer.NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = new CollidableDestroyableDamageableLayer(BasicGroupFactory.getInstance().NONE_ARRAY, StringUtil.getInstance().EMPTY_STRING, RectangleFactory.SINGLETON, ViewPositionBase.NULL_VIEW_POSITION);
         }
@@ -111,7 +116,15 @@ package org.allbinary.game.layer.special {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         super.paint(graphics);
     }
     

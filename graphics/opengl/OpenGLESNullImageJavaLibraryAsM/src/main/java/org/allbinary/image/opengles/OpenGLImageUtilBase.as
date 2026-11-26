@@ -22,14 +22,24 @@ package org.allbinary.image.opengles {
     public class OpenGLImageUtilBase {
     
 
-    public function paint(alphaBitmap:OpenGLBitmap, originalBitmap:OpenGLBitmap, index:int):OpenGLBitmap {
+    public function paint(...args):OpenGLBitmap {
+        if (args.length == 3) {
+            return this.paint_jo3(args[0], args[1], args[2]);
+        }
+        if (args.length == 4) {
+            return this.paint_jo4(args[0], args[1], args[2], args[3]);
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo3(alphaBitmap:OpenGLBitmap, originalBitmap:OpenGLBitmap, index:int):OpenGLBitmap {
+        throw new JException("RuntimeException", "");
+    }
+
+    private function paint_jo4(colorBitmap:OpenGLBitmap, originalBitmap:OpenGLBitmap, alpha:int, basicColor:BasicColor):OpenGLBitmap {
         throw new JException("RuntimeException", "");
     }
     
-
-    public function paint(colorBitmap:OpenGLBitmap, originalBitmap:OpenGLBitmap, alpha:int, basicColor:BasicColor):OpenGLBitmap {
-        throw new JException("RuntimeException", "");
-    }
     
 
     public function createImage(name:String):OpenGLBitmap {
@@ -37,7 +47,7 @@ package org.allbinary.image.opengles {
     }
     
 
-    public function createImageFromInputStream(inputStream:InputStream):OpenGLBitmap {
+    public function createImageFromInputStream(inputStream:JInputStream):OpenGLBitmap {
         throw new JException("RuntimeException", "");
     }
     }

@@ -25,6 +25,10 @@ package org.allbinary.debug {
         }
         return NoDebug.SINGLETON_value;
     }
+    private static function set SINGLETON(value:DebugInterface):void {
+        NoDebug.SINGLETON_set = true;
+        NoDebug.SINGLETON_value = value;
+    }
     
 
     public static function getInstance():DebugInterface {

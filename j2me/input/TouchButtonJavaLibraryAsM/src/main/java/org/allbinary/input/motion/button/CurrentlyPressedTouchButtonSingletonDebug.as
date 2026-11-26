@@ -58,7 +58,7 @@ package org.allbinary.input.motion.button {
         }
     
 
-    override public static function getInstance():CurrentlyPressedTouchButtonSingleton {
+    public static function getInstance():CurrentlyPressedTouchButtonSingleton {
         return CurrentlyPressedTouchButtonSingletonDebug.instanceC;
     }
     

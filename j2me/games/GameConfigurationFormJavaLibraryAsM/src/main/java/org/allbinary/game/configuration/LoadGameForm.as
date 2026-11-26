@@ -14,6 +14,13 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration {
+    import javax.microedition.lcdui.Choice;
+    import javax.microedition.lcdui.ChoiceConstants;
+    import javax.microedition.lcdui.ChoiceGroup;
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Item;
+    import javax.microedition.lcdui.NullImage;
+    import javax.microedition.lcdui.StringItem;
     import org.allbinary.MIDPUtil;
     import org.allbinary.game.commands.GameCommandsFactory;
     import org.allbinary.game.configuration.persistance.GamePersistanceSingleton;
@@ -54,11 +61,19 @@ package org.allbinary.game.configuration {
     }
     
 
-    override public function update():void {
+    override public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        super.update.apply(this, args);
+    }
+
+    private function update_jo0():void {
         var list:BasicArrayList = GamePersistanceSingleton.getInstance().getIds();
         this.deleteAll();
         if (list.size() > 0) {
-            this.add(list, "Select A Saved Game", Choice.EXCLUSIVE);
+            this.add(list, "Select A Saved Game", ChoiceConstants.EXCLUSIVE);
             this.areChoices = true;
         } else {
             this.meUtil.appendItem(this, new StringItem("No Saved Games", StringUtil.getInstance().EMPTY_STRING, Item.PLAIN));
@@ -104,7 +119,7 @@ package org.allbinary.game.configuration {
     public function getSelectedText():int {
         if (this.areChoices) {
             var choiceGroup:ChoiceGroup = (this.get_(0) as ChoiceGroup);
-            var value:int = String(choiceGroup.getString(choiceGroup.getSelectedIndex())).intValue();
+            var value:int = int(int(parseInt(choiceGroup.getString(choiceGroup.getSelectedIndex()))));
             return value;
         } else {
             return -1;

@@ -19,7 +19,7 @@ package org.allbinary.logic.util.cache {
     public interface J2SECacheInterface extends AutomaticCacheInterface {
     
 
-    function keySet():Set;
+    function keySet():JSet;
     }
 }
 

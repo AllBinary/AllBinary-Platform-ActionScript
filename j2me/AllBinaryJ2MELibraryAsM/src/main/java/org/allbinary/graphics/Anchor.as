@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics {
+    import javax.microedition.lcdui.Graphics;
 
     public class Anchor {
     private static var TOP_LEFT_value:int;
@@ -24,6 +25,10 @@ package org.allbinary.graphics {
             Anchor.TOP_LEFT_value = Graphics.TOP & Graphics.LEFT;
         }
         return Anchor.TOP_LEFT_value;
+    }
+    public static function set TOP_LEFT(value:int):void {
+        Anchor.TOP_LEFT_set = true;
+        Anchor.TOP_LEFT_value = value;
     }
     }
 }

@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.part {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
     import org.allbinary.graphics.displayable.DisplayInfoSingleton;
     import org.allbinary.graphics.font.MyFontProcessor;
@@ -71,7 +73,15 @@ package org.allbinary.game.part {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
         var lastWidth:int = this.displayInfoSingleton.getLastWidth();
         var widthEdge:int = int(lastWidth - this.dropSize);
@@ -99,7 +109,7 @@ package org.allbinary.game.part {
         }
         if (count > 0) {
             graphics.setColor(this.countedPartsBorder);
-            graphics.drawRect(lastWidth - (CountedLayersHudPaintable.XXStringWidth + this.dropSize), 40, CountedLayersHudPaintable.XXStringWidth + this.dropSize, int((int(count * this.height)) + 3));
+            graphics.drawRect(int(lastWidth - (int(CountedLayersHudPaintable.XXStringWidth + this.dropSize))), 40, int(CountedLayersHudPaintable.XXStringWidth + this.dropSize), int((int(count * this.height)) + 3));
         }
     }
     

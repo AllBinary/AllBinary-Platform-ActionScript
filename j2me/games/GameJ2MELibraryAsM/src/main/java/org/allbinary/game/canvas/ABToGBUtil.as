@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.canvas {
+    import javax.microedition.lcdui.Canvas;
+    import javax.microedition.lcdui.NullCanvas;
     import org.allbinary.game.layer.AllBinaryGameLayerManager;
 
     public class ABToGBUtil {

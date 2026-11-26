@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.layer {
+    import javax.microedition.khronos.opengles.GL;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.Rectangle;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.color.BasicColorFactory;
@@ -64,12 +66,27 @@ package org.allbinary.game.layer {
     }
     
 
-    public function set_(gl:GL):void {
+    public function set_(...args):* {
+        if (args.length == 1) {
+            return this.set__jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "set");
+    }
+
+    private function set__jo1(gl:GL):void {
         throw new JException("Exception", this.commonStrings.NOT_IMPLEMENTED);
     }
     
 
-    public function move():void {
+    public function move(...args):void {
+        if (args.length == 0) {
+            this.move_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "move");
+    }
+
+    private function move_jo0():void {
     }
     
 
@@ -83,7 +100,15 @@ package org.allbinary.game.layer {
     }
     
 
-    public function processTick(allBinaryLayerManager:AllBinaryLayerManager):void {
+    public function processTick(...args):void {
+        if (args.length == 1) {
+            this.processTick_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "processTick");
+    }
+
+    private function processTick_jo1(allBinaryLayerManager:AllBinaryLayerManager):void {
         throw new JException("Exception", this.commonStrings.NOT_IMPLEMENTED);
     }
     

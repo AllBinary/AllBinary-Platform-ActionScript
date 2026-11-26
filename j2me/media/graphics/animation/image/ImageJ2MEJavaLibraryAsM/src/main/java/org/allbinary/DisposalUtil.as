@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary {
+    import javax.microedition.lcdui.Image;
     import org.eclipse.swt.graphics.Resource;
 
     public class DisposalUtil {

@@ -26,7 +26,7 @@ package org.allbinary.logic.io {
         private var string:String = null;
         private var index:int = 0;
         private var idFile:AbFileInputStream = null;
-        private var idData:DataInputStream = null;
+        private var idData:JDataInputStream = null;
 
         // Java field initializers run after the base constructor
         private function initFieldsLineReader():void {
@@ -48,7 +48,7 @@ package org.allbinary.logic.io {
             this.fileName = fileName;
             this.idFile = new AbFileInputStream(fileName);
             this.idFile.read(bytes);
-            this.string = bytes;
+            this.string = JString.ofConstructorArgument(bytes);
         } catch (e:*) {
             this.logUtil.put("File: " + fileName, this, "LineReader", e);
             {

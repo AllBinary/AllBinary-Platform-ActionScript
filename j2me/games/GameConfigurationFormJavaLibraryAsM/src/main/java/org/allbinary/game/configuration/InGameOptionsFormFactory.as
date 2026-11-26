@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration {
+    import javax.microedition.lcdui.CommandListener;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.displayable.screen.CommandForm;
     import org.allbinary.init.Init;
@@ -30,6 +31,10 @@ package org.allbinary.game.configuration {
             InGameOptionsFormFactory.instance_value = NullUtil.getInstance().NULL_OBJECT;
         }
         return InGameOptionsFormFactory.instance_value;
+    }
+    private static function set instance(value:Object):void {
+        InGameOptionsFormFactory.instance_set = true;
+        InGameOptionsFormFactory.instance_value = value;
     }
         public var logUtil:LogUtil = null;
         private var SINGLETON:CommandForm = null;

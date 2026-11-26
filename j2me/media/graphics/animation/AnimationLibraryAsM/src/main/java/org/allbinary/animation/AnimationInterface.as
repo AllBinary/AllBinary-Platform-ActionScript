@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.paint.LocationPaintableInterface;
 
     public interface AnimationInterface extends LocationPaintableInterface {

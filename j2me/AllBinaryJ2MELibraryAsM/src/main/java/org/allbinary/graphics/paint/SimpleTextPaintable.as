@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.paint {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.Anchor;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -60,7 +62,15 @@ package org.allbinary.graphics.paint {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
         var width:int = this.displayInfoSingleton.getLast()[this.displayInfoSingleton.WIDTH];
         graphics.setColor(this.getBasicColorP().intValue());

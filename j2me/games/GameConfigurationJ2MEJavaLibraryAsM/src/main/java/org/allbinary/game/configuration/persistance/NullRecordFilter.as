@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.persistance {
+    import javax.microedition.rms.RecordFilter;
 
     public class NullRecordFilter implements RecordFilter {
     private static var NULL_RECORD_FILTER_value:NullRecordFilter;
@@ -24,6 +25,10 @@ package org.allbinary.game.configuration.persistance {
             NullRecordFilter.NULL_RECORD_FILTER_value = new NullRecordFilter();
         }
         return NullRecordFilter.NULL_RECORD_FILTER_value;
+    }
+    public static function set NULL_RECORD_FILTER(value:NullRecordFilter):void {
+        NullRecordFilter.NULL_RECORD_FILTER_set = true;
+        NullRecordFilter.NULL_RECORD_FILTER_value = value;
     }
     
 

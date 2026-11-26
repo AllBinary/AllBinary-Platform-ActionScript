@@ -21,7 +21,7 @@ package org.allbinary.logic.java.jar {
     import java.util.jar.JJarInputStream;
 
     public class JarUtil {
-        private var jarURL:URL = null;
+        private var jarURL:JURL = null;
 
         // Java field initializers run after the base constructor
         private function initFieldsJarUtil():void {
@@ -29,7 +29,7 @@ package org.allbinary.logic.java.jar {
         }
     
 
-    public function JarUtil(jarURL:URL) {
+    public function JarUtil(jarURL:JURL) {
         super();
         this.initFieldsJarUtil();
         this.jarURL = jarURL;
@@ -39,10 +39,10 @@ package org.allbinary.logic.java.jar {
     public function show():void {
         var cache:Vector.<int> = new Vector.<int>(1024);
         try {
-            var conn:URLConnection = this.jarURL.openConnection();
-            var jis:JarInputStream = new JarInputStream(conn.getInputStream());
+            var conn:JURLConnection = this.jarURL.openConnection();
+            var jis:JJarInputStream = new JJarInputStream(conn.getInputStream());
             while (true) {
-                var entry:JarEntry = jis.getNextJarEntry();
+                var entry:JJarEntry = jis.getNextJarEntry();
                 if (entry != null) {
                     if (!entry.isDirectory()) {
                         var offset:int = 0;
@@ -71,7 +71,7 @@ package org.allbinary.logic.java.jar {
     
 
     public static function main(args:Vector.<String>):void {
-        new JarUtil(new URL("file:///G:/mnt/bc/mydev/working/j2me/MiniSpaceWars/MiniSpaceWars/dist/MiniSpaceWars.jar")).show();
+        new JarUtil(new JURL("file:///G:/mnt/bc/mydev/working/j2me/MiniSpaceWars/MiniSpaceWars/dist/MiniSpaceWars.jar")).show();
     }
     }
 }

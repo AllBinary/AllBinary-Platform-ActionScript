@@ -26,6 +26,10 @@ package org.allbinary.media.audio {
         }
         return FireworksSound.soundInterface_value;
     }
+    private static function set soundInterface(value:Sound):void {
+        FireworksSound.soundInterface_set = true;
+        FireworksSound.soundInterface_value = value;
+    }
     
 
     public function FireworksSound() {

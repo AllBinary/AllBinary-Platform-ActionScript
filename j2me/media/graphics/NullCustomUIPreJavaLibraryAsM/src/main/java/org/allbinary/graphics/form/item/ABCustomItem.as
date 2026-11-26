@@ -1,5 +1,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form.item {
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Screen;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.color.BasicColorFactory;
     import org.allbinary.logic.NullUtil;
@@ -14,6 +16,10 @@ package org.allbinary.graphics.form.item {
             ABCustomItem.NULL_CUSTOM_ITEM_value = NullUtil.getInstance().NULL_OBJECT;
         }
         return ABCustomItem.NULL_CUSTOM_ITEM_value;
+    }
+    public static function set NULL_CUSTOM_ITEM(value:Object):void {
+        ABCustomItem.NULL_CUSTOM_ITEM_set = true;
+        ABCustomItem.NULL_CUSTOM_ITEM_value = value;
     }
     
 

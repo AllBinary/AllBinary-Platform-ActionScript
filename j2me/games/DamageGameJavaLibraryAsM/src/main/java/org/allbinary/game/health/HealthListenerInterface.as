@@ -18,7 +18,7 @@ package org.allbinary.game.health {
     public interface HealthListenerInterface {
     
 
-    function onHealthChange():void;
+    function onHealthChange(...args):void;
     }
 }
 

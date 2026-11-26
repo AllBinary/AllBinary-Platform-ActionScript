@@ -69,7 +69,15 @@ package org.allbinary.input {
     }
     
 
-    override public function process(allbinaryLayerManager:AllBinaryLayerManager, analogLocationInput:AnalogLocationInput):void {
+    override public function process(...args):void {
+        if (args.length == 2) {
+            this.process_jo2(args[0], args[1]);
+            return;
+        }
+        super.process.apply(this, args);
+    }
+
+    private function process_jo2(allbinaryLayerManager:AllBinaryLayerManager, analogLocationInput:AnalogLocationInput):void {
         try {
             var customGPoint:CustomGPoint = null;
             customGPoint = analogLocationInput.getCustomGPoint();

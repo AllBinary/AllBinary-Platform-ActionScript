@@ -84,13 +84,13 @@ package org.allbinary.business.init.db {
             newFile.createNewFile();
             var dataOutputStream:AbDataOutputStream = DataOutputStreamFactory.getInstance().getInstanceForAbFile(newFile);
             try {
-                var cryptedJdbcDriver:Vector.<int> = new WeakCrypt(1).encrypt(this.getJdbcDriver()).getBytes();
-                var cryptedName:Vector.<int> = new WeakCrypt(2).encrypt(this.getName()).getBytes();
-                var cryptedUserName:Vector.<int> = new WeakCrypt(3).encrypt(this.getUserName()).getBytes();
-                var cryptedPassword:Vector.<int> = new WeakCrypt(4).encrypt(this.getPassword()).getBytes();
-                var cryptedSchema:Vector.<int> = new WeakCrypt(5).encrypt(this.getSchema()).getBytes();
-                var cryptedServer:Vector.<int> = new WeakCrypt(6).encrypt(this.getServer()).getBytes();
-                var cryptedPort:Vector.<int> = new WeakCrypt(7).encrypt(this.getPort()).getBytes();
+                var cryptedJdbcDriver:Vector.<int> = JString.getBytesOf(new WeakCrypt(1).encrypt(this.getJdbcDriver()));
+                var cryptedName:Vector.<int> = JString.getBytesOf(new WeakCrypt(2).encrypt(this.getName()));
+                var cryptedUserName:Vector.<int> = JString.getBytesOf(new WeakCrypt(3).encrypt(this.getUserName()));
+                var cryptedPassword:Vector.<int> = JString.getBytesOf(new WeakCrypt(4).encrypt(this.getPassword()));
+                var cryptedSchema:Vector.<int> = JString.getBytesOf(new WeakCrypt(5).encrypt(this.getSchema()));
+                var cryptedServer:Vector.<int> = JString.getBytesOf(new WeakCrypt(6).encrypt(this.getServer()));
+                var cryptedPort:Vector.<int> = JString.getBytesOf(new WeakCrypt(7).encrypt(this.getPort()));
                 dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedJdbcDriver));
                 dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedName));
                 dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedUserName));
@@ -118,13 +118,13 @@ package org.allbinary.business.init.db {
                 var iFile:AbFileInputStream = AbFileInputStream.createFromAbFile(file);
                 var iData:AbDataInputStream = new AbDataInputStream(iFile);
                 try {
-                    var decryptedJdbcDriver:String = DatabaseEncoder.decode(iData.readUTF());
-                    var decryptedName:String = DatabaseEncoder.decode(iData.readUTF());
-                    var decryptedUserName:String = DatabaseEncoder.decode(iData.readUTF());
-                    var decryptedPassword:String = DatabaseEncoder.decode(iData.readUTF());
-                    var decryptedSchema:String = DatabaseEncoder.decode(iData.readUTF());
-                    var decryptedServer:String = DatabaseEncoder.decode(iData.readUTF());
-                    var decryptedPort:String = DatabaseEncoder.decode(iData.readUTF());
+                    var decryptedJdbcDriver:String = JString.ofConstructorArgument(DatabaseEncoder.decode(iData.readUTF()));
+                    var decryptedName:String = JString.ofConstructorArgument(DatabaseEncoder.decode(iData.readUTF()));
+                    var decryptedUserName:String = JString.ofConstructorArgument(DatabaseEncoder.decode(iData.readUTF()));
+                    var decryptedPassword:String = JString.ofConstructorArgument(DatabaseEncoder.decode(iData.readUTF()));
+                    var decryptedSchema:String = JString.ofConstructorArgument(DatabaseEncoder.decode(iData.readUTF()));
+                    var decryptedServer:String = JString.ofConstructorArgument(DatabaseEncoder.decode(iData.readUTF()));
+                    var decryptedPort:String = JString.ofConstructorArgument(DatabaseEncoder.decode(iData.readUTF()));
                     this.setJdbcDriver(new WeakCrypt(1).decrypt(decryptedJdbcDriver));
                     this.setName(new WeakCrypt(2).decrypt(decryptedName));
                     this.setUserName(new WeakCrypt(3).decrypt(decryptedUserName));

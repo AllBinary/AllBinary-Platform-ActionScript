@@ -27,7 +27,7 @@ package org.allbinary.graphics.opengles.shader {
     }
     
 
-    override public static function getInstance():SimpleShaderInitializer {
+    public static function getInstance():SimpleShaderInitializer {
         return SimpleShaderInitializer.instanceC;
     }
     }

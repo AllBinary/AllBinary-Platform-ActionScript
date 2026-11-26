@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.score {
+    import javax.microedition.lcdui.Command;
 
     public class HighScoreCommandsFactory extends HighScoreCommandsBaseFactory {
     private static var instance_value:HighScoreCommandsFactory;

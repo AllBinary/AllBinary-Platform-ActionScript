@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.input {
+    import javax.microedition.lcdui.Canvas;
     import org.allbinary.logic.NullUtil;
     import org.allbinary.string.CommonPhoneStrings;
 
@@ -26,6 +27,10 @@ package org.allbinary.game.input {
             GameKeyFactory.instance_value = NullUtil.getInstance().NULL_OBJECT;
         }
         return GameKeyFactory.instance_value;
+    }
+    private static function set instance(value:Object):void {
+        GameKeyFactory.instance_set = true;
+        GameKeyFactory.instance_value = value;
     }
         public var NONE:GameKey = null;
         public var UP:GameKey = null;

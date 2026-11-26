@@ -14,6 +14,10 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.data.tree.dom.document {
+    import javax.xml.transform.Transformer;
+    import javax.xml.transform.TransformerFactory;
+    import javax.xml.transform.dom.DOMSource;
+    import javax.xml.transform.stream.StreamResult;
     import org.allbinary.logic.io.AbDataOutputStream;
     import org.allbinary.logic.io.AbFileInputStream;
     import org.allbinary.logic.io.DataOutputStreamFactory;

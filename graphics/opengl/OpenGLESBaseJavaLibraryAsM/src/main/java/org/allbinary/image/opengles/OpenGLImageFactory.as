@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.image.opengles {
+    import javax.microedition.lcdui.Image;
     import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
     import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
@@ -26,6 +27,10 @@ package org.allbinary.image.opengles {
             OpenGLImageFactory.NULL_OPENGL_IMAGE_FACTORY_value = new OpenGLImageFactory();
         }
         return OpenGLImageFactory.NULL_OPENGL_IMAGE_FACTORY_value;
+    }
+    public static function set NULL_OPENGL_IMAGE_FACTORY(value:OpenGLImageFactory):void {
+        OpenGLImageFactory.NULL_OPENGL_IMAGE_FACTORY_set = true;
+        OpenGLImageFactory.NULL_OPENGL_IMAGE_FACTORY_value = value;
     }
     
 

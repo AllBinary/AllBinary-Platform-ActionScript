@@ -65,21 +65,31 @@ package org.allbinary.logic.io.file {
     }
     
 
-    public function readAsString(fileName:String):String {
+    public function readAsString(...args):String {
+        if (args.length == 1) {
+            return this.readAsString_jo1(args[0]);
+        }
+        if (args.length == 2) {
+            return this.readAsString_jo2(args[0], args[1]);
+        }
+        throw new JException("IllegalArgumentException", "readAsString");
+    }
+
+    private function readAsString_jo1(fileName:String):String {
         var bytes:Vector.<int> = new Vector.<int>(1000000);
         return this.readAsString(fileName, bytes);
     }
-    
 
-    public function readAsString(fileName:String, bytes:Vector.<int>):String {
+    private function readAsString_jo2(fileName:String, bytes:Vector.<int>):String {
         return StringUtil.getInstance().EMPTY_STRING;
     }
+    
     
 
     public function close(closeable:Object):Boolean {
         try {
             if (closeable != null) {
-                var inputStream:InputStream = ((closeable as InputStream));
+                var inputStream:JInputStream = ((closeable as JInputStream));
                 inputStream.close();
             }
             return true;

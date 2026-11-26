@@ -25,15 +25,24 @@ package org.allbinary.logic.io.file.visitor {
     }
     
 
-    override public function visit(file:AbFile):* {
+    override public function visit(...args):* {
+        if (args.length == 1) {
+            return this.visit_jo1(args[0]);
+        }
+        if (args.length == 2) {
+            return this.visit_jo2(args[0], args[1]);
+        }
+        return super.visit.apply(this, args);
+    }
+
+    private function visit_jo1(file:AbFile):* {
         if (this.getFilterStringBasicArrayList().size() == 0) {
             return false;
         }
         return super.visit(file);
     }
-    
 
-    override public function visit(file:AbFile, fileNameString:String):* {
+    private function visit_jo2(file:AbFile, fileNameString:String):* {
         var fileNameAndExtension:String = file.getPath();
         if (fileNameAndExtension.length > fileNameString.length) {
             var startIndex:int = int(fileNameAndExtension.length - fileNameString.length);
@@ -44,6 +53,7 @@ package org.allbinary.logic.io.file.visitor {
         }
         return false;
     }
+    
     }
 }
 

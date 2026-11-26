@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.graphics.hud {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.Anchor;
     import org.allbinary.graphics.GPoint;
     import org.allbinary.graphics.PointFactory;

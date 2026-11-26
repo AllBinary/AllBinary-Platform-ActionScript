@@ -26,6 +26,10 @@ package org.allbinary.media.audio {
         }
         return GameBeginSound.soundInterface_value;
     }
+    private static function set soundInterface(value:Sound):void {
+        GameBeginSound.soundInterface_set = true;
+        GameBeginSound.soundInterface_value = value;
+    }
     
 
     public function GameBeginSound() {

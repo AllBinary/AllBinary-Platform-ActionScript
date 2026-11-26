@@ -18,7 +18,7 @@ package org.allbinary.logic.util.cache {
     public interface AutomaticCacheInterface extends CacheInterface {
     
 
-    function get_(key:Object):CacheableInterface;
+    function get_(...args):*;
     }
 }
 

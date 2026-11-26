@@ -24,7 +24,20 @@ package org.allbinary.logic.java.array {
     }
     
 
-    public static function toString1(array:Vector.<int>):String {
+    public static function toString1(...args):String {
+        if (args.length == 1 && args[0] is Vector.<int>) {
+            return IntArrayUtil.toString_jo1_1(args[0]);
+        }
+        if (args.length == 1 && args[0] is Vector.<Vector.<int>>) {
+            return IntArrayUtil.toString_jo1_2(args[0]);
+        }
+        if (args.length == 1) {
+            return IntArrayUtil.toString_jo1_3(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "toString");
+    }
+
+    private static function toString_jo1_1(array:Vector.<int>):String {
         var stringBuffer:StringMaker = new StringMaker();
         for (var index:int = 0; index < array.length; index++) {
             stringBuffer.appendint(array[index]);
@@ -34,9 +47,8 @@ package org.allbinary.logic.java.array {
         }
         return stringBuffer.toString();
     }
-    
 
-    public static function toString1(array:Vector.<Vector.<int>>):String {
+    private static function toString_jo1_2(array:Vector.<Vector.<int>>):String {
         var stringBuffer:StringMaker = new StringMaker();
         for (var index:int = 0; index < array.length; index++) {
             stringBuffer.append("{");
@@ -53,9 +65,8 @@ package org.allbinary.logic.java.array {
         }
         return stringBuffer.toString();
     }
-    
 
-    public static function toString1(array:Vector.<Vector.<Vector.<int>>>):String {
+    private static function toString_jo1_3(array:Vector.<Vector.<Vector.<int>>>):String {
         var stringBuffer:StringMaker = new StringMaker();
         for (var index:int = 0; index < array.length; index++) {
             stringBuffer.append("{");
@@ -79,6 +90,8 @@ package org.allbinary.logic.java.array {
         }
         return stringBuffer.toString();
     }
+    
+    
     }
 }
 

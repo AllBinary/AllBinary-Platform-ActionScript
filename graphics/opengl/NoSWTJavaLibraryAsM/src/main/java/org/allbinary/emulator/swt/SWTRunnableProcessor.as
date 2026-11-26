@@ -28,7 +28,7 @@ package org.allbinary.emulator.swt {
     }
     
 
-    override public static function getInstance():SWTRunnableProcessor {
+    public static function getInstance():SWTRunnableProcessor {
         return SWTRunnableProcessor.instanceR;
     }
     

@@ -1,5 +1,6 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.displayable {
+    import javax.microedition.lcdui.Image;
 
     public class ScreenRelationalUtil {
     private static var instance_value:ScreenRelationalUtil;

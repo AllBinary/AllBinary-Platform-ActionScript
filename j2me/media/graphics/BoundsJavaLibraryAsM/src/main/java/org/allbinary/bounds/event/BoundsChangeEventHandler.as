@@ -28,6 +28,10 @@ package org.allbinary.bounds.event {
         }
         return BoundsChangeEventHandler.SINGLETON_value;
     }
+    private static function set SINGLETON(value:BasicEventHandler):void {
+        BoundsChangeEventHandler.SINGLETON_set = true;
+        BoundsChangeEventHandler.SINGLETON_value = value;
+    }
     
 
     public function BoundsChangeEventHandler() {

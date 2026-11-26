@@ -5,22 +5,32 @@ package java.util {
     public final class Objects {
     
 
-    public static function requireNonNull(value:Object):Object {
+    public static function requireNonNull(...args):Object {
+        if (args.length == 1) {
+            return Objects.requireNonNull_jo1(args[0]);
+        }
+        if (args.length == 2) {
+            return Objects.requireNonNull_jo2(args[0], args[1]);
+        }
+        throw new JException("IllegalArgumentException", "requireNonNull");
+    }
+
+    private static function requireNonNull_jo1(value:Object):Object {
         if (value == null) {
             throw new JException("NullPointerException", "");
         } else {
             return value;
         }
     }
-    
 
-    public static function requireNonNull(value:Object, message:String):Object {
+    private static function requireNonNull_jo2(value:Object, message:String):Object {
         if (value == null) {
             throw new JException("NullPointerException", message);
         } else {
             return value;
         }
     }
+    
     }
 }
 

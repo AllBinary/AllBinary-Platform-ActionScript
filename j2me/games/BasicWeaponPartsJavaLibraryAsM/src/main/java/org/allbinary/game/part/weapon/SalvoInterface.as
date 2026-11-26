@@ -21,7 +21,7 @@ package org.allbinary.game.part.weapon {
     public interface SalvoInterface {
     
 
-    function process(allbinaryLayerManager:AllBinaryLayerManager, angle:int, otherAngle:int):void;
+    function process(...args):void;
     
 
     function processScore(allbinaryLayerManager:AllBinaryLayerManager, angle:int, otherAngle:int, weaponProperties:WeaponProperties, scoreableInterface:ScoreableInterface):void;

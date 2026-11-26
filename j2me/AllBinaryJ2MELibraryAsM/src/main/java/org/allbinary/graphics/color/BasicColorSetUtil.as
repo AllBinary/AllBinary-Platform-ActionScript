@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.color {
+    import javax.microedition.lcdui.Graphics;
 
     public class BasicColorSetUtil {
     private static var instance_value:BasicColorSetUtil;

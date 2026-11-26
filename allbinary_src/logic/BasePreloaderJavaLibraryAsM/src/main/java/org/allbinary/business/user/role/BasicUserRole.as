@@ -34,7 +34,7 @@ package org.allbinary.business.user.role {
     
 
     public function BasicUserRole(...args) {
-        if (args.length == 2 && args[0] === JConstructor.ARGS) {
+        if (args.length == 2 && args[0] === JSuperArgs.ARGS) {
             args = args[1];
         }
         var jsuper:Array = BasicUserRole.jsuperArgs(args);

@@ -27,6 +27,10 @@ package org.allbinary.game.ag.layer.weapon.mine {
         }
         return MineWeaponResources.instance_value;
     }
+    private static function set instance(value:Object):void {
+        MineWeaponResources.instance_set = true;
+        MineWeaponResources.instance_value = value;
+    }
         public var DROP_TEXT_RESOURCE:String = null;
         public var DROP_RESOURCE:String = null;
         public var DROP_ICON_RESOURCE:String = null;

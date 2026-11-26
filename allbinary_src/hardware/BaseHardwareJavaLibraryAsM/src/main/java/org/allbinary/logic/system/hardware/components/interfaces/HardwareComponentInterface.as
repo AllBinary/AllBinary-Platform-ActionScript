@@ -20,8 +20,6 @@ package org.allbinary.logic.system.hardware.components.interfaces {
 
     function compareTo(componentInterface:HardwareComponentInterface):Boolean;
     
-
-    function toString():String;
     }
 }
 

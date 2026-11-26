@@ -18,6 +18,12 @@ package org.allbinary.game.score {
     import java.io.JDataInputStream;
     import java.io.JEOFException;
     import java.io.JIOException;
+    import javax.microedition.rms.RecordComparator;
+    import javax.microedition.rms.RecordComparatorConstants;
+    import javax.microedition.rms.RecordEnumeration;
+    import javax.microedition.rms.RecordStore;
+    import javax.microedition.rms.RecordStoreException;
+    import javax.microedition.rms.RecordStoreNotFoundException;
     import org.allbinary.TsUtil;
     import org.allbinary.game.GameInfo;
     import org.allbinary.game.configuration.persistance.NullRecordComparator;
@@ -134,18 +140,18 @@ package org.allbinary.game.score {
             var scoreComparator:ScoreComparator = ((this.recordComparatorInterface as ScoreComparator));
             var bestHighScore:HighScore = new HighScore(-1, "none", GameInfo.NONE, scoreComparator.getBestScore());
             var recordAsBytes:Vector.<int> = null;
-            var byteArrayInputStream:ByteArrayInputStream = null;
-            var inputStream:DataInputStream = null;
+            var byteArrayInputStream:JByteArrayInputStream = null;
+            var inputStream:JDataInputStream = null;
             while (recordEnum.hasNextElement()) {
                 var id:int = recordEnum.nextRecordId();
                 recordAsBytes = this.tsUtil.getRecord(recordStore, id);
                 if (recordAsBytes != null) {
-                    byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
-                    inputStream = new DataInputStream(byteArrayInputStream);
+                    byteArrayInputStream = new JByteArrayInputStream(recordAsBytes);
+                    inputStream = new JDataInputStream(byteArrayInputStream);
                     var name:String = inputStream.readUTF();
                     var nextScore:Number = inputStream.readLong();
                     var nextCurrentHighScore:HighScore = new HighScore(id, name, GameInfo.NONE, nextScore);
-                    if (this.recordComparatorInterface.compare(nextCurrentHighScore.getAsBytes(), bestHighScore.getAsBytes()) == RecordComparator.FOLLOWS) {
+                    if (this.recordComparatorInterface.compare(nextCurrentHighScore.getAsBytes(), bestHighScore.getAsBytes()) == RecordComparatorConstants.FOLLOWS) {
                         bestHighScore = nextCurrentHighScore;
                     }
                 }
@@ -178,14 +184,14 @@ package org.allbinary.game.score {
             this.setList(new BasicArrayListD());
             var recordEnum:RecordEnumeration = recordStore.enumerateRecords(NullRecordFilter.NULL_RECORD_FILTER, NullRecordComparator.NULL_RECORD_COMPARATOR, true);
             var recordAsBytes:Vector.<int> = null;
-            var byteArrayInputStream:ByteArrayInputStream = null;
-            var inputStream:DataInputStream = null;
+            var byteArrayInputStream:JByteArrayInputStream = null;
+            var inputStream:JDataInputStream = null;
             while (recordEnum.hasNextElement()) {
                 var id:int = recordEnum.nextRecordId();
                 recordAsBytes = this.tsUtil.getRecord(recordStore, id);
                 if (recordAsBytes != null) {
-                    byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
-                    inputStream = new DataInputStream(byteArrayInputStream);
+                    byteArrayInputStream = new JByteArrayInputStream(recordAsBytes);
+                    inputStream = new JDataInputStream(byteArrayInputStream);
                     try {
                         var name:String = inputStream.readUTF();
                         var score:Number = inputStream.readLong();
@@ -195,7 +201,7 @@ package org.allbinary.game.score {
                         var lastIndex:int = size;
                         for (var index:int = 0; index < size; index++) {
                             var highScore:HighScore = (list.objectArray[index] as HighScore);
-                            if (this.recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == RecordComparator.PRECEDES) {
+                            if (this.recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == RecordComparatorConstants.PRECEDES) {
                                 lastIndex = index;
                                 break;
                             }
@@ -248,7 +254,7 @@ package org.allbinary.game.score {
                 var size:int = list.size();
                 for (var index:int = 0; index < size; index++) {
                     var highScore:HighScore = (list.objectArray[index] as HighScore);
-                    if (this.recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == RecordComparator.FOLLOWS) {
+                    if (this.recordComparatorInterface.compare(newHighScore.getAsBytes(), highScore.getAsBytes()) == RecordComparatorConstants.FOLLOWS) {
                         this.logUtil.putF("Obtained a High Score", this, "isBestScore");
                         return true;
                     }

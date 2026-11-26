@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image {
+    import javax.microedition.lcdui.Image;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.media.image.ImageModifierUtil;
 
@@ -29,7 +30,7 @@ package org.allbinary.animation.image {
     }
     
 
-    override public static function getInstance():SetColorProcessor {
+    public static function getInstance():SetColorProcessor {
         return SetColorProcessor.instanceC;
     }
     

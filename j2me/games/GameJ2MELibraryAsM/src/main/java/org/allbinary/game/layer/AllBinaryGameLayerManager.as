@@ -37,6 +37,10 @@ package org.allbinary.game.layer {
         }
         return AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER_value;
     }
+    private static function set NULL_ALLBINARY_LAYER_MANAGER(value:Object):void {
+        AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER_set = true;
+        AllBinaryGameLayerManager.NULL_ALLBINARY_LAYER_MANAGER_value = value;
+    }
     private static var ID_value:*;
     private static var ID_set:Boolean = false;
     public static function get ID():* {

@@ -49,7 +49,7 @@ package org.allbinary.logic.system.security {
     }
     
 
-    public function decrypt(inputStream:InputStream, key:String):Vector.<int> {
+    public function decrypt(inputStream:JInputStream, key:String):Vector.<int> {
         var outputStream:JByteArrayOutputStream = null;
         try {
             outputStream = (this.streamUtil.get_(inputStream, new JByteArrayOutputStream(), new Vector.<int>(16384)) as JByteArrayOutputStream);
@@ -60,6 +60,7 @@ package org.allbinary.logic.system.security {
             this.streamUtil.close(outputStream);
             this.streamUtil.close(inputStream);
         }
+        throw new JException("IllegalStateException", "unreachable end of method");
     }
     }
 }

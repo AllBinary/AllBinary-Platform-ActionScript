@@ -39,7 +39,14 @@ package org.allbinary.logic.util.visitor {
         }
     
 
-    public function visit(anyType:Object):Object {
+    public function visit(...args):* {
+        if (args.length == 1) {
+            return this.visit_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "visit");
+    }
+
+    private function visit_jo1(anyType:Object):Object {
         return this.nullUtil.NULL_OBJECT;
     }
     

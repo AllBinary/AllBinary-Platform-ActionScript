@@ -26,6 +26,10 @@ package org.allbinary.animation {
         }
         return NullRotationAnimationFactory.NULL_ROTATION_ANIMATION_FACTORY_value;
     }
+    private static function set NULL_ROTATION_ANIMATION_FACTORY(value:NullRotationAnimationFactory):void {
+        NullRotationAnimationFactory.NULL_ROTATION_ANIMATION_FACTORY_set = true;
+        NullRotationAnimationFactory.NULL_ROTATION_ANIMATION_FACTORY_value = value;
+    }
         public var NULL_ROTATION_ANIMATION_ARRAY:Vector.<RotationAnimation> = null;
         private var NULL_ANIMATION:Animation = null;
 

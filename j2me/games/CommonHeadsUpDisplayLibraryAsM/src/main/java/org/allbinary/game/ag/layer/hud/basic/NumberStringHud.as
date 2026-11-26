@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.hud.basic {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.graphics.hud.BasicHud;
     import org.allbinary.game.graphics.hud.BasicHudFactory;
     import org.allbinary.graphics.color.BasicColor;
@@ -62,22 +64,43 @@ package org.allbinary.game.ag.layer.hud.basic {
 
     override public function updateMeasurement(graphics:Graphics):void {
         var font:Font = graphics.getFont();
-        this.offset = font.stringWidth(this.prependString) + MyFontProcessor.defaultCharWidth(font);
+        this.offset = int(font.stringWidth(this.prependString) + MyFontProcessor.defaultCharWidth(font));
         super.updateMeasurement(graphics);
     }
     
 
-    public function get_():int {
+    public function get_(...args):* {
+        if (args.length == 0) {
+            return this.get__jo0();
+        }
+        throw new JException("IllegalArgumentException", "get");
+    }
+
+    private function get__jo0():int {
         return this.value;
     }
     
 
-    public function add(value:int):void {
+    public function add(...args):* {
+        if (args.length == 1) {
+            return this.add_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "add");
+    }
+
+    private function add_jo1(value:int):void {
         this.set_(int(this.value + value));
     }
     
 
-    public function set_(value:int):void {
+    public function set_(...args):* {
+        if (args.length == 1) {
+            return this.set__jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "set");
+    }
+
+    private function set__jo1(value:int):void {
         this.value = value;
         if (this.value > this.max) {
             this.value = 0;
@@ -92,7 +115,15 @@ package org.allbinary.game.ag.layer.hud.basic {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         super.paintDX(graphics, this.PREPEND_STRING, 0, this.PREPEND_STRING.length, this.valueString, 0, this.valueTotalDigits, this.offset);
     }
     

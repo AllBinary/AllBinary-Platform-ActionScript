@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image {
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Image;
+    import javax.microedition.lcdui.game.Sprite;
     import org.allbinary.animation.AnimationBehavior;
     import org.allbinary.graphics.Anchor;
     import org.allbinary.logic.math.PrimitiveIntUtil;
@@ -34,7 +37,7 @@ package org.allbinary.animation.image {
     public function RightToLeftImageAnimation(image:Image, animationBehavior:AnimationBehavior) {
         super(image, PrimitiveIntUtil.getArrayInstance(), animationBehavior);
         this.initFieldsRightToLeftImageAnimation();
-        this.setFrame(this.getSize() - 1);
+        this.setFrame(int(this.getSize() - 1));
     }
     
 
@@ -57,8 +60,8 @@ package org.allbinary.animation.image {
     
 
     private function update():void {
-        this.startWidth = this.getDrawWidth() * this.getFrame() / this.getSize();
-        this.currentWidth = this.getDrawWidth() - this.startWidth;
+        this.startWidth = int(int(this.getDrawWidth() * this.getFrame()) / this.getSize());
+        this.currentWidth = int(this.getDrawWidth() - this.startWidth);
     }
     
 

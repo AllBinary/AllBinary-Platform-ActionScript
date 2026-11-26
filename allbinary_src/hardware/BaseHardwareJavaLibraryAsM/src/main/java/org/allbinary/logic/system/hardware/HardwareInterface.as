@@ -22,8 +22,6 @@ package org.allbinary.logic.system.hardware {
 
     function getComponent(index:int):HardwareComponentInterface;
     
-
-    function toString():String;
     
 
     function compareTo(hardwareInterface:HardwareInterface):Boolean;

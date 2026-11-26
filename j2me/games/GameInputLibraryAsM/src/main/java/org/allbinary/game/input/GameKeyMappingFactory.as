@@ -26,6 +26,10 @@ package org.allbinary.game.input {
         }
         return GameKeyMappingFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        GameKeyMappingFactory.instance_set = true;
+        GameKeyMappingFactory.instance_value = value;
+    }
         private var intKeyToGameKey:Vector.<GameKey> = null;
 
         // Java field initializers run after the base constructor

@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image {
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Image;
+    import javax.microedition.lcdui.NullImage;
     import org.allbinary.animation.AnimationBehavior;
     import org.allbinary.animation.IndexedAnimation;
     import org.allbinary.graphics.Anchor;
@@ -81,7 +84,14 @@ package org.allbinary.animation.image {
     }
     
 
-    public function getImage(index:int):Image {
+    public function getImage(...args):* {
+        if (args.length == 1) {
+            return this.getImage_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "getImage");
+    }
+
+    private function getImage_jo1(index:int):Image {
         return this.imageArray[index];
     }
     

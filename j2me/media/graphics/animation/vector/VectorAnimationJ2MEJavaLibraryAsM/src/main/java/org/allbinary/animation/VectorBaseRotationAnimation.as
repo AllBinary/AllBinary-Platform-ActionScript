@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.logic.NullUtil;
     import org.allbinary.logic.math.PrimitiveIntUtil;

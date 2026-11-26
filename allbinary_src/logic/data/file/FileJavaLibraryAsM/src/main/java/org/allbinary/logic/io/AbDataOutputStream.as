@@ -17,10 +17,10 @@ package org.allbinary.logic.io {
     import java.io.JDataOutputStream;
     import java.io.JOutputStream;
 
-    public class AbDataOutputStream extends DataOutputStream {
+    public class AbDataOutputStream extends JDataOutputStream {
     
 
-    public function AbDataOutputStream(out:OutputStream) {
+    public function AbDataOutputStream(out:JOutputStream) {
         super(out);
     }
     }

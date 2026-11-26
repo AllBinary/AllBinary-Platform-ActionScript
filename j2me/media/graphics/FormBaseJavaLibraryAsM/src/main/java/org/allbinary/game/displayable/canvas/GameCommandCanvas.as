@@ -14,6 +14,10 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.NullCommandListener;
     import org.allbinary.canvas.Processor;
     import org.allbinary.game.commands.GameCommandsFactory;
     import org.allbinary.game.configuration.feature.Features;
@@ -128,7 +132,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function updateMeasurement(graphics:Graphics):void {
+    public function updateMeasurement(graphics:Graphics):void {
         try {
             var font:Font = graphics.getFont();
             this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(this.canvasStrings.FD_WIDTH).appendint(MyFontProcessor.defaultCharWidth(font)).append(this.canvasStrings.FD_HEIGHT).appendint(font.getHeight()).toString(), this, this.canvasStrings.UPDATE_MEASUREMENT);
@@ -143,12 +147,12 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function onEvent(eventObject:AllBinaryEventObject):void {
+    public function onEvent(eventObject:AllBinaryEventObject):void {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
 
-    override public function onDisplayChangeEvent(displayChangeEvent:DisplayChangeEvent):void {
+    public function onDisplayChangeEvent(displayChangeEvent:DisplayChangeEvent):void {
         this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(DisplayInfoSingleton.getInstance().toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
         this.myFontProcessor = this.updateMyFontProcessor;
     }
@@ -188,7 +192,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function open():void {
+    public function open():void {
         this.logUtil.putF(this.commonStrings.START, this, "open");
         BasicMotionGesturesHandler.getInstance().addListenerInterface(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().addListener(this.getMenuInputProcessor());
@@ -196,7 +200,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function close():void {
+    public function close():void {
         this.logUtil.putF(this.commonStrings.START, this, this.commonStrings.CLOSE);
         BasicMotionGesturesHandler.getInstance().removeListener(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().removeListener(this.getMenuInputProcessor());
@@ -204,12 +208,20 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    public function update():void {
+    public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo0():void {
         this.repaintProcessor.process();
     }
     
 
-    override public function getSourceId():int {
+    public function getSourceId():int {
         return GameCommandCanvas.id;
     }
     
@@ -279,7 +291,15 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
         this.menuPaintable.paint(graphics);
         this.repaintBehavior.repaint(this);

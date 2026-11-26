@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.compound {
+    import javax.microedition.khronos.opengles.GL;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.animation.AnimationBehavior;
     import org.allbinary.animation.IndexedAnimation;
     import org.allbinary.animation.RotationAnimation;
@@ -163,7 +165,14 @@ package org.allbinary.animation.compound {
     }
     
 
-    override public function set_(gl:GL):void {
+    override public function set_(...args):* {
+        if (args.length == 1) {
+            return this.set__jo1(args[0]);
+        }
+        return super.set_.apply(this, args);
+    }
+
+    private function set__jo1(gl:GL):void {
         for (var index:int = this.animationInterfaceArray.length; --index >= 0; ) {
             this.animationInterfaceArray[index].set_(gl);
         }

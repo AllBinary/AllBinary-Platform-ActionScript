@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.device {
+    import javax.microedition.khronos.opengles.GL10;
 
     public class LoadTextures {
     

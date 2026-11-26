@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.media.audio {
+    import javax.microedition.media.Player;
+    import javax.microedition.media.PlayerConstants;
     import org.allbinary.string.CommonStrings;
 
     public class PlayerStateUtil {
@@ -55,15 +57,15 @@ package org.allbinary.media.audio {
     
 
     public function convert(state:int):String {
-        if (state == Player.UNREALIZED) {
+        if (state == PlayerConstants.UNREALIZED) {
             return this.UNREALIZED;
-        } else if (state == Player.REALIZED) {
+        } else if (state == PlayerConstants.REALIZED) {
             return this.REALIZED;
-        } else if (state == Player.PREFETCHED) {
+        } else if (state == PlayerConstants.PREFETCHED) {
             return this.PREFETCHED;
-        } else if (state == Player.STARTED) {
+        } else if (state == PlayerConstants.STARTED) {
             return this.STARTED;
-        } else if (state == Player.CLOSED) {
+        } else if (state == PlayerConstants.CLOSED) {
             return this.CLOSED;
         }
         return this.commonStrings.UNKNOWN;

@@ -66,7 +66,7 @@ package org.allbinary.logic.io.file.zip {
                 zipFile.delete_();
             }
             zipFile.createNewFile();
-            var outputStream:ZipOutputStream = new ZipOutputStream(AbFileOutputStream.createFromAbFile(zipFile));
+            var outputStream:JZipOutputStream = new JZipOutputStream(AbFileOutputStream.createFromAbFile(zipFile));
             var streamUtil:StreamUtil = StreamUtil.getInstance();
             var stringBuffer:StringMaker = new StringMaker();
             var byteArray:Vector.<int> = new Vector.<int>(16384);
@@ -84,7 +84,7 @@ package org.allbinary.logic.io.file.zip {
                     this.logUtil.putF(stringBuffer.toString(), this, "create()");
                     try {
                         fileInputStream = AbFileInputStream.createFromAbFile(file);
-                        outputStream.putNextEntry(new ZipEntry(file.getPath()));
+                        outputStream.putNextEntry(new JZipEntry(file.getPath()));
                         streamUtil.get_(fileInputStream, outputStream, byteArray);
                         outputStream.closeEntry();
                         streamUtil.close(fileInputStream);
@@ -103,10 +103,10 @@ package org.allbinary.logic.io.file.zip {
 
     public function unzip(path:String, zipFile:AbFile, fileName:String):void {
         var buffer:Vector.<int> = new Vector.<int>(16384);
-        var inputStream:ZipInputStream = null;
+        var inputStream:JZipInputStream = null;
         try {
-            inputStream = new ZipInputStream(AbFileInputStream.createFromAbFile(zipFile));
-            var zipEntry:ZipEntry = null;
+            inputStream = new JZipInputStream(AbFileInputStream.createFromAbFile(zipFile));
+            var zipEntry:JZipEntry = null;
             var stringBuffer:StringMaker = new StringMaker();
             var fileUtil:FileUtil = FileUtil.getInstance();
             while (((zipEntry = inputStream.getNextEntry())) != null) {

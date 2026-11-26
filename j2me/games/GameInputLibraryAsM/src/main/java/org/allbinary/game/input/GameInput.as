@@ -47,7 +47,14 @@ package org.allbinary.game.input {
     }
     
 
-    public function add(gameKeyEvent:GameKeyEvent):void {
+    public function add(...args):* {
+        if (args.length == 1) {
+            return this.add_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "add");
+    }
+
+    private function add_jo1(gameKeyEvent:GameKeyEvent):void {
         if (this.isRemoveDuplicateKeyPresses && this.gameKeyEventList.contains(gameKeyEvent)) {
             return;
         }
@@ -69,7 +76,15 @@ package org.allbinary.game.input {
     }
     
 
-    public function clear():void {
+    public function clear(...args):void {
+        if (args.length == 0) {
+            this.clear_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "clear");
+    }
+
+    private function clear_jo0():void {
         this.gameKeyEventList.clear();
     }
     
@@ -86,7 +101,15 @@ package org.allbinary.game.input {
     }
     
 
-    public function update():void {
+    public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo0():void {
         var removeList:BasicArrayList = this.removalGameKeyEventList;
         var list:BasicArrayList = this.gameKeyEventList;
         var size:int = removeList.size();

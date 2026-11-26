@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image {
+    import javax.microedition.lcdui.Image;
     import org.allbinary.animation.Animation;
     import org.allbinary.animation.AnimationBehaviorFactory;
     import org.allbinary.animation.AnimationInterfaceFactoryInterface;
@@ -101,7 +102,7 @@ package org.allbinary.animation.image {
         var commonSeps:CommonSeps = CommonSeps.getInstance();
         var commonLabels:CommonLabels = CommonLabels.getInstance();
         var stringBuffer:StringMaker = new StringMaker();
-        stringBuffer.append(super.toString());
+        stringBuffer.append(JSystem.objectToString(this));
         stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.appendint(this.image.getHeight());
         stringBuffer.append(commonSeps.SPACE);

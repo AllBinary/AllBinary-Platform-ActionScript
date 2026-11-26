@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image {
+    import javax.microedition.lcdui.Image;
+    import javax.microedition.lcdui.NullImage;
     import org.allbinary.animation.Animation;
     import org.allbinary.animation.AnimationBehaviorFactory;
     import org.allbinary.animation.VectorAnimation;
@@ -45,7 +47,15 @@ package org.allbinary.animation.image {
     }
     
 
-    public function init():void {
+    public function init(...args):void {
+        if (args.length == 0) {
+            this.init_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo0():void {
         var angleFactory:AngleFactory = AngleFactory.getInstance();
         this.angleIncrement = int(angleFactory.TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity());
         this.imageArray = ImageToRotationImageArrayUtil.getInstance().generate(this.getImage(), this.getAngleIncrement(), angleFactory.TOTAL_ANGLE);

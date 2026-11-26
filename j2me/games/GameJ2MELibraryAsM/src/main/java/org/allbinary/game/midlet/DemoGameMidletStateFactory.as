@@ -25,6 +25,10 @@ package org.allbinary.game.midlet {
         }
         return DemoGameMidletStateFactory.STATE_value;
     }
+    private static function set STATE(value:DemoGameMidletStateFactory):void {
+        DemoGameMidletStateFactory.STATE_set = true;
+        DemoGameMidletStateFactory.STATE_value = value;
+    }
         public var NONE:DemoGameMidletState = null;
         public var START_DEMO:DemoGameMidletState = null;
         public var START_GAME:DemoGameMidletState = null;

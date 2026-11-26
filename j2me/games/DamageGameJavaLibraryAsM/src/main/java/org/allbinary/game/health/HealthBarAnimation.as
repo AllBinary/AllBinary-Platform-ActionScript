@@ -55,7 +55,15 @@ package org.allbinary.game.health {
     }
     
 
-    public function onHealthChange(newX2:int):void {
+    public function onHealthChange(...args):void {
+        if (args.length == 1) {
+            this.onHealthChange_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "onHealthChange");
+    }
+
+    private function onHealthChange_jo1(newX2:int):void {
         this.x2 = newX2;
         var quarter:int = (this.allbinaryLayer.getWidth() >> 2);
         if (this.x2 > int(quarter * 3)) {

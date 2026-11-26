@@ -49,7 +49,7 @@ package org.allbinary.business.init {
         private var userid:String = null;
         private var password:String = null;
         private var tableName:String = null;
-        private var conn:Connection = null;
+        private var conn:JConnection = null;
         private var useridAndPassword:Boolean = false;
         public var SUCCESS_SQL_STATEMENT:String = null;
         public var FAILED_SQL_STATEMENT:String = null;
@@ -107,7 +107,14 @@ package org.allbinary.business.init {
     }
     
 
-    public function createTable(tableData:String):Boolean {
+    public function createTable(...args):* {
+        if (args.length == 1) {
+            return this.createTable_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "createTable");
+    }
+
+    private function createTable_jo1(tableData:String):Boolean {
         try {
             var stringBuffer:StringMaker = new StringMaker();
             stringBuffer.append("Creating Table: ");
@@ -145,12 +152,12 @@ package org.allbinary.business.init {
         stringBuffer.append(this.sqlStrings.WHERE);
         try {
             var result:JHashMap = null;
-            var set_:Set = keysAndValues.keySet();
+            var set_:JSet = keysAndValues.keySet();
             var keyArray:Vector.<Object> = set_.toArray();
             var size:int = keyArray.length;
             for (var i:int = 0; i < size; i++) {
                 var key:String = (keyArray[i] as String);
-                var value:String = (keysAndValues.get_(key) as String);
+                var value:String = JString.ofConstructorArgument((keysAndValues.get_(key) as String));
                 stringBuffer.append(key);
                 stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
                 stringBuffer.append(this.getValue(value));
@@ -160,11 +167,11 @@ package org.allbinary.business.init {
                 }
             }
             var sqlStatement:String = stringBuffer.toString();
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 PreLogUtil.put(this.sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this.INIT_SQL, this.METHOD_GET_ROW);
             }
-            var rset:ResultSet = this.executeSQLStatement(sqlStatement);
-            var resultSetMetaData:ResultSetMetaData = rset.getMetaData();
+            var rset:JResultSet = this.executeSQLStatement(sqlStatement);
+            var resultSetMetaData:JResultSetMetaData = rset.getMetaData();
             while (rset.next()) {
                 result = this.stdUtil.createHashMap();
                 var columnCount:int = resultSetMetaData.getColumnCount();
@@ -173,17 +180,17 @@ package org.allbinary.business.init {
                     var field:String = rset.getString(columnName);
                     result.put(columnName, field);
                 }
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                     PreLogUtil.put(this.ROW_VALUE_LABEL + result.toString(), this.INIT_SQL, this.METHOD_GET_ROW);
                 }
                 return result;
             }
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
                 PreLogUtil.put(this.NO_RESULTS_IN_RESULT_SET, this.INIT_SQL, this.METHOD_GET_ROW);
             }
             return null;
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
                 PreLogUtil.putOE(this.FAILED_SQL_STATEMENT + JString.ofObject(stringBuffer), this.INIT_SQL, this.METHOD_GET_ROW, e);
             }
             return null;
@@ -222,11 +229,11 @@ package org.allbinary.business.init {
             stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
             var sqlStatement:String = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 PreLogUtil.put(this.SUCCESS_SQL_STATEMENT + sqlStatement, this.INIT_SQL, this.METHOD_UPDATE_WHERE);
             }
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
                 PreLogUtil.putOE(this.FAILED_SQL_STATEMENT + JString.ofObject(stringBuffer), this.INIT_SQL, this.METHOD_UPDATE_WHERE, e);
             }
         }
@@ -250,11 +257,11 @@ package org.allbinary.business.init {
             stringBuffer.append(this.INSERT_END);
             var sqlStatement:String = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGING)) {
                 PreLogUtil.put(this.SUCCESS_SQL_STATEMENT + sqlStatement, this.INIT_SQL, this.INSERT);
             }
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
                 PreLogUtil.putOE(this.FAILED_SQL_STATEMENT + stringBuffer.toString(), this.INIT_SQL, this.INSERT, e);
             }
         }
@@ -270,14 +277,14 @@ package org.allbinary.business.init {
     }
     
 
-    public function executeSQLStatement(statement:String):ResultSet {
+    public function executeSQLStatement(statement:String):JResultSet {
         try {
             if (this.conn == null) {
                 this.initialize();
             }
-            var stmt:Statement = this.conn.createStatement();
+            var stmt:JStatement = this.conn.createStatement();
             stmt.execute(statement);
-            var rset:ResultSet = stmt.getResultSet();
+            var rset:JResultSet = stmt.getResultSet();
             stmt.close();
             return rset;
         } catch (e:*) {
@@ -297,9 +304,9 @@ package org.allbinary.business.init {
     private function createConnection():void {
         try {
             if (this.useridAndPassword == true) {
-                this.conn = DriverManager.getConnection(this.databaseConnectionInfoInterface.getUrl(), this.userid, this.password);
+                this.conn = JDriverManager.getConnection(this.databaseConnectionInfoInterface.getUrl(), this.userid, this.password);
             } else {
-                this.conn = DriverManager.getConnection(this.databaseConnectionInfoInterface.getUrl());
+                this.conn = JDriverManager.getConnection(this.databaseConnectionInfoInterface.getUrl());
             }
         } catch (se:*) {
             PreLogUtil.putOE(this.commonStrings.EXCEPTION, this.INIT_SQL, "createConnection()", se);
@@ -313,7 +320,7 @@ package org.allbinary.business.init {
             try {
                 var jdbcDriver:String = this.databaseConnectionInfoInterface.getJdbcDriver();
                 PreLogUtil.put(new StringMaker().append("Loading DbConnnectionInfo: ").append(JSystem.className(this.databaseConnectionInfoInterface)).append(" Driver: ").append(jdbcDriver).toString(), this.INIT_SQL, "initialize()");
-                Class.forName(jdbcDriver).newInstance();
+                JClass.newInstance(JClass.forName(jdbcDriver));
             } catch (e:*) {
                 if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR)) {
                     PreLogUtil.putOE("LoadDriver Failed: " + this.databaseConnectionInfoInterface.getJdbcDriver(), this.INIT_SQL, "initialize()", e);

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation {
+    import javax.microedition.lcdui.Graphics;
 
     public class NullIndexedAnimationInner extends NullIndexedAnimation {
     

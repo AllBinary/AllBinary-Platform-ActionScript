@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.content {
+    import javax.microedition.lcdui.Command;
 
     public class NotificationUtil {
     private static var SINGLETON_value:NotificationUtil;

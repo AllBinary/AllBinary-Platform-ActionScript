@@ -14,13 +14,17 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.loader {
+    import java.lang.reflect.JConstructor;
     import org.allbinary.logic.communication.log.LogUtil;
-    import org.allbinary.logic.java.anyType.ConstructorUtil;
+    import org.allbinary.logic.java.object.ConstructorUtil;
     import org.allbinary.logic.string.StringMaker;
     import org.allbinary.logic.system.security.AbKeys;
     import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
     import org.allbinary.logic.system.security.licensing.LicensingException;
     import org.allbinary.string.CommonSeps;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+    import java.lang.JClassLoader;
 
     public class AbeFactory {
     private static var instance_value:AbeFactory;
@@ -53,16 +57,23 @@ package org.allbinary.logic.system.loader {
     }
     
 
-    public function getInstance2(abeClientInformation:AbeClientInformationInterface, className:String):Object {
+    public function getInstance2(...args):Object {
+        if (args.length == 2) {
+            return this.getInstance_jo2(args[0], args[1]);
+        }
+        throw new JException("IllegalArgumentException", "getInstance");
+    }
+
+    private function getInstance_jo2(abeClientInformation:AbeClientInformationInterface, className:String):Object {
         try {
-            return this.getClass(abeClientInformation, className).newInstance();
+            return JClass.newInstance(this.getClass(abeClientInformation, className));
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().LOADERERROR)) {
                 this.logUtil.put("Failure for: " + className, this, "getInstance(classname)", e);
             }
             throw e;
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().LOADERERROR)) {
                 this.logUtil.put("Failure for: " + className, this, "getInstance(classname)", e);
             }
             return null;
@@ -70,22 +81,29 @@ package org.allbinary.logic.system.loader {
     }
     
 
-    public function getInstance4(abeClientInformation:AbeClientInformationInterface, className:String, classes:Vector.<String>, params:Vector.<Object>):Object {
-        var constructor:Constructor = null;
+    public function getInstance4(...args):Object {
+        if (args.length == 4) {
+            return this.getInstance_jo4(args[0], args[1], args[2], args[3]);
+        }
+        throw new JException("IllegalArgumentException", "getInstance");
+    }
+
+    private function getInstance_jo4(abeClientInformation:AbeClientInformationInterface, className:String, classes:Vector.<String>, params:Vector.<Object>):Object {
+        var constructor:JConstructor = null;
         try {
-            var parent:ClassLoader = WebappClassLoaderInfo.getLoader();
+            var parent:JClassLoader = WebappClassLoaderInfo.getLoader();
             if (this.useCustomLoader) {
-                var loader:ClassLoader = new AbeClassLoader(parent, AbKeys.getInstance().getKey(abeClientInformation, className));
+                var loader:JClassLoader = new AbeClassLoader(parent, AbKeys.getInstance().getKey(abeClientInformation, className));
                 myClass = loader.loadClass(className);
-                constructor = myClass.getConstructor(classes);
+                constructor = JClass.getConstructor(myClass, classes);
                 return constructor.newInstance(params);
             } else {
                 var myClass:String = parent.loadClass(className);
-                constructor = myClass.getConstructor(classes);
+                constructor = JClass.getConstructor(myClass, classes);
                 return constructor.newInstance(params);
             }
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().LOADERERROR)) {
                 var stringBuffer:StringMaker = new StringMaker();
                 stringBuffer.append("Failure for: ");
                 stringBuffer.append(className);
@@ -95,7 +113,7 @@ package org.allbinary.logic.system.loader {
             }
             throw e;
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().LOADERERROR)) {
                 stringBuffer = new StringMaker();
                 stringBuffer.append("Failure for: ");
                 stringBuffer.append(className);
@@ -110,9 +128,9 @@ package org.allbinary.logic.system.loader {
 
     public function getClass(abeClientInformation:AbeClientInformationInterface, className:String):String {
         try {
-            var parent:ClassLoader = WebappClassLoaderInfo.getLoader();
+            var parent:JClassLoader = WebappClassLoaderInfo.getLoader();
             if (this.useCustomLoader) {
-                var loader:ClassLoader = new AbeClassLoader(parent, AbKeys.getInstance().getKey(abeClientInformation, className));
+                var loader:JClassLoader = new AbeClassLoader(parent, AbKeys.getInstance().getKey(abeClientInformation, className));
                 c = loader.loadClass(className);
                 return c;
             } else {
@@ -120,12 +138,12 @@ package org.allbinary.logic.system.loader {
                 return c;
             }
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().LOADERERROR)) {
                 this.logUtil.put("Failure for: " + className, this, "getClass(className)", e);
             }
             throw e;
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().LOADERERROR)) {
                 this.logUtil.put("Failure for: " + className, this, "getClass(className)", e);
             }
             return null;

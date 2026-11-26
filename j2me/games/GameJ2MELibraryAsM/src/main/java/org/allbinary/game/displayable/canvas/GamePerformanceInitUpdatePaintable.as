@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.canvas.GameStatisticsFactory;
     import org.allbinary.graphics.color.BasicColorFactory;
     import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -53,16 +55,40 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function init():void {
+    override public function init(...args):void {
+        if (args.length == 0) {
+            this.init_jo0();
+            return;
+        }
+        super.init.apply(this, args);
+    }
+
+    private function init_jo0():void {
     }
     
 
-    override public function update():void {
+    override public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        super.update.apply(this, args);
+    }
+
+    private function update_jo0():void {
         this.baseRefreshHelperCharArray = GameStatisticsFactory.getInstance().to2DCharArray();
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
         graphics.setColor(this.RED);
         var charArray:Vector.<int> = null;

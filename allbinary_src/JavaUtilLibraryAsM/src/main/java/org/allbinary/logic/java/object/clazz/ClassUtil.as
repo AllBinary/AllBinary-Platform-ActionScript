@@ -13,10 +13,10 @@
  *  
  */
 // Generated Code Do Not Modify
-package org.allbinary.logic.java.anyType.clazz {
-    import org.allbinary.logic.java.anyType.ConstructorUtil;
-    import org.allbinary.logic.java.anyType.InterfaceUtil;
-    import org.allbinary.logic.java.anyType.MethodUtil;
+package org.allbinary.logic.java.object.clazz {
+    import org.allbinary.logic.java.object.ConstructorUtil;
+    import org.allbinary.logic.java.object.InterfaceUtil;
+    import org.allbinary.logic.java.object.MethodUtil;
     import org.allbinary.logic.string.StringMaker;
 
     public class ClassUtil {
@@ -27,19 +27,28 @@ package org.allbinary.logic.java.anyType.clazz {
     }
     
 
-    public static function viewAll(anyType:Object, lineBreak:String):String {
+    public static function viewAll(...args):String {
+        if (args.length == 2 && args[0] is Object && args[1] is String) {
+            return ClassUtil.viewAll_jo2_1(args[0], args[1]);
+        }
+        if (args.length == 2) {
+            return ClassUtil.viewAll_jo2_2(args[0], args[1]);
+        }
+        throw new JException("IllegalArgumentException", "viewAll");
+    }
+
+    private static function viewAll_jo2_1(anyType:Object, lineBreak:String):String {
         if (anyType != null) {
             return ClassUtil.viewAll(JSystem.className(anyType), lineBreak);
         } else {
             return "Object Null";
         }
     }
-    
 
-    public static function viewAll(myClass:String, lineBreak:String):String {
+    private static function viewAll_jo2_2(myClass:String, lineBreak:String):String {
         if (myClass != null) {
             var stringBuffer:StringMaker = new StringMaker();
-            var classes:Vector.<String> = myClass.getClasses();
+            var classes:Vector.<String> = JClass.getClasses(myClass);
             stringBuffer.append(lineBreak);
             stringBuffer.append("Class: ");
             stringBuffer.append(myClass);
@@ -52,7 +61,7 @@ package org.allbinary.logic.java.anyType.clazz {
             stringBuffer.append(lineBreak);
             for (var index:int = 0; index < classes.length; index++) {
                 stringBuffer.append("Class: ");
-                stringBuffer.append(classes[index].getName());
+                stringBuffer.append(classes[index]);
                 stringBuffer.append(lineBreak);
             }
             stringBuffer.append(InterfaceUtil.viewAll(myClass, lineBreak));
@@ -65,6 +74,7 @@ package org.allbinary.logic.java.anyType.clazz {
             return "Class Null";
         }
     }
+    
     }
 }
 

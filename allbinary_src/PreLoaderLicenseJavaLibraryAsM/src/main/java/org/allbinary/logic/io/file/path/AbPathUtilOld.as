@@ -21,6 +21,8 @@ package org.allbinary.logic.io.file.path {
     import org.allbinary.logic.io.path.AbPathData;
     import org.allbinary.logic.string.StringUtil;
     import org.allbinary.logic.string.StringValidationUtil;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
     //Used to correct user input for paths
     public class AbPathUtilOld {
@@ -57,50 +59,76 @@ package org.allbinary.logic.io.file.path {
     }
     
 
-    public function getExtension(abFilePath:AbFilePath):String {
+    public function getExtension(...args):String {
+        if (args.length == 1 && args[0] is AbFilePath) {
+            return this.getExtension_jo1_1(args[0]);
+        }
+        if (args.length == 1 && args[0] is AbPath) {
+            return this.getExtension_jo1_2(args[0]);
+        }
+        if (args.length == 1) {
+            return this.getExtension_jo1_3(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "getExtension");
+    }
+
+    private function getExtension_jo1_1(abFilePath:AbFilePath):String {
         return this.getExtension(abFilePath.toString());
     }
-    
 
-    public function getExtension(abPath:AbPath):String {
+    private function getExtension_jo1_2(abPath:AbPath):String {
         return this.getExtension(abPath.toString());
     }
-    
 
-    public function getExtension(filePath:String):String {
+    private function getExtension_jo1_3(filePath:String):String {
         if (filePath.length < AbPathUtilOld.MIN) {
             throw new JException("Exception", "Could not be a file path since its less that 4 characters");
         }
-        var beginIndex:int = filePath.length - AbPathUtilOld.MIN;
+        var beginIndex:int = int(filePath.length - AbPathUtilOld.MIN);
         var extension:String = filePath.substring(int(beginIndex + 1));
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW)) {
             this.logUtil.putF("FileExtension: " + extension, this, "getExtension()");
         }
         return extension;
     }
     
+    
+    
 
-    public function getWithoutExtension(abFilePath:AbFilePath):String {
+    public function getWithoutExtension(...args):String {
+        if (args.length == 1 && args[0] is AbFilePath) {
+            return this.getWithoutExtension_jo1_1(args[0]);
+        }
+        if (args.length == 1 && args[0] is AbPath) {
+            return this.getWithoutExtension_jo1_2(args[0]);
+        }
+        if (args.length == 1) {
+            return this.getWithoutExtension_jo1_3(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "getWithoutExtension");
+    }
+
+    private function getWithoutExtension_jo1_1(abFilePath:AbFilePath):String {
         return this.getWithoutExtension(abFilePath.toString());
     }
-    
 
-    public function getWithoutExtension(abPath:AbPath):String {
+    private function getWithoutExtension_jo1_2(abPath:AbPath):String {
         return this.getWithoutExtension(abPath.toString());
     }
-    
 
-    public function getWithoutExtension(filePath:String):String {
+    private function getWithoutExtension_jo1_3(filePath:String):String {
         if (filePath.length < AbPathUtilOld.MIN) {
             throw new JException("Exception", "Could not be a file path since its less that 4 characters");
         }
-        var endIndex:int = filePath.length - AbPathUtilOld.MIN;
+        var endIndex:int = int(filePath.length - AbPathUtilOld.MIN);
         var pathWithoutExtension:String = filePath.substring(0, endIndex);
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW)) {
             this.logUtil.putF("FileWithoutExtension: " + pathWithoutExtension, this, "getWithoutExtension()");
         }
         return pathWithoutExtension;
     }
+    
+    
     
 
     public function isValid(path:String):Boolean {

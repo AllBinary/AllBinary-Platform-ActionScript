@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image {
+    import javax.microedition.lcdui.Image;
     import org.allbinary.media.image.ImageModifierUtil;
 
     public class AlphaProcessor extends ModifierBaseProcessor {
@@ -28,7 +29,7 @@ package org.allbinary.animation.image {
     }
     
 
-    override public static function getInstance():AlphaProcessor {
+    public static function getInstance():AlphaProcessor {
         return AlphaProcessor.instanceC;
     }
     

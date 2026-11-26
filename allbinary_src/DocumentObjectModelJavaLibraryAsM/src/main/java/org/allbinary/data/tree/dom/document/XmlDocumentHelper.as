@@ -18,6 +18,13 @@ package org.allbinary.data.tree.dom.document {
     import java.io.JStringReader;
     import java.io.JStringWriter;
     import java.io.JWriter;
+    import javax.xml.parsers.DocumentBuilderFactory;
+    import javax.xml.transform.OutputKeys;
+    import javax.xml.transform.Transformer;
+    import javax.xml.transform.TransformerConfigurationException;
+    import javax.xml.transform.TransformerFactory;
+    import javax.xml.transform.dom.DOMSource;
+    import javax.xml.transform.stream.StreamResult;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.logic.java.bool.BooleanFactory;
     import org.allbinary.logic.java.characters.CharacterSetData;
@@ -66,7 +73,17 @@ package org.allbinary.data.tree.dom.document {
     }
     
 
-    private function createTransformer(indent:int, ignoreDeclaration:Boolean):Transformer {
+    private function createTransformer(...args):Transformer {
+        if (args.length == 2) {
+            return this.createTransformer_jo2(args[0], args[1]);
+        }
+        if (args.length == 0) {
+            return this.createTransformer_jo0();
+        }
+        throw new JException("IllegalArgumentException", "createTransformer");
+    }
+
+    private function createTransformer_jo2(indent:int, ignoreDeclaration:Boolean):Transformer {
         var booleanFactory:BooleanFactory = BooleanFactory.getInstance();
         var transformerFactory:TransformerFactory = TransformerFactory.newInstance();
         transformerFactory.setAttribute(this.INDENT_NUMBER, indent);
@@ -76,9 +93,8 @@ package org.allbinary.data.tree.dom.document {
         transformer.setOutputProperty(OutputKeys.INDENT, booleanFactory.YES);
         return transformer;
     }
-    
 
-    public function createTransformer():Transformer {
+    private function createTransformer_jo0():Transformer {
         var currentIndent:int = 0;
         var currentIgnoreDeclaration:Boolean = false;
         {
@@ -88,6 +104,7 @@ package org.allbinary.data.tree.dom.document {
         return this.createTransformer(currentIndent, currentIgnoreDeclaration);
     }
     
+    
 
     public function format(xmlString:String):String {
         return this.formatWithTransformer(xmlString, this.createTransformer());
@@ -95,9 +112,9 @@ package org.allbinary.data.tree.dom.document {
     
 
     public function formatWithTransformer(xmlString:String, transformer:Transformer):String {
-        var src:InputSource = new InputSource(new StringReader(xmlString));
+        var src:InputSource = new InputSource(new JStringReader(xmlString));
         var document:Document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(src);
-        var out:Writer = new StringWriter();
+        var out:JWriter = new JStringWriter();
         transformer.transform(new DOMSource(document), new StreamResult(out));
         return out.toString();
     }

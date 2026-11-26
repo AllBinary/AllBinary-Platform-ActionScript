@@ -36,7 +36,14 @@ package org.allbinary.logic.util.cache {
     }
     
 
-    public function get_():BasicArrayList {
+    public function get_(...args):* {
+        if (args.length == 0) {
+            return this.get__jo0();
+        }
+        throw new JException("IllegalArgumentException", "get");
+    }
+
+    private function get__jo0():BasicArrayList {
         try {
             if (this.index >= this.list.size()) {
                 this.addDefault();

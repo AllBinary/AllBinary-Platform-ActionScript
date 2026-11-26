@@ -66,7 +66,7 @@ package org.allbinary.game.score {
 
     public function getAsBytes():Vector.<int> {
         var byteArrayOutputStream:JByteArrayOutputStream = new JByteArrayOutputStream();
-        var outputStream:DataOutputStream = new DataOutputStream(byteArrayOutputStream);
+        var outputStream:JDataOutputStream = new JDataOutputStream(byteArrayOutputStream);
         outputStream.writeUTF(this.getName());
         outputStream.writeLong(this.getScore());
         return byteArrayOutputStream.toByteArray();

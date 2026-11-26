@@ -36,9 +36,9 @@ package org.allbinary.game.layer.weapon {
         private function initFieldsWeaponLayerArrayLayerCircularStaticPool():void {
     this.MAX = 5;
     this.circularIndexUtil = CircularIndexUtil.createInstance(this.MAX);
-    this.WEAPONLAYER_ARRAY = null;
-    this.TWO_WEAPONLAYER_ARRAY = null;
-    this.THREE_WEAPONLAYER_ARRAY = null;
+    this.WEAPONLAYER_ARRAY = new Vector.<Vector.<WeaponLayer>>(int(this.MAX * 2));
+    this.TWO_WEAPONLAYER_ARRAY = new Vector.<Vector.<WeaponLayer>>(this.MAX);
+    this.THREE_WEAPONLAYER_ARRAY = new Vector.<Vector.<WeaponLayer>>(this.MAX);
         }
 
         public function WeaponLayerArrayLayerCircularStaticPool() {
@@ -53,17 +53,14 @@ package org.allbinary.game.layer.weapon {
     
 
     public function init():void {
-        var WEAPONLAYER_ARRAY:Vector.<Vector.<WeaponLayer>> = new Vector.<Vector.<WeaponLayer>>(int(this.MAX * 2));
-        var TWO_WEAPONLAYER_ARRAY:Vector.<Vector.<WeaponLayer>> = new Vector.<Vector.<WeaponLayer>>(this.MAX);
-        var THREE_WEAPONLAYER_ARRAY:Vector.<Vector.<WeaponLayer>> = new Vector.<Vector.<WeaponLayer>>(this.MAX);
         for (var index:int = 0; index < this.MAX; index++) {
-            WEAPONLAYER_ARRAY[index] = new Vector.<WeaponLayer>(1);
-            TWO_WEAPONLAYER_ARRAY[index] = new Vector.<WeaponLayer>(2);
-            THREE_WEAPONLAYER_ARRAY[index] = new Vector.<WeaponLayer>(3);
+            this.WEAPONLAYER_ARRAY[index] = new Vector.<WeaponLayer>(1);
+            this.TWO_WEAPONLAYER_ARRAY[index] = new Vector.<WeaponLayer>(2);
+            this.THREE_WEAPONLAYER_ARRAY[index] = new Vector.<WeaponLayer>(3);
         }
-        this.WEAPONLAYER_ARRAY = WEAPONLAYER_ARRAY;
-        this.TWO_WEAPONLAYER_ARRAY = TWO_WEAPONLAYER_ARRAY;
-        this.THREE_WEAPONLAYER_ARRAY = THREE_WEAPONLAYER_ARRAY;
+        this.WEAPONLAYER_ARRAY = this.WEAPONLAYER_ARRAY;
+        this.TWO_WEAPONLAYER_ARRAY = this.TWO_WEAPONLAYER_ARRAY;
+        this.THREE_WEAPONLAYER_ARRAY = this.THREE_WEAPONLAYER_ARRAY;
     }
     
 

@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.score.displayable {
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.CommandListener;
     import org.allbinary.game.GameInfo;
     import org.allbinary.game.score.HighScore;
     import org.allbinary.game.score.HighScoreNamePersistanceSingleton;
@@ -81,7 +83,15 @@ package org.allbinary.game.score.displayable {
     }
     
 
-    public function update(name:String):void {
+    public function update(...args):void {
+        if (args.length == 1) {
+            this.update_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo1(name:String):void {
         HighScoreNamePersistanceSingleton.getInstance().save(this.abeClientInformation, this.gameInfo, name);
         this.highScore.setName(name);
     }
@@ -107,7 +117,15 @@ package org.allbinary.game.score.displayable {
     }
     
 
-    public function submit(myCanvas:MyCanvas):void {
+    public function submit(...args):void {
+        if (args.length == 1) {
+            this.submit_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "submit");
+    }
+
+    private function submit_jo1(myCanvas:MyCanvas):void {
         var commandListener:CommandListener = myCanvas.getCustomCommandListener();
         commandListener.commandAction(HighScoreUtil.SUBMIT_TEXTBOX_COMMAND, myCanvas);
     }

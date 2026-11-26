@@ -14,11 +14,14 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.loader {
+    import java.lang.reflect.JConstructor;
+    import java.lang.reflect.JMethod;
     import org.allbinary.string.CommonStrings;
+    import java.lang.JClassLoader;
 
     public class NativeLibraryHelperWrapper {
         private var libraryName:String = null;
-        private var loader:ClassLoader = null;
+        private var loader:JClassLoader = null;
         private var anyType:Object = null;
 
         // Java field initializers run after the base constructor
@@ -41,12 +44,12 @@ package org.allbinary.logic.system.loader {
         params[0] = this.getLibraryName();
         var classes:Vector.<String> = new Vector.<String>(1);
         classes[0] = JSystem.className(this.getLibraryName());
-        this.loader = new NativeLibraryClassLoader(JSystem.className(this).getClassLoader());
+        this.loader = new NativeLibraryClassLoader(JClass.getClassLoader(JSystem.className(this)));
         var myClass:String = this.loader.loadClass("dynamic.NativeLibraryHelper");
-        var constructor:Constructor = myClass.getConstructor(classes);
+        var constructor:JConstructor = JClass.getConstructor(myClass, classes);
         this.anyType = constructor.newInstance(params);
         var commonStrings:CommonStrings = CommonStrings.getInstance();
-        var method:Method = JSystem.className(this.anyType).getMethod(commonStrings.LOAD, null);
+        var method:JMethod = JClass.getMethod(JSystem.className(this.anyType), commonStrings.LOAD, null);
         method.invoke(this.anyType, null);
     }
     

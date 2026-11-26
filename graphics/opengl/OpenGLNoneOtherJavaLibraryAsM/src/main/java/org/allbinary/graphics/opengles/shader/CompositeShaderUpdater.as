@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.opengles.shader {
+    import javax.microedition.khronos.egl.EGLConfig;
+    import javax.microedition.khronos.opengles.GL10;
     import org.allbinary.logic.NullUtil;
     import org.allbinary.logic.string.StringUtil;
     import org.allbinary.string.CommonSeps;
@@ -36,7 +38,7 @@ package org.allbinary.graphics.opengles.shader {
         }
     
 
-    override public static function getInstance():CompositeShaderUpdater {
+    public static function getInstance():CompositeShaderUpdater {
         return CompositeShaderUpdater.instanceC;
     }
     
@@ -47,7 +49,15 @@ package org.allbinary.graphics.opengles.shader {
     }
     
 
-    public function onSurfaceCreated(gl:GL10, eglConfig:EGLConfig, programHandle:int):void {
+    override public function onSurfaceCreated(...args):void {
+        if (args.length == 3) {
+            this.onSurfaceCreated_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        super.onSurfaceCreated.apply(this, args);
+    }
+
+    private function onSurfaceCreated_jo3(gl:GL10, eglConfig:EGLConfig, programHandle:int):void {
     }
     
 

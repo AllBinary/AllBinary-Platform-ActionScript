@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable {
+    import javax.microedition.lcdui.Canvas;
     import org.allbinary.game.configuration.feature.Features;
     import org.allbinary.graphics.displayable.DisplayInfoSingleton;
     import org.allbinary.graphics.opengles.OpenGLFeatureFactory;

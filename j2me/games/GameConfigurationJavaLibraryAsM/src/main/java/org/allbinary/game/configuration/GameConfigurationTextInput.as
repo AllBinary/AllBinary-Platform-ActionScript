@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration {
+    import javax.microedition.lcdui.TextField;
     import org.allbinary.logic.StdUtil;
     import org.allbinary.logic.string.StringUtil;
     import org.allbinary.util.ABHashtable;
@@ -28,6 +29,10 @@ package org.allbinary.game.configuration {
         }
         return GameConfigurationTextInput.hashtable_value;
     }
+    private static function set hashtable(value:ABHashtable):void {
+        GameConfigurationTextInput.hashtable_set = true;
+        GameConfigurationTextInput.hashtable_value = value;
+    }
     private static var SIMULATOR_IP_value:GameConfigurationTextInput;
     private static var SIMULATOR_IP_set:Boolean = false;
     public static function get SIMULATOR_IP():GameConfigurationTextInput {
@@ -37,6 +42,10 @@ package org.allbinary.game.configuration {
         }
         return GameConfigurationTextInput.SIMULATOR_IP_value;
     }
+    public static function set SIMULATOR_IP(value:GameConfigurationTextInput):void {
+        GameConfigurationTextInput.SIMULATOR_IP_set = true;
+        GameConfigurationTextInput.SIMULATOR_IP_value = value;
+    }
     private static var SIMULATOR_PORT_value:GameConfigurationTextInput;
     private static var SIMULATOR_PORT_set:Boolean = false;
     public static function get SIMULATOR_PORT():GameConfigurationTextInput {
@@ -45,6 +54,10 @@ package org.allbinary.game.configuration {
             GameConfigurationTextInput.SIMULATOR_PORT_value = new GameConfigurationTextInput("Port: ", "8010");
         }
         return GameConfigurationTextInput.SIMULATOR_PORT_value;
+    }
+    public static function set SIMULATOR_PORT(value:GameConfigurationTextInput):void {
+        GameConfigurationTextInput.SIMULATOR_PORT_set = true;
+        GameConfigurationTextInput.SIMULATOR_PORT_value = value;
     }
         private var label:String = null;
         private var text:String = null;

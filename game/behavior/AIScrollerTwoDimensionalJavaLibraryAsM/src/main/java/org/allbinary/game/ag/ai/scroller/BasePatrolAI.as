@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.ai.scroller {
+    import javax.microedition.lcdui.Canvas;
     import org.allbinary.game.ai.BasicAI;
     import org.allbinary.game.input.GameInput;
     import org.allbinary.game.physics.velocity.BasicVelocityProperties;
@@ -61,6 +62,10 @@ package org.allbinary.game.ag.ai.scroller {
         }
         return BasePatrolAI.SPEED_value;
     }
+    public static function set SPEED(value:*):void {
+        BasePatrolAI.SPEED_set = true;
+        BasePatrolAI.SPEED_value = value;
+    }
         public var maxDistance:* = null;
         public var currentDistance:int = 0;
         public var xTotalDistance:int = 0;
@@ -81,11 +86,19 @@ package org.allbinary.game.ag.ai.scroller {
         super(ownerLayerInterface, gameInput);
         this.initFieldsBasePatrolAI();
         this.maxDistance = (hashtable.get_(BasePatrolAI.MAX_DISTANCE) as *);
-        this.currentDistance = this.maxDistance.intValue();
+        this.currentDistance = int(this.maxDistance);
     }
     
 
-    public function update():void {
+    public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo0():void {
         this.updateTotalDistance();
         this.changeDirectionIfReachedPacingAreaMax();
     }

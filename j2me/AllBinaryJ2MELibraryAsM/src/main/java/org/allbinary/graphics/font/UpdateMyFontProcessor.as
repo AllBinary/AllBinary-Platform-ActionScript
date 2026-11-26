@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.font {
+    import javax.microedition.lcdui.Graphics;
 
     public class UpdateMyFontProcessor extends MyFontProcessor {
         private var updateMeasurementProcessor:UpdateMyFontInterface = null;

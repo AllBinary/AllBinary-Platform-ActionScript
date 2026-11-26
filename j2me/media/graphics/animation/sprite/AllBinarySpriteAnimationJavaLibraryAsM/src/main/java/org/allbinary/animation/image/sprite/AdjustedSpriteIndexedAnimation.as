@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image.sprite {
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Image;
+    import javax.microedition.lcdui.game.Sprite;
     import org.allbinary.animation.AnimationBehavior;
     import org.allbinary.graphics.color.BasicColor;
 
@@ -49,7 +52,15 @@ package org.allbinary.animation.image.sprite {
     }
     
 
-    override public function paint(g:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(g:Graphics):void {
         this.sprite.setPosition(this.dx, this.dy);
         super.paint(g);
     }

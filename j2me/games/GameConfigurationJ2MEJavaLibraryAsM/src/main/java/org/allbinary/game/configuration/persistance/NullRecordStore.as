@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.persistance {
+    import javax.microedition.rms.RecordStore;
 
     public class NullRecordStore extends RecordStore {
     private static var NULL_RECORD_STORE_value:NullRecordStore;
@@ -24,6 +25,10 @@ package org.allbinary.game.configuration.persistance {
             NullRecordStore.NULL_RECORD_STORE_value = new NullRecordStore();
         }
         return NullRecordStore.NULL_RECORD_STORE_value;
+    }
+    public static function set NULL_RECORD_STORE(value:NullRecordStore):void {
+        NullRecordStore.NULL_RECORD_STORE_set = true;
+        NullRecordStore.NULL_RECORD_STORE_value = value;
     }
     }
 }

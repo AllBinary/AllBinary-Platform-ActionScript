@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.combat.canvas {
+    import javax.microedition.lcdui.CommandListener;
     import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
     import org.allbinary.game.combat.destroy.event.DestroyEventCircularStaticPool;
     import org.allbinary.game.combat.destroy.event.DestroyedEventHandler;
@@ -38,6 +39,10 @@ package org.allbinary.game.combat.canvas {
             CombatGameCanvas.basicLayerProcessor_value = new Vector.<BasicLayerProcessor>(0);
         }
         return CombatGameCanvas.basicLayerProcessor_value;
+    }
+    public static function set basicLayerProcessor(value:Vector.<BasicLayerProcessor>):void {
+        CombatGameCanvas.basicLayerProcessor_set = true;
+        CombatGameCanvas.basicLayerProcessor_value = value;
     }
     
 

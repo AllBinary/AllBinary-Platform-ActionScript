@@ -31,7 +31,14 @@ package org.allbinary.game.terrain {
     }
     
 
-    public function getList():BasicArrayList {
+    public function getList(...args):BasicArrayList {
+        if (args.length == 0) {
+            return this.getList_jo0();
+        }
+        throw new JException("IllegalArgumentException", "getList");
+    }
+
+    private function getList_jo0():BasicArrayList {
         return this.list;
     }
     }

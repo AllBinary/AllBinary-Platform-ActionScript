@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form.item {
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.ImageItem;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.displayable.DisplayInfoSingleton;
     import org.allbinary.graphics.form.ScreenInfo;
@@ -57,8 +59,8 @@ package org.allbinary.graphics.form.item {
             command = (vectorUtil.elementAt(vector, index) as Command);
             if (command.getPriority() < priorityLimit) {
                 var aBoolean:* = (this.visitorInterface.visit(command) as *);
-                if (aBoolean.booleanValue()) {
-                    textItem = new CommandTextItem(command, ImageItem.LAYOUT_DEFAULT, StringUtil.getInstance().EMPTY_STRING, backgroundBasicColor, foregroundBasicColor);
+                if (Boolean(aBoolean)) {
+                    textItem = new CommandTextItem(command, javax.microedition.lcdui.ImageItem.LAYOUT_DEFAULT, StringUtil.getInstance().EMPTY_STRING, backgroundBasicColor, foregroundBasicColor);
                     this.list.add(textItem);
                 }
             }

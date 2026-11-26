@@ -17,6 +17,7 @@ package org.allbinary.media.image {
     import java.awt.JGraphics2D;
     import java.awt.geom.JAffineTransform;
     import java.awt.image.JBufferedImage;
+    import javax.microedition.lcdui.Image;
     import org.allbinary.image.ImageCache;
 
     public class ImageScaleUtil {
@@ -74,7 +75,7 @@ package org.allbinary.media.image {
     
 
     public function scale2(originalImage:Image, originalImageArray:Vector.<Image>, ximageToShowArray:Vector.<Image>, unused:int, scaleX:Number, scaleY:Number, maxScaleX:Number, maxScaleY:Number):void {
-        if (maxScaleX * originalImage.getWidth() > originalImageArray[0].getWidth() || maxScaleY * originalImage.getHeight() > originalImageArray[0].getHeight()) {
+        if (maxScaleX * Number(originalImage.getWidth()) > Number(originalImageArray[0].getWidth()) || maxScaleY * Number(originalImage.getHeight()) > Number(originalImageArray[0].getHeight())) {
             originalImageArray[0] = this.imageCreationUtil.createImage(originalImage.getWidth(), originalImage.getHeight(), maxScaleX, maxScaleY);
         }
         this.scale(originalImage, originalImageArray[0], scaleX, scaleY, false);
@@ -82,10 +83,10 @@ package org.allbinary.media.image {
     
 
     public function scale(originalImage:Image, newMaxSizeImage:Image, scaleX:Number, scaleY:Number, clear:Boolean):void {
-        var bufferedImage:BufferedImage = this.imageUtil.getBufferedImage(originalImage);
-        var newBufferedImage:BufferedImage = this.imageUtil.getBufferedImage(newMaxSizeImage);
-        var at:AffineTransform = AffineTransform.getScaleInstance(scaleX, scaleY);
-        var g:Graphics2D = newBufferedImage.createGraphics();
+        var bufferedImage:JBufferedImage = this.imageUtil.getBufferedImage(originalImage);
+        var newBufferedImage:JBufferedImage = this.imageUtil.getBufferedImage(newMaxSizeImage);
+        var at:JAffineTransform = JAffineTransform.getScaleInstance(scaleX, scaleY);
+        var g:JGraphics2D = newBufferedImage.createGraphics();
         if (clear) {
             g.setBackground(this.imageJ2SEUtil.TRANSPARENT_COLOR);
             g.clearRect(0, 0, newBufferedImage.getWidth(), newBufferedImage.getHeight());

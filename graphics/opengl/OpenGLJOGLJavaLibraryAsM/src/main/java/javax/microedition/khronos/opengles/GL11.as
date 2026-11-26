@@ -1,213 +1,68 @@
 // Generated Code Do Not Modify
 package javax.microedition.khronos.opengles {
+    import java.nio.JBuffer;
+    import java.nio.JFloatBuffer;
+    import java.nio.JIntBuffer;
 
     public interface GL11 extends GL10 {
-    public static const GL_ACTIVE_TEXTURE:int = 34016;
-    public static const GL_ADD_SIGNED:int = 34164;
-    public static const GL_ALPHA_SCALE:int = 3356;
-    public static const GL_ALPHA_TEST_FUNC:int = 3009;
-    public static const GL_ALPHA_TEST_REF:int = 3010;
-    public static const GL_ARRAY_BUFFER:int = 34962;
-    public static const GL_ARRAY_BUFFER_BINDING:int = 34964;
-    public static const GL_BLEND_DST:int = 3040;
-    public static const GL_BLEND_SRC:int = 3041;
-    public static const GL_BUFFER_ACCESS:int = 35003;
-    public static const GL_BUFFER_SIZE:int = 34660;
-    public static const GL_BUFFER_USAGE:int = 34661;
-    public static const GL_CLIENT_ACTIVE_TEXTURE:int = 34017;
-    public static const GL_CLIP_PLANE0:int = 12288;
-    public static const GL_CLIP_PLANE1:int = 12289;
-    public static const GL_CLIP_PLANE2:int = 12290;
-    public static const GL_CLIP_PLANE3:int = 12291;
-    public static const GL_CLIP_PLANE4:int = 12292;
-    public static const GL_CLIP_PLANE5:int = 12293;
-    public static const GL_COLOR_ARRAY_BUFFER_BINDING:int = 34968;
-    public static const GL_COLOR_ARRAY_POINTER:int = 32912;
-    public static const GL_COLOR_ARRAY_SIZE:int = 32897;
-    public static const GL_COLOR_ARRAY_STRIDE:int = 32899;
-    public static const GL_COLOR_ARRAY_TYPE:int = 32898;
-    public static const GL_COLOR_CLEAR_VALUE:int = 3106;
-    public static const GL_COLOR_WRITEMASK:int = 3107;
-    public static const GL_COMBINE:int = 34160;
-    public static const GL_COMBINE_ALPHA:int = 34162;
-    public static const GL_COMBINE_RGB:int = 34161;
-    public static const GL_CONSTANT:int = 34166;
-    public static const GL_COORD_REPLACE_OES:int = 34914;
-    public static const GL_CULL_FACE_MODE:int = 2885;
-    public static const GL_CURRENT_COLOR:int = 2816;
-    public static const GL_CURRENT_NORMAL:int = 2818;
-    public static const GL_CURRENT_TEXTURE_COORDS:int = 2819;
-    public static const GL_DEPTH_CLEAR_VALUE:int = 2931;
-    public static const GL_DEPTH_FUNC:int = 2932;
-    public static const GL_DEPTH_RANGE:int = 2928;
-    public static const GL_DEPTH_WRITEMASK:int = 2930;
-    public static const GL_DOT3_RGB:int = 34478;
-    public static const GL_DOT3_RGBA:int = 34479;
-    public static const GL_DYNAMIC_DRAW:int = 35048;
-    public static const GL_ELEMENT_ARRAY_BUFFER:int = 34963;
-    public static const GL_ELEMENT_ARRAY_BUFFER_BINDING:int = 34965;
-    public static const GL_FRONT_FACE:int = 2886;
-    public static const GL_GENERATE_MIPMAP:int = 33169;
-    public static const GL_GENERATE_MIPMAP_HINT:int = 33170;
-    public static const GL_INTERPOLATE:int = 34165;
-    public static const GL_LINE_WIDTH:int = 2849;
-    public static const GL_LOGIC_OP_MODE:int = 3056;
-    public static const GL_MATRIX_MODE:int = 2976;
-    public static const GL_MAX_CLIP_PLANES:int = 3378;
-    public static const GL_MODELVIEW_MATRIX:int = 2982;
-    public static const GL_MODELVIEW_MATRIX_FLOAT_AS_INT_BITS_OES:int = 35213;
-    public static const GL_MODELVIEW_STACK_DEPTH:int = 2979;
-    public static const GL_NORMAL_ARRAY_BUFFER_BINDING:int = 34967;
-    public static const GL_NORMAL_ARRAY_POINTER:int = 32911;
-    public static const GL_NORMAL_ARRAY_STRIDE:int = 32895;
-    public static const GL_NORMAL_ARRAY_TYPE:int = 32894;
-    public static const GL_OPERAND0_ALPHA:int = 34200;
-    public static const GL_OPERAND0_RGB:int = 34192;
-    public static const GL_OPERAND1_ALPHA:int = 34201;
-    public static const GL_OPERAND1_RGB:int = 34193;
-    public static const GL_OPERAND2_ALPHA:int = 34202;
-    public static const GL_OPERAND2_RGB:int = 34194;
-    public static const GL_POINT_DISTANCE_ATTENUATION:int = 33065;
-    public static const GL_POINT_FADE_THRESHOLD_SIZE:int = 33064;
-    public static const GL_POINT_SIZE:int = 2833;
-    public static const GL_POINT_SIZE_ARRAY_BUFFER_BINDING_OES:int = 35743;
-    public static const GL_POINT_SIZE_ARRAY_OES:int = 35740;
-    public static const GL_POINT_SIZE_ARRAY_POINTER_OES:int = 35212;
-    public static const GL_POINT_SIZE_ARRAY_STRIDE_OES:int = 35211;
-    public static const GL_POINT_SIZE_ARRAY_TYPE_OES:int = 35210;
-    public static const GL_POINT_SIZE_MAX:int = 33063;
-    public static const GL_POINT_SIZE_MIN:int = 33062;
-    public static const GL_POINT_SPRITE_OES:int = 34913;
-    public static const GL_POLYGON_OFFSET_FACTOR:int = 32824;
-    public static const GL_POLYGON_OFFSET_UNITS:int = 10752;
-    public static const GL_PREVIOUS:int = 34168;
-    public static const GL_PRIMARY_COLOR:int = 34167;
-    public static const GL_PROJECTION_MATRIX:int = 2983;
-    public static const GL_PROJECTION_MATRIX_FLOAT_AS_INT_BITS_OES:int = 35214;
-    public static const GL_PROJECTION_STACK_DEPTH:int = 2980;
-    public static const GL_RGB_SCALE:int = 34163;
-    public static const GL_SAMPLE_BUFFERS:int = 32936;
-    public static const GL_SAMPLE_COVERAGE_INVERT:int = 32939;
-    public static const GL_SAMPLE_COVERAGE_VALUE:int = 32938;
-    public static const GL_SAMPLES:int = 32937;
-    public static const GL_SCISSOR_BOX:int = 3088;
-    public static const GL_SHADE_MODEL:int = 2900;
-    public static const GL_SRC0_ALPHA:int = 34184;
-    public static const GL_SRC0_RGB:int = 34176;
-    public static const GL_SRC1_ALPHA:int = 34185;
-    public static const GL_SRC1_RGB:int = 34177;
-    public static const GL_SRC2_ALPHA:int = 34186;
-    public static const GL_SRC2_RGB:int = 34178;
-    public static const GL_STATIC_DRAW:int = 35044;
-    public static const GL_STENCIL_CLEAR_VALUE:int = 2961;
-    public static const GL_STENCIL_FAIL:int = 2964;
-    public static const GL_STENCIL_FUNC:int = 2962;
-    public static const GL_STENCIL_PASS_DEPTH_FAIL:int = 2965;
-    public static const GL_STENCIL_PASS_DEPTH_PASS:int = 2966;
-    public static const GL_STENCIL_REF:int = 2967;
-    public static const GL_STENCIL_VALUE_MASK:int = 2963;
-    public static const GL_STENCIL_WRITEMASK:int = 2968;
-    public static const GL_SUBTRACT:int = 34023;
-    public static const GL_TEXTURE_BINDING_2D:int = 32873;
-    public static const GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING:int = 34970;
-    public static const GL_TEXTURE_COORD_ARRAY_POINTER:int = 32914;
-    public static const GL_TEXTURE_COORD_ARRAY_SIZE:int = 32904;
-    public static const GL_TEXTURE_COORD_ARRAY_STRIDE:int = 32906;
-    public static const GL_TEXTURE_COORD_ARRAY_TYPE:int = 32905;
-    public static const GL_TEXTURE_MATRIX:int = 2984;
-    public static const GL_TEXTURE_MATRIX_FLOAT_AS_INT_BITS_OES:int = 35215;
-    public static const GL_TEXTURE_STACK_DEPTH:int = 2981;
-    public static const GL_VERTEX_ARRAY_BUFFER_BINDING:int = 34966;
-    public static const GL_VERTEX_ARRAY_POINTER:int = 32910;
-    public static const GL_VERTEX_ARRAY_SIZE:int = 32890;
-    public static const GL_VERTEX_ARRAY_STRIDE:int = 32892;
-    public static const GL_VERTEX_ARRAY_TYPE:int = 32891;
-    public static const GL_VIEWPORT:int = 2978;
-    public static const GL_WRITE_ONLY:int = 35001;
     
 
     function glBindBuffer(target:int, buffer:int):void;
     
 
-    function glBufferData(target:int, size:int, data:Buffer, usage:int):void;
+    function glBufferData(target:int, size:int, data:JBuffer, usage:int):void;
     
 
-    function glBufferSubData(target:int, offset:int, size:int, data:Buffer):void;
+    function glBufferSubData(target:int, offset:int, size:int, data:JBuffer):void;
     
 
-    function glClipPlanef(plane:int, equation:Vector.<Number>, offset:int):void;
+    function glClipPlanef(...args):void;
     
-
-    function glClipPlanef(plane:int, equation:FloatBuffer):void;
     
 
     function glColor4ub(red:int, green:int, blue:int, alpha:int):void;
     
-
-    function glColorPointer(size:int, type:int, stride:int, offset:int):void;
     
 
-    function glDeleteBuffers(n:int, buffers:Vector.<int>, offset:int):void;
+    function glDeleteBuffers(...args):void;
+    
+    
     
 
-    function glDeleteBuffers(n:int, buffers:IntBuffer):void;
+    function glGenBuffers(...args):void;
+    
     
 
-    function glDrawElements(mode:int, count:int, type:int, offset:int):void;
+    function glGetBufferParameteriv(...args):void;
+    
     
 
-    function glGenBuffers(n:int, buffers:Vector.<int>, offset:int):void;
+    function glGetClipPlanef(...args):void;
+    
     
 
-    function glGenBuffers(n:int, buffers:IntBuffer):void;
+    function glGetFloatv(...args):void;
+    
     
 
-    function glGetBufferParameteriv(target:int, pname:int, params:Vector.<int>, offset:int):void;
+    function glGetLightfv(...args):void;
+    
     
 
-    function glGetBufferParameteriv(target:int, pname:int, params:IntBuffer):void;
+    function glGetMaterialfv(...args):void;
+    
     
 
-    function glGetClipPlanef(pname:int, eqn:Vector.<Number>, offset:int):void;
+    function glGetTexEnviv(...args):void;
+    
     
 
-    function glGetClipPlanef(pname:int, eqn:FloatBuffer):void;
+    function glGetTexParameterfv(...args):void;
+    
     
 
-    function glGetFloatv(pname:int, params:Vector.<Number>, offset:int):void;
+    function glGetTexParameteriv(...args):void;
     
-
-    function glGetFloatv(pname:int, params:FloatBuffer):void;
-    
-
-    function glGetLightfv(light:int, pname:int, params:Vector.<Number>, offset:int):void;
-    
-
-    function glGetLightfv(light:int, pname:int, params:FloatBuffer):void;
-    
-
-    function glGetMaterialfv(face:int, pname:int, params:Vector.<Number>, offset:int):void;
-    
-
-    function glGetMaterialfv(face:int, pname:int, params:FloatBuffer):void;
-    
-
-    function glGetTexEnviv(env:int, pname:int, params:Vector.<int>, offset:int):void;
-    
-
-    function glGetTexEnviv(env:int, pname:int, params:IntBuffer):void;
-    
-
-    function glGetTexParameterfv(target:int, pname:int, params:Vector.<Number>, offset:int):void;
-    
-
-    function glGetTexParameterfv(target:int, pname:int, params:FloatBuffer):void;
-    
-
-    function glGetTexParameteriv(target:int, pname:int, params:Vector.<int>, offset:int):void;
-    
-
-    function glGetTexParameteriv(target:int, pname:int, params:IntBuffer):void;
     
 
     function glIsBuffer(buffer:int):Boolean;
@@ -218,47 +73,31 @@ package javax.microedition.khronos.opengles {
 
     function glIsTexture(texture:int):Boolean;
     
-
-    function glNormalPointer(type:int, stride:int, offset:int):void;
     
 
     function glPointParameterf(pname:int, param:Number):void;
     
 
-    function glPointParameterfv(pname:int, params:Vector.<Number>, offset:int):void;
+    function glPointParameterfv(...args):void;
     
-
-    function glPointParameterfv(pname:int, params:FloatBuffer):void;
     
-
-    function glTexCoordPointer(size:int, type:int, stride:int, offset:int):void;
     
 
     function glTexEnvi(target:int, pname:int, param:int):void;
     
 
-    function glTexEnviv(target:int, pname:int, params:Vector.<int>, offset:int):void;
+    function glTexEnviv(...args):void;
+    
     
 
-    function glTexEnviv(target:int, pname:int, params:IntBuffer):void;
+    function glTexParameterfv(...args):void;
+    
+    
     
 
-    function glTexParameterfv(target:int, pname:int, params:Vector.<Number>, offset:int):void;
+    function glTexParameteriv(...args):void;
     
-
-    function glTexParameterfv(target:int, pname:int, params:FloatBuffer):void;
     
-
-    function glTexParameteri(target:int, pname:int, param:int):void;
-    
-
-    function glTexParameteriv(target:int, pname:int, params:Vector.<int>, offset:int):void;
-    
-
-    function glTexParameteriv(target:int, pname:int, params:IntBuffer):void;
-    
-
-    function glVertexPointer(size:int, type:int, stride:int, offset:int):void;
     }
 }
 

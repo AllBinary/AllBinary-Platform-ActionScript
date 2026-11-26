@@ -32,7 +32,8 @@ package org.allbinary.input.motion.button {
     }
     
 
-    public function TouchScreenTypeFactory():void {
+    public function TouchScreenTypeFactory() {
+        super();
         var touchScreenFactory:TouchScreenFactory = TouchScreenFactory.getInstance();
         touchScreenFactory.setTouch(false);
     }

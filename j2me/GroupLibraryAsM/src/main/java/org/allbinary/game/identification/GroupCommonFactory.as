@@ -28,6 +28,10 @@ package org.allbinary.game.identification {
         }
         return GroupCommonFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        GroupCommonFactory.instance_set = true;
+        GroupCommonFactory.instance_value = value;
+    }
         public var ID:* = null;
         public var GROUP_NAME_LABEL:String = null;
         public var ID_LABEL:String = null;

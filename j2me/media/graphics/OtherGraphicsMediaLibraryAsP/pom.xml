@@ -61,7 +61,7 @@
         <!--
         <module>../../graphics/animation/image/ImageHTMLJavaLibraryAsM</module>
         -->
-        <module>../../graphics/animation/image/ImageJ2SEJavaLibraryAsM</module>
+        <!-- web language: no AWT/ImageIO <module>../../graphics/animation/image/ImageJ2SEJavaLibraryAsM</module>-->
         <!--
         <module>../../graphics/animation/image/ImageAndroidJavaLibraryAsM</module>
         -->

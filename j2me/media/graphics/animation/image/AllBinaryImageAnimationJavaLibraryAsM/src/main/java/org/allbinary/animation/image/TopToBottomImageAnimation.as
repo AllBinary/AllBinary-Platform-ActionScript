@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image {
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Image;
+    import javax.microedition.lcdui.game.Sprite;
     import org.allbinary.animation.AnimationBehavior;
     import org.allbinary.graphics.Anchor;
 
@@ -33,7 +36,7 @@ package org.allbinary.animation.image {
         this.initFieldsTopToBottomImageAnimation();
         this.currentHeight = 0;
         if (this.getSequence()[0] == -1) {
-            this.setFrame(this.getSize() - 1);
+            this.setFrame(int(this.getSize() - 1));
         }
     }
     
@@ -65,7 +68,7 @@ package org.allbinary.animation.image {
     
 
     private function update():void {
-        this.currentHeight = this.getDrawHeight() * this.getFrame() / this.getSize();
+        this.currentHeight = int(int(this.getDrawHeight() * this.getFrame()) / this.getSize());
     }
     
 

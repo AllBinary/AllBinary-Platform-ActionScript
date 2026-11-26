@@ -1,5 +1,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.J2MEUtil;
     import org.allbinary.graphics.Rectangle;
     import org.allbinary.graphics.color.BasicColor;
@@ -49,13 +51,29 @@ package org.allbinary.graphics.form {
     }
     
 
-    public function fillRect(graphics:Graphics):void {
+    public function fillRect(...args):void {
+        if (args.length == 1) {
+            this.fillRect_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "fillRect");
+    }
+
+    private function fillRect_jo1(graphics:Graphics):void {
         graphics.setColor(this.backgroundColor);
         graphics.fillRect(this.x, this.y, this.rectangle.getWidth(), this.rectangle.getHeight());
     }
     
 
-    override public function init(rectangle:Rectangle, formType:FormType):void {
+    override public function init(...args):void {
+        if (args.length == 2) {
+            this.init_jo2(args[0], args[1]);
+            return;
+        }
+        super.init.apply(this, args);
+    }
+
+    private function init_jo2(rectangle:Rectangle, formType:FormType):void {
         super.init(rectangle, formType);
         var formTypeFactory:FormTypeFactory = FormTypeFactory.getInstance();
         if (formType == formTypeFactory.HORIZONTAL_FORM) {
@@ -96,7 +114,15 @@ package org.allbinary.graphics.form {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         try {
             this.myFontProcessor.process(graphics);
             var start:int = this.getStartIndex();

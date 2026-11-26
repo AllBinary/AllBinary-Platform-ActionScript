@@ -18,6 +18,8 @@ package org.allbinary.game.input {
     import java.io.JByteArrayOutputStream;
     import java.io.JDataInputStream;
     import java.io.JDataOutputStream;
+    import javax.microedition.rms.RecordEnumeration;
+    import javax.microedition.rms.RecordStore;
     import org.allbinary.TsUtil;
     import org.allbinary.game.configuration.persistance.BasicPersitance;
     import org.allbinary.game.configuration.persistance.NullRecordComparator;
@@ -69,16 +71,16 @@ package org.allbinary.game.input {
             var smallIntegerSingletonFactory:SmallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
             var stdUtil:StdUtil = StdUtil.getInstance();
             var recordAsBytes:Vector.<int> = null;
-            var byteArrayInputStream:ByteArrayInputStream = null;
-            var inputStream:DataInputStream = null;
+            var byteArrayInputStream:JByteArrayInputStream = null;
+            var inputStream:JDataInputStream = null;
             while (recordEnum.hasNextElement()) {
                 var id:int = recordEnum.nextRecordId();
                 stringBuffer.delete_(0, stringBuffer.length());
                 this.logUtil.putF(stringBuffer.append(this.persistanceStrings.LOADING_ID).appendint(id).toString(), this, this.persistanceStrings.LOAD_ALL);
                 recordAsBytes = this.tsUtil.getRecord(recordStore, id);
                 if (recordAsBytes != null) {
-                    byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
-                    inputStream = new DataInputStream(byteArrayInputStream);
+                    byteArrayInputStream = new JByteArrayInputStream(recordAsBytes);
+                    inputStream = new JDataInputStream(byteArrayInputStream);
                     hashtable = stdUtil.createHashtable();
                     var value:int = 0;
                     while (inputStream.available() > 0) {
@@ -134,7 +136,7 @@ package org.allbinary.game.input {
             PreLogUtil.put(stringBuffer.append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString1(hashtable)).toString(), this, this.commonStrings.SAVE);
             recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
             var byteArrayOutputStream:JByteArrayOutputStream = new JByteArrayOutputStream();
-            var outputStream:DataOutputStream = new DataOutputStream(byteArrayOutputStream);
+            var outputStream:JDataOutputStream = new JDataOutputStream(byteArrayOutputStream);
             var gameActionInput:Input = null;
             var list:BasicArrayList = null;
             var input:Input = null;

@@ -15,6 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.image {
     import java.io.JInputStream;
+    import javax.microedition.lcdui.Image;
     import org.allbinary.MIDPUtil;
 
     //ImageCacheBaseJavaLibrary - J2ME
@@ -45,15 +46,25 @@ package org.allbinary.image {
     }
     
 
-    public function createImageFromInputStream(key:Object, inputStream:InputStream):Image {
+    public function createImageFromInputStream(...args):Image {
+        if (args.length == 2) {
+            return this.createImageFromInputStream_jo2(args[0], args[1]);
+        }
+        if (args.length == 1) {
+            return this.createImageFromInputStream_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "createImageFromInputStream");
+    }
+
+    private function createImageFromInputStream_jo2(key:Object, inputStream:JInputStream):Image {
         var image:Image = MIDPUtil.getInstance().createImageFromInputStream(inputStream);
         return image;
     }
-    
 
-    public function createImageFromInputStream(inputStream:InputStream):Image {
+    private function createImageFromInputStream_jo1(inputStream:JInputStream):Image {
         return MIDPUtil.getInstance().createImageFromInputStream(inputStream);
     }
+    
     }
 }
 

@@ -24,7 +24,7 @@ package org.allbinary.input.motion.button {
     public class FullTouchButton extends TouchButton {
     
 
-    override public static function createButton(touchButtonInput:TouchButtonInput, touchButtonResource:TouchButtonResource, rawRectangle:Rectangle, cellPosition:CellPosition, xBorder:int, yBorder:int):FullTouchButton {
+    public static function createButton(touchButtonInput:TouchButtonInput, touchButtonResource:TouchButtonResource, rawRectangle:Rectangle, cellPosition:CellPosition, xBorder:int, yBorder:int):FullTouchButton {
         return new FullTouchButton(touchButtonInput, FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get_(touchButtonResource.RESOURCE).getInstance1(0), FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get_(touchButtonResource.HINT).getInstance1(0), rawRectangle, cellPosition, xBorder, yBorder);
     }
     

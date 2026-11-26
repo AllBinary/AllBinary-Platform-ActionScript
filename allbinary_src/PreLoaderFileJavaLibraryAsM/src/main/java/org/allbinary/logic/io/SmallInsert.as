@@ -19,6 +19,8 @@ package org.allbinary.logic.io {
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.logic.io.file.AbFileSystem;
     import org.allbinary.string.CommonStrings;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
     public class SmallInsert {
         public var logUtil:LogUtil = null;
@@ -45,12 +47,12 @@ package org.allbinary.logic.io {
 
     public function atBeginning(text:String):Boolean {
         try {
-            var idFile:FileOutputStream = new FileOutputStream(this.fileName);
-            var idOutData:DataOutputStream = new DataOutputStream(idFile);
+            var idFile:JFileOutputStream = new JFileOutputStream(this.fileName);
+            var idOutData:JDataOutputStream = new JDataOutputStream(idFile);
             idOutData.writeBytes(text + this.string);
             return true;
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().IDLOGGING)) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "insertAtBeginning", e);
             }
             return false;
@@ -68,14 +70,14 @@ package org.allbinary.logic.io {
             index = int(index + after.length);
             var start:String = this.string.substring(0, index);
             var end:String = this.string.substring(int(index + 1), this.string.length);
-            var idFile:FileOutputStream = new FileOutputStream(this.fileName);
-            var idOutData:DataOutputStream = new DataOutputStream(idFile);
+            var idFile:JFileOutputStream = new JFileOutputStream(this.fileName);
+            var idOutData:JDataOutputStream = new JDataOutputStream(idFile);
             idOutData.writeBytes(start + text + end);
             idOutData.close();
             idFile.close();
             return true;
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().IDLOGGING)) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "after", e);
             }
             return false;
@@ -85,12 +87,12 @@ package org.allbinary.logic.io {
 
     public function atEnd(text:String):Boolean {
         try {
-            var idFile:FileOutputStream = new FileOutputStream(this.fileName);
-            var idOutData:DataOutputStream = new DataOutputStream(idFile);
+            var idFile:JFileOutputStream = new JFileOutputStream(this.fileName);
+            var idOutData:JDataOutputStream = new JDataOutputStream(idFile);
             idOutData.writeBytes(this.string + text);
             return true;
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().IDLOGGING)) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "insertAtEnd", e);
             }
             return false;

@@ -29,6 +29,8 @@ package org.allbinary.logic.visual.transform.info.dom {
     import org.w3c.dom.Document;
     import org.w3c.dom.Node;
     import org.w3c.dom.NodeList;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
     public class TransformInfoPropertiesDocument {
         public var logUtil:LogUtil = null;
@@ -55,7 +57,7 @@ package org.allbinary.logic.visual.transform.info.dom {
             var transformInfosNode:Node = this.document.getElementsByTagName(TransformInfosData.getInstance().NAME).item(0);
             var transformInfosChildNodeList:NodeList = transformInfosNode.getChildNodes();
             var transformInfoNodeVector:BasicArrayList = DomSearchHelper.getAllNodes(TransformInfoData.getInstance().NAME, transformInfosChildNodeList);
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW)) {
                 this.logUtil.putF("Size: " + String(transformInfoNodeVector.size()), this, "toTransformInfoPropertiesHashMap()");
             }
             var size:int = transformInfoNodeVector.size();
@@ -68,7 +70,7 @@ package org.allbinary.logic.visual.transform.info.dom {
             }
             return transformInfoPropertiesHashMap;
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEWERROR)) {
                 var commonStrings:CommonStrings = CommonStrings.getInstance();
                 this.logUtil.put(commonStrings.EXCEPTION, this, "toTransformInfoPropertiesHashMap()", e);
             }

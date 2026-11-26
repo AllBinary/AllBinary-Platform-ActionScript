@@ -32,6 +32,10 @@ package org.allbinary.data.resource {
         }
         return ResourceUtil.instance_value;
     }
+    private static function set instance(value:ResourceUtil):void {
+        ResourceUtil.instance_set = true;
+        ResourceUtil.instance_value = value;
+    }
         public var logUtil:LogUtil = null;
 
         // Java field initializers run after the base constructor
@@ -56,8 +60,8 @@ package org.allbinary.data.resource {
     }
     
 
-    public function getResourceAsStream(resource:String):InputStream {
-        var inputStream:InputStream = JSystem.className(resource).getResourceAsStream(resource);
+    public function getResourceAsStream(resource:String):JInputStream {
+        var inputStream:JInputStream = JClass.getResourceAsStream(JSystem.className(resource), resource);
         if (inputStream == null) {
             inputStream = this.getResourceAsStreamAtStart(resource, 2);
             if (inputStream == null) {
@@ -66,36 +70,36 @@ package org.allbinary.data.resource {
                     var stringMaker:StringMaker = new StringMaker();
                     var index:int = JString.lastIndexOf(resource, "/".charCodeAt(0));
                     var resourcePath:String = resource.substring(int(index + 1));
-                    inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                    inputStream = JClass.getResourceAsStream(JSystem.className(resource), resourcePath);
                     if (inputStream == null) {
                         resourcePath = resource.substring(index);
-                        inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                        inputStream = JClass.getResourceAsStream(JSystem.className(resource), resourcePath);
                         if (inputStream == null) {
                             var RES:String = "res";
                             resourcePath = stringMaker.append(RES).append(resource.substring(index)).toString();
-                            inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                            inputStream = JClass.getResourceAsStream(JSystem.className(resource), resourcePath);
                             if (inputStream == null) {
                                 stringMaker.delete_(0, stringMaker.length());
                                 resourcePath = stringMaker.append("/").append(RES).append(resource.substring(index)).toString();
-                                inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                                inputStream = JClass.getResourceAsStream(JSystem.className(resource), resourcePath);
                                 var COLON:String = CommonSeps.getInstance().COLON;
                                 if (inputStream == null) {
                                     stringMaker.delete_(0, stringMaker.length());
                                     resourcePath = stringMaker.append(RES).append(COLON).append(resource.substring(index)).toString();
-                                    inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                                    inputStream = JClass.getResourceAsStream(JSystem.className(resource), resourcePath);
                                     if (inputStream == null) {
                                         stringMaker.delete_(0, stringMaker.length());
                                         resourcePath = stringMaker.append(RES).append(COLON).append(resource.substring(int(index + 1))).toString();
-                                        inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                                        inputStream = JClass.getResourceAsStream(JSystem.className(resource), resourcePath);
                                         if (inputStream == null) {
                                             var RESOURCE_STRING:String = "resource";
                                             stringMaker.delete_(0, stringMaker.length());
                                             resourcePath = stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(index)).toString();
-                                            inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                                            inputStream = JClass.getResourceAsStream(JSystem.className(resource), resourcePath);
                                             if (inputStream == null) {
                                                 stringMaker.delete_(0, stringMaker.length());
                                                 resourcePath = stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(int(index + 1))).toString();
-                                                inputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+                                                inputStream = JClass.getResourceAsStream(JSystem.className(resource), resourcePath);
                                                 if (inputStream == null) {
                                                     stringMaker.delete_(0, stringMaker.length());
                                                     throw new JException("Exception", stringMaker.append("Unable to obtain: ").append(resource).toString());
@@ -114,11 +118,11 @@ package org.allbinary.data.resource {
     }
     
 
-    private function getResourceAsStreamAtStart(resource:String, startIndex:int):InputStream {
+    private function getResourceAsStreamAtStart(resource:String, startIndex:int):JInputStream {
         var stringMaker:StringMaker = new StringMaker();
         var index:int = JString.indexOf(resource, CommonSeps.getInstance().COLON);
         var resourcePath:String = resource.substring(int(index + startIndex));
-        var inputStream:InputStream = JSystem.className(resource).getResourceAsStream(resourcePath);
+        var inputStream:JInputStream = JClass.getResourceAsStream(JSystem.className(resource), resourcePath);
         if (inputStream != null) {
             return inputStream;
         }

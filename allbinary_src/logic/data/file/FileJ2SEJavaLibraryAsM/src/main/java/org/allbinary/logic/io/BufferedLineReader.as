@@ -20,7 +20,7 @@ package org.allbinary.logic.io {
     import org.allbinary.logic.io.file.AbFileNativeUtil;
 
     public class BufferedLineReader {
-        private var tmpIn:BufferedReader = null;
+        private var tmpIn:JBufferedReader = null;
 
         // Java field initializers run after the base constructor
         private function initFieldsBufferedLineReader():void {
@@ -31,7 +31,7 @@ package org.allbinary.logic.io {
     public function BufferedLineReader(file:AbFile) {
         super();
         this.initFieldsBufferedLineReader();
-        this.tmpIn = new BufferedReader(new FileReader(AbFileNativeUtil.get_(file)));
+        this.tmpIn = new JBufferedReader(new JFileReader(AbFileNativeUtil.get_(file)));
     }
     
 

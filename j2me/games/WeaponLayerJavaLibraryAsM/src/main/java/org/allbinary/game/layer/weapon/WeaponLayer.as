@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.layer.weapon {
+    import javax.microedition.khronos.opengles.GL;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.animation.Animation;
     import org.allbinary.animation.IndexedAnimation;
     import org.allbinary.animation.NullAnimationFactory;
@@ -88,7 +90,15 @@ package org.allbinary.game.layer.weapon {
     }
     
 
-    public function init(sourceLayerInterface:AllBinaryLayer, angle:int, otherAngle:int, weaponProperties:WeaponProperties, scoreable:ScoreableInterface):void {
+    public function init(...args):void {
+        if (args.length == 5) {
+            this.init_jo5(args[0], args[1], args[2], args[3], args[4]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo5(sourceLayerInterface:AllBinaryLayer, angle:int, otherAngle:int, weaponProperties:WeaponProperties, scoreable:ScoreableInterface):void {
         this.setWeaponPropertiesP(weaponProperties);
         this.setReadyForExplosion(false);
         this.setAnimationInterface(this.getInitAnimationInterfaceP());
@@ -115,7 +125,15 @@ package org.allbinary.game.layer.weapon {
     }
     
 
-    override public function processTick(allBinaryLayerManager:AllBinaryLayerManager):void {
+    override public function processTick(...args):void {
+        if (args.length == 1) {
+            this.processTick_jo1(args[0]);
+            return;
+        }
+        super.processTick.apply(this, args);
+    }
+
+    private function processTick_jo1(allBinaryLayerManager:AllBinaryLayerManager):void {
         if (this.isExhausted() && !this.isDestroyed()) {
             if (this.isReadyForExplosion()) {
                 var indexedAnimationInterface:IndexedAnimation = (this.getAnimationInterface() as IndexedAnimation);
@@ -224,15 +242,23 @@ package org.allbinary.game.layer.weapon {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         var viewPosition:ViewPositionBase = this.getViewPosition();
-        this.animationInterface.paintXY(graphics, viewPosition.getX() - this.getHalfWidth(), viewPosition.getY() - this.getHalfHeight());
+        this.animationInterface.paintXY(graphics, int(viewPosition.getX() - this.getHalfWidth()), int(viewPosition.getY() - this.getHalfHeight()));
     }
     
 
     override public function paintThreed(graphics:Graphics):void {
         var viewPosition:ViewPositionBase = this.getViewPosition();
-        this.animationInterface.paintThreedXYZ(graphics, viewPosition.getX() - this.getHalfWidth(), viewPosition.getY() - this.getHalfHeight(), viewPosition.getZ() - this.getHalfDepth());
+        this.animationInterface.paintThreedXYZ(graphics, int(viewPosition.getX() - this.getHalfWidth()), int(viewPosition.getY() - this.getHalfHeight()), int(viewPosition.getZ() - this.getHalfDepth()));
     }
     
 
@@ -276,7 +302,14 @@ package org.allbinary.game.layer.weapon {
     }
     
 
-    override public function set_(gl:GL):void {
+    override public function set_(...args):* {
+        if (args.length == 1) {
+            return this.set__jo1(args[0]);
+        }
+        return super.set_.apply(this, args);
+    }
+
+    private function set__jo1(gl:GL):void {
         this.initAnimationInterface.set_(gl);
     }
     }

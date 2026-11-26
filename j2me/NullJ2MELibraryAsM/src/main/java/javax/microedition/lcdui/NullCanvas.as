@@ -75,11 +75,27 @@ package javax.microedition.lcdui {
     }
     
 
-    public function process():void {
+    public function process(...args):void {
+        if (args.length == 0) {
+            this.process_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "process");
+    }
+
+    private function process_jo0():void {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
     }
     
 

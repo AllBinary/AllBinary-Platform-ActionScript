@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image {
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Image;
     import org.allbinary.animation.AnimationBehavior;
 
     public class AdjustedLeftToRightImageAnimation extends LeftToRightImageAnimation {
@@ -34,7 +36,15 @@ package org.allbinary.animation.image {
     }
     
 
-    public function init(dx:int, dy:int):void {
+    public function init(...args):void {
+        if (args.length == 2) {
+            this.init_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo2(dx:int, dy:int):void {
         this.dx = dx;
         this.dy = dy;
     }

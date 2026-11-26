@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.hud.basic.life {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.animation.Animation;
     import org.allbinary.game.ag.life.Life;
     import org.allbinary.game.graphics.hud.BasicHud;
@@ -50,7 +51,7 @@ package org.allbinary.game.ag.layer.hud.basic.life {
         super.updateMeasurement(graphics);
         var maxLives:int = this.getLifeInterface().getMaxlives();
         for (var index:int = 0; index < maxLives; index++) {
-            this.xArray[index] = this.getX() + (int(index * 16));
+            this.xArray[index] = int(this.getX() + (int(index * 16)));
         }
     }
     
@@ -67,7 +68,15 @@ package org.allbinary.game.ag.layer.hud.basic.life {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
         for (var index:int = this.getLifeInterface().get_(); --index >= 0; ) {
             this.animationInterface.paintXY(graphics, this.xArray[index], this.getY());

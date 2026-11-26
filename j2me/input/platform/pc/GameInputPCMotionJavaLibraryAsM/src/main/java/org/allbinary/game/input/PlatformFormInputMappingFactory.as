@@ -30,6 +30,10 @@ package org.allbinary.game.input {
         }
         return PlatformFormInputMappingFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        PlatformFormInputMappingFactory.instance_set = true;
+        PlatformFormInputMappingFactory.instance_value = value;
+    }
         public var logUtil:LogUtil = null;
         private var inputToGameKeyMapping:InputToGameKeyMapping = null;
 

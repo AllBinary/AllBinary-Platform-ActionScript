@@ -14,6 +14,13 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.midlet {
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Display;
+    import javax.microedition.lcdui.Displayable;
+    import javax.microedition.lcdui.NullCanvas;
+    import javax.microedition.midlet.MIDlet;
+    import javax.microedition.midlet.MIDletStateChangeException;
     import org.allbinary.logic.StdUtil;
     import org.allbinary.logic.communication.log.ForcedLogUtil;
     import org.allbinary.logic.communication.log.LogUtil;
@@ -36,6 +43,10 @@ package org.allbinary.midlet {
             AllBinaryMidlet.NULL_ALLBINARY_MIDLET_value = NullUtil.getInstance().NULL_OBJECT;
         }
         return AllBinaryMidlet.NULL_ALLBINARY_MIDLET_value;
+    }
+    private static function set NULL_ALLBINARY_MIDLET(value:Object):void {
+        AllBinaryMidlet.NULL_ALLBINARY_MIDLET_set = true;
+        AllBinaryMidlet.NULL_ALLBINARY_MIDLET_value = value;
     }
         public var logUtil:LogUtil = null;
         public var commonStrings:CommonStrings = null;
@@ -149,7 +160,7 @@ package org.allbinary.midlet {
     }
     
 
-    override public function commandAction(command:Command, displayable:Displayable):void {
+    public function commandAction(command:Command, displayable:Displayable):void {
     }
     }
 }

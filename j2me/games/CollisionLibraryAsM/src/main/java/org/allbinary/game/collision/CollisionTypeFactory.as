@@ -25,6 +25,10 @@ package org.allbinary.game.collision {
         }
         return CollisionTypeFactory.SINGLETON_value;
     }
+    private static function set SINGLETON(value:CollisionTypeFactory):void {
+        CollisionTypeFactory.SINGLETON_set = true;
+        CollisionTypeFactory.SINGLETON_value = value;
+    }
         public var NONE:CollisionType = null;
         public var DAMAGE:CollisionType = null;
         public var PICKUP:CollisionType = null;

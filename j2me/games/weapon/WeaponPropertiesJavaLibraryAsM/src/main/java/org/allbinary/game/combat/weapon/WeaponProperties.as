@@ -104,7 +104,7 @@ package org.allbinary.game.combat.weapon {
     
 
     public function getDamageI(range:int):int {
-        return this.getDamage() - ((this.getDissipation() * range) / this.speed.getScaled());
+        return int(this.getDamage() - (int((int(this.getDissipation() * range)) / this.speed.getScaled())));
     }
     
 

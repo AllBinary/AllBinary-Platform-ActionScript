@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.input {
+    import javax.microedition.lcdui.Graphics;
 
     public class TestInputExample implements TestInputInterface {
         private var testValue:int = 0;
@@ -55,7 +56,15 @@ package org.allbinary.game.input {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
     }
     
 

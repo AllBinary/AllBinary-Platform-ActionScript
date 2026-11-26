@@ -34,6 +34,10 @@ package org.allbinary.game.displayable.canvas {
         }
         return CheatGameInputProcessor.inputProcessor_value;
     }
+    public static function set inputProcessor(value:SpecialGameInputInterface):void {
+        CheatGameInputProcessor.inputProcessor_set = true;
+        CheatGameInputProcessor.inputProcessor_value = value;
+    }
         private var PROCESS_GAME:String = null;
         private var gameCanvas:AllBinaryGameCanvas = null;
         private var gameKeyFactory:GameKeyFactory = null;
@@ -53,7 +57,15 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function update():void {
+    override public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        super.update.apply(this, args);
+    }
+
+    private function update_jo0():void {
         try {
             var gameLayerManager:AllBinaryGameLayerManager = this.gameCanvas.getLayerManager();
             var list:BasicArrayList = this.getGameKeyEventList();

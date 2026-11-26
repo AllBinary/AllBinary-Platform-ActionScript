@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image {
+    import javax.microedition.lcdui.Image;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.media.image.ImageScaleUtil;
     import org.allbinary.string.CommonStrings;
@@ -45,7 +46,7 @@ package org.allbinary.animation.image {
         }
     
 
-    override public static function getInstance():ScaleBaseProcessor {
+    public static function getInstance():ScaleBaseProcessor {
         return ScaleProcessor.instanceC;
     }
     

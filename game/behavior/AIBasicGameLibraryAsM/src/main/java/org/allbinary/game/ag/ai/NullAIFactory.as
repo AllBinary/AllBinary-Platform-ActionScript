@@ -30,6 +30,10 @@ package org.allbinary.game.ag.ai {
         }
         return NullAIFactory.NULL_AI_value;
     }
+    private static function set NULL_AI(value:NullAI):void {
+        NullAIFactory.NULL_AI_set = true;
+        NullAIFactory.NULL_AI_value = value;
+    }
     
 
     public function getInstance3(hashtable:ABHashtable, ownerLayerInterface:AllBinaryLayer, gameInput:GameInput):ArtificialIntelligenceInterface {

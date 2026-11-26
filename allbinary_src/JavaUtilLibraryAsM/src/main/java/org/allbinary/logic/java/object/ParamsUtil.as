@@ -13,7 +13,7 @@
  *  
  */
 // Generated Code Do Not Modify
-package org.allbinary.logic.java.anyType {
+package org.allbinary.logic.java.object {
     import org.allbinary.logic.string.StringMaker;
 
     public class ParamsUtil {
@@ -29,7 +29,7 @@ package org.allbinary.logic.java.anyType {
             var stringBuffer:StringMaker = new StringMaker();
             for (var index:int = 0; index < params.length; index++) {
                 stringBuffer.append(" ");
-                stringBuffer.append(params[index].getName());
+                stringBuffer.append(params[index]);
             }
             return stringBuffer.toString();
         } else {

@@ -15,20 +15,55 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.security.licensing {
 
-    public class LicensingException extends Exception {
+    public class LicensingException extends JException {
     public static const serialVersionUID:Number = 1;
     
 
-    public function LicensingException() {
-        super();
+    public function LicensingException(...args) {
+        if (args.length == 2 && args[0] === JSuperArgs.ARGS) {
+            args = args[1];
+        }
+        var jsuper:Array = LicensingException.jsuperArgs(args);
+        super("LicensingException", jsuper.length > 0 ? jsuper[0] : "");
+        this.jconstruct(args);
+    }
+
+    private static function jsuperArgs(args:Array):Array {
+        if (args.length == 0) {
+            return LicensingException.jsuper_1();
+        }
+        if (args.length == 1) {
+            return LicensingException.jsuper_2(args[0]);
+        }
+        return [];
+    }
+
+    private static function jsuper_1():Array {
+        return [];
+    }
+
+    private static function jsuper_2(msg:String):Array {
+        return [msg];
+    }
+
+    private function jconstruct(args:Array):void {
+        if (args.length == 0) {
+            this.jconstruct_1();
+            return;
+        }
+        if (args.length == 1) {
+            this.jconstruct_2(args[0]);
+            return;
+        }
+    }
+
+    private function jconstruct_1():void {
+    }
+
+    private function jconstruct_2(msg:String):void {
+        
     }
     
-
-    /* Java constructor: ActionScript classes have one constructor
-    public function LicensingException(msg:String = null) {
-        super(msg);
-    }
-    */
     }
 }
 

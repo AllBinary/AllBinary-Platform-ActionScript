@@ -14,11 +14,12 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.paint {
+    import javax.microedition.lcdui.Graphics;
 
     public interface PaintableInterface {
     
 
-    function paint(graphics:Graphics):void;
+    function paint(...args):void;
     
 
     function paintThreed(graphics:Graphics):void;

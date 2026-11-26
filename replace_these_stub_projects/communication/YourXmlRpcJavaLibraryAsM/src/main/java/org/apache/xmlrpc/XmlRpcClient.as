@@ -8,7 +8,7 @@ package org.apache.xmlrpc {
     import org.allbinary.logic.NullUtil;
 
     public class XmlRpcClient implements XmlRpcHandler {
-        private var url:URL = null;
+        private var url:JURL = null;
 
         // Java field initializers run after the base constructor
         private function initFieldsXmlRpcClient():void {
@@ -19,11 +19,11 @@ package org.apache.xmlrpc {
     public function XmlRpcClient(url:String) {
         super();
         this.initFieldsXmlRpcClient();
-        this.url = new URL(url);
+        this.url = new JURL(url);
     }
     
 
-    public function getURL():URL {
+    public function getURL():JURL {
         return this.url;
     }
     

@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Item;
     import org.allbinary.game.state.GameState;
     import org.allbinary.game.state.GameStateFactory;
     import org.allbinary.logic.StdUtil;
@@ -121,7 +124,15 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
     }
     
 

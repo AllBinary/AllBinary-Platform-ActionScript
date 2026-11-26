@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.paint {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.color.BasicColor;
 
     public class OverScanColorFillPaintable extends ColorFillPaintable {
@@ -24,9 +25,17 @@ package org.allbinary.game.paint {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         graphics.setColor(this.colorP);
-        graphics.fillRect(-graphics.getClipX(), -graphics.getClipY(), this.displayInfoSingleton.getLastWidth() + (graphics.getClipX() * 2), this.displayInfoSingleton.getLastHeight() + (graphics.getClipY() * 2));
+        graphics.fillRect(-graphics.getClipX(), -graphics.getClipY(), int(this.displayInfoSingleton.getLastWidth() + (int(graphics.getClipX() * 2))), int(this.displayInfoSingleton.getLastHeight() + (int(graphics.getClipY() * 2))));
     }
     }
 }

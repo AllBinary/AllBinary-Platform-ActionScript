@@ -1,5 +1,6 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.opengles {
+    import javax.microedition.lcdui.Image;
     import java.lang.JRunnable;
 
     public class OpenGLUtil {

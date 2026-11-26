@@ -26,6 +26,10 @@ package org.allbinary.logic.java.number {
         }
         return LongData.MAX_LONG_LENGTH_value;
     }
+    public static function set MAX_LONG_LENGTH(value:int):void {
+        LongData.MAX_LONG_LENGTH_set = true;
+        LongData.MAX_LONG_LENGTH_value = value;
+    }
     
 
     public function LongData() {

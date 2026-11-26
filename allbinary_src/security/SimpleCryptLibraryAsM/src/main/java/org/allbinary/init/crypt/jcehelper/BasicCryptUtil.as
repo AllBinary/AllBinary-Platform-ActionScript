@@ -52,7 +52,7 @@ package org.allbinary.init.crypt.jcehelper {
     }
     
 
-    public function getDecryptedInputStream(inputStream:InputStream, cryptInterface:CryptInterface):InputStream {
+    public function getDecryptedInputStream(inputStream:JInputStream, cryptInterface:CryptInterface):JInputStream {
         var buffer:JByteArrayOutputStream = new JByteArrayOutputStream();
         var ch:int = 0;
         while (true) {
@@ -63,12 +63,12 @@ package org.allbinary.init.crypt.jcehelper {
             buffer.write(ch);
         }
         var decrypted:Vector.<int> = cryptInterface.decrypt(buffer.toByteArray());
-        var decryptedString:String = decrypted;
+        var decryptedString:String = JString.ofConstructorArgument(decrypted);
         var index:int = JString.indexOf(decryptedString, this.XML_START);
         if (index > 0) {
             decryptedString = decryptedString.substring(index);
         }
-        return new ByteArrayInputStream(this.tsUtil.getByteArray(decryptedString));
+        return new JByteArrayInputStream(this.tsUtil.getByteArray(decryptedString));
     }
     }
 }

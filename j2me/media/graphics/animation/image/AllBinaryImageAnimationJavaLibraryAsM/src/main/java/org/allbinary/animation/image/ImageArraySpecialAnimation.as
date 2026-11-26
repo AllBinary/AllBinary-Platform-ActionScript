@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image {
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Image;
     import org.allbinary.animation.AnimationBehavior;
     import org.allbinary.animation.special.SpecialAnimationInterface;
     import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -51,7 +53,7 @@ package org.allbinary.animation.image {
     
 
     override public function reset():void {
-        this.setFrame(this.getSize() - 1);
+        this.setFrame(int(this.getSize() - 1));
         this.loopCount = 0;
     }
     

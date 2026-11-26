@@ -15,6 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.image {
     import java.io.JInputStream;
+    import javax.microedition.lcdui.Image;
+    import javax.microedition.lcdui.NullImage;
     import org.allbinary.logic.StdUtil;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.logic.string.StringMaker;
@@ -120,7 +122,7 @@ package org.allbinary.image {
     }
     
 
-    public function createImageFromInputStream(key:Object, inputStream:InputStream):Image {
+    public function createImageFromInputStream(key:Object, inputStream:JInputStream):Image {
         return this.imageFactory.createImageFromInputStream(key, inputStream);
     }
     

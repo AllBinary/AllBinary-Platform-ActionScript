@@ -53,7 +53,17 @@ package org.allbinary.animation {
     }
     
 
-    public function getInstance2(points:Vector.<Vector.<Vector.<int>>>, width:int):Vector.<Vector.<Vector.<int>>> {
+    public function getInstance2(...args):* {
+        if (args.length == 2 && args[0] is Vector.<Vector.<Vector.<int>>> && args[1] is int) {
+            return this.getInstance_jo2_1(args[0], args[1]);
+        }
+        if (args.length == 2) {
+            return this.getInstance_jo2_2(args[0], args[1]);
+        }
+        throw new JException("IllegalArgumentException", "getInstance");
+    }
+
+    private function getInstance_jo2_1(points:Vector.<Vector.<Vector.<int>>>, width:int):Vector.<Vector.<Vector.<int>>> {
         try {
             var pointFactory:PointFactory = PointFactory.getInstance();
             var pointBasicArrayList:BasicArrayList = null;
@@ -81,14 +91,14 @@ package org.allbinary.animation {
             return NullUtil.getInstance().NULL_INT_ARRAY_ARRAY_ARRAY;
         }
     }
-    
 
-    public function getInstance2(pointBasicArrayList:BasicArrayList, width:int):BasicArrayList {
+    private function getInstance_jo2_2(pointBasicArrayList:BasicArrayList, width:int):BasicArrayList {
         var graphicsPipe:BasicGraphicsPipeline = new BasicGraphicsPipeline(pointBasicArrayList);
         graphicsPipe.createMatrix();
         graphicsPipe.mirror(width);
         return graphicsPipe.getMatrix();
     }
+    
     }
 }
 

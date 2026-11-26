@@ -66,7 +66,7 @@ package org.allbinary.game.configuration {
         if (this.value !== value) {
             var oldValue:* = this.value;
             this.value = value;
-            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(this, new StringMaker().append(this.name).append(" value: from: ").appendint(oldValue.intValue()).append(" to ").appendint(this.value.intValue()).toString()));
+            GameFeatureEventHandler.getInstance().fireEvent(new GameFeatureEvent(this, new StringMaker().append(this.name).append(" value: from: ").appendint(int(oldValue)).append(" to ").appendint(int(this.value)).toString()));
         }
     }
     
@@ -126,15 +126,15 @@ package org.allbinary.game.configuration {
         stringBuffer.append("Name: ");
         stringBuffer.append(this.name);
         stringBuffer.append(" Min: ");
-        stringBuffer.appendint(this.getMinValue().intValue());
+        stringBuffer.appendint(int(this.getMinValue()));
         stringBuffer.append(" Max: ");
-        stringBuffer.appendint(this.getMaxValue().intValue());
+        stringBuffer.appendint(int(this.getMaxValue()));
         stringBuffer.append(" Value: ");
-        stringBuffer.appendint(this.getValue().intValue());
+        stringBuffer.appendint(int(this.getValue()));
         stringBuffer.append(" Default: ");
-        stringBuffer.appendint(this.getDefaultValue().intValue());
+        stringBuffer.appendint(int(this.getDefaultValue()));
         stringBuffer.append(" Modifiable: ");
-        stringBuffer.appendboolean(this.isModifiable().booleanValue());
+        stringBuffer.appendboolean(Boolean(this.isModifiable()));
         return stringBuffer.toString();
     }
     

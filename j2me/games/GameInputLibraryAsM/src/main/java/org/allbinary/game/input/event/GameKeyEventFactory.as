@@ -30,6 +30,10 @@ package org.allbinary.game.input.event {
         }
         return GameKeyEventFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        GameKeyEventFactory.instance_set = true;
+        GameKeyEventFactory.instance_value = value;
+    }
         public var logUtil:LogUtil = null;
         public var TOUCH_BUTTON_SOURCE_ID:int = 0;
         public var MOTION_GESTURE_SOURCE_ID:int = 0;

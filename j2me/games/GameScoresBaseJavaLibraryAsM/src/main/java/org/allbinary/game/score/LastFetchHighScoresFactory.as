@@ -26,6 +26,10 @@ package org.allbinary.game.score {
         }
         return LastFetchHighScoresFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        LastFetchHighScoresFactory.instance_set = true;
+        LastFetchHighScoresFactory.instance_value = value;
+    }
         public var highScoresArray:Vector.<HighScores> = null;
 
         // Java field initializers run after the base constructor

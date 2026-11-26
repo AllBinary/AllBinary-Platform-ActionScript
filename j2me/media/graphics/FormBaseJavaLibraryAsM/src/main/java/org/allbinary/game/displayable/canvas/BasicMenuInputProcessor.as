@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.Canvas;
+    import javax.microedition.lcdui.NullCanvas;
     import org.allbinary.game.input.PlayerGameInput;
     import org.allbinary.graphics.displayable.MyCanvas;
     import org.allbinary.input.motion.gesture.observer.BaseMotionGestureEventListener;
@@ -58,7 +60,14 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    public function processInputList():int {
+    public function processInputList(...args):* {
+        if (args.length == 0) {
+            return this.processInputList_jo0();
+        }
+        throw new JException("IllegalArgumentException", "processInputList");
+    }
+
+    private function processInputList_jo0():int {
         return -1;
     }
     }

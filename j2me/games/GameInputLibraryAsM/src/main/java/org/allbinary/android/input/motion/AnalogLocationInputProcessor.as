@@ -20,7 +20,15 @@ package org.allbinary.android.input.motion {
     public class AnalogLocationInputProcessor {
     
 
-    public function process(allbinaryLayerManager:AllBinaryLayerManager, analogLocationInput:AnalogLocationInput):void {
+    public function process(...args):void {
+        if (args.length == 2) {
+            this.process_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "process");
+    }
+
+    private function process_jo2(allbinaryLayerManager:AllBinaryLayerManager, analogLocationInput:AnalogLocationInput):void {
     }
     }
 }

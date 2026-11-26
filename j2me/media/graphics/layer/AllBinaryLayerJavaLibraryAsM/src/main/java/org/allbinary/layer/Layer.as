@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.layer {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.displayable.CanvasStrings;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.logic.math.SmallIntegerSingletonFactory;
@@ -59,7 +60,15 @@ package org.allbinary.layer {
     }
     
 
-    public function setPosition(x:int, y:int, z:int):void {
+    public function setPosition(...args):void {
+        if (args.length == 3) {
+            this.setPosition_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "setPosition");
+    }
+
+    private function setPosition_jo3(x:int, y:int, z:int):void {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -119,7 +128,15 @@ package org.allbinary.layer {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         var commonStrings:CommonStrings = CommonStrings.getInstance();
         var canvasStrings:CanvasStrings = CanvasStrings.getInstance();
         this.logUtil.putF(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT);

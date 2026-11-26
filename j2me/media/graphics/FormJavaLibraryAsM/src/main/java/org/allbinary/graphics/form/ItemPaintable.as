@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form {
+    import javax.microedition.lcdui.Graphics;
 
     public class ItemPaintable {
     

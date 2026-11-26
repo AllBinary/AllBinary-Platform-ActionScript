@@ -30,6 +30,10 @@ package org.allbinary.game.ag.ai {
         }
         return InputProbability.INPUT_PROBABILITY_value;
     }
+    public static function set INPUT_PROBABILITY(value:*):void {
+        InputProbability.INPUT_PROBABILITY_set = true;
+        InputProbability.INPUT_PROBABILITY_value = value;
+    }
         private var likelyhoodIntegerArray:Vector.<Vector.<*>> = null;
         private var repeatLikelyhoodIntegerArray:Vector.<*> = null;
         private var max:int = 0;

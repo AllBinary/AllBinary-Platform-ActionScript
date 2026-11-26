@@ -20,6 +20,10 @@ package org.allbinary.graphics.form {
         }
         return PaintableForm.NULL_PAINTABLE_FORM_value;
     }
+    private static function set NULL_PAINTABLE_FORM(value:Object):void {
+        PaintableForm.NULL_PAINTABLE_FORM_set = true;
+        PaintableForm.NULL_PAINTABLE_FORM_value = value;
+    }
         public var canvasStrings:CanvasStrings = null;
         public var rectangle:Rectangle = null;
         public var x:int = 0;
@@ -51,7 +55,15 @@ package org.allbinary.graphics.form {
     }
     
 
-    public function init(rectangle:Rectangle, formType:FormType):void {
+    public function init(...args):void {
+        if (args.length == 2) {
+            this.init_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo2(rectangle:Rectangle, formType:FormType):void {
         this.rectangle = rectangle;
         var point:GPoint = this.rectangle.getPoint();
         this.x = point.getX();

@@ -50,7 +50,23 @@ package org.allbinary.logic.io.file {
     }
     
 
-    public function getFiles(path:String):BasicArrayList {
+    public function getFiles(...args):BasicArrayList {
+        if (args.length == 1) {
+            return this.getFiles_jo1(args[0]);
+        }
+        if (args.length == 2 && args[0] is String && args[1] is Vector.<String>) {
+            return this.getFiles_jo2_1(args[0], args[1]);
+        }
+        if (args.length == 2) {
+            return this.getFiles_jo2_2(args[0], args[1]);
+        }
+        if (args.length == 3) {
+            return this.getFiles_jo3(args[0], args[1], args[2]);
+        }
+        throw new JException("IllegalArgumentException", "getFiles");
+    }
+
+    private function getFiles_jo1(path:String):BasicArrayList {
         try {
             var files:BasicArrayList = this.subDirectory.search(AbFile.createAbFile(path));
             return files;
@@ -60,9 +76,8 @@ package org.allbinary.logic.io.file {
         }
         return null;
     }
-    
 
-    public function getFiles(path:String, includeExtensions:Vector.<String>):BasicArrayList {
+    private function getFiles_jo2_1(path:String, includeExtensions:Vector.<String>):BasicArrayList {
         try {
             var includeExtensionBasicArrayList:BasicArrayList = new BasicArrayListD();
             var size:int = includeExtensions.length;
@@ -78,9 +93,8 @@ package org.allbinary.logic.io.file {
         }
         return null;
     }
-    
 
-    public function getFiles(path:String, includeExtension:String):BasicArrayList {
+    private function getFiles_jo2_2(path:String, includeExtension:String):BasicArrayList {
         try {
             var includeExtensionBasicArrayList:BasicArrayList = new BasicArrayListD();
             includeExtensionBasicArrayList.add(includeExtension);
@@ -93,9 +107,8 @@ package org.allbinary.logic.io.file {
         }
         return null;
     }
-    
 
-    public function getFiles(path:String, pathIncludes:String, includeExtension:String):BasicArrayList {
+    private function getFiles_jo3(path:String, pathIncludes:String, includeExtension:String):BasicArrayList {
         try {
             var includeExtensionBasicArrayList:BasicArrayList = new BasicArrayListD();
             includeExtensionBasicArrayList.add(includeExtension);
@@ -109,8 +122,21 @@ package org.allbinary.logic.io.file {
         return null;
     }
     
+    
+    
+    
 
-    public function getTrackedFiles(path:String, includeExtensions:Vector.<String>):BasicArrayList {
+    public function getTrackedFiles(...args):BasicArrayList {
+        if (args.length == 2 && args[0] is String && args[1] is Vector.<String>) {
+            return this.getTrackedFiles_jo2_1(args[0], args[1]);
+        }
+        if (args.length == 2) {
+            return this.getTrackedFiles_jo2_2(args[0], args[1]);
+        }
+        throw new JException("IllegalArgumentException", "getTrackedFiles");
+    }
+
+    private function getTrackedFiles_jo2_1(path:String, includeExtensions:Vector.<String>):BasicArrayList {
         try {
             var includeExtensionBasicArrayList:BasicArrayList = new BasicArrayListD();
             var size:int = includeExtensions.length;
@@ -126,9 +152,8 @@ package org.allbinary.logic.io.file {
         }
         return null;
     }
-    
 
-    public function getTrackedFiles(path:String, includeExtension:String):BasicArrayList {
+    private function getTrackedFiles_jo2_2(path:String, includeExtension:String):BasicArrayList {
         try {
             var includeExtensionBasicArrayList:BasicArrayList = new BasicArrayListD();
             includeExtensionBasicArrayList.add(includeExtension);
@@ -141,6 +166,7 @@ package org.allbinary.logic.io.file {
         }
         return null;
     }
+    
     
 
     public function getDirectories(path:String):BasicArrayList {

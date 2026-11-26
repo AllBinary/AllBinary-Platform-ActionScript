@@ -14,6 +14,11 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.media.audio {
+    import javax.microedition.media.Control;
+    import javax.microedition.media.MediaException;
+    import javax.microedition.media.Player;
+    import javax.microedition.media.PlayerConstants;
+    import javax.microedition.media.PlayerListener;
     import org.allbinary.logic.string.StringUtil;
     import org.allbinary.string.CommonStrings;
     import org.allbinary.util.BasicArrayList;
@@ -40,7 +45,7 @@ package org.allbinary.media.audio {
         super();
         this.initFieldsBasicPlayer();
         this.setLoopCount(0);
-        this.setState(Player.UNREALIZED);
+        this.setState(PlayerConstants.UNREALIZED);
     }
     
 
@@ -123,12 +128,12 @@ package org.allbinary.media.audio {
     
 
     public function start():void {
-        this.setState(Player.STARTED);
+        this.setState(PlayerConstants.STARTED);
     }
     
 
     public function stop():void {
-        this.setState(Player.PREFETCHED);
+        this.setState(PlayerConstants.PREFETCHED);
     }
     
 

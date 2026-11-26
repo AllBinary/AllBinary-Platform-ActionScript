@@ -26,6 +26,10 @@ package org.allbinary.media {
         }
         return AllBinaryVibration.VIBRATION_value;
     }
+    private static function set VIBRATION(value:AllBinaryVibrationME):void {
+        AllBinaryVibration.VIBRATION_set = true;
+        AllBinaryVibration.VIBRATION_value = value;
+    }
     
 
     public function AllBinaryVibration() {

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.init {
+    import javax.microedition.lcdui.CommandListener;
     import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
     public interface GameInitializationInterface {

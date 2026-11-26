@@ -14,6 +14,12 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary {
+    import javax.microedition.lcdui.Displayable;
+    import javax.microedition.lcdui.Form;
+    import javax.microedition.rms.InvalidRecordIDException;
+    import javax.microedition.rms.RecordStore;
+    import javax.microedition.rms.RecordStoreException;
+    import javax.microedition.rms.RecordStoreNotOpenException;
     import org.allbinary.logic.NullUtil;
 
     //J2ME

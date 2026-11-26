@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.score.displayable {
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.GameInfo;
     import org.allbinary.game.commands.GameCommandsFactory;
     import org.allbinary.game.displayable.canvas.GameCommandCanvas;
@@ -108,7 +111,15 @@ package org.allbinary.game.score.displayable {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.colorFillPaintable.paint(graphics);
         this.paintable.paint(graphics);
         if (this.waitPaintable !== this.paintable) {
@@ -133,7 +144,7 @@ package org.allbinary.game.score.displayable {
     }
     
 
-    override public function setHighScoresArray(highScoresArray:Vector.<HighScores>):void {
+    public function setHighScoresArray(highScoresArray:Vector.<HighScores>):void {
         try {
             if (highScoresArray != null) {
                 this.logUtil.putF(new StringMaker().append(this.commonStrings.START).appendint(highScoresArray.length).toString(), this, "setHighScoresArray");

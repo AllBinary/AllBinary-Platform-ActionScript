@@ -28,6 +28,10 @@ package org.allbinary.configuration {
         }
         return ApplicationConfiguration.instance_value;
     }
+    private static function set instance(value:Object):void {
+        ApplicationConfiguration.instance_set = true;
+        ApplicationConfiguration.instance_value = value;
+    }
         public var logUtil:LogUtil = null;
         private var fullscreen:Boolean = false;
         private var showTitleBar:Boolean = false;
@@ -70,7 +74,7 @@ package org.allbinary.configuration {
 
     private function read():void {
         var fileInputStreamFactory:FileStreamFactory = FileStreamFactory.getInstance();
-        var fileInputStream:InputStream = fileInputStreamFactory.getFileInputStreamInstance(StringUtil.getInstance().EMPTY_STRING, this.FILE);
+        var fileInputStream:JInputStream = fileInputStreamFactory.getFileInputStreamInstance(StringUtil.getInstance().EMPTY_STRING, this.FILE);
         var dataInputStream:AbDataInputStream = new AbDataInputStream(fileInputStream);
         var fullScreen:int = dataInputStream.readInt();
         if (fullScreen == 0) {
@@ -101,11 +105,11 @@ package org.allbinary.configuration {
     
 
     public function write():void {
-        var closeable:Closeable = NullCloseable.NULL_CLOSEABLE;
+        var closeable:JCloseable = NullCloseable.NULL_CLOSEABLE;
         try {
             this.logUtil.putF("Write Configuration: " + this.toString(), this, "write");
             var fileInputStreamFactory:FileStreamFactory = FileStreamFactory.getInstance();
-            var fileOutputStream:OutputStream = fileInputStreamFactory.getFileOutputStreamInstance(StringUtil.getInstance().EMPTY_STRING, this.FILE);
+            var fileOutputStream:JOutputStream = fileInputStreamFactory.getFileOutputStreamInstance(StringUtil.getInstance().EMPTY_STRING, this.FILE);
             var dataOutputStream:AbDataOutputStream = new AbDataOutputStream(fileOutputStream);
             closeable = dataOutputStream;
             if (this.isFullscreen()) {

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.ai {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.bounds.BoundsVisitorInterface;
     import org.allbinary.bounds.LayerBounds;
     import org.allbinary.game.ai.BasicAI;
@@ -43,7 +44,15 @@ package org.allbinary.game.ag.ai {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         var rectange:Rectangle = this.layerBounds.getRectangleP();
         graphics.drawRect(rectange.getPoint().getX(), rectange.getPoint().getY(), rectange.getWidth(), rectange.getHeight());
     }

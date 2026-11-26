@@ -142,6 +142,123 @@
         </dependency>
         -->
 
+        <!-- ActionScript: ABCustomGaugeItem of NullCustomUIPreJavaLibraryAs is used by a dependency (an optional dependency of a dependency is not transitive, and the ActionScript compile of a module reads every file of its dependencies) -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NullCustomUIPreJavaLibraryAs</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <!-- ActionScript: AndroidUtil of J2MEForJ2MEJavaLibraryAs is used by a dependency (an optional dependency of a dependency is not transitive, and the ActionScript compile of a module reads every file of its dependencies) -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>J2MEForJ2MEJavaLibraryAs</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <!-- ActionScript: GDResources of GameResourceNoneJavaLibraryAs is used by a dependency (an optional dependency of a dependency is not transitive, and the ActionScript compile of a module reads every file of its dependencies) -->
+        <dependency>
+            <groupId>org.allbinary.game</groupId>
+            <artifactId>GameResourceNoneJavaLibraryAs</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <!-- ActionScript: GL of OpenGLNoneJavaLibraryAs is used by a dependency (an optional dependency of a dependency is not transitive, and the ActionScript compile of a module reads every file of its dependencies) -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>OpenGLNoneJavaLibraryAs</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <!-- ActionScript: J2SEMath of J2MEOnlyJavaLibraryAs is used by a dependency (an optional dependency of a dependency is not transitive, and the ActionScript compile of a module reads every file of its dependencies) -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>J2MEOnlyJavaLibraryAs</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <!-- ActionScript: LogUtil of LoggingJ2MEAllAs is used by a dependency (an optional dependency of a dependency is not transitive, and the ActionScript compile of a module reads every file of its dependencies) -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>LoggingJ2MEAllAs</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <!-- ActionScript: Memory of ApplicationStatisticsJ2MELibraryAs is used by a dependency (an optional dependency of a dependency is not transitive, and the ActionScript compile of a module reads every file of its dependencies) -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ApplicationStatisticsJ2MELibraryAs</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <!-- ActionScript: NullThread of ThreadJ2MELibraryAs is used by a dependency (an optional dependency of a dependency is not transitive, and the ActionScript compile of a module reads every file of its dependencies) -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ThreadJ2MELibraryAs</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <!-- ActionScript: OpenGLESImageExclusionUtil of OpenGLESNullImageJavaLibraryAs is used by a dependency (an optional dependency of a dependency is not transitive, and the ActionScript compile of a module reads every file of its dependencies) -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>OpenGLESNullImageJavaLibraryAs</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <!-- ActionScript: OpenGLSurfaceChangedInterface of OpenGLESBaseJavaLibraryAs is used by a dependency (an optional dependency of a dependency is not transitive, and the ActionScript compile of a module reads every file of its dependencies) -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>OpenGLESBaseJavaLibraryAs</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <!-- ActionScript: OpenGLUtil of OpenGLNoneOtherJavaLibraryAs is used by a dependency (an optional dependency of a dependency is not transitive, and the ActionScript compile of a module reads every file of its dependencies) -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>OpenGLNoneOtherJavaLibraryAs</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <!-- ActionScript: ResourceUtil of PCResourceLibraryAs is used by a dependency (an optional dependency of a dependency is not transitive, and the ActionScript compile of a module reads every file of its dependencies) -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>PCResourceLibraryAs</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <!-- ActionScript: TouchJ2ME of TouchJ2MENoneJavaLibraryAs is used by a dependency (an optional dependency of a dependency is not transitive, and the ActionScript compile of a module reads every file of its dependencies) -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>TouchJ2MENoneJavaLibraryAs</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <!-- Planned language build: PlannedLanguagePomBuildUpdater -->

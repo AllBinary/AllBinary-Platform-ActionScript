@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.media.image {
+    import javax.microedition.lcdui.Image;
 
     public class ImageToRotationImageArrayUtil {
     private static var instance_value:ImageToRotationImageArrayUtil;

@@ -1,5 +1,6 @@
 // Generated Code Do Not Modify
 package org.allbinary.layer {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.TsUtil;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.string.CommonStrings;
@@ -59,7 +60,15 @@ package org.allbinary.layer {
     }
     
 
-    public function insert(layerInterface:AllBinaryLayer):void {
+    public function insert(...args):void {
+        if (args.length == 1) {
+            this.insert_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "insert");
+    }
+
+    private function insert_jo1(layerInterface:AllBinaryLayer):void {
         var nextLayerInterface:AllBinaryLayer = null;
         var size:int = this.list.size();
         for (var index:int = 0; index < size; index++) {

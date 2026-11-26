@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration {
+    import javax.microedition.lcdui.Item;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.logic.math.SmallIntegerSingletonFactory;
     import org.allbinary.logic.string.StringMaker;
@@ -77,7 +78,7 @@ package org.allbinary.game.configuration {
         stringBuffer.append(this.FROM);
         stringBuffer.appendint(gameConfiguration.getValue().intValue());
         stringBuffer.append(this.TO);
-        stringBuffer.appendint(value.intValue());
+        stringBuffer.appendint(int(value));
         this.logUtil.putF(stringBuffer.toString(), this, this.commonStrings.UPDATE);
         gameConfiguration.setValue(value);
     }

@@ -24,7 +24,7 @@ package org.allbinary.logic.math {
     
 
     public static function getArrayInstance():Vector.<Number> {
-        return JArrays.numbers(0);
+        return JVectors.numbers(0);
     }
     }
 }

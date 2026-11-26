@@ -32,6 +32,10 @@ package org.allbinary.input {
         }
         return AllBinarySensorManager.instance_value;
     }
+    private static function set instance(value:Object):void {
+        AllBinarySensorManager.instance_set = true;
+        AllBinarySensorManager.instance_value = value;
+    }
         public var logUtil:LogUtil = null;
         private var commonStrings:CommonStrings = null;
         public var ORIENTATION_SENSOR_INPUT:String = null;

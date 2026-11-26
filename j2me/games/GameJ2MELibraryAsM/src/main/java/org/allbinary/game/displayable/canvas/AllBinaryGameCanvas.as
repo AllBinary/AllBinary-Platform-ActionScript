@@ -14,6 +14,12 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.ChoiceGroup;
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Item;
+    import javax.microedition.lcdui.NullCommandListener;
     import org.allbinary.AndroidUtil;
     import org.allbinary.J2MEUtil;
     import org.allbinary.business.advertisement.GameAdStateFactory;
@@ -324,7 +330,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function updateMeasurement(graphics:Graphics):void {
+    public function updateMeasurement(graphics:Graphics):void {
         try {
             var font:Font = graphics.getFont();
             this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(this.canvasStrings.FD_WIDTH).appendint(MyFontProcessor.defaultCharWidth(font)).append(this.canvasStrings.FD_HEIGHT).appendint(font.getHeight()).toString(), this, this.canvasStrings.UPDATE_MEASUREMENT);
@@ -358,12 +364,12 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function onEvent(eventObject:AllBinaryEventObject):void {
+    public function onEvent(eventObject:AllBinaryEventObject):void {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
 
-    override public function onDisplayChangeEvent(displayChangeEvent:DisplayChangeEvent):void {
+    public function onDisplayChangeEvent(displayChangeEvent:DisplayChangeEvent):void {
         try {
             this.logUtil.putF(new StringMaker().append(this.commonStrings.START).append(DisplayInfoSingleton.getInstance().toString()).toString(), this, this.canvasStrings.UPDATE_MEASUREMENT);
             this.myFontProcessor = this.updateMyFontProcessor;
@@ -496,7 +502,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function popupMenu():void {
+    public function popupMenu():void {
         this.menuBehavior.popupMenu(this);
     }
     
@@ -510,7 +516,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function toggleMenu():void {
+    public function toggleMenu():void {
         this.logUtil.putF(this.commonStrings.START, this, this.gameStrings.TOGGLE_MENU);
         if (this.getMenuPaintable() === this.getOpenMenuPaintable()) {
             this.pause();
@@ -523,7 +529,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function closeMenu():void {
+    public function closeMenu():void {
         this.menuBehavior.closeMenu(this);
     }
     
@@ -536,13 +542,13 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function open():void {
+    public function open():void {
         this.basicMotionGesturesHandler.addListenerInterface(this.menuInputProcessor);
         this.gameKeyEventHandler.addListener(this.menuInputProcessor);
     }
     
 
-    override public function close():void {
+    public function close():void {
         this.basicMotionGesturesHandler.removeListener(this.menuInputProcessor);
         this.gameKeyEventHandler.removeListener(this.menuInputProcessor);
         this.primaryPlayerQueue.clear();
@@ -597,7 +603,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function notifyIntermission(enable:Boolean):void {
+    public function notifyIntermission(enable:Boolean):void {
         if (enable) {
             this.startIntermissionProcessor = this.realStartIntermissionProcessor;
         } else {
@@ -718,7 +724,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function itemStateChanged(item:Item):void {
+    public function itemStateChanged(item:Item):void {
         try {
             var itemLabel:String = item.getLabel();
             this.logUtil.putF(new StringMaker().append(this.commonLabels.ITEM_LABEL).append(itemLabel).toString(), this, "itemStateChanged");
@@ -760,7 +766,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function getLayerManager():AllBinaryGameLayerManager {
+    public function getLayerManager():AllBinaryGameLayerManager {
         return this.gameLayerManager;
     }
     
@@ -770,7 +776,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function isGameOver():Boolean {
+    public function isGameOver():Boolean {
         return this.gameOver;
     }
     
@@ -780,7 +786,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function processGameOver():void {
+    public function processGameOver():void {
         PreLogUtil.put(this.commonStrings.START, this, this.gameStrings.SET_GAME_OVER);
         this.setGameOver(true);
         this.removePauseCommand();
@@ -789,12 +795,12 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function isHighScoreSubmitted():Boolean {
+    public function isHighScoreSubmitted():Boolean {
         return this.highScoreSubmitted;
     }
     
 
-    override public function setHighScoreSubmitted(highScoreSubmitted:Boolean):void {
+    public function setHighScoreSubmitted(highScoreSubmitted:Boolean):void {
         this.highScoreSubmitted = highScoreSubmitted;
         if (highScoreSubmitted) {
             this.highScoresHelper.setSelectedHighScores(NullHighScoresSingletonFactory.getInstance());
@@ -803,12 +809,12 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function getGameState():GameState {
+    public function getGameState():GameState {
         return this.gameState;
     }
     
 
-    override public function setGameState(gameState:GameState):void {
+    public function setGameState(gameState:GameState):void {
         this.logUtil.putF(new StringMaker().append(this.gameStrings.GAME_STATE).append(this.stringUtil.toString1(gameState)).toString(), this, this.gameStrings.SET_GAME_STATE);
         this.gameState = gameState;
         this.gameStateTimeHelper.setStartTimeTNT();
@@ -975,29 +981,29 @@ package org.allbinary.game.displayable.canvas {
         var hashtable:ABHashtable = this.getLoadStateHashtable();
         if (hashtable != null && hashtable.size() > 0) {
             var levelAsString:String = (hashtable.get_((GameInfo.LEVEL_NAME as Object)) as String);
-            var level:int = levelAsString.intValue();
+            var level:int = int(int(parseInt(levelAsString)));
             var gameInfo:GameInfo = this.gameLayerManager.getGameInfo();
             gameInfo.setCurrentLevel(level);
         }
     }
     
 
-    override public function getLoadStateHashtable():ABHashtable {
+    public function getLoadStateHashtable():ABHashtable {
         this.logUtil.putF(new StringMaker().append(this.commonLabels.START_LABEL).append(this.stringUtil.toString1(this.hashtable)).toString(), this, "getLoadStateHashtable");
         return this.hashtable;
     }
     
 
-    override public function setLoadStateHashtable(hashtable:ABHashtable):void {
+    public function setLoadStateHashtable(hashtable:ABHashtable):void {
         this.logUtil.putF(new StringMaker().append(this.commonLabels.START_LABEL).append(this.stringUtil.toString1(hashtable)).toString(), this, "setLoadStateHashtable");
         this.hashtable = hashtable;
     }
     
 
-    override public function getCurrentStateHashtable():ABHashtable {
+    public function getCurrentStateHashtable():ABHashtable {
         var hashtable:ABHashtable = this.stdUtil.createHashtable();
         var level:int = this.gameLayerManager.getGameInfo().getCurrentLevel();
-        hashtable.put(GameInfo.LEVEL_NAME.toString(), String(level));
+        hashtable.put(GameInfo.LEVEL_NAME, String(level));
         this.logUtil.putF(new StringMaker().append("End: ").append(this.stringUtil.toString1(hashtable)).toString(), this, "getCurrentStateHashtable");
         return hashtable;
     }
@@ -1008,19 +1014,43 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function draw(graphics:Graphics):void {
+    override public function draw(...args):void {
+        if (args.length == 1) {
+            this.draw_jo1(args[0]);
+            return;
+        }
+        super.draw.apply(this, args);
+    }
+
+    private function draw_jo1(graphics:Graphics):void {
         this.colorFillPaintable.paint(graphics);
         this.basicSetColorUtil.setBasicColorP(graphics, this.gameLayerManager.getForegroundBasicColor());
         this.gameSpecificPaintable.paint(graphics);
     }
     
 
-    public function clear(graphics:Graphics):void {
+    public function clear(...args):void {
+        if (args.length == 1) {
+            this.clear_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "clear");
+    }
+
+    private function clear_jo1(graphics:Graphics):void {
         this.colorFillPaintable.paint(graphics);
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
         this.baseGameStatistics.nextRefresh();
         this.draw(graphics);
@@ -1029,7 +1059,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function paintThreed(graphics:Graphics):void {
+    public function paintThreed(graphics:Graphics):void {
     }
     
 
@@ -1284,12 +1314,12 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function isInitialized():Boolean {
+    public function isInitialized():Boolean {
         return this.initialized;
     }
     
 
-    override public function getSourceId():int {
+    public function getSourceId():int {
         return AllBinaryGameCanvas.id;
     }
     
@@ -1299,12 +1329,12 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function getStartIntermissionInterface():IntermissionInterface {
+    public function getStartIntermissionInterface():IntermissionInterface {
         return this.startIntermissionInterface;
     }
     
 
-    override public function getEndLevelIntermissionInterface():IntermissionInterface {
+    public function getEndLevelIntermissionInterface():IntermissionInterface {
         return this.endLevelIntermissionInterface;
     }
     

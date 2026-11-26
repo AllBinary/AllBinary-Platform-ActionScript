@@ -67,7 +67,7 @@ package org.allbinary.util {
     
 
     public function copyOflong(original:Vector.<Number>, newLength:int):Vector.<Number> {
-        var copy:Vector.<Number> = JArrays.numbers(newLength);
+        var copy:Vector.<Number> = JVectors.numbers(newLength);
         JSystem.arraycopy(original, 0, copy, 0, this.mathUtil.min(original.length, newLength));
         return copy;
     }
@@ -81,14 +81,14 @@ package org.allbinary.util {
     
 
     public function copyOffloat(original:Vector.<Number>, newLength:int):Vector.<Number> {
-        var copy:Vector.<Number> = JArrays.numbers(newLength);
+        var copy:Vector.<Number> = JVectors.numbers(newLength);
         JSystem.arraycopy(original, 0, copy, 0, this.mathUtil.min(original.length, newLength));
         return copy;
     }
     
 
     public function copyOfdouble(original:Vector.<Number>, newLength:int):Vector.<Number> {
-        var copy:Vector.<Number> = JArrays.numbers(newLength);
+        var copy:Vector.<Number> = JVectors.numbers(newLength);
         JSystem.arraycopy(original, 0, copy, 0, this.mathUtil.min(original.length, newLength));
         return copy;
     }

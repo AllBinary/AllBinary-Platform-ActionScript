@@ -15,6 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.media.audio {
     import java.io.JInputStream;
+    import javax.microedition.media.Player;
     import org.allbinary.TsUtil;
     import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
     import org.allbinary.logic.communication.log.LogUtil;
@@ -61,7 +62,7 @@ package org.allbinary.media.audio {
     }
     
 
-    public static function createPlayerFromInputStream(stream:InputStream, type:String):Player {
+    public static function createPlayerFromInputStream(stream:JInputStream, type:String):Player {
         var logUtil:LogUtil = LogUtil.getInstance();
         var commonString:CommonStrings = CommonStrings.getInstance();
         logUtil.putF(commonString.START, AllBinaryMediaManager.THIS, "creatPlayer(InputStream)");

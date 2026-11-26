@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.Canvas;
     import org.allbinary.game.input.GameInputStrings;
     import org.allbinary.game.input.event.GameKeyEvent;
     import org.allbinary.graphics.GPoint;
@@ -48,7 +49,15 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    public function init(rectangle:Rectangle):void {
+    public function init(...args):void {
+        if (args.length == 1) {
+            this.init_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo1(rectangle:Rectangle):void {
         this.rectangle = rectangle;
     }
     
@@ -63,7 +72,14 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function processInputList():int {
+    override public function processInputList(...args):* {
+        if (args.length == 0) {
+            return this.processInputList_jo0();
+        }
+        return super.processInputList.apply(this, args);
+    }
+
+    private function processInputList_jo0():int {
         try {
             var motionInputsIndex:int = this.processMotionInputs();
             var list:BasicArrayList = this.getGameKeyEventList();

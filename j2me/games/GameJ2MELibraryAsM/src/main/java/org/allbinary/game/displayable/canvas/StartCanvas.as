@@ -14,6 +14,10 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Item;
     import org.allbinary.J2MEUtil;
     import org.allbinary.animation.Animation;
     import org.allbinary.animation.IndexedAnimationBehavior;
@@ -194,12 +198,12 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function onEvent(eventObject:AllBinaryEventObject):void {
+    public function onEvent(eventObject:AllBinaryEventObject):void {
         ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
 
-    override public function onDisplayChangeEvent(displayChangeEvent:DisplayChangeEvent):void {
+    public function onDisplayChangeEvent(displayChangeEvent:DisplayChangeEvent):void {
         try {
             var scrollSelectionForm:ScrollSelectionForm = this.getMenuForm();
             if (scrollSelectionForm != null) {
@@ -269,7 +273,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function itemStateChanged(item:Item):void {
+    public function itemStateChanged(item:Item):void {
         ForcedLogUtil.log(this.commonStrings.NOT_IMPLEMENTED, this);
     }
     
@@ -280,19 +284,19 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function open():void {
+    public function open():void {
         BasicMotionGesturesHandler.getInstance().addListenerInterface(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().addListener(this.getMenuInputProcessor());
     }
     
 
-    override public function close():void {
+    public function close():void {
         BasicMotionGesturesHandler.getInstance().removeListener(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().removeListener(this.getMenuInputProcessor());
     }
     
 
-    override public function getSourceId():int {
+    public function getSourceId():int {
         return StartCanvas.id;
     }
     
@@ -380,34 +384,42 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function isGameOver():Boolean {
+    public function isGameOver():Boolean {
         this.logUtil.putF(new StringMaker().append(this.commonStrings.NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver");
         return false;
     }
     
 
-    override public function setLoadStateHashtable(hashtable:ABHashtable):void {
+    public function setLoadStateHashtable(hashtable:ABHashtable):void {
         this.logUtil.putF("Trying to continue a demo lol - only continue a game canvas not the demo", this, "setLoadStateHashtable");
     }
     
 
-    override public function getLoadStateHashtable():ABHashtable {
+    public function getLoadStateHashtable():ABHashtable {
         this.logUtil.putF("Trying to continue a demo lol - only continue a game canvas not the demo", this, "getLoadStateHashtable");
         return this.stdUtil.NULL_TABLE;
     }
     
 
-    override public function getCurrentStateHashtable():ABHashtable {
+    public function getCurrentStateHashtable():ABHashtable {
         this.logUtil.putF("Trying to save the AI lol", this, "getCurrentStateHashtable");
         return this.stdUtil.NULL_TABLE;
     }
     
 
-    override public function setHighScoreSubmitted(isNotUsed:Boolean):void {
+    public function setHighScoreSubmitted(isNotUsed:Boolean):void {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.paintableInterface.paint(graphics);
         this.paintedSpecialAnimationInterface.paintXY(graphics, 0, 0);
         this.highScoresPaintable.paint(graphics);
@@ -417,13 +429,13 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function paintThreed(graphics:Graphics):void {
+    public function paintThreed(graphics:Graphics):void {
         this.paintableInterface.paintThreed(graphics);
         this.paintedSpecialAnimationInterface.paintThreedXYZ(graphics, 0, 0, 0);
     }
     
 
-    override public function processGameOver():void {
+    public function processGameOver():void {
         this.logUtil.putF("Not Implemented since not a game", this, "setGameOver");
     }
     
@@ -496,7 +508,15 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function process():void {
+    override public function process(...args):void {
+        if (args.length == 0) {
+            this.process_jo0();
+            return;
+        }
+        super.process.apply(this, args);
+    }
+
+    private function process_jo0():void {
         this.getMenuInputProcessor().processInputList();
         this.preDemoProcess();
         if (this.state == 0) {
@@ -582,11 +602,11 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function setGameState(gameState:GameState):void {
+    public function setGameState(gameState:GameState):void {
     }
     
 
-    override public function getGameState():GameState {
+    public function getGameState():GameState {
         return this.gameStateFactory.PLAYING_GAME_STATE;
     }
     
@@ -601,7 +621,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function isHighScoreSubmitted():Boolean {
+    public function isHighScoreSubmitted():Boolean {
         this.logUtil.putF("Wow the AI got a high score!", this, "isHighScoreSubmitted");
         return false;
     }
@@ -668,7 +688,7 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function isInitialized():Boolean {
+    public function isInitialized():Boolean {
         return this.initialized;
     }
     

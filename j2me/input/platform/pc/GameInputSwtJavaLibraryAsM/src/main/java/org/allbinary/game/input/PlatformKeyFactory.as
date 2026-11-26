@@ -26,6 +26,10 @@ package org.allbinary.game.input {
         }
         return PlatformKeyFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        PlatformKeyFactory.instance_set = true;
+        PlatformKeyFactory.instance_value = value;
+    }
     
 
     public static function getInstance():PlatformKeyFactory {

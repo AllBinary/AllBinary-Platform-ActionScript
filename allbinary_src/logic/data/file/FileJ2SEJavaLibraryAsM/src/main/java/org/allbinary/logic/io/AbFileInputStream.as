@@ -20,7 +20,7 @@ package org.allbinary.logic.io {
     import org.allbinary.logic.io.file.AbFile;
     import org.allbinary.logic.io.file.AbFileNativeUtil;
 
-    public class AbFileInputStream extends FileInputStream {
+    public class AbFileInputStream extends JFileInputStream {
     
 
     public function AbFileInputStream(name:String) {

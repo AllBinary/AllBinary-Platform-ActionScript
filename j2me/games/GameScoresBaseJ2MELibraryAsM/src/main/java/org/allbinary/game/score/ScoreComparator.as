@@ -18,6 +18,8 @@ package org.allbinary.game.score {
     import java.io.JDataInputStream;
     import java.io.JEOFException;
     import java.io.JIOException;
+    import javax.microedition.rms.RecordComparator;
+    import javax.microedition.rms.RecordComparatorConstants;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.string.CommonStrings;
     import java.lang.JLong;
@@ -46,10 +48,10 @@ package org.allbinary.game.score {
     
 
     public function compare(recordOne:Vector.<int>, recordTwo:Vector.<int>):int {
-        var byteArrayInputStreamOne:ByteArrayInputStream = new ByteArrayInputStream(recordOne);
-        var inputStreamOne:DataInputStream = new DataInputStream(byteArrayInputStreamOne);
-        var byteArrayInputStreamTwo:ByteArrayInputStream = new ByteArrayInputStream(recordTwo);
-        var inputStreamTwo:DataInputStream = new DataInputStream(byteArrayInputStreamTwo);
+        var byteArrayInputStreamOne:JByteArrayInputStream = new JByteArrayInputStream(recordOne);
+        var inputStreamOne:JDataInputStream = new JDataInputStream(byteArrayInputStreamOne);
+        var byteArrayInputStreamTwo:JByteArrayInputStream = new JByteArrayInputStream(recordTwo);
+        var inputStreamTwo:JDataInputStream = new JDataInputStream(byteArrayInputStreamTwo);
         var scoreOne:Number = 0;
         var scoreTwo:Number = 0;
         try {
@@ -77,22 +79,22 @@ package org.allbinary.game.score {
 
     public function getHighTooLow(scoreOne:Number, scoreTwo:Number):int {
         if (scoreOne > scoreTwo) {
-            return RecordComparator.PRECEDES;
+            return RecordComparatorConstants.PRECEDES;
         } else if (scoreOne < scoreTwo) {
-            return RecordComparator.FOLLOWS;
+            return RecordComparatorConstants.FOLLOWS;
         } else {
-            return RecordComparator.EQUIVALENT;
+            return RecordComparatorConstants.EQUIVALENT;
         }
     }
     
 
     public function getLowTooHigh(scoreOne:Number, scoreTwo:Number):int {
         if (scoreOne < scoreTwo) {
-            return RecordComparator.PRECEDES;
+            return RecordComparatorConstants.PRECEDES;
         } else if (scoreOne > scoreTwo) {
-            return RecordComparator.FOLLOWS;
+            return RecordComparatorConstants.FOLLOWS;
         } else {
-            return RecordComparator.EQUIVALENT;
+            return RecordComparatorConstants.EQUIVALENT;
         }
     }
     }

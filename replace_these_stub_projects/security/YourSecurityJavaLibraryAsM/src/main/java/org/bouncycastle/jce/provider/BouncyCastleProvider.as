@@ -2,7 +2,7 @@
 package org.bouncycastle.jce.provider {
     import java.security.JProvider;
 
-    public final class BouncyCastleProvider extends Provider {
+    public final class BouncyCastleProvider extends JProvider {
     private static var info:String = "BouncyCastle Security Provider v1.41";
     public static var PROVIDER_NAME:String = "BC";
     

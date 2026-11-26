@@ -19,7 +19,15 @@ package org.allbinary.android.input.motion.button {
     public class TouchButtonAndroidResources extends Init {
     
 
-    override public function init():void {
+    override public function init(...args):void {
+        if (args.length == 0) {
+            this.init_jo0();
+            return;
+        }
+        super.init.apply(this, args);
+    }
+
+    private function init_jo0():void {
     }
     }
 }

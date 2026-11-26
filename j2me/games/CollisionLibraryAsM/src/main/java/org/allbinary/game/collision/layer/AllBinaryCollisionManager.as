@@ -29,6 +29,10 @@ package org.allbinary.game.collision.layer {
         }
         return AllBinaryCollisionManager.allBinaryCollisionManager_value;
     }
+    private static function set allBinaryCollisionManager(value:AllBinaryCollisionManager):void {
+        AllBinaryCollisionManager.allBinaryCollisionManager_set = true;
+        AllBinaryCollisionManager.allBinaryCollisionManager_value = value;
+    }
     
 
     public function AllBinaryCollisionManager() {

@@ -35,6 +35,10 @@ package org.allbinary.game.layer.resources {
         }
         return GameGraphicsResourceUtil.instance_value;
     }
+    private static function set instance(value:Object):void {
+        GameGraphicsResourceUtil.instance_set = true;
+        GameGraphicsResourceUtil.instance_value = value;
+    }
         public var logUtil:LogUtil = null;
         public var SPRITE:String = null;
         public var QUARTER:String = null;

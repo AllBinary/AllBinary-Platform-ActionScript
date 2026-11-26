@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.feature {
+    import javax.microedition.lcdui.ChoiceGroup;
+    import javax.microedition.lcdui.Item;
+    import javax.microedition.lcdui.ItemStateListener;
     import org.allbinary.game.configuration.GameConfigurationGauge;
     import org.allbinary.game.configuration.GameConfigurationUtil;
     import org.allbinary.game.configuration.GameOptionsForm;
@@ -33,6 +36,10 @@ package org.allbinary.game.configuration.feature {
             GameFeatureItemStateListener.toggleList_value = new BasicArrayListD();
         }
         return GameFeatureItemStateListener.toggleList_value;
+    }
+    private static function set toggleList(value:BasicArrayList):void {
+        GameFeatureItemStateListener.toggleList_set = true;
+        GameFeatureItemStateListener.toggleList_value = value;
     }
         public var logUtil:LogUtil = null;
         private var gameOptionsForm:GameOptionsForm = null;

@@ -14,6 +14,10 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.score.displayable {
+    import javax.microedition.lcdui.CommandListener;
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.TextField;
     import org.allbinary.PostGameCommandFactory;
     import org.allbinary.game.GameInfo;
     import org.allbinary.game.score.HighScore;
@@ -91,14 +95,30 @@ package org.allbinary.game.score.displayable {
     }
     
 
-    override public function update():void {
+    override public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        super.update.apply(this, args);
+    }
+
+    private function update_jo0():void {
         var name:String = this.getTextFieldItem().getString();
         this.highScoreUtil.update(name);
         super.update();
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         super.paint(graphics);
         this.paintable.paint(graphics);
     }
@@ -109,7 +129,15 @@ package org.allbinary.game.score.displayable {
     }
     
 
-    override public function submit():void {
+    override public function submit(...args):void {
+        if (args.length == 0) {
+            this.submit_jo0();
+            return;
+        }
+        super.submit.apply(this, args);
+    }
+
+    private function submit_jo0():void {
         this.highScoreUtil.submit(this);
     }
     }

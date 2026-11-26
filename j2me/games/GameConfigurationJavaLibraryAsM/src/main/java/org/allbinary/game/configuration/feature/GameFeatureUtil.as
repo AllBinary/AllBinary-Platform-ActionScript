@@ -15,6 +15,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.game.configuration.feature {
     import java.util.JEnumeration;
+    import javax.microedition.lcdui.ChoiceGroup;
     import org.allbinary.TsUtil;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.logic.string.StringMaker;

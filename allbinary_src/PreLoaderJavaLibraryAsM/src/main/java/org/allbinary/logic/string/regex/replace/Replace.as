@@ -23,6 +23,7 @@ package org.allbinary.logic.string.regex.replace {
     import org.allbinary.logic.string.StringMaker;
     import org.allbinary.logic.string.StringUtil;
     import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+    import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
     import java.lang.JInteger;
 
     public class Replace {
@@ -44,31 +45,71 @@ package org.allbinary.logic.string.regex.replace {
         }
     
 
-    public function Replace(key:String, value:String = null) {
+    public function Replace(...args) {
+        if (args.length == 2 && args[0] === JSuperArgs.ARGS) {
+            args = args[1];
+        }
+        var jsuper:Array = Replace.jsuperArgs(args);
         super();
         this.initFieldsReplace();
+        this.jconstruct(args);
+    }
+
+    private static function jsuperArgs(args:Array):Array {
+        if (args.length == 2 && args[0] is String && args[1] is String) {
+            return Replace.jsuper_1(args[0], args[1]);
+        }
+        if (args.length == 2) {
+            return Replace.jsuper_2(args[0], args[1]);
+        }
+        if (args.length == 1) {
+            return Replace.jsuper_3(args[0]);
+        }
+        return [];
+    }
+
+    private static function jsuper_1(key:String, value:String):Array {
+        return [];
+    }
+
+    private static function jsuper_2(keys:Vector.<String>, values:Vector.<String>):Array {
+        return [];
+    }
+
+    private static function jsuper_3(hashMap:JHashMap):Array {
+        return [];
+    }
+
+    private function jconstruct(args:Array):void {
+        if (args.length == 2 && args[0] is String && args[1] is String) {
+            this.jconstruct_1(args[0], args[1]);
+            return;
+        }
+        if (args.length == 2) {
+            this.jconstruct_2(args[0], args[1]);
+            return;
+        }
+        if (args.length == 1) {
+            this.jconstruct_3(args[0]);
+            return;
+        }
+    }
+
+    private function jconstruct_1(key:String, value:String):void {
         this.hashMap = StdUtil.getInstance().createHashMap();
         this.hashMap.put(new <String>[key], new <String>[value]);
     }
-    
 
-    /* Java constructor: ActionScript classes have one constructor
-    public function Replace(keys:Vector.<String>, values:Vector.<String> = null) {
-        super();
-        this.initFieldsReplace();
+    private function jconstruct_2(keys:Vector.<String>, values:Vector.<String>):void {
         this.hashMap = StdUtil.getInstance().createHashMap();
         this.hashMap.put(keys, values);
     }
-    */
-    
 
-    /* Java constructor: ActionScript classes have one constructor
-    public function Replace(hashMap:JHashMap) {
-        super();
-        this.initFieldsReplace();
+    private function jconstruct_3(hashMap:JHashMap):void {
         this.hashMap = hashMap;
     }
-    */
+    
+    
     
 
     public function all(replace:String):String {
@@ -84,8 +125,8 @@ package org.allbinary.logic.string.regex.replace {
         var keyArray:Vector.<Object> = this.j2seUtil.getHashMapAsArray(this.hashMap);
         var size:int = keyArray.length;
         for (var index2:int = 0; index2 < size; index2++) {
-            keys = (keyArray[index2] as Vector.<String>);
-            values = (this.hashMap.get_(keys) as Vector.<String>);
+            keys = (JVectors.castVector(keyArray[index2], Vector.<String>) as Vector.<String>);
+            values = (JVectors.castVector(this.hashMap.get_(keys), Vector.<String>) as Vector.<String>);
             var foundTotal:Number = 0;
             var index:int = 0;
             var nextKey:String = null;
@@ -130,7 +171,7 @@ package org.allbinary.logic.string.regex.replace {
             }
         }
         if (totalNumberOfReplaces > 0) {
-            if (LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().REPLACE)) {
                 this.logUtil.putF("Total Number Of Replaces: " + String(totalNumberOfReplaces), this, this.ALL);
             }
         }
@@ -167,7 +208,7 @@ package org.allbinary.logic.string.regex.replace {
                 }
             }
         }
-        if (LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE)) {
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().REPLACE)) {
             this.logUtil.putF("Total Number Of Replaces: " + String(totalNumberOfReplaces), this, this.ALL);
         }
         return replace;

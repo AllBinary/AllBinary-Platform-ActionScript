@@ -44,32 +44,32 @@ package org.allbinary.time {
     
 
     public function setCalendar(calendar:JCalendar, yearString:String, monthString:String, dayString:String, hourString:String):void {
-        var year:int = yearString.intValue();
-        var month:int = monthString.intValue();
-        var day:int = dayString.intValue();
-        var hour:int = hourString.intValue();
+        var year:int = int(yearString);
+        var month:int = int(monthString);
+        var day:int = int(dayString);
+        var hour:int = int(hourString);
         calendar.set_(year, month, day, hour, 0);
     }
     
 
     public function setCalendarWithTime(calendar:JCalendar, yearString:String, monthString:String, dayString:String, hourString:String, minuteString:String, secondString:String):void {
-        var year:int = yearString.intValue();
-        var month:int = monthString.intValue();
-        var day:int = dayString.intValue();
-        var hour:int = hourString.intValue();
-        var minute:int = minuteString.intValue();
-        var second:int = secondString.intValue();
+        var year:int = int(yearString);
+        var month:int = int(monthString);
+        var day:int = int(dayString);
+        var hour:int = int(hourString);
+        var minute:int = int(minuteString);
+        var second:int = int(secondString);
         calendar.set_(year, month, day, hour, minute, second);
     }
     
 
     public function setExpirationCalendar(calendar:JCalendar, yearsString:String, monthsString:String, daysString:String, hoursString:String, minutesString:String, secondsString:String):void {
-        var year:int = calendar.get_(JCalendar.YEAR) + yearsString.intValue();
-        var month:int = calendar.get_(JCalendar.MONTH) + monthsString.intValue();
-        var day:int = calendar.get_(JCalendar.DAY_OF_MONTH) + daysString.intValue();
-        var hour:int = calendar.get_(JCalendar.HOUR) + hoursString.intValue();
-        var minute:int = calendar.get_(JCalendar.MINUTE) + minutesString.intValue();
-        var second:int = calendar.get_(JCalendar.SECOND) + secondsString.intValue();
+        var year:int = calendar.get_(JCalendar.YEAR) + int(yearsString);
+        var month:int = calendar.get_(JCalendar.MONTH) + int(monthsString);
+        var day:int = calendar.get_(JCalendar.DAY_OF_MONTH) + int(daysString);
+        var hour:int = calendar.get_(JCalendar.HOUR) + int(hoursString);
+        var minute:int = calendar.get_(JCalendar.MINUTE) + int(minutesString);
+        var second:int = calendar.get_(JCalendar.SECOND) + int(secondsString);
         calendar.set_(year, month, day, hour, minute, second);
     }
     

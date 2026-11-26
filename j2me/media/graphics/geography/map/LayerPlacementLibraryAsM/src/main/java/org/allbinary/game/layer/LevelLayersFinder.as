@@ -61,7 +61,7 @@ package org.allbinary.game.layer {
         while (this.enumerationUtil.hasMoreElements(enumeration)) {
             layerHashtableCanBeNull = (hashtable.get_((this.enumerationUtil.nextElement(enumeration) as Object)) as ABHashtable);
             integerCanBeNull = (layerHashtableCanBeNull.get_((Layer.ID as Object)) as *);
-            cachedIntegerCanBeNull = smallIntegerSingletonFactory.getAt(integerCanBeNull.intValue());
+            cachedIntegerCanBeNull = smallIntegerSingletonFactory.getAt(int(integerCanBeNull));
             if (!list.contains(cachedIntegerCanBeNull)) {
                 list.add(cachedIntegerCanBeNull);
             }

@@ -33,6 +33,10 @@ package org.allbinary.game.resource {
         }
         return FeaturedResourceRelativeRelationshipFactory.INSTANCE_value;
     }
+    private static function set INSTANCE(value:FeaturedResourceRelativeRelationshipFactory):void {
+        FeaturedResourceRelativeRelationshipFactory.INSTANCE_set = true;
+        FeaturedResourceRelativeRelationshipFactory.INSTANCE_value = value;
+    }
         private var basicArrayListUtil:BasicArrayListUtil = null;
 
         // Java field initializers run after the base constructor

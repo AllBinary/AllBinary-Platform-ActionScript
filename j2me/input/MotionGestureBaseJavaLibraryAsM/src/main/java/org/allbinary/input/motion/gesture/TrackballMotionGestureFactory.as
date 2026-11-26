@@ -27,6 +27,10 @@ package org.allbinary.input.motion.gesture {
         }
         return TrackballMotionGestureFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        TrackballMotionGestureFactory.instance_set = true;
+        TrackballMotionGestureFactory.instance_value = value;
+    }
         public var LEFT:MotionGestureInput = null;
         public var RIGHT:MotionGestureInput = null;
         public var UP:MotionGestureInput = null;

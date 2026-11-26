@@ -14,8 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.loader {
+    import java.lang.JClassLoader;
 
-    public class NativeLibraryClassLoader extends ClassLoader {
+    public class NativeLibraryClassLoader extends JClassLoader {
         private var message:String = null;
 
         // Java field initializers run after the base constructor
@@ -24,7 +25,7 @@ package org.allbinary.logic.system.loader {
         }
     
 
-    public function NativeLibraryClassLoader(parent:ClassLoader) {
+    public function NativeLibraryClassLoader(parent:JClassLoader) {
         super(parent);
         this.initFieldsNativeLibraryClassLoader();
     }

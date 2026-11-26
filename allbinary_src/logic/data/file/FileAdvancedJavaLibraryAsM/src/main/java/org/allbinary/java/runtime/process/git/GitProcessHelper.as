@@ -25,6 +25,8 @@ package org.allbinary.java.runtime.process.git {
     import org.allbinary.logic.io.file.directory.TrackedStrings;
     import org.allbinary.logic.string.StringMaker;
     import org.allbinary.string.CommonStrings;
+    import java.lang.JProcess;
+    import java.lang.JProcessBuilder;
 
     //Do not use this instead just skip target, build, Application paths.
     public class GitProcessHelper {
@@ -60,24 +62,33 @@ package org.allbinary.java.runtime.process.git {
     }
     
 
-    public function trackedFiles(rootAsString:String, pathspec:String):List {
+    public function trackedFiles(...args):JList {
+        if (args.length == 2) {
+            return this.trackedFiles_jo2(args[0], args[1]);
+        }
+        if (args.length == 3) {
+            return this.trackedFiles_jo3(args[0], args[1], args[2]);
+        }
+        throw new JException("IllegalArgumentException", "trackedFiles");
+    }
+
+    private function trackedFiles_jo2(rootAsString:String, pathspec:String):JList {
         return this.trackedFiles(rootAsString, pathspec, ".java");
     }
-    
 
-    public function trackedFiles(rootAsString:String, pathspec:String, suffix:String):List {
-        var process:Process = new ProcessBuilder(this.trackedStrings.GIT_COMMAND, this.trackedStrings.CHANGE_DIRECTORY_OPTION, rootAsString, this.trackedStrings.LIST_FILES_COMMAND, this.trackedStrings.SEP_BY_NULL_CHAR_INSTEAD_OF_NEW_LINE, this.trackedStrings.PATHSPEC_SEPARATOR, pathspec).redirectError(ProcessBuilder.Redirect.INHERIT).start();
+    private function trackedFiles_jo3(rootAsString:String, pathspec:String, suffix:String):JList {
+        var process:JProcess = new JProcessBuilder(this.trackedStrings.GIT_COMMAND, this.trackedStrings.CHANGE_DIRECTORY_OPTION, rootAsString, this.trackedStrings.LIST_FILES_COMMAND, this.trackedStrings.SEP_BY_NULL_CHAR_INSTEAD_OF_NEW_LINE, this.trackedStrings.PATHSPEC_SEPARATOR, pathspec).redirectError(JProcessBuilder.Redirect.INHERIT).start();
         var output:Vector.<int> = process.getInputStream().readAllBytes();
         var exitCode:int = process.waitFor();
         if (exitCode != 0) {
             throw new JException("IllegalStateException", new StringMaker().append("git ls-files failed for ").append(rootAsString).append(" with exit code ").appendint(exitCode).toString());
         }
-        var files:List = new ArrayList();
+        var files:JList = new JArrayList();
         var start:int = 0;
         var relativePath:String = null;
         for (var index:int = 0; index < output.length; index++) {
             if (output[index] == 0) {
-                relativePath = JString.fromChars(output, start, int(index - start), StandardCharsets.UTF_8);
+                relativePath = JString.ofBytes(output, start, int(index - start), JStandardCharsets.UTF_8);
                 if (JString.endsWith(relativePath, suffix)) {
                     files.add(relativePath);
                 }
@@ -87,12 +98,13 @@ package org.allbinary.java.runtime.process.git {
         return files;
     }
     
+    
 
     public function isTracked(file:AbFile):Boolean {
         try {
             var nativeFile:JFile = AbFileNativeUtil.get_(file);
             var parentFile:JFile = nativeFile.getParentFile();
-            var process:Process = new ProcessBuilder(this.trackedStrings.GIT_COMMAND, this.trackedStrings.CHANGE_DIRECTORY_OPTION, parentFile.getPath(), this.trackedStrings.LIST_FILES_COMMAND, this.trackedStrings.ERROR_UNMATCH_OPTION, this.trackedStrings.PATHSPEC_SEPARATOR, nativeFile.getName()).redirectErrorStream(true).start();
+            var process:JProcess = new JProcessBuilder(this.trackedStrings.GIT_COMMAND, this.trackedStrings.CHANGE_DIRECTORY_OPTION, parentFile.getPath(), this.trackedStrings.LIST_FILES_COMMAND, this.trackedStrings.ERROR_UNMATCH_OPTION, this.trackedStrings.PATHSPEC_SEPARATOR, nativeFile.getName()).redirectErrorStream(true).start();
             process.getInputStream().readAllBytes();
             return process.waitFor() == 0;
         } catch (e:*) {

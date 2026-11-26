@@ -33,6 +33,10 @@ package org.allbinary.input.motion.button {
         }
         return BasicTouchInputFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        BasicTouchInputFactory.instance_set = true;
+        BasicTouchInputFactory.instance_value = value;
+    }
         public var logUtil:LogUtil = null;
         public var SPECIAL_BUTTON_SIX:TouchButtonInput = null;
         public var SPECIAL_BUTTON_FIVE:TouchButtonInput = null;

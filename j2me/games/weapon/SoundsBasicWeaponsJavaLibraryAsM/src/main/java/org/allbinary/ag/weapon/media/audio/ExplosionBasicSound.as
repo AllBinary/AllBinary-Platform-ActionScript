@@ -27,6 +27,10 @@ package org.allbinary.ag.weapon.media.audio {
         }
         return ExplosionBasicSound.soundInterface_value;
     }
+    private static function set soundInterface(value:Sound):void {
+        ExplosionBasicSound.soundInterface_set = true;
+        ExplosionBasicSound.soundInterface_value = value;
+    }
     
 
     public function ExplosionBasicSound() {

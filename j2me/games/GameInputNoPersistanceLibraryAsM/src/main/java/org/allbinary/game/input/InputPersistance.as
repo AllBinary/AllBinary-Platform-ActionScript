@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.input {
+    import javax.microedition.rms.RecordEnumeration;
+    import javax.microedition.rms.RecordStore;
     import org.allbinary.game.configuration.persistance.BasicPersitance;
     import org.allbinary.game.configuration.persistance.NullRecordComparator;
     import org.allbinary.game.configuration.persistance.NullRecordFilter;

@@ -27,6 +27,10 @@ package org.allbinary.ag.weapon.media.audio {
         }
         return DropWeaponSound.soundInterface_value;
     }
+    private static function set soundInterface(value:Sound):void {
+        DropWeaponSound.soundInterface_set = true;
+        DropWeaponSound.soundInterface_value = value;
+    }
     
 
     public function DropWeaponSound() {

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.layer {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.identification.BasicGroupFactory;
     import org.allbinary.game.identification.Group;
     import org.allbinary.graphics.GPoint;
@@ -72,7 +73,15 @@ package org.allbinary.layer {
     }
     
 
-    override public function setPosition(x:int, y:int, z:int):void {
+    override public function setPosition(...args):void {
+        if (args.length == 3) {
+            this.setPosition_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        super.setPosition.apply(this, args);
+    }
+
+    private function setPosition_jo3(x:int, y:int, z:int):void {
         super.setPosition(x, y, z);
     }
     
@@ -117,7 +126,15 @@ package org.allbinary.layer {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         super.paint(graphics);
     }
     
@@ -141,7 +158,7 @@ package org.allbinary.layer {
     
 
     public function getZ2():int {
-        return (this.getZP() + this.getDepth());
+        return int((Number(this.getZP()) + this.getDepth()));
     }
     
 
@@ -171,7 +188,7 @@ package org.allbinary.layer {
     
 
     public function getHalfDepth():int {
-        return int(this.getDepth() / 2);
+        return int(int(this.getDepth()) / 2);
     }
     
 

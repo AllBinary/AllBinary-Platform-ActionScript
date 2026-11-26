@@ -37,6 +37,10 @@ package org.allbinary.game.ag.layer.weapon.mine {
         }
         return MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface_value;
     }
+    private static function set pickedUpLayerInterfaceFactoryInterface(value:PickedUpLayerInterfaceFactoryInterface):void {
+        MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface_set = true;
+        MineCountedPickedUpLayerInterfaceFactory.pickedUpLayerInterfaceFactoryInterface_value = value;
+    }
         private var weaponLayerCircularStaticPool:WeaponLayerCircularPool = null;
         private var weaponProperties:WeaponProperties = null;
         private var smallIntegerSingletonFactory:SmallIntegerSingletonFactory = null;
@@ -74,7 +78,7 @@ package org.allbinary.game.ag.layer.weapon.mine {
         var sourceLayerInterface:AllBinaryLayer = (hashtable.get_((this.smallIntegerSingletonFactory.getAt(0) as Object)) as AllBinaryLayer);
         var angle:* = (hashtable.get_((this.smallIntegerSingletonFactory.getAt(1) as Object)) as *);
         var scoreableInterface:ScoreableInterface = (sourceLayerInterface as ScoreableInterface);
-        return this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(sourceLayerInterface, x, y, z, angle.intValue(), 0, this.weaponProperties, scoreableInterface);
+        return this.weaponLayerCircularStaticPool.getInstanceWeaponLayer(sourceLayerInterface, x, y, z, int(angle), 0, this.weaponProperties, scoreableInterface);
     }
     }
 }

@@ -21,6 +21,7 @@ package org.allbinary.media.image {
     import java.awt.JTransparency;
     import java.awt.geom.JAffineTransform;
     import java.awt.image.JBufferedImage;
+    import javax.microedition.lcdui.Image;
     import org.allbinary.logic.string.StringMaker;
     import org.allbinary.string.CommonLabels;
     import org.allbinary.string.CommonSeps;
@@ -63,50 +64,50 @@ package org.allbinary.media.image {
     }
     
 
-    private function getDefaultConfiguration():GraphicsConfiguration {
-        var ge:GraphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        var gd:GraphicsDevice = ge.getDefaultScreenDevice();
+    private function getDefaultConfiguration():JGraphicsConfiguration {
+        var ge:JGraphicsEnvironment = JGraphicsEnvironment.getLocalGraphicsEnvironment();
+        var gd:JGraphicsDevice = ge.getDefaultScreenDevice();
         return gd.getDefaultConfiguration();
     }
     
 
-    public function create(width:int, height:int):BufferedImage {
-        var graphicsConfiguration:GraphicsConfiguration = this.getDefaultConfiguration();
-        return graphicsConfiguration.createCompatibleImage(width, height, Transparency.TRANSLUCENT);
+    public function create(width:int, height:int):JBufferedImage {
+        var graphicsConfiguration:JGraphicsConfiguration = this.getDefaultConfiguration();
+        return graphicsConfiguration.createCompatibleImage(width, height, JTransparency.TRANSLUCENT);
     }
     
 
-    public function createBufferedImageForResize(bufferedImageArray:Vector.<BufferedImage>, percent:int, scale:Boolean):Vector.<BufferedImage> {
+    public function createBufferedImageForResize(bufferedImageArray:Vector.<JBufferedImage>, percent:int, scale:Boolean):Vector.<JBufferedImage> {
         var size:int = bufferedImageArray.length;
-        var scaledBufferedImageArray:Vector.<BufferedImage> = new Vector.<BufferedImage>(size);
-        var bufferedImage:BufferedImage = null;
+        var scaledBufferedImageArray:Vector.<JBufferedImage> = new Vector.<JBufferedImage>(size);
+        var bufferedImage:JBufferedImage = null;
         for (var index:int = 0; index < size; index++) {
             bufferedImage = bufferedImageArray[index];
-            var newWidth:int = (bufferedImage.getWidth() * percent / 100);
-            var newHeight:int = (bufferedImage.getHeight() * percent / 100);
+            var newWidth:int = (int(int(bufferedImage.getWidth() * percent) / 100));
+            var newHeight:int = (int(int(bufferedImage.getHeight() * percent) / 100));
             scaledBufferedImageArray[index] = this.createBufferedImage(bufferedImage, newWidth, newHeight, scale);
         }
         return scaledBufferedImageArray;
     }
     
 
-    public function createBufferedImage2(bufferedImageArray:Vector.<BufferedImage>, percent:Number, scale:Boolean):Vector.<BufferedImage> {
+    public function createBufferedImage2(bufferedImageArray:Vector.<JBufferedImage>, percent:Number, scale:Boolean):Vector.<JBufferedImage> {
         var size:int = bufferedImageArray.length;
-        var scaledBufferedImageArray:Vector.<BufferedImage> = new Vector.<BufferedImage>(size);
-        var bufferedImage:BufferedImage = null;
+        var scaledBufferedImageArray:Vector.<JBufferedImage> = new Vector.<JBufferedImage>(size);
+        var bufferedImage:JBufferedImage = null;
         for (var index:int = 0; index < size; index++) {
             bufferedImage = bufferedImageArray[index];
-            var newWidth:int = (bufferedImage.getWidth() * percent);
-            var newHeight:int = (bufferedImage.getHeight() * percent);
+            var newWidth:int = JMath.toInt32((Number(bufferedImage.getWidth()) * percent));
+            var newHeight:int = JMath.toInt32((Number(bufferedImage.getHeight()) * percent));
             scaledBufferedImageArray[index] = this.createBufferedImage(bufferedImage, newWidth, newHeight, scale);
         }
         return scaledBufferedImageArray;
     }
     
 
-    public function createBufferedImage3(bufferedImageArray:Vector.<BufferedImage>, width:int, height:int, scale:Boolean):Vector.<BufferedImage> {
+    public function createBufferedImage3(bufferedImageArray:Vector.<JBufferedImage>, width:int, height:int, scale:Boolean):Vector.<JBufferedImage> {
         var size:int = bufferedImageArray.length;
-        var scaledBufferedImageArray:Vector.<BufferedImage> = new Vector.<BufferedImage>(size);
+        var scaledBufferedImageArray:Vector.<JBufferedImage> = new Vector.<JBufferedImage>(size);
         for (var index:int = 0; index < size; index++) {
             scaledBufferedImageArray[index] = this.createBufferedImage(bufferedImageArray[index], width, height, scale);
         }
@@ -114,19 +115,19 @@ package org.allbinary.media.image {
     }
     
 
-    public function createBufferedImageForSave(bufferedImage:BufferedImage, newWidth:int, newHeight:int):BufferedImage {
+    public function createBufferedImageForSave(bufferedImage:JBufferedImage, newWidth:int, newHeight:int):JBufferedImage {
         return this.createBufferedImage(bufferedImage, newWidth, newHeight, true);
     }
     
 
-    public function createBufferedImage(bufferedImage:BufferedImage, newWidth:int, newHeight:int, scale:Boolean):BufferedImage {
+    public function createBufferedImage(bufferedImage:JBufferedImage, newWidth:int, newHeight:int, scale:Boolean):JBufferedImage {
         return this.createBufferedImageAllowTranslate(bufferedImage, newWidth, newHeight, scale, false);
     }
     
 
-    public function createBufferedImageAllowTranslate(bufferedImage:BufferedImage, newWidth:int, newHeight:int, scale:Boolean, allowTranslate:Boolean):BufferedImage {
-        var width:Number = bufferedImage.getWidth();
-        var height:Number = bufferedImage.getHeight();
+    public function createBufferedImageAllowTranslate(bufferedImage:JBufferedImage, newWidth:int, newHeight:int, scale:Boolean, allowTranslate:Boolean):JBufferedImage {
+        var width:Number = Number(bufferedImage.getWidth());
+        var height:Number = Number(bufferedImage.getHeight());
         var d_newWidth:Number = Number(newWidth);
         var d_newHeight:Number = Number(newHeight);
         var widthRatio:Number = d_newWidth / width;
@@ -137,22 +138,22 @@ package org.allbinary.media.image {
             ratioX = widthRatio;
             ratioY = heightRatio;
         }
-        var affineTransform:AffineTransform = AffineTransform.getScaleInstance(ratioX, ratioY);
+        var affineTransform:JAffineTransform = JAffineTransform.getScaleInstance(ratioX, ratioY);
         if (!scale && allowTranslate) {
             var dx:Number = (Number(newWidth) - width) / 2.0;
             var dy:Number = (Number(newHeight) - height) / 2.0;
             affineTransform.translate(dx, dy);
         }
-        var newBufferedImage:BufferedImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_ARGB_PRE);
-        var graphics:Graphics2D = newBufferedImage.createGraphics();
+        var newBufferedImage:JBufferedImage = new JBufferedImage(newWidth, newHeight, JBufferedImage.TYPE_INT_ARGB_PRE);
+        var graphics:JGraphics2D = newBufferedImage.createGraphics();
         graphics.drawRenderedImage(bufferedImage, affineTransform);
         return newBufferedImage;
     }
     
 
-    public function createBufferedImageWithLargerCanvas(bufferedImage:BufferedImage, newWidth:int, newHeight:int):BufferedImage {
-        var width:Number = bufferedImage.getWidth();
-        var height:Number = bufferedImage.getHeight();
+    public function createBufferedImageWithLargerCanvas(bufferedImage:JBufferedImage, newWidth:int, newHeight:int):JBufferedImage {
+        var width:Number = Number(bufferedImage.getWidth());
+        var height:Number = Number(bufferedImage.getHeight());
         var d_newWidth:Number = Number(newWidth);
         var d_newHeight:Number = Number(newHeight);
         var widthRatio:Number = d_newWidth / width;
@@ -163,39 +164,39 @@ package org.allbinary.media.image {
         var dy:int = int(dy2 / 2);
         var dx4:int = int(dx2 / 4);
         var dy4:int = int(dy2 / 4);
-        var newBufferedImage:BufferedImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_ARGB_PRE);
-        var graphics:Graphics2D = newBufferedImage.createGraphics();
+        var newBufferedImage:JBufferedImage = new JBufferedImage(newWidth, newHeight, JBufferedImage.TYPE_INT_ARGB_PRE);
+        var graphics:JGraphics2D = newBufferedImage.createGraphics();
         graphics.drawImage(bufferedImage, dx4, dy4, null);
         return newBufferedImage;
     }
     
 
-    public function convertToBufferedImage(toolkitImage:Image):BufferedImage {
+    public function convertToBufferedImage(toolkitImage:Image):JBufferedImage {
         if (toolkitImage == null) {
             return null;
         }
-        var bufferedImage:BufferedImage = new BufferedImage(toolkitImage.getWidth(null), toolkitImage.getHeight(null), BufferedImage.TYPE_INT_ARGB);
-        var g2d:Graphics2D = bufferedImage.createGraphics();
+        var bufferedImage:JBufferedImage = new JBufferedImage(toolkitImage.getWidth(null), toolkitImage.getHeight(null), JBufferedImage.TYPE_INT_ARGB);
+        var g2d:JGraphics2D = bufferedImage.createGraphics();
         g2d.drawImage(toolkitImage, 0, 0, null);
         g2d.dispose();
         return bufferedImage;
     }
     
 
-    public function getBufferedImage(image:Image):BufferedImage {
-        var bufferedImage:BufferedImage = null;
+    public function getBufferedImage(image:Image):JBufferedImage {
+        var bufferedImage:JBufferedImage = null;
         if (image.isMutable()) {
             j2seImage = (image as J2SEMutableImage);
-            bufferedImage = (j2seImage.getImage() as BufferedImage);
+            bufferedImage = (j2seImage.getImage() as JBufferedImage);
         } else {
-            var j2seImage:J2SEImmutableImage = (image as J2SEImmutableImage);
-            bufferedImage = (j2seImage.getImage() as BufferedImage);
+            var j2seImage:* = (image as J2SEImmutableImage);
+            bufferedImage = (j2seImage.getImage() as JBufferedImage);
         }
         return bufferedImage;
     }
     
 
-    public function toString1(bufferedImage:BufferedImage):String {
+    public function toString1(bufferedImage:JBufferedImage):String {
         var commonLabels:CommonLabels = CommonLabels.getInstance();
         var stringBuffer:StringMaker = new StringMaker();
         stringBuffer.append(" BufferedImage -");

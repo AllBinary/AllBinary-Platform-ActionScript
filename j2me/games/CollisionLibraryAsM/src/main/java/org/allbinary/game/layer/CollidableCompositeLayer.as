@@ -39,6 +39,10 @@ package org.allbinary.game.layer {
         }
         return CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER_value;
     }
+    private static function set NULL_COLLIDABLE_COMPOSITE_LAYER(value:Object):void {
+        CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER_set = true;
+        CollidableCompositeLayer.NULL_COLLIDABLE_COMPOSITE_LAYER_value = value;
+    }
         private var collidableInferface:CollidableBaseBehavior = null;
 
         // Java field initializers run after the base constructor

@@ -16,6 +16,9 @@
 package org.allbinary.logic.system.security.crypt.jcehelper {
     import java.security.JSecurity;
     import java.security.spec.JKeySpec;
+    import javax.crypto.Cipher;
+    import javax.crypto.SecretKey;
+    import javax.crypto.SecretKeyFactory;
     import org.allbinary.TsUtil;
     import org.allbinary.init.crypt.jcehelper.CryptInterface;
     import org.allbinary.logic.NullUtil;
@@ -43,16 +46,24 @@ package org.allbinary.logic.system.security.crypt.jcehelper {
     }
     
 
-    public function init(keyAsString:String):void {
+    public function init(...args):void {
+        if (args.length == 1) {
+            this.init_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo1(keyAsString:String):void {
         var commonStrings:CommonStrings = CommonStrings.getInstance();
         try {
             try {
-                Security.addProvider(new BouncyCastleProvider());
+                JSecurity.addProvider(new BouncyCastleProvider());
             } catch (e:*) {
                 PreLogUtil.putOE(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
             }
             var key:Vector.<int> = this.tsUtil.getByteArray(keyAsString);
-            var keySpec:KeySpec = KeySpecFactory.getInstance().getInstance2(this.algorithm, key);
+            var keySpec:JKeySpec = KeySpecFactory.getInstance().getInstance2(this.algorithm, key);
             var keyFactory:SecretKeyFactory = SecretKeyFactory.getInstance1(this.algorithm);
             var secretKey:SecretKey = keyFactory.generateSecret(keySpec);
             var cipher:Cipher = Cipher.getInstance1(this.algorithm);

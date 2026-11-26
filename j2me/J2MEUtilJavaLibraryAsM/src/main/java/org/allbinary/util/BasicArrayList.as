@@ -42,7 +42,14 @@ package org.allbinary.util {
     }
     
 
-    public function add(anyType:Object):Boolean {
+    public function add(...args):* {
+        if (args.length == 1) {
+            return this.add_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "add");
+    }
+
+    private function add_jo1(anyType:Object):Boolean {
         this.ensureCapacity(int(this.currentIndex + 1));
         this.objectArray[this.currentIndex++] = anyType;
         return true;
@@ -190,7 +197,14 @@ package org.allbinary.util {
     }
     
 
-    public function get_(index:int):Object {
+    public function get_(...args):* {
+        if (args.length == 1) {
+            return this.get__jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "get");
+    }
+
+    private function get__jo1(index:int):Object {
         if (index >= this.currentIndex) {
             var stringBuffer:StringMaker = new StringMaker();
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
@@ -203,7 +217,14 @@ package org.allbinary.util {
     }
     
 
-    public function set_(index:int, element:Object):Object {
+    public function set_(...args):* {
+        if (args.length == 2) {
+            return this.set__jo2(args[0], args[1]);
+        }
+        throw new JException("IllegalArgumentException", "set");
+    }
+
+    private function set__jo2(index:int, element:Object):Object {
         if (index >= this.currentIndex) {
             var stringBuffer:StringMaker = new StringMaker();
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
@@ -218,7 +239,15 @@ package org.allbinary.util {
     }
     
 
-    public function clear():void {
+    public function clear(...args):void {
+        if (args.length == 0) {
+            this.clear_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "clear");
+    }
+
+    private function clear_jo0():void {
         for (var i:int = 0; i < this.currentIndex; i++) {
             this.objectArray[i] = null;
         }

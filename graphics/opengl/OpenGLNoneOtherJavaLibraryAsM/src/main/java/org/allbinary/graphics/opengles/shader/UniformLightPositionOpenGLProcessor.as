@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.opengles.shader {
+    import javax.microedition.khronos.opengles.GL10;
 
     public class UniformLightPositionOpenGLProcessor extends OpenGLObject3dProcessor {
     
@@ -23,7 +24,15 @@ package org.allbinary.graphics.opengles.shader {
     }
     
 
-    override public function process(gl:GL10, unused:Object):void {
+    override public function process(...args):void {
+        if (args.length == 2) {
+            this.process_jo2(args[0], args[1]);
+            return;
+        }
+        super.process.apply(this, args);
+    }
+
+    private function process_jo2(gl:GL10, unused:Object):void {
     }
     }
 }

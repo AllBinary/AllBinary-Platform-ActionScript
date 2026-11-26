@@ -24,23 +24,49 @@ package org.allbinary.business.installer {
     
 
     public function DynamicInitDb(...args) {
-        super();
+        if (args.length == 2 && args[0] === JSuperArgs.ARGS) {
+            args = args[1];
+        }
+        var jsuper:Array = DynamicInitDb.jsuperArgs(args);
+        super(JSuperArgs.ARGS, jsuper);
         this.jconstruct(args);
+    }
+
+    private static function jsuperArgs(args:Array):Array {
+        if (args.length == 1) {
+            return DynamicInitDb.jsuper_1(args[0]);
+        }
+        if (args.length == 2) {
+            return DynamicInitDb.jsuper_2(args[0], args[1]);
+        }
+        return [];
+    }
+
+    private static function jsuper_1(abeClientInformation:AbeClientInformationInterface):Array {
+        return [];
+    }
+
+    private static function jsuper_2(abeClientInformation:AbeClientInformationInterface, databaseConnectionInfoInterface:DatabaseConnectionInfoInterface):Array {
+        return [];
     }
 
     private function jconstruct(args:Array):void {
         if (args.length == 1) {
-            (function(abeClientInformation:AbeClientInformationInterface):void {
-        this.setHelper(InitDbHelperFactory.getInstance1(abeClientInformation));
-            }).apply(this, args);
+            this.jconstruct_1(args[0]);
             return;
         }
         if (args.length == 2) {
-            (function(abeClientInformation:AbeClientInformationInterface, databaseConnectionInfoInterface:DatabaseConnectionInfoInterface):void {
-        this.setHelper(InitDbHelperFactory.getInstance2(abeClientInformation, databaseConnectionInfoInterface));
-            }).apply(this, args);
+            this.jconstruct_2(args[0], args[1]);
             return;
         }
+    }
+
+    private function jconstruct_1(abeClientInformation:AbeClientInformationInterface):void {
+        this.setHelper(InitDbHelperFactory.getInstance1(abeClientInformation));
+    }
+
+    private function jconstruct_2(abeClientInformation:AbeClientInformationInterface, databaseConnectionInfoInterface:DatabaseConnectionInfoInterface):void {
+        this.setHelper(InitDbHelperFactory.getInstance2(abeClientInformation, databaseConnectionInfoInterface));
     }
     
     }

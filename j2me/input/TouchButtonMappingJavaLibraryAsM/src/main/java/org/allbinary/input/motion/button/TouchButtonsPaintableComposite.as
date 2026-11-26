@@ -103,7 +103,15 @@ package org.allbinary.input.motion.button {
     }
     
 
-    override public function process():void {
+    override public function process(...args):void {
+        if (args.length == 0) {
+            this.process_jo0();
+            return;
+        }
+        super.process.apply(this, args);
+    }
+
+    private function process_jo0():void {
         CompleteMotionGestureInputEventHandler.getInstance().removeListener(this);
     }
     }

@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.AndroidUtil;
     import org.allbinary.J2MEUtil;
     import org.allbinary.animation.Animation;
@@ -92,7 +94,7 @@ package org.allbinary.game.displayable.canvas {
             BORDER = int(MyFontProcessor.defaultCharWidth(font) * 2);
         }
         this.BORDER = BORDER;
-        this.heightOffset = int(this.rectangle.getHeight() - (int(font.getHeight() * BasicPopupMenuPaintable.NAME.length())));
+        this.heightOffset = int(this.rectangle.getHeight() - (int(font.getHeight() * BasicPopupMenuPaintable.NAME.length)));
         if (OpenGLFeatureUtil.getInstance().isAnyThreed()) {
             this.heightOffset -= int(font.getHeight() + 2);
             if (AndroidUtil.isAndroid()) {
@@ -106,7 +108,15 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    public function init(rectangle:Rectangle):void {
+    public function init(...args):void {
+        if (args.length == 1) {
+            this.init_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo1(rectangle:Rectangle):void {
         this.rectangle = rectangle;
         var width:int = this.rectangle.getWidth();
         var height:int = this.rectangle.getHeight();
@@ -119,7 +129,15 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
         var point:GPoint = this.rectangle.getPoint();
         var x:int = point.getX();

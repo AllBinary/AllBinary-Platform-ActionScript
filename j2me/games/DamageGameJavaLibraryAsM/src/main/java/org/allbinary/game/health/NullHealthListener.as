@@ -27,7 +27,15 @@ package org.allbinary.game.health {
     }
     
 
-    public function onHealthChange():void {
+    public function onHealthChange(...args):void {
+        if (args.length == 0) {
+            this.onHealthChange_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "onHealthChange");
+    }
+
+    private function onHealthChange_jo0():void {
     }
     }
 }

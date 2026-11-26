@@ -15,6 +15,8 @@
 // Generated Code Do Not Modify
 package org.allbinary.logic.system.security.crypt.jcehelper {
     import java.security.spec.JKeySpec;
+    import javax.crypto.spec.DESKeySpec;
+    import javax.crypto.spec.DESedeKeySpec;
     import org.allbinary.TsUtil;
     import org.allbinary.logic.communication.log.PreLogUtil;
     import org.allbinary.string.CommonStrings;
@@ -52,7 +54,7 @@ package org.allbinary.logic.system.security.crypt.jcehelper {
     }
     
 
-    public function getInstance2(algorithm:String, keyData:Vector.<int>):KeySpec {
+    public function getInstance2(algorithm:String, keyData:Vector.<int>):JKeySpec {
         try {
             var tsUtil:TsUtil = TsUtil.getInstance();
             if (tsUtil.compareTo(algorithm, this.DES) == 0) {

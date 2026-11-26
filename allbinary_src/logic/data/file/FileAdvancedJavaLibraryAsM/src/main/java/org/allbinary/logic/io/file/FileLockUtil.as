@@ -56,7 +56,7 @@ package org.allbinary.logic.io.file {
         var size:int = vector.size();
         for (var index:int = 0; index < size; index++) {
             var file:AbFile = (vector.get_(index) as AbFile);
-            var fileLock:FileLock = this.getLock(file);
+            var fileLock:JFileLock = this.getLock(file);
             if (fileLock != null) {
                 this.logUtil.putF("File Lock Obtained: " + file.getAbsolutePath(), this, "getAll");
                 fileLockVector.add(fileLock);
@@ -85,7 +85,20 @@ package org.allbinary.logic.io.file {
     }
     
 
-    public function getLock(file:AbFile):FileLock {
+    public function getLock(...args):JFileLock {
+        if (args.length == 1 && args[0] is AbFile) {
+            return this.getLock_jo1_1(args[0]);
+        }
+        if (args.length == 1 && args[0] is AbFileOutputStream) {
+            return this.getLock_jo1_2(args[0]);
+        }
+        if (args.length == 1) {
+            return this.getLock_jo1_3(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "getLock");
+    }
+
+    private function getLock_jo1_1(file:AbFile):JFileLock {
         try {
             return this.getLock(AbFileOutputStream.createFromAbFileAppend(file, true));
         } catch (e:*) {
@@ -93,12 +106,12 @@ package org.allbinary.logic.io.file {
             return null;
         } finally {
         }
+        throw new JException("IllegalStateException", "unreachable end of method");
     }
-    
 
-    public function getLock(fileOutputStream:AbFileOutputStream):FileLock {
+    private function getLock_jo1_2(fileOutputStream:AbFileOutputStream):JFileLock {
         try {
-            var fileLock:FileLock = this.getLock(fileOutputStream.getChannel());
+            var fileLock:JFileLock = this.getLock(fileOutputStream.getChannel());
             return fileLock;
         } catch (e:*) {
             this.logUtil.put("Exception returns null", this, "getLock", e);
@@ -107,12 +120,12 @@ package org.allbinary.logic.io.file {
             this.logUtil.putF("Finally - Closing FileOutputStream", this, "getLock");
             StreamUtil.getInstance().close(fileOutputStream);
         }
+        throw new JException("IllegalStateException", "unreachable end of method");
     }
-    
 
-    public function getLock(fileChannel:FileChannel):FileLock {
+    private function getLock_jo1_3(fileChannel:JFileChannel):JFileLock {
         try {
-            var fileLock:FileLock = fileChannel.tryLock();
+            var fileLock:JFileLock = fileChannel.tryLock();
             return fileLock;
         } catch (e:*) {
             this.logUtil.put("Exception returns null", this, "getLock", e);
@@ -121,7 +134,10 @@ package org.allbinary.logic.io.file {
             this.logUtil.putF("Finally - Closing FileChannel", this, "getLock");
             fileChannel.close();
         }
+        throw new JException("IllegalStateException", "unreachable end of method");
     }
+    
+    
     }
 }
 

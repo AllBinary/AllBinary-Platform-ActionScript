@@ -26,11 +26,11 @@ package org.allbinary.media.image {
         }
         return ImageJ2SEUtil.instance_value;
     }
-        public var TRANSPARENT_COLOR:Color = null;
+        public var TRANSPARENT_COLOR:JColor = null;
 
         // Java field initializers run after the base constructor
         private function initFieldsImageJ2SEUtil():void {
-    this.TRANSPARENT_COLOR = new Color(0, 0, 0, 0);
+    this.TRANSPARENT_COLOR = new JColor(0, 0, 0, 0);
         }
 
         public function ImageJ2SEUtil() {

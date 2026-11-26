@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.opengles.shader {
+    import javax.microedition.khronos.egl.EGLConfig;
+    import javax.microedition.khronos.opengles.GL10;
     import org.allbinary.graphics.opengles.renderer.RendererStrings;
     import org.allbinary.string.CommonStrings;
 
@@ -47,7 +49,15 @@ package org.allbinary.graphics.opengles.shader {
     }
     
 
-    public function onSurfaceCreated(gl:GL10, eglConfig:EGLConfig):void {
+    public function onSurfaceCreated(...args):void {
+        if (args.length == 2) {
+            this.onSurfaceCreated_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "onSurfaceCreated");
+    }
+
+    private function onSurfaceCreated_jo2(gl:GL10, eglConfig:EGLConfig):void {
     }
     }
 }

@@ -22,6 +22,7 @@ package org.allbinary.business.context.modules.storefronts {
     import org.allbinary.string.CommonSeps;
     import org.allbinary.util.BasicArrayList;
     import org.allbinary.util.BasicArrayListD;
+    import org.allbinary.globals.URLGLOBALS;
 
     public class BasicStoreFront implements BasicStoreFrontInterface {
         private var name:String = null;
@@ -87,19 +88,48 @@ package org.allbinary.business.context.modules.storefronts {
     
 
     public function BasicStoreFront(...args) {
+        if (args.length == 2 && args[0] === JSuperArgs.ARGS) {
+            args = args[1];
+        }
+        var jsuper:Array = BasicStoreFront.jsuperArgs(args);
         super();
         this.initFieldsBasicStoreFront();
         this.jconstruct(args);
     }
 
+    private static function jsuperArgs(args:Array):Array {
+        if (args.length == 0) {
+            return BasicStoreFront.jsuper_1();
+        }
+        if (args.length == 1) {
+            return BasicStoreFront.jsuper_2(args[0]);
+        }
+        return [];
+    }
+
+    private static function jsuper_1():Array {
+        return [];
+    }
+
+    private static function jsuper_2(storeHashMap:JHashMap):Array {
+        return [];
+    }
+
     private function jconstruct(args:Array):void {
         if (args.length == 0) {
-            (function():void {
-            }).apply(this, args);
+            this.jconstruct_1();
             return;
         }
         if (args.length == 1) {
-            (function(storeHashMap:JHashMap):void {
+            this.jconstruct_2(args[0]);
+            return;
+        }
+    }
+
+    private function jconstruct_1():void {
+    }
+
+    private function jconstruct_2(storeHashMap:JHashMap):void {
         var storeFrontData:StoreFrontData = StoreFrontData.getInstance();
         this.name = (storeHashMap.get_(storeFrontData.NAME) as String);
         this.userName = (storeHashMap.get_(UserData.USERNAME) as String);
@@ -129,21 +159,18 @@ package org.allbinary.business.context.modules.storefronts {
         this.testFtpPassword = (storeHashMap.get_(storeFrontData.TESTFTPPASSWORD) as String);
         this.timeCreated = (storeHashMap.get_(EntryData.getInstance().TIMECREATED) as String);
         this.lastModified = (storeHashMap.get_(EntryData.getInstance().LASTMODIFIED) as String);
-            }).apply(this, args);
-            return;
-        }
     }
     
     
 
     public function getTestHtmlPath():String {
-        return org.allbinary.globals.URLGLOBALS.getTestHtmlPath() + this.getCurrentHostNamePath();
+        return URLGLOBALS.getTestHtmlPath() + this.getCurrentHostNamePath();
     }
     
 
     public function getCurrentHostName():String {
         var location:String = null;
-        if (org.allbinary.globals.URLGLOBALS.isTestingMode()) {
+        if (URLGLOBALS.isTestingMode()) {
             location = this.getTestHostName();
         } else {
             location = this.getHostName();
@@ -154,7 +181,7 @@ package org.allbinary.business.context.modules.storefronts {
 
     public function getCurrentHostNamePath():String {
         var location:String = null;
-        if (org.allbinary.globals.URLGLOBALS.isTestingMode()) {
+        if (URLGLOBALS.isTestingMode()) {
             location = this.getTestHostNamePath();
         } else {
             location = this.getHostNamePath();
@@ -165,7 +192,7 @@ package org.allbinary.business.context.modules.storefronts {
 
     public function getCurrentHomeHostName():String {
         var location:String = null;
-        if (org.allbinary.globals.URLGLOBALS.isTestingMode()) {
+        if (URLGLOBALS.isTestingMode()) {
             location = this.getTestHomeHostName();
         } else {
             location = this.getHomeHostName();
@@ -176,7 +203,7 @@ package org.allbinary.business.context.modules.storefronts {
 
     public function getCurrentHomeHostNamePath():String {
         var location:String = null;
-        if (org.allbinary.globals.URLGLOBALS.isTestingMode()) {
+        if (URLGLOBALS.isTestingMode()) {
             location = this.getTestHomeHostNamePath();
         } else {
             location = this.getHomeHostNamePath();

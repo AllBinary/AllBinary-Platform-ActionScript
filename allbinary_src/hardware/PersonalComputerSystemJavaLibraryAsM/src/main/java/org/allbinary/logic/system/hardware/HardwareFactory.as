@@ -41,16 +41,16 @@ package org.allbinary.logic.system.hardware {
         throw new JException("IllegalArgumentException", "getInstance");
     }
 
-    protected static function getInstance_jo0():HardwareFactory {
+    private static function getInstance_jo0():HardwareFactory {
         return HardwareFactory.instance;
     }
 
-    protected static function getInstance_jo1(os:GenericOperatingSystem):HardwareInterface {
+    private static function getInstance_jo1(os:GenericOperatingSystem):HardwareInterface {
         try {
             var operatingSystems:OperatingSystems = OperatingSystems.getInstance();
             if (JSystem.compareToObject(os.getName(), operatingSystems.LINUX) == 0) {
                 return (new LinuxHardware() as HardwareInterface);
-            } else if (os.getName().indexOf(operatingSystems.WINDOWS) >= 0) {
+            } else if (JString.indexOf(os.getName(), operatingSystems.WINDOWS) >= 0) {
                 return (new WindowsHardware() as HardwareInterface);
             }
             throw new JException("Exception", "No Hardware Imp for: " + os.getName());
@@ -70,7 +70,7 @@ package org.allbinary.logic.system.hardware {
             var operatingSystems:OperatingSystems = OperatingSystems.getInstance();
             if (JSystem.compareToObject(os.getName(), operatingSystems.LINUX) == 0) {
                 return (new LinuxHardware() as HardwareInterface);
-            } else if (os.getName().indexOf(operatingSystems.WINDOWS) >= 0) {
+            } else if (JString.indexOf(os.getName(), operatingSystems.WINDOWS) >= 0) {
                 return (new WindowsHardware() as HardwareInterface);
             }
             throw new JException("Exception", "No Hardware Imp for: " + os.getName());

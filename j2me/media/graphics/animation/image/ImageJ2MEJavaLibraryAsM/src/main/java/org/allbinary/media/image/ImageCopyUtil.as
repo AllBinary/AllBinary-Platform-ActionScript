@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.media.image {
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Image;
     import org.allbinary.game.configuration.feature.Features;
     import org.allbinary.game.configuration.feature.GameFeatureFactory;
     import org.allbinary.graphics.Anchor;
@@ -86,8 +88,8 @@ package org.allbinary.media.image {
             this.logUtil.put(this.NO_COPY, this, this.commonStrings.CONSTRUCTOR, new JException("Exception", ""));
             return originalImage;
         }
-        var newWidth:int = (originalImage.getWidth() * canvasScale);
-        var newHeight:int = (originalImage.getHeight() * canvasScale);
+        var newWidth:int = JMath.toInt32((Number(originalImage.getWidth()) * canvasScale));
+        var newHeight:int = JMath.toInt32((Number(originalImage.getHeight()) * canvasScale));
         if (resize) {
             if (newWidth < newHeight) {
                 newWidth = newHeight;
@@ -98,8 +100,8 @@ package org.allbinary.media.image {
         }
         var image:Image = this.imageCreationUtil.createImageWH(newWidth, newHeight);
         if (image.isMutable()) {
-            var halfWidthDelta:int = (newWidth - originalImage.getWidth()) / 2;
-            var halfHeightDelta:int = (newHeight - originalImage.getHeight()) / 2;
+            var halfWidthDelta:int = int((int(newWidth - originalImage.getWidth())) / 2);
+            var halfHeightDelta:int = int((int(newHeight - originalImage.getHeight())) / 2);
             var graphics:Graphics = image.getGraphics();
             graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, this.anchor);
             return image;

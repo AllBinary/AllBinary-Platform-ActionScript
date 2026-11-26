@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.input {
+    import javax.microedition.lcdui.Canvas;
 
     public class GameKeyUtil {
     private static var instance_value:GameKeyUtil;

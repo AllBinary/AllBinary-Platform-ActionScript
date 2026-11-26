@@ -68,19 +68,19 @@ package org.allbinary.math {
 
     public function getClosestGeneralDirection(angle:int):int {
         var closestDirection:* = SmallIntegerSingletonFactory.getInstance().getAt(360);
-        if (this.UP_FRAME.intValue() - angle < closestDirection.intValue() - angle) {
+        if (int(this.UP_FRAME) - angle < int(closestDirection) - angle) {
             closestDirection = this.UP_FRAME;
         }
-        if (this.DOWN_FRAME.intValue() - angle < closestDirection.intValue() - angle) {
+        if (int(this.DOWN_FRAME) - angle < int(closestDirection) - angle) {
             closestDirection = this.DOWN_FRAME;
         }
-        if (this.LEFT_FRAME.intValue() - angle < closestDirection.intValue() - angle) {
+        if (int(this.LEFT_FRAME) - angle < int(closestDirection) - angle) {
             closestDirection = this.LEFT_FRAME;
         }
-        if (this.RIGHT_FRAME.intValue() - angle < closestDirection.intValue() - angle) {
+        if (int(this.RIGHT_FRAME) - angle < int(closestDirection) - angle) {
             closestDirection = this.RIGHT_FRAME;
         }
-        return closestDirection.intValue();
+        return int(closestDirection);
     }
     }
 }

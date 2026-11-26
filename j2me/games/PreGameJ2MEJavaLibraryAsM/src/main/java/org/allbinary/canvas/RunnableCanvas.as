@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.canvas {
+    import javax.microedition.lcdui.CommandListener;
     import org.allbinary.TsUtil;
     import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
     import org.allbinary.graphics.displayable.MyCanvas;
@@ -107,12 +108,12 @@ package org.allbinary.canvas {
     }
     
 
-    override public function setThread(thread:JThread):void {
+    public function setThread(thread:JThread):void {
         this.thread = thread;
     }
     
 
-    override public function setRunning(running:Boolean):void {
+    public function setRunning(running:Boolean):void {
         this.running = running;
         if (!this.running) {
             this.thread = NullThread.NULL_THREAD;
@@ -124,7 +125,7 @@ package org.allbinary.canvas {
     }
     
 
-    override public function isRunning():Boolean {
+    public function isRunning():Boolean {
         if (this.thread === this.currentThread) {
             return this.running;
         } else {
@@ -247,7 +248,7 @@ package org.allbinary.canvas {
     }
     
 
-    override public function run():void {
+    public function run():void {
         this.setCurrentThread();
     }
     

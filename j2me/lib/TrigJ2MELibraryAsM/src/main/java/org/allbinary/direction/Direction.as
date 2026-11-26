@@ -26,6 +26,10 @@ package org.allbinary.direction {
         }
         return Direction.directionArray_value;
     }
+    private static function set directionArray(value:Vector.<Direction>):void {
+        Direction.directionArray_set = true;
+        Direction.directionArray_value = value;
+    }
         private var name:String = null;
         private var otherName:String = null;
         private var value:int = 0;

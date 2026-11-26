@@ -45,17 +45,21 @@ package org.allbinary.logic.io.file.directory {
     }
     
 
-    public function create(directoryAbPath:AbPath):Boolean {
+    public function create(...args):Boolean {
+        if (args.length == 1 && args[0] is AbPath) {
+            return this.create_jo1_1(args[0]);
+        }
+        if (args.length == 1) {
+            return this.create_jo1_2(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "create");
+    }
+
+    private function create_jo1_1(directoryAbPath:AbPath):Boolean {
         return this.create(directoryAbPath.toFileSystemString());
     }
-    
 
-    public function remove(existingDirectoryAbPath:AbPath):void {
-        this.remove(existingDirectoryAbPath.toFileSystemString());
-    }
-    
-
-    private function create(directory:String):Boolean {
+    private function create_jo1_2(directory:String):Boolean {
         try {
             var directoryFile:AbFile = FileFactory.getInstance().getInstance1(directory);
             if (!directoryFile.isDirectory()) {
@@ -72,7 +76,23 @@ package org.allbinary.logic.io.file.directory {
     }
     
 
-    private function remove(existingDirectory:String):void {
+    public function remove(...args):void {
+        if (args.length == 1 && args[0] is AbPath) {
+            this.remove_jo1_1(args[0]);
+            return;
+        }
+        if (args.length == 1) {
+            this.remove_jo1_2(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "remove");
+    }
+
+    private function remove_jo1_1(existingDirectoryAbPath:AbPath):void {
+        this.remove(existingDirectoryAbPath.toFileSystemString());
+    }
+
+    private function remove_jo1_2(existingDirectory:String):void {
         var existingDirectoryFile:AbFile = FileFactory.getInstance().getInstance1(existingDirectory);
         if (existingDirectoryFile.isDirectory()) {
             if (existingDirectoryFile.list().length > 0) {
@@ -85,13 +105,42 @@ package org.allbinary.logic.io.file.directory {
         }
     }
     
-
-    public function search(fileFilter:FileFilter, file:AbFile):BasicArrayList {
-        return this.search(fileFilter, file, false);
-    }
+    
     
 
-    public function search(fileFilter:FileFilter, file:AbFile, isRecursiveSearch:Boolean):BasicArrayList {
+    public function search(...args):BasicArrayList {
+        if (args.length == 2 && args[0] is JFileFilter && args[1] is AbFile) {
+            return this.search_jo2_1(args[0], args[1]);
+        }
+        if (args.length == 3 && args[0] is JFileFilter && args[1] is AbFile && args[2] is Boolean) {
+            return this.search_jo3_1(args[0], args[1], args[2]);
+        }
+        if (args.length == 1) {
+            return this.search_jo1(args[0]);
+        }
+        if (args.length == 2 && args[0] is AbFile && args[1] is Boolean) {
+            return this.search_jo2_2(args[0], args[1]);
+        }
+        if (args.length == 2 && args[0] is String && args[1] is AbFile) {
+            return this.search_jo2_3(args[0], args[1]);
+        }
+        if (args.length == 3 && args[0] is String && args[1] is AbFile && args[2] is Boolean) {
+            return this.search_jo3_2(args[0], args[1], args[2]);
+        }
+        if (args.length == 2) {
+            return this.search_jo2_4(args[0], args[1]);
+        }
+        if (args.length == 3) {
+            return this.search_jo3_3(args[0], args[1], args[2]);
+        }
+        throw new JException("IllegalArgumentException", "search");
+    }
+
+    private function search_jo2_1(fileFilter:JFileFilter, file:AbFile):BasicArrayList {
+        return this.search(fileFilter, file, false);
+    }
+
+    private function search_jo3_1(fileFilter:JFileFilter, file:AbFile, isRecursiveSearch:Boolean):BasicArrayList {
         var fileList:BasicArrayList = new BasicArrayListD();
         var recursiveFileList:BasicArrayList = null;
         if (file.isDirectory()) {
@@ -114,14 +163,12 @@ package org.allbinary.logic.io.file.directory {
         }
         return fileList;
     }
-    
 
-    public function search(file:AbFile):BasicArrayList {
+    private function search_jo1(file:AbFile):BasicArrayList {
         return this.search(file, false);
     }
-    
 
-    public function search(file:AbFile, isRecursiveSearch:Boolean):BasicArrayList {
+    private function search_jo2_2(file:AbFile, isRecursiveSearch:Boolean):BasicArrayList {
         var fileList:BasicArrayList = new BasicArrayListD();
         var recursiveFileList:BasicArrayList = null;
         if (file.isDirectory()) {
@@ -143,14 +190,12 @@ package org.allbinary.logic.io.file.directory {
         }
         return fileList;
     }
-    
 
-    public function search(searchValue:String, file:AbFile):BasicArrayList {
+    private function search_jo2_3(searchValue:String, file:AbFile):BasicArrayList {
         return this.search(searchValue, file, false);
     }
-    
 
-    public function search(searchValue:String, file:AbFile, isRecursiveSearch:Boolean):BasicArrayList {
+    private function search_jo3_2(searchValue:String, file:AbFile, isRecursiveSearch:Boolean):BasicArrayList {
         var fileList:BasicArrayList = new BasicArrayListD();
         var recursiveFileList:BasicArrayList = null;
         if (file.isDirectory()) {
@@ -163,7 +208,7 @@ package org.allbinary.logic.io.file.directory {
                 return fileList;
             }
             for (var index:int = 0; index < files.length; index++) {
-                if (files[index].getPath().indexOf(searchValue) >= 0) {
+                if (JString.indexOf(files[index].getPath(), searchValue) >= 0) {
                     fileList.add(files[index]);
                 }
                 if (isRecursiveSearch) {
@@ -174,14 +219,12 @@ package org.allbinary.logic.io.file.directory {
         }
         return fileList;
     }
-    
 
-    public function search(level:int, file:AbFile):BasicArrayList {
+    private function search_jo2_4(level:int, file:AbFile):BasicArrayList {
         return this.search(level, file, false);
     }
-    
 
-    public function search(level:int, file:AbFile, isRecursiveSearch:Boolean):BasicArrayList {
+    private function search_jo3_3(level:int, file:AbFile, isRecursiveSearch:Boolean):BasicArrayList {
         var fileList:BasicArrayList = new BasicArrayListD();
         var recursiveFileList:BasicArrayList = null;
         if (file.isDirectory()) {
@@ -204,6 +247,13 @@ package org.allbinary.logic.io.file.directory {
         }
         return fileList;
     }
+    
+    
+    
+    
+    
+    
+    
     }
 }
 

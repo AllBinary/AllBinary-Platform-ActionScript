@@ -30,7 +30,15 @@ package org.allbinary.init {
         }
     
 
-    public function init():void {
+    public function init(...args):void {
+        if (args.length == 0) {
+            this.init_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo0():void {
     }
     }
 }

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.NullCanvas;
     import org.allbinary.canvas.RunnableCanvas;
     import org.allbinary.game.commands.GameCommandsFactory;
     import org.allbinary.game.input.GameInputStrings;
@@ -30,7 +31,14 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function processInputList():int {
+    override public function processInputList(...args):* {
+        if (args.length == 0) {
+            return this.processInputList_jo0();
+        }
+        return super.processInputList.apply(this, args);
+    }
+
+    private function processInputList_jo0():int {
         var list:BasicArrayList = this.getGameKeyEventList();
         var size:int = list.size();
         var gameKeyEvent:GameKeyEvent = null;

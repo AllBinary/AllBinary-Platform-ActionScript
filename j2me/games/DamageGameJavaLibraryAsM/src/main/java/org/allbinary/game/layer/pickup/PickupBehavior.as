@@ -34,6 +34,10 @@ package org.allbinary.game.layer.pickup {
         }
         return PickupBehavior.NULL_PICKUP_BEHAVIOR_value;
     }
+    public static function set NULL_PICKUP_BEHAVIOR(value:Object):void {
+        PickupBehavior.NULL_PICKUP_BEHAVIOR_set = true;
+        PickupBehavior.NULL_PICKUP_BEHAVIOR_value = value;
+    }
         public var logUtil:LogUtil = null;
         private var countedIndex:int = 0;
         private var ownerLayerInterface:CollidableCompositeLayer = null;

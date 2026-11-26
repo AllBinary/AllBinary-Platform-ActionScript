@@ -33,6 +33,10 @@ package org.allbinary.logic.communication.log.config.type {
         }
         return LogConfigTypes.LOGGING_value;
     }
+    public static function set LOGGING(value:BasicArrayList):void {
+        LogConfigTypes.LOGGING_set = true;
+        LogConfigTypes.LOGGING_value = value;
+    }
     
 
     // Java static initializer: runs when the class is loaded
@@ -51,7 +55,7 @@ package org.allbinary.logic.communication.log.config.type {
             PreLogUtil.put("Initialize LogconfigTypes", "LogConfigTypes", "init()");
             LogConfigTypeFactory.getInstance();
             var loggingInitInfo:LoggingInitInfo = new LoggingInitInfo();
-            var logConfigTypeVector:BasicArrayList = loggingInitInfo.getTypeList();
+            var logConfigTypeVector:BasicArrayList = LoggingInitInfo.getTypeList();
             PreLogUtil.put("Number Of Log Configs: " + String(loggingInitInfo.getNumberOfLogConfigs()), "LogConfigTypes", "init()");
             PreLogUtil.put("Number Of Log Config Type Names: " + String(logConfigTypeVector.size()), "LogConfigTypes", "init()");
             LogConfigTypes.LOGGING.addAllList(logConfigTypeVector);

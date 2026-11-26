@@ -123,7 +123,7 @@ package org.allbinary.logic.io.file {
     }
     
 
-    public function toURI():URI {
+    public function toURI():JURI {
         return this.file.toURI();
     }
     
@@ -188,23 +188,23 @@ package org.allbinary.logic.io.file {
     }
     
 
-    public function listWithFilter(filter:FilenameFilter):Vector.<String> {
+    public function listWithFilter(filter:JFilenameFilter):Vector.<String> {
         return this.file.list(filter);
     }
     
 
     public function listFiles():Vector.<Object> {
-        return (this.file.listFiles() as Vector.<Object>);
+        return (JVectors.castVector(this.file.listFiles(), Vector.<Object>) as Vector.<Object>);
     }
     
 
-    public function listFilesFileNameFilter(filter:FilenameFilter):Vector.<Object> {
-        return (this.file.listFiles(filter) as Vector.<Object>);
+    public function listFilesFileNameFilter(filter:JFilenameFilter):Vector.<Object> {
+        return (JVectors.castVector(this.file.listFiles(filter), Vector.<Object>) as Vector.<Object>);
     }
     
 
-    public function listFilesFileFilter(filter:FileFilter):Vector.<Object> {
-        return (this.file.listFiles(filter) as Vector.<Object>);
+    public function listFilesFileFilter(filter:JFileFilter):Vector.<Object> {
+        return (JVectors.castVector(this.file.listFiles(filter), Vector.<Object>) as Vector.<Object>);
     }
     
 
@@ -233,34 +233,64 @@ package org.allbinary.logic.io.file {
     }
     
 
-    public function setWritable(writable:Boolean, ownerOnly:Boolean):Boolean {
+    public function setWritable(...args):Boolean {
+        if (args.length == 2) {
+            return this.setWritable_jo2(args[0], args[1]);
+        }
+        if (args.length == 1) {
+            return this.setWritable_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "setWritable");
+    }
+
+    private function setWritable_jo2(writable:Boolean, ownerOnly:Boolean):Boolean {
         return this.file.setExecutable(writable, ownerOnly);
     }
-    
 
-    public function setWritable(writable:Boolean):Boolean {
+    private function setWritable_jo1(writable:Boolean):Boolean {
         return this.file.setWritable(writable);
     }
     
-
-    public function setReadable(readable:Boolean, ownerOnly:Boolean):Boolean {
-        return this.file.setReadable(readable, ownerOnly);
-    }
     
 
-    public function setReadable(readable:Boolean):Boolean {
+    public function setReadable(...args):Boolean {
+        if (args.length == 2) {
+            return this.setReadable_jo2(args[0], args[1]);
+        }
+        if (args.length == 1) {
+            return this.setReadable_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "setReadable");
+    }
+
+    private function setReadable_jo2(readable:Boolean, ownerOnly:Boolean):Boolean {
+        return this.file.setReadable(readable, ownerOnly);
+    }
+
+    private function setReadable_jo1(readable:Boolean):Boolean {
         return this.file.setReadable(readable);
     }
     
-
-    public function setExecutable(executable:Boolean, ownerOnly:Boolean):Boolean {
-        return this.file.setExecutable(executable, ownerOnly);
-    }
     
 
-    public function setExecutable(executable:Boolean):Boolean {
+    public function setExecutable(...args):Boolean {
+        if (args.length == 2) {
+            return this.setExecutable_jo2(args[0], args[1]);
+        }
+        if (args.length == 1) {
+            return this.setExecutable_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "setExecutable");
+    }
+
+    private function setExecutable_jo2(executable:Boolean, ownerOnly:Boolean):Boolean {
+        return this.file.setExecutable(executable, ownerOnly);
+    }
+
+    private function setExecutable_jo1(executable:Boolean):Boolean {
         return this.file.setExecutable(executable);
     }
+    
     
 
     public function canExecute():Boolean {

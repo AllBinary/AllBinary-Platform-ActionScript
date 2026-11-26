@@ -26,6 +26,10 @@ package org.allbinary.game {
         }
         return GameMode.NONE_value;
     }
+    public static function set NONE(value:GameMode):void {
+        GameMode.NONE_set = true;
+        GameMode.NONE_value = value;
+    }
     private static var SERVER_value:GameMode;
     private static var SERVER_set:Boolean = false;
     public static function get SERVER():GameMode {
@@ -35,6 +39,10 @@ package org.allbinary.game {
         }
         return GameMode.SERVER_value;
     }
+    public static function set SERVER(value:GameMode):void {
+        GameMode.SERVER_set = true;
+        GameMode.SERVER_value = value;
+    }
     private static var CLIENT_value:GameMode;
     private static var CLIENT_set:Boolean = false;
     public static function get CLIENT():GameMode {
@@ -43,6 +51,10 @@ package org.allbinary.game {
             GameMode.CLIENT_value = new GameMode("Client");
         }
         return GameMode.CLIENT_value;
+    }
+    public static function set CLIENT(value:GameMode):void {
+        GameMode.CLIENT_set = true;
+        GameMode.CLIENT_value = value;
     }
         private var name:String = null;
 

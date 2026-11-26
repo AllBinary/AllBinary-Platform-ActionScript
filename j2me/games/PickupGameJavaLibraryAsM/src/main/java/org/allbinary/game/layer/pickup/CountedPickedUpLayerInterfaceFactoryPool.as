@@ -27,6 +27,10 @@ package org.allbinary.game.layer.pickup {
         }
         return CountedPickedUpLayerInterfaceFactoryPool.SINGLETON_value;
     }
+    private static function set SINGLETON(value:CountedPickedUpLayerInterfaceFactoryPool):void {
+        CountedPickedUpLayerInterfaceFactoryPool.SINGLETON_set = true;
+        CountedPickedUpLayerInterfaceFactoryPool.SINGLETON_value = value;
+    }
         private var list:BasicArrayList = null;
 
         // Java field initializers run after the base constructor

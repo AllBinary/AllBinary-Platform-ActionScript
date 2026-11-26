@@ -35,6 +35,10 @@ package org.allbinary.animation {
         }
         return NullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_FACTORY_value;
     }
+    private static function set NULL_INDEXED_ANIMATION_FACTORY(value:NullIndexedAnimationFactory):void {
+        NullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_FACTORY_set = true;
+        NullIndexedAnimationFactory.NULL_INDEXED_ANIMATION_FACTORY_value = value;
+    }
         private var NULL_ANIMATION:Animation = null;
 
         // Java field initializers run after the base constructor

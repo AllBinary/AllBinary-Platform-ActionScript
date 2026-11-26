@@ -18,7 +18,7 @@ package org.allbinary.logic.util.visitor {
     public interface VisitorInterface {
     
 
-    function visit(anyType:Object):Object;
+    function visit(...args):*;
     }
 }
 

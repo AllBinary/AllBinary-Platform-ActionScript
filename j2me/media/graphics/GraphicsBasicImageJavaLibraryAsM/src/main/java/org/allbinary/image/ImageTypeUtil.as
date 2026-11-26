@@ -27,6 +27,10 @@ package org.allbinary.image {
         }
         return ImageTypeUtil.SINGLETON_value;
     }
+    private static function set SINGLETON(value:ImageTypeUtil):void {
+        ImageTypeUtil.SINGLETON_set = true;
+        ImageTypeUtil.SINGLETON_value = value;
+    }
         public var PNG:String = null;
         public var JPG:String = null;
         public var GIF:String = null;

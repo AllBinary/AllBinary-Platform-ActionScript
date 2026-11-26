@@ -18,7 +18,7 @@ package org.allbinary.init {
     public interface InitInterface {
     
 
-    function init():void;
+    function init(...args):void;
     }
 }
 

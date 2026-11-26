@@ -27,8 +27,8 @@ package org.allbinary.logic.io {
 
     public static function copy(backupFile:AbFile, backupFileBak:AbFile):void {
         var line:String = StringUtil.getInstance().EMPTY_STRING;
-        var tmpOut:BufferedWriter = new BufferedWriter(new FileWriter(AbFileNativeUtil.get_(backupFileBak)));
-        var tmpIn:BufferedReader = new BufferedReader(new FileReader(AbFileNativeUtil.get_(backupFile)));
+        var tmpOut:JBufferedWriter = new JBufferedWriter(new JFileWriter(AbFileNativeUtil.get_(backupFileBak)));
+        var tmpIn:JBufferedReader = new JBufferedReader(new JFileReader(AbFileNativeUtil.get_(backupFile)));
         while (tmpIn.ready()) {
             line = tmpIn.readLine();
             tmpOut.write(line, 0, line.length);

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.displayable.screen {
+    import javax.microedition.lcdui.Displayable;
 
     public class ScreenRepaintUtil {
     

@@ -39,7 +39,15 @@ package org.allbinary.game.input {
     }
     
 
-    override public function update():void {
+    override public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        super.update.apply(this, args);
+    }
+
+    private function update_jo0():void {
         try {
             var list:BasicArrayList = this.getGameKeyEventList();
             this.gameInputProcessorInterface.onInput(list);
@@ -50,7 +58,7 @@ package org.allbinary.game.input {
     
 
     public function toString():String {
-        return new StringMaker().append(super.toString()).append(this.NAME_LABEL).append(this.name).toString();
+        return new StringMaker().append(JSystem.objectToString(this)).append(this.NAME_LABEL).append(this.name).toString();
     }
     }
 }

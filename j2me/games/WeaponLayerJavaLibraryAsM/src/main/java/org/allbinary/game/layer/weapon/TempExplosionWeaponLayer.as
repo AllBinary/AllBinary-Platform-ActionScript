@@ -28,10 +28,18 @@ package org.allbinary.game.layer.weapon {
     }
     
 
-    override public function processTick(allBinaryLayerManager:AllBinaryLayerManager):void {
+    override public function processTick(...args):void {
+        if (args.length == 1) {
+            this.processTick_jo1(args[0]);
+            return;
+        }
+        super.processTick.apply(this, args);
+    }
+
+    private function processTick_jo1(allBinaryLayerManager:AllBinaryLayerManager):void {
         if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime)) {
             this.getCollidableInferface().collide(this, this);
-            this.totalDamage = this.getInitDamage() + 1;
+            this.totalDamage = int(this.getInitDamage() + 1);
         }
         super.processTick(allBinaryLayerManager);
     }

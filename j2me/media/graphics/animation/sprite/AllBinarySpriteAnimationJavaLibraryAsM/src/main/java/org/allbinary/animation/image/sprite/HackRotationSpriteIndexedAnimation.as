@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image.sprite {
+    import javax.microedition.lcdui.Graphics;
+    import javax.microedition.lcdui.Image;
+    import javax.microedition.lcdui.game.Sprite;
     import org.allbinary.animation.AnimationBehavior;
     import org.allbinary.animation.RotationAnimation;
     import org.allbinary.logic.math.PrimitiveIntUtil;
@@ -56,7 +59,15 @@ package org.allbinary.animation.image.sprite {
     }
     
 
-    public function paint(g:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(g:Graphics):void {
         this.sprite.paint(g);
     }
     

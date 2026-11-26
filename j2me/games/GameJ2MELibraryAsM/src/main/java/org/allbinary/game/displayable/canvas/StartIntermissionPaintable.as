@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.Anchor;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.color.BasicColorFactory;
@@ -89,7 +91,15 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         this.myFontProcessor.process(graphics);
         var existingFont:Font = graphics.getFont();
         this.fontDebugFactory.setFont(this.font, graphics);
@@ -108,7 +118,15 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function update():void {
+    override public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        super.update.apply(this, args);
+    }
+
+    private function update_jo0():void {
         var level:int = this.gameCanvas.getLayerManager().getGameInfo().getCurrentLevel();
         this.stringArray[0] = new StringMaker().append(this.BEGIN_LEVEL).appendint(level).toString();
         for (var index:int = int(this.stringArray.length - 1); index >= 1; index--) {

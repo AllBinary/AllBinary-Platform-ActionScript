@@ -29,7 +29,7 @@ package org.allbinary.logic.system.security.licensing {
     public class LicenseServerInitFileUtil {
         public var logUtil:LogUtil = null;
         private var commonStrings:CommonStrings = null;
-        private var NULL_OUTPUT_STREAM:OutputStream = null;
+        private var NULL_OUTPUT_STREAM:JOutputStream = null;
 
         // Java field initializers run after the base constructor
         private function initFieldsLicenseServerInitFileUtil():void {
@@ -60,11 +60,11 @@ package org.allbinary.logic.system.security.licensing {
     
 
     private function write():void {
-        var fileOutputStream:OutputStream = this.NULL_OUTPUT_STREAM;
+        var fileOutputStream:JOutputStream = this.NULL_OUTPUT_STREAM;
         try {
             var resourceUtil:ResourceUtil = ResourceUtil.getInstance();
             var filePath:String = LicenseInitInfoUtil.getInstance().INITFILENAME;
-            var inputStream:InputStream = resourceUtil.getResourceAsStream(filePath);
+            var inputStream:JInputStream = resourceUtil.getResourceAsStream(filePath);
             this.logUtil.putF("Writing Default License File", this, this.commonStrings.INIT);
             var fileStreamFactory:FileStreamFactory = FileStreamFactory.getInstance();
             fileOutputStream = fileStreamFactory.getFileOutputStreamInstance(StringUtil.getInstance().EMPTY_STRING, filePath);

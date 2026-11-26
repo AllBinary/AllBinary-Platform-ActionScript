@@ -1,5 +1,9 @@
 // Generated Code Do Not Modify
 package org.allbinary.device {
+    import javax.microedition.khronos.opengles.GL;
+    import javax.microedition.khronos.opengles.GL10;
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.font.FontDebugBase;
     import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
     import org.allbinary.string.CommonStrings;
@@ -25,15 +29,38 @@ package org.allbinary.device {
     }
     
 
-    override public function set_(gl:GL):void {
+    public function set_(...args):* {
+        if (args.length == 1) {
+            return this.set__jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "set");
+    }
+
+    private function set__jo1(gl:GL):void {
     }
     
 
-    public function init():void {
+    public function init(...args):void {
+        if (args.length == 0) {
+            this.init_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo0():void {
     }
     
 
-    public function update():void {
+    public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo0():void {
     }
     
 
@@ -50,7 +77,7 @@ package org.allbinary.device {
     }
     
 
-    override public function setFontDebug(font:Font, fontDebug:FontDebugBase):void {
+    public function setFontDebug(font:Font, fontDebug:FontDebugBase):void {
         throw new JException("RuntimeException", "");
     }
     }

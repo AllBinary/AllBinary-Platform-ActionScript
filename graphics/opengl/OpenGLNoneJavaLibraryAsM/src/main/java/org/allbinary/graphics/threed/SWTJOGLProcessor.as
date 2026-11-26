@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.threed {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.midlet.MIDlet;
     import java.lang.JRunnable;
 
     //OpenGLNone
@@ -34,7 +36,15 @@ package org.allbinary.graphics.threed {
     }
     
 
-    public function init(display:Object, comp:Object):void {
+    public function init(...args):void {
+        if (args.length == 2) {
+            this.init_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo2(display:Object, comp:Object):void {
     }
     
 
@@ -84,7 +94,15 @@ package org.allbinary.graphics.threed {
     }
     
 
-    public function clear():void {
+    public function clear(...args):void {
+        if (args.length == 0) {
+            this.clear_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "clear");
+    }
+
+    private function clear_jo0():void {
     }
     
 

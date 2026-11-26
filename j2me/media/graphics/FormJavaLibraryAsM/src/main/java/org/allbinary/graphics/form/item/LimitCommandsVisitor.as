@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form.item {
+    import javax.microedition.lcdui.Command;
     import org.allbinary.game.commands.GameCommandsFactory;
     import org.allbinary.graphics.displayable.DisplayInfoSingleton;
     import org.allbinary.graphics.form.ScreenInfo;
@@ -37,7 +38,14 @@ package org.allbinary.graphics.form.item {
     }
     
 
-    override public function visit(anyType:Object):Object {
+    override public function visit(...args):* {
+        if (args.length == 1) {
+            return this.visit_jo1(args[0]);
+        }
+        return super.visit.apply(this, args);
+    }
+
+    private function visit_jo1(anyType:Object):Object {
         var command:Command = (anyType as Command);
         var booleanFactory:BooleanFactory = BooleanFactory.getInstance();
         if (this.isNotSmallDisplay || command.getPriority() == 1 || command == GameCommandsFactory.getInstance().EXIT_COMMAND || command == GameCommandsFactory.getInstance().EXIT_WITHOUT_PROGRESS_COMMAND) {

@@ -17,7 +17,7 @@ package org.allbinary.logic.io {
     import java.io.JCloseable;
     import java.io.JIOException;
 
-    public class NullCloseable implements Closeable {
+    public class NullCloseable implements JCloseable {
     private static var NULL_CLOSEABLE_value:NullCloseable;
     private static var NULL_CLOSEABLE_set:Boolean = false;
     public static function get NULL_CLOSEABLE():NullCloseable {

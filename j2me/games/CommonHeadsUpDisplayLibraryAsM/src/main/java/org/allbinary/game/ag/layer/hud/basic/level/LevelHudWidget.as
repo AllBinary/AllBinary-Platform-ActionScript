@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.hud.basic.level {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.graphics.hud.BasicHud;
     import org.allbinary.graphics.color.BasicColorFactory;
     import org.allbinary.graphics.paint.PaintableInterface;
@@ -61,8 +63,8 @@ package org.allbinary.game.ag.layer.hud.basic.level {
 
     override public function updateMeasurement(graphics:Graphics):void {
         var font:Font = graphics.getFont();
-        this.updateMaxWidth = font.getSize() * 4;
-        this.offset = font.charsWidth(this.levelString, 0, this.levelString.length) + font.getSize();
+        this.updateMaxWidth = int(font.getSize() * 4);
+        this.offset = int(font.charsWidth(this.levelString, 0, this.levelString.length) + font.getSize());
         super.updateMeasurement(graphics);
     }
     
@@ -103,7 +105,15 @@ package org.allbinary.game.ag.layer.hud.basic.level {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         super.paintDX(graphics, this.levelString, 0, this.levelString.length, this.levelNumberCharArray, 0, this.levelNumberTotalDigits, this.offset);
     }
     

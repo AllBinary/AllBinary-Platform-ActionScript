@@ -1,5 +1,6 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.opengles.shader {
+    import javax.microedition.khronos.opengles.GL10;
     import org.allbinary.graphics.opengles.OpenGLProcessor;
 
     public class ShaderOpenGLProcessor extends OpenGLProcessor {

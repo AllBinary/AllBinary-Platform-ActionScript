@@ -13,7 +13,8 @@
  *  
  */
 // Generated Code Do Not Modify
-package org.allbinary.logic.java.anyType {
+package org.allbinary.logic.java.object {
+    import java.lang.reflect.JConstructor;
     import org.allbinary.logic.string.StringMaker;
     import org.allbinary.string.CommonSeps;
 
@@ -27,7 +28,7 @@ package org.allbinary.logic.java.anyType {
 
     public static function viewAll(myClass:String, lineBreak:String):String {
         var stringBuffer:StringMaker = new StringMaker();
-        var constructor:Vector.<Constructor> = myClass.getConstructors();
+        var constructor:Vector.<JConstructor> = JClass.getConstructors(myClass);
         stringBuffer.append("Constructors: ");
         stringBuffer.append(lineBreak);
         for (var index:int = 0; index < constructor.length; index++) {
@@ -37,7 +38,7 @@ package org.allbinary.logic.java.anyType {
     }
     
 
-    public static function view(constructor:Constructor, lineBreak:String):String {
+    public static function view(constructor:JConstructor, lineBreak:String):String {
         if (constructor != null) {
             var commonSeps:CommonSeps = CommonSeps.getInstance();
             var stringBuffer:StringMaker = new StringMaker();
@@ -45,7 +46,7 @@ package org.allbinary.logic.java.anyType {
             var classes:Vector.<String> = constructor.getParameterTypes();
             for (var index:int = 0; index < classes.length; index++) {
                 stringBuffer.append(commonSeps.SPACE);
-                stringBuffer.append(classes[index].getName());
+                stringBuffer.append(classes[index]);
                 stringBuffer.append(commonSeps.COLON);
                 stringBuffer.appendint(index);
             }

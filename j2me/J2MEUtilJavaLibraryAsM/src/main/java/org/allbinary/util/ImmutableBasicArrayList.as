@@ -32,7 +32,14 @@ package org.allbinary.util {
     }
     
 
-    override public function add(e:Object):Boolean {
+    override public function add(...args):* {
+        if (args.length == 1) {
+            return this.add_jo1(args[0]);
+        }
+        return super.add.apply(this, args);
+    }
+
+    private function add_jo1(e:Object):Boolean {
         ForcedLogUtil.log(this.name, this);
         return true;
     }

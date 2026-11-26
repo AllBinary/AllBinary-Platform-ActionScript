@@ -28,6 +28,10 @@ package org.allbinary.game.configuration.feature {
         }
         return InGameFeatureChoiceGroups.gameFeatureChoiceGroupsExclusive_value;
     }
+    private static function set gameFeatureChoiceGroupsExclusive(value:InGameFeatureChoiceGroups):void {
+        InGameFeatureChoiceGroups.gameFeatureChoiceGroupsExclusive_set = true;
+        InGameFeatureChoiceGroups.gameFeatureChoiceGroupsExclusive_value = value;
+    }
     private static var gameFeatureChoiceGroupsMultiple_value:InGameFeatureChoiceGroups;
     private static var gameFeatureChoiceGroupsMultiple_set:Boolean = false;
     private static function get gameFeatureChoiceGroupsMultiple():InGameFeatureChoiceGroups {
@@ -36,6 +40,10 @@ package org.allbinary.game.configuration.feature {
             InGameFeatureChoiceGroups.gameFeatureChoiceGroupsMultiple_value = new InGameFeatureChoiceGroups();
         }
         return InGameFeatureChoiceGroups.gameFeatureChoiceGroupsMultiple_value;
+    }
+    private static function set gameFeatureChoiceGroupsMultiple(value:InGameFeatureChoiceGroups):void {
+        InGameFeatureChoiceGroups.gameFeatureChoiceGroupsMultiple_set = true;
+        InGameFeatureChoiceGroups.gameFeatureChoiceGroupsMultiple_value = value;
     }
         private var hashtable:ABHashtable = null;
 

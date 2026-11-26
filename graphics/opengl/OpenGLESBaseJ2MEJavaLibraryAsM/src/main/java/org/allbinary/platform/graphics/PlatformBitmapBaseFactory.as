@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.platform.graphics {
+    import javax.microedition.lcdui.Image;
 
     public class PlatformBitmapBaseFactory {
     private static var NULL_PLATFORM_BITMAP_BASE_FACTORY_value:PlatformBitmapBaseFactory;
@@ -27,7 +28,14 @@ package org.allbinary.platform.graphics {
     }
     
 
-    public function createBitmap(image:Image):PlatformBitmapBase {
+    public function createBitmap(...args):* {
+        if (args.length == 1) {
+            return this.createBitmap_jo1(args[0]);
+        }
+        throw new JException("IllegalArgumentException", "createBitmap");
+    }
+
+    private function createBitmap_jo1(image:Image):PlatformBitmapBase {
         throw new JException("RuntimeException", "");
     }
     }

@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.displayable.canvas {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.graphics.paint.InitUpdatePaintable;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.string.CommonStrings;
@@ -33,7 +34,15 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function update():void {
+    override public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        super.update.apply(this, args);
+    }
+
+    private function update_jo0():void {
         try {
         } catch (e:*) {
             var commonStrings:CommonStrings = CommonStrings.getInstance();
@@ -42,7 +51,15 @@ package org.allbinary.game.displayable.canvas {
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
     }
     }
 }

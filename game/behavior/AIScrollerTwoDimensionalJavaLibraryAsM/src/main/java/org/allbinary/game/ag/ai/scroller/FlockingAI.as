@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.ai.scroller {
+    import javax.microedition.lcdui.Canvas;
     import org.allbinary.game.ai.BasicAI;
     import org.allbinary.game.identification.BasicGroupFactory;
     import org.allbinary.game.input.GameInput;
@@ -39,7 +40,7 @@ package org.allbinary.game.ag.ai.scroller {
         super(ownerLayerInterface, gameInput);
         this.initFieldsFlockingAI();
         var allowedDistance:* = (hashtable.get_(BasePatrolAI.MAX_DISTANCE) as *);
-        this.allowedDistance = allowedDistance.intValue();
+        this.allowedDistance = int(allowedDistance);
     }
     
 

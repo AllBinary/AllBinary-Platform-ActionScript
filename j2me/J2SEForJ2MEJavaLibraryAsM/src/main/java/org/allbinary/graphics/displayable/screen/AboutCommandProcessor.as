@@ -14,6 +14,9 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.displayable.screen {
+    import javax.microedition.lcdui.Canvas;
+    import javax.microedition.lcdui.Command;
+    import javax.microedition.lcdui.CommandListener;
 
     public class AboutCommandProcessor {
     private static var instance_value:AboutCommandProcessor;

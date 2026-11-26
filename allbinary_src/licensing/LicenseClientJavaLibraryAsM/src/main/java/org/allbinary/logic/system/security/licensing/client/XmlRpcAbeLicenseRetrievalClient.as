@@ -32,7 +32,6 @@ package org.allbinary.logic.system.security.licensing.client {
     import org.apache.xmlrpc.XmlRpcException;
 
     public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient {
-        public var logUtil:LogUtil = null;
 
         // Java field initializers run after the base constructor
         private function initFieldsXmlRpcAbeLicenseRetrievalClient():void {
@@ -46,13 +45,20 @@ package org.allbinary.logic.system.security.licensing.client {
     }
     
 
-    public function get_(anyType:Object, cryptInterface:CryptInterface):Object {
+    override public function get_(...args):Object {
+        if (args.length == 2) {
+            return this.get__jo2(args[0], args[1]);
+        }
+        return super.get_.apply(this, args);
+    }
+
+    private function get__jo2(anyType:Object, cryptInterface:CryptInterface):Object {
         try {
             var server:String = this.getClientInfo().getLicenseServer(this.getServer());
             var stringBuffer:StringMaker = new StringMaker();
-            stringBuffer.append(XmlRpcAbeClient.TRYING);
+            stringBuffer.append(this.TRYING);
             stringBuffer.appendint(this.getServer());
-            stringBuffer.append(SEP);
+            stringBuffer.append(this.SEP);
             stringBuffer.append(server);
             this.logUtil.putF(CommonLabels.getInstance().START_LABEL + stringBuffer.toString(), this, this.commonStrings.GET);
             var param:BasicArrayList = new BasicArrayListD();
@@ -60,33 +66,33 @@ package org.allbinary.logic.system.security.licensing.client {
             this.setClient(xmlRpcClient);
             xmlRpcClient.setBasicAuthentication(StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING);
             var hashtable:ABHashtable = this.getClientInfo().toHashtable();
-            this.logUtil.putF(String(XmlRpcAbeClient.CLIENT_INFO) + hashtable.toString(), this, this.commonStrings.GET);
+            this.logUtil.putF(String(this.CLIENT_INFO) + hashtable.toString(), this, this.commonStrings.GET);
             param.add(hashtable);
             var result:Object = xmlRpcClient.executeWithCrypt(this.getRemoteMethod(), param, cryptInterface);
-            this.logUtil.putF(String(XmlRpcAbeClient.RESULT) + result.toString(), this, this.commonStrings.GET);
+            this.logUtil.putF(String(this.RESULT) + result.toString(), this, this.commonStrings.GET);
             var resultHashtable:ABHashtable = (result as ABHashtable);
             if (!AbeClientLicense.hasRequiredKeys(resultHashtable)) {
-                this.logUtil.putF(XmlRpcAbeClient.INVALID, this, this.commonStrings.GET);
+                this.logUtil.putF(this.INVALID, this, this.commonStrings.GET);
                 return this.tryAnother(anyType);
             }
             var abeLicenseInterface:AbeLicenseInterface = new AbeClientLicense(resultHashtable);
             this.logUtil.putF(this.commonStrings.END + stringBuffer.toString(), this, this.commonStrings.GET);
-            this.isOnline = true;
+            XmlRpcAbeClient.isOnline = true;
             return abeLicenseInterface;
         } catch (e:*) {
-            this.logUtil.put(XmlRpcAbeClient.EXCEPTION_IN_CLIENT, this, this.commonStrings.GET, e);
-            this.logUtil.putF(String(XmlRpcAbeClient.TRYING_OTHER_SERVERS) + ExceptionUtil.getInstance().getStackTrace(e), this, this.commonStrings.GET);
-            if (!e.getMessage().startsWith(XmlRpcAbeClient.HOST_NOT_RESOLVED)) {
+            this.logUtil.put(this.EXCEPTION_IN_CLIENT, this, this.commonStrings.GET, e);
+            this.logUtil.putF(String(this.TRYING_OTHER_SERVERS) + ExceptionUtil.getInstance().getStackTrace(e), this, this.commonStrings.GET);
+            if (!JString.startsWith(e.getMessage(), this.HOST_NOT_RESOLVED)) {
                 return this.tryAnother(anyType);
             } else {
-                this.isOnline = false;
-                throw new JException("Exception", XmlRpcAbeClient.HOST_NOT_RESOLVED_MSG);
+                XmlRpcAbeClient.isOnline = false;
+                throw new JException("Exception", this.HOST_NOT_RESOLVED_MSG);
             }
         } catch (e:*) {
-            this.logUtil.put(XmlRpcAbeClient.SERVER_REPORTED_ERROR, this, this.commonStrings.GET, e);
+            this.logUtil.put(this.SERVER_REPORTED_ERROR, this, this.commonStrings.GET, e);
             return this.tryAnother(anyType);
         } catch (e:*) {
-            this.logUtil.put(XmlRpcAbeClient.UNKNOWN_ERROR, this, this.commonStrings.GET, e);
+            this.logUtil.put(this.UNKNOWN_ERROR, this, this.commonStrings.GET, e);
             return this.tryAnother(anyType);
         }
     }

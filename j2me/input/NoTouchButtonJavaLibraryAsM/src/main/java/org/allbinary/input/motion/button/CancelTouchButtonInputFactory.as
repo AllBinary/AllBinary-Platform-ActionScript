@@ -27,6 +27,10 @@ package org.allbinary.input.motion.button {
         }
         return CancelTouchButtonInputFactory.instance_value;
     }
+    private static function set instance(value:Object):void {
+        CancelTouchButtonInputFactory.instance_set = true;
+        CancelTouchButtonInputFactory.instance_value = value;
+    }
         private var cancelInputArray:Vector.<TouchButtonInput> = null;
 
         // Java field initializers run after the base constructor

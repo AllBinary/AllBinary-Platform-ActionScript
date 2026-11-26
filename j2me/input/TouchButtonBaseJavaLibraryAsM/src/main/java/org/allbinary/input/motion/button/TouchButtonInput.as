@@ -47,7 +47,15 @@ package org.allbinary.input.motion.button {
     }
     
 
-    public function update(inputToGameKeyMapping:InputToGameKeyMapping):void {
+    public function update(...args):void {
+        if (args.length == 1) {
+            this.update_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo1(inputToGameKeyMapping:InputToGameKeyMapping):void {
         try {
             var gameKey:GameKey = inputToGameKeyMapping.getInstance1(this.getId());
             this.gameKeyEvent = this.gameKeyEventFactory.getInstanceForInput(this, gameKey);

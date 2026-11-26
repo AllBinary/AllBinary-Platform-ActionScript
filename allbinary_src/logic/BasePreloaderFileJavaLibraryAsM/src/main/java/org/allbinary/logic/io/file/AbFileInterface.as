@@ -72,7 +72,7 @@ package org.allbinary.logic.io.file {
     function list():Vector.<String>;
     
 
-    function listWithFilter(filter:FilenameFilter):Vector.<String>;
+    function listWithFilter(filter:JFilenameFilter):Vector.<String>;
     
 
     function mkdir():Boolean;
@@ -86,11 +86,9 @@ package org.allbinary.logic.io.file {
 
     function setReadOnly():Boolean;
     
-
-    function toString():String;
     
 
-    function toURI():URI;
+    function toURI():JURI;
     }
 }
 

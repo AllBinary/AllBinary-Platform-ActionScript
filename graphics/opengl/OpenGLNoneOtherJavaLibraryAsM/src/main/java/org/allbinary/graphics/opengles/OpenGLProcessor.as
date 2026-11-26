@@ -1,5 +1,6 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.opengles {
+    import javax.microedition.khronos.opengles.GL10;
     import org.allbinary.logic.communication.log.LogUtil;
     import org.allbinary.string.CommonStrings;
 

@@ -45,7 +45,15 @@ package org.allbinary.game.paint.help {
     }
     
 
-    public function update(selectedGameKey:GameKey, selectedInput:Input):void {
+    public function update(...args):void {
+        if (args.length == 2) {
+            this.update_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo2(selectedGameKey:GameKey, selectedInput:Input):void {
         var gameKeyMapping:PersistentInputMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
         var EQUAL:String = " = ";
         var stringMaker:StringMaker = new StringMaker();

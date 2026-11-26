@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.ag.layer.hud.basic.time {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.game.graphics.hud.BasicHud;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.font.MyFontProcessor;
@@ -54,13 +56,21 @@ package org.allbinary.game.ag.layer.hud.basic.time {
 
     override public function updateMeasurement(graphics:Graphics):void {
         var font:Font = graphics.getFont();
-        this.updateMaxWidth = font.getSize() * 5;
-        this.offset = font.stringWidth(this.TIME_STRING) + MyFontProcessor.defaultStringWidth(font, 3);
+        this.updateMaxWidth = int(font.getSize() * 5);
+        this.offset = int(font.stringWidth(this.TIME_STRING) + MyFontProcessor.defaultStringWidth(font, 3));
         super.updateMeasurement(graphics);
     }
     
 
-    public function update():void {
+    public function update(...args):void {
+        if (args.length == 0) {
+            this.update_jo0();
+            return;
+        }
+        throw new JException("IllegalArgumentException", "update");
+    }
+
+    private function update_jo0():void {
         this.timer.update();
         this.set_();
     }
@@ -77,7 +87,15 @@ package org.allbinary.game.ag.layer.hud.basic.time {
     }
     
 
-    public function paint(graphics:Graphics):void {
+    public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "paint");
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         super.paintDX(graphics, this.TIME_CHAR_ARRAY, 0, this.TIME_CHAR_ARRAY.length, this.string, 0, this.totalDigits, this.offset);
     }
     }

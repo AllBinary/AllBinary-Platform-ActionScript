@@ -80,7 +80,7 @@ package org.allbinary.business.init {
             }
             return filePath.substring(0, end);
         } catch (e:*) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR)) {
                 this.logUtil.put(this.commonStrings.EXCEPTION, this, "getInstallationPath", e);
             }
             return null;

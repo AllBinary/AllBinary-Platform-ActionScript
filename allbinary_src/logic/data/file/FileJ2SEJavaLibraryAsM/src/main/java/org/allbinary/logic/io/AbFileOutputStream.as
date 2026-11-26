@@ -18,7 +18,7 @@ package org.allbinary.logic.io {
     import java.io.JFileOutputStream;
     import org.allbinary.logic.io.file.AbFile;
 
-    public class AbFileOutputStream extends FileOutputStream {
+    public class AbFileOutputStream extends JFileOutputStream {
     
 
     public static function createFromAbFile(file:AbFile):AbFileOutputStream {

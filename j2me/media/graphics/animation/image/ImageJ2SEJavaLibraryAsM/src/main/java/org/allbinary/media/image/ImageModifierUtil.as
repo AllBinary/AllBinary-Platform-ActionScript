@@ -17,6 +17,7 @@ package org.allbinary.media.image {
     import java.awt.image.JBufferedImage;
     import java.awt.image.JColorModel;
     import java.awt.image.JWritableRaster;
+    import javax.microedition.lcdui.Image;
     import org.allbinary.graphics.Anchor;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.logic.communication.log.PreLogUtil;
@@ -57,13 +58,13 @@ package org.allbinary.media.image {
     
 
     public function setColor(unusedOriginalImage:Image, image:Image, imageIndex:int, basicColor:BasicColor):void {
-        var newBufferedImage:BufferedImage = this.imageUtil.getBufferedImage(image);
+        var newBufferedImage:JBufferedImage = this.imageUtil.getBufferedImage(image);
         var r:int = basicColor.red;
         var g:int = basicColor.green;
         var b:int = basicColor.blue;
         var width:int = image.getWidth();
         var height:int = image.getHeight();
-        var colorModel:ColorModel = null;
+        var colorModel:JColorModel = null;
         var dataElements:Object = null;
         var ax:int = 0;
         var rx:int = 0;
@@ -86,14 +87,14 @@ package org.allbinary.media.image {
     
 
     public function changeColor(unusedOriginalImage:Image, image:Image, imageIndex:int, basicColor:BasicColor):void {
-        var newBufferedImage:BufferedImage = this.imageUtil.getBufferedImage(image);
+        var newBufferedImage:JBufferedImage = this.imageUtil.getBufferedImage(image);
         var MAX:Number = 255.0;
         var r:Number = (Number(basicColor.red)) / MAX;
         var g:Number = (Number(basicColor.green)) / MAX;
         var b:Number = (Number(basicColor.blue)) / MAX;
         var width:int = image.getWidth();
         var height:int = image.getHeight();
-        var colorModel:ColorModel = null;
+        var colorModel:JColorModel = null;
         var dataElements:Object = null;
         var ax:int = 0;
         var rx:int = 0;
@@ -118,10 +119,10 @@ package org.allbinary.media.image {
 
     public function setAlpha(unusedOriginalImage:Image, image:Image, imageIndex:int, alphaInt:int):void {
         var alpha:int = ((int(alphaInt) << 24) >> 24);
-        var newBufferedImage:BufferedImage = this.imageUtil.getBufferedImage(image);
+        var newBufferedImage:JBufferedImage = this.imageUtil.getBufferedImage(image);
         var width:int = image.getWidth();
         var height:int = image.getHeight();
-        var raster:WritableRaster = newBufferedImage.getAlphaRaster();
+        var raster:JWritableRaster = newBufferedImage.getAlphaRaster();
         for (var index:int = 0; index < width; index++) {
             for (var index2:int = 0; index2 < height; index2++) {
                 raster.getPixel(index, index2, this.colorArray);

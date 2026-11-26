@@ -33,6 +33,10 @@ package org.allbinary.game.combat.destroy {
         }
         return DestroyedLayerProcessor.DESTROYED_LAYER_PROCESSOR_value;
     }
+    private static function set DESTROYED_LAYER_PROCESSOR(value:BasicLayerProcessor):void {
+        DestroyedLayerProcessor.DESTROYED_LAYER_PROCESSOR_set = true;
+        DestroyedLayerProcessor.DESTROYED_LAYER_PROCESSOR_value = value;
+    }
     
 
     public function DestroyedLayerProcessor() {

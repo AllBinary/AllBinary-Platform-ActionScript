@@ -18,7 +18,7 @@ package org.allbinary.init {
     public interface UpdateInterface {
     
 
-    function update():void;
+    function update(...args):void;
     }
 }
 

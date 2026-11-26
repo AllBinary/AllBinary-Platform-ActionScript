@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.graphics.font {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
 
     public class MyFontProcessor {
     private static var instance_value:MyFontProcessor;

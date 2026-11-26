@@ -1,5 +1,7 @@
 // Generated Code Do Not Modify
 package org.allbinary.graphics.form.item {
+    import javax.microedition.lcdui.Canvas;
+    import javax.microedition.lcdui.Font;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.logic.string.StringUtil;
     import org.allbinary.logic.util.visitor.Visitor;
@@ -29,7 +31,14 @@ package org.allbinary.graphics.form.item {
     }
     
 
-    public function getString():String {
+    public function getString(...args):String {
+        if (args.length == 0) {
+            return this.getString_jo0();
+        }
+        throw new JException("IllegalArgumentException", "getString");
+    }
+
+    private function getString_jo0():String {
         return StringUtil.getInstance().EMPTY_STRING;
     }
     

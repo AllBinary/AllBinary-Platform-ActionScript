@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.game.paint {
+    import javax.microedition.lcdui.Font;
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.AppletUtil;
     import org.allbinary.graphics.Anchor;
     import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -70,12 +72,20 @@ package org.allbinary.game.paint {
     public function updateMeasurement(graphics:Graphics):void {
         var font:Font = graphics.getFont();
         this.beginWidth = (graphics.getFont().stringWidth(this.startString) >> 1);
-        this.line = (int(4 * MyFontProcessor.defaultCharWidth(font))) + (font.getHeight() >> 1);
+        this.line = int((int(4 * MyFontProcessor.defaultCharWidth(font))) + (font.getHeight() >> 1));
         this.myFontProcessor = MyFontProcessor.getInstance();
     }
     
 
-    override public function paint(graphics:Graphics):void {
+    override public function paint(...args):void {
+        if (args.length == 1) {
+            this.paint_jo1(args[0]);
+            return;
+        }
+        super.paint.apply(this, args);
+    }
+
+    private function paint_jo1(graphics:Graphics):void {
         if (this.timeDelayHelper.isTimeTNT()) {
             if (this.isFlash()) {
                 this.setFlash(false);

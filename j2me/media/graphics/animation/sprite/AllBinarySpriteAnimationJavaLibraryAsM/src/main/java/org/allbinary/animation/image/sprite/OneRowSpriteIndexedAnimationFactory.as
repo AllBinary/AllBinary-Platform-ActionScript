@@ -14,6 +14,8 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.image.sprite {
+    import javax.microedition.lcdui.Image;
+    import javax.microedition.lcdui.game.Sprite;
     import org.allbinary.animation.Animation;
     import org.allbinary.animation.AnimationBehaviorFactory;
     import org.allbinary.animation.image.BaseImageAnimationFactory;
@@ -60,7 +62,15 @@ package org.allbinary.animation.image.sprite {
     }
     
 
-    public function init(dx:int, dy:int):void {
+    public function init(...args):void {
+        if (args.length == 2) {
+            this.init_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo2(dx:int, dy:int):void {
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
     }

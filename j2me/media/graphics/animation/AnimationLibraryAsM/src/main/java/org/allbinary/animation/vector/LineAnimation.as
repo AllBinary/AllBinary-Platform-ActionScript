@@ -14,6 +14,7 @@
  */
 // Generated Code Do Not Modify
 package org.allbinary.animation.vector {
+    import javax.microedition.lcdui.Graphics;
     import org.allbinary.animation.Animation;
     import org.allbinary.graphics.color.BasicColor;
     import org.allbinary.graphics.color.ColorCompositeInterface;
@@ -40,7 +41,15 @@ package org.allbinary.animation.vector {
     }
     
 
-    public function init(x:int, y:int):void {
+    public function init(...args):void {
+        if (args.length == 2) {
+            this.init_jo2(args[0], args[1]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "init");
+    }
+
+    private function init_jo2(x:int, y:int):void {
         this.newLine[0][0] = x;
         this.newLine[0][1] = y;
         this.newLine[1][0] = x;
@@ -51,7 +60,15 @@ package org.allbinary.animation.vector {
     }
     
 
-    public function setPosition(x:int, y:int, z:int):void {
+    public function setPosition(...args):void {
+        if (args.length == 3) {
+            this.setPosition_jo3(args[0], args[1], args[2]);
+            return;
+        }
+        throw new JException("IllegalArgumentException", "setPosition");
+    }
+
+    private function setPosition_jo3(x:int, y:int, z:int):void {
         this.newLine[0][0] = this.line[1][0];
         this.newLine[0][1] = this.line[1][1];
         this.newLine[1][0] = x;

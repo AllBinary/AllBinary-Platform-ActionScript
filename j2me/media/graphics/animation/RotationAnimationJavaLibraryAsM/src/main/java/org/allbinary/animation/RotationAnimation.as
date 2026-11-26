@@ -115,7 +115,7 @@ package org.allbinary.animation {
     
 
     public function toString():String {
-        return new StringMaker().append(super.toString()).append("circularIndexUtil: ").append(this.circularIndexUtil.toString()).append("angleInfo: ").append(this.angleInfo.toString()).toString();
+        return new StringMaker().append(JSystem.objectToString(this)).append("circularIndexUtil: ").append(this.circularIndexUtil.toString()).append("angleInfo: ").append(this.angleInfo.toString()).toString();
     }
     }
 }
